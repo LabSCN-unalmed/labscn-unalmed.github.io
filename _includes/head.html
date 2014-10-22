@@ -1,11 +1,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.title != 'Bienvenido' %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 <link rel="icon" href="{{ site.baseurl }}/favicon.png">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.min.css">
-<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Lato|Coda' type='text/css'>
+<link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono|Lato|Coda">
+<link rel="stylesheet" href="{{ site.baseurl }}/css/custom.css">
 <!-- <link rel="stylesheet" type='text/css' href="{{ "/css/main.css" | prepend: site.baseurl }}"> -->
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
