@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    {% include head.html %}
+  </head>
+  <body style="padding-top:50px;">
+    {% include navigation.html %}
+    <div class="container">
+      <header>
+        <h1>{{ page.title }}</h1>
+      </header>
+      {{ content }}
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    {% if page.custom_js %}
+      {% for js in page.custom_js %}
+        {% include {{ js }}.html %}
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>

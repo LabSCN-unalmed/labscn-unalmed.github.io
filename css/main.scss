@@ -1,0 +1,296 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Fonts
+$heading-font-family:			"Coda", sans-serif;
+$base-font-family:				"Lato", sans-serif;
+$mono:							"Ubuntu Mono", monospace;
+
+// Colors
+$base-color:			hsla(100, 50%, 25%, 1);
+$base-color-dark:		darken(desaturate($base-color, 40%), 15%);
+$base-color-light:		lighten(desaturate($base-color, 25%), 50%);
+$text-color-dark:		#111;
+$text-color-light:		#eee;
+$background-color:		#f8f8f8;
+$base03:				#002b36;
+$base02:				#073642;
+$base01:				#586e75;
+$base00:				#657b83;
+$base0:					#839496;
+$base1:					#93a1a1;
+$base2:					#eee8d5;
+$base3:					#fdf6e3;
+$solar-yellow:			#b58900;
+$solar-orange:			#cb4b16;
+$solar-red:				#dc322f;
+$solar-magenta:			#d33682;
+$solar-violet:			#6c71c4;
+$solar-blue:			#268bd2;
+$solar-cyan:			#2aa198;
+$solar-green:			#859900;
+
+// Layout
+$heading-font-size:		18px;
+$base-font-size:		14px;
+$small-font-size:		12px;
+$base-line-height:		1.5;
+$spacing-unit:			30px;
+$mobile:				480px;
+
+// Using media queries with like this:
+// @include media-query($palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($screen) {
+	@media screen and (max-width: $screen) {
+		@content;
+	}
+}
+
+// Reset some basic elements
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
+	margin: 0;
+	padding: 0;
+}
+
+// Basic styling
+body {
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	font-weight: 300;
+	color: $text-color-dark;
+	background-color: $background-color;
+	-webkit-text-size-adjust: 100%;
+}
+
+// Navbar styling
+// nav {
+// 	position: fixed;
+// 	top: 0;
+// 	width: 100%;
+// 	height: 50px;
+// 	background: $base-color-dark;
+// 	font-family: $heading-font-family;
+// 	font-size: $heading-font-size;
+// 	form {
+// 		float: right;
+// 		padding: 5px;
+// 		height: 40px;
+// 		fieldset {
+// 			border: 0;
+// 			margin: 0;
+// 			padding: 5px;
+// 			height: 30px;
+// 			input {
+// 				text-align: right;
+// 				height: 20px;
+// 			}
+// 		}
+// 	}
+// }
+
+
+// Content styling
+div.content {
+	margin-top: 50px;
+}
+
+// Set `margin-bottom` to maintain vertical rhythm
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, section, %vertical-rhythm {
+	margin-bottom: $spacing-unit / 2;
+}
+
+// Images
+img {
+	display: block;
+	margin: 15px auto;
+	max-width: 75%;
+	border: 10px solid white;
+	border-radius: 5px;
+}
+
+// Figures
+figure > img {
+	display: block;
+}
+
+figcaption {
+	font-size: $small-font-size;
+}
+
+// Lists
+ul, ol {
+	margin-left: $spacing-unit;
+}
+
+li {
+	> ul,
+	> ol {
+		margin-bottom: 0;
+	}
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+	font-family: $heading-font-family
+}
+
+// Links
+a {
+	color: $base-color;
+	text-decoration: none;
+	&:visited {
+		color: $base-color;
+	}
+	&:hover {
+		color: lighten($base-color, 15%);
+		text-decoration: underline;
+	}
+}
+
+// Blockquotes
+blockquote {
+	color: $base-color;
+	border-left: 4px solid $base-color-light;
+	padding-left: $spacing-unit / 2;
+	font-size: 18px;
+	letter-spacing: -1px;
+	font-style: italic;
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+// Code formatting
+pre, code {
+	font-size: 12px;
+	font-family: $mono;
+	border: 0;
+	margin: 0;
+}
+
+pre {
+	padding: 5px 10px;
+	> code {
+		padding: 0;
+	}
+}
+
+// Clearfix
+%clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+div {
+	padding: 15px;
+	.linenodiv, .highlight {
+		padding: 0;
+	}
+}
+
+// Table styling
+table {
+	@extend %vertical-rhythm;
+	border: 1px solid $base-color-dark;
+	border-spacing: 0;
+	border-collapse: collapse;
+	margin: 15px auto;
+	th {
+		font-weight: bold;
+		background: $base-color-light;
+		color: $base-color-dark;
+	}
+	th, td {
+		padding: 1px 5px;
+		text-align: center;
+		border: 1px dashed $base-color;
+	}
+	td[align="left"] {
+		text-align: left;
+	}
+	td[align="right"] {
+		text-align: right;
+	}
+}
+
+// Syntax highlighting styles
+table.highlighttable {
+	td {
+		padding: 0;
+		text-align: left;
+		border: 1px solid $base03;
+	}
+	td.linenos {
+		text-align: right;
+		width: 30px;
+		color: $base0;
+	}
+	background: $base03;
+	color: $base1;
+	width: 100%;
+	border: 1px solid $base03;
+}
+
+.highlight {
+	background: $base02;
+	.c		{ color: $base01; font-style: italic; }
+	.cm		{ color: $base01; font-style: italic; }
+	.cp		{ color: $base01; font-style: italic;  }
+	.c1		{ color: $base01; font-style: italic; }
+	.cs		{ color: $base01; font-weight: bold; font-style: italic; }
+	.err	{ color: $solar-red; background: none; }
+	.k 		{ color: $solar-orange; }
+	.o 		{ color: $base1; font-weight: bold; }
+	.p 		{ color: $base1; }
+	.ow		{ color: $solar-cyan; font-weight: bold; }
+	.gd		{ color: $base1; background-color: mix($solar-red, $base03, 25%); display: inline-block; }
+	.gd .x	{ color: $base1; background-color: mix($solar-red, $base03, 35%); display: inline-block; }
+	.ge		{ color: $base1; font-style: italic; }
+	.gh		{ color: $base01; }
+	.gi		{ color: $base1; background-color: mix($solar-green, $base03, 20%); display: inline-block; }
+	.gi .x	{ color: $base1; background-color: mix($solar-green, $base03, 40%); display: inline-block; }
+	.gs		{ color: $base1; font-weight: bold; }
+	.gu		{ color: $solar-violet; }
+	.kc		{ color: $solar-green; font-weight: bold; }
+	.kd		{ color: $solar-blue; }
+	.kp		{ color: $solar-orange; font-weight: bold; }
+	.kr		{ color: $solar-magenta; font-weight: bold; }
+	.kt		{ color: $solar-cyan; }
+	.n		{ color: $solar-blue; }
+	.na		{ color: $solar-blue; }
+	.nb		{ color: $solar-green; }
+	.nc		{ color: $solar-magenta;}
+	.no		{ color: $solar-yellow; }
+	.nl		{ color: $solar-green; }
+	.ne		{ color: $solar-blue; font-weight: bold; }
+	.nf		{ color: $solar-blue; font-weight: bold; }
+	.nn		{ color: $solar-yellow; }
+	.nt		{ color: $solar-blue; font-weight: bold; }
+	.nx		{ color: $solar-yellow; }
+	.vg		{ color: $solar-blue; }
+	.vi		{ color: $solar-blue; }
+	.nv		{ color: $solar-blue; }
+	.mf		{ color: $solar-cyan; }
+	.m		{ color: $solar-cyan; }
+	.mh		{ color: $solar-cyan; }
+	.mi		{ color: $solar-cyan; }
+	.s		{ color: $solar-cyan; }
+	.sd		{ color: $solar-cyan; }
+	.s2		{ color: $solar-cyan; }
+	.se		{ color: $solar-red; }
+	.si		{ color: $solar-blue; }
+	.sr		{ color: $solar-cyan; }
+	.s1		{ color: $solar-cyan; }
+}
