@@ -14,9 +14,3 @@ Guía de Clases
 [{{ clase.title }}]({{ site.baseurl }}{{ clase.url }})
 {% endif %}
 {% endfor %}
-
-
-Swath Profiles
---------------
-
-[Elaboración de conjunto de perfiles topográficos](./swath-profiles.html)
