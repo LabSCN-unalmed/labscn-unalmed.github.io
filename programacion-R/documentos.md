@@ -17,3 +17,6 @@ title: 'Documentos'
 
 ## Clase 5
 <a href="./slides/05-Estructuras-de-control.html" target="_blank">Estructuras de Control</a>
+
+## Clase 6
+<a href="./slides/06-Funciones.html" target="_blank">Funciones</a>
