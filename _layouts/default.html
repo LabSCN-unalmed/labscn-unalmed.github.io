@@ -6,19 +6,9 @@
   <body role="document">
     {% include navigation.html %}
     <div class="container">
-      {% if page.title == 'Bienvenido' %}
-        <div class="jumbotron">
-          <h1>{{ page.title }}</h1>
-          {{ content }}
-        </div>
-      {% else %}
-        <div class="page-header">
-          <h1>{{ page.title }}</h1>
-        </div>
-        {{ content }}
-      {% endif %}
+      {{ content }}
       <hr>
-      <footer>
+      <footer class="footer">
         <p>{{ site.subtitle }} &middot; {{ site.description }}</p>
       </footer>
     </div>
