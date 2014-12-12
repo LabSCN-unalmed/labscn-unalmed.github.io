@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 'Elaboración de grupos de perfiles topográficos, paralelos y de igual longitud'
 clase: 'Complementaria'
 custom_js: 'mathjax'

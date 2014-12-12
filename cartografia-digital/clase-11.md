@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 'Modelo vectorial'
 course: 'Cartografía Digital'
 comments: true
@@ -124,7 +124,7 @@ Dado que los mapas vectoriales, al contrario de los mapas raster, pueden ser des
 d.vect zvidantioq
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/zvidantioq.png)
+![]({{ site.baseurl }}/images/zvidantioq.png){: .img-responsive}
 
 - Desplegar sólo los bordes.
 
@@ -132,7 +132,7 @@ d.vect zvidantioq
 d.vect zvidantioq type=boundary
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/zvidantioq_boundary.png)
+![]({{ site.baseurl }}/images/zvidantioq_boundary.png){: .img-responsive}
 
 - Desplegar los límites sobre el mapa ráster.
 
@@ -141,7 +141,7 @@ d.rast ituango
 d.vect zvidantioq type=boundary
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/zvidantioq_boundary_ituan.png)
+![]({{ site.baseurl }}/images/zvidantioq_boundary_ituan.png){: .img-responsive}
 
 - Desplegar los centroides de las áreas sobre el mapa ráster.
 
@@ -150,7 +150,7 @@ d.rast ituango
 d.vect zvidantioq type=centroid
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/zvidantioq_centroid_ituan.png)
+![]({{ site.baseurl }}/images/zvidantioq_centroid_ituan.png){: .img-responsive}
 
 - Despliegue de las identificaciones de las zonas.
 
@@ -159,7 +159,7 @@ d.vect zvidantioq type=boundary
 d.vect zvidantioq display=attr type=centroid attrcol=COZO lcolor=blue
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/zvidantioq_boundary_COZO.png)
+![]({{ site.baseurl }}/images/zvidantioq_boundary_COZO.png){: .img-responsive}
 
 - Colorear las zonas de manera aleatoria utilizando la opción `-c`.
 
@@ -167,7 +167,7 @@ d.vect zvidantioq display=attr type=centroid attrcol=COZO lcolor=blue
 d.vect -c zvidantioq display=shape,attr attrcol=COZO
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/zvidantioq_boundary_COZO_color.png)
+![]({{ site.baseurl }}/images/zvidantioq_boundary_COZO_color.png){: .img-responsive}
 
 Utilizando el parámetro `where` se puede seleccionar el despliegue de un sólo polígono identificándolo con la columna COZO. Este parámetro es muy importante para desplegar unos polígonos seleccionados por el usuario.
 
@@ -179,7 +179,7 @@ Con `where` podemos hacer preguntas como desplegar los polígonos con un valor m
 d.vect -c zvidantioq where="COZO='bh-T'" display=shape,attr attrcol=COZO lcolor=black
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/zvidantioq_boundary_COZO_bhT.png)
+![]({{ site.baseurl }}/images/zvidantioq_boundary_COZO_bhT.png){: .img-responsive}
 
 - Modificar la región para ajustarla al mapa vectorial de las zonas de vida de Antioquia.
 
@@ -188,7 +188,7 @@ g.region vect=zvidantioq
 d.vect zvidantioq
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/zvidantioq_full.png)
+![]({{ site.baseurl }}/images/zvidantioq_full.png){: .img-responsive}
 
 - Desplegar todo el mapa de zonas de vida para Antioquia. La opción `-c` asigna colores al azar a los polígonos.
 
@@ -196,7 +196,7 @@ d.vect zvidantioq
 d.vect -c zvidantioq display=shape,attr attrcol=COZO
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/zvidantioq_color.png)
+![]({{ site.baseurl }}/images/zvidantioq_color.png){: .img-responsive}
 
 - Mostrar el mapa de sólo una zona que no se identificaba anteriormente.
 
@@ -204,7 +204,7 @@ d.vect -c zvidantioq display=shape,attr attrcol=COZO
 d.vect -c zvidantioq where="COZO='bmh-MB'" display=shape,attr attrcol=COZO lcolor=black
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/zvidantioq_boundary_COZO_bmhMB.png)
+![]({{ site.baseurl }}/images/zvidantioq_boundary_COZO_bmhMB.png){: .img-responsive}
 
 - Seleccionar la zona de ituango y desplegar las zonas de vida.
 
@@ -215,7 +215,7 @@ d.vect zvidantioq type=boundary
 d.vect zvidantioq display=attr type=centroid attrcol=COZO lcolor=black lsize=16
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/ituan_zvidantioq.png)
+![]({{ site.baseurl }}/images/ituan_zvidantioq.png){: .img-responsive}
 
 Estadísticos de una variable numérica de la base de datos
 ---------------------------------------------------------

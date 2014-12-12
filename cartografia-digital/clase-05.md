@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 'Desplegar los mapas construidos con titulo y leyenda'
 clase: '05'
 ---
@@ -16,4 +16,4 @@ Adicionalmente, la opción `position` sirve para indicar el porcentaje de la pan
 
 Dedicar un 60% a un 70% para el mapa.
 
-![Mapa desplegado con título y leyenda]({{ site.baseurl }}/images/porce1_RR_33_reclass_leg.png)
+![Mapa desplegado con título y leyenda]({{ site.baseurl }}/images/porce1_RR_33_reclass_leg.png){: .img-responsive}

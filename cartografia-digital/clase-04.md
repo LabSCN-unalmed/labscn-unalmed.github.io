@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 'Análisis del relieve relativo con base en un análisis de vecindad'
 clase: '04'
 ---
@@ -127,7 +127,7 @@ r.neighbors input=porcecito1 output=porce1_RR_33 method=range size=33
 d.rast porce1_RR_33
 {% endhighlight %}
 
-![Mapa de relieve relativo]({{ site.baseurl }}/images/porce1_RR_33.png)
+![Mapa de relieve relativo]({{ site.baseurl }}/images/porce1_RR_33.png){: .img-responsive}
 
 #### Visualización 3D del mapa construido
 
@@ -135,7 +135,7 @@ d.rast porce1_RR_33
 nviz porce1_RR_33
 {% endhighlight %}
 
-![Visualización 3D del mapa de Relieve Relativo]({{ site.baseurl }}/images/porce1_RR_33_3D.png)
+![Visualización 3D del mapa de Relieve Relativo]({{ site.baseurl }}/images/porce1_RR_33_3D.png){: .img-responsive}
 
 *¿Qué se observa en la imagen anterior?*
 
@@ -149,7 +149,7 @@ nviz porce1_RR_33
 nviz porcecito1 color=porce1_RR_33
 {% endhighlight %}
 
-![Visualización 3D del mapa porcecito1 con los colores del mapa de Relieve Relativo]({{ site.baseurl }}/images/porce1_RR_33_3D2.png)
+![Visualización 3D del mapa porcecito1 con los colores del mapa de Relieve Relativo]({{ site.baseurl }}/images/porce1_RR_33_3D2.png){: .img-responsive}
 
 En esta última orden le decimos al sistema que despliegue en tres dimensiones el mapa `porcecito1` pero que le coloque los colores del mapa `porce1_RR_33`.
 
@@ -178,54 +178,58 @@ Con el comando `r.report` se obtiene información sobre la distribución de los 
 
 De allí se copia y se pega en el procesador de texto, para obtener la siguiente tabla.
 
-| **Relieve Relativo** | **Porcentaje** | **No. Píxeles** | **Área (km<sup>2</sup>)** |
-|:--------------------:|:--------------:|:---------------:|:-------------------------:|
-|         45   -  81.9 |           2.01 |           28556 |                  26.66108 |
-|         81.9 - 118.8 |           8.68 |          123314 |                 115.13113 |
-|        118.8 - 155.7 |          12.94 |          183796 |                 171.59966 |
-|        155.7 - 192.6 |          12.74 |          181073 |                 169.05735 |
-|        192.6 - 229.5 |          12.26 |          174259 |                 162.69552 |
-|        229.5 - 266.4 |          11.48 |          163078 |                 152.25647 |
-|        266.4 - 303.3 |          10.18 |          144617 |                 135.02050 |
-|        303.3 - 340.2 |           8.64 |          122812 |                 114.66244 |
-|        340.2 - 377.1 |           7.03 |           99815 |                  93.19147 |
-|        377.1 - 414   |           5.31 |           75509 |                  70.49837 |
-|        414   - 450.9 |           3.97 |           56381 |                  52.63967 |
-|        450.9 - 487.8 |           2.46 |           34884 |                  32.56917 |
-|        487.8 - 524.7 |           1.26 |           17952 |                  16.76074 |
-|        524.7 - 561.6 |           0.52 |            7445 |                   6.95096 |
-|        561.6 - 598.5 |           0.23 |            3312 |                   3.09222 |
-|        598.5 - 635.4 |           0.12 |            1703 |                   1.58999 |
-|        635.4 - 672.3 |           0.09 |            1217 |                   1.13624 |
-|        672.3 - 709.2 |           0.05 |             679 |                   0.63394 |
-|        709.2 - 746.1 |           0.03 |             412 |                   0.38466 |
-|        746.1 - 783   |           0.00 |              34 |                   0.03174 |
-|            **TOTAL** |     **100.00** |     **1420848** |            **1326.56333** |
+| Relieve Relativo | Porcentaje | No. Píxeles | Área (km<sup>2</sup>) |
+|:----------------:|:----------:|:-----------:|:---------------------:|
+|     45   -  81.9 |       2.01 |       28556 |              26.66108 |
+|     81.9 - 118.8 |       8.68 |      123314 |             115.13113 |
+|    118.8 - 155.7 |      12.94 |      183796 |             171.59966 |
+|    155.7 - 192.6 |      12.74 |      181073 |             169.05735 |
+|    192.6 - 229.5 |      12.26 |      174259 |             162.69552 |
+|    229.5 - 266.4 |      11.48 |      163078 |             152.25647 |
+|    266.4 - 303.3 |      10.18 |      144617 |             135.02050 |
+|    303.3 - 340.2 |       8.64 |      122812 |             114.66244 |
+|    340.2 - 377.1 |       7.03 |       99815 |              93.19147 |
+|    377.1 - 414   |       5.31 |       75509 |              70.49837 |
+|    414   - 450.9 |       3.97 |       56381 |              52.63967 |
+|    450.9 - 487.8 |       2.46 |       34884 |              32.56917 |
+|    487.8 - 524.7 |       1.26 |       17952 |              16.76074 |
+|    524.7 - 561.6 |       0.52 |        7445 |               6.95096 |
+|    561.6 - 598.5 |       0.23 |        3312 |               3.09222 |
+|    598.5 - 635.4 |       0.12 |        1703 |               1.58999 |
+|    635.4 - 672.3 |       0.09 |        1217 |               1.13624 |
+|    672.3 - 709.2 |       0.05 |         679 |               0.63394 |
+|    709.2 - 746.1 |       0.03 |         412 |               0.38466 |
+|    746.1 - 783   |       0.00 |          34 |               0.03174 |
+|==================|============|=============|=======================|
+|        **TOTAL** | **100.00** | **1420848** |        **1326.56333** |
+{: .table .table-hover}
 
 En un trabajo acerca del relieve de Antioquia hemos empleado la clasificación que se observa en la siguiente tabla  para la definición de tipos de relieve de acuerdo al valor del Relieve Relativo.
 
-| **Valor de RR** | **Descripción morfológica**                                           |
-|:---------------:|:----------------------------------------------------------------------|
-|        0 -   10 | Zonas de relieve muy suave                                            |
-|       10 -   75 | Colinas bajas                                                         |
-|       75 -  150 | Colinas intermedias                                                   |
-|      150 -  300 | Colinas altas                                                         |
-|      300 -  350 | Transición entre relieves colinados y relieves con disección profunda |
-|      350 -  450 | Disección profunda baja                                               |
-|      450 -  600 | Disección profunda intermedia                                         |
-|      600 - 1200 | Disección profunda pronunciada                                        |
+| Valor de RR | Descripción morfológica                                               |
+|:-----------:|:----------------------------------------------------------------------|
+|    0 -   10 | Zonas de relieve muy suave                                            |
+|   10 -   75 | Colinas bajas                                                         |
+|   75 -  150 | Colinas intermedias                                                   |
+|  150 -  300 | Colinas altas                                                         |
+|  300 -  350 | Transición entre relieves colinados y relieves con disección profunda |
+|  350 -  450 | Disección profunda baja                                               |
+|  450 -  600 | Disección profunda intermedia                                         |
+|  600 - 1200 | Disección profunda pronunciada                                        |
+{: .table .table-hover}
 
 La comparación de las dos tablas permite establecer los siguientes rangos para reclasificar el mapa de relieve relativo.
 
-| **Valor de RR** | **Descripción morfológica**                                       |
-|:---------------:|:------------------------------------------------------------------|
-|       45 -   82 | Relieves planos y de colinas bajas                                |
-|       82 -  150 | Colinas intermedias                                               |
-|      150 -  300 | Colinas altas                                                     |
-|      300 -  350 | Transición entre relieve colinado y relieve de disección profunda |
-|      350 -  450 | Disección profunda baja                                           |
-|      450 -  600 | Disección profunda intermedia                                     |
-|      600 - 1200 | & Disección profunda pronunciada                                  |
+| Valor de RR | Descripción morfológica                                           |
+|:-----------:|:------------------------------------------------------------------|
+|   45 -   82 | Relieves planos y de colinas bajas                                |
+|   82 -  150 | Colinas intermedias                                               |
+|  150 -  300 | Colinas altas                                                     |
+|  300 -  350 | Transición entre relieve colinado y relieve de disección profunda |
+|  350 -  450 | Disección profunda baja                                           |
+|  450 -  600 | Disección profunda intermedia                                     |
+|  600 - 1200 | & Disección profunda pronunciada                                  |
+{: .table .table-hover}
 
 #### Reclasificación del mapa de relieve relativo
 
@@ -284,13 +288,13 @@ Desplegar en 2D y en 3D el mapa reclasificado de relieve relativo
 d.rast porce1_RR_33_reclass
 {% endhighlight %}
 
-![2D]({{ site.baseurl }}/images/porce1_RR_33_reclass.png)
+![2D]({{ site.baseurl }}/images/porce1_RR_33_reclass.png){: .img-responsive}
 
 {% highlight bash linenos=table %}
 nviz porcecito1 color=porce1_RR_33_reclass
 {% endhighlight %}
 
-![3D]({{ site.baseurl }}/images/porce1_RR_33_reclass3D.png)
+![3D]({{ site.baseurl }}/images/porce1_RR_33_reclass3D.png){: .img-responsive}
 
 Al desplegar el mapa `porce1_RR_33_reclass` el programa GRASS asigna unos colores a cada categoría.
 
@@ -320,10 +324,10 @@ r.reclass input=porce1_RR_33_reclass output=porce1_RR_33_reclass_simplif rules=R
 d.rast porce1_RR_33_reclass_simplif
 {% endhighlight %}
 
-![2D]({{ site.baseurl }}/images/porce1_RR_33_reclass_simplif.png)
+![2D]({{ site.baseurl }}/images/porce1_RR_33_reclass_simplif.png){: .img-responsive}
 
 {% highlight bash linenos=table %}
 nviz porcecito1 color=porce1_RR_33_reclass_simplif
 {% endhighlight %}
 
-![3D]({{ site.baseurl }}/images/porce1_RR_33_reclass_simplif3D.png)
+![3D]({{ site.baseurl }}/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive}

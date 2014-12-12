@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 'Uso del toolkit r.stream.*'
 clase: '09'
 ---

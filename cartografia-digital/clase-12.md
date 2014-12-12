@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 'Manejo de los distintos tipos de formato vectorial'
 clase: '12'
 ---
@@ -57,7 +57,7 @@ d.rast -o riogrande_sup
 d.vect muniantioq type=boundary
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/muniantioq_rast.png)
+![]({{ site.baseurl }}/images/muniantioq_rast.png){: .img-responsive}
 
 Para consultar la información de los polígonos utilizar el comando `d.what.vect`.
 
@@ -116,7 +116,7 @@ d.vect muniantioq type=boundary
 d.vect carreteras col=red
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/carreteras_rast.png)
+![]({{ site.baseurl }}/images/carreteras_rast.png){: .img-responsive}
 
 - Se despliegan sólo las carreteras *primarias*.
 
@@ -128,7 +128,7 @@ d.vect muniantioq type=boundary
 d.vect carreteras where="TYPE='primary'" col=red
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/carreteras_rast_primary.png)
+![]({{ site.baseurl }}/images/carreteras_rast_primary.png){: .img-responsive}
 
 Importar mapa de puntos de localización de Antioquia
 ----------------------------------------------------
@@ -155,7 +155,7 @@ d.vect carreteras where="TYPE='primary'" col=red
 d.vect puntos where="PLACE='town'" col=grey
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/puntos_rast "fig:".png)
+![]({{ site.baseurl }}/images/puntos_rast "fig:".png){: .img-responsive}
 
 - Se despliegan los puntos en porcecito, para identificar lugares.
 
@@ -168,7 +168,7 @@ d.vect carreteras col=red
 d.vect puntos col=grey
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/porcecito_puntos.png)
+![]({{ site.baseurl }}/images/porcecito_puntos.png){: .img-responsive}
 
 - Se despliegan los nombres de los puntos en el mapa.
 
@@ -181,7 +181,7 @@ d.vect puntos display=attr,shape col=red
 icon=“basic/diamond” attrcol=NAME lcolor=black
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/porcecito_puntos_labels.png)
+![]({{ site.baseurl }}/images/porcecito_puntos_labels.png){: .img-responsive}
 
 - Se consulta la información de los puntos con el comando `d.what.vect`.
 

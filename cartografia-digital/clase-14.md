@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 'Manejo de distintos mapas vectoriales'
 clase: '14'
 ---
@@ -25,7 +25,7 @@ Se abre el archivo `NBI.csv` con LibreOffice Calc. [^1]
 
 En el diálogo que aparece, se debe indicar que el archivo se encuentra separado por **Punto y coma** como lo muestra la siguiente imágen.
 
-![]({{ site.baseurl }}/images/NBI_import.png)
+![]({{ site.baseurl }}/images/NBI_import.png){: .img-responsive}
 
 Para incorporar la tabla a GRASS, se emplea el comando `db.in.ogr`.
 
@@ -92,7 +92,7 @@ v.db.select map=muniantioq columns=cat,AREA,PERIMETER,MUNICIPIO,NBI2 where='NBI2
 
 - Se abre el archivo `poblacion_col.csv` con LibreOffice Calc. En el diálogo que aparece, se debe indicar que el archivo se encuentra separado por *Punto y coma*.
 
-![]({{ site.baseurl }}/images/poblacion_col_import.png)
+![]({{ site.baseurl }}/images/poblacion_col_import.png){: .img-responsive}
 
 - Se importa la tabla `poblacion_col.csv` a GRASS con el comando `db.in.ogr`.
 

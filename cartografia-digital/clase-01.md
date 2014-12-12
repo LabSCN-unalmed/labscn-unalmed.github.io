@@ -1,13 +1,8 @@
 ---
-layout: default
+layout: page
 title: 'Elementos introductorios'
 clase: '01'
 ---
-
-# Contenido
-{:.no_toc}
-
-{:toc}
 
 ¿Qué es la superficie terrestre?
 --------------------------------

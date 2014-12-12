@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 'Manejo de proyecciones y creación de locations'
 clase: '10'
 ---
@@ -17,27 +17,27 @@ Una superficie curva se puede proyectar a un plano tangente a un punto particula
 
 Se puede proyectar la **superficie terrestre (ST)** a un cilindro que puede ser vertical u horizontal.
 
-![]({{ site.baseurl }}/images/01datum.gif)
+![]({{ site.baseurl }}/images/01datum.gif){: .img-responsive}
 
-![]({{ site.baseurl }}/images/02globe_merid.gif)
+![]({{ site.baseurl }}/images/02globe_merid.gif){: .img-responsive}
 
-![]({{ site.baseurl }}/images/03globe_parallel.gif)
+![]({{ site.baseurl }}/images/03globe_parallel.gif){: .img-responsive}
 
-![]({{ site.baseurl }}/images/04globe_graticule.gif)
+![]({{ site.baseurl }}/images/04globe_graticule.gif){: .img-responsive}
 
-![]({{ site.baseurl }}/images/05geographic2.gif)
+![]({{ site.baseurl }}/images/05geographic2.gif){: .img-responsive}
 
-![]({{ site.baseurl }}/images/06plane.gif)
+![]({{ site.baseurl }}/images/06plane.gif){: .img-responsive}
 
-![]({{ site.baseurl }}/images/07orthographic1.gif)
+![]({{ site.baseurl }}/images/07orthographic1.gif){: .img-responsive}
 
-![]({{ site.baseurl }}/images/08orthographic2.gif)
+![]({{ site.baseurl }}/images/08orthographic2.gif){: .img-responsive}
 
-![]({{ site.baseurl }}/images/09cone.gif)
+![]({{ site.baseurl }}/images/09cone.gif){: .img-responsive}
 
-![]({{ site.baseurl }}/images/10cylinder.gif)
+![]({{ site.baseurl }}/images/10cylinder.gif){: .img-responsive}
 
-![]({{ site.baseurl }}/images/11cylinders.gif)
+![]({{ site.baseurl }}/images/11cylinders.gif){: .img-responsive}
 
 ### UTM: Universal transversal de mercator
 
@@ -51,95 +51,17 @@ UTM es una proyección con un cilindro horizontal adherido a un meridiano. En Co
 
 Un elipsoide lo define un semieje menor y otro mayor.
 
-<table>
-    <thead>
-        <tr>
-            <th rowspan="2">Elipsoide</th>
-            <th rowspan="2">Año</th>
-            <th colspan="2">Longitud (m)</th>
-            <th rowspan="2">Achatamiento</th>
-            <th rowspan="2">Uso local</th>
-        </tr>
-        <tr>
-            <th>Semieje a</th>
-            <th>Semieje b</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-    		<td>WGS 84</td>
-    		<td>1984</td>
-    		<td>6378137.0</td>
-    		<td>6356752.3</td>
-    		<td>1/298.257</td>
-    		<td>Universal</td>
-
-    	</tr>
-    	<tr>
-    		<td>GRS 80</td>
-    		<td>1980</td>
-    		<td>6378137.0</td>
-    		<td>6356752.3</td>
-    		<td>1/298.257</td>
-    		<td>U.S.A.</td>
-
-    	</tr>
-    	<tr>
-    		<td>WGS 72</td>
-    		<td>1972</td>
-    		<td>6378135.0</td>
-    		<td>6356750.5</td>
-    		<td>1/298.26</td>
-    		<td>U.S.A.</td>
-
-    	</tr>
-    	<tr>
-    		<td>Krasousky</td>
-    		<td>1940</td>
-    		<td>6378245.0</td>
-    		<td>6356863.0</td>
-    		<td>1/298.30</td>
-    		<td>Rusia</td>
-
-    	</tr>
-    	<tr>
-    		<td>Internacional</td>
-    		<td>1924</td>
-    		<td>6378388.0</td>
-    		<td>6356911.9</td>
-    		<td>1/297.0</td>
-    		<td>Colombia, Europa</td>
-
-    	</tr>
-    	<tr>
-    		<td>Clarke 80</td>
-    		<td>1880</td>
-    		<td>6378249.0</td>
-    		<td>6356514.9</td>
-    		<td>1/293.46</td>
-    		<td>Norteamérica</td>
-
-    	</tr>
-    	<tr>
-    		<td>Clarke 66</td>
-    		<td>1866</td>
-    		<td>6378206.4</td>
-    		<td>6356514.8</td>
-    		<td>1/294.98</td>
-    		<td>África</td>
-
-    	</tr>
-    	<tr>
-    		<td>Bessel</td>
-    		<td>1841</td>
-    		<td>6377397.2</td>
-    		<td>6356079.0</td>
-    		<td>1/299.15</td>
-    		<td>Japón y Asia</td>
-
-    	</tr>
-    </tbody>
-</table>
+|   Elipsoide   |  Año | Semieje a | Semieje b | Achatamiento | Uso local        |
+|:--------------|:----:|:---------:|:---------:|:------------:|:-----------------|
+| WGS 84        | 1984 | 6378137.0 | 6356752.3 | 1/298.257    | Universal        |
+| GRS 80        | 1980 | 6378137.0 | 6356752.3 | 1/298.257    | U.S.A.           |
+| WGS 72        | 1972 | 6378135.0 | 6356750.5 | 1/298.26     | U.S.A.           |
+| Krasousky     | 1940 | 6378245.0 | 6356863.0 | 1/298.30     | Rusia            |
+| Internacional | 1924 | 6378388.0 | 6356911.9 | 1/297.0      | Colombia, Europa |
+| Clarke 80     | 1880 | 6378249.0 | 6356514.9 | 1/293.46     | Norteamérica     |
+| Clarke 66     | 1866 | 6378206.4 | 6356514.8 | 1/294.98     | África           |
+| Bessel        | 1841 | 6377397.2 | 6356079.0 | 1/299.15     | Japón y Asia     |
+{: .table .table-hover}
 
 **Un datum:** Se compone de una proyección y el modelo de elipsoide para La Tierra, y el punto donde se hace el origen de coordenadas.
 
@@ -223,10 +145,10 @@ g.region rast=srtmMed
 d.rast srtmMed
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/srtmMed.png)
+![]({{ site.baseurl }}/images/srtmMed.png){: .img-responsive}
 
 {% highlight bash linenos=table %}
 g.region rast=b1
 d.rast b1
 {% endhighlight %}
-![]({{ site.baseurl }}/images/b1.png)
+![]({{ site.baseurl }}/images/b1.png){: .img-responsive}

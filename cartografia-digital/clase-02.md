@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 'Iniciando desde GRASS'
 clase: '02'
 ---
@@ -21,8 +21,7 @@ Orden para iniciar grass en la terminal:
 grass
 {% endhighlight %}
 
-![Ventana de inicio del GIS GRASS]({{ site.baseurl }}/images/grass_startup_screen.png)
-
+![Ventana de inicio del GIS GRASS]({{ site.baseurl }}/images/grass_startup_screen.png){: .img-responsive}
 
 Aparece la ventana de inicio del GIS GRASS, con un recuadro para LOCATIONS y otro para MAPSETS.
 
@@ -172,7 +171,7 @@ d.rast -o ituango
 d.rast -o riogrande_sup
 {% endhighlight %}
 
-![Despliegue de varios mapas simultáneamente]({{ site.baseurl }}/images/cursograss.png)
+![Despliegue de varios mapas simultáneamente]({{ site.baseurl }}/images/cursograss.png){: .img-responsive}
 
 La opción `-o` se utiliza para desplegar mapas superpuestos en el monitor activo.
 
@@ -185,14 +184,14 @@ g.region rast=porcecito
 d.rast porcecito
 {% endhighlight %}
 
-![Porcecito]({{ site.baseurl }}/images/porcecito.png)
+![Porcecito]({{ site.baseurl }}/images/porcecito.png){: .img-responsive}
 
 {% highlight bash linenos=table %}
 g.region rast=ituango
 d.rast ituango
 {% endhighlight %}
 
-![Ituango]({{ site.baseurl }}/images/ituango.png)
+![Ituango]({{ site.baseurl }}/images/ituango.png){: .img-responsive}
 
 ### Consulta del historial de los comandos usados
 
@@ -414,7 +413,7 @@ g.region region=porcecito_pedazo
 d.rast porcecito
 {% endhighlight %}
 
-![Despliegue de una subzona del mapa Porcecito]({{ site.baseurl }}/images/porcecito_zoom.png)
+![Despliegue de una subzona del mapa Porcecito]({{ site.baseurl }}/images/porcecito_zoom.png){: .img-responsive}
 
 ### Segunda opción: Construir un nuevo mapa a partir de una porción (parte o pedazo) de un mapa mayor
 
@@ -447,13 +446,13 @@ d.rast map=porcecito val=1000-1500
 d.rast map=porcecito cat=1000-1500
 {% endhighlight %}
 
-![1000-1500]({{ site.baseurl }}/images/porcecito_1000_1500.png)
+![1000-1500]({{ site.baseurl }}/images/porcecito_1000_1500.png){: .img-responsive}
 
 {% highlight bash linenos=table %}
 d.rast map=porcecito cat=2000-2300
 {% endhighlight %}
 
-![2000-2300]({{ site.baseurl }}/images/porcecito_2000_2300.png)
+![2000-2300]({{ site.baseurl }}/images/porcecito_2000_2300.png){: .img-responsive}
 
 En este punto de la sesión de trabajo surge un interrogante: No se pueden desplegar valores (vallist), pero si se pueden desplegar categorías (catlist).
 
@@ -466,7 +465,7 @@ d.rast map=porcecito catlist=1000-1500
 d.rast map=porcecito catlist=2000-2300 -o
 {% endhighlight %}
 
-![Despliegue simultáneo de dos rangos altitudinales]({{ site.baseurl }}/images/porcecito_1000_2300.png)
+![Despliegue simultáneo de dos rangos altitudinales]({{ site.baseurl }}/images/porcecito_1000_2300.png){: .img-responsive}
 
 Este ejercicio tiene una limitación importante: Desconocemos en este punto cual es el valor de altitud máxima y el valor de altitud mínima para seleccionar rangos de manera adecuada.
 
@@ -533,7 +532,7 @@ Una vez el reticulado es lo suficientemente grande, escribir el siguiente comand
 d.rast.num porcecito
 {% endhighlight %}
 
-![Retícula con valores de altitud en cada píxel]({{ site.baseurl }}/images/porcecito_small.png)
+![Retícula con valores de altitud en cada píxel]({{ site.baseurl }}/images/porcecito_small.png){: .img-responsive}
 
 ### Reporte de la información contenida en el mapa
 
@@ -604,7 +603,7 @@ Una representación gráfica de los valores de altitud en el mapa `porcecito`.
 d.histogram map=porcecito1 nsteps=10
 {% endhighlight %}
 
-![Distribución altitudinal en porcecito]({{ site.baseurl }}/images/porcecito_hist.png)
+![Distribución altitudinal en porcecito]({{ site.baseurl }}/images/porcecito_hist.png){: .img-responsive}
 
 Para obtener la imagen en formato PNG, se puede utilizar el comando `d.out.file`.
 
@@ -646,7 +645,7 @@ Borramos las líneas con guiones y organizamos bien las columnas para que sólo 
 
 Abrimos la carpeta personal y abrimos el archivo csv que creamos.
 
-![Importación de texto separado por comas en LibreOffice]({{ site.baseurl }}/images/csv_import.png)
+![Importación de texto separado por comas en LibreOffice]({{ site.baseurl }}/images/csv_import.png){: .img-responsive}
 
 En el diálogo que se abre, configuramos las opciones como se ve en la imagen: en las opciones de separador seleccionamos "Separado por" y "Otros" y escribimos el símbolo `|`, seleccionamos las columnas primera y tercera y seleccionamos "Ocultar" en "Tipo de columna".
 
@@ -666,3 +665,4 @@ Organizamos los encabezados y le damos un poco de formato a la tabla, de manera 
 |   2681.5 - 2873   |        3278 |       0.23 |    3.06048 |
 |===================|=============|============|============|
 |             TOTAL |     1420848 |     100.00 | 1326.56333 |
+{: .table .table-hover}

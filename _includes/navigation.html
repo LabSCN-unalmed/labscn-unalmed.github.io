@@ -7,13 +7,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ site.baseurl }}/">Laboratorio de Sistemas Complejos Naturales</a>
+      <a class="navbar-brand hidden-xs hidden-sm" href="{{ site.baseurl }}/">Laboratorio de Sistemas Complejos Naturales</a>
+      <a class="navbar-brand hidden-md hidden-lg" href="{{ site.baseurl }}/">LabSCN</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-          <a href="{{ site.baseurl }}/about">Sobre Nosotros</a>
-        </li>
+        <li><a href="{{ site.baseurl }}/about">Sobre Nosotros</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             Cursos
@@ -21,15 +20,17 @@
           </a>
           <ul class="dropdown-menu" role="menu">
             <li class="dropdown-header">Cartografía digital</li>
-            <!-- {% assign clases = site.pages | sort: 'clase' %}
+            <li><a href="{{ site.baseurl }}/cartografia-digital">Clases</a></li>
+            <!--
+            {% assign clases = site.pages | sort: 'clase' %}
             {% for clase in clases %}
               {% if clase.clase %}
                 <li><a href="{{ site.baseurl }}{{ clase.url }}">Clase {{ clase.clase }}</a></li>
               {% endif %}
-            {% endfor %} -->
-            <li><a href="{{ site.baseurl }}/cartografia-digital">Clases</a></li>
+            {% endfor %}
+            -->
             <li class="divider"></li>
-            <li class="dropdown-header">Programación y análisis cuantitativo de datos con R</li>
+            <li class="dropdown-header">Programación y análisis<br>cuantitativo de datos con R</li>
             <li>
               <a href="{{ site.baseurl }}/programacion-R">Programa resumido</a>
             </li>
