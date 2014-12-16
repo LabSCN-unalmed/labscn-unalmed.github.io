@@ -16,7 +16,6 @@ Aparece esto que quiere decir que se puede introducir una orden:
 {% highlight text linenos=table %}
 usuario@equipo:~ $
 {% endhighlight %}
-{: }
 
 Orden para iniciar grass en la terminal:
 
