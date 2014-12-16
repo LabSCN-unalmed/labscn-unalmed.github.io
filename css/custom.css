@@ -1,5 +1,281 @@
 body {
-	padding-top: 85px;
+  padding-top: 85px;
+}
+
+/* Image styling */
+img.img-responsive {
+  margin: auto;
+  max-width: 80%;
 }
 
 /* Code blocks styling */
+pre {
+  background: #002b36;
+  border-radius: 0;
+  border: 0;
+  line-height: 15px;
+  font-size: 13px;
+  margin: 0;
+  padding: 7px 8px;
+  color: #93a1a1;
+  overflow: auto;
+}
+
+table.highlighttable {
+  border: 1px solid #05232b !important;
+  margin-bottom: 10px;
+}
+
+table.highlighttable td.linenos pre {
+  text-align: right;
+  font-size: 13px;
+  line-height: 15px;
+  background: #073642 !important;
+  border-right: 1px solid #00232c !important;
+  border-radius: 0;
+  width: 35px;
+}
+
+table.highlighttable td.linenos code {
+  color: #586e75 !important;
+}
+
+table.highlighttable td.code {
+  width: 100%
+}
+
+table.highlighttable td.code pre {
+  font-family: "Ubuntu Mono", ;
+  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: block;
+  background: #002b36 !important;
+  color: #93a1a1 !important
+}
+
+table.highlighttable td.code pre .c{
+  color:#586e75 !important;
+  font-style:italic !important
+}
+
+table.highlighttable td.code pre .cm{
+  color:#586e75 !important;
+  font-style:italic !important
+}
+
+table.highlighttable td.code pre .cp{
+  color:#586e75 !important;
+  font-style:italic !important
+}
+
+table.highlighttable td.code pre .c1{
+  color:#586e75 !important;
+  font-style:italic !important
+}
+
+table.highlighttable td.code pre .cs{
+  color:#586e75 !important;
+  font-weight:bold !important;
+  font-style:italic !important
+}
+
+table.highlighttable td.code pre .err{
+  color:#dc322f !important;
+  background:none !important
+}
+
+table.highlighttable td.code pre .k{
+  color:#cb4b16 !important
+}
+
+table.highlighttable td.code pre .o{
+  color:#93a1a1 !important;
+  font-weight:bold !important
+}
+
+table.highlighttable td.code pre .p{
+  color:#93a1a1 !important
+}
+
+table.highlighttable td.code pre .ow{
+  color:#2aa198 !important;
+  font-weight:bold !important
+}
+
+table.highlighttable td.code pre .gd{
+  color:#93a1a1 !important;
+  background-color:#372c34 !important;
+  display:inline-block
+}
+
+table.highlighttable td.code pre .gd .x{
+  color:#93a1a1 !important;
+  background-color:#4d2d33 !important;
+  display:inline-block
+}
+
+table.highlighttable td.code pre .ge{
+  color:#93a1a1 !important;
+  font-style:italic !important
+}
+
+table.highlighttable td.code pre .gh{
+  color:#586e75 !important
+}
+
+table.highlighttable td.code pre .gi{
+  color:#93a1a1 !important;
+  background-color:#1a412b !important;
+  display:inline-block
+}
+
+table.highlighttable td.code pre .gi .x{
+  color:#93a1a1 !important;
+  background-color:#355720 !important;
+  display:inline-block
+}
+
+table.highlighttable td.code pre .gs{
+  color:#93a1a1 !important;
+  font-weight:bold !important
+}
+
+table.highlighttable td.code pre .gu{
+  color:#6c71c4 !important
+}
+
+table.highlighttable td.code pre .kc{
+  color:#859900 !important;
+  font-weight:bold !important
+}
+
+table.highlighttable td.code pre .kd{
+  color:#268bd2 !important
+}
+
+table.highlighttable td.code pre .kp{
+  color:#cb4b16 !important;
+  font-weight:bold !important
+}
+
+table.highlighttable td.code pre .kr{
+  color:#d33682 !important;
+  font-weight:bold !important
+}
+
+table.highlighttable td.code pre .kt{
+  color:#2aa198 !important
+}
+
+table.highlighttable td.code pre .n{
+  color:#268bd2 !important
+}
+
+table.highlighttable td.code pre .na{
+  color:#268bd2 !important
+}
+
+table.highlighttable td.code pre .nb{
+  color:#859900 !important
+}
+
+table.highlighttable td.code pre .nc{
+  color:#d33682 !important
+}
+
+table.highlighttable td.code pre .no{
+  color:#b58900 !important
+}
+
+table.highlighttable td.code pre .nl{
+  color:#859900 !important
+}
+
+table.highlighttable td.code pre .ne{
+  color:#268bd2 !important;
+  font-weight:bold !important
+}
+
+table.highlighttable td.code pre .nf{
+  color:#268bd2 !important;
+  font-weight:bold !important
+}
+
+table.highlighttable td.code pre .nn{
+  color:#b58900 !important
+}
+
+table.highlighttable td.code pre .nt{
+  color:#268bd2 !important;
+  font-weight:bold !important
+}
+
+table.highlighttable td.code pre .nx{
+  color:#b58900 !important
+}
+
+table.highlighttable td.code pre .vg{
+  color:#268bd2 !important
+}
+
+table.highlighttable td.code pre .vi{
+  color:#268bd2 !important
+}
+
+table.highlighttable td.code pre .nv{
+  color:#268bd2 !important
+}
+
+table.highlighttable td.code pre .mf{
+  color:#2aa198 !important
+}
+
+table.highlighttable td.code pre .m{
+  color:#2aa198 !important
+}
+
+table.highlighttable td.code pre .mh{
+  color:#2aa198 !important
+}
+
+table.highlighttable td.code pre .mi{
+  color:#2aa198 !important
+}
+
+table.highlighttable td.code pre .s{
+  color:#2aa198 !important
+}
+
+table.highlighttable td.code pre .sd{
+  color:#2aa198 !important
+}
+
+table.highlighttable td.code pre .s2{
+  color:#2aa198 !important
+}
+
+table.highlighttable td.code pre .se{
+  color:#dc322f !important
+}
+
+table.highlighttable td.code pre .si{
+  color:#268bd2 !important
+}
+
+table.highlighttable td.code pre .sr{
+  color:#2aa198 !important
+}
+
+table.highlighttable td.code pre .s1{
+  color:#2aa198 !important
+}
+
+p code {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 15px;
+  border: 1px solid #ddd;
+  padding: 0 3px;
+  margin: -1px 0;
+}

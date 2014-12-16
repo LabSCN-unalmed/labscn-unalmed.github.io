@@ -4,8 +4,10 @@ title: 'Iniciando desde GRASS'
 clase: '02'
 ---
 
-Sesión introductoria al GIS GRASS
+Sesión introductoria al GRASS GIS
 ---------------------------------
+
+*[GRASS GIS]: Geographic Resources Analysis Support System
 
 Abrir la terminal de comandos.
 
@@ -14,6 +16,7 @@ Aparece esto que quiere decir que se puede introducir una orden:
 {% highlight text linenos=table %}
 usuario@equipo:~ $
 {% endhighlight %}
+{: }
 
 Orden para iniciar grass en la terminal:
 
