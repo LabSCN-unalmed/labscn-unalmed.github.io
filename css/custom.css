@@ -10,20 +10,20 @@ img.img-responsive {
 
 /* Code blocks styling */
 pre {
-  font-family: "Ubuntu Mono", ;
-  background: #002b36;
+  /*font-family: "Ubuntu Mono", monospace;*/
+  background: #000;
   border-radius: 0;
   border: 0;
   line-height: 15px;
   font-size: 13px;
   margin: 0;
   padding: 7px 8px;
-  color: #93a1a1;
+  color: #fff;
   overflow: auto;
 }
 
 table.highlighttable {
-  border: 1px solid #05232b !important;
+  border: 1px solid #000 !important;
   margin-bottom: 10px;
 }
 
@@ -31,18 +31,18 @@ table.highlighttable td.linenos pre {
   text-align: right;
   font-size: 13px;
   line-height: 15px;
-  background: #073642 !important;
-  border-right: 1px solid #00232c !important;
+  background: #333 !important;
+  border-right: 1px solid #555 !important;
   border-radius: 0;
   width: 35px;
 }
 
 table.highlighttable td.linenos code {
-  color: #586e75 !important;
+  color: #eee !important;
 }
 
 table.highlighttable td.code {
-  width: 100%
+  width: 100%;
 }
 
 table.highlighttable td.code pre {
@@ -50,11 +50,11 @@ table.highlighttable td.code pre {
   overflow-x: auto;
   overflow-y: hidden;
   display: block;
-  background: #002b36 !important;
-  color: #93a1a1 !important
+  background: #000 !important;
+  color: #fff !important;
 }
 
-.code .c { color:#586e75 }
+/*.code .c { color:#586e75 }
 .code .cm { color:#586e75 }
 .code .cp { color:#586e75 }
 .code .c1 { color:#586e75 }
@@ -101,7 +101,7 @@ table.highlighttable td.code pre {
 .code .se { color:#dc322f }
 .code .si { color:#268bd2 }
 .code .sr { color:#2aa198 }
-.code .s1 { color:#2aa198 }
+.code .s1 { color:#2aa198 }*/
 
 p code {
   display: inline-block;
