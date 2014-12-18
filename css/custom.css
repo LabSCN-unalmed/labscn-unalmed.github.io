@@ -9,8 +9,11 @@ img.img-responsive {
 }
 
 /* Code blocks styling */
+pre, code {
+  font-family: "Ubuntu Mono", monospace;
+}
+
 pre {
-  /*font-family: "Ubuntu Mono", monospace;*/
   background: #000;
   border-radius: 0;
   border: 0;
