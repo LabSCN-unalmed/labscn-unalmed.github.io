@@ -21,14 +21,6 @@
           <ul class="dropdown-menu" role="menu">
             <li class="dropdown-header">Cartografía digital</li>
             <li><a href="{{ site.baseurl }}/cartografia-digital">Clases</a></li>
-            <!--
-            {% assign clases = site.pages | sort: 'clase' %}
-            {% for clase in clases %}
-              {% if clase.clase %}
-                <li><a href="{{ site.baseurl }}{{ clase.url }}">Clase {{ clase.clase }}</a></li>
-              {% endif %}
-            {% endfor %}
-            -->
             <li class="divider"></li>
             <li class="dropdown-header">Programación y análisis<br>cuantitativo de datos con R</li>
             <li>
@@ -45,6 +37,16 @@
             </li>
             <li>
               <a href="{{ site.baseurl }}/programacion-R/talleres.html">Talleres</a>
+            </li>
+            <!-- Para agregar otro curso al menú agregar las dos líneas siguientes:
+            <li class="divider"></li>
+            <li class="dropdown-header">Nombre del curso</li>
+            Y los elementos a incluir para dicho curso, por ejemplo
+            <li><a href="{{ site.baseurl }}/curso/index.html">Índice</a></li> -->
+            <li class="divider"></li>
+            <li class="dropdown-header">Estadística Espacial</li>
+            <li>
+              <a href="{{ site.baseurl }}/estadistica-espacial/programa.html">Programa</a>
             </li>
           </ul>
         </li>
