@@ -7,7 +7,6 @@ clase: '01'
 ¿Qué es la superficie terrestre?
 --------------------------------
 
-
 ### La superficie terrestre presenta una estructura y una dinámica
 
 Los SIG son muy útiles en primer lugar para realizar una descripción cuantitativa de la estructura del relieve. Como se trata de describir cuantitativamente una forma se habla por lo tanto de morfometría o mejor de geomorfometría.

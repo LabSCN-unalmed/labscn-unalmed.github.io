@@ -4,7 +4,7 @@ title: 'Iniciando desde GRASS'
 clase: '02'
 ---
 
-Sesión introductoria al GRASS GIS
+Sesión introductoria a GRASS GIS
 ---------------------------------
 
 *[GRASS GIS]: Geographic Resources Analysis Support System
@@ -23,7 +23,7 @@ Orden para iniciar grass en la terminal:
 grass
 {% endhighlight %}
 
-![Ventana de inicio del GIS GRASS]({{ site.baseurl }}/images/grass_startup_screen.png){: .img-responsive}
+![Ventana de inicio del GIS GRASS]({{ site.baseurl }}/cartografia-digital/images/grass_startup_screen.png){: .img-responsive}
 
 Aparece la ventana de inicio del GIS GRASS, con un recuadro para LOCATIONS y otro para MAPSETS.
 
@@ -43,7 +43,9 @@ d.mon x0
 
 La estructura de una orden en Linux y Grass:
 
-`comando -opcion1 parametro1 parametro2=valor --opcion2`
+{% highlight bash linenos=table %}
+comando -opcion1 parametro1 parametro2=valor --opcion2
+{% endhighlight %}
 
 Un **comando** es un escrito (*script*) que especifica la realización de una actividad en el GIS.
 
@@ -136,14 +138,14 @@ d.erase
 **GENERAL**
 
 {% highlight bash linenos=table %}
-g.copy rast=porcecito,porcecito
+g.copy rast=porcecito@PERMANENT,porcecito
 {% endhighlight %}
 
 - Cambiarle el nombre a un archivo raster (un mapa).  
 **GENERAL**
 
 {% highlight bash linenos=table %}
-g.rename rast=porcecito, porcecito_copia
+g.rename rast=porcecito,porcecito_copia
 {% endhighlight %}
 
 - Borrar un mapa (archivo) del mapset activo.  
@@ -173,7 +175,7 @@ d.rast -o ituango
 d.rast -o riogrande_sup
 {% endhighlight %}
 
-![Despliegue de varios mapas simultáneamente]({{ site.baseurl }}/images/cursograss.png){: .img-responsive}
+![Despliegue de varios mapas simultáneamente]({{ site.baseurl }}/cartografia-digital/images/cursograss.png){: .img-responsive}
 
 La opción `-o` se utiliza para desplegar mapas superpuestos en el monitor activo.
 
@@ -186,14 +188,14 @@ g.region rast=porcecito
 d.rast porcecito
 {% endhighlight %}
 
-![Porcecito]({{ site.baseurl }}/images/porcecito.png){: .img-responsive}
+![Porcecito]({{ site.baseurl }}/cartografia-digital/images/porcecito.png){: .img-responsive}
 
 {% highlight bash linenos=table %}
 g.region rast=ituango
 d.rast ituango
 {% endhighlight %}
 
-![Ituango]({{ site.baseurl }}/images/ituango.png){: .img-responsive}
+![Ituango]({{ site.baseurl }}/cartografia-digital/images/ituango.png){: .img-responsive}
 
 ### Consulta del historial de los comandos usados
 
@@ -415,7 +417,7 @@ g.region region=porcecito_pedazo
 d.rast porcecito
 {% endhighlight %}
 
-![Despliegue de una subzona del mapa Porcecito]({{ site.baseurl }}/images/porcecito_zoom.png){: .img-responsive}
+![Despliegue de una subzona del mapa Porcecito]({{ site.baseurl }}/cartografia-digital/images/porcecito_zoom.png){: .img-responsive}
 
 ### Segunda opción: Construir un nuevo mapa a partir de una porción (parte o pedazo) de un mapa mayor
 
@@ -448,13 +450,13 @@ d.rast map=porcecito val=1000-1500
 d.rast map=porcecito cat=1000-1500
 {% endhighlight %}
 
-![1000-1500]({{ site.baseurl }}/images/porcecito_1000_1500.png){: .img-responsive}
+![1000-1500]({{ site.baseurl }}/cartografia-digital/images/porcecito_1000_1500.png){: .img-responsive}
 
 {% highlight bash linenos=table %}
 d.rast map=porcecito cat=2000-2300
 {% endhighlight %}
 
-![2000-2300]({{ site.baseurl }}/images/porcecito_2000_2300.png){: .img-responsive}
+![2000-2300]({{ site.baseurl }}/cartografia-digital/images/porcecito_2000_2300.png){: .img-responsive}
 
 En este punto de la sesión de trabajo surge un interrogante: No se pueden desplegar valores (vallist), pero si se pueden desplegar categorías (catlist).
 
@@ -467,7 +469,7 @@ d.rast map=porcecito catlist=1000-1500
 d.rast map=porcecito catlist=2000-2300 -o
 {% endhighlight %}
 
-![Despliegue simultáneo de dos rangos altitudinales]({{ site.baseurl }}/images/porcecito_1000_2300.png){: .img-responsive}
+![Despliegue simultáneo de dos rangos altitudinales]({{ site.baseurl }}/cartografia-digital/images/porcecito_1000_2300.png){: .img-responsive}
 
 Este ejercicio tiene una limitación importante: Desconocemos en este punto cual es el valor de altitud máxima y el valor de altitud mínima para seleccionar rangos de manera adecuada.
 
@@ -534,7 +536,7 @@ Una vez el reticulado es lo suficientemente grande, escribir el siguiente comand
 d.rast.num porcecito
 {% endhighlight %}
 
-![Retícula con valores de altitud en cada píxel]({{ site.baseurl }}/images/porcecito_small.png){: .img-responsive}
+![Retícula con valores de altitud en cada píxel]({{ site.baseurl }}/cartografia-digital/images/porcecito_small.png){: .img-responsive}
 
 ### Reporte de la información contenida en el mapa
 
@@ -605,7 +607,7 @@ Una representación gráfica de los valores de altitud en el mapa `porcecito`.
 d.histogram map=porcecito1 nsteps=10
 {% endhighlight %}
 
-![Distribución altitudinal en porcecito]({{ site.baseurl }}/images/porcecito_hist.png){: .img-responsive}
+![Distribución altitudinal en porcecito]({{ site.baseurl }}/cartografia-digital/images/porcecito_hist.png){: .img-responsive}
 
 Para obtener la imagen en formato PNG, se puede utilizar el comando `d.out.file`.
 
@@ -647,7 +649,7 @@ Borramos las líneas con guiones y organizamos bien las columnas para que sólo 
 
 Abrimos la carpeta personal y abrimos el archivo csv que creamos.
 
-![Importación de texto separado por comas en LibreOffice]({{ site.baseurl }}/images/csv_import.png){: .img-responsive}
+![Importación de texto separado por comas en LibreOffice]({{ site.baseurl }}/cartografia-digital/images/csv_import.png){: .img-responsive}
 
 En el diálogo que se abre, configuramos las opciones como se ve en la imagen: en las opciones de separador seleccionamos "Separado por" y "Otros" y escribimos el símbolo `|`, seleccionamos las columnas primera y tercera y seleccionamos "Ocultar" en "Tipo de columna".
 

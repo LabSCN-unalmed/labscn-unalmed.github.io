@@ -19,7 +19,7 @@ La opción `-a` se utiliza para obtener los valores absolutos de `accum`.
 d.rast porce1_accum
 {% endhighlight %}
 
-![Mapa accum]({{ site.baseurl }}/images/porce1_accum.png){: .img-responsive}
+![Mapa accum]({{ site.baseurl }}/cartografia-digital/images/porce1_accum.png){: .img-responsive}
 
 ### Análisis detallado del mapa “accum”
 
@@ -39,13 +39,13 @@ Observar los valores mínimo y máximo pero igualmente los diferentes cuartiles.
 d.histogram porce1_accum
 {% endhighlight %}
 
-![Rango continuo]({{ site.baseurl }}/images/porce1_accum_hist1.png){: .img-responsive}
+![Rango continuo]({{ site.baseurl }}/cartografia-digital/images/porce1_accum_hist1.png){: .img-responsive}
 
 {% highlight bash linenos=table %}
 d.histogram porce1_accum nsteps=20
 {% endhighlight %}
 
-![Rango discreto]({{ site.baseurl }}/images/porce1_accum_hist2.png){: .img-responsive}
+![Rango discreto]({{ site.baseurl }}/cartografia-digital/images/porce1_accum_hist2.png){: .img-responsive}
 
 *¿Por qué los histogramas de la imagen anterior brindan tan poca información?*
 
@@ -63,13 +63,13 @@ Visualizamos nuevamente el histograma
 d.histogram porce1_accum_log
 {% endhighlight %}
 
-![Rango continuo]({{ site.baseurl }}/images/porce1_accum_log_hist1.png){: .img-responsive}
+![Rango continuo]({{ site.baseurl }}/cartografia-digital/images/porce1_accum_log_hist1.png){: .img-responsive}
 
 {% highlight bash linenos=table %}
 d.histogram porce1_accum_log nsteps=10
 {% endhighlight %}
 
-![Rango discreto]({{ site.baseurl }}/images/porce1_accum_log_hist2.png){: .img-responsive}
+![Rango discreto]({{ site.baseurl }}/cartografia-digital/images/porce1_accum_log_hist2.png){: .img-responsive}
 
 ### Extraer la red de drenaje a partir del mapa “accum”
 
@@ -85,11 +85,11 @@ r.mapcalc 'porce1_accum_log4 = if(porce1_accum_log > 4)'
 
 Desplegamos 4 monitores y comparamos los 4 mapas obtenidos
 
-![porce1_accum_log2]({{ site.baseurl }}/images/porce1_accum_log2.png){: .img-responsive}
+![porce1_accum_log2]({{ site.baseurl }}/cartografia-digital/images/porce1_accum_log2.png){: .img-responsive}
 
-![porce1_accum_log3]({{ site.baseurl }}/images/porce1_accum_log3.png){: .img-responsive}
+![porce1_accum_log3]({{ site.baseurl }}/cartografia-digital/images/porce1_accum_log3.png){: .img-responsive}
 
-![porce1_accum_log4]({{ site.baseurl }}/images/porce1_accum_log4.png){: .img-responsive}
+![porce1_accum_log4]({{ site.baseurl }}/cartografia-digital/images/porce1_accum_log4.png){: .img-responsive}
 
 Finalmente decidimos que los valores de *accum* más apropiados para trabajar la red de drenaje en esta zona son los valores logarítmicos mayores que 3, y sobre ese mapa continuaremos trabajando.
 
@@ -116,4 +116,4 @@ d.rast porcecito1
 d.vect porce1_accum_log3 color=blue width=2
 {% endhighlight %}
 
-![]({{ site.baseurl }}/images/porce1_accum_vect.png){: .img-responsive}
+![]({{ site.baseurl }}/cartografia-digital/images/porce1_accum_vect.png){: .img-responsive}
