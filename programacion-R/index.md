@@ -1,6 +1,7 @@
 ---
-layout: programacion-R
+layout: curso
 title: 'Programación y análisis cuantitativo de datos con R'
+curso: 'programacion-R'
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius mi sed purus volutpat, ut interdum arcu bibendum. Aliquam viverra nunc a nisl tempor, sed placerat turpis tempor. Nunc fermentum dignissim nisi id dignissim. In quam magna, pharetra eget felis vel, semper congue risus. Nunc ultricies iaculis tellus, eu pellentesque quam lobortis lobortis. Praesent mollis mauris leo, sit amet elementum dui mollis at. Nam in tristique ipsum, et interdum ipsum. Vestibulum ultrices ante a ipsum consequat placerat ac vel justo. Aliquam lacinia eget nulla ut ultricies.

@@ -1,8 +1,8 @@
 ---
-layout: programacion-R
+layout: curso
 title: 'Programa resumido'
 curso: 'programacion-R'
-menuorder: 01
+order: 01
 ---
 
 * Introducción a construcción de algoritmos.

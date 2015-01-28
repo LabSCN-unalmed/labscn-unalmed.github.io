@@ -1,7 +1,7 @@
 ---
-layout: programacion-R
+layout: curso
 title: 'Trabajos'
 curso: 'programacion-R'
-menuorder: 04
+order: 04
 ---
 

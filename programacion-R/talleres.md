@@ -1,7 +1,7 @@
 ---
-layout: programacion-R
+layout: curso
 title: 'Talleres'
 curso: 'programacion-R'
-menuorder: 05
+order: 05
 ---
 

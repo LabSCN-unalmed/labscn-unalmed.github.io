@@ -1,10 +1,6 @@
 ---
 layout: page
 title: 'Modelo vectorial'
-course: 'Cartografía Digital'
-comments: true
-categories: 'cartografia-digital'
-side: 'cartografia-digital'
 clase: '11'
 ---
 
