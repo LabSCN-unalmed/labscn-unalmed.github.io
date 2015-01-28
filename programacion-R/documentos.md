@@ -1,6 +1,8 @@
 ---
-layout: page
+layout: programacion-R
 title: 'Documentos'
+curso: 'programacion-R'
+menuorder: 02
 ---
 
 ## Clase 1

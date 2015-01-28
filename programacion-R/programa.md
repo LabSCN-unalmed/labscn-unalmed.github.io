@@ -1,10 +1,9 @@
 ---
-layout: page
-title: 'Programación y análisis cuantitativo de datos con R'
+layout: programacion-R
+title: 'Programa resumido'
+curso: 'programacion-R'
+menuorder: 01
 ---
-
-Programa resumido
------------------
 
 * Introducción a construcción de algoritmos.
 * Tipos de datos y objetos en R.
