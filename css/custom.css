@@ -137,8 +137,3 @@ p code {
     width: 150px;
   }
 }
-
-#sidebar li.active {
-  border: 0 #eee solid;
-  border-right-width: 4px;
-}

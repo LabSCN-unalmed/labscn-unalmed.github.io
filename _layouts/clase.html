@@ -3,8 +3,11 @@ layout: page
 ---
 
 <div class="row">
-  <div class="col-md-2 text-right" id="leftCol">
-    <ul class="nav nav-stacked" id="sidebar">
+  <div class="col-md-10 text-justify">
+    {{ content }}
+  </div>
+  <div class="col-md-2">
+    <ul class="nav nav-pills nav-stacked" id="sidebar">
       {% for clase in site.pages %}
         {% if clase.clase and clase.curso == page.curso %}
           {% if clase.url == page.url %}
@@ -15,11 +18,5 @@ layout: page
         {% endif %}
       {% endfor %}
     </ul>
-  </div>
-  <div class="col-md-10 text-justify">
-    <!-- <div class="page-header">
-      <h1>{{ page.title }}</h1>
-    </div> -->
-    {{ content }}
   </div>
 </div>
