@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: clase
 title: 'Manejo de proyecciones y creación de locations'
+curso: 'cartografia-digital'
 clase: '10'
 ---
 

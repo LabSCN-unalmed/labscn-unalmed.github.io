@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: clase
 title: 'Manejo de los distintos tipos de formato vectorial'
+curso: 'cartografia-digital'
 clase: '12'
 ---
 

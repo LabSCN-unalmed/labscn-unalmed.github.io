@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: clase
 title: 'Iniciando desde GRASS'
-clase: '02'
+curso: 'cartografia-digital'
+clase: '2'
 ---
 
 Sesión introductoria a GRASS GIS

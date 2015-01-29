@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: clase
 title: 'Modelo vectorial'
+curso: 'cartografia-digital'
 clase: '11'
 ---
 

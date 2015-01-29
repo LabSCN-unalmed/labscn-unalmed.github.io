@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: clase
 title: 'Manejo de distintos mapas vectoriales'
+curso: 'cartografia-digital'
 clase: '14'
 ---
 

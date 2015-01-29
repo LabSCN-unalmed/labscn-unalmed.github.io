@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: clase
 title: 'Parámetros morfométricos del relieve'
-clase: '07'
+curso: 'cartografia-digital'
+clase: '7'
 ---
 
 Un parámetro importante en la descripción cuantitativa del relieve es la pendiente. Con base en un mapa raster de altitudes (DSM o DTM) se puede calcular un mapa raster de pendiente; en este caso, se asigna un valor de pendiente a cada píxel.

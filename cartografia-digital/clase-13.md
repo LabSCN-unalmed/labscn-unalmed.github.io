@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: clase
 title: 'Trabajando con las tablas de atributos de un mapa vectorial'
+curso: 'cartografia-digital'
 clase: '13'
 ---
 

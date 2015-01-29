@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: clase
 title: 'Análisis del relieve relativo con base en un análisis de vecindad'
-clase: '04'
+curso: 'cartografia-digital'
+clase: '4'
 ---
 
 Fundamentos teóricos

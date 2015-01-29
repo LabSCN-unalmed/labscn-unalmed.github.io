@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: clase
 title: 'El uso del color como herramienta para analizar y visualizar la estructura de datos altitudinales en un DEM'
-clase: '03'
+curso: 'cartografia-digital'
+clase: '3'
 ---
 
 Fundamentos teóricos

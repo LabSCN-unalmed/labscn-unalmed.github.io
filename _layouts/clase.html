@@ -5,13 +5,12 @@ layout: page
 <div class="row">
   <div class="col-md-2 text-right" id="leftCol">
     <ul class="nav nav-stacked" id="sidebar">
-      {% assign menu = site.pages | sort: 'order' %}
-      {% for node in menu %}
-        {% if node.order and node.curso == page.curso %}
-          {% if node.url == page.url %}
-            <li class="active"><a href="{{ node.url }}">{{ node.title }}</a></li>
+      {% for clase in site.pages %}
+        {% if clase.clase and clase.curso == page.curso %}
+          {% if clase.url == page.url %}
+            <li class="active"><a href="{{ clase.url }}">Clase {{ clase.clase }}</a></li>
           {% else %}
-            <li><a href="{{ node.url }}">{{ node.title }}</a></li>
+            <li><a href="{{ clase.url }}">Clase {{ clase.clase }}</a></li>
           {% endif %}
         {% endif %}
       {% endfor %}

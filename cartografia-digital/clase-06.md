@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: clase
 title: 'Construir mapas sombreados para visualizar rasgos lineales en el relieve (lineamientos)'
-clase: '06'
+curso: 'cartografia-digital'
+clase: '6'
 ---
 
 Los mapas sombreados se despliegan en tonos de gris.

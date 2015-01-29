@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: clase
 title: 'Desplegar los mapas construidos con titulo y leyenda'
-clase: '05'
+curso: 'cartografia-digital'
+clase: '5'
 ---
 
 Para desplegar un mapa en un marco con título y leyenda se utiliza el comando `d.rast.leg`.

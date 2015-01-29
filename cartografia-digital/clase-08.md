@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: clase
 title: 'Análisis de redes de drenaje'
-clase: '08'
+curso: 'cartografia-digital'
+clase: '8'
 ---
 
 Extraer la red de drenaje y analizar en detalle el mapa "accum"

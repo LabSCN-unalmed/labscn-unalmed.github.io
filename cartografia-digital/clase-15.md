@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: clase
 title: 'Consulta sistemática y jerárquica a la estructura de la base de datos de un mapa vectorial'
+curso: 'cartografia-digital'
 clase: '15'
 ---
 
