@@ -3,21 +3,24 @@ layout: page
 ---
 
 <div class="row">
-  <div class="col-md-9">
-    {{ content }}
-  </div>
-  <div class="col-md-3">
-    <div class="list-group">
+  <div class="col-md-2 text-right" id="leftCol">
+    <ul class="nav nav-stacked" id="sidebar">
       {% assign menu = site.pages | sort: 'order' %}
       {% for node in menu %}
         {% if node.curso == page.curso %}
           {% if node.url == page.url %}
-            <a href="{{ node.url }}" class="list-group-item active">{{ node.title }}</a>
+            <li class="active"><a href="{{ node.url }}">{{ node.title }}</a></li>
           {% else %}
-            <a href="{{ node.url }}" class="list-group-item">{{ node.title }}</a>
+            <li><a href="{{ node.url }}">{{ node.title }}</a></li>
           {% endif %}
         {% endif %}
       {% endfor %}
-    </div>
+    </ul>
+  </div>
+  <div class="col-md-10 text-justify">
+    <!-- <div class="page-header">
+      <h1>{{ page.title }}</h1>
+    </div> -->
+    {{ content }}
   </div>
 </div>

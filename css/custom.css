@@ -114,3 +114,31 @@ p code {
   padding: 0 3px;
   margin: -1px 0;
 }
+
+.affix-top, .affix {
+  position: static;
+}
+
+@media (min-width: 768px) {
+  #sidebar.affix-top {
+    position: static;
+    margin-top: 20px;
+    width: 150px;
+  }
+
+  #sidebar.affix {
+    position: fixed;
+    top: 70px;
+    width: 150px;
+  }
+
+  #sidebar.affix-bottom {
+    position: absolute;
+    width: 150px;
+  }
+}
+
+#sidebar li.active {
+  border: 0 #eee solid;
+  border-right-width: 4px;
+}
