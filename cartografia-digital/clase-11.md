@@ -121,7 +121,7 @@ Dado que los mapas vectoriales, al contrario de los mapas raster, pueden ser des
 d.vect zvidantioq
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/zvidantioq.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/zvidantioq.png){: .img-responsive .img-rounded}
 
 - Desplegar sólo los bordes.
 
@@ -129,7 +129,7 @@ d.vect zvidantioq
 d.vect zvidantioq type=boundary
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/zvidantioq_boundary.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/zvidantioq_boundary.png){: .img-responsive .img-rounded}
 
 - Desplegar los límites sobre el mapa ráster.
 
@@ -138,7 +138,7 @@ d.rast ituango
 d.vect zvidantioq type=boundary
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/zvidantioq_boundary_ituan.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/zvidantioq_boundary_ituan.png){: .img-responsive .img-rounded}
 
 - Desplegar los centroides de las áreas sobre el mapa ráster.
 
@@ -147,7 +147,7 @@ d.rast ituango
 d.vect zvidantioq type=centroid
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/zvidantioq_centroid_ituan.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/zvidantioq_centroid_ituan.png){: .img-responsive .img-rounded}
 
 - Despliegue de las identificaciones de las zonas.
 
@@ -156,7 +156,7 @@ d.vect zvidantioq type=boundary
 d.vect zvidantioq display=attr type=centroid attrcol=COZO lcolor=blue
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/zvidantioq_boundary_COZO.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/zvidantioq_boundary_COZO.png){: .img-responsive .img-rounded}
 
 - Colorear las zonas de manera aleatoria utilizando la opción `-c`.
 
@@ -164,7 +164,7 @@ d.vect zvidantioq display=attr type=centroid attrcol=COZO lcolor=blue
 d.vect -c zvidantioq display=shape,attr attrcol=COZO
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/zvidantioq_boundary_COZO_color.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/zvidantioq_boundary_COZO_color.png){: .img-responsive .img-rounded}
 
 Utilizando el parámetro `where` se puede seleccionar el despliegue de un sólo polígono identificándolo con la columna COZO. Este parámetro es muy importante para desplegar unos polígonos seleccionados por el usuario.
 
@@ -176,7 +176,7 @@ Con `where` podemos hacer preguntas como desplegar los polígonos con un valor m
 d.vect -c zvidantioq where="COZO='bh-T'" display=shape,attr attrcol=COZO lcolor=black
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/zvidantioq_boundary_COZO_bhT.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/zvidantioq_boundary_COZO_bhT.png){: .img-responsive .img-rounded}
 
 - Modificar la región para ajustarla al mapa vectorial de las zonas de vida de Antioquia.
 
@@ -185,7 +185,7 @@ g.region vect=zvidantioq
 d.vect zvidantioq
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/zvidantioq_full.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/zvidantioq_full.png){: .img-responsive .img-rounded}
 
 - Desplegar todo el mapa de zonas de vida para Antioquia. La opción `-c` asigna colores al azar a los polígonos.
 
@@ -193,7 +193,7 @@ d.vect zvidantioq
 d.vect -c zvidantioq display=shape,attr attrcol=COZO
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/zvidantioq_color.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/zvidantioq_color.png){: .img-responsive .img-rounded}
 
 - Mostrar el mapa de sólo una zona que no se identificaba anteriormente.
 
@@ -201,7 +201,7 @@ d.vect -c zvidantioq display=shape,attr attrcol=COZO
 d.vect -c zvidantioq where="COZO='bmh-MB'" display=shape,attr attrcol=COZO lcolor=black
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/zvidantioq_boundary_COZO_bmhMB.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/zvidantioq_boundary_COZO_bmhMB.png){: .img-responsive .img-rounded}
 
 - Seleccionar la zona de ituango y desplegar las zonas de vida.
 
@@ -212,7 +212,7 @@ d.vect zvidantioq type=boundary
 d.vect zvidantioq display=attr type=centroid attrcol=COZO lcolor=black lsize=16
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/ituan_zvidantioq.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/ituan_zvidantioq.png){: .img-responsive .img-rounded}
 
 Estadísticos de una variable numérica de la base de datos
 ---------------------------------------------------------

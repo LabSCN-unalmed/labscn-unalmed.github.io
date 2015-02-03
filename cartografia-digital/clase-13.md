@@ -59,7 +59,7 @@ d.vect carreteras color=red
 d.vect carreteras where="cat=1" color=blue width=3
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/muniantioq_carreteras_cat1.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/muniantioq_carreteras_cat1.png){: .img-responsive .img-rounded}
 
 - Para conocer los atributos de la línea resaltada en color azul.
 
@@ -116,4 +116,4 @@ d.vect carreteras where="TYPE='primary'" color=red width=4
 d.vect carreteras where="TYPE='secondary'" color=blue width=3
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/muniantioq_pri_sec.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/muniantioq_pri_sec.png){: .img-responsive .img-rounded}

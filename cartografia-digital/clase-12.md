@@ -58,7 +58,7 @@ d.rast -o riogrande_sup
 d.vect muniantioq type=boundary
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/muniantioq_rast.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/muniantioq_rast.png){: .img-responsive .img-rounded}
 
 Para consultar la información de los polígonos utilizar el comando `d.what.vect`.
 
@@ -117,7 +117,7 @@ d.vect muniantioq type=boundary
 d.vect carreteras col=red
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/carreteras_rast.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/carreteras_rast.png){: .img-responsive .img-rounded}
 
 - Se despliegan sólo las carreteras *primarias*.
 
@@ -129,7 +129,7 @@ d.vect muniantioq type=boundary
 d.vect carreteras where="TYPE='primary'" col=red
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/carreteras_rast_primary.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/carreteras_rast_primary.png){: .img-responsive .img-rounded}
 
 Importar mapa de puntos de localización de Antioquia
 ----------------------------------------------------
@@ -156,7 +156,7 @@ d.vect carreteras where="TYPE='primary'" col=red
 d.vect puntos where="PLACE='town'" col=grey
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/puntos_rast "fig:".png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/puntos_rast "fig:".png){: .img-responsive .img-rounded}
 
 - Se despliegan los puntos en porcecito, para identificar lugares.
 
@@ -169,7 +169,7 @@ d.vect carreteras col=red
 d.vect puntos col=grey
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/porcecito_puntos.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/porcecito_puntos.png){: .img-responsive .img-rounded}
 
 - Se despliegan los nombres de los puntos en el mapa.
 
@@ -182,7 +182,7 @@ d.vect puntos display=attr,shape col=red
 icon=“basic/diamond” attrcol=NAME lcolor=black
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/porcecito_puntos_labels.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/porcecito_puntos_labels.png){: .img-responsive .img-rounded}
 
 - Se consulta la información de los puntos con el comando `d.what.vect`.
 

@@ -17,4 +17,4 @@ Adicionalmente, la opción `position` sirve para indicar el porcentaje de la pan
 
 Dedicar un 60% a un 70% para el mapa.
 
-![Mapa desplegado con título y leyenda]({{ site.baseurl }}/cartografia-digital/images/porce1_RR_33_reclass_leg.png){: .img-responsive .img-rounded}
+![Mapa desplegado con título y leyenda](/cartografia-digital/images/porce1_RR_33_reclass_leg.png){: .img-responsive .img-rounded}
