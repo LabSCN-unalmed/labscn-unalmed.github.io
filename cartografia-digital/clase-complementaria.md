@@ -88,7 +88,7 @@ d.rast altiplanos
 d.grid size=2000
 {% endhighlight %}
 
-![Altiplanos]({{ site.baseurl }}/cartografia-digital/images/altiplanos.png){: .img-responsive}
+![Altiplanos]({{ site.baseurl }}/cartografia-digital/images/altiplanos.png){: .img-responsive .img-rounded}
 
 ### Obtener un archivo con los datos del perfil transversal al conjunto de perfiles a levantar
 
@@ -102,7 +102,7 @@ Podemos utilizar el redireccionador `|` para que la salida de un comando sea la 
 r.profile -g input=altiplanos profile=839954.615861,1212011.820184,855220.587482,1223332.652859 | v.in.ascii out=perfil_transversal fs=space
 {% endhighlight %}
 
-![Perfil transversal generado]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfil_transversal.png){: .img-responsive}
+![Perfil transversal generado]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfil_transversal.png){: .img-responsive .img-rounded}
 
 ### Seleccionar a lo largo del perfil transversal, los puntos iniciales de los perfiles longitudinales
 
@@ -185,7 +185,7 @@ r.transect -g  map=altiplanos line=855208.092679,1223323.387050,323.4,25000 | v.
 
 Se emplea el comando `v.in.ascii` de manera similar al perfil transversal, para generar los perfiles topográficos como mapas vectoriales de GRASS.
 
-![Perfiles longitudinales]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_longitudinales.png){: .img-responsive}
+![Perfiles longitudinales]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_longitudinales.png){: .img-responsive .img-rounded}
 
 Luego con el comando `db.describe -c` comprobamos que cada uno de los perfiles construidos contenga cinco columnas, y lo más importante, un número igual de filas:
 
@@ -266,7 +266,7 @@ with(perfil4, points(distancia, altitud, type="l", col="brown"))
 with(perfil5, points(distancia, altitud, type="l", col="cyan"))
 {% endhighlight %}
 
-![Perfiles altiplano]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_1_5.png){: .img-responsive}
+![Perfiles altiplano]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_1_5.png){: .img-responsive .img-rounded}
 
 ### Construcción de la matriz de altitudes
 
@@ -366,7 +366,7 @@ Seleccionamos únicamente las primeras 10 columnas, las cuales corresponden a lo
 matplot(MHperfiles[,1:10], type = "l")
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_todos.png){: .img-responsive}
+![]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_todos.png){: .img-responsive .img-rounded}
 
 #### Graficar altitudes máximas, promedio y mínimas
 
@@ -374,7 +374,7 @@ matplot(MHperfiles[,1:10], type = "l")
 matplot(MHperfiles[,11:13], type = "l")
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_altitudes.png){: .img-responsive}
+![]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_altitudes.png){: .img-responsive .img-rounded}
 
 #### Graficar un perfil específico
 
@@ -384,7 +384,7 @@ Se selecciona el número de la columna correspondiente al perfil que se quiera g
 matplot(MHperfiles[,5], type = "l", lwd = 2, col = "blue", main = "Perfil No. 5")
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_5.png){: .img-responsive}
+![]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_5.png){: .img-responsive .img-rounded}
 
 **Personalizar un poco la gráfica obtenida**
 
@@ -397,7 +397,7 @@ matplot(MHperfiles[,5], type = "l", lwd = 2, col = "blue", main = "Perfil No. 5"
 matplot(MHperfiles[,5], type = "l", lwd = 2, col = "blue", main = "Perfil No. 5")
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_5_v2.png){: .img-responsive}
+![]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_5_v2.png){: .img-responsive .img-rounded}
 
 Agregar distancias a la matriz de altitudes
 -------------------------------------------
@@ -421,4 +421,4 @@ matplot(x = MHperfiles[,1], y = MHperfiles[,12:14], type = "l", col = c("red", "
 legend(0, 2800, c("Altitud máxima", "Altitud promedio", "Altitud mínima"), col = c("red", "green", "blue"), lty = 1:3)
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_final.png){: .img-responsive}
+![]({{ site.baseurl }}/cartografia-digital/images/altiplanos_perfiles_R_final.png){: .img-responsive .img-rounded}

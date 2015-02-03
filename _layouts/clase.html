@@ -7,16 +7,22 @@ layout: page
     {{ content }}
   </div>
   <div class="col-md-2">
-    <ul class="nav nav-pills nav-stacked" id="sidebar">
+    <div class="list-group">
       {% for clase in site.pages %}
         {% if clase.clase and clase.curso == page.curso %}
           {% if clase.url == page.url %}
-            <li class="active"><a href="{{ clase.url }}">Clase {{ clase.clase }}</a></li>
+            <a href="{{ clase.url }}" class="list-group-item active">
+              <h4 class="list-group-item-heading">Clase {{ clase.clase }}</h4>
+              <p class="list-group-item-text">{{ clase.title }}</p>
+            </a>
           {% else %}
-            <li><a href="{{ clase.url }}">Clase {{ clase.clase }}</a></li>
+            <a href="{{ clase.url }}" class="list-group-item">
+              <h4 class="list-group-item-heading">Clase {{ clase.clase }}</h4>
+              <p class="list-group-item-text">{{ clase.title }}</p>
+            </a>
           {% endif %}
         {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   </div>
 </div>

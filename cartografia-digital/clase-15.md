@@ -2,7 +2,7 @@
 layout: clase
 title: 'Consulta sistemática y jerárquica a la estructura de la base de datos de un mapa vectorial'
 curso: 'cartografia-digital'
-clase: '15'
+clase: 15
 ---
 
 Las preguntas básicas
@@ -156,4 +156,4 @@ d.vect map=puntos display=attr attrcol=ALTITUD where="ALTITUD>1794" lcolor=red x
 d.vect map=puntos display=attr attrcol=ALTITUD where="ALTITUD<1794" lcolor=blue xref=right yref=top
 {% endhighlight %}
 
-![Resultado obtenido]({{ site.baseurl }}/cartografia-digital/images/desarrollo_aplicacion_vectorial.png){: .img-responsive}
+![Resultado obtenido]({{ site.baseurl }}/cartografia-digital/images/desarrollo_aplicacion_vectorial.png){: .img-responsive .img-rounded}
