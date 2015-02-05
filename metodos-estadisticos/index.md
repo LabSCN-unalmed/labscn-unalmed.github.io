@@ -24,6 +24,7 @@ curso: 'metodos-estadisticos'
 | Planeación	| 20% | Martes 10 de Marzo de 2015 | (Presentación y trabajo pdf) |
 | Presentación Final   |	 30% | Jueves 28 de Mayo de 2015 | (Trabajo y poster pdf) |
 | Seguimiento |	 40% |  |
+{: .table .table-hover}
 
 # Enlaces principales
 

@@ -38,6 +38,7 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 | Trabajos individuales	 | 20% |
 | Trabajos en grupo	 | 20% |
 | Final	 | 30% |
+{: .table .table-hover}
 
 # Políticas del curso
 - Toda entrega se realizará al correo **krcabrer@unal.edu.co**
