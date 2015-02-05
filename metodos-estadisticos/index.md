@@ -4,8 +4,8 @@ title: 'Métodos Estadísticos (Diseño Experimental)'
 curso: 'metodos-estadisticos'
 ---
 
+## Temas principales
 
-# Temas principales
 1. Planeación de un diseño experimental.
 2. Estadística básica (Probabilidad, parámetros y estadística).
 3. Diseños de una sola vía.
@@ -15,23 +15,22 @@ curso: 'metodos-estadisticos'
 7. Diseños de mezclas
 8. Medidas repetidas.
 
+## Evaluación:
 
-# Evaluación:
-
-| Item | Porcentaje | Fecha entrega | Formato |
-| ------------ | :----------: | ------------ | --------- |
-| Propuesta inicial	| 10% | Martes 17 de Febrero de 2015 | (Presentación pdf) |
-| Planeación	| 20% | Martes 10 de Marzo de 2015 | (Presentación y trabajo pdf) |
-| Presentación Final   |	 30% | Jueves 28 de Mayo de 2015 | (Trabajo y poster pdf) |
-| Seguimiento |	 40% |  |
+| Item               | Porcentaje | Fecha entrega                | Formato                    |
+|:-------------------|:----------:|:-----------------------------|:---------------------------|
+| Propuesta inicial  |        10% | Martes 17 de Febrero de 2015 | Presentación PDF           |
+| Planeación         |        20% | Martes 10 de Marzo de 2015   | Presentación y trabajo PDF |
+| Presentación Final |        30% | Jueves 28 de Mayo de 2015    | Trabajo y poster PDF       |
+| Seguimiento        |        40% |                              |                            |
 {: .table .table-hover}
 
-# Enlaces principales
+## Enlaces principales
 
 * [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
 * [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/)
 
-# Bibliografía
+## Bibliografía
 
 ### Libro guía:
 
@@ -45,7 +44,8 @@ curso: 'metodos-estadisticos'
 
 - Cornell, J. A. A Premier on Experiments with Mixtures. John Wiley & Sons, 2011.
 
-# Horario de atención:
+## Horario de atención:
 
-Lunes 10 am -12 am Aula 21-215 (Laboratorio de sistemas complejos naturales)
+Lunes 10 am - 12 m
 
+Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
