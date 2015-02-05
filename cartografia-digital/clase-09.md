@@ -2,7 +2,7 @@
 layout: clase
 title: 'Uso del toolkit r.stream.*'
 curso: 'cartografia-digital'
-clase: '9'
+clase: 9
 ---
 
 El SIG GRASS cuenta con una serie de <a href="http://grasswiki.osgeo.org/wiki/AddOns/GRASS_6" target="_blank">complementos</a> que no hacen parte oficial del SIG pero pueden ser instalados haciendo uso del módulo `g.extension`:

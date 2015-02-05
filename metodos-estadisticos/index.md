@@ -4,6 +4,7 @@ title: 'Métodos Estadísticos (Diseño Experimental)'
 curso: 'metodos-estadisticos'
 ---
 
+
 # Temas principales
 1. Planeación de un diseño experimental.
 2. Estadística básica (Probabilidad, parámetros y estadística).
@@ -45,6 +46,5 @@ curso: 'metodos-estadisticos'
 
 # Horario de atención:
 
-Lunes 10 am -12 am Aula 21-215 (Laboratorio de sistemas complejos)
-
+Lunes 10 am -12 am Aula 21-215 (Laboratorio de sistemas complejos naturales)
 

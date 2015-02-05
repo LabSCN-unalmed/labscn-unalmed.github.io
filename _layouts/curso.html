@@ -7,7 +7,7 @@ layout: page
     {{ content }}
   </div>
   <div class="col-md-2">
-    <ul class="nav nav-pills nav-stacked" id="sidebar">
+    <ul class="nav nav-pills nav-stacked">
       {% assign menu = site.pages | sort: 'order' %}
       {% for node in menu %}
         {% if node.order and node.curso == page.curso %}

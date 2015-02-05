@@ -2,7 +2,7 @@
 layout: clase
 title: 'Trabajando con las tablas de atributos de un mapa vectorial'
 curso: 'cartografia-digital'
-clase: '13'
+clase: 13
 ---
 
 Durante esta clase nos dedicaremos a realizar ejercicios en torno al manejo de las tablas de atributos asociadas a los mapas vectoriales.
@@ -59,7 +59,7 @@ d.vect carreteras color=red
 d.vect carreteras where="cat=1" color=blue width=3
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/muniantioq_carreteras_cat1.png){: .img-responsive}
+![](/cartografia-digital/images/muniantioq_carreteras_cat1.png){: .img-responsive .img-rounded}
 
 - Para conocer los atributos de la línea resaltada en color azul.
 
@@ -116,4 +116,4 @@ d.vect carreteras where="TYPE='primary'" color=red width=4
 d.vect carreteras where="TYPE='secondary'" color=blue width=3
 {% endhighlight %}
 
-![]({{ site.baseurl }}/cartografia-digital/images/muniantioq_pri_sec.png){: .img-responsive}
+![](/cartografia-digital/images/muniantioq_pri_sec.png){: .img-responsive .img-rounded}

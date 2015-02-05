@@ -2,7 +2,7 @@
 layout: clase
 title: 'El uso del color como herramienta para analizar y visualizar la estructura de datos altitudinales en un DEM'
 curso: 'cartografia-digital'
-clase: '3'
+clase: 3
 ---
 
 Fundamentos teóricos
@@ -18,7 +18,7 @@ Un color por lo tanto se obtiene como una combinación de valores para *rojo*, *
 
 Evaluar distintas combinaciones empleando el programa “gcolor2”: Aplicaciones &rarr; Gráficos &rarr; Gcolor2
 
-![Selector de color gcolor2]({{ site.baseurl }}/cartografia-digital/images/gcolor2.png){: .img-responsive}
+![Selector de color gcolor2](/cartografia-digital/images/gcolor2.png){: .img-responsive .img-rounded}
 
 *¿Qué pasa si mantenemos constante el valor de R y G y se disminuye gradualmente el valor de B?*
 
@@ -84,7 +84,7 @@ Vamos a utilizar algunas tabla de colores preestablecidas.
 r.colors map=porcecito1 color=aspect
 {% endhighlight %}
 
-![La tabla de colores "aspect"]({{ site.baseurl }}/cartografia-digital/images/porcecito_aspect.png){: .img-responsive}
+![La tabla de colores "aspect"](/cartografia-digital/images/porcecito_aspect.png){: .img-responsive .img-rounded}
 
 *¿Qué rasgos de la región resaltan con esta tabla de colores?*
 
@@ -94,7 +94,7 @@ r.colors map=porcecito1 color=aspect
 r.colors map=porcecito1 color=bcyr
 {% endhighlight %}
 
-![La tabla de colores "bcyr"]({{ site.baseurl }}/cartografia-digital/images/porcecito_bcyr.png){: .img-responsive}
+![La tabla de colores "bcyr"](/cartografia-digital/images/porcecito_bcyr.png){: .img-responsive .img-rounded}
 
 ### La tabla de colores “elevation”
 
@@ -102,7 +102,7 @@ r.colors map=porcecito1 color=bcyr
 r.colors map=porcecito1 color=elevation
 {% endhighlight %}
 
-![La tabla de colores "elevation"]({{ site.baseurl }}/cartografia-digital/images/porcecito_elevation.png){: .img-responsive}
+![La tabla de colores "elevation"](/cartografia-digital/images/porcecito_elevation.png){: .img-responsive .img-rounded}
 
 ### La tabla de colores “rainbow”
 
@@ -110,7 +110,7 @@ r.colors map=porcecito1 color=elevation
 r.colors map=porcecito1 color=rainbow
 {% endhighlight %}
 
-![La tabla de colores "rainbow"]({{ site.baseurl }}/cartografia-digital/images/porcecito_rainbow.png){: .img-responsive}
+![La tabla de colores "rainbow"](/cartografia-digital/images/porcecito_rainbow.png){: .img-responsive .img-rounded}
 
 Asignación de color creando una tabla personalizada de colores
 --------------------------------------------------------------
@@ -176,7 +176,7 @@ Pasos a seguir:
 r.colors map=porcecito1 rules=TC_porce1
 {% endhighlight %}
 
-![Primera versión]({{ site.baseurl }}/cartografia-digital/images/TC_porce1.png){: .img-responsive}
+![Primera versión](/cartografia-digital/images/TC_porce1.png){: .img-responsive .img-rounded}
 
 Lo mas seguro es que la primera definición de la tabla de colores no nos satisface.
 
@@ -200,7 +200,7 @@ Mirando el mapa y teniendo el archivo abierto en gedit al lado, le hacemos las m
 r.colors map=porcecito1 rules=TC_porce2
 {% endhighlight %}
 
-![Segunda versión]({{ site.baseurl }}/cartografia-digital/images/TC_porce2.png){: .img-responsive}
+![Segunda versión](/cartografia-digital/images/TC_porce2.png){: .img-responsive .img-rounded}
 
 #### Tercera versión
 
@@ -220,11 +220,11 @@ r.colors map=porcecito1 rules=TC_porce2
 r.colors map=porcecito1 rules=TC_porce3
 {% endhighlight %}
 
-![Tercera versión]({{ site.baseurl }}/cartografia-digital/images/TC_porce3.png){: .img-responsive}
+![Tercera versión](/cartografia-digital/images/TC_porce3.png){: .img-responsive .img-rounded}
 
 **Un primer descreste:** Con el comando `nviz` visualizar lo hecho. La diferencia entre una observación 2D del relieve y una observación 3D del mismo.
 
-![Visualización del relieve en 3D utilizando nviz]({{ site.baseurl }}/cartografia-digital/images/porcecito3D.png){: .img-responsive}
+![Visualización del relieve en 3D utilizando nviz](/cartografia-digital/images/porcecito3D.png){: .img-responsive .img-rounded}
 
 **NOTA:** Hemos utilizado la idea de variación gradual del color pero nos restringimos a los colores que por nombre identifica el GRASS.
 
@@ -249,7 +249,7 @@ Utilizando nombres y la nomenclatura RGB.
 r.colors map=porcecito1 rules=TC_porce4
 {% endhighlight %}
 
-![Cuarta versión]({{ site.baseurl }}/cartografia-digital/images/TC_porce4.png){: .img-responsive}
+![Cuarta versión](/cartografia-digital/images/TC_porce4.png){: .img-responsive .img-rounded}
 
 ### Crear tabla de colores en gedit con variación discreta del color
 
@@ -271,7 +271,7 @@ En este caso, se trata de definir rangos altitudinales discretos (un comienzo y 
 r.colors map=porcecito1 rules=TC_porce5
 {% endhighlight %}
 
-![Variación discreta de color por altitud]({{ site.baseurl }}/cartografia-digital/images/TC_porce5.png){: .img-responsive}
+![Variación discreta de color por altitud](/cartografia-digital/images/TC_porce5.png){: .img-responsive .img-rounded}
 
 En la tabla antes creada (`TC_porce5`) no se cubre todo el rango altitudinal del archivo `porcecito1`. Al aplicar el comando `r.colors` sale una advertencia señalando este hecho.
 
@@ -296,7 +296,7 @@ En este caso iniciamos con un porcentaje del 0% en la altitud mas baja y asignam
 r.colors map=porcecito1 rules=TC_porce6
 {% endhighlight %}
 
-![Primera versión]({{ site.baseurl }}/cartografia-digital/images/TC_porce6.png){: .img-responsive}
+![Primera versión](/cartografia-digital/images/TC_porce6.png){: .img-responsive .img-rounded}
 
 #### Segunda versión
 
@@ -314,7 +314,7 @@ r.colors map=porcecito1 rules=TC_porce6
 r.colors map=porcecito1 rules=TC_porce6a
 {% endhighlight %}
 
-![Segunda versión]({{ site.baseurl }}/cartografia-digital/images/TC_porce6a.png){: .img-responsive}
+![Segunda versión](/cartografia-digital/images/TC_porce6a.png){: .img-responsive .img-rounded}
 
 #### Versión Final
 
@@ -335,7 +335,7 @@ Después de varias modificaciones terminamos con esta combinación:
 r.colors map=porcecito1 rules=TC_porce7
 {% endhighlight %}
 
-![Versión Final]({{ site.baseurl }}/cartografia-digital/images/TC_porce7.png){: .img-responsive}
+![Versión Final](/cartografia-digital/images/TC_porce7.png){: .img-responsive .img-rounded}
 
 ### Crear una nueva carpeta para guardar las tablas de colores creadas
 
@@ -377,9 +377,9 @@ d.rast ituan
 r.colors map=ituan raster=porcecito1
 {% endhighlight %}
 
-![Antes]({{ site.baseurl }}/cartografia-digital/images/ituan.png){: .img-responsive}
+![Antes](/cartografia-digital/images/ituan.png){: .img-responsive .img-rounded}
 
-![Después]({{ site.baseurl }}/cartografia-digital/images/ituan_porce1.png){: .img-responsive}
+![Después](/cartografia-digital/images/ituan_porce1.png){: .img-responsive .img-rounded}
 
 *¿Por qué aparecen zonas en el mapa `ituan` que no presentan color? ¿Cómo explicarlo?*
 

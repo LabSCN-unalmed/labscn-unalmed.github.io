@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: curso
 title: 'Programa'
+curso: 'estadistica-espacial'
 ---
 

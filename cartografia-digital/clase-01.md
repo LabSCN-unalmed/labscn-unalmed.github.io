@@ -2,7 +2,7 @@
 layout: clase
 title: 'Elementos introductorios'
 curso: 'cartografia-digital'
-clase: '1'
+clase: 1
 ---
 
 ¿Qué es la superficie terrestre?

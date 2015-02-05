@@ -1,48 +1,21 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand hidden-xs hidden-sm" href="{{ site.baseurl }}/">Laboratorio de Sistemas Complejos Naturales</a>
-      <a class="navbar-brand hidden-md hidden-lg" href="{{ site.baseurl }}/">LabSCN</a>
+      <a class="navbar-brand" href="/">LabSCN</a>
     </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="{{ site.baseurl }}/about">Sobre Nosotros</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cursos<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li class="dropdown-header">Cartografía digital</li>
-            <li><a href="{{ site.baseurl }}/cartografia-digital/clases.html">Guía de Clases</a></li>
-            <!-- Otro curso -->
-            <li class="divider"></li>
-            <li class="dropdown-header">Programación y análisis<br>cuantitativo de datos con R</li>
-            <li><a href="{{ site.baseurl }}/programacion-R/programa.html">Programa resumido</a></li>
-            <li><a href="{{ site.baseurl }}/programacion-R/documentos.html">Documentos</a></li>
-            <li><a href="{{ site.baseurl }}/programacion-R/codigos.html">Códigos</a></li>
-            <li><a href="{{ site.baseurl }}/programacion-R/trabajos.html">Trabajos</a></li>
-            <li><a href="{{ site.baseurl }}/programacion-R/talleres.html">Talleres</a></li>
-            <!-- Para agregar otro curso al menú agregar las dos líneas siguientes:
-            <li class="divider"></li>
-            <li class="dropdown-header">Nombre del curso</li>
-            Y los elementos a incluir para dicho curso, por ejemplo
-            <li><a href="{{ site.baseurl }}/curso/index.html">Índice</a></li> -->
-            <li class="divider"></li>
-            <li class="dropdown-header">Estadística Espacial</li>
-            <li><a href="{{ site.baseurl }}/estadistica-espacial/programa.html">Programa</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" role="search" action="{{ site.simple_search }}" method="get" target="_blank">
+    <div class="navbar-collapse collapse navbar-inverse-collapse">
+      {% include nav-items.html %}
+      <!-- <form class="navbar-form navbar-right" role="search" action="{{ site.simple_search }}" method="get" target="_blank">
         <div class="form-group">
           <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}">
           <input type="text" class="form-control" name="q" results="0" placeholder="Buscar">
         </div>
-      </form>
+      </form> -->
     </div>
   </div>
 </nav>

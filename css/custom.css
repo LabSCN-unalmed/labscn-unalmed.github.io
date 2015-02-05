@@ -2,12 +2,6 @@ body {
   padding-top: 85px;
 }
 
-/* Image styling */
-img.img-responsive {
-  margin: auto;
-  max-width: 80%;
-}
-
 /* Code blocks styling */
 pre, code {
   font-family: "Ubuntu Mono", monospace;
@@ -57,55 +51,6 @@ table.highlighttable td.code pre {
   color: #fff !important;
 }
 
-/*.code .c { color:#586e75 }
-.code .cm { color:#586e75 }
-.code .cp { color:#586e75 }
-.code .c1 { color:#586e75 }
-.code .cs { color:#586e75 }
-.code .err { color:#dc322f }
-.code .k { color:#cb4b16 }
-.code .o { color:#93a1a1 }
-.code .p { color:#93a1a1 }
-.code .ow { color:#2aa198 }
-.code .gd { color:#93a1a1 }
-.code .gd .x { color:#93a1a1 }
-.code .ge { color:#93a1a1; font-style: italic }
-.code .gh { color:#586e75 }
-.code .gi { color:#93a1a1 }
-.code .gi .x { color:#93a1a1 }
-.code .gs { color:#93a1a1; font-weight: bold }
-.code .gu { color:#6c71c4 }
-.code .kc { color:#859900 }
-.code .kd { color:#268bd2 }
-.code .kp { color:#cb4b16 }
-.code .kr { color:#d33682 }
-.code .kt { color:#2aa198 }
-.code .n { color:#268bd2 }
-.code .na { color:#268bd2 }
-.code .nb { color:#859900 }
-.code .nc { color:#d33682 }
-.code .no { color:#b58900 }
-.code .nl { color:#859900 }
-.code .ne { color:#268bd2 }
-.code .nf { color:#268bd2 }
-.code .nn { color:#b58900 }
-.code .nt { color:#268bd2 }
-.code .nx { color:#b58900 }
-.code .vg { color:#268bd2 }
-.code .vi { color:#268bd2 }
-.code .nv { color:#268bd2 }
-.code .mf { color:#2aa198 }
-.code .m { color:#2aa198 }
-.code .mh { color:#2aa198 }
-.code .mi { color:#2aa198 }
-.code .s { color:#2aa198 }
-.code .sd { color:#2aa198 }
-.code .s2 { color:#2aa198 }
-.code .se { color:#dc322f }
-.code .si { color:#268bd2 }
-.code .sr { color:#2aa198 }
-.code .s1 { color:#2aa198 }*/
-
 p code {
   display: inline-block;
   font-size: 13px;
@@ -113,27 +58,4 @@ p code {
   border: 1px solid #ddd;
   padding: 0 3px;
   margin: -1px 0;
-}
-
-.affix-top, .affix {
-  position: static;
-}
-
-@media (min-width: 768px) {
-  #sidebar.affix-top {
-    position: static;
-    margin-top: 20px;
-    width: 150px;
-  }
-
-  #sidebar.affix {
-    position: fixed;
-    top: 70px;
-    width: 150px;
-  }
-
-  #sidebar.affix-bottom {
-    position: absolute;
-    width: 150px;
-  }
 }
