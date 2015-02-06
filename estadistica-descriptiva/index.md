@@ -24,6 +24,13 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 - Entendimiento de la naturaleza de los datos.
 - Estadística descriptiva, media, mediana, moda, cuantiles, etc.
 
+# Enlaces importantes
+
+
+* [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
+* [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/)
+
+
 # Horario de atención:
 - Lunes 10:00 am a 12:00 m.
 

@@ -47,5 +47,5 @@ curso: 'metodos-estadisticos'
 
 # Horario de atención:
 
-Lunes 10 am -12 am Aula 21-215 (Laboratorio de sistemas complejos naturales)
+Lunes 10 am -12 m Aula 21-215 (Laboratorio de sistemas complejos naturales)
 
