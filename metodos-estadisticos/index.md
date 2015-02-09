@@ -47,6 +47,6 @@ order: 00
 
 ## Horario de atención:
 
-Lunes 10:00 am - 12:00 m
+- Lunes 10:00 am - 12:00 m
 
-Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
+- Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)

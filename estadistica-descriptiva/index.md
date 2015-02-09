@@ -34,9 +34,9 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 
 ## Horario de atención:
 
-Lunes 10:00 a.m. - 12:00 m.
+- Lunes 10:00 a.m. - 12:00 m.
 
-Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
+- Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
 
 ## Evaluación:
 
