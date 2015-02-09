@@ -2,6 +2,7 @@
 layout: curso
 title: 'Métodos Estadísticos (Diseño Experimental)'
 curso: 'metodos-estadisticos'
+order: 00
 ---
 
 ## Temas principales
@@ -27,8 +28,8 @@ curso: 'metodos-estadisticos'
 
 ## Enlaces principales
 
-* [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
-* [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/)
+* [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="_blank"}
+* [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="_blank"}
 
 ## Bibliografía
 
