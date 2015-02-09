@@ -11,11 +11,7 @@ layout: page
       {% assign menu = site.pages | sort: 'order' %}
       {% for node in menu %}
         {% if node.order and node.curso == page.curso %}
-          {% if node.url == page.url %}
-            <li class="active"><a href="{{ node.url }}">{{ node.title }}</a></li>
-          {% else %}
-            <li><a href="{{ node.url }}">{{ node.title }}</a></li>
-          {% endif %}
+            <li class="{% if node.url == page.url %}active{% endif %}"><a href="{{ node.url }}">{% if node.url contains 'index.html' %}Inicio{% else %}{{ node.title }}{% endif %}</a></li>
         {% endif %}
       {% endfor %}
     </ul>
