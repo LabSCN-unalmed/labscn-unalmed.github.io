@@ -206,12 +206,13 @@ El historial no se conserva cuando se trabaja con la interfaz gráfica. Desde la
 history
 {% endhighlight %}
 
-Y si se quiere almacenar en un archivo de texto para su posterior
-consulta:
+Y si se quiere almacenar en un archivo de texto para su posterior consulta:
 
 {% highlight bash linenos=table %}
 history > clase1.txt
 {% endhighlight %}
+
+**NOTA:** El nombre del archivo destino no debe contener espacios.
 
 ### Consultar la documentación de los comandos
 
