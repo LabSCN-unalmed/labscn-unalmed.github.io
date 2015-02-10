@@ -15,6 +15,9 @@ order: 01
 
 ## Lectura de la base de datos de encuesta
 
+- [Base de datos encuesta (Excel)](/estadistica-descriptiva/guiones/Encuesta.xlsx){:target="_blank"}
+- [Base de datos encuesta (texto)](/estadistica-descriptiva/guiones/Encuesta.csv){:target="_blank"}
+
 ### Lectura incial
 
 [Lectura](/estadistica-descriptiva/guiones/Encuesta1.html){:target="_blank"}
