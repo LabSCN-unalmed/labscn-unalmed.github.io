@@ -1,0 +1,19 @@
+---
+title: "Datos Espaciales en R"
+author: "Kenneth Roy Cabrera Torres"
+date: "11/02/2015"
+output:
+  html_document:
+    keep_md: yes
+    toc: yes
+---
+
+# Tipo `SpatialPoints`
+
+# Tipo `SpatialLines`
+
+# Tipo `SpatialPolygons`
+
+# Tipo `SpatialGrid`
+
+# Tipo `Raster` del paquete **raster** 
