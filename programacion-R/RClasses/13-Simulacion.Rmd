@@ -1,0 +1,121 @@
+---
+title: "Simulación"
+author: "Kenneth Cabrera"
+date: "31/10/2014"
+output: html_document
+---
+
+### Objetivos de la simulación
+  - Probar su intuición estadística.
+  - Realizar pruebas de potencia.
+  - Experimentar nuevas técnicas con datos conocidos.
+  
+### Simulación básica
+Se pretende:
+  - Generar datos aleatorios de una distribución conocida.
+  - Repetir la simulación muchas veces.
+  
+### Funciones para generar número aleatorios
+ - `runif` (uniforme), `rpois` (poisson), `rnorm` (gausiana),
+   `rbinom` (binomial), `rbeta` (beta), etc.
+ - El primer argumento sería el tamaño de muestra `n`.
+ - Parámetros de la distribución (Siempre verificarlos).
+
+### Tamaño de la muestra
+```{r}
+# Generar una muestra de tamaño 100 de una gausiana(0,1)
+head(m1 <- rnorm(100))
+# Generar una muestra de tamaño 10 de una beta(0.1, 0.1)
+head(m2 <- rbeta(10,0.1,0.1))
+```
+
+### Número de simulaciones
+- Se utiliza frecuentemente la función `replicate()`.
+  `replicate(n,expression)`
+
+```{r}
+# 10 simulaciones de la media de muestras de tamaño 100 de gausianas(0,1)
+replicate(10,mean(rnorm(100)))
+# Histograma de 100 simulaciones de media de muestras de tamaño 10.
+require(ggplot2)
+ggplot(data.frame(x=replicate(100,mean(rnorm(10)))),aes(x)) + geom_histogram()
+```
+
+### "Tarea"
+Se require que se realice el histograma de:
+
+  - 100 simulaciones de medias de muestras de tamaño 10 de una gaussiana(0,1) 
+  - 1000 simulaciones de la media de muestras de tamaño 10 de una uniforme(0,10)
+  - 10000 simulaciones de la media de muestras de tamaño 5 de una beta(0.1,0.1)
+
+### "Solución"
+```{r}
+require(ggplot2)
+ggplot(data.frame(x=replicate(100,mean(rnorm(10)))),aes(x)) + geom_histogram()
+ggplot(data.frame(x=replicate(1000,mean(runif(10,0,10)))),aes(x)) + geom_histogram()
+ggplot(data.frame(x=replicate(10000,mean(rbeta(10,0.1,0.1)))),aes(x)) + geom_histogram()
+```
+
+### Regla DRY
+
+Don't Repeat Yourshelf (No se repita)
+
+Realice una vez y sólo una vez.
+
+  - Evite incrementar la dificultad de realizar cambios.
+  - Incremente la claridad.
+  - Evite que se abran puertas a la inconsistencia.
+  
+### Use funciones
+
+  - Empiece haciéndola simple.
+  - Pruebe el código por fuera de la función.
+  - Pruebe en cada paso.
+  - Utilice nombres apropiados.
+
+### Tarea 2
+
+  - Cree una función que muestre un histograma un 
+    número de simulaciones `nsim` de una normal(0,1) de muestras
+    de tamaño 10.
+    
+  - Modifique la función para que el tamaño sea `n` sea un parámetro.
+  
+  - Modifique la función para que el usuario use la distribución que desee.
+  
+```{r}
+histSimul1 <- function(nsim){
+  bd <- data.frame(x = replicate(nsim,mean(rnorm(10))))
+  require(ggplot2)
+  ggplot(bd, aes(x)) + geom_histogram()
+}
+
+histSimul1(100)
+```
+
+```{r}
+histSimul2 <- function(nsim,n=100){
+  bd <- data.frame(x = replicate(nsim,mean(rnorm(n))))
+  require(ggplot2)
+  ggplot(bd, aes(x)) + geom_histogram()
+}
+
+histSimul2(100)
+histSimul2(100,1)
+```
+
+```{r}
+histSimul3 <- function(nsim,n=10,rdistrib=rnorm,...){
+  bd <- data.frame(x = vector("numeric",nsim))
+  for (i in 1:nsim) bd$x[i] <- mean(rdistrib(n,...))
+  require(ggplot2)
+  ggplot(bd, aes(x)) + geom_histogram()
+}
+
+histSimul3(100)
+histSimul3(1000,100)
+histSimul3(1000,10,runif,0, 10)
+histSimul3(10000,10, rbeta, 0.1, 0.1)
+histSimul3(1000,20,rpois, 2)
+```
+

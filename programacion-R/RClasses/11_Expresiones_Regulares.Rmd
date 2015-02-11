@@ -1,0 +1,56 @@
+---
+title: "Expresiones Regulares"
+author: "Kenneth Cabrera"
+date: "28/10/2014"
+output: html_document
+---
+
+### Lectura de la base de datos
+```{r}
+dir1 <- url("http://fussball.wettpoint.com/en/results.html", open= "r",
+            encoding = "latin1")
+texto <- readLines(dir1, warn=FALSE, encoding="UTF-8")
+close(dir1)
+```
+
+### Adecuación de la base de datos
+```{r}
+indx1 <- regexpr("<table>",texto)
+marcadores <- texto[indx1!=-1]
+marcadores2 <- strsplit(marcadores,"<tr>")[[1]]
+require(stringr)
+fecha <- str_extract(marcadores2,
+          "[[:digit:]]+/[[:digit:]]+/[[:digit:]]+, [[:digit:]]+\\:[[:digit:]]+")
+fecha <- as.POSIXct(strptime(fecha,"%d/%m/%y, %H:%M",tz="GMT"))
+marcadores2 <- gsub("<b>|</b>","",marcadores2)
+eqlocal <- str_extract(marcadores2,">[[:alnum:] ]+ - ")
+eqlocal <- str_extract(eqlocal,"[[:alnum:] ]+[[:alnum:]]")
+eqvisita <- str_extract(marcadores2,"- [[:alnum:] ]+")
+eqvisita <- str_extract(eqvisita,"[[:alnum:] ]+[[:alnum:]]")
+marcadorF <- str_extract(marcadores2,">[[:digit:]]:[[:digit:]]")
+gL <- as.integer(str_extract(str_extract(marcadorF,
+                                         ">[[:digit:]]+:"),"[[:digit:]]+"))
+gV <- as.integer(str_extract(str_extract(marcadorF,
+                                         ":[[:digit:]]+"),"[[:digit:]]+"))
+marcadorT1 <- str_extract(marcadores2,
+             "\\([[:digit:]]+ : [[:digit:]]+\\)")
+marcadorT2 <- str_extract(marcadores2,
+             "\\) \\([[:digit:]]+ : [[:digit:]]+\\)")
+LT1 <- as.integer(str_extract(str_extract(marcadorT1,"\\([[:digit:]]+"),
+                              "[[:digit:]]+"))
+LT2 <- as.integer(str_extract(str_extract(marcadorT2,"\\([[:digit:]]+"),
+                              "[[:digit:]]+"))
+VT1 <- as.integer(str_extract(str_extract(marcadorT1,": [[:digit:]]+\\)"),
+                              "[[:digit:]]+"))
+VT2 <- as.integer(str_extract(str_extract(marcadorT2,": [[:digit:]]+\\)"),
+                              "[[:digit:]]+"))
+futbol <- data.frame(fecha, eqlocal, eqvisita, gL, gV, LT1, VT1, LT2, VT2)
+futbol <- futbol[!is.na(futbol$fecha),]
+```
+
+### Base de datos final
+```{r}
+futbol
+```
+
+
