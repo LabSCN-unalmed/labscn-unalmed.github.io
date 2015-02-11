@@ -10,5 +10,3 @@ order: 01
 - [Ejemplo 1](/estadistica-espacial/guiones/intro_espacial.html){:target="_blank"}
 
 - [Base de datos](/estadistica-espacial/guiones/CRAN051001a.txt){:target="_blank"}
-
-

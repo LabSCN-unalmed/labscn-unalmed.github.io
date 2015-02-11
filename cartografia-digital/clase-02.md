@@ -10,30 +10,16 @@ Sesión introductoria a GRASS GIS
 
 *[GRASS GIS]: Geographic Resources Analysis Support System
 
-Abrir la terminal de comandos.
-
-Aparece esto que quiere decir que se puede introducir una orden:
-
-{% highlight text linenos=table %}
-usuario@equipo:~ $
-{% endhighlight %}
-
-Orden para iniciar grass en la terminal:
-
-{% highlight bash linenos=table %}
-grass
-{% endhighlight %}
+Al abrir GRASS GIS, aparece la siguiente ventana de inicio, con un recuadro para LOCATIONS y otro para MAPSETS.
 
 ![Ventana de inicio del GIS GRASS](/cartografia-digital/images/grass_startup_screen.png){: .img-responsive .img-rounded}
-
-Aparece la ventana de inicio del GIS GRASS, con un recuadro para LOCATIONS y otro para MAPSETS.
 
 Durante este curso vamos a utilizar el location CursoGrass y el mapset con el mismo nombre. Seleccionamos el location y el mapset e iniciamos el GIS GRASS.
 
 Ahora en la terminal aparece esto que quiere decir que ahora podemos introducir comandos de GRASS:
 
 {% highlight text linenos=table %}
-GRASS 6.4.2 (CursoGrass):~ >
+GRASS 6.4.4 (CursoGrass):~ >
 {% endhighlight %}
 
 Para poder desplegar mapas debemos abrir un monitor, podemos utilizar el siguiente comando, que le dice a GRASS que despliegue el monitor x0:

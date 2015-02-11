@@ -6,6 +6,7 @@ order: 00
 ---
 
 ## Temas principales
+
 1. Introducción a datos espaciales.
 2. Manejo de datos espaciales en R.
 3. Procedimientos en datos geoestadísticos.
@@ -13,15 +14,13 @@ order: 00
 5. Procedimientos en datos areales.
 6. Procedimientos en datos raster (grid).
 
-
-
 ## Evaluación:
 
-| Item               | Porcentaje |
-|:-------------------|:----------:|
-| Seguimiento - Talleres     | 20% |
-| Seguimiento - Trabajos     | 40% |
-| Proyecto final             | 40% |
+| Item                   | Porcentaje |
+|:-----------------------|:----------:|
+| Seguimiento - Talleres |        20% |
+| Seguimiento - Trabajos |        40% |
+| Proyecto final         |        40% |
 {: .table .table-hover}
 
 ## Enlaces principales
@@ -31,11 +30,7 @@ order: 00
 
 ## Procedimiento en R para instalar *todos* los paquetes asociados a manejos de datos espaciales.
 
-```
+{% highlight r linenos=table %}
 install.packages("ctv")
-```
-
-```
 install.views("Spatial")
-```
-
+{% endhighlight %}
