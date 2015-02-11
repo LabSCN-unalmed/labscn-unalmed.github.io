@@ -2,3 +2,4 @@ _site
 .sass-cache
 color_palletes
 .Rhistory
+.Rproj.user
