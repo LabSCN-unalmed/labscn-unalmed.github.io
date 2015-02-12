@@ -30,3 +30,5 @@ google_analytics_tracking_id: UA-54312951-2
 #   metodos-estadisticos:
 #     output: true
 #     permalink: /metodos-estadisticos/:path/
+
+exclude: ['programacion-R/RClasses']
