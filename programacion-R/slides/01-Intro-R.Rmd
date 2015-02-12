@@ -1,7 +1,10 @@
 ---
 title: "Introducción al R"
 author: "Kenneth Cabrera"
-output: ioslides_presentation
+output:
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
 ---
 
 ## Breve historia

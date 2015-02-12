@@ -80,7 +80,7 @@
 
 <body style="opacity: 0">
 
-<slides>
+<slides class="layout-widescreen">
 
   <slide class="title-slide segue nobackground">
         <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
@@ -91,7 +91,7 @@
           </hgroup>
   </slide>
 
-<slide class=''><hgroup><h2>Subconjuntos I</h2></hgroup><article  id="subconjuntos-i">
+<slide class=''><hgroup><h2>Subconjuntos I</h2></hgroup><article  id="subconjuntos-i" class="smaller ">
 
 <ul>
 <li><code>[</code> Siempre devuelve un objeto de la misma clase que el original.</li>
@@ -99,7 +99,7 @@
 <li><code>$</code> se usa para extraer elementos de una lista o <code>data.frame</code>. Semánticamente es similar a <code>[[</code>.</li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Subconjuntos II</h2></hgroup><article  id="subconjuntos-ii">
+</article></slide><slide class=''><hgroup><h2>Subconjuntos II</h2></hgroup><article  id="subconjuntos-ii" class="smaller ">
 
 <pre class = 'prettyprint lang-r'>x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;)
 x[1]</pre>
@@ -114,7 +114,7 @@ x[1]</pre>
 
 <pre >## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;c&quot;</pre>
 
-</article></slide><slide class=''><hgroup><h2>Subconjuntos III</h2></hgroup><article  id="subconjuntos-iii">
+</article></slide><slide class=''><hgroup><h2>Subconjuntos III</h2></hgroup><article  id="subconjuntos-iii" class="smaller ">
 
 <pre class = 'prettyprint lang-r'>x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;)
 x &gt; &quot;a&quot;</pre>
@@ -130,7 +130,7 @@ x[u]</pre>
 
 <pre >## [1] &quot;b&quot; &quot;c&quot; &quot;c&quot; &quot;d&quot;</pre>
 
-</article></slide><slide class=''><hgroup><h2>Subconjuntos I (matrix)</h2></hgroup><article  id="subconjuntos-i-matrix">
+</article></slide><slide class=''><hgroup><h2>Subconjuntos I (matrix)</h2></hgroup><article  id="subconjuntos-i-matrix" class="smaller ">
 
 <pre class = 'prettyprint lang-r'>x &lt;- matrix(6:1, 2, 3)
 x[1, 2]</pre>
@@ -149,7 +149,7 @@ x[1, 2]</pre>
 
 <pre >## [1] 4 3</pre>
 
-</article></slide><slide class=''><hgroup><h2>Subconjuntos II (matriz)</h2></hgroup><article  id="subconjuntos-ii-matriz">
+</article></slide><slide class=''><hgroup><h2>Subconjuntos II (matriz)</h2></hgroup><article  id="subconjuntos-ii-matriz" class="smaller ">
 
 <pre class = 'prettyprint lang-r'>x &lt;- matrix(6:1, 2, 3)
 x[1, 2]</pre>
@@ -161,7 +161,7 @@ x[1, 2]</pre>
 <pre >##      [,1]
 ## [1,]    4</pre>
 
-</article></slide><slide class=''><hgroup><h2>Subconjuntos III (matriz)</h2></hgroup><article  id="subconjuntos-iii-matriz">
+</article></slide><slide class=''><hgroup><h2>Subconjuntos III (matriz)</h2></hgroup><article  id="subconjuntos-iii-matriz" class="smaller ">
 
 <pre class = 'prettyprint lang-r'>x &lt;- matrix(6:1, 2, 3)
 x[1, ]</pre>
@@ -173,7 +173,7 @@ x[1, ]</pre>
 <pre >##      [,1] [,2] [,3]
 ## [1,]    6    4    2</pre>
 
-</article></slide><slide class=''><hgroup><h2>Subconjuntos I (listas)</h2></hgroup><article  id="subconjuntos-i-listas">
+</article></slide><slide class=''><hgroup><h2>Subconjuntos I (listas)</h2></hgroup><article  id="subconjuntos-i-listas" class="smaller ">
 
 <pre class = 'prettyprint lang-r'>x &lt;- list(foo = 6:1, bar = 0.6)
 x[1]</pre>
@@ -193,11 +193,12 @@ x[1]</pre>
 
 <pre >## [1] 0.6</pre>
 
-<pre class = 'prettyprint lang-r'>4[&quot;bar&quot;]</pre>
+<pre class = 'prettyprint lang-r'>x[&quot;bar&quot;]</pre>
 
-<pre >## [1] NA</pre>
+<pre >## $bar
+## [1] 0.6</pre>
 
-</article></slide><slide class=''><hgroup><h2>Subconjuntos II (listas)</h2></hgroup><article  id="subconjuntos-ii-listas">
+</article></slide><slide class=''><hgroup><h2>Subconjuntos II (listas)</h2></hgroup><article  id="subconjuntos-ii-listas" class="smaller ">
 
 <pre class = 'prettyprint lang-r'>x &lt;- list(foo = 6:1, bar = 0.6, baz = &quot;hello&quot;)
 x[c(1,3)]</pre>
@@ -208,7 +209,7 @@ x[c(1,3)]</pre>
 ## $baz
 ## [1] &quot;hello&quot;</pre>
 
-</article></slide><slide class=''><hgroup><h2>Subconjuntos II (listas)</h2></hgroup><article  id="subconjuntos-ii-listas-1">
+</article></slide><slide class=''><hgroup><h2>Subconjuntos II (listas)</h2></hgroup><article  id="subconjuntos-ii-listas-1" class="smaller ">
 
 <pre class = 'prettyprint lang-r'>x &lt;- list(foo = 6:1, bar = 0.6, baz = &quot;hello&quot;)
 nombre &lt;- &quot;foo&quot;
@@ -224,7 +225,7 @@ x[[nombre]]</pre>
 
 <pre >## [1] 6 5 4 3 2 1</pre>
 
-</article></slide><slide class=''><hgroup><h2>Subconjuntos III (listas)</h2></hgroup><article  id="subconjuntos-iii-listas">
+</article></slide><slide class=''><hgroup><h2>Subconjuntos III (listas)</h2></hgroup><article  id="subconjuntos-iii-listas" class="smaller ">
 
 <pre class = 'prettyprint lang-r'>x &lt;- list(a = list(10, 12, 14), b = c(3.14, 2.81))
 x[[c(1,3)]]</pre>

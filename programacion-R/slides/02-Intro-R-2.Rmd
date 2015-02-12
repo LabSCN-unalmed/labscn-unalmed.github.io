@@ -1,7 +1,10 @@
 ---
 title: "Introducción al R"
 author: "Kenneth Cabrera"
-output: ioslides_presentation
+output:
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
 ---
 
 ## Subconjuntos I
@@ -67,7 +70,7 @@ x[1]
 x[[1]]
 x$bar
 x[["bar"]]
-4["bar"]
+x["bar"]
 ```
 
 ## Subconjuntos II (listas)
