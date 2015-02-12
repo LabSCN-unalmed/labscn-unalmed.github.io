@@ -32,6 +32,5 @@ order: 00
 
 {% highlight r linenos=table %}
 install.packages("ctv")
-require("ctv")
 install.views("Spatial")
 {% endhighlight %}
