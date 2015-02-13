@@ -14,6 +14,26 @@ order: 00
 5. Procedimientos en datos areales.
 6. Procedimientos en datos raster (grid).
 
+## Bibliografía
+
+### Textos principales.
+1. LLoyd, Christopher D. Local Models for Spatial Analysis.
+ Second Edition. CRC Press. 2011.
+2. Bivand, Roger S, Pebesma Edzer y Gómez-Rubio Virgilio.
+Applied Spatial Data Analysis with R. Second Edition. Springer New York.
+2013
+
+### Textos complementarios.
+1. Cressie, Noel A. C. Statistics for Spatial Data.
+John Wiley & Sons, Inc. 1991.
+2. Gaetan Carlo y Guyon Xavier. Spatial Statistics and Modeling.
+Springer Science+Business Media. 2010.
+3. Gelfand Alan E., Diggle J. Peter, Fuentes Monserrat y Guttorp Peter.
+Handbook of Spatial Statistics. Chapman & Hall/CRC Press. Handbooks of
+Modern Statistical Methods. 2010.
+4. Cressie Noel y Wikle Christopher K. Statistics for Spation-temporal Data.
+John Wiley & Sons, Inc. 2011
+
 ## Evaluación:
 
 | Item                   | Porcentaje |
