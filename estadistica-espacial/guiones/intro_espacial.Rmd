@@ -1,0 +1,126 @@
+---
+title: "Introducción datos espaciales en R"
+author: "Kenneth Roy Cabrera Torres"
+date: "11/02/2015"
+output:
+  html_document:
+    keep_md: yes
+    toc: yes
+---
+
+# Elementos de la estructra de datos en R.
+
+```{r}
+# Uos del R como aparente calculadora.
+pi * 10^2
+
+# Operación "real" como funciones dentro de R
+"*"(pi, "^"(10,2))
+
+# Asignación de un resultado. 
+# Realmente "x" es un objeto.
+# Un objeto tiene datos y métodos.
+x <- pi*10^2
+
+# Uso implícito del método "print()".
+x
+
+# Uso explícito del método "print()".
+print(x)
+
+# Uso explícito del método "print()", con parámetros adicionales.
+print(x, digits=12)
+
+# Identificación de la clase de objeto.
+class(x)
+
+# Identificación del tipo de objeto.
+typeof(x)
+
+# Ejemplo de la clase "data.frame" (no espacial).
+data(cars)
+# Clase
+class(cars)
+# Tipo
+typeof(cars)
+# Atributo mediante el método "names()"
+names(cars)
+# Método
+summary(cars)
+
+# Muestra la estrucutra del objeto. "La función más útil de R"
+str(cars)
+
+# Otra clase usada en modelación en R.
+class(dist ~ speed)
+
+# Ejemplo de la diferencia en los tipos de objetos,
+# en particular de la clase "factor".
+cars$qspeed <- with(cars, cut(speed, breaks = quantile(speed), include.lowest = TRUE))
+is.factor(cars$qspeed)
+
+# Respuesta diferente del objeto "formula" de acuerdo a la clase de datos.
+plot(dist ~ speed, data = cars)
+plot(dist ~ qspeed, data = cars)
+
+# Ejemplo de la diferencia en la modelación de acuerdo al tipo de objeto
+lm(dist ~  speed, data = cars)
+lm(dist ~ qspeed, data = cars)
+```
+
+# La clase **Spatial** del paquete **sp**
+
+Clase "Spatial":
+
+Dos slots:
+
+1. Matriz con coordenadas del marco (box) que contiene la información
+de el rectángulo que tiene los datos espaciales.
+Esta matriz numérica tiene: 
+
+  - Dos columnas: mínimo ("min") y máximo ("max").
+  - Dos filas:
+     * La primera fila que se refiere a las coordenada este (eje x).
+     * la segunda fila a las coordenadas norte (eje y).
+
+2. Un objeto de la clase CRS (Coordinate Reference System) que indica el tipo de referencia espacial de los datos. Es decir el sitema de coordenadas sobre
+la cual están los datos.
+
+```{r}
+
+# Carga el paquete "sp"
+require(sp)
+
+# Muestra las características de la clase "Spatial"
+getClass("Spatial")
+
+# El objeto "CRS", más de cerca. 
+getClass("CRS")
+
+```
+
+# Construcción de un ejemplo simple del objeto "Spatial"
+
+La proyección CRS sigue el formato de PROJ.4, que se ha convertido en un estándar para respresentar proyecciones terrestres.
+
+```{r}
+require(sp)
+
+m <- matrix(c(0, 0, 1, 1), ncol = 2,
+            dimnames = list(NULL, c("min", "max")))
+m
+crs <- CRS(projargs = as.character(NA))
+crs
+
+S <- Spatial(bbox = m, proj4string = crs)
+S
+```
+
+### Ejemplo de una proyección mal especificada.
+
+```{r, error=TRUE}
+bb <- matrix(c(350, 85, 370, 95), ncol = 2, dimnames = list(NULL, c("min","max")))
+Spatial(bb, proj4string = CRS("+proj=longlat"))
+```
+
+

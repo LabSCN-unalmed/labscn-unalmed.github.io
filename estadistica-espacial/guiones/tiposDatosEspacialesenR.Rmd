@@ -10,6 +10,129 @@ output:
 
 # Tipo `SpatialPoints`
 
+Ejemplo utilizando las coordenadas de algunos lugares en el mundo donde existe un espejo del CRAN.
+
+
+```{r}
+# Lectura a una base de datos
+CRAN_bd <- read.table("CRAN051001a.txt", header = TRUE)
+CRAN_mat <- cbind(CRAN_bd$long, CRAN_bd$lat)
+row.names(CRAN_mat) <- 1:nrow(CRAN_mat)
+str(CRAN_mat)
+
+
+# Especificaciones de la clase SpatialPoints
+require(sp)
+getClass("SpatialPoints")
+
+# Construcción de la clase de tipos espaciales
+sistema_proj <- CRS("+proj=longlat +ellps=WGS84")
+CRAN_sp <- SpatialPoints(CRAN_mat, proj4string = sistema_proj)
+# Resumen
+summary(CRAN_sp)
+```
+
+## Algunos métodos asociados.
+
+### Información principal
+```{r}
+# Extracción de la información de las coordenadas.
+bbox(CRAN_sp)
+# Extracción de la información de de la proyección.
+proj4string(CRAN_sp)
+```
+
+### Subconjunto de datos
+```{r}
+# Índices del subconjunto
+brazil <- which(CRAN_bd$loc == "Brazil")
+brazil
+
+# Coordenadas de esos índices
+coordinates(CRAN_sp)[brazil, ]
+
+# Si se extrae un subconjunto, el recalcula el marco que contiene los puntos.
+summary(CRAN_sp[brazil, ])
+
+# Se puede hacer todo el procedimiento en una sola línea:
+summary(CRAN_sp[CRAN_bd$loc == "Brazil", ])
+```
+
+## Datos de puntos con una base de datos asociada.
+
+```{r}
+# Construcción de una base de puntos con base de datos asociada.
+CRAN_spbd1 <- SpatialPointsDataFrame(CRAN_mat, CRAN_bd,
+              proj4string = sistema_proj, match.ID = TRUE)
+
+# La base de datos nueva se maneja muy similar a un "data.frame" estándar
+CRAN_spbd1[4, ]
+str(CRAN_spbd1$loc)
+str(CRAN_spbd1[["loc"]])    
+
+# Aún si la base de datos no está en el mismo orden de las coordenadas,
+# pero los nombres de las filas de cada caso son coincidentes,
+# el sistema armará la base de datos consistentemente.
+
+# Base de datos en otro orden
+nuevo_ord <- sample(nrow(CRAN_bd))
+nuevaCRAN_bd <- CRAN_bd[nuevo_ord, ]
+CRAN_spbd2 <- SpatialPointsDataFrame(CRAN_mat, nuevaCRAN_bd,
+               proj4string = sistema_proj, match.ID = TRUE)
+
+# Son la bases de datos iguales?
+all.equal(CRAN_spbd2, CRAN_spbd1)
+
+CRAN_spbd2[4, ]
+
+```
+
+## Estructura jerárquica de `SpatialPointsDataFrame`
+
+![alt text](figuras/estrucSpatialPointsDataFrame.png)
+
+```{r}
+# Características de la subclase
+getClass("SpatialPointsDataFrame")
+```
+
+Todas las subclases que tienen el sufijo *DataFrame* están
+diseñadas para que se usen casi como los *data.frame* estándar.
+
+
+```{r}
+# Nombres
+names(CRAN_spbd1)
+
+# Estructura para modelación
+str(model.frame(lat ~ long, data = CRAN_spbd1), give.attr = FALSE)
+```
+
+## Otras forma de construir una estrucutra de puntos con una base de datos asociada
+
+```{r, error=TRUE}
+# Si ambas bases están ordenadas, no necesitamos que las identidades de los puntos coincidan.
+
+CRAN_bd1 <- CRAN_bd
+row.names(CRAN_bd1) <- sample(c(outer(letters, letters,
+                                      paste, sep = "")), nrow(CRAN_bd1))
+CRAN_spbd3 <- SpatialPointsDataFrame(CRAN_mat, CRAN_bd1,
+              proj4string = sistema_proj, match.ID = FALSE)
+# No coinciden exactamente
+all.equal(CRAN_spbd3, CRAN_spbd1)
+# Pero la información está construida de manera similar.
+CRAN_spbd1[4, ]
+CRAN_spbd3[4, ]
+# Sin embargo se genera un erros si intentamos utilizar "match.ID", y los identificadores no coinciden.
+CRAN_spbd3x <- SpatialPointsDataFrame(CRAN_mat, CRAN_bd1,
+              proj4string = sistema_proj, match.ID = TRUE)
+
+```
+
+
+              
+
+
 # Tipo `SpatialLines`
 
 # Tipo `SpatialPolygons`

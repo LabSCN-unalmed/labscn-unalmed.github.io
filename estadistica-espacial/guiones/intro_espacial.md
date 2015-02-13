@@ -11,7 +11,7 @@ pi * 10^2
 ```
 
 ```
-## [1] 314.2
+## [1] 314.1593
 ```
 
 ```r
@@ -20,7 +20,7 @@ pi * 10^2
 ```
 
 ```
-## [1] 314.2
+## [1] 314.1593
 ```
 
 ```r
@@ -34,7 +34,7 @@ x
 ```
 
 ```
-## [1] 314.2
+## [1] 314.1593
 ```
 
 ```r
@@ -43,7 +43,7 @@ print(x)
 ```
 
 ```
-## [1] 314.2
+## [1] 314.1593
 ```
 
 ```r
@@ -108,13 +108,13 @@ summary(cars)
 ```
 
 ```
-##      speed           dist    
-##  Min.   : 4.0   Min.   :  2  
-##  1st Qu.:12.0   1st Qu.: 26  
-##  Median :15.0   Median : 36  
-##  Mean   :15.4   Mean   : 43  
-##  3rd Qu.:19.0   3rd Qu.: 56  
-##  Max.   :25.0   Max.   :120
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
 ```
 
 ```r
@@ -153,13 +153,13 @@ is.factor(cars$qspeed)
 plot(dist ~ speed, data = cars)
 ```
 
-![plot of chunk unnamed-chunk-1](intro_espacial_files/figure-html/unnamed-chunk-11.png) 
+![](intro_espacial_files/figure-html/unnamed-chunk-1-1.png) 
 
 ```r
 plot(dist ~ qspeed, data = cars)
 ```
 
-![plot of chunk unnamed-chunk-1](intro_espacial_files/figure-html/unnamed-chunk-12.png) 
+![](intro_espacial_files/figure-html/unnamed-chunk-1-2.png) 
 
 ```r
 # Ejemplo de la diferencia en la modelación de acuerdo al tipo de objeto
@@ -173,7 +173,7 @@ lm(dist ~  speed, data = cars)
 ## 
 ## Coefficients:
 ## (Intercept)        speed  
-##      -17.58         3.93
+##     -17.579        3.932
 ```
 
 ```r
@@ -187,7 +187,7 @@ lm(dist ~ qspeed, data = cars)
 ## 
 ## Coefficients:
 ##   (Intercept)  qspeed(12,15]  qspeed(15,19]  qspeed(19,25]  
-##          18.2           22.0           32.0           51.1
+##         18.20          21.98          31.97          51.13
 ```
 
 # La clase **Spatial** del paquete **sp**
@@ -311,151 +311,7 @@ Spatial(bb, proj4string = CRS("+proj=longlat"))
 ```
 
 ```
-## Error: Geographical CRS given to non-conformant data: 370 95
-```
-
-# Subclase **SpatialPoints**
-
-Ejemplo utilizando las coordenadas de algunos lugares en el mundo donde existe un espejo del CRAN.
-
-
-
-```r
-# Lectura a una base de datos
-CRAN_bd <- read.table("CRAN051001a.txt", header = TRUE)
-CRAN_mat <- cbind(CRAN_bd$long, CRAN_bd$lat)
-row.names(CRAN_mat) <- 1:nrow(CRAN_mat)
-str(CRAN_mat)
-```
-
-```
-##  num [1:54, 1:2] 153 145 16.3 -49.3 -42.9 ...
-##  - attr(*, "dimnames")=List of 2
-##   ..$ : chr [1:54] "1" "2" "3" "4" ...
-##   ..$ : NULL
-```
-
-```r
-# Especificaciones de la clase SpatialPoints
-require(sp)
-getClass("SpatialPoints")
-```
-
-```
-## Class "SpatialPoints" [package "sp"]
-## 
-## Slots:
-##                                           
-## Name:       coords        bbox proj4string
-## Class:      matrix      matrix         CRS
-## 
-## Extends: "Spatial"
-## 
-## Known Subclasses: 
-## Class "SpatialPointsDataFrame", directly
-## Class "SpatialPixels", directly
-## Class "SpatialPixelsDataFrame", by class "SpatialPixels", distance 2
-```
-
-```r
-# Construcción de la clase de tipos espaciales
-sistema_proj <- CRS("+proj=longlat +ellps=WGS84")
-CRAN_sp <- SpatialPoints(CRAN_mat, proj4string = sistema_proj)
-# Resumen
-summary(CRAN_sp)
-```
-
-```
-## Object of class SpatialPoints
-## Coordinates:
-##               min    max
-## coords.x1 -122.95 153.03
-## coords.x2  -37.82  57.05
-## Is projected: FALSE 
-## proj4string : [+proj=longlat +ellps=WGS84]
-## Number of points: 54
-```
-
-## Algunos métodos asociados.
-
-### Información principal
-
-```r
-# Extracción de la información de las coordenadas.
-bbox(CRAN_sp)
-```
-
-```
-##               min    max
-## coords.x1 -122.95 153.03
-## coords.x2  -37.82  57.05
-```
-
-```r
-# Extracción de la información de de la proyección.
-proj4string(CRAN_sp)
-```
-
-```
-## [1] "+proj=longlat +ellps=WGS84"
-```
-
-### Subconjunto de datos
-
-```r
-# Índices del subconjunto
-brazil <- which(CRAN_bd$loc == "Brazil")
-brazil
-```
-
-```
-## [1] 4 5 6 7 8
-```
-
-```r
-# Coordenadas de esos índices
-coordinates(CRAN_sp)[brazil, ]
-```
-
-```
-##   coords.x1 coords.x2
-## 4    -49.27    -25.42
-## 5    -42.87    -20.75
-## 6    -43.20    -22.90
-## 7    -47.63    -22.72
-## 8    -46.63    -23.53
-```
-
-```r
-# Si se extrae un subconjunto, el recalcula el marco que contiene los puntos.
-summary(CRAN_sp[brazil, ])
-```
-
-```
-## Object of class SpatialPoints
-## Coordinates:
-##              min    max
-## coords.x1 -49.27 -42.87
-## coords.x2 -25.42 -20.75
-## Is projected: FALSE 
-## proj4string : [+proj=longlat +ellps=WGS84]
-## Number of points: 5
-```
-
-```r
-# Se puede hacer todo el procedimiento en una sola línea:
-summary(CRAN_sp[CRAN_bd$loc == "Brazil", ])
-```
-
-```
-## Object of class SpatialPoints
-## Coordinates:
-##              min    max
-## coords.x1 -49.27 -42.87
-## coords.x2 -25.42 -20.75
-## Is projected: FALSE 
-## proj4string : [+proj=longlat +ellps=WGS84]
-## Number of points: 5
+## Error in validityMethod(object): Geographical CRS given to non-conformant data: 370  95
 ```
 
 
