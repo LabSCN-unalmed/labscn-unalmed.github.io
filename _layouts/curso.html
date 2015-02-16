@@ -3,10 +3,7 @@ layout: page
 ---
 
 <div class="row">
-  <div class="col-md-10 text-justify">
-    {{ content }}
-  </div>
-  <div class="col-md-2">
+  <div class="col-xs-12 col-sm-3 pull-right">
     <ul class="nav nav-pills nav-stacked">
       {% assign menu = site.pages | sort: 'order' %}
       {% for node in menu %}
@@ -19,5 +16,8 @@ layout: page
         {% endif %}
       {% endfor %}
     </ul>
+  </div>
+  <div class="col-xs-12 col-sm-9 text-justify pull-left">
+    {{ content }}
   </div>
 </div>
