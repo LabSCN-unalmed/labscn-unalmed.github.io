@@ -38,7 +38,7 @@
 }
 
 #sidebar li.active {
-  border: 0 #3E3F3A solid;
+  border: 0 #333 solid;
   border-left-width: 3px;
 }
 
@@ -47,7 +47,7 @@ pre, code {
 }
 
 pre {
-  background: #3E3F3A;
+  background: #333;
   border-radius: 0;
   border: 0;
   font-size: 1em;
