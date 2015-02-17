@@ -128,7 +128,7 @@ r.neighbors input=porcecito1 output=porce1_RR_33 method=range size=33
 d.rast porce1_RR_33
 ~~~
 
-![Mapa de relieve relativo](/cartografia-digital/images/porce1_RR_33.png){: .img-responsive .img-rounded}
+![Mapa de relieve relativo](/cartografia-digital/images/porce1_RR_33.png){: .img-responsive}
 
 #### Visualización 3D del mapa construido
 
@@ -136,7 +136,7 @@ d.rast porce1_RR_33
 nviz porce1_RR_33
 ~~~
 
-![Visualización 3D del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D.png){: .img-responsive .img-rounded}
+![Visualización 3D del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D.png){: .img-responsive}
 
 *¿Qué se observa en la imagen anterior?*
 
@@ -150,7 +150,7 @@ nviz porce1_RR_33
 nviz porcecito1 color=porce1_RR_33
 ~~~
 
-![Visualización 3D del mapa porcecito1 con los colores del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D2.png){: .img-responsive .img-rounded}
+![Visualización 3D del mapa porcecito1 con los colores del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D2.png){: .img-responsive}
 
 En esta última orden le decimos al sistema que despliegue en tres dimensiones el mapa `porcecito1` pero que le coloque los colores del mapa `porce1_RR_33`.
 
@@ -289,13 +289,13 @@ Desplegar en 2D y en 3D el mapa reclasificado de relieve relativo
 d.rast porce1_RR_33_reclass
 ~~~
 
-![2D](/cartografia-digital/images/porce1_RR_33_reclass.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_RR_33_reclass.png){: .img-responsive}
 
 ~~~
 nviz porcecito1 color=porce1_RR_33_reclass
 ~~~
 
-![3D](/cartografia-digital/images/porce1_RR_33_reclass3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_RR_33_reclass3D.png){: .img-responsive}
 
 Al desplegar el mapa `porce1_RR_33_reclass` el programa GRASS asigna unos colores a cada categoría.
 
@@ -325,10 +325,10 @@ r.reclass input=porce1_RR_33_reclass output=porce1_RR_33_reclass_simplif rules=R
 d.rast porce1_RR_33_reclass_simplif
 ~~~
 
-![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive}
 
 ~~~
 nviz porcecito1 color=porce1_RR_33_reclass_simplif
 ~~~
 
-![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive}

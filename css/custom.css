@@ -1,22 +1,60 @@
-.affix-top, .affix{
+#sidebar.affix {
   position: static;
 }
 
-@media (min-width: 768px) {
-  #sidebar.affix-top {
-    position: static;
-    width: 186px; /* .col-sm width: ~62px */
-  }
-  
+@media screen and (min-width: 768px) {
   #sidebar.affix {
     position: fixed;
     top: 0;
-    width: 186px; /* .col-sm width: ~62px */
+  }
+
+  #sidebar.affix-bottom {
+    position: absolute;
   }
 }
 
-/* */
+@media (min-width: 768px) {
+  #sidebar {
+    width: 186px; /* 62*3 */
+  }
+}
+@media (min-width: 992px) {
+  #sidebar {
+    width: 243px; /* 81*3 */
+  }
+
+  img.img-responsive {
+    max-width: 90%;
+  }
+}
+@media (min-width: 1200px) {
+  #sidebar {
+    width: 291px; /* 97*3 */
+  }
+
+  img.img-responsive {
+    max-width: 80%;
+  }
+}
+
 #sidebar li.active {
   border: 0 #3E3F3A solid;
   border-left-width: 3px;
+}
+
+pre, code {
+  font-family: "Ubuntu Mono", monospace;
+}
+
+pre {
+  background: #3E3F3A;
+  border-radius: 0;
+  border: 0;
+  font-size: 1em;
+  color: #fff;
+  overflow: auto;
+}
+
+img.img-responsive {
+  margin: auto;
 }

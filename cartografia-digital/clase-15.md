@@ -156,4 +156,4 @@ d.vect map=puntos display=attr attrcol=ALTITUD where="ALTITUD>1794" lcolor=red x
 d.vect map=puntos display=attr attrcol=ALTITUD where="ALTITUD<1794" lcolor=blue xref=right yref=top
 ~~~
 
-![Resultado obtenido](/cartografia-digital/images/desarrollo_aplicacion_vectorial.png){: .img-responsive .img-rounded}
+![Resultado obtenido](/cartografia-digital/images/desarrollo_aplicacion_vectorial.png){: .img-responsive}

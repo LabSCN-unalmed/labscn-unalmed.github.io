@@ -18,27 +18,27 @@ Una superficie curva se puede proyectar a un plano tangente a un punto particula
 
 Se puede proyectar la **superficie terrestre (ST)** a un cilindro que puede ser vertical u horizontal.
 
-![](/cartografia-digital/images/01datum.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/01datum.gif){: .img-responsive}
 
-![](/cartografia-digital/images/02globe_merid.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/02globe_merid.gif){: .img-responsive}
 
-![](/cartografia-digital/images/03globe_parallel.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/03globe_parallel.gif){: .img-responsive}
 
-![](/cartografia-digital/images/04globe_graticule.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/04globe_graticule.gif){: .img-responsive}
 
-![](/cartografia-digital/images/05geographic2.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/05geographic2.gif){: .img-responsive}
 
-![](/cartografia-digital/images/06plane.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/06plane.gif){: .img-responsive}
 
-![](/cartografia-digital/images/07orthographic1.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/07orthographic1.gif){: .img-responsive}
 
-![](/cartografia-digital/images/08orthographic2.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/08orthographic2.gif){: .img-responsive}
 
-![](/cartografia-digital/images/09cone.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/09cone.gif){: .img-responsive}
 
-![](/cartografia-digital/images/10cylinder.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/10cylinder.gif){: .img-responsive}
 
-![](/cartografia-digital/images/11cylinders.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/11cylinders.gif){: .img-responsive}
 
 ### UTM: Universal transversal de mercator
 
@@ -146,10 +146,10 @@ g.region rast=srtmMed
 d.rast srtmMed
 ~~~
 
-![](/cartografia-digital/images/srtmMed.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/srtmMed.png){: .img-responsive}
 
 ~~~
 g.region rast=b1
 d.rast b1
 ~~~
-![](/cartografia-digital/images/b1.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/b1.png){: .img-responsive}

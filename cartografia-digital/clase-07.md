@@ -59,7 +59,7 @@ Para Wood, J.D. (1996); las curvaturas del perfil (profc) y la curvatura horizon
 - Channel: Punto en una concavidad local ortogonal a una línea sin convexidad o concavidad.
 - Pit: Punto en una concavidad local en todas las direcciones.
 
-![Los 6 tipos de características morfométricas](/cartografia-digital/images/morphometric.png){: .img-responsive .img-rounded}
+![Los 6 tipos de características morfométricas](/cartografia-digital/images/morphometric.png){: .img-responsive}
 
 Elaboración de un mapa de pendientes
 ------------------------------------
@@ -128,13 +128,13 @@ Visualizar el mapa de pendientes en 2 y 3 dimensiones:
 d.rast porce1_slope3
 ~~~
 
-![2D](/cartografia-digital/images/porce1_slope3.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_slope3.png){: .img-responsive}
 
 ~~~
 nviz porcecito1 color=porce1_slope3
 ~~~
 
-![3D](/cartografia-digital/images/porce1_slope3_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_slope3_3D.png){: .img-responsive}
 
 *¿En qué parte del relieve se ubican las pendientes mas fuertes y que valores despliegan?*
 
@@ -156,7 +156,7 @@ Para ver un histograma continuo de los valores:
 d.histogram porce1_slope3
 ~~~
 
-![Histograma del mapa de pendientes](/cartografia-digital/images/porce1_slope3_hist1.png){: .img-responsive .img-rounded}
+![Histograma del mapa de pendientes](/cartografia-digital/images/porce1_slope3_hist1.png){: .img-responsive}
 
 De acuerdo con el histograma de la imagen anterior:
 
@@ -172,7 +172,7 @@ Para ver un histograma con rangos discretos de pendiente:
 d.histogram porce1_slope3 nsteps=20
 ~~~
 
-![Histograma del mapa de pendientes con rangos discretos](/cartografia-digital/images/porce1_slope3_hist2.png){: .img-responsive .img-rounded}
+![Histograma del mapa de pendientes con rangos discretos](/cartografia-digital/images/porce1_slope3_hist2.png){: .img-responsive}
 
 ### Reclasificar el mapa de pendientes
 
@@ -201,13 +201,13 @@ r.reclass input=porce1_slope3 output=porce1_slope3_reclass rules=RCLS_porce1_slo
 d.rast porce1_slope3_reclass
 ~~~
 
-![2D](/cartografia-digital/images/RCLS_porce1_slope3.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/RCLS_porce1_slope3.png){: .img-responsive}
 
 ~~~
 nviz porcecito1 color=porce1_slope3_reclass
 ~~~
 
-![3D](/cartografia-digital/images/RCLS_porce1_slope3_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/RCLS_porce1_slope3_3D.png){: .img-responsive}
 
 La reclasificación de la pendiente en seis (6) rangos con los límites antes anotados genera un mapa de "sal y pimienta".
 
@@ -228,13 +228,13 @@ r.reclass input=porce1_slope3 output=porce1_slope3_reclass rules=RCLS_porce1_slo
 d.rast porce1_slope3_reclass
 ~~~
 
-![2D](/cartografia-digital/images/RCLS_porce1_slope3_2.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/RCLS_porce1_slope3_2.png){: .img-responsive}
 
 ~~~
 nviz porcecito1 color=porce1_slope3_reclass
 ~~~
 
-![3D](/cartografia-digital/images/RCLS_porce1_slope3_2_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/RCLS_porce1_slope3_2_3D.png){: .img-responsive}
 
 El mapa con tres categorías se torna mas claro que el mapa con seis categorías. Es frecuente que el excesivo detalle en la reclasificación de mapas no permite ver los patrones mas frecuentes porque pasan desapercibidos debido a una excesiva reclasificación.
 
@@ -251,13 +251,13 @@ r.reclass input=porce1_slope3 output=porce1_slope3_reclass rules=RCLS_porce1_slo
 d.rast porce1_slope3_reclass
 ~~~
 
-![2D](/cartografia-digital/images/RCLS_porce1_slope3_3.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/RCLS_porce1_slope3_3.png){: .img-responsive}
 
 ~~~
 nviz porcecito1 color=porce1_slope3_reclass
 ~~~
 
-![3D](/cartografia-digital/images/RCLS_porce1_slope3_3_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/RCLS_porce1_slope3_3_3D.png){: .img-responsive}
 
 *¿Cuáles son las diferencias mas importantes entre los tres mapas?*
 
@@ -282,13 +282,13 @@ r.colors map=porce1_slope3_reclass rules=TC_porce1_slope3
 d.rast porce1_slope3_reclass
 ~~~
 
-![2D](/cartografia-digital/images/TC_porce1_slope3.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/TC_porce1_slope3.png){: .img-responsive}
 
 ~~~
 nviz porcecito1 color=porce1_slope3_reclass
 ~~~
 
-![3D](/cartografia-digital/images/TC_porce1_slope3_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/TC_porce1_slope3_3D.png){: .img-responsive}
 
 ### Consultar la información que contiene el mapa reclasificado de la pendiente
 
@@ -314,7 +314,7 @@ r.report -hn map=porce1_slope3_reclass units=p,c,k
 Clasificación de las vertientes según su curvatura
 --------------------------------------------------
 
-![Fotografía de vertientes con diversas curvaturas](/cartografia-digital/images/fotovert.png){: .img-responsive .img-rounded}
+![Fotografía de vertientes con diversas curvaturas](/cartografia-digital/images/fotovert.png){: .img-responsive}
 
 ##### Conceptos importantes:
 
@@ -342,7 +342,7 @@ Para definir la forma de una superficie se emplean dos perfiles ortogonales: uno
 - Perfiles en el sentido de la dirección de la vertiente.
 - Perfil en el sentido de la inclinación de la vertiente.
 
-![Esquema de vertientes](/cartografia-digital/images/vertientes.png){: .img-responsive .img-rounded}
+![Esquema de vertientes](/cartografia-digital/images/vertientes.png){: .img-responsive}
 
 - ¿Qué significa la pendiente de una vertiente?
 - Relación de la vertiente con otros atributos de estructura y dinámica del relieve.
@@ -417,13 +417,13 @@ r.report -h map=porce1_planc7_reclass units=p,c,k
 d.rast porce1_planc7_reclass
 ~~~
 
-![2D](/cartografia-digital/images/porce1_planc7.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_planc7.png){: .img-responsive}
 
 ~~~
 nviz porcecito1 color=porce1_planc7_reclass
 ~~~
 
-![3D](/cartografia-digital/images/porce1_planc7_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_planc7_3D.png){: .img-responsive}
 
 Desplegamos primero todo el mapa y luego una parte para observar con mas detalle.
 
@@ -504,13 +504,13 @@ r.report -h map=porce1_profc7_reclass units=p,c,k
 d.rast porce1_profc7_reclass
 ~~~
 
-![2D](/cartografia-digital/images/porce1_profc7.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_profc7.png){: .img-responsive}
 
 ~~~
 nviz porcecito1 color=porce1_profc7_reclass
 ~~~
 
-![3D](/cartografia-digital/images/porce1_profc7_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_profc7_3D.png){: .img-responsive}
 
 El mapa de la curvatura vertical muestra claramente la diferencia entre concavidades pertenecientes a valles y convexidades perteneciente a divisorias de agua ubicadas en cimas de colinas.
 
@@ -542,12 +542,12 @@ r.colors map=porce1_slope_profc rules=TC_porce1_slope_profc
 d.rast porce1_slope_profc
 ~~~
 
-![2D](/cartografia-digital/images/porce1_slope_profc.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_slope_profc.png){: .img-responsive}
 
 ~~~
 nviz porcecito1 color=porce1_slope_profc
 ~~~
 
-![3D](/cartografia-digital/images/porce1_slope_profc_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_slope_profc_3D.png){: .img-responsive}
 
 De manera similar, se pueden combinar los mapas de curvaturas vertical y horizontal.

@@ -12,7 +12,7 @@ Sesión introductoria a GRASS GIS
 
 Al abrir GRASS GIS, aparece la siguiente ventana de inicio, con un recuadro para LOCATIONS y otro para MAPSETS.
 
-![Ventana de inicio del GIS GRASS](/cartografia-digital/images/grass_startup_screen.png){: .img-responsive .img-rounded}
+![Ventana de inicio del GIS GRASS](/cartografia-digital/images/grass_startup_screen.png){: .img-responsive}
 
 Durante este curso vamos a utilizar el location CursoGrass y el mapset con el mismo nombre. Seleccionamos el location y el mapset e iniciamos el GIS GRASS.
 
@@ -43,29 +43,37 @@ Los **parámetros** en ocasiones son opcionales, normalmente en GRASS se utiliza
 ### ¿Cómo responde GRASS cuando no existe el comando o cuando no existe el archivo?
 
 - Existe el comando pero no existe el archivo:
+
 ~~~
 make love
 ~~~
+
 `make: *** No hay ninguna regla para construir el objetivo «love». Alto.`
 
 - No existe el comando y tampoco el archivo:
+
 ~~~
 hacer algo
 ~~~
+
 `hacer: orden no encontrada`
 
 #### Otro ejemplo
 
 - GRASS "sabe" que el comando existe y es valido pero no existe el archivo:
+
 ~~~
 d.rast monitor_cualquiera
 ~~~
+
 `ERROR: Mapa ráster <monitor_cualquiera> no encontrado`
 
 - GRASS no conoce el comando y es suficiente (no hace juicio respecto del archivo):
+
 ~~~
 Mostrar monitor
 ~~~
+
 `Mostrar: orden no encontrada`
 
 ### La taxonomía de comandos en GRASS
@@ -162,7 +170,7 @@ d.rast -o ituango
 d.rast -o riogrande_sup
 ~~~
 
-![Despliegue de varios mapas simultáneamente](/cartografia-digital/images/cursograss.png){: .img-responsive .img-rounded}
+![Despliegue de varios mapas simultáneamente](/cartografia-digital/images/cursograss.png){: .img-responsive}
 
 La opción `-o` se utiliza para desplegar mapas superpuestos en el monitor activo.
 
@@ -175,14 +183,14 @@ g.region rast=porcecito
 d.rast porcecito
 ~~~
 
-![Porcecito](/cartografia-digital/images/porcecito.png){: .img-responsive .img-rounded}
+![Porcecito](/cartografia-digital/images/porcecito.png){: .img-responsive}
 
 ~~~
 g.region rast=ituango
 d.rast ituango
 ~~~
 
-![Ituango](/cartografia-digital/images/ituango.png){: .img-responsive .img-rounded}
+![Ituango](/cartografia-digital/images/ituango.png){: .img-responsive}
 
 ### Consulta del historial de los comandos usados
 
@@ -315,16 +323,19 @@ La ayuda incluye:
 Vamos a explorar algunas de las acciones que se pueden realizar con el comando `d.mon`.
 
 - Mostrar todas las opciones que se pueden realizar: crear archivos PNG, desplegar monitores, etc.
+
 ~~~
 d.mon -l
 ~~~
 
 - Indicar cuales acciones están activas y cuales están inactivas.
+
 ~~~
 d.mon -L
 ~~~
 
 - Imprimir el nombre del monitor seleccionado actualmente.
+
 ~~~
 d.mon -p
 ~~~
@@ -407,7 +418,7 @@ g.region region=porcecito_pedazo
 d.rast porcecito
 ~~~
 
-![Despliegue de una subzona del mapa Porcecito](/cartografia-digital/images/porcecito_zoom.png){: .img-responsive .img-rounded}
+![Despliegue de una subzona del mapa Porcecito](/cartografia-digital/images/porcecito_zoom.png){: .img-responsive}
 
 ### Segunda opción: Construir un nuevo mapa
 
@@ -440,13 +451,13 @@ d.rast map=porcecito val=1000-1500
 d.rast map=porcecito cat=1000-1500
 ~~~
 
-![1000-1500](/cartografia-digital/images/porcecito_1000_1500.png){: .img-responsive .img-rounded}
+![1000-1500](/cartografia-digital/images/porcecito_1000_1500.png){: .img-responsive}
 
 ~~~
 d.rast map=porcecito cat=2000-2300
 ~~~
 
-![2000-2300](/cartografia-digital/images/porcecito_2000_2300.png){: .img-responsive .img-rounded}
+![2000-2300](/cartografia-digital/images/porcecito_2000_2300.png){: .img-responsive}
 
 En este punto de la sesión de trabajo surge un interrogante: No se pueden desplegar valores (vallist), pero si se pueden desplegar categorías (catlist).
 
@@ -459,7 +470,7 @@ d.rast map=porcecito catlist=1000-1500
 d.rast map=porcecito catlist=2000-2300 -o
 ~~~
 
-![Despliegue simultáneo de dos rangos altitudinales](/cartografia-digital/images/porcecito_1000_2300.png){: .img-responsive .img-rounded}
+![Despliegue simultáneo de dos rangos altitudinales](/cartografia-digital/images/porcecito_1000_2300.png){: .img-responsive}
 
 Este ejercicio tiene una limitación importante: Desconocemos en este punto cual es el valor de altitud máxima y el valor de altitud mínima para seleccionar rangos de manera adecuada.
 
@@ -526,7 +537,7 @@ Una vez el reticulado es lo suficientemente grande, escribir el siguiente comand
 d.rast.num porcecito
 ~~~
 
-![Retícula con valores de altitud en cada píxel](/cartografia-digital/images/porcecito_small.png){: .img-responsive .img-rounded}
+![Retícula con valores de altitud en cada píxel](/cartografia-digital/images/porcecito_small.png){: .img-responsive}
 
 ### Reporte de la información contenida en el mapa
 
@@ -597,7 +608,7 @@ Una representación gráfica de los valores de altitud en el mapa `porcecito`.
 d.histogram map=porcecito1 nsteps=10
 ~~~
 
-![Distribución altitudinal en porcecito](/cartografia-digital/images/porcecito_hist.png){: .img-responsive .img-rounded}
+![Distribución altitudinal en porcecito](/cartografia-digital/images/porcecito_hist.png){: .img-responsive}
 
 Para obtener la imagen en formato PNG, se puede utilizar el comando `d.out.file`.
 
@@ -639,7 +650,7 @@ Borramos las líneas con guiones y organizamos bien las columnas para que sólo 
 
 Abrimos la carpeta personal y abrimos el archivo csv que creamos.
 
-![Importación de texto separado por comas en LibreOffice](/cartografia-digital/images/csv_import.png){: .img-responsive .img-rounded}
+![Importación de texto separado por comas en LibreOffice](/cartografia-digital/images/csv_import.png){: .img-responsive}
 
 En el diálogo que se abre, configuramos las opciones como se ve en la imagen: en las opciones de separador seleccionamos "Separado por" y "Otros" y escribimos el símbolo `|`, seleccionamos las columnas primera y tercera y seleccionamos "Ocultar" en "Tipo de columna".
 
