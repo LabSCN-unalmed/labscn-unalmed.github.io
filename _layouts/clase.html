@@ -3,26 +3,13 @@ layout: page
 ---
 
 <div class="row">
-  <div class="col-md-10 text-justify">
-    {{ content }}
+  <div class="col-xs-12 col-sm-3 pull-right" id="nav">
+    <h4>Contenido</h4>
+    <ul class="nav nav-pills nav-stacked" id="toc"></ul>
+    <hr>
+    <p><a href="clases.html" class="btn btn-default">Índice de Clases</a></p>
   </div>
-  <div class="col-md-2">
-    <div class="list-group">
-      {% for clase in site.pages %}
-        {% if clase.clase and clase.curso == page.curso %}
-          {% if clase.url == page.url %}
-            <a href="{{ clase.url }}" class="list-group-item active">
-              <h4 class="list-group-item-heading">Clase {{ clase.clase }}</h4>
-              <p class="list-group-item-text">{{ clase.title }}</p>
-            </a>
-          {% else %}
-            <a href="{{ clase.url }}" class="list-group-item">
-              <h4 class="list-group-item-heading">Clase {{ clase.clase }}</h4>
-              <p class="list-group-item-text">{{ clase.title }}</p>
-            </a>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-    </div>
+  <div class="col-xs-12 col-sm-9 text-justify pull-left" id="content">
+    {{ content }}
   </div>
 </div>
