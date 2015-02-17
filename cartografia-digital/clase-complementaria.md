@@ -49,44 +49,44 @@ Se debe descargar e importar el mapa raster de [altiplanos](/cartografia-digital
 
 Debemos ubicarnos en el directorio donde se encuentre el archivo `altiplanos.tif` utilizando el comando `cd`.
 
-{% highlight bash linenos=table %}
+~~~
 cd Downloads
 r.in.gdal input=altiplanos.tif output=altiplanos
-{% endhighlight %}
+~~~
 
 ### Desplegar un mapa raster del altiplano y dibujarle una cuadrícula densa.
 
 
 Una vez importado el mapa, verificamos que este se encuentre en la lista de mapas raster disponibles en GRASS, y procedemos a establecer la región de manera apropiada para poderlo desplegar en su totalidad.
 
-{% highlight bash linenos=table %}
+~~~
 g.list rast
 g.region -p rast=altiplanos
 d.mon x0
 d.rast altiplanos
 d.grid help
 d.grid size=2000
-{% endhighlight %}
+~~~
 
 Como el mapa aún no tiene tabla de colores, creamos una que permita visualizar los rasgos del relieve de una manera más agradable:
 
 `TC_altiplanos`
-{% highlight text linenos=table %}
+~~~
  750  85 128  64 # Verde oscuro
 2200 159 217 130 # Verde claro
 2300 178  34  34 # Firebrick
 2500 236 142 142 # Rojo claro
 2800 139  69  19 # Saddle brown
 3350 245 245 220 # Beige
-{% endhighlight %}
+~~~
 
 Aplicamos la tabla de colores nueva y volvemos a desplegar el mapa. Para dibujar la cuadrícula utilizamos el comando `d.grid` especificándole la densidad con el parámetro `size`.
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=altiplanos rules=TC_altiplanos
 d.rast altiplanos
 d.grid size=2000
-{% endhighlight %}
+~~~
 
 ![Altiplanos](/cartografia-digital/images/altiplanos.png){: .img-responsive .img-rounded}
 
@@ -98,9 +98,9 @@ Se utiliza el comando `v.in.ascii` para generar el perfil en formato vectorial.
 
 Podemos utilizar el redireccionador `|` para que la salida de un comando sea la entrada del siguiente:
 
-{% highlight bash linenos=table %}
+~~~
 r.profile -g input=altiplanos profile=839954.615861,1212011.820184,855220.587482,1223332.652859 | v.in.ascii out=perfil_transversal fs=space
-{% endhighlight %}
+~~~
 
 ![Perfil transversal generado](/cartografia-digital/images/altiplanos_perfil_transversal.png){: .img-responsive .img-rounded}
 
@@ -110,7 +110,7 @@ El perfil transversal tiene una longitud de 18990 m. Vamos a tomar puntos equidi
 
 Los puntos seleccionados son:
 
-{% highlight text linenos=table %}
+~~~
 847978.956746 1217962.454886 9990.000000 2489
 848798.258819 1218570.027198 11010.000000 2474
 849593.463771 1219159.729736 12000.000000 2482
@@ -121,7 +121,7 @@ Los puntos seleccionados son:
 853617.682774 1222143.981974 17010.000000 2494
 854412.887726 1222733.684512 18000.000000 2499
 855208.092679 1223323.387050 18990.000000 2515
-{% endhighlight %}
+~~~
 
 Observar que el valor de distancia seleccionado sólo en algunos casos coincide exáctamente. Como la resolución espacial es de 30 m, entonces tenemos valores cerrados de distancia para 12 km, 15 km y 18 km; este pequeño desfase no tiene ninguna implicación respecto a los valores de altitud que son constantes para el pixel de 30 m x 30 m.
 
@@ -170,7 +170,7 @@ Los parámetros son:
 - La longitud de los perfiles es de 25000 metros.
 - Los puntos iniciales de los nueve perfiles se tienen del perfil transversal.
 
-{% highlight bash linenos=table %}
+~~~
 r.transect -g  map=altiplanos line=847978.956746,1217962.454886,323.4,25000 | v.in.ascii output=perfil1 fs=space columns='coord_x double precision, coord_y double precision, distancia double precision, altitud int'
 r.transect -g  map=altiplanos line=848798.258819,1218570.027198,323.4,25000 | v.in.ascii output=perfil2 fs=space columns='coord_x double precision, coord_y double precision, distancia double precision, altitud int'
 r.transect -g  map=altiplanos line=849593.463771,1219159.729736,323.4,25000 | v.in.ascii output=perfil3 fs=space columns='coord_x double precision, coord_y double precision, distancia double precision, altitud int'
@@ -181,7 +181,7 @@ r.transect -g  map=altiplanos line=852798.380701,1221536.409662,323.4,25000 | v.
 r.transect -g  map=altiplanos line=853617.682774,1222143.981974,323.4,25000 | v.in.ascii output=perfil8 fs=space columns='coord_x double precision, coord_y double precision, distancia double precision, altitud int'
 r.transect -g  map=altiplanos line=854412.887726,1222733.684512,323.4,25000 | v.in.ascii output=perfil9 fs=space columns='coord_x double precision, coord_y double precision, distancia double precision, altitud int'
 r.transect -g  map=altiplanos line=855208.092679,1223323.387050,323.4,25000 | v.in.ascii output=perfil10 fs=space columns='coord_x double precision, coord_y double precision, distancia double precision, altitud int'
-{% endhighlight %}
+~~~
 
 Se emplea el comando `v.in.ascii` de manera similar al perfil transversal, para generar los perfiles topográficos como mapas vectoriales de GRASS.
 
@@ -189,7 +189,7 @@ Se emplea el comando `v.in.ascii` de manera similar al perfil transversal, para 
 
 Luego con el comando `db.describe -c` comprobamos que cada uno de los perfiles construidos contenga cinco columnas, y lo más importante, un número igual de filas:
 
-{% highlight bash linenos=table %}
+~~~
 db.describe -c perfil1
 db.describe -c perfil2
 db.describe -c perfil3
@@ -200,7 +200,7 @@ db.describe -c perfil7
 db.describe -c perfil8
 db.describe -c perfil9
 db.describe -c perfil10
-{% endhighlight %}
+~~~
 
 Comprobamos que cada perfil contiene 834 puntos.
 
@@ -217,15 +217,15 @@ Transferir la información vectorizada de los perfiles desde GRASS a R
 
 Estando en GRASS desde el mapset donde se tienen los perfiles se entra a R.
 
-{% highlight bash linenos=table %}
+~~~
 R
-{% endhighlight %}
+~~~
 
 Para iniciar procedimientos en R utilizando la información que se encuentra en GRASS, es necesario cargar la biblioteca `spgrass6`, el cual permite esta conexión.
 
-{% highlight r linenos=table %}
+~~~
 library(spgrass6)
-{% endhighlight %}
+~~~
 
 Observar que al cargar la biblioteca, esta indica que se ha cargado GRASS GIS desde el location `CursoGrass`.
 
@@ -233,16 +233,16 @@ Observar que al cargar la biblioteca, esta indica que se ha cargado GRASS GIS de
 
 Se utiliza la función `readVECT6` de la biblioteca `spgrass6`, que permite leer los mapas vectoriales del location actual. Esta función genera un objeto de puntos espaciales (SpatialPointsDataFrame), del cual para efectos de este ejercicio, sólo nos interesa la base de datos, lo cual indicamos con `@data`.
 
-{% highlight r linenos=table %}
+~~~
 perfil1 <- readVECT6("perfil1")@data
 str(perfil1)
-{% endhighlight %}
+~~~
 
 Utilizamos la función `str` para consultar la estructura de la base de datos y constatamos que es la misma que teníamos en GRASS.
 
 Repetir el procedimiento para los demás perfiles:
 
-{% highlight r linenos=table %}
+~~~
 perfil2 <- readVECT6("perfil2")@data
 perfil3 <- readVECT6("perfil3")@data
 perfil4 <- readVECT6("perfil4")@data
@@ -252,19 +252,19 @@ perfil7 <- readVECT6("perfil7")@data
 perfil8 <- readVECT6("perfil8")@data
 perfil9 <- readVECT6("perfil9")@data
 perfil10 <- readVECT6("perfil10")@data
-{% endhighlight %}
+~~~
 
 ### Graficar varios perfiles en un solo gráfico
 
 Para graficar los primeros 5 perfiles, empleamos la función `plot` para el primer perfil, y la función `points` para los restantes 4 perfiles. Se utiliza el parámetro `type` para que los puntos sean graficados como una línea, y el parámetro `col` para el color.
 
-{% highlight r linenos=table %}
+~~~
 with(perfil1, plot(distancia, altitud, type="l", col="red"))
 with(perfil2, points(distancia, altitud, type="l", col="blue"))
 with(perfil3, points(distancia, altitud, type="l", col="green"))
 with(perfil4, points(distancia, altitud, type="l", col="brown"))
 with(perfil5, points(distancia, altitud, type="l", col="cyan"))
-{% endhighlight %}
+~~~
 
 ![Perfiles altiplano](/cartografia-digital/images/altiplanos_perfiles_R_1_5.png){: .img-responsive .img-rounded}
 
@@ -272,7 +272,7 @@ with(perfil5, points(distancia, altitud, type="l", col="cyan"))
 
 - Se elaboran los vectores que contienen los valores de altitud.
 
-{% highlight r linenos=table %}
+~~~
 Hperfil1 <- perfil1$altitud
 Hperfil2 <- perfil2$altitud
 Hperfil3 <- perfil3$altitud
@@ -283,28 +283,28 @@ Hperfil7 <- perfil7$altitud
 Hperfil8 <- perfil8$altitud
 Hperfil9 <- perfil9$altitud
 Hperfil10 <- perfil10$altitud
-{% endhighlight %}
+~~~
 
 - Los vectores anteriores se combinan de tal modo que queden como columnas para elaborar una matriz de altitudes de los perfiles seleccionados utilizando la función `cbind`.
 
-{% highlight r linenos=table %}
+~~~
 MHperfiles <- cbind(Hperfil1, Hperfil2, Hperfil3, Hperfil4, Hperfil5,
                     Hperfil6, Hperfil7, Hperfil8, Hperfil9, Hperfil10)
-{% endhighlight %}
+~~~
 
 - Verificamos las dimensiones de la matriz utilizando la función `dim`.
 
-{% highlight r linenos=table %}
+~~~
 dim(MHperfiles)
-{% endhighlight %}
+~~~
 
 La matriz obtenida tiene 834 filas y 10 columnas.
 
 - Cada columna contiene los valores de altitud de cada uno de los perfiles levantados.
 
-{% highlight r linenos=table %}
+~~~
 head(MHperfiles)
-{% endhighlight %}
+~~~
 
 ### Obtener los valores máximo, mínimo y promedio de cada fila de la matriz
 
@@ -312,49 +312,49 @@ head(MHperfiles)
 
 Para calcular el valor de altitud máxima de cada fila se utiliza la función `apply`.
 
-{% highlight r linenos=table %}
+~~~
 apply(MHperfiles, 1, max)
-{% endhighlight %}
+~~~
 
 Este cálculo permite obtener 834 valores de altitud máxima, uno para cada fila de la matriz.
 
 Para llevar los valores obtenidos como una nueva columna de la matriz:
 
-{% highlight r linenos=table %}
+~~~
 MHperfiles <- cbind(MHperfiles, apply(MHperfiles, 1, max))
 head(MHperfiles)
-{% endhighlight %}
+~~~
 
 Observar que la primera version de la matriz contiene diez columnas y la segunda contiene once columnas. Esta onceava columna corresponde a los valores de altitud máxima en cada fila. Pero la columna carece de nombre.
 
 Con la función `colnames` se le asigna el nombre `Hmax` a la columna 11 de la matriz.
 
-{% highlight r linenos=table %}
+~~~
 colnames(MHperfiles)[11] <- "Hmax"
 head(MHperfiles)
-{% endhighlight %}
+~~~
 
 #### Altitudes promedio
 
-{% highlight r linenos=table %}
+~~~
 MHperfiles <- cbind(MHperfiles, apply(MHperfiles, 1, mean))
 colnames(MHperfiles)[12] <- "Hmean"
 head(MHperfiles)
-{% endhighlight %}
+~~~
 
 #### Altitudes mínimas
 
-{% highlight r linenos=table %}
+~~~
 MHperfiles <- cbind(MHperfiles, apply(MHperfiles, 1, min))
 colnames(MHperfiles)[13] <- "Hmin"
 head(MHperfiles)
-{% endhighlight %}
+~~~
 
 En el trabajo precedente se construyó una matriz de altitudes con diez perfiles; luego se calcularon los valores de altitud máxima, promedio y mínima para cada fila de la matriz. Finalmente se tiene una matriz de 13 columnas y 834 filas.
 
-{% highlight r linenos=table %}
+~~~
 dim(MHperfiles)
-{% endhighlight %}
+~~~
 
 ### Graficar la matriz obtenida
 
@@ -362,17 +362,17 @@ dim(MHperfiles)
 
 Seleccionamos únicamente las primeras 10 columnas, las cuales corresponden a los perfiles topográficos levantados.
 
-{% highlight r linenos=table %}
+~~~
 matplot(MHperfiles[,1:10], type = "l")
-{% endhighlight %}
+~~~
 
 ![](/cartografia-digital/images/altiplanos_perfiles_R_todos.png){: .img-responsive .img-rounded}
 
 #### Graficar altitudes máximas, promedio y mínimas
 
-{% highlight r linenos=table %}
+~~~
 matplot(MHperfiles[,11:13], type = "l")
-{% endhighlight %}
+~~~
 
 ![](/cartografia-digital/images/altiplanos_perfiles_R_altitudes.png){: .img-responsive .img-rounded}
 
@@ -380,9 +380,9 @@ matplot(MHperfiles[,11:13], type = "l")
 
 Se selecciona el número de la columna correspondiente al perfil que se quiera graficar.
 
-{% highlight r linenos=table %}
+~~~
 matplot(MHperfiles[,5], type = "l", lwd = 2, col = "blue", main = "Perfil No. 5")
-{% endhighlight %}
+~~~
 
 ![](/cartografia-digital/images/altiplanos_perfiles_R_5.png){: .img-responsive .img-rounded}
 
@@ -393,9 +393,9 @@ matplot(MHperfiles[,5], type = "l", lwd = 2, col = "blue", main = "Perfil No. 5"
 - Si se quiere modifcar el título, se utiliza el parámetro `main`.
 - Si se desean agregar etiquetas a los ejes, se pueden utilizar los parámetros `xlab` y `ylab`.
 
-{% highlight r linenos=table %}
+~~~
 matplot(MHperfiles[,5], type = "l", lwd = 2, col = "blue", main = "Perfil No. 5")
-{% endhighlight %}
+~~~
 
 ![](/cartografia-digital/images/altiplanos_perfiles_R_5_v2.png){: .img-responsive .img-rounded}
 
@@ -406,19 +406,19 @@ En los ejemplos precedentes el eje X representa la secuencia de puntos dentro de
 
 Para tener un eje X con distancias en metros, se incorpora una primera columna de distancias y se le asigna el nombre.
 
-{% highlight r linenos=table %}
+~~~
 MHperfiles <- cbind(perfil1$distancia, MHperfiles)
 colnames(MHperfiles)[1] <- "Distancia"
-{% endhighlight %}
+~~~
 
 Volvemos a graficar las altitudes máximas, mínimas y promedios, pero utilizando la distancia en el eje horizontal.
 Utilizamos la función `legend` para ubicar una leyenda en el gráfico.
 
-{% highlight r linenos=table %}
+~~~
 matplot(x = MHperfiles[,1], y = MHperfiles[,12:14], type = "l", col = c("red", "green", "blue"),
         main = "Distribución de altitudes en el altiplano de Santa Rosa de Osos",
         xlab = "Distancia (m)", ylab = "Altitud (msnm)")
 legend(0, 2800, c("Altitud máxima", "Altitud promedio", "Altitud mínima"), col = c("red", "green", "blue"), lty = 1:3)
-{% endhighlight %}
+~~~
 
 ![](/cartografia-digital/images/altiplanos_perfiles_R_final.png){: .img-responsive .img-rounded}

@@ -3,12 +3,15 @@ layout: page
 ---
 
 <div class="row">
-  <div class="col-xs-12 col-sm-3 pull-right" id="nav">
-    <h4>Contenido</h4>
-    <ul class="nav nav-pills nav-stacked" id="toc"></ul>
-    <hr>
-    <p><a href="clases.html" class="btn btn-default">Índice de Clases</a></p>
+  <div class="col-xs-12 col-sm-3 pull-right" id="rightCol">
+    <div id="sidebar">
+      <h4>Contenido</h4>
+      <ul class="nav nav-stacked" id="toc"></ul>
+      <hr>
+      <p><a href="clases.html">Índice de Clases</a></p>
+    </div>
   </div>
+
   <div class="col-xs-12 col-sm-9 text-justify pull-left" id="content">
     {{ content }}
   </div>

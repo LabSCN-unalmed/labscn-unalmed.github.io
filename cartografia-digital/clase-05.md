@@ -7,9 +7,9 @@ clase: 5
 
 Para desplegar un mapa en un marco con título y leyenda se utiliza el comando `d.rast.leg`.
 
-{% highlight bash linenos=table %}
+~~~
 d.rast.leg map=porce1_RR_33_reclass position=70 title="Relieve Relativo en porcecito"
-{% endhighlight %}
+~~~
 
 Con este comando se le coloca la leyenda y el titulo a un mapa.
 

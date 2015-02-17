@@ -4,7 +4,14 @@ $("#content").find("h2").each(function() {
   toc.append("<li><a href='#" + h.attr("id") + "'>" + h.text() + "</a></li>");
 });
 
+$('#sidebar').affix({
+  offset: {
+    top: 200
+  }
+})
 
-// $('#nav').affix({
-//     offset: $('#nav').position()
-// });
+var $body   = $(document.body);
+
+$body.scrollspy({
+  target: '#rightCol'
+});
