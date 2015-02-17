@@ -423,8 +423,8 @@ r.mapcalc 'porcecito_pdzo=porcecito1'
 
 Ahora tenemos en el mapset `CursoGrass` dos mapas diferentes. ¿Cómo confirmarlo?
 
-Exploración preliminar de la información en el DEM
---------------------------------------------------
+Exploración de la información en el DEM
+---------------------------------------
 
 Un comando de uso intensivo en GRASS es `d.rast`. Se emplea para desplegar mapas en un monitor que se encuentre disponible para el despliegue.
 
