@@ -4,15 +4,12 @@ author: "Kenneth Roy Cabrera Torres"
 date: "18/02/2015"
 output:
   html_document:
-<<<<<<< HEAD
     highlight: textmate
     theme: readable
-=======
->>>>>>> 332231e5a2706f888227a8e5ffc5155b710ab8fe
     toc: yes
 ---
 
-# Tipo `SpatialPoints`
+## Tipo `SpatialPoints`
 
 Ejemplo utilizando las coordenadas de algunos lugares en el mundo donde existe un espejo del CRAN.
 
@@ -35,9 +32,9 @@ CRAN_sp <- SpatialPoints(CRAN_mat, proj4string = sistema_proj)
 summary(CRAN_sp)
 ```
 
-## Algunos métodos asociados
+### Algunos métodos asociados
 
-### Información principal
+#### Información principal
 
 ```{r}
 # Extracción de la información de las coordenadas
@@ -46,7 +43,7 @@ bbox(CRAN_sp)
 proj4string(CRAN_sp)
 ```
 
-### Subconjunto de datos
+#### Subconjunto de datos
 
 ```{r}
 # Índices del subconjunto
@@ -63,7 +60,7 @@ summary(CRAN_sp[brazil, ])
 summary(CRAN_sp[CRAN_bd$loc == "Brazil", ])
 ```
 
-## Datos de puntos con una base de datos asociada
+### Datos de puntos con una base de datos asociada
 
 ```{r}
 # Construcción de una base de puntos con base de datos asociada
@@ -91,7 +88,7 @@ all.equal(CRAN_spbd2, CRAN_spbd1)
 CRAN_spbd2[4, ]
 ```
 
-## Estructura jerárquica de `SpatialPointsDataFrame`
+### Estructura jerárquica de `SpatialPointsDataFrame`
 
 ![alt text](figuras/estrucSpatialPointsDataFrame.png)
 
@@ -111,7 +108,7 @@ names(CRAN_spbd1)
 str(model.frame(lat ~ long, data = CRAN_spbd1), give.attr = FALSE)
 ```
 
-## Otras forma de construir una estrucutra de puntos con una base de datos asociada
+### Otras forma de construir una estrucutra de puntos con una base de datos asociada
 
 ```{r, error=TRUE}
 # Si ambas bases están ordenadas, no necesitamos que las identidades de los puntos coincidan
@@ -132,8 +129,8 @@ CRAN_spbd3x <- SpatialPointsDataFrame(CRAN_mat, CRAN_bd1,
 
 ```
 
-<<<<<<< HEAD
-### Conjunto de puntos secuenciales.
+
+#### Conjunto de puntos secuenciales.
 
 En algunos casos se require información de puntos que 
 siguen una secuencia sin ser necesariamente una línea o polilínea, ya que
@@ -154,7 +151,7 @@ coordinates(esp_tortuga) <- c("lon", "lat")
 proj4string(esp_tortuga) <- CRS("+proj=longlat +ellps=WGS84")
 ```
               
-# Tipo `SpatialLines`
+## Tipo `SpatialLines`
 
 Las líneas son secuencias de puntos incluida cada una en una sola identidad.
 
@@ -219,12 +216,10 @@ costa_Auck <- MapGen2SL("auckland_mapgen.dat", sist_proj)
 summary(costa_Auck)
 ```
 
-=======
-# Tipo `SpatialLines`
->>>>>>> 332231e5a2706f888227a8e5ffc5155b710ab8fe
 
-# Tipo `SpatialPolygons`
 
-# Tipo `SpatialGrid`
+## Tipo `SpatialPolygons`
 
-# Tipo `Raster` del paquete **raster** 
+## Tipo `SpatialGrid`
+
+## Tipo `Raster` del paquete **raster** 
