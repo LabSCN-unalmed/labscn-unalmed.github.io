@@ -19,4 +19,4 @@ order: 01
 
 ## Ejemplo de algunos paquetes espaciales de R
 
-- [Puquete maps](/estadistica-espacial/guiones/paquete_maps.html){:target="_blank"}
+- [Paquete maps](/estadistica-espacial/guiones/paquete_maps.html){:target="_blank"}
