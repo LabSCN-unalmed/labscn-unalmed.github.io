@@ -1,10 +1,11 @@
 ---
 title: "Datos Espaciales en R"
 author: "Kenneth Roy Cabrera Torres"
-date: "11/02/2015"
+date: "18/02/2015"
 output:
   html_document:
-    keep_md: yes
+    highlight: textmate
+    theme: readable
     toc: yes
 ---
 
@@ -129,11 +130,92 @@ CRAN_spbd3x <- SpatialPointsDataFrame(CRAN_mat, CRAN_bd1,
 
 ```
 
+### Conjunto de puntos secuenciales.
 
+En algunos casos se require información de puntos que 
+siguen una secuencia sin ser necesariamente una línea o polilínea, ya que
+se necesita información asociada a cada punto.
+
+```{r}
+# Lectura de el trazo del viaje de una tortuga desde México hasta Japón.
+bd_tortuga <- read.csv("seamap105_mod.csv")
+summary(bd_tortuga)
+
+tiempos <- as.POSIXlt(strptime(as.character(bd_tortuga$obs_date),
+                                 "%m/%d/%Y %H:%M:%S"), "GMT")
+bd_tortuga1 <- data.frame(bd_tortuga, tiempos = tiempos)
+bd_tortuga1$lon <- ifelse(bd_tortuga1$lon < 0, 
+                          bd_tortuga1$lon + 360, bd_tortuga1$lon)
+esp_tortuga <- bd_tortuga1[order(bd_tortuga1$tiempos), ]
+coordinates(esp_tortuga) <- c("lon", "lat")
+proj4string(esp_tortuga) <- CRS("+proj=longlat +ellps=WGS84")
+```
               
-
-
 # Tipo `SpatialLines`
+
+Las líneas son secuencias de puntos incluida cada una en una sola identidad.
+
+```{r}
+require(sp)
+# Clase "Line"
+getClass("Line")
+
+# Clase "Lines"
+getClass("Lines")
+
+# Clase espacial para líneas
+getClass("SpatialLines")
+```
+
+Ejemplo de un objeto de líneas.
+
+```{r}
+require(maps)
+japon <- map("world", "japan", plot = FALSE)
+sist_proy <- CRS("+proj=longlat +ellps=WGS84")
+
+require(maptools)
+LSjapon <- map2SpatialLines(japon, proj4string = sist_proy)
+str(LSjapon, max.level = 2)
+```
+
+Estructura objetual del objeto para líneas y polígonos.
+
+![alt text](figuras/lineasPoligo.png)
+
+Ejemplo del uso del "sapply" a la estrucutra de líneas.
+
+```{r}
+sapply(slot(LSjapon, "lines"), function(x) length(slot(x,"Lines")))
+```
+
+Ejemplo con curvas de nivel
+
+```{r}
+
+# Construcción de curvas de nivel a partir de una raster
+ls_volcan <- ContourLines2SLDF(contourLines(volcano))
+
+# Estructura de las curvas de nivel como líneas
+str(ls_volcan, max.level = 2)
+
+# Recuperación de los elementos asociados a la base de datos de líneas.
+slot(ls_volcan, "data")
+
+# Aplicar una función para determinar el número de
+# líneas de cada objeto de la base de datos de líneas
+sapply(slot(ls_volcan, "lines"), function(x) length(slot(x, "Lines")))
+```
+
+Uso de líneas de costa 
+
+```{r}
+require(maptools)
+sist_proj <- CRS("+proj=longlat +ellps=WGS84")
+costa_Auck <- MapGen2SL("auckland_mapgen.dat", sist_proj)
+summary(costa_Auck)
+```
+
 
 # Tipo `SpatialPolygons`
 
