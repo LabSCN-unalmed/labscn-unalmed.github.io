@@ -258,9 +258,9 @@ CRAN_spbd1[4, ]</code></pre>
 ## 4 -25.41667</code></pre>
 <pre class="r"><code>CRAN_spbd3[4, ]</code></pre>
 <pre><code>##               coordinates    place   north    east    loc      long
-## eq (-49.26667, -25.41667) Curitiba 25d25'S 49d16'W Brazil -49.26667
+## ei (-49.26667, -25.41667) Curitiba 25d25'S 49d16'W Brazil -49.26667
 ##          lat
-## eq -25.41667</code></pre>
+## ei -25.41667</code></pre>
 <pre class="r"><code># Sin embargo se genera un erros si intentamos utilizar &quot;match.ID&quot;, y los identificadores no coinciden.
 CRAN_spbd3x &lt;- SpatialPointsDataFrame(CRAN_mat, CRAN_bd1,
                                       proj4string = sistema_proj, match.ID = TRUE)</code></pre>
