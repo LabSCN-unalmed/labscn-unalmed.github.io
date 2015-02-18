@@ -66,7 +66,7 @@ Los colores disponibles en GRASS
 Para conocer los nombres disponibles mas inmediatos:
 
 ~~~
-d.colorlist red,orange,yellow,green,blue,indigo,violet,white,black,gray,brown,magenta,aqua,grey,cyan,purple
+d.colorlist
 ~~~
 
 Asignación de color por tablas predefinidas
