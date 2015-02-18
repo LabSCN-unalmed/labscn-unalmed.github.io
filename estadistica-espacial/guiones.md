@@ -13,4 +13,7 @@ order: 01
 ## Tipos de datos espaciales en R
 
 - [Ejemplo 2](/estadistica-espacial/guiones/tiposDatosEspacialesenR.html){:target="_blank"}
-- [Base de datos](/estadistica-espacial/guiones/CRAN051001a.txt){:target="_blank"}
+- [BD (CRAN051001a.txt)](/estadistica-espacial/guiones/CRAN051001a.txt){:target="_blank"}
+- [BD (seamap105_mod.csv)](/estadistica-espacial/guiones/seamap105_mod.csv){:target="_blank"}
+- [BD (auckland_mapgen.dat)](/estadistica-espacial/guiones/auckland_mapgen.dat){:target="_blank"}
+
