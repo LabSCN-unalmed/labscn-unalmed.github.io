@@ -97,9 +97,9 @@ Para la elaboración del mapa de relieve relativo de la zona representada en el 
 
 ### Consultar el contenido del mapa porcecito1
 
-{% highlight bash linenos=table %}
+~~~
 r.info porcecito1
-{% endhighlight %}
+~~~
 
 Resaltamos de la información del mapa: Tiene 1242 filas y 1144 columnas; contiene 1’420.848 píxeles. La resolución espacial del mapa es la de un píxel cuadrad de 30.5 metros. La altitud mínima es de 958 msnm y la altitud máxima es de 2873 msnm.
 
@@ -123,20 +123,20 @@ La zona de vecindad corresponde a un cuadrado cuyo lado es equivalente a la long
 
 Se obtiene el mapa de relieve relativo calculando el rango de altitud en la zona de vecindad.
 
-{% highlight bash linenos=table %}
+~~~
 r.neighbors input=porcecito1 output=porce1_RR_33 method=range size=33
 d.rast porce1_RR_33
-{% endhighlight %}
+~~~
 
-![Mapa de relieve relativo](/cartografia-digital/images/porce1_RR_33.png){: .img-responsive .img-rounded}
+![Mapa de relieve relativo](/cartografia-digital/images/porce1_RR_33.png){: .img-responsive}
 
 #### Visualización 3D del mapa construido
 
-{% highlight bash linenos=table %}
+~~~
 nviz porce1_RR_33
-{% endhighlight %}
+~~~
 
-![Visualización 3D del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D.png){: .img-responsive .img-rounded}
+![Visualización 3D del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D.png){: .img-responsive}
 
 *¿Qué se observa en la imagen anterior?*
 
@@ -146,11 +146,11 @@ nviz porce1_RR_33
 
 #### Explorar esta otra opción y contestar los interrogantes precedentes
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_RR_33
-{% endhighlight %}
+~~~
 
-![Visualización 3D del mapa porcecito1 con los colores del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D2.png){: .img-responsive .img-rounded}
+![Visualización 3D del mapa porcecito1 con los colores del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D2.png){: .img-responsive}
 
 En esta última orden le decimos al sistema que despliegue en tres dimensiones el mapa `porcecito1` pero que le coloque los colores del mapa `porce1_RR_33`.
 
@@ -165,15 +165,15 @@ En el mapa de relieve relativo (`porce1_RR_33`):
 
 #### El contenido del mapa de relieve relativo
 
-{% highlight bash linenos=table %}
+~~~
 r.info porce1_RR_33
-{% endhighlight %}
+~~~
 
 Este comando nos permite saber que el valor mínimo de RR es 45 metros y el valor máximo de RR es 783 metros.
 
-{% highlight bash linenos=table %}
+~~~
 r.report -h map=porce1_RR_33 units=p,c,k nsteps=20
-{% endhighlight %}
+~~~
 
 Con el comando `r.report` se obtiene información sobre la distribución de los valores de relieve relativo en la zona del mapa de `porce1_RR_33`. Si los valores de la tabla, que se despliega en la terminal de comandos, se guardan en un archivo `.csv` utilizando el parámetro `output`, y se organiza en gedit, luego se puede abrir con LibreOffice Calc, en donde se ajusta un poco la presentación.
 
@@ -240,7 +240,7 @@ Para aplicar el comando `r.reclass` se requiere elaborar un script en gedit para
 
 El script tiene el siguiente contenido:
 
-{% highlight text linenos=table %} RCLS_porce1_RR
+~~~ RCLS_porce1_RR
  45 thru  82 = 1 Relieves planos y de colinas bajas.
  82 thru 150 = 2 Colinas intermedias.
 150 thru 300 = 3 Colinas altas.
@@ -248,7 +248,7 @@ El script tiene el siguiente contenido:
 350 thru 450 = 5 Diseccion profunda baja.
 450 thru 600 = 6 Diseccion profunda intermedia.
 600 thru 785 = 7 Diseccion profunda pronunciada.
-{% endhighlight %}
+~~~
 
 - Se inicia con la altitud mínima.
 - Se utilizan los rangos descritos en la tabla anterior.
@@ -268,15 +268,15 @@ De este modo obtenemos un mapa reclasificado del relieve relativo que contiene s
 
 La orden para elaborar un mapa reclasificado del relieve relativo es la siguiente:
 
-{% highlight bash linenos=table %}
+~~~
 r.reclass input=porce1_RR_33 output=porce1_RR_33_reclass rules=RCLS_porce1_RR
-{% endhighlight %}
+~~~
 
 #### Consultar el contenido del mapa reclasificado
 
-{% highlight bash linenos=table %}
+~~~
 r.report -h map=porce1_RR_33_reclass units=p,c,k
-{% endhighlight %}
+~~~
 
 Con el informe obtenido podemos responder preguntas, tales como:
 
@@ -285,17 +285,17 @@ Con el informe obtenido podemos responder preguntas, tales como:
 
 Desplegar en 2D y en 3D el mapa reclasificado de relieve relativo
 
-{% highlight bash linenos=table %}
+~~~
 d.rast porce1_RR_33_reclass
-{% endhighlight %}
+~~~
 
-![2D](/cartografia-digital/images/porce1_RR_33_reclass.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_RR_33_reclass.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_RR_33_reclass
-{% endhighlight %}
+~~~
 
-![3D](/cartografia-digital/images/porce1_RR_33_reclass3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_RR_33_reclass3D.png){: .img-responsive}
 
 Al desplegar el mapa `porce1_RR_33_reclass` el programa GRASS asigna unos colores a cada categoría.
 
@@ -312,23 +312,23 @@ reclasificado.
 
 Se elabora en gedit la nueva tabla de reclasificación y se guarda con un nombre.
 
-{% highlight text linenos=table %} RCLS_porce1_RR_simplif
+~~~ RCLS_porce1_RR_simplif
 1 2 3 = 1
   4   = 2
 5 6 7 = 3
-{% endhighlight %}
+~~~
 
 Se aplica el comando de reclasificación.
 
-{% highlight bash linenos=table %}
+~~~
 r.reclass input=porce1_RR_33_reclass output=porce1_RR_33_reclass_simplif rules=RCLS_porce1_RR-simplif
 d.rast porce1_RR_33_reclass_simplif
-{% endhighlight %}
+~~~
 
-![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_RR_33_reclass_simplif
-{% endhighlight %}
+~~~
 
-![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive}

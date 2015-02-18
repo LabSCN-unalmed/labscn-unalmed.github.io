@@ -16,7 +16,7 @@ order: 00
 7. Diseños de mezclas
 8. Medidas repetidas.
 
-## Evaluación:
+## Evaluación
 
 | Item               | Porcentaje | Fecha entrega                | Formato                    |
 |:-------------------|:----------:|:-----------------------------|:---------------------------|
@@ -33,19 +33,19 @@ order: 00
 
 ## Bibliografía
 
-### Libro guía:
+### Libro guía
 
 - Box, George E., Hunter, J. Stuart y Hunter, William G. Statistics for Experimenters. Design, Innovation, and Discovery. Wiley Series in Probability and Statistics. Second Edition. 2005.
 
-### Libro de Diseño Experimental:
+### Libro de Diseño Experimental
 
 - Kuehl, Robert O. Diseño de Experimentos. Principios estadísticos para el diseño y análisis de investigaciones. 2da Edición. Thomson Learning. 2001. 
 
-### Libro para diseño de mezclas:
+### Libro para diseño de mezclas
 
 - Cornell, J. A. A Premier on Experiments with Mixtures. John Wiley & Sons, 2011.
 
-## Horario de atención:
+## Horario de atención
 
 - Lunes 10:00 am - 12:00 m
 

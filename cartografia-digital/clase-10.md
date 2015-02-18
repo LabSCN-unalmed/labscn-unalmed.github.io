@@ -18,27 +18,27 @@ Una superficie curva se puede proyectar a un plano tangente a un punto particula
 
 Se puede proyectar la **superficie terrestre (ST)** a un cilindro que puede ser vertical u horizontal.
 
-![](/cartografia-digital/images/01datum.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/01datum.gif){: .img-responsive}
 
-![](/cartografia-digital/images/02globe_merid.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/02globe_merid.gif){: .img-responsive}
 
-![](/cartografia-digital/images/03globe_parallel.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/03globe_parallel.gif){: .img-responsive}
 
-![](/cartografia-digital/images/04globe_graticule.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/04globe_graticule.gif){: .img-responsive}
 
-![](/cartografia-digital/images/05geographic2.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/05geographic2.gif){: .img-responsive}
 
-![](/cartografia-digital/images/06plane.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/06plane.gif){: .img-responsive}
 
-![](/cartografia-digital/images/07orthographic1.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/07orthographic1.gif){: .img-responsive}
 
-![](/cartografia-digital/images/08orthographic2.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/08orthographic2.gif){: .img-responsive}
 
-![](/cartografia-digital/images/09cone.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/09cone.gif){: .img-responsive}
 
-![](/cartografia-digital/images/10cylinder.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/10cylinder.gif){: .img-responsive}
 
-![](/cartografia-digital/images/11cylinders.gif){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/11cylinders.gif){: .img-responsive}
 
 ### UTM: Universal transversal de mercator
 
@@ -75,21 +75,21 @@ Creación de locations en GRASS
 
 Abrir el directorio "01CreacionLocations" ubicado en la carpeta personal, y se da click derecho en un lugar vacío y se abre un terminal, de manera que el prompt aparece así:
 
-{% highlight text linenos=table %}
+~~~
 usuario@equipo:~/01CreacionLocations $
-{% endhighlight %}
+~~~
 
 Se utiliza el comando `gdalinfo`, para obtener información de archivos georeferenciados, como el tipo de elipsoide utilizado, la proyección utilizada, las coordenadas del origen y de las esquinas, el tamaño en número de píxeles, y la resolución de cada píxel.
 
-{% highlight bash linenos=table %}
+~~~
 gdalinfo SRTM_ff03_n006w076.tif
-{% endhighlight %}
+~~~
 
 En este caso, este archivo no se encuentra proyectado, se trata de una imagen SRTM que incluye el valle de aburrá.
 
-{% highlight bash linenos=table %}
+~~~
 gdalinfo L71009055_05520040206_B10.TIF
-{% endhighlight %}
+~~~
 
 Este otro archivo si se encuentra proyectado, pertenece a la zona 18N de la proyección UTM. Este archivo es una de las bandas de una imagen LANDSAT que incluye el valle de aburrá.
 
@@ -99,57 +99,57 @@ Se abre el GRASS y se emplea el comando `r.in.gdal` para importar un archivo geo
 
 Se crean 2 nuevos location a partir de los archivos georeferenciados, cada uno con su propia proyección.
 
-{% highlight bash linenos=table %}
+~~~
 r.in.gdal input=SRTM_ff03_n006w076.tif output=srtmMed location=SRTMmed
 r.in.gdal input=L71009055_05520040206_B10.TIF output=b1 location=LANDSATMed
-{% endhighlight %}
+~~~
 
 ### Cambiar la proyección de archivos georeferenciados
 
 Para utilizar estos 2 nuevos mapas en el location `CursoGrass`, es necesario re-proyectarlos desde su proyección original por medio del comando `r.proj`, pero primero es importante definir la región actual de acuerdo a las dimensiones del mapa a re-proyectar, consultando las coordenadas del mapa con la opción `-g` y sin especificar un `output`.
 
-{% highlight bash linenos=table %}
+~~~
 r.proj -g input=srtmMed location=SRTMmed mapset=PERMANENT
-{% endhighlight %}
+~~~
 
 Una vez calculadas las dimensiones, se ajusta la región con el `g.region` utilizando los parámetros de proyección de salida proporcionados por el `r.proj`.
 
-{% highlight bash linenos=table %}
+~~~
 g.region -p n=1265659.49833505 s=1155250.61187744 w=787437.29344709 e=898483.54085667 rows=1201 cols=1201
-{% endhighlight %}
+~~~
 
 Se ajusta la resolución redondeándola.
 
-{% highlight bash linenos=table %}
+~~~
 g.region -ap res=90
-{% endhighlight %}
+~~~
 
 Finalmente se realiza la re-proyección eliminando la opción `-g` y agregando el parámetro `output`.
 
-{% highlight bash linenos=table %}
+~~~
 r.proj input=srtmMed location=SRTMmed mapset=PERMANENT output=srtmMed
-{% endhighlight %}
+~~~
 
 Se repite el proceso para la imagen LANDSAT.
 
-{% highlight bash linenos=table %}
+~~~
 r.proj -g input=b1 location=LANDSATMed mapset=PERMANENT
 g.region -p n=1397172.39560327 s=1185695.48942899 w=733546.33266639 e=976568.05249097 rows=7061 cols=8081
 g.region -ap res=30
 r.proj input=b1 location=LANDSATMed mapset=PERMANENT output=b1
-{% endhighlight %}
+~~~
 
 Desplegamos los mapas importados.
 
-{% highlight bash linenos=table %}
+~~~
 g.region rast=srtmMed
 d.rast srtmMed
-{% endhighlight %}
+~~~
 
-![](/cartografia-digital/images/srtmMed.png){: .img-responsive .img-rounded}
+![](/cartografia-digital/images/srtmMed.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 g.region rast=b1
 d.rast b1
-{% endhighlight %}
-![](/cartografia-digital/images/b1.png){: .img-responsive .img-rounded}
+~~~
+![](/cartografia-digital/images/b1.png){: .img-responsive}

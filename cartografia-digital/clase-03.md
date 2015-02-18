@@ -18,7 +18,7 @@ Un color por lo tanto se obtiene como una combinación de valores para *rojo*, *
 
 Evaluar distintas combinaciones empleando el programa “gcolor2”: Aplicaciones &rarr; Gráficos &rarr; Gcolor2
 
-![Selector de color gcolor2](/cartografia-digital/images/gcolor2.png){: .img-responsive .img-rounded}
+![Selector de color gcolor2](/cartografia-digital/images/gcolor2.png){: .img-responsive}
 
 *¿Qué pasa si mantenemos constante el valor de R y G y se disminuye gradualmente el valor de B?*
 
@@ -60,17 +60,17 @@ Los colores muy oscuros aplicados a una zona muy extensa no permiten visualizar 
 
 Un uso adecuado de colores contrastantes permite visualizar adecuadamente la estructura del relieve.
 
-Los colores disponibles en GRASS empleando su nombre
-----------------------------------------------------
+Los colores disponibles en GRASS
+--------------------------------
 
 Para conocer los nombres disponibles mas inmediatos:
 
-{% highlight bash linenos=table %}
+~~~
 d.colorlist red,orange,yellow,green,blue,indigo,violet,white,black,gray,brown,magenta,aqua,grey,cyan,purple
-{% endhighlight %}
+~~~
 
-Asignación de color por tabla de colores predefinidas
------------------------------------------------------
+Asignación de color por tablas predefinidas
+-------------------------------------------
 
 Existe en GRASS un conjunto de tablas preestablecidas que se pueden aplicar a un mapa dado.
 
@@ -80,40 +80,40 @@ Vamos a utilizar algunas tabla de colores preestablecidas.
 
 ### La tabla de colores “aspect”
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 color=aspect
-{% endhighlight %}
+~~~
 
-![La tabla de colores "aspect"](/cartografia-digital/images/porcecito_aspect.png){: .img-responsive .img-rounded}
+![La tabla de colores "aspect"](/cartografia-digital/images/porcecito_aspect.png){: .img-responsive}
 
 *¿Qué rasgos de la región resaltan con esta tabla de colores?*
 
 ### La tabla de colores “bcyr”
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 color=bcyr
-{% endhighlight %}
+~~~
 
-![La tabla de colores "bcyr"](/cartografia-digital/images/porcecito_bcyr.png){: .img-responsive .img-rounded}
+![La tabla de colores "bcyr"](/cartografia-digital/images/porcecito_bcyr.png){: .img-responsive}
 
 ### La tabla de colores “elevation”
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 color=elevation
-{% endhighlight %}
+~~~
 
-![La tabla de colores "elevation"](/cartografia-digital/images/porcecito_elevation.png){: .img-responsive .img-rounded}
+![La tabla de colores "elevation"](/cartografia-digital/images/porcecito_elevation.png){: .img-responsive}
 
 ### La tabla de colores “rainbow”
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 color=rainbow
-{% endhighlight %}
+~~~
 
-![La tabla de colores "rainbow"](/cartografia-digital/images/porcecito_rainbow.png){: .img-responsive .img-rounded}
+![La tabla de colores "rainbow"](/cartografia-digital/images/porcecito_rainbow.png){: .img-responsive}
 
-Asignación de color creando una tabla personalizada de colores
---------------------------------------------------------------
+Asignación de color creando una tabla personalizada
+---------------------------------------------------
 
 Ahora vamos a avanzar un paso más; no vamos a depender de las paletas de colores preestablecidas por GRASS sino que construimos la tableta a  nuestro gusto y también vamos a decidir a cuales rangos de la altitud la aplicamos.
 
@@ -143,9 +143,9 @@ Existe el comando `r.univar` que permite conocer los estadísticos básicos de c
 - El valor promedio.
 - Otros parámetros.
 
-{% highlight bash linenos=table %}
+~~~
 r.univar porcecito1
-{% endhighlight %}
+~~~
 
 ### Crear una tabla de colores en gedit con variación gradual del color y asignarle una identificación
 
@@ -162,7 +162,8 @@ Pasos a seguir:
 #### Primera versión
 
 `TC_porce1`
-{% highlight text linenos=table %}
+
+~~~
 958  blue
 975  cyan
 1100 green
@@ -170,13 +171,13 @@ Pasos a seguir:
 2000 red
 2500 brown
 2873 aqua
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 rules=TC_porce1
-{% endhighlight %}
+~~~
 
-![Primera versión](/cartografia-digital/images/TC_porce1.png){: .img-responsive .img-rounded}
+![Primera versión](/cartografia-digital/images/TC_porce1.png){: .img-responsive}
 
 Lo mas seguro es que la primera definición de la tabla de colores no nos satisface.
 
@@ -185,7 +186,8 @@ Mirando el mapa y teniendo el archivo abierto en gedit al lado, le hacemos las m
 #### Segunda versión
 
 `TC_porce2`
-{% highlight text linenos=table %}
+
+~~~
 958  cyan
 1000 blue
 1300 green
@@ -194,18 +196,19 @@ Mirando el mapa y teniendo el archivo abierto en gedit al lado, le hacemos las m
 2300 brown
 2500 black
 2873 aqua
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 rules=TC_porce2
-{% endhighlight %}
+~~~
 
-![Segunda versión](/cartografia-digital/images/TC_porce2.png){: .img-responsive .img-rounded}
+![Segunda versión](/cartografia-digital/images/TC_porce2.png){: .img-responsive}
 
 #### Tercera versión
 
 `TC_porce3`
-{% highlight text linenos=table %}
+
+~~~
 958  cyan
 1000 blue
 1300 green
@@ -214,17 +217,17 @@ r.colors map=porcecito1 rules=TC_porce2
 2200 brown
 2400 black
 2873 aqua
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 rules=TC_porce3
-{% endhighlight %}
+~~~
 
-![Tercera versión](/cartografia-digital/images/TC_porce3.png){: .img-responsive .img-rounded}
+![Tercera versión](/cartografia-digital/images/TC_porce3.png){: .img-responsive}
 
 **Un primer descreste:** Con el comando `nviz` visualizar lo hecho. La diferencia entre una observación 2D del relieve y una observación 3D del mismo.
 
-![Visualización del relieve en 3D utilizando nviz](/cartografia-digital/images/porcecito3D.png){: .img-responsive .img-rounded}
+![Visualización del relieve en 3D utilizando nviz](/cartografia-digital/images/porcecito3D.png){: .img-responsive}
 
 **NOTA:** Hemos utilizado la idea de variación gradual del color pero nos restringimos a los colores que por nombre identifica el GRASS.
 
@@ -233,7 +236,8 @@ r.colors map=porcecito1 rules=TC_porce3
 Utilizando nombres y la nomenclatura RGB.
 
 `TC_porce4`
-{% highlight text linenos=table %}
+
+~~~
 958  blue
 980  cyan
 1100 orange
@@ -243,20 +247,21 @@ Utilizando nombres y la nomenclatura RGB.
 2500 247 151 158 # rojo muy claro
 2750 160  61  12 # café oscuro
 2873 aqua
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 rules=TC_porce4
-{% endhighlight %}
+~~~
 
-![Cuarta versión](/cartografia-digital/images/TC_porce4.png){: .img-responsive .img-rounded}
+![Cuarta versión](/cartografia-digital/images/TC_porce4.png){: .img-responsive}
 
 ### Crear tabla de colores en gedit con variación discreta del color
 
 En este caso, se trata de definir rangos altitudinales discretos (un comienzo y un final y a los píxeles en el rango se les asigna un mismo color).
 
 `TC_porce5`
-{% highlight text linenos=table %}
+
+~~~
 958  237 210 164 # cafe claro
 1049 237 210 164
 1050 172 133  67 # cafe más oscuro
@@ -265,13 +270,13 @@ En este caso, se trata de definir rangos altitudinales discretos (un comienzo y 
 2349 green
 2350 blue
 2499 blue
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 rules=TC_porce5
-{% endhighlight %}
+~~~
 
-![Variación discreta de color por altitud](/cartografia-digital/images/TC_porce5.png){: .img-responsive .img-rounded}
+![Variación discreta de color por altitud](/cartografia-digital/images/TC_porce5.png){: .img-responsive}
 
 En la tabla antes creada (`TC_porce5`) no se cubre todo el rango altitudinal del archivo `porcecito1`. Al aplicar el comando `r.colors` sale una advertencia señalando este hecho.
 
@@ -284,44 +289,47 @@ En este caso iniciamos con un porcentaje del 0% en la altitud mas baja y asignam
 #### Primera versión
 
 `TC_porce6`
-{% highlight text linenos=table %}
+
+~~~
 0%     0 230   0 # verde
 25%    0 160   0 # verde oscuro
 55%  120 100  30 # café oscuro
 75%  120 130  40 # café-verde
 100% 255 255 100 # amarillo claro
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 rules=TC_porce6
-{% endhighlight %}
+~~~
 
-![Primera versión](/cartografia-digital/images/TC_porce6.png){: .img-responsive .img-rounded}
+![Primera versión](/cartografia-digital/images/TC_porce6.png){: .img-responsive}
 
 #### Segunda versión
 
 `TC_porce6a`
-{% highlight text linenos=table %}
+
+~~~
 0%    99 158 245 # azul claro
 20%    8  52 116 # azul mucho mas oscuro
 40%  235 231  47 # amarillo
 60%   14  92   4 # verde muy oscuro
 80%  247 151 158 # rojo muy claro
 100% 145  11  21 # rojo muy oscuro
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 rules=TC_porce6a
-{% endhighlight %}
+~~~
 
-![Segunda versión](/cartografia-digital/images/TC_porce6a.png){: .img-responsive .img-rounded}
+![Segunda versión](/cartografia-digital/images/TC_porce6a.png){: .img-responsive}
 
 #### Versión Final
 
 Después de varias modificaciones terminamos con esta combinación:
 
 `TC_porce7`
-{% highlight text linenos=table %}
+
+~~~
 0%    99 158 245 # azul claro
 3%     8  52 116 # azul mucho mas oscuro
 15%  235 231  47 # amarillo
@@ -329,13 +337,13 @@ Después de varias modificaciones terminamos con esta combinación:
 75%  247 151 158 # rojo muy claro
 90%  145  11  21 # rojo muy oscuro
 100% black
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 rules=TC_porce7
-{% endhighlight %}
+~~~
 
-![Versión Final](/cartografia-digital/images/TC_porce7.png){: .img-responsive .img-rounded}
+![Versión Final](/cartografia-digital/images/TC_porce7.png){: .img-responsive}
 
 ### Crear una nueva carpeta para guardar las tablas de colores creadas
 
@@ -343,17 +351,17 @@ Durante las sesiones en GRASS creamos numerosas y diversas tablas de colores. Po
 
 Si no señalamos donde se encuentra el script, al aplicar el comando sale el error:
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 rules=TC_porce7
-{% endhighlight %}
+~~~
 
 `ERROR: No se puede cargar el archivo de reglas <TC_porce7>`
 
 El archivo sí existe pero se encuentra en otro directorio. Debemos indicar en qué carpeta se encuentra el archivo.
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porcecito1 rules=TablasColores/TC_porce7
-{% endhighlight %}
+~~~
 
 Asignar a un mapa la tabla de colores de otro mapa
 --------------------------------------------------
@@ -369,17 +377,17 @@ Un ejemplo:
 
 La secuencia de ordenes en GRASS es la siguiente:
 
-{% highlight bash linenos=table %}
+~~~
 g.list rast
 g.copy rast=ituango,ituan
 g.region rast=ituan
 d.rast ituan
 r.colors map=ituan raster=porcecito1
-{% endhighlight %}
+~~~
 
-![Antes](/cartografia-digital/images/ituan.png){: .img-responsive .img-rounded}
+![Antes](/cartografia-digital/images/ituan.png){: .img-responsive}
 
-![Después](/cartografia-digital/images/ituan_porce1.png){: .img-responsive .img-rounded}
+![Después](/cartografia-digital/images/ituan_porce1.png){: .img-responsive}
 
 *¿Por qué aparecen zonas en el mapa `ituan` que no presentan color? ¿Cómo explicarlo?*
 
@@ -387,9 +395,9 @@ r.colors map=ituan raster=porcecito1
 
 Se puede eliminar la tabla traída de otro mapa y desplegar la tabla inicial de colores que tenía el mapa.
 
-{% highlight bash linenos=table %}
+~~~
 r.colors -r ituan
-{% endhighlight %}
+~~~
 
 Actividad extracurso
 --------------------

@@ -16,14 +16,16 @@ order: 00
 
 ## Bibliografía
 
-### Textos principales.
+### Textos principales
+
 1. LLoyd, Christopher D. Local Models for Spatial Analysis.
  Second Edition. CRC Press. 2011.
 2. Bivand, Roger S, Pebesma Edzer y Gómez-Rubio Virgilio.
 Applied Spatial Data Analysis with R. Second Edition. Springer New York.
 2013
 
-### Textos complementarios.
+### Textos complementarios
+
 1. Cressie, Noel A. C. Statistics for Spatial Data.
 John Wiley & Sons, Inc. 1991.
 2. Gaetan Carlo y Guyon Xavier. Spatial Statistics and Modeling.
@@ -34,7 +36,7 @@ Modern Statistical Methods. 2010.
 4. Cressie Noel y Wikle Christopher K. Statistics for Spation-temporal Data.
 John Wiley & Sons, Inc. 2011
 
-## Evaluación:
+## Evaluación
 
 | Item                   | Porcentaje |
 |:-----------------------|:----------:|
@@ -50,8 +52,8 @@ John Wiley & Sons, Inc. 2011
 
 ## Procedimiento en R para instalar *todos* los paquetes asociados a manejos de datos espaciales.
 
-{% highlight r linenos=table %}
+~~~
 install.packages("ctv")
 require("ctv")
 install.views("Spatial")
-{% endhighlight %}
+~~~

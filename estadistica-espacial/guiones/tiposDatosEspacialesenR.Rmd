@@ -4,15 +4,17 @@ author: "Kenneth Roy Cabrera Torres"
 date: "18/02/2015"
 output:
   html_document:
+<<<<<<< HEAD
     highlight: textmate
     theme: readable
+=======
+>>>>>>> 332231e5a2706f888227a8e5ffc5155b710ab8fe
     toc: yes
 ---
 
 # Tipo `SpatialPoints`
 
 Ejemplo utilizando las coordenadas de algunos lugares en el mundo donde existe un espejo del CRAN.
-
 
 ```{r}
 # Lectura a una base de datos
@@ -33,17 +35,19 @@ CRAN_sp <- SpatialPoints(CRAN_mat, proj4string = sistema_proj)
 summary(CRAN_sp)
 ```
 
-## Algunos métodos asociados.
+## Algunos métodos asociados
 
 ### Información principal
+
 ```{r}
-# Extracción de la información de las coordenadas.
+# Extracción de la información de las coordenadas
 bbox(CRAN_sp)
-# Extracción de la información de de la proyección.
+# Extracción de la información de de la proyección
 proj4string(CRAN_sp)
 ```
 
 ### Subconjunto de datos
+
 ```{r}
 # Índices del subconjunto
 brazil <- which(CRAN_bd$loc == "Brazil")
@@ -52,17 +56,17 @@ brazil
 # Coordenadas de esos índices
 coordinates(CRAN_sp)[brazil, ]
 
-# Si se extrae un subconjunto, el recalcula el marco que contiene los puntos.
+# Si se extrae un subconjunto, el recalcula el marco que contiene los puntos
 summary(CRAN_sp[brazil, ])
 
 # Se puede hacer todo el procedimiento en una sola línea:
 summary(CRAN_sp[CRAN_bd$loc == "Brazil", ])
 ```
 
-## Datos de puntos con una base de datos asociada.
+## Datos de puntos con una base de datos asociada
 
 ```{r}
-# Construcción de una base de puntos con base de datos asociada.
+# Construcción de una base de puntos con base de datos asociada
 CRAN_spbd1 <- SpatialPointsDataFrame(CRAN_mat, CRAN_bd,
               proj4string = sistema_proj, match.ID = TRUE)
 
@@ -85,7 +89,6 @@ CRAN_spbd2 <- SpatialPointsDataFrame(CRAN_mat, nuevaCRAN_bd,
 all.equal(CRAN_spbd2, CRAN_spbd1)
 
 CRAN_spbd2[4, ]
-
 ```
 
 ## Estructura jerárquica de `SpatialPointsDataFrame`
@@ -100,7 +103,6 @@ getClass("SpatialPointsDataFrame")
 Todas las subclases que tienen el sufijo *DataFrame* están
 diseñadas para que se usen casi como los *data.frame* estándar.
 
-
 ```{r}
 # Nombres
 names(CRAN_spbd1)
@@ -112,7 +114,7 @@ str(model.frame(lat ~ long, data = CRAN_spbd1), give.attr = FALSE)
 ## Otras forma de construir una estrucutra de puntos con una base de datos asociada
 
 ```{r, error=TRUE}
-# Si ambas bases están ordenadas, no necesitamos que las identidades de los puntos coincidan.
+# Si ambas bases están ordenadas, no necesitamos que las identidades de los puntos coincidan
 
 CRAN_bd1 <- CRAN_bd
 row.names(CRAN_bd1) <- sample(c(outer(letters, letters,
@@ -126,10 +128,11 @@ CRAN_spbd1[4, ]
 CRAN_spbd3[4, ]
 # Sin embargo se genera un erros si intentamos utilizar "match.ID", y los identificadores no coinciden.
 CRAN_spbd3x <- SpatialPointsDataFrame(CRAN_mat, CRAN_bd1,
-              proj4string = sistema_proj, match.ID = TRUE)
+                                      proj4string = sistema_proj, match.ID = TRUE)
 
 ```
 
+<<<<<<< HEAD
 ### Conjunto de puntos secuenciales.
 
 En algunos casos se require información de puntos que 
@@ -216,6 +219,9 @@ costa_Auck <- MapGen2SL("auckland_mapgen.dat", sist_proj)
 summary(costa_Auck)
 ```
 
+=======
+# Tipo `SpatialLines`
+>>>>>>> 332231e5a2706f888227a8e5ffc5155b710ab8fe
 
 # Tipo `SpatialPolygons`
 

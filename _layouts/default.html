@@ -8,13 +8,11 @@
     <div class="container">
       {{ content }}
       <hr>
-      <footer class="footer">
-        <p>{{ site.subtitle }} &middot; {{ site.description }}</p>
-      </footer>
+      {% include footer.html %}
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script src="/js/toc.js"></script>
+    <script src="/js/custom.js"></script>
     {% if page.custom_js %}
       {% for js in page.custom_js %}
         {% include {{ js }}.html %}

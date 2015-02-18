@@ -4,10 +4,9 @@ title: 'Taller 2'
 curso: 'metodos-estadisticos'
 ---
 
-# Enunciado
+## Enunciado
 
-Se comparó el desempeño de estudiantes en comprensión lectora,
-con respecto a tres técnicas de instrucción.
+Se comparó el desempeño de estudiantes en comprensión lectora, con respecto a tres técnicas de instrucción.
 
 Los resultados aparecen en la siguiente tabla.
 
@@ -32,8 +31,7 @@ Los resultados aparecen en la siguiente tabla.
 
 De manera individual realice el siguiente taller para entregar:
 
-1. Construya una base de datos en Excel con los datos que se obtuvieron 
-en este experimento.
+1. Construya una base de datos en Excel con los datos que se obtuvieron en este experimento.
 
 2. Convierta la base de datos a un archivo ".csv".
 
@@ -50,15 +48,15 @@ en este experimento.
    (nota: No se pide realizar ningún procedimiento como ANOVA, 
     o cualquier otra prueba estadística; sólo descriptivo)
 
-# Entregables
-1. Documento en ".pdf" con el resumen de los datos, la gráfica
-   y las conclusiones obtenidas.
+## Entregables
+
+1. Documento en ".pdf" con el resumen de los datos, la gráfica y las conclusiones obtenidas.
 2. Guión o *script* en R.
 3. Base de datos en formato excel **.xls** o **.xlsx**.
 4. Base de datos en formato texto **.csv**.
 
-# Fecha de entrega
+## Fecha de entrega
+
 Sábado 21 de febrero de 2015 antes de las 23:59 hora colombiana,
 al correo **krcabrer@unal.edu.co**. No olvidar en asunto 
 **MEDE**. 
-

@@ -70,11 +70,11 @@ img {
 <div id="TOC">
 <ul>
 <li><a href="#tipo-spatialpoints">Tipo <code>SpatialPoints</code></a><ul>
-<li><a href="#algunos-metodos-asociados.">Algunos métodos asociados.</a><ul>
+<li><a href="#algunos-metodos-asociados">Algunos métodos asociados</a><ul>
 <li><a href="#informacion-principal">Información principal</a></li>
 <li><a href="#subconjunto-de-datos">Subconjunto de datos</a></li>
 </ul></li>
-<li><a href="#datos-de-puntos-con-una-base-de-datos-asociada.">Datos de puntos con una base de datos asociada.</a></li>
+<li><a href="#datos-de-puntos-con-una-base-de-datos-asociada">Datos de puntos con una base de datos asociada</a></li>
 <li><a href="#estructura-jerarquica-de-spatialpointsdataframe">Estructura jerárquica de <code>SpatialPointsDataFrame</code></a></li>
 <li><a href="#otras-forma-de-construir-una-estrucutra-de-puntos-con-una-base-de-datos-asociada">Otras forma de construir una estrucutra de puntos con una base de datos asociada</a><ul>
 <li><a href="#conjunto-de-puntos-secuenciales.">Conjunto de puntos secuenciales.</a></li>
@@ -129,16 +129,16 @@ summary(CRAN_sp)</code></pre>
 ## Is projected: FALSE 
 ## proj4string : [+proj=longlat +ellps=WGS84]
 ## Number of points: 54</code></pre>
-<div id="algunos-metodos-asociados." class="section level2">
-<h2>Algunos métodos asociados.</h2>
+<div id="algunos-metodos-asociados" class="section level2">
+<h2>Algunos métodos asociados</h2>
 <div id="informacion-principal" class="section level3">
 <h3>Información principal</h3>
-<pre class="r"><code># Extracción de la información de las coordenadas.
+<pre class="r"><code># Extracción de la información de las coordenadas
 bbox(CRAN_sp)</code></pre>
 <pre><code>##                  min      max
 ## coords.x1 -122.95000 153.0333
 ## coords.x2  -37.81667  57.0500</code></pre>
-<pre class="r"><code># Extracción de la información de de la proyección.
+<pre class="r"><code># Extracción de la información de de la proyección
 proj4string(CRAN_sp)</code></pre>
 <pre><code>## [1] &quot;+proj=longlat +ellps=WGS84&quot;</code></pre>
 </div>
@@ -156,7 +156,7 @@ coordinates(CRAN_sp)[brazil, ]</code></pre>
 ## 6 -43.20000 -22.90000
 ## 7 -47.63333 -22.71667
 ## 8 -46.63333 -23.53333</code></pre>
-<pre class="r"><code># Si se extrae un subconjunto, el recalcula el marco que contiene los puntos.
+<pre class="r"><code># Si se extrae un subconjunto, el recalcula el marco que contiene los puntos
 summary(CRAN_sp[brazil, ])</code></pre>
 <pre><code>## Object of class SpatialPoints
 ## Coordinates:
@@ -178,9 +178,9 @@ summary(CRAN_sp[CRAN_bd$loc == &quot;Brazil&quot;, ])</code></pre>
 ## Number of points: 5</code></pre>
 </div>
 </div>
-<div id="datos-de-puntos-con-una-base-de-datos-asociada." class="section level2">
-<h2>Datos de puntos con una base de datos asociada.</h2>
-<pre class="r"><code># Construcción de una base de puntos con base de datos asociada.
+<div id="datos-de-puntos-con-una-base-de-datos-asociada" class="section level2">
+<h2>Datos de puntos con una base de datos asociada</h2>
+<pre class="r"><code># Construcción de una base de puntos con base de datos asociada
 CRAN_spbd1 &lt;- SpatialPointsDataFrame(CRAN_mat, CRAN_bd,
               proj4string = sistema_proj, match.ID = TRUE)
 
@@ -243,7 +243,7 @@ str(model.frame(lat ~ long, data = CRAN_spbd1), give.attr = FALSE)</code></pre>
 </div>
 <div id="otras-forma-de-construir-una-estrucutra-de-puntos-con-una-base-de-datos-asociada" class="section level2">
 <h2>Otras forma de construir una estrucutra de puntos con una base de datos asociada</h2>
-<pre class="r"><code># Si ambas bases están ordenadas, no necesitamos que las identidades de los puntos coincidan.
+<pre class="r"><code># Si ambas bases están ordenadas, no necesitamos que las identidades de los puntos coincidan
 
 CRAN_bd1 &lt;- CRAN_bd
 row.names(CRAN_bd1) &lt;- sample(c(outer(letters, letters,
@@ -263,12 +263,18 @@ CRAN_spbd1[4, ]</code></pre>
 ## 4 -25.41667</code></pre>
 <pre class="r"><code>CRAN_spbd3[4, ]</code></pre>
 <pre><code>##               coordinates    place   north    east    loc      long
+<<<<<<< HEAD
 ## oj (-49.26667, -25.41667) Curitiba 25d25'S 49d16'W Brazil -49.26667
 ##          lat
 ## oj -25.41667</code></pre>
+=======
+## dd (-49.26667, -25.41667) Curitiba 25d25'S 49d16'W Brazil -49.26667
+##          lat
+## dd -25.41667</code></pre>
+>>>>>>> 332231e5a2706f888227a8e5ffc5155b710ab8fe
 <pre class="r"><code># Sin embargo se genera un erros si intentamos utilizar &quot;match.ID&quot;, y los identificadores no coinciden.
 CRAN_spbd3x &lt;- SpatialPointsDataFrame(CRAN_mat, CRAN_bd1,
-              proj4string = sistema_proj, match.ID = TRUE)</code></pre>
+                                      proj4string = sistema_proj, match.ID = TRUE)</code></pre>
 <pre><code>## Error in SpatialPointsDataFrame(CRAN_mat, CRAN_bd1, proj4string = sistema_proj, : row.names of data and coords do not match</code></pre>
 <div id="conjunto-de-puntos-secuenciales." class="section level3">
 <h3>Conjunto de puntos secuenciales.</h3>

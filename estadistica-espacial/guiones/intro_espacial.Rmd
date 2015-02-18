@@ -4,20 +4,19 @@ author: "Kenneth Roy Cabrera Torres"
 date: "11/02/2015"
 output:
   html_document:
-    keep_md: yes
     toc: yes
 ---
 
-# Elementos de la estructra de datos en R.
+# Elementos de la estructra de datos en R
 
 ```{r}
-# Uos del R como aparente calculadora.
+# Uso del R como aparente calculadora
 pi * 10^2
 
 # Operación "real" como funciones dentro de R
 "*"(pi, "^"(10,2))
 
-# Asignación de un resultado. 
+# Asignación de un resultado.
 # Realmente "x" es un objeto.
 # Un objeto tiene datos y métodos.
 x <- pi*10^2
@@ -51,7 +50,7 @@ summary(cars)
 # Muestra la estrucutra del objeto. "La función más útil de R"
 str(cars)
 
-# Otra clase usada en modelación en R.
+# Otra clase usada en modelación en R
 class(dist ~ speed)
 
 # Ejemplo de la diferencia en los tipos de objetos,
@@ -59,7 +58,7 @@ class(dist ~ speed)
 cars$qspeed <- with(cars, cut(speed, breaks = quantile(speed), include.lowest = TRUE))
 is.factor(cars$qspeed)
 
-# Respuesta diferente del objeto "formula" de acuerdo a la clase de datos.
+# Respuesta diferente del objeto "formula" de acuerdo a la clase de datos
 plot(dist ~ speed, data = cars)
 plot(dist ~ qspeed, data = cars)
 
@@ -77,17 +76,14 @@ Dos slots:
 1. Matriz con coordenadas del marco (box) que contiene la información
 de el rectángulo que tiene los datos espaciales.
 Esta matriz numérica tiene: 
-
   - Dos columnas: mínimo ("min") y máximo ("max").
   - Dos filas:
      * La primera fila que se refiere a las coordenada este (eje x).
      * la segunda fila a las coordenadas norte (eje y).
 
-2. Un objeto de la clase CRS (Coordinate Reference System) que indica el tipo de referencia espacial de los datos. Es decir el sitema de coordenadas sobre
-la cual están los datos.
+2. Un objeto de la clase CRS (Coordinate Reference System) que indica el tipo de referencia espacial de los datos. Es decir el sitema de coordenadas sobre la cual están los datos.
 
 ```{r}
-
 # Carga el paquete "sp"
 require(sp)
 
@@ -96,7 +92,6 @@ getClass("Spatial")
 
 # El objeto "CRS", más de cerca. 
 getClass("CRS")
-
 ```
 
 # Construcción de un ejemplo simple del objeto "Spatial"
@@ -116,11 +111,9 @@ S <- Spatial(bbox = m, proj4string = crs)
 S
 ```
 
-### Ejemplo de una proyección mal especificada.
+### Ejemplo de una proyección mal especificada
 
 ```{r, error=TRUE}
 bb <- matrix(c(350, 85, 370, 95), ncol = 2, dimnames = list(NULL, c("min","max")))
 Spatial(bb, proj4string = CRS("+proj=longlat"))
 ```
-
-

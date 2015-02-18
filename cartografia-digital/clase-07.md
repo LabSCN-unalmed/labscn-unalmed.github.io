@@ -59,7 +59,7 @@ Para Wood, J.D. (1996); las curvaturas del perfil (profc) y la curvatura horizon
 - Channel: Punto en una concavidad local ortogonal a una línea sin convexidad o concavidad.
 - Pit: Punto en una concavidad local en todas las direcciones.
 
-![Los 6 tipos de características morfométricas](/cartografia-digital/images/morphometric.png){: .img-responsive .img-rounded}
+![Los 6 tipos de características morfométricas](/cartografia-digital/images/morphometric.png){: .img-responsive}
 
 Elaboración de un mapa de pendientes
 ------------------------------------
@@ -116,25 +116,25 @@ Procedimiento en GRASS para elaborar el mapa de pendientes
 
 Construir el mapa de pendientes.
 
-{% highlight bash linenos=table %}
+~~~
 r.param.scale input=porcecito1 output=porce1_slope3 param=slope
-{% endhighlight %}
+~~~
 
 Empleamos el kernel por omisión que utiliza el comando (3 x 3). Este hecho lo consignamos en el nombre del mapa construido.
 
 Visualizar el mapa de pendientes en 2 y 3 dimensiones:
 
-{% highlight bash linenos=table %}
+~~~
 d.rast porce1_slope3
-{% endhighlight %}
+~~~
 
-![2D](/cartografia-digital/images/porce1_slope3.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_slope3.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_slope3
-{% endhighlight %}
+~~~
 
-![3D](/cartografia-digital/images/porce1_slope3_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_slope3_3D.png){: .img-responsive}
 
 *¿En qué parte del relieve se ubican las pendientes mas fuertes y que valores despliegan?*
 
@@ -144,19 +144,19 @@ nviz porcecito1 color=porce1_slope3
 
 Estadísticos básicos del mapa de pendientes:
 
-{% highlight bash linenos=table %}
+~~~
 r.univar porce1_slope3
-{% endhighlight %}
+~~~
 
 ### Construir el histograma de las gradientes del mapa porcecito
 
 Para ver un histograma continuo de los valores:
 
-{% highlight bash linenos=table %}
+~~~
 d.histogram porce1_slope3
-{% endhighlight %}
+~~~
 
-![Histograma del mapa de pendientes](/cartografia-digital/images/porce1_slope3_hist1.png){: .img-responsive .img-rounded}
+![Histograma del mapa de pendientes](/cartografia-digital/images/porce1_slope3_hist1.png){: .img-responsive}
 
 De acuerdo con el histograma de la imagen anterior:
 
@@ -168,11 +168,11 @@ De acuerdo con el histograma de la imagen anterior:
 
 Para ver un histograma con rangos discretos de pendiente:
 
-{% highlight bash linenos=table %}
+~~~
 d.histogram porce1_slope3 nsteps=20
-{% endhighlight %}
+~~~
 
-![Histograma del mapa de pendientes con rangos discretos](/cartografia-digital/images/porce1_slope3_hist2.png){: .img-responsive .img-rounded}
+![Histograma del mapa de pendientes con rangos discretos](/cartografia-digital/images/porce1_slope3_hist2.png){: .img-responsive}
 
 ### Reclasificar el mapa de pendientes
 
@@ -188,26 +188,26 @@ El script `RCLS_porce1_slope3` es el siguiente:
 
 #### Con seis categorías. Mapa1
 
-{% highlight text linenos=table %} RCLS_porce1_slope3
+~~~ RCLS_porce1_slope3
  0 thru  3 = 1 Pendientes muy suaves 
  3 thru  7 = 2 Pendientes suaves 
  7 thru 15 = 3 Pendientes moderadas 
 15 thru 25 = 4 Pendientes moderadamente inclinadas 
 25 thru 35 = 5 Pendientes muy inclinadas 
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.reclass input=porce1_slope3 output=porce1_slope3_reclass rules=RCLS_porce1_slope3
 d.rast porce1_slope3_reclass
-{% endhighlight %}
+~~~
 
-![2D](/cartografia-digital/images/RCLS_porce1_slope3.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/RCLS_porce1_slope3.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_slope3_reclass
-{% endhighlight %}
+~~~
 
-![3D](/cartografia-digital/images/RCLS_porce1_slope3_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/RCLS_porce1_slope3_3D.png){: .img-responsive}
 
 La reclasificación de la pendiente en seis (6) rangos con los límites antes anotados genera un mapa de "sal y pimienta".
 
@@ -215,49 +215,49 @@ Vamos a hacer una reclasificación más simple solo con tres categorías y le as
 
 #### Con tres categorías: Mapa2
 
-{% highlight text linenos=table %} RCLS_porce1_slope3_2
+~~~ RCLS_porce1_slope3_2
  0 thru  7 = 1 Pendientes muy suaves y suaves
  7 thru 25 = 2 Pendientes suaves y moderadas
 25 thru 72 = 3 Pendientes inclinadas y escarpadas
-{% endhighlight %}
+~~~
 
 La aplicamos y observamos el nuevo resultado.
 
-{% highlight bash linenos=table %}
+~~~
 r.reclass input=porce1_slope3 output=porce1_slope3_reclass rules=RCLS_porce1_slope3_2 --o
 d.rast porce1_slope3_reclass
-{% endhighlight %}
+~~~
 
-![2D](/cartografia-digital/images/RCLS_porce1_slope3_2.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/RCLS_porce1_slope3_2.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_slope3_reclass
-{% endhighlight %}
+~~~
 
-![3D](/cartografia-digital/images/RCLS_porce1_slope3_2_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/RCLS_porce1_slope3_2_3D.png){: .img-responsive}
 
 El mapa con tres categorías se torna mas claro que el mapa con seis categorías. Es frecuente que el excesivo detalle en la reclasificación de mapas no permite ver los patrones mas frecuentes porque pasan desapercibidos debido a una excesiva reclasificación.
 
 #### Con tres categorías pero modificando sus límites: Mapa3
 
-{% highlight text linenos=table %} RCLS_porce1_slope3_3
+~~~ RCLS_porce1_slope3_3
  0 thru 10 = 1 Pendientes muy suaves y suaves
 10 thru 29 = 2 Pendientes suaves y moderadas
 29 thru 72 = 3 Pendientes inclinadas y escarpadas
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.reclass input=porce1_slope3 output=porce1_slope3_reclass rules=RCLS_porce1_slope3_3 --o
 d.rast porce1_slope3_reclass
-{% endhighlight %}
+~~~
 
-![2D](/cartografia-digital/images/RCLS_porce1_slope3_3.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/RCLS_porce1_slope3_3.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_slope3_reclass
-{% endhighlight %}
+~~~
 
-![3D](/cartografia-digital/images/RCLS_porce1_slope3_3_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/RCLS_porce1_slope3_3_3D.png){: .img-responsive}
 
 *¿Cuáles son las diferencias mas importantes entre los tres mapas?*
 
@@ -269,40 +269,40 @@ Se seleccionan colores que generen contraste importante.
 
 Se hace el respectivo script en gedit y se guarda como: `TC_porce1_slope3`.
 
-{% highlight text linenos=table %} TC_porce1_slope3
+~~~ TC_porce1_slope3
 1 green
 2 226 178 252 # violeta muy claro
 3 102  39   8 # cafe mucho mas oscuro
-{% endhighlight %}
+~~~
 
 Se ejecuta la siguiente secuencia de comandos:
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porce1_slope3_reclass rules=TC_porce1_slope3
 d.rast porce1_slope3_reclass
-{% endhighlight %}
+~~~
 
-![2D](/cartografia-digital/images/TC_porce1_slope3.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/TC_porce1_slope3.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_slope3_reclass
-{% endhighlight %}
+~~~
 
-![3D](/cartografia-digital/images/TC_porce1_slope3_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/TC_porce1_slope3_3D.png){: .img-responsive}
 
 ### Consultar la información que contiene el mapa reclasificado de la pendiente
 
 Con este comando obtenemos la información de las tres categorías de pendientes en porcentaje `p`, N° de píxeles `c` y en área en km<sup>2</sup> `k`.
 
-{% highlight bash linenos=table %}
+~~~
 r.report -h map=porce1_slope3_reclass units=p,c,k
-{% endhighlight %}
+~~~
 
 Añadiendo la opción `-n` no incluye en los estadisticos del mapa los píxeles sin información (nulos o 'no data').
 
-{% highlight bash linenos=table %}
+~~~
 r.report -hn map=porce1_slope3_reclass units=p,c,k
-{% endhighlight %}
+~~~
 
 ### Actividad extra-curso
 
@@ -314,7 +314,7 @@ r.report -hn map=porce1_slope3_reclass units=p,c,k
 Clasificación de las vertientes según su curvatura
 --------------------------------------------------
 
-![Fotografía de vertientes con diversas curvaturas](/cartografia-digital/images/fotovert.png){: .img-responsive .img-rounded}
+![Fotografía de vertientes con diversas curvaturas](/cartografia-digital/images/fotovert.png){: .img-responsive}
 
 ##### Conceptos importantes:
 
@@ -342,7 +342,7 @@ Para definir la forma de una superficie se emplean dos perfiles ortogonales: uno
 - Perfiles en el sentido de la dirección de la vertiente.
 - Perfil en el sentido de la inclinación de la vertiente.
 
-![Esquema de vertientes](/cartografia-digital/images/vertientes.png){: .img-responsive .img-rounded}
+![Esquema de vertientes](/cartografia-digital/images/vertientes.png){: .img-responsive}
 
 - ¿Qué significa la pendiente de una vertiente?
 - Relación de la vertiente con otros atributos de estructura y dinámica del relieve.
@@ -360,42 +360,42 @@ Para definir la forma de una superficie se emplean dos perfiles ortogonales: uno
 
 Utilizamos el parámetro `planc` del comando `r.param.scale`.
 
-{% highlight bash linenos=table %}
+~~~
 r.param.scale input=porcecito1 output=porce1_planc7 size=7 param=planc
-{% endhighlight %}
+~~~
 
 Consultamos la información estadística del mapa generado.
 
-{% highlight bash linenos=table %}
+~~~
 r.univar porce1_planc7
-{% endhighlight %}
+~~~
 
 Multiplicamos por 100.000 porque el valor promedio es muy cercano a cero
 
-{% highlight bash linenos=table %}
+~~~
 r.mapcalc 'porce1_planc7 = porce1_planc7 * 100000'
-{% endhighlight %}
+~~~
 
 Y calculamos nuevamente los estadísticos para definir las reglas de reclasificación.
 
-{% highlight bash linenos=table %}
+~~~
 r.univar porce1_planc7
-{% endhighlight %}
+~~~
 
 Las reglas de reclasifcacion y los porcentajes obtenidos se indican a continuación.
 
-{% highlight text linenos=table %}  RCLS_porce1_planc7
+~~~  RCLS_porce1_planc7
 -1920000 thru     -25 = -1 Convexo
      -25 thru      25 =  0 Planar
       25 thru 1290000 =  1 Concavo
-{% endhighlight %}
+~~~
 
 Se reclasifica el mapa de acuerdo a las reglas definidas, y se obtiene un reporte de la distribución de las categorías.
 
-{% highlight bash linenos=table %}
+~~~
 r.reclass input=porce1_planc7 output=porce1_planc7_reclass rules=RCLS_porce1_planc7
 r.report -h map=porce1_planc7_reclass units=p,c,k
-{% endhighlight %}
+~~~
 
 Los porcentajes para cóncavos y convexos difieren radicalmente para los valores de curvatura planar. Esto en sí mismo no es un error, ya que los valores obtenidos en esta reclasificación dependen de los valores limites asignados. Pero, ¿Son representativos del relieve de Porcecito?
 
@@ -405,25 +405,25 @@ Por lo tanto modifcamos los límites de la reclasificación, hasta obtener un po
 
 Después de varios chequeos, nos quedamos con la siguiente tabla de reclasificación:
 
-{% highlight text linenos=table %} RCLS_porce1_planc7_2
+~~~ RCLS_porce1_planc7_2
 -1920000 thru    -225 = -1 Convexo
     -225 thru     225 =  0 Planar
      225 thru 1290000 =  1 Concavo
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.reclass input=porce1_planc7 output=porce1_planc7_reclass rules=RCLS_porce1_planc7_2 --o
 r.report -h map=porce1_planc7_reclass units=p,c,k
 d.rast porce1_planc7_reclass
-{% endhighlight %}
+~~~
 
-![2D](/cartografia-digital/images/porce1_planc7.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_planc7.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_planc7_reclass
-{% endhighlight %}
+~~~
 
-![3D](/cartografia-digital/images/porce1_planc7_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_planc7_3D.png){: .img-responsive}
 
 Desplegamos primero todo el mapa y luego una parte para observar con mas detalle.
 
@@ -431,10 +431,10 @@ Observar que haciendo zoom en sectores del mapa se pueden observar rasgos espec�
 
 Desplegamos primero todo el mapa y luego una parte para observar con mas detalle.
 
-{% highlight bash linenos=table %}
+~~~
 d.zoom
 nviz porcecito1 color=porce1_planc7_reclass
-{% endhighlight %}
+~~~
 
 Desplegado con `nviz` se le coloca un bloque, una escala, la flecha del norte, la leyenda y el título.
 
@@ -442,21 +442,23 @@ Luego guardamos el mapa con la terminación `.ppm` (es muy pesada) en el Escrito
 
 Luego convertimos a un formato mas ligero como el PNG.
 
-{% highlight bash linenos=table %}
+~~~
 cd Escritorio/
 convert popalito_planc.ppm popalito_planc.png
-{% endhighlight %}
+~~~
 
 Retornamos a la carpeta personal.
 
-{% highlight bash linenos=table %}
+~~~
 cd
-{% endhighlight %}
+~~~
 
 Copiamos la figura con terminación `.png` y la pegamos en el informe que se realiza.
 
-Combinar mapa de pendientes y mapa de curvatura vertical para diferenciar pendientes de cima de colina y pendientes de fondo de valle
--------------------------------------------------------------------------------------------------------------------------------------------
+Combinar mapa de pendientes y mapa de curvatura vertical
+--------------------------------------------------------
+
+Este procedimiento se puede utilizar para diferenciar pendientes de cima de colina y pendientes de fondo de valle.
 
 Ya tenemos un mapa de pendientes y lo reclasificamos en 3 categorías (`porce1_slope3_reclass`).
 
@@ -466,49 +468,49 @@ También tenemos un mapa de curvaturas horizontales (`porce1_planc7`) y se recla
 
 Utilizamos el parámetro `profc` del comando `r.param.scale`.
 
-{% highlight bash linenos=table %}
+~~~
 r.param.scale input=porcecito1 output=porce1_profc7 size=7 param=profc
-{% endhighlight %}
+~~~
 
 Consultamos la información estadística del mapa generado.
 
-{% highlight bash linenos=table %}
+~~~
 r.univar porce1_profc7
-{% endhighlight %}
+~~~
 
 Multiplicamos por 100.000 porque el valor promedio es muy cercano a cero
 
-{% highlight bash linenos=table %}
+~~~
 r.mapcalc 'porce1_profc7 = porce1_profc7 * 100000'
-{% endhighlight %}
+~~~
 
 Y volvemos a calcular los estadísticos para definir las reglas de reclasificación.
 
-{% highlight bash linenos=table %}
+~~~
 r.univar porce1_profc7
-{% endhighlight %}
+~~~
 
 Las reglas de reclasifcacion y los porcentajes obtenidos se indican a continuación, buscamos obtener aproximadamente un valor del 20% en la parte planar, al igual que lo hicimos con la curvatura horizontal:
 
-{% highlight text linenos=table %} RCLS_porce1_profc7
+~~~ RCLS_porce1_profc7
 -1783 thru  -50 = -1 Concavo
   -50 thru   10 =  0 Planar
    10 thru 1920 =  1 Convexo
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.reclass input=porce1_profc7 output=porce1_profc7_reclass rules=RCLS_porce1_profc7
 r.report -h map=porce1_profc7_reclass units=p,c,k
 d.rast porce1_profc7_reclass
-{% endhighlight %}
+~~~
 
-![2D](/cartografia-digital/images/porce1_profc7.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_profc7.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_profc7_reclass
-{% endhighlight %}
+~~~
 
-![3D](/cartografia-digital/images/porce1_profc7_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_profc7_3D.png){: .img-responsive}
 
 El mapa de la curvatura vertical muestra claramente la diferencia entre concavidades pertenecientes a valles y convexidades perteneciente a divisorias de agua ubicadas en cimas de colinas.
 
@@ -516,14 +518,14 @@ El mapa de la curvatura vertical muestra claramente la diferencia entre concavid
 
 Se utiliza el comando `r.mapcalc` para combinar los dos mapas.
 
-{% highlight bash linenos=table %}
+~~~
 r.mapcalc 'porce1_slope_profc=porce1_slope3_reclass*3+porce1_profc7_reclass'
 r.report -h map=porce1_slope_profc units=p,c,k
-{% endhighlight %}
+~~~
 
 Se aplica la siguiente tabla de colores:
 
-{% highlight text linenos=table %} TC_porce1_slope_profc
+~~~ TC_porce1_slope_profc
  2 blue
  3 166 251 155 # verde muy claro
  4 245 169 131 # cafe claro
@@ -533,17 +535,19 @@ Se aplica la siguiente tabla de colores:
  8 aqua
  9  25 161   7 # verde oscuro
 10 189  73  15 # cafe
-{% endhighlight %}
+~~~
 
-{% highlight bash linenos=table %}
+~~~
 r.colors map=porce1_slope_profc rules=TC_porce1_slope_profc
 d.rast porce1_slope_profc
-{% endhighlight %}
+~~~
 
-![2D](/cartografia-digital/images/porce1_slope_profc.png){: .img-responsive .img-rounded}
+![2D](/cartografia-digital/images/porce1_slope_profc.png){: .img-responsive}
 
-{% highlight bash linenos=table %}
+~~~
 nviz porcecito1 color=porce1_slope_profc
-{% endhighlight %}
+~~~
 
-![3D](/cartografia-digital/images/porce1_slope_profc_3D.png){: .img-responsive .img-rounded}
+![3D](/cartografia-digital/images/porce1_slope_profc_3D.png){: .img-responsive}
+
+De manera similar, se pueden combinar los mapas de curvaturas vertical y horizontal.
