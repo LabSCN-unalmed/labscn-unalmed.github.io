@@ -24,4 +24,9 @@ order: 01
 
 ### Análisis descriptivo inicial
 
-[Análisis inicial](/estadistica-descriptiva/guiones/Encuesta2.html){:target="_blank"}
+[Análisis Número de encuesta, Género y Edad](/estadistica-descriptiva/guiones/Encuesta2.html){:target="_blank"}
+
+### Análsis con la variable de tiempo
+
+[Análisis uso de la variable tiempo](/estadistica-descriptiva/guiones/Encuesta3.html){:target="_blank"}
+
