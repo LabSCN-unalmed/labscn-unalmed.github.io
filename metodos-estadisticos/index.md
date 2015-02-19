@@ -30,6 +30,7 @@ order: 00
 
 * [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="_blank"}
 * [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="_blank"}
+* [Cálculo del tamaño de muestra](http://homepage.stat.uiowa.edu/~rlenth/Power/){:target="_blank"}
 
 ## Bibliografía
 
