@@ -27,6 +27,16 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 - Entendimiento de la naturaleza de los datos.
 - Estadística descriptiva, media, mediana, moda, cuantiles, etc.
 
+## Evaluación:
+
+| Item                                           | Porcentaje |
+|:-----------------------------------------------|:----------:|
+| Talleres individuales y en grupo (seguimiento) |        30% |
+| Trabajos individuales                          |        20% |
+| Trabajos en grupo                              |        20% |
+| Final                                          |        30% |
+{: .table .table-hover}
+
 # Enlaces importantes
 
 * [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="_blank"}
@@ -37,16 +47,6 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 - Lunes 10:00 a.m. - 12:00 m.
 
 - Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
-
-## Evaluación:
-
-| Item                                           | Porcentaje |
-|:-----------------------------------------------|:----------:|
-| Talleres individuales y en grupo (seguimiento) |        30% |
-| Trabajos individuales                          |        20% |
-| Trabajos en grupo                              |        20% |
-| Final                                          |        30% |
-{: .table .table-hover}
 
 ## Políticas del curso
 
