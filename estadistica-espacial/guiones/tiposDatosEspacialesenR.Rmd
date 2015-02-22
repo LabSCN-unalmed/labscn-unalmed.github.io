@@ -124,8 +124,8 @@ all.equal(CRAN_spbd3, CRAN_spbd1)
 CRAN_spbd1[4, ]
 CRAN_spbd3[4, ]
 # Sin embargo se genera un erros si intentamos utilizar "match.ID", y los identificadores no coinciden.
-CRAN_spbd3x <- SpatialPointsDataFrame(CRAN_mat, CRAN_bd1,
-                                      proj4string = sistema_proj, match.ID = TRUE)
+#CRAN_spbd3x <- SpatialPointsDataFrame(CRAN_mat, CRAN_bd1,
+#                                      proj4string = sistema_proj, match.ID = TRUE)
 
 ```
 
