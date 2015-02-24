@@ -419,8 +419,8 @@ Utilizamos la función `legend` para ubicar una leyenda en el gráfico.
 matplot(x = MHperfiles[,1], y = MHperfiles[,12:14], type = "l", col = c("red", "green", "blue"),
         main = "Distribución de altitudes en el altiplano de Santa Rosa de Osos",
         xlab = "Distancia (m)", ylab = "Altitud (msnm)")
-legend(0, 2800, c("Altitud máxima", "Altitud promedio", "Altitud mínima"), col = c("red", "green", "blue"), lty = 1:3)
+legend(0, 2800, c("Altitud máxima", "Altitud promedio", "Altitud mínima"),
+       col = c("red", "green", "blue"), lty = 1:3)
 ~~~
 
 ![](/cartografia-digital/images/altiplanos_perfiles_R_final.png){: .img-responsive}
-
