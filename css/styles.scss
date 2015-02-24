@@ -9,7 +9,7 @@
   position: static;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $screen-sm-min) {
   #sidebar.affix {
     position: fixed;
     top: 0;
@@ -20,23 +20,25 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $screen-sm-min) {
   #sidebar {
-    width: 186px; /* 62*3 */
+    width: 62px * 3;
   }
 }
-@media (min-width: 992px) {
+
+@media (min-width: $screen-md-min) {
   #sidebar {
-    width: 243px; /* 81*3 */
+    width: 81px * 3;
   }
 
   img.img-responsive {
     max-width: 90%;
   }
 }
-@media (min-width: 1200px) {
+
+@media (min-width: $screen-lg-min) {
   #sidebar {
-    width: 291px; /* 97*3 */
+    width: 97px * 3;
   }
 
   img.img-responsive {
@@ -45,21 +47,8 @@
 }
 
 #sidebar li.active {
-  border: 0 #333 solid;
+  border: 0 $gray-dark solid;
   border-left-width: 3px;
-}
-
-pre, code {
-  font-family: "Ubuntu Mono", monospace;
-}
-
-pre {
-  background: #333;
-  border-radius: 0;
-  border: 0;
-  font-size: 1em;
-  color: #fff;
-  overflow: auto;
 }
 
 img.img-responsive {
