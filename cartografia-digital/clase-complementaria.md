@@ -71,6 +71,7 @@ d.grid size=2000
 Como el mapa aún no tiene tabla de colores, creamos una que permita visualizar los rasgos del relieve de una manera más agradable:
 
 `TC_altiplanos`
+
 ~~~
  750  85 128  64 # Verde oscuro
 2200 159 217 130 # Verde claro
