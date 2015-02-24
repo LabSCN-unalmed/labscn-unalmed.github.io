@@ -23,7 +23,7 @@ El uso de conjuntos de perfiles se aplica en dos casos distintos:
 
 1. El altiplano de Santa Rosa de Osos en la parte norte de la cordillera Central presenta una expresión morfológica clara de un bloque tectónico basculado al sureste. Con un sistema de perfiles longitudinales orientados en el sentido del basculamiento se busca hacer explicito este fenomeno. Igualmente se construye otro conjunto de perfiles transversales para visualizar los efectos morficos de redes de drenaje. 
 
-2. El segundo ejemplo consiste en trazar perfiles transversales al cañón del río Medellín entre Copacabana y Barbosa para hacer explicita la relación espacial entre cañones lineales y altiplanos en la zona central de Antioquia.   
+2. El segundo ejemplo consiste en trazar perfiles transversales al cañón del río Medellín entre Copacabana y Barbosa para hacer explicita la relación espacial entre cañones lineales y altiplanos en la zona central de Antioquia.
 
 
 Objetivos
@@ -422,3 +422,4 @@ legend(0, 2800, c("Altitud máxima", "Altitud promedio", "Altitud mínima"), col
 ~~~
 
 ![](/cartografia-digital/images/altiplanos_perfiles_R_final.png){: .img-responsive}
+
