@@ -17,6 +17,8 @@ order: 01
 - [BD (seamap105_mod.csv)](/estadistica-espacial/guiones/seamap105_mod.csv){:target="_blank"}
 - [BD (auckland_mapgen.dat)](/estadistica-espacial/guiones/auckland_mapgen.dat){:target="_blank"}
 
+## Uso de líneas a partir de mapas generados por google maps.
+- [Ejemplo 2](/estadistica-espacial/guiones/rutas.html){:target="_blank"}
 ## Ejemplo de algunos paquetes espaciales de R
 
 - [Paquete maps](/estadistica-espacial/guiones/paquete_maps.html){:target="_blank"}
