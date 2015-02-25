@@ -10,25 +10,11 @@ description: Facultad de Ciencias - Escuela de Geociencias
 baseurl: ""
 permalink: /:categories/:title/
 
+sass:
+  style: compressed
+
+gems:
+  - jekyll-sitemap
+
 # Google Analytics
 google_analytics_tracking_id: UA-54312951-2
-
-# Colections
-# collections:
-#   cartografia-digital:
-#     output: true
-#     permalink: /cartografia-digital/:path/
-#   programacion-R:
-#     output: true
-#     permalink: /programacion-R/:path/
-#   estadistica-espacial:
-#     output: true
-#     permalink: /estadistica-espacial/:path/
-#   estadistica-descriptiva:
-#     output: true
-#     permalink: /estadistica-descriptiva/:path/
-#   metodos-estadisticos:
-#     output: true
-#     permalink: /metodos-estadisticos/:path/
-
-exclude: ['programacion-R/RClasses']

@@ -23,7 +23,7 @@ El uso de conjuntos de perfiles se aplica en dos casos distintos:
 
 1. El altiplano de Santa Rosa de Osos en la parte norte de la cordillera Central presenta una expresión morfológica clara de un bloque tectónico basculado al sureste. Con un sistema de perfiles longitudinales orientados en el sentido del basculamiento se busca hacer explicito este fenomeno. Igualmente se construye otro conjunto de perfiles transversales para visualizar los efectos morficos de redes de drenaje. 
 
-2. El segundo ejemplo consiste en trazar perfiles transversales al cañón del río Medellín entre Copacabana y Barbosa para hacer explicita la relación espacial entre cañones lineales y altiplanos en la zona central de Antioquia.   
+2. El segundo ejemplo consiste en trazar perfiles transversales al cañón del río Medellín entre Copacabana y Barbosa para hacer explicita la relación espacial entre cañones lineales y altiplanos en la zona central de Antioquia.
 
 
 Objetivos
@@ -71,6 +71,7 @@ d.grid size=2000
 Como el mapa aún no tiene tabla de colores, creamos una que permita visualizar los rasgos del relieve de una manera más agradable:
 
 `TC_altiplanos`
+
 ~~~
  750  85 128  64 # Verde oscuro
 2200 159 217 130 # Verde claro
@@ -418,7 +419,8 @@ Utilizamos la función `legend` para ubicar una leyenda en el gráfico.
 matplot(x = MHperfiles[,1], y = MHperfiles[,12:14], type = "l", col = c("red", "green", "blue"),
         main = "Distribución de altitudes en el altiplano de Santa Rosa de Osos",
         xlab = "Distancia (m)", ylab = "Altitud (msnm)")
-legend(0, 2800, c("Altitud máxima", "Altitud promedio", "Altitud mínima"), col = c("red", "green", "blue"), lty = 1:3)
+legend(0, 2800, c("Altitud máxima", "Altitud promedio", "Altitud mínima"),
+       col = c("red", "green", "blue"), lty = 1:3)
 ~~~
 
 ![](/cartografia-digital/images/altiplanos_perfiles_R_final.png){: .img-responsive}
