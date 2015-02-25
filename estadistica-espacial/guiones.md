@@ -18,7 +18,11 @@ order: 01
 - [BD (auckland_mapgen.dat)](/estadistica-espacial/guiones/auckland_mapgen.dat){:target="_blank"}
 
 ## Uso de líneas a partir de mapas generados por google maps.
-- [Ejemplo 2](/estadistica-espacial/guiones/rutas.html){:target="_blank"}
+
+- [Rutas](/estadistica-espacial/guiones/rutas.html){:target="_blank"}
+- [Archivo kmz](/estadistica-espacial/guiones/Rutas.kmz){:target="_blank"}
+- [Archivo kml](/estadistica-espacial/guiones/Rutas.kml){:target="_blank"}
+
 ## Ejemplo de algunos paquetes espaciales de R
 
 - [Paquete maps](/estadistica-espacial/guiones/paquete_maps.html){:target="_blank"}

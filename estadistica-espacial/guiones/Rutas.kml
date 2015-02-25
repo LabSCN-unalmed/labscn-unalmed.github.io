@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Rutas</name>
+		<Placemark>
+			<styleUrl>#line-000000-1</styleUrl>
+			<name>Línea 1</name>
+			<ExtendedData>
+			</ExtendedData>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>-75.6076527,6.2225372,0.0 -75.6072986,6.2228891,0.0 -75.607084,6.2232731,0.0 -75.60692310000002,6.2237744,0.0 -75.6066656,6.223881,0.0 -75.606333,6.2238917,0.0 -75.6056786,6.223817,0.0 -75.6049383,6.2238277,0.0 -75.6047559,6.224297,0.0 -75.6044126,6.2247449,0.0 -75.6035864,6.225139600000001,0.0 -75.603168,6.2254595,0.0</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#line-000000-1</styleUrl>
+			<name>Línea 2</name>
+			<ExtendedData>
+			</ExtendedData>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>-75.603168,6.2254595,0.0 -75.6029642,6.225800800000001,0.0 -75.6026208,6.2263128,0.0 -75.602138,6.2267181,0.0 -75.6016552,6.226856700000001,0.0 -75.600872,6.2269634,0.0 -75.6003571,6.2273473,0.0 -75.6000245,6.22771,0.0</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#line-000000-1</styleUrl>
+			<name>Línea 3</name>
+			<ExtendedData>
+			</ExtendedData>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>-75.6000245,6.22771,0.0 -75.5995739,6.2281899,0.0 -75.5991232,6.2284352,0.0 -75.5982971,6.2285525,0.0 -75.5976319,6.2287445,0.0 -75.5969346,6.2289152,0.0</coordinates>
+			</LineString>
+		</Placemark>
+		<Style id='line-000000-1'>
+			<LineStyle>
+				<color>ff000000</color>
+				<width>1</width>
+			</LineStyle>
+		</Style>
+	</Document>
+</kml>
+
