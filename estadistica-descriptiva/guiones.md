@@ -18,7 +18,7 @@ order: 01
 - [Base de datos encuesta (Excel)](/estadistica-descriptiva/guiones/Encuesta.xlsx){:target="_blank"}
 - [Base de datos encuesta (texto)](/estadistica-descriptiva/guiones/Encuesta.csv){:target="_blank"}
 
-### Lectura incial
+## Lectura incial
 
 [Lectura](/estadistica-descriptiva/guiones/Encuesta1.html){:target="_blank"}
 
@@ -30,10 +30,11 @@ order: 01
 
 [Análisis uso de la variable tiempo](/estadistica-descriptiva/guiones/Encuesta3.html){:target="_blank"}
 
-### Gráfica del problema del precio del arroz.
+## Gráfica del problema del precio del arroz.
 
+- [Artículo original de El Colombiano](http://www.elcolombiano.com/arancel-dolar-y-la-dian-tendran-el-arroz-en-alto-1-EK1369457){:target="_blank"}
 - [Gráficas en R](/estadistica-descriptiva/guiones/arroz.html){:target="_blank"}
 - [Base de datos de arroz (formato xlsx)](/estadistica-descriptiva/guiones/arroz.xlsx){:target="_blank"}
 - [Base de datos de arroz (formato csv)](/estadistica-descriptiva/guiones/arroz.csv){:target="_blank"}
-- [Artículo original](http://www.elcolombiano.com/arancel-dolar-y-la-dian-tendran-el-arroz-en-alto-1-EK1369457){:target="_blank"}
+
 
