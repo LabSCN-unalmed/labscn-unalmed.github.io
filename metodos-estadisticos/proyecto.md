@@ -46,6 +46,54 @@ Presentación en formato **.pdf** que tenga los siguientes elementos:
 
 Martes 17 de Febrero de 2015 al correo **krcabrer@unal.edu.co**
 
-En asunto no olvidar **[MEDE]**, antes de las 23:59 hora colombiana.
+En asunto no olvidar **[MEDE]**, enviar antes de las 23:59 hora colombiana.
 
 En el momento de clase cada grupo tendrá diez (10) minutos para presentar su propuesta y 10 minutos de discusión.
+
+## Segunda  entrega (Planeación)
+
+### Objetivo
+
+Entrega de la planeación completa del experimento, tanto como ajustes e indicaciones del procedimiento detallado del experimento.
+
+### Actividades
+
+- Realizar el premuestreo de un solo tratamiento para determinar el número de réplicas.
+- Construir el cronograma y el presupuesto del experimento. Hacer énfasis en la forma que
+  se realizará la aleatorización de las corridas.
+- Relizar una socialización del experimento a realizar con los demás compañeros 
+  para determinar posibles ajustes finales antes de iniciar el experimento.
+
+### Entregables
+
+- Presentación en formato **.pdf**.
+  La presentación debe contener:
+  * Título.
+  * Sólo mencionar la variable o variables respuesta.
+  * Sólo mencionar los factores y los niveles seleccionados.
+  * Mostrar brevemente el tratamiento seleccionado para el premuestreo, los elementos y valores usados para determinar el número de réplicas.
+  * Indicar de la manera más resumida pero completa el procedimiento que se realizará para obtener el dato de cada corrida.
+  * Mostrar de manera resumida el cronograma en donde se detalle el modo que
+    se realizará la aleatorización de las corridas.
+  * Presupuesto resumido que indique el costo del estudio, separando:
+    - Materiales
+    - Uso de servicios públicos.
+    - Gastos anexos (por ejemplo incentivos a los panelistas).
+    - No incluir el costo del trabajo de los experimentadores.
+  * Propuesta de gráfica o gráficas en donde se muestre el resultado final (simulado).
+- Trabajo escrito en formato **.pdf**.
+  Todos los elementos de un trabajo escrito que contenga los elementos de la hoja maestra de manera detallada.
+  Importante enfatizar la propuesta de posibles gráficas para mostrar los resultados obtenidos.
+  Las gráficas pueden ser a "mano alzada".
+
+### Fecha de entrega
+
+Martes 10 de marzo de 2015 y jueves 12 de marzo de 2015 al correo **krcabrer@unal.edu.co**
+
+En asunto no olvidar **[MEDE]**, enviar los archivos antes de las 23:59 hora colombiana del día de la presentación.
+
+En el momento de clase se seleccionará al azar los grupos que 
+realizarán la presentación el día 10 de marzo y los que lo harán el día 12 de marzo.
+
+Cada grupo tendrá diez (10) minutos para presentar su propuesta y 10 minutos de discusión.
+
