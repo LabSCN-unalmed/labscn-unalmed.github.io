@@ -30,3 +30,10 @@ order: 01
 
 [Análisis uso de la variable tiempo](/estadistica-descriptiva/guiones/Encuesta3.html){:target="_blank"}
 
+### Gráfica del problema del precio del arroz.
+
+- [Gráficas en R](/estadistica-descriptiva/guiones/arroz.html){:target="_blank"}
+- [Base de datos de arroz (formato xlsx)](/estadistica-descriptiva/guiones/arroz.xlsx){:target="_blank"}
+- [Base de datos de arroz (formato csv)](/estadistica-descriptiva/guiones/arroz.csv){:target="_blank"}
+- [Artículo original](http://www.elcolombiano.com/arancel-dolar-y-la-dian-tendran-el-arroz-en-alto-1-EK1369457){:target="_blank"}
+
