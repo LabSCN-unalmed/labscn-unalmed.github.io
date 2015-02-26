@@ -10,3 +10,7 @@ order: 03
 - [Ejemplo 1](/metodos-estadisticos/guiones/Ejemplo1.html){:target="_blank"}
 - [Base de datos (excel)](/metodos-estadisticos/guiones/Ejemplo1.xlsx){:target="_blank"}
 - [Base de datos (csv)](/metodos-estadisticos/guiones/Ejemplo1.csv){:target="_blank"}
+
+## Ejemplo 2: ANOVA de una sola vía.
+- [Ejemplo 2](/metodos-estadisticos/guiones/Ejemplo2.html){:target="_blank"}
+
