@@ -57,3 +57,7 @@ install.packages("ctv")
 require("ctv")
 install.views("Spatial")
 ~~~
+
+## Mapa de las comunas de Medellín
+
+[Comunas de Medellín](/estadistica-espacial/datos/comunas.kmz){:target="_blank"}
