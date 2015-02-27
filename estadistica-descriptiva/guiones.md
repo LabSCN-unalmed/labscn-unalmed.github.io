@@ -3,9 +3,6 @@ layout: curso
 title: 'Guiones'
 curso: 'estadistica-descriptiva'
 order: 01
-output:
-  html_document:
-    toc: true
 ---
 
 ## Ejemplos de lectura de bases de datos en R.
