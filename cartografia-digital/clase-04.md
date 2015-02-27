@@ -229,7 +229,7 @@ La comparación de las dos tablas permite establecer los siguientes rangos para 
 |  300 -  350 | Transición entre relieve colinado y relieve de disección profunda |
 |  350 -  450 | Disección profunda baja                                           |
 |  450 -  600 | Disección profunda intermedia                                     |
-|  600 - 1200 | & Disección profunda pronunciada                                  |
+|  600 - 1200 | Disección profunda pronunciada                                  |
 {: .table .table-hover}
 
 #### Reclasificación del mapa de relieve relativo
