@@ -37,7 +37,7 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 | Final                                          |        30% |
 {: .table .table-hover}
 
-# Enlaces importantes
+## Enlaces importantes
 
 * [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="_blank"}
 * [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="_blank"}
