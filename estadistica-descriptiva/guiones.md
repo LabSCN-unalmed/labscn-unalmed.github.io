@@ -39,3 +39,6 @@ order: 01
 - [Base de datos de arroz (formato xlsx)](/estadistica-descriptiva/guiones/arroz.xlsx){:target="_blank"}
 - [Base de datos de arroz (formato csv)](/estadistica-descriptiva/guiones/arroz.csv){:target="_blank"}
 
+## Ejemplo de cruce de variables
+
+[Cruces de variables](/estadistica-descriptiva/guiones/Encuesta4.html){:target="_blank"}
