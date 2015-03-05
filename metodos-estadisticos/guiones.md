@@ -14,3 +14,5 @@ order: 03
 ## Ejemplo 2: ANOVA de una sola vía.
 - [Ejemplo 2](/metodos-estadisticos/guiones/Ejemplo2.html){:target="_blank"}
 
+## Ejemplo 3: ANOVA de una sola vía con resultados y diagnósticos.
+- [Ejemplo 3](/metodos-estadisticos/guiones/Ejemplo3.html){:target="_blank"}
