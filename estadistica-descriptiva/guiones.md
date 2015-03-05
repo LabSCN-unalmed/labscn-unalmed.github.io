@@ -32,7 +32,7 @@ order: 01
 
 [Análisis uso de la variable tiempo](/estadistica-descriptiva/guiones/Encuesta3.html){:target="_blank"}
 
-## Gráfica del problema del precio del arroz.
+## Gráfica del problema del precio del arroz
 
 - [Artículo original de El Colombiano](http://www.elcolombiano.com/arancel-dolar-y-la-dian-tendran-el-arroz-en-alto-1-EK1369457){:target="_blank"}
 - [Gráficas en R](/estadistica-descriptiva/guiones/arroz.html){:target="_blank"}
@@ -42,3 +42,9 @@ order: 01
 ## Ejemplo de cruce de variables
 
 [Cruces de variables](/estadistica-descriptiva/guiones/Encuesta4.html){:target="_blank"}
+
+## Ejemplo de diferentes variables dicotómicas
+
+[Variables dicotómicas](/estadistica-descriptiva/guiones/Creditos.html){:target="_blank"}
+
+
