@@ -45,6 +45,10 @@ order: 01
 
 ## Ejemplo de diferentes variables dicotómicas
 
-[Variables dicotómicas](/estadistica-descriptiva/guiones/Creditos.html){:target="_blank"}
+- [Variables dicotómicas](/estadistica-descriptiva/guiones/Creditos.html){:target="_blank"}
+- [Base de datos de Credito (formato xlsx)](/estadistica-descriptiva/guiones/Credito.xlsx){:target="_blank"}
+- [Base de datos de Credito (formato csv)](/estadistica-descriptiva/guiones/Credito.csv){:target="_blank"}
+
+
 
 
