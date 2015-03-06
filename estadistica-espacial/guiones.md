@@ -26,3 +26,7 @@ order: 01
 ## Ejemplo de algunos paquetes espaciales de R
 
 - [Paquete maps](/estadistica-espacial/guiones/paquete_maps.html){:target="_blank"}
+
+## Modelo Matérn
+
+- [Modelo Matérn](/estadistica-espacial/guiones/modeloMatérn.html){:target="_blank"}
