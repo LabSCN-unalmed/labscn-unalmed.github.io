@@ -34,5 +34,5 @@ order: 01
 ## Ejemplo elevación
 
 - [Ejemplo elevación](/estadistica-espacial/guiones/elevacion.html){:target="_blank"}
-- [Base de datos elevación](/estadistica-espacial/guiones/elevacion2.txt){:target="_blank"}
+- [Base de datos elevación](/estadistica-espacial/guiones/elevation2.txt){:target="_blank"}
 
