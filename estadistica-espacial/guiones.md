@@ -30,3 +30,9 @@ order: 01
 ## Modelo Matérn
 
 - [Modelo Matérn](/estadistica-espacial/guiones/modeloMatérn.html){:target="_blank"}
+
+## Ejemplo elevación
+
+- [Ejemplo elevación](/estadistica-espacial/guiones/elevacion.html){:target="_blank"}
+- [Base de datos elevación](/estadistica-espacial/guiones/elevacion2.txt){:target="_blank"}
+
