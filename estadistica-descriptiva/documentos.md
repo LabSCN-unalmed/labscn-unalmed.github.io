@@ -22,3 +22,5 @@ order: 02
 - [Ejemplos de gráficas con R](http://zoonek2.free.fr/UNIX/48_R/03.html){:target="_blank"}
 - [Galería de gráficos con R](http://rgraphgallery.blogspot.com/){:target="_blank"}
 
+## Ejemplos de gráficas inapropiadas y apropiadas
+- [Gráficos](/estadistica-descriptiva/graficas/graficas.html){:target="_blank"}
