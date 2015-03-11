@@ -31,6 +31,10 @@ order: 01
 
 - [Modelo Matérn](/estadistica-espacial/guiones/modeloMatérn.html){:target="_blank"}
 
+## Semivariograma teóricos
+
+- [Semivariograma](/estadistica-espacial/guiones/semivariograma.html){:target="_blank"}
+
 ## Ejemplo elevación
 
 - [Ejemplo elevación](/estadistica-espacial/guiones/elevacion.html){:target="_blank"}
