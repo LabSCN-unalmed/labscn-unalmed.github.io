@@ -188,12 +188,15 @@ El script `RCLS_porce1_slope3` es el siguiente:
 
 #### Con seis categorías. Mapa1
 
-~~~ RCLS_porce1_slope3
- 0 thru  3 = 1 Pendientes muy suaves 
- 3 thru  7 = 2 Pendientes suaves 
- 7 thru 15 = 3 Pendientes moderadas 
-15 thru 25 = 4 Pendientes moderadamente inclinadas 
-25 thru 35 = 5 Pendientes muy inclinadas 
+`RCLS_porce1_slope3`
+
+~~~
+ 0 thru  3 = 1 Pendientes muy suaves
+ 3 thru  7 = 2 Pendientes suaves
+ 7 thru 15 = 3 Pendientes moderadas
+15 thru 25 = 4 Pendientes moderadamente inclinadas
+25 thru 35 = 5 Pendientes muy inclinadas
+35 thru 72 = 6 Pendientes escarpadas
 ~~~
 
 ~~~
@@ -215,7 +218,9 @@ Vamos a hacer una reclasificación más simple solo con tres categorías y le as
 
 #### Con tres categorías: Mapa2
 
-~~~ RCLS_porce1_slope3_2
+`RCLS_porce1_slope3_2`
+
+~~~
  0 thru  7 = 1 Pendientes muy suaves y suaves
  7 thru 25 = 2 Pendientes suaves y moderadas
 25 thru 72 = 3 Pendientes inclinadas y escarpadas
@@ -240,7 +245,9 @@ El mapa con tres categorías se torna mas claro que el mapa con seis categorías
 
 #### Con tres categorías pero modificando sus límites: Mapa3
 
-~~~ RCLS_porce1_slope3_3
+`RCLS_porce1_slope3_3`
+
+~~~
  0 thru 10 = 1 Pendientes muy suaves y suaves
 10 thru 29 = 2 Pendientes suaves y moderadas
 29 thru 72 = 3 Pendientes inclinadas y escarpadas
@@ -269,7 +276,9 @@ Se seleccionan colores que generen contraste importante.
 
 Se hace el respectivo script en gedit y se guarda como: `TC_porce1_slope3`.
 
-~~~ TC_porce1_slope3
+`TC_porce1_slope3`
+
+~~~
 1 green
 2 226 178 252 # violeta muy claro
 3 102  39   8 # cafe mucho mas oscuro
@@ -384,7 +393,9 @@ r.univar porce1_planc7
 
 Las reglas de reclasifcacion y los porcentajes obtenidos se indican a continuación.
 
-~~~  RCLS_porce1_planc7
+`RCLS_porce1_planc7`
+
+~~~
 -1920000 thru     -25 = -1 Convexo
      -25 thru      25 =  0 Planar
       25 thru 1290000 =  1 Concavo
@@ -405,7 +416,9 @@ Por lo tanto modifcamos los límites de la reclasificación, hasta obtener un po
 
 Después de varios chequeos, nos quedamos con la siguiente tabla de reclasificación:
 
-~~~ RCLS_porce1_planc7_2
+`RCLS_porce1_planc7_2`
+
+~~~
 -1920000 thru    -225 = -1 Convexo
     -225 thru     225 =  0 Planar
      225 thru 1290000 =  1 Concavo
@@ -492,7 +505,9 @@ r.univar porce1_profc7
 
 Las reglas de reclasifcacion y los porcentajes obtenidos se indican a continuación, buscamos obtener aproximadamente un valor del 20% en la parte planar, al igual que lo hicimos con la curvatura horizontal:
 
-~~~ RCLS_porce1_profc7
+`RCLS_porce1_profc7`
+
+~~~
 -1783 thru  -50 = -1 Concavo
   -50 thru   10 =  0 Planar
    10 thru 1920 =  1 Convexo
@@ -525,7 +540,9 @@ r.report -h map=porce1_slope_profc units=p,c,k
 
 Se aplica la siguiente tabla de colores:
 
-~~~ TC_porce1_slope_profc
+`TC_porce1_slope_profc`
+
+~~~
  2 blue
  3 166 251 155 # verde muy claro
  4 245 169 131 # cafe claro
