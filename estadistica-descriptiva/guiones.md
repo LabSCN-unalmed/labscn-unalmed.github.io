@@ -53,4 +53,7 @@ order: 01
 
 - [Tamaño de muestra](/estadistica-descriptiva/guiones/tammuest.html){:target="_blank"}
 
+## Uso del paquete ggplot2
+
+- [Ejemplos del ggplot2](/estadistica-descriptiva/guiones/graficas_ggplot2.html){:target="_blank"}
 
