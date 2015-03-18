@@ -49,6 +49,11 @@ order: 01
 - [Base de datos de Credito (formato xlsx)](/estadistica-descriptiva/guiones/Credito.xlsx){:target="_blank"}
 - [Base de datos de Credito (formato csv)](/estadistica-descriptiva/guiones/Credito.csv){:target="_blank"}
 
+## Tamaño de muestra
 
+- [Tamaño de muestra](/estadistica-descriptiva/guiones/tammuest.html){:target="_blank"}
 
+## Uso del paquete ggplot2
+
+- [Ejemplos del ggplot2](/estadistica-descriptiva/guiones/graficas_ggplot2.html){:target="_blank"}
 
