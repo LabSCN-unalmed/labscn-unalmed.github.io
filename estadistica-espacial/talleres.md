@@ -60,8 +60,18 @@ Lunes 16 de febrero de 2015 antes de las 23:59 hora colombiana al correo **krcab
 Martes 17 de marzo de 2015 antes de las 23:59 hora colombiana al correo **krcabrer@unal.edu.co** en asunto escribir **[EE]**.
 
 
+## Taller individual 3
 
+### Base de datos
+![Datos del ejemplo sencillo](/estadistica-espacial/ejemploSencillo.png){: .img-responsive}
 
+### Entregables:
+-  Tomar la base de datos representada anteriormente y construir el semivariograma
+   de los datos represtados en un script de R. El dato de la coordenada (3,4),
+   cambiarlo por el valor de 2 y de nuevo construir el variograma respectivo.
+   Comparar los dos semivariogrmas obtenidos.
 
+### Fecha de entrega:
+- Viernes 20 de marzo de 2015 antes de las 23:59 horas.
 
 

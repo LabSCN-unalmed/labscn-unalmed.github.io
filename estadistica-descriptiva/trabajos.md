@@ -62,3 +62,30 @@ El resultado de 67 personas que contestaron la encuesta:
 ### Fecha de Entrega
 - Lunes 16 de Marzo de 2015 antes de las 23:59 hora oficial de Colombia al correo **krcabrer@unal.edu.co** no olvidar
   colocar en asunto la sigla **[EDAED]**.
+
+
+## Primer trabajo individual
+
+### Objetivo
+
+Buscar una gráfica con problema de presentación de la información.
+
+Reelaborar una gráfica que sea más adecuada a la información presentada.
+
+### Entregables
+
+- Trabajo escrito en formato **.pdf** en donde se tengan los siguientes elementos:
+  * Una gráfica debidamente referenciada de alguna publicación colombiana, 
+    no anterior al año 2000.
+  * Análisis de los problemas que presenta la gráfica en la repesentación 
+    adecuada de los datos.
+  * Gráfica alternativa que muestre de manera más adecuada al infromación representada.
+- Base de datos utilizada para obtener la encuesta.
+- Guión en R donde se muestra el procedimiento para construir la gráfica propuesta.
+
+### Fecha de entrega
+- Jueves 26 de Marzo de 2015 antes de las 23:59 hora oficial de Colombia
+  al corrego **krcabrer@unal.edu.co**. No olvidar colocar en asunto
+  la sigla **[EDAED]**. 
+
+
