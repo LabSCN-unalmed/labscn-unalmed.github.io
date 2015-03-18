@@ -10,8 +10,6 @@ $('#sidebar').affix({
   }
 })
 
-var $body   = $(document.body);
-
-$body.scrollspy({
+$(document.body).scrollspy({
   target: '#rightCol'
 });
