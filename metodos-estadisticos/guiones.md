@@ -16,3 +16,6 @@ order: 03
 
 ## Ejemplo 3: ANOVA de una sola vía con resultados y diagnósticos.
 - [Ejemplo 3](/metodos-estadisticos/guiones/Ejemplo3.html){:target="_blank"}
+
+## Ejemplo 4: ANOVA con un bloque completamenta aleatorizado
+- [Ejemplo 4](/metodos-estadisticos/guiones/suelas.html){:target="_blank"}
