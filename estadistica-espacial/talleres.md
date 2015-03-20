@@ -72,13 +72,46 @@ Martes 17 de marzo de 2015 antes de las 23:59 hora colombiana al correo **krcabr
    Comparar los dos semivariogrmas obtenidos.
 
 ### Fecha de entrega:
-- Viernes 20 de marzo de 2015 antes de las 23:59 horas.
+- Viernes 20 de marzo de 2015 antes de las 23:59 horas al 
+correo **krcabrer@unal.edu.co** y en asunto escribir **[EE]**
 
 ## Taller individual 4
 
 ### Base de datos
-[Depósito Férrico](/estadistica-espacial/datos/depositoFerrico.xlsx){:target="_blank"}
+
+La [base de datos de un depósito férrico](/estadistica-espacial/datos/depositoFerrico.xlsx){:target="_blank"} 
+contiene la distribución en coordenadas dadas en pies (ft), de los valores
+en porcentaje de un depósito de hierro (Fe). 
+
+La base de datos está presentada como los valores se ven en planta, es decir
+que la parte superior de la base de datos es el Norte, en la parte inferior es
+el Sur, hacia la izquierda es el Oeste o el Occidente y hacia la derecha es
+el Este o el Oriente.
+
 
 ### Actividades
-Constuir la base de datos para ser procesada por el R.
+- Constuir la base de datos para ser procesada por el R.
+- Leer la base de datos en R.
+- Realizar un análisis exploratorio de los datos.
+- Constuir el variograma que represente la estructure espacial y
+  determinar si existe o no estrucutra espacial.
+- Proponer de acuerdo a los resultados:
+  * El nivel de tendencia (ninguno, lineal o cuadrático)
+  * El valor del sill (entre qué valores podría estar).
+  * El valor del rango (entre qué valores podría estar).
+  * Posible modelo teórico y sus parámetros aproximados. Con estos modelos
+    superponer sobre el variograma empírico, el variograma teórico
+    propuesto por usted.
+- Conclusiones y recomendaciones.
+
+### Entregables
+- Documento en **.pdf** con los resultados obtenidos (Únicamente
+  graficas y texto de análisis)
+- Guión en R con las instrucciones utilizadas para generar los resultados.
+- Base de datos en formato **".csv"** utilizada para el análisis.
+
+
+### Fecha de entrega 
+  * Viernes, 27 de Marzo de 2015 antes de las 23:59 hora de Colombia,
+    al correo **krcabrer@unal.edu.co** y en asunto escribir **[EE]**
 
