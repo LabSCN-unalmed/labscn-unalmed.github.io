@@ -74,4 +74,11 @@ Martes 17 de marzo de 2015 antes de las 23:59 hora colombiana al correo **krcabr
 ### Fecha de entrega:
 - Viernes 20 de marzo de 2015 antes de las 23:59 horas.
 
+## Taller individual 4
+
+### Base de datos
+[Depósito Férrico](/estadistica-espacial/datos/depositoFerrico.xlsx){:target="_blank"}
+
+### Actividades
+Constuir la base de datos para ser procesada por el R.
 
