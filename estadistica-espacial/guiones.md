@@ -40,3 +40,7 @@ order: 01
 - [Ejemplo elevación](/estadistica-espacial/guiones/elevacion.html){:target="_blank"}
 - [Base de datos elevación](/estadistica-espacial/guiones/elevation2.txt){:target="_blank"}
 
+## Ejemplo elevación estimación
+- [Ejemplo elevación 2](/estadistica-espacial/guiones/elevacion2.html){:target="_blank"}
+- [Base de datos elevación 2](/estadistica-espacial/guiones/elevacion.txt){:target="_blank"}
+
