@@ -31,7 +31,6 @@ d.vect porce_stream where="type_code=0" color=cyan width=1
 d.vect porce_stream where="type_code=1" color=blue width=2
 r.report porce_streams units=c,p nsteps=10
 r.report porce_streams units=c,p nsteps=10 -n
-r.stream.order stream=asro2_streams dir=asro2_direction table=asro2_topology_red strahler=asro2_strahler shreve=asro2_shreve horton=asro2_horton hack=asro2_hack topo=asro2_topo
 r.stream.order stream=porce_streams dir=porce_direction table=porce_topology_red strahler=porce_strahler shreve=porce_shreve horton=porce_horton hack=porce_hack topo=porce_topo
 ~~~
 
