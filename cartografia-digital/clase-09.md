@@ -63,7 +63,6 @@ d.rast porce_strahler catlist=3 -o
 d.erase
 g.manual r.stream.order &
 g.manual r.stream.extract &
-r.report asro2_shreve units=c,p,k -n
 r.report porce_shreve units=c,p,k -n
 d.mon x0
 d.rast porce_shreve catlist=1-10
@@ -153,10 +152,7 @@ Consultar a que base de datos se encuentra conectado el mapa vectorial "porce_st
 v.db.connect porce_strahler -p
 db.connect driver=sqlite database='$GISDBASE/$LOCATION_NAME/$MAPSET/sqlite.db'
 db.connect -p
-r.stream.extract elevation=antioquia threshold=555 stream_length=10 stream_rast=asro2_streams stream_vect=asro2_stream direction=asro2_direction --o
-r.stream.extract elevation=porce threshold=555 stream_length=3 stream_rast=porce_streams stream_vect=porce_streams direction=porce_direction
-r.stream.extract elevation=porce threshold=555 stream_length=3 stream_rast=porce_streams stream_vect=porce_stream direction=porce_direction --o
-r.stream.order stream=asro2_streams dir=asro2_direction table=asro2_topology_red strahler=asro2_strahler shreve=asro2_shreve horton=asro2_horton hack=asro2_hack topo=asro2_topo --o
+r.stream.extract elevation=porcecito1 threshold=555 stream_length=3 stream_rast=porce_streams stream_vect=porce_streams direction=porce_direction
 r.stream.order stream=porce_streams dir=porce_direction table=porce_topology_red strahler=porce_strahler shreve=porce_shreve horton=porce_horton hack=porce_hack topo=porce_topo --o
 db.tables -p
 ~~~
