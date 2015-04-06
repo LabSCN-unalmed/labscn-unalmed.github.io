@@ -17,8 +17,10 @@ order: 03
 ## Ejemplo 3: ANOVA de una sola vía con resultados y diagnósticos.
 - [Ejemplo 3](/metodos-estadisticos/guiones/Ejemplo3.html){:target="_blank"}
 
-## Ejemplo 4: ANOVA con un bloque completamenta aleatorizado
+## Ejemplo 4: ANOVA con un bloque completamente aleatorizado
+- [Base de datos suelas](/metodos-estadisticos/guiones/suelas1.csv){:target="_blank"}
 - [Ejemplo 4](/metodos-estadisticos/guiones/suelas.html){:target="_blank"}
 
-## Ejemplo 5: ANOVA con un bloque completamenta aleatorizado
+## Ejemplo 5: ANOVA con dos factores (Naranja)
+- [Base de datos jugo de naranja](/metodos-estadisticos/guiones/naranja.csv){:target="_blank"}
 - [Ejemplo 5](/metodos-estadisticos/guiones/naranja.html){:target="_blank"}
