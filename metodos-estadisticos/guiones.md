@@ -19,3 +19,6 @@ order: 03
 
 ## Ejemplo 4: ANOVA con un bloque completamenta aleatorizado
 - [Ejemplo 4](/metodos-estadisticos/guiones/suelas.html){:target="_blank"}
+
+## Ejemplo 5: ANOVA con un bloque completamenta aleatorizado
+- [Ejemplo 5](/metodos-estadisticos/guiones/naranja.html){:target="_blank"}
