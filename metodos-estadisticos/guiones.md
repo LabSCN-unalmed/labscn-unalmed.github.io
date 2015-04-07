@@ -24,3 +24,7 @@ order: 03
 ## Ejemplo 5: ANOVA con dos factores (Naranja)
 - [Base de datos jugo de naranja](/metodos-estadisticos/guiones/naranja.csv){:target="_blank"}
 - [Ejemplo 5](/metodos-estadisticos/guiones/naranja.html){:target="_blank"}
+
+## Ejemplo 6: ANOVA tres factores (Camarones)
+- [Base de datos de camarones](/metodos-estadisticos/guiones/camarones.csv){:target="_blank"}
+- [Ejemplo 6](/metodos-estadisticos/guiones/camarones.html){:target="_blank"}
