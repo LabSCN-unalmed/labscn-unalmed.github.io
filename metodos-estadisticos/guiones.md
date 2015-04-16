@@ -3,6 +3,7 @@ layout: curso
 title: 'Guiones'
 curso: 'metodos-estadisticos'
 order: 03
+custom_js: 'mathjax'
 ---
 
 ## Ejemplo 1: lectura de base de datos
@@ -28,3 +29,8 @@ order: 03
 ## Ejemplo 6: ANOVA tres factores (Camarones)
 - [Base de datos de camarones](/metodos-estadisticos/guiones/camarones.csv){:target="_blank"}
 - [Ejemplo 6](/metodos-estadisticos/guiones/camarones.html){:target="_blank"}
+
+## Ejemplo 7: Diseños $$2^k$$ (Producción por Temperatura, Concentración y Catalizador)
+- [Temperatura, Concentración y Catalizador sin réplica](/metodos-estadisticos/guiones/tab0502.dat){:target="_blank"}
+- [Temperatura, Concentración y Catalizador con réplica](/metodos-estadisticos/guiones/tab0503.dat){:target="_blank"}
+- [Ejemplo 7](/metodos-estadisticos/guiones/diseño2K.html){:target="_blank"}
