@@ -95,7 +95,7 @@ Este otro archivo si se encuentra proyectado, pertenece a la zona 18N de la proy
 
 Para hacer un nuevo location se debe tener una nueva información.
 
-Se abre el GRASS
+Se abre el GRASS desde la terminal actual:
 
 ~~~
 grass
