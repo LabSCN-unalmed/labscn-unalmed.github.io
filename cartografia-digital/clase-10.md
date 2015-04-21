@@ -95,7 +95,13 @@ Este otro archivo si se encuentra proyectado, pertenece a la zona 18N de la proy
 
 Para hacer un nuevo location se debe tener una nueva información.
 
-Se abre el GRASS y se emplea el comando `r.in.gdal` para importar un archivo georeferenciado, el comando tiene un parámetro que permite crear un location nuevo a partir de este archivo.
+Se abre el GRASS
+
+~~~
+grass
+~~~
+
+Y se emplea el comando `r.in.gdal` para importar un archivo georeferenciado, el comando tiene un parámetro que permite crear un location nuevo a partir de este archivo.
 
 Se crean 2 nuevos location a partir de los archivos georeferenciados, cada uno con su propia proyección.
 
