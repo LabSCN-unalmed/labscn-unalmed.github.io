@@ -25,7 +25,7 @@ De manera resumida estos son los temas que se tratarán en el módulo.
 
 ## Políticas del curso
   - Los trabajos y talleres se enviarán al correo **krcabrer@unal.edu.co** con
-    la sigla **Modulo_R**.
+    la sigla **[Modulo_R]**.
   - Los documentos serán enviados en formato **.pdf**.
   - Las bases de datos serán enviadas en formato **.csv**, a menos que se indique
     lo contrario.

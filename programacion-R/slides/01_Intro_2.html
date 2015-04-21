@@ -829,7 +829,7 @@ hljs.initHighlightingOnLoad();
 de doble precisión).</li>
 <li>Si quieres especificar un entero deberá finalizarlo con <code>L</code>.</li>
 <li><em>Números</em> especiales: <code>Inf</code>, representa el infinito.</li>
-<li>El valor <code>NaN</code> es un valor no definio (&ldquo;not a number&rdquo;).</li>
+<li>El valor <code>NaN</code> es un valor no definido (&ldquo;Not a Number&rdquo;).</li>
 </ul>
 
 </div>
@@ -846,7 +846,7 @@ de doble precisión).</li>
 <li>clase (<code>class</code>).</li>
 <li>longitud (<code>length</code>).</li>
 <li>Otros metadatos y atributos particulares.
-Se utiliza la función <code>attribute()</code> para obtenerlos.</li>
+Se utiliza la función <code>attribute()</code> para inspeccionarlos.</li>
 </ul>
 
 </div>
@@ -892,7 +892,7 @@ x
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Vectores</h3>
+<h3>Vectores I</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- c(0.5, 0.6)      ## numérico
 class(x)
@@ -910,7 +910,7 @@ x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;) ## alfanumérico, caráct
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Vectores</h3>
+<h3>Vectores II</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- c(0.5, 0.6)      ## numérico
 x &lt;- 9:29             ## entero
@@ -921,6 +921,26 @@ x
 </code></pre>
 
 <pre><code> [1] 0 0 0 0 0 0 0 0 0 0
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Vectores III</h3>
+<div class="slideContent" >
+<pre><code class="r">x &lt;- 1
+class(x)
+</code></pre>
+
+<pre><code>[1] &quot;numeric&quot;
+</code></pre>
+
+<pre><code class="r">x &lt;- 1L
+class(x)
+</code></pre>
+
+<pre><code>[1] &quot;integer&quot;
 </code></pre>
 
 </div>
@@ -1345,7 +1365,7 @@ b 2 4
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Subconjuntos</h3>
+<h3>Subconjuntos en listas</h3>
 <div class="slideContent" >
 <ul>
 <li><code>[</code> Siempre devuelve un objeto de la misma clase que el original.</li>
@@ -1360,7 +1380,7 @@ Semánticamente es similar a <code>[[</code>.</li>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Subconjuntos</h3>
+<h3>Ejemplo de subconjuntos I</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;)   
 x[1]
@@ -1385,7 +1405,7 @@ x[1]
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Subconjuntos</h3>
+<h3>Ejemplo de subconjuntos II</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;)   
 x &gt; &quot;a&quot;
@@ -1411,7 +1431,7 @@ x[u]
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Subconjuntos (matrix)</h3>
+<h3>Subconjuntos (matrix) I</h3>
 <div class="slideContent" >
 <pre><code>x &lt;- matrix(6:1, 2, 3)
 x[1, 2]
@@ -1427,7 +1447,7 @@ x[,2]
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Subconjuntos (matriz)</h3>
+<h3>Subconjuntos (matriz) II</h3>
 <div class="slideContent" >
 <pre><code>x &lt;- matrix(6:1, 2, 3)
 x[1, 2]
@@ -1450,7 +1470,7 @@ x[1, , drop = FALSE]
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Subconjuntos (listas)</h3>
+<h3>Ejemplo subconjuntos (listas) I</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- list(foo = 6:1, bar = 0.6)
 x[1]
@@ -1488,7 +1508,7 @@ x[1]
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Subconjuntos (listas)</h3>
+<h3>Ejemplo subconjuntos (listas) II</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- list(foo = 6:1, bar = 0.6, baz = &quot;hello&quot;)
 x[c(1,3)]
@@ -1505,7 +1525,7 @@ $baz
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Subconjuntos (listas)</h3>
+<h3>Ejemplo subconjuntos (listas) III</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- list(foo = 6:1, bar = 0.6, baz = &quot;hello&quot;)
 nombre &lt;- &quot;foo&quot;
@@ -1531,7 +1551,7 @@ x[[nombre]]
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Subconjuntos (listas)</h3>
+<h3>Ejemplo subconjuntos (listas) IV</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- list(a = list(10, 12, 14), b = c(3.14, 2.81))
 x[[c(1,3)]]
