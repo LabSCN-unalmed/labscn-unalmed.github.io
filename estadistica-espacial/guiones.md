@@ -44,3 +44,7 @@ order: 01
 - [Ejemplo elevación 2](/estadistica-espacial/guiones/elevacion2.html){:target="_blank"}
 - [Base de datos elevación 2](/estadistica-espacial/guiones/elevacion.txt){:target="_blank"}
 
+## Simulación campos aleatorios (Para tamaño de muestra)
+- [Simulación (tamaǹo de muestra)](/estadistica-espacial/guiones/simulacionCamposAleatorios.html){:target="_blank"}
+
+
