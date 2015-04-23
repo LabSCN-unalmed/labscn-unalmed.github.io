@@ -34,3 +34,7 @@ custom_js: 'mathjax'
 - [Temperatura, Concentración y Catalizador sin réplica](/metodos-estadisticos/guiones/tab0502.dat){:target="_blank"}
 - [Temperatura, Concentración y Catalizador con réplica](/metodos-estadisticos/guiones/tab0503.dat){:target="_blank"}
 - [Ejemplo 7](/metodos-estadisticos/guiones/diseño2K.html){:target="_blank"}
+
+## Ejemplo 8: Diseño con medidas repetidas en el tiempo
+- [Base de datos de fleblitis en conejos](/metodos-estadisticos/guiones/flebitis.csv){:target="_blank"}
+- [Ejemplo 8](/metodos-estadisticos/guiones/analisisFlebitis.html){:target="_blank"}
