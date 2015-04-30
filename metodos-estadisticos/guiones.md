@@ -38,3 +38,8 @@ custom_js: 'mathjax'
 ## Ejemplo 8: Diseño con medidas repetidas en el tiempo
 - [Base de datos de fleblitis en conejos](/metodos-estadisticos/guiones/flebitis.csv){:target="_blank"}
 - [Ejemplo 8](/metodos-estadisticos/guiones/analisisFlebitis.html){:target="_blank"}
+
+## Ejemplo 9: Diseño fraccionado $$2^{4-1}$$
+- [Base de datos de tasa de fallos formato de excel](/metodos-estadisticos/guiones/fallos.xlsx){:target="_blank"}
+- [Base de datos de tasa de fallos formato .csv](/metodos-estadisticos/guiones/fallos.csv){:target="_blank"}
+- [Ejemplo 9](/metodos-estadisticos/guiones/fallos.html){:target="_blank"}
