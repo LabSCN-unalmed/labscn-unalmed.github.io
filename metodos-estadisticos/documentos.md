@@ -27,3 +27,9 @@ order: 01
 ## Guía para gráficos básicos en R
 
 - [Guía para gráficos](/metodos-estadisticos/docs/grafi3.pdf){:target="_blank"}
+
+## Tablas para diseños fraccionados.
+
+- [Tablas para generar diseños fraccionados](/metodos-estadisticos/docs/tablas_fraccionados.pdf){:target="_blank"}
+
+
