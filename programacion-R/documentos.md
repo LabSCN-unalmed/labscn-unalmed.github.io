@@ -12,13 +12,13 @@ order: 02
 [Introducción a R (Parte 2)](/programacion-R/slides/01_Intro_2.html){:target="_blank"}
 
 ## Clase 3
-[Introducción a R (Parte 2)](/programacion-R/slides/02_Lectura_Escritura.html){:target="_blank"}
+[Lectura/Escritura](/programacion-R/slides/02_Lectura_Escritura.html){:target="_blank"}
 
 - [url_banrep_trm.txt](/programacion-R/slides/url_banrep_trm.txt){:target="_blank"}
 
 ## Clase 4
-[Introducción a R (Parte 2)](/programacion-R/slides/03_Arreglo_Base_Datos.html){:target="_blank"}
+[Arreglo de base de datos](/programacion-R/slides/03_Arreglo_Base_Datos.html){:target="_blank"}
 
-- [religiones.csv](/programacion-R/slides/religiones.csv){:target="_blank"}
+- [religiones.csv](/programacion-R/slides/religions.csv){:target="_blank"}
 - [tb.csv](/programacion-R/slides/tb.csv){:target="_blank"}
 - [paises.csv](/programacion-R/slides/paises.csv){:target="_blank"}
