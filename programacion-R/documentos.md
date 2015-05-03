@@ -19,6 +19,6 @@ order: 02
 ## Clase 4
 [Arreglo de base de datos](/programacion-R/slides/03_Arreglo_Base_Datos.html){:target="_blank"}
 
-- [religiones.csv](/programacion-R/slides/religiones.csv){:target="_blank"}
+- [religiones.csv](/programacion-R/slides/religions.csv){:target="_blank"}
 - [tb.csv](/programacion-R/slides/tb.csv){:target="_blank"}
 - [paises.csv](/programacion-R/slides/paises.csv){:target="_blank"}
