@@ -43,3 +43,7 @@ custom_js: 'mathjax'
 - [Base de datos de tasa de fallos formato de excel](/metodos-estadisticos/guiones/fallos.xlsx){:target="_blank"}
 - [Base de datos de tasa de fallos formato .csv](/metodos-estadisticos/guiones/fallos.csv){:target="_blank"}
 - [Ejemplo 9](/metodos-estadisticos/guiones/fallos.html){:target="_blank"}
+
+## Ejemplo 10: Superficie de respuesta
+- [Base de datos de reacción química.csv](/metodos-estadisticos/guiones/reaccionQuimica.csv){:target="_blank"}
+- [Ejemplo 10](/metodos-estadisticos/guiones/superficieRtaI.html){:target="_blank"}
