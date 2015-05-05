@@ -22,3 +22,10 @@ order: 02
 - [religiones.csv](/programacion-R/slides/religions.csv){:target="_blank"}
 - [tb.csv](/programacion-R/slides/tb.csv){:target="_blank"}
 - [paises.csv](/programacion-R/slides/paises.csv){:target="_blank"}
+
+## Clase 5
+[Estructuras de control](/programacion-R/slides/04_Estructuras_de_control.html){:target="_blank"}
+
+## Clase 6
+[Funciones](/programacion-R/slides/05_Funciones.html){:target="_blank"}
+
