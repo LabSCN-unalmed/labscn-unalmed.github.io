@@ -57,3 +57,8 @@ order: 01
 
 - [Ejemplos del ggplot2](/estadistica-descriptiva/guiones/graficas_ggplot2.html){:target="_blank"}
 
+## Componentes principales
+
+- [Base de datos de candidatos](/estadistica-descriptiva/guiones/cantidatos.csv){:target="_blank"}
+- [Ejemplos del componentes principales](/estadistica-descriptiva/guiones/componentesPrincipales.html){:target="_blank"}
+
