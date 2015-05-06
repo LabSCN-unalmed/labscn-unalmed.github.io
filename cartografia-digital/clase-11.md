@@ -51,7 +51,13 @@ usuario@equipo:~/02ZonasVida$
 ls -l
 ~~~
 
-- El comando a utilizar para realizar la importación es el `v.in.ogr`. Se abre GRASS en el location *CursoGrass*, y una vez adentro se consultan los formatos admitidos para importar en formato vectorial.
+- Se abre GRASS desde la terminal actual en el location *CursoGrass*
+
+~~~
+grass
+~~~
+
+- Una vez adentro se consultan los formatos admitidos para importar en formato vectorial utilizando el siguiente comando.
 
 ~~~
 v.in.ogr -f
