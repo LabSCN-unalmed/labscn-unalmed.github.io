@@ -5,7 +5,7 @@ curso: 'cartografia-digital'
 clase: 12
 ---
 
-Abrir el directorio `03AntioquiaVector` ubicado en la carpeta personal, y desde allí abrir un terminal. En este directorio se encuentran 3 mapas vectoriales del departamento de Antioquia, uno con los municipios, otro con las carreteras, y otro con puntos de localización.
+Abrir el directorio `03AntioquiaVector` ubicado en la carpeta personal, y desde allí abrir un terminal e iniciar GRASS. En este directorio se encuentran 3 mapas vectoriales del departamento de Antioquia, uno con los municipios, otro con las carreteras, y otro con puntos de localización.
 
 Verificar que la conexión a la base de datos se encuentre con el controlador SQLite.
 
