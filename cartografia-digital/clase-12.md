@@ -161,10 +161,10 @@ d.vect puntos where="PLACE='town'" col=grey
 - Se despliegan los puntos en porcecito, para identificar lugares.
 
 ~~~
-g.region rast=porcecito 
-d.rast porcecito 
+g.region rast=porcecito
+d.rast porcecito
 d.vect muniantioq type=boundary
-d.vect carreteras col=red 
+d.vect carreteras col=red
 d.vect puntos col=grey
 ~~~
 
@@ -173,12 +173,10 @@ d.vect puntos col=grey
 - Se despliegan los nombres de los puntos en el mapa.
 
 ~~~
-d.rast porcecito 
-d.vect muniantioq type=boundary 
-d.vect
-carreteras col=red 
-d.vect puntos display=attr,shape col=red
-icon=“basic/diamond” attrcol=NAME lcolor=black
+d.rast porcecito
+d.vect muniantioq type=boundary
+d.vect carreteras col=red
+d.vect puntos display=attr,shape col=red icon=“basic/diamond” attrcol=NAME lcolor=black
 ~~~
 
 ![](/cartografia-digital/images/porcecito_puntos_labels.png){: .img-responsive}
