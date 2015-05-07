@@ -29,3 +29,7 @@ order: 02
 ## Clase 6
 [Funciones](/programacion-R/slides/05_Funciones.html){:target="_blank"}
 
+## Clase 7
+[Herramientas de programacion](/programacion-R/slides/06_Herramientas_programacion.html){:target="_blank"}
+
+
