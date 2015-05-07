@@ -163,8 +163,7 @@ d.vect puntos where="PLACE='town'" col=grey
 ~~~
 g.region rast=porcecito 
 d.rast porcecito 
-d.vect muniantioq
-type=boundary 
+d.vect muniantioq type=boundary
 d.vect carreteras col=red 
 d.vect puntos col=grey
 ~~~
