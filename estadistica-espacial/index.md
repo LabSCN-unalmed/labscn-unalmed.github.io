@@ -50,6 +50,10 @@ John Wiley & Sons, Inc. 2011
 * [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="_blank"}
 * [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="_blank"}
 
+## Libro complementario:
+
+* [Lecturas sobre estadística espacial](https://www.dropbox.com/s/hfqfqtevsu85twy/contemporaryStatisticalModels.pdf?dl=0)
+
 ## Procedimiento en R para instalar *todos* los paquetes asociados a manejos de datos espaciales.
 
 ~~~
