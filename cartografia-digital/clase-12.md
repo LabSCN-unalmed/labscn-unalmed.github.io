@@ -176,7 +176,7 @@ d.vect puntos col=grey
 d.rast porcecito
 d.vect muniantioq type=boundary
 d.vect carreteras col=red
-d.vect puntos display=attr,shape col=red icon=“basic/diamond” attrcol=NAME lcolor=black
+d.vect puntos display=attr,shape col=red icon="basic/diamond" attrcol=NAME lcolor=black
 ~~~
 
 ![](/cartografia-digital/images/porcecito_puntos_labels.png){: .img-responsive}
