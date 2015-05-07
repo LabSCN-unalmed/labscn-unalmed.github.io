@@ -156,7 +156,7 @@ d.vect carreteras where="TYPE='primary'" col=red
 d.vect puntos where="PLACE='town'" col=grey
 ~~~
 
-![](/cartografia-digital/images/puntos_rast "fig:".png){: .img-responsive}
+![](/cartografia-digital/images/puntos_rast.png){: .img-responsive}
 
 - Se despliegan los puntos en porcecito, para identificar lugares.
 
