@@ -112,7 +112,7 @@ v.db.select map=carreteras | less
 ~~~
 d.rast ituango
 d.rast -o porcecito
-d.rast -o riogrande-sup
+d.rast -o riogrande_sup
 d.vect muniantioq type=boundary
 d.vect carreteras col=red
 ~~~
