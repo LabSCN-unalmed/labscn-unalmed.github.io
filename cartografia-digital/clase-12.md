@@ -112,7 +112,7 @@ v.db.select map=carreteras | less
 ~~~
 d.rast ituango
 d.rast -o porcecito
-d.rast -o riogrande-sup
+d.rast -o riogrande_sup
 d.vect muniantioq type=boundary
 d.vect carreteras col=red
 ~~~
@@ -156,16 +156,15 @@ d.vect carreteras where="TYPE='primary'" col=red
 d.vect puntos where="PLACE='town'" col=grey
 ~~~
 
-![](/cartografia-digital/images/puntos_rast "fig:".png){: .img-responsive}
+![](/cartografia-digital/images/puntos_rast.png){: .img-responsive}
 
 - Se despliegan los puntos en porcecito, para identificar lugares.
 
 ~~~
-g.region rast=porcecito 
-d.rast porcecito 
-d.vect muniantioq
-type=boundary 
-d.vect carreteras col=red 
+g.region rast=porcecito
+d.rast porcecito
+d.vect muniantioq type=boundary
+d.vect carreteras col=red
 d.vect puntos col=grey
 ~~~
 
@@ -174,12 +173,10 @@ d.vect puntos col=grey
 - Se despliegan los nombres de los puntos en el mapa.
 
 ~~~
-d.rast porcecito 
-d.vect muniantioq type=boundary 
-d.vect
-carreteras col=red 
-d.vect puntos display=attr,shape col=red
-icon=“basic/diamond” attrcol=NAME lcolor=black
+d.rast porcecito
+d.vect muniantioq type=boundary
+d.vect carreteras col=red
+d.vect puntos display=attr,shape col=red icon="basic/diamond" attrcol=NAME lcolor=black
 ~~~
 
 ![](/cartografia-digital/images/porcecito_puntos_labels.png){: .img-responsive}
