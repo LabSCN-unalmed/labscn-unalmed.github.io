@@ -47,4 +47,7 @@ order: 01
 ## Simulación campos aleatorios (Para tamaño de muestra)
 - [Simulación (tamaǹo de muestra)](/estadistica-espacial/guiones/simulacionCamposAleatorios.html){:target="_blank"}
 
+## Patrones de puntos
+- [Ejemplo de patrones de puntos](/estadistica-espacial/guiones/patrones_de_puntos.html){:target="_blank"}
+- [Base de datos de la distribución de *Hybanthus prunifolius*](/estadistica-espacial/guiones/Hp.csv){:target="_blank"}
 
