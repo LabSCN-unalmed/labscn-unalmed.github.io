@@ -32,4 +32,6 @@ order: 02
 ## Clase 7
 [Herramientas de programacion](/programacion-R/slides/06_Herramientas_programacion.html){:target="_blank"}
 
+## Clase 8
+[Vectorización](/programacion-R/slides/07_Vectorizacion.html){:target="_blank"}
 
