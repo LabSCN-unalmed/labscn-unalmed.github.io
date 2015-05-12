@@ -2,7 +2,6 @@
 layout: curso
 title: 'Documentos'
 curso: 'programacion-R'
-order: 02
 --->
 
 ## Clase 1

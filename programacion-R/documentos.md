@@ -35,3 +35,14 @@ order: 02
 ## Clase 8
 [Vectorización](/programacion-R/slides/07_Vectorizacion.html){:target="_blank"}
 
+## Clase 9
+[Graficación I](/programacion-R/slides/09_Graficacion_I.html){:target="_blank"}
+
+## Clase 10
+[Graficación II](/programacion-R/slides/10_Graficacion_II.html){:target="_blank"}
+
+## Clase 11
+[Expresiones regulares](/programacion-R/slides/11_Expresiones_Regulares.html){:target="_blank"}
+
+
+
