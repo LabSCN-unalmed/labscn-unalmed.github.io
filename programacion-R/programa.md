@@ -21,7 +21,7 @@ De manera resumida estos son los temas que se tratarán en el módulo.
   * Operaciones vectorizadas: familia *apply*.
   * Herramientas de depuración de código.
   * Perfilación del código.
-  * Simulación.
+
 
 ## Políticas del curso
   - Los trabajos y talleres se enviarán al correo **krcabrer@unal.edu.co** con
