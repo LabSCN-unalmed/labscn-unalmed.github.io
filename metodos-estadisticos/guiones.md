@@ -50,3 +50,10 @@ custom_js: 'mathjax'
 
 ## Ejemplo 10: Superficie de respuesta II (Calidad de una torta)
 - [Ejemplo 11](/metodos-estadisticos/guiones/horneo.html){:target="_blank"}
+
+## Ejemplo 11: Diseños de mezcla
+- [Ejemplo 12](/metodos-estadisticos/guiones/mezcla.html){:target="_blank"}
+- [Base de datos del diseño de mezcla en formato *.csv*](/metodos-estadisticos/guiones/mezcla1.csv){:target="_blank"}
+- [Base de datos de puntos específicos de predicción de la mezcla en formato *.csv*](/metodos-estadisticos/guiones/mezcla1p.csv){:target="_blank"}
+
+
