@@ -32,4 +32,10 @@ order: 01
 
 - [Tablas para generar diseños fraccionados](/metodos-estadisticos/docs/tablas_fraccionados.pdf){:target="_blank"}
 
+## Guias para presentación de pósters
+
+- [Póster científico](/metodos-estadisticos/docs/DocumentoPrincipalEGuardiola_poster_cientifico.pdf){:target="_blank"}
+- [Presentación de carteles o pósters](/metodos-estadisticos/docs/mgi20400.pdf){:target="_blank"}
+- [Guía para elaboración de pósters científicos](/metodos-estadisticos/docs/poster-1209925152397079-9.pdf){:target="_blank"}
+
 

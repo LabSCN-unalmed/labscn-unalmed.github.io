@@ -97,3 +97,79 @@ realizarán la presentación el día 10 de marzo y los que lo harán el día 12 
 
 Cada grupo tendrá diez (10) minutos para presentar su propuesta y 10 minutos de discusión.
 
+## Tercera  entrega (Presentación final)
+
+### Presentación del póster
+
+#### Objetivo
+
+Presentar un póster científico con los resultados obtenidos en el diseño experimental.
+
+#### Consideraciones
+
+El póster debe contener como mínimo:
+
+- Objetivo(s) del experimento.
+- Esquema corto (tabla) de:
+  * Variables o variables respuesta.
+  * Factores con sus niveles.
+  * Variables de ruido y constantes.
+- Resumen del análisis exploratorio.
+- Resumen de los resultados en la modelación.
+- Resumen de los diagnósticos.
+- Conclusiones y recomendaciones.
+- Foto del experimento (desarrollo o resultado).
+- Bibliografía y cibergrafía principal.
+
+#### Entregables
+
+- Póster en formato físico. 
+   
+- Póster en formato pdf.
+
+Al momento de la presentación, el profesor realizará algunas preguntas
+sobre los resultados y cualquier miembro 
+del grupo deberá tener la capacidad de contestar las preguntas.
+
+#### Fecha de entrega
+
+28 de Mayo de 2015 en horas de clase 6:00 am hora de Colombia formato físico.
+
+28 de Mayo de 2015 antes de las 23:59 hora de Colombia formato electrónico (pdf).
+
+Enviar el formato .pdf a  **krcabrer@unal.edu.co** y 
+en asunto no olvidar **[MEDE]**.
+
+### Presentación del trabajo escrito
+
+#### Objetivo
+
+Presentar de manera escrita los resultados obtenidos del diseño experimental.
+
+#### Entregables
+
+- Trabajo escrito con los siguientes elementos como mínimo
+  * Portada
+  * Introducción
+  * Resumen del marco teórico.
+  * Planeación del experimento: Mencionar los cambios debidos al premuestreo realizado.
+    Incluir la estimación del tamaño de muestra.
+  * Análisis exploratorio de resultados.
+  * Modelación.
+  * Comparar el tamaño de muestra realizado con la planeada.
+  * Diagnósticos del modelo.
+  * Predicción del modelo.
+  * Conclusiones. 
+  * Recomendaciones.
+  * Bibliografía.
+- Base de datos en formato ".csv" con los resultados obtenidos.
+- Script o guión en R con el análisis cuantitativo realizado y comentado.
+
+#### Fecha de entrega
+
+28 de Mayo de 2015 antes de las 23:59 hora de Colombia formato electrónico (pdf).
+
+Enviar el formato .pdf, el archivo csv y el script o guión en R a  **krcabrer@unal.edu.co** y 
+en asunto no olvidar **[MEDE]**.
+
+
