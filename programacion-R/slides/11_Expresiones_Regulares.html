@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Expresiones Regulares</h1><p>Kenneth Roy Cabrera Torres<br/>martes, 12 de mayo de 2015</p>
+<h1>Expresiones Regulares</h1><p>Kenneth Roy Cabrera Torres<br/>martes, 19 de mayo de 2015</p>
 
 <div class="slideContent" >
 
@@ -801,9 +801,140 @@ uso de expresiones regulares.</p>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Ejemplo I</h3>
+<h3>Definición</h3>
 <div class="slideContent" >
-<p>texto &lt;- c(&ldquo;Una frase con números&rdquo;)</p>
+<p>Una expresión regular (RE, siglas en inglés) es un
+mecanismo que permite seleccionar una cadena o sarta
+específica de otra cadena.</p>
+
+<p>Existen dos definiciones: expresiones regulares básicas (BRE) y
+(ERE) expresiones regulares extendidas. El R utiliza por omisión
+la ERE.</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Funciones asociada a ER</h3>
+<div class="slideContent" >
+<p>Las funciones más usuales que trabajan con expresiones regulares son:
+<code>grep</code>, <code>regexpr</code>, <code>gregexpr</code>, <code>sub</code>, <code>gsub</code> y <code>strsplit</code>.</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Metacaracteres </h3>
+<div class="slideContent" >
+<p>Los siguientes símbolos son utilizados como metacaracteres o
+simbolos que implican significados especiales.</p>
+
+<p><code>. \ | ( ) [] {} ^ $ * + ?</code></p>
+
+<p>Su significado depende del contexto.</p>
+
+<p>Algunos elementos que no son metacaracteres, pero que se
+utilizan como uns secuencia de &ldquo;escape&rdquo;.</p>
+
+<p><code>\a</code> como BEL, <code>\e</code>  como ESC, <code>\f</code> como FF, <code>\n</code> como LF,
+<code>\r</code> como CR and <code>\t</code> como TAB.</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Ejemplo 1 </h3>
+<div class="slideContent" >
+<p>El caso más simple es encontrar una sarta o cadena específica
+en una sarta.</p>
+
+<pre><code class="r">texto &lt;- c(&quot;Nada, como tu&quot;, &quot;Inigualable&quot;, &quot;Incomparable&quot;)
+regexpr(&quot;able&quot;,texto)
+</code></pre>
+
+<pre><code>[1] -1  8  9
+attr(,&quot;match.length&quot;)
+[1] -1  4  4
+attr(,&quot;useBytes&quot;)
+[1] TRUE
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Ejemplo 2</h3>
+<div class="slideContent" >
+<p>El resultado depende de la función utilizada.</p>
+
+<pre><code class="r">texto &lt;- c(&quot;Nada, como tu&quot;, &quot;Inigualable&quot;, &quot;Incomparable&quot;)
+gsub(&quot;In&quot;,&quot;&quot;,texto)
+</code></pre>
+
+<pre><code>[1] &quot;Nada, como tu&quot; &quot;igualable&quot;     &quot;comparable&quot;   
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Uso y significado de `[]`</h3>
+<div class="slideContent" >
+<p>Una clase de carácter es una lista de caracteres entre 
+corchetes <code>[]</code> el cual identifica o hace coincidir cualquier
+carácter en la lista.</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Ejemplo 3</h3>
+<div class="slideContent" >
+<pre><code class="r">texto &lt;- c(&quot;Una sarta&quot;,&quot;2da sarta&quot;)
+regexpr(&quot;[n]&quot;,texto)
+</code></pre>
+
+<pre><code>[1]  2 -1
+attr(,&quot;match.length&quot;)
+[1]  1 -1
+attr(,&quot;useBytes&quot;)
+[1] TRUE
+</code></pre>
+
+<pre><code class="r">regexpr(&quot;[na]&quot;,texto)
+</code></pre>
+
+<pre><code>[1] 2 3
+attr(,&quot;match.length&quot;)
+[1] 1 1
+attr(,&quot;useBytes&quot;)
+[1] TRUE
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Ejemplo 4</h3>
+<div class="slideContent" >
+<pre><code class="r">texto &lt;- c(&quot;Una sarta&quot;,&quot;2da sarta&quot;)
+gsub(&quot;[n]&quot;,&quot;&quot;,texto)
+</code></pre>
+
+<pre><code>[1] &quot;Ua sarta&quot;  &quot;2da sarta&quot;
+</code></pre>
+
+<pre><code class="r">gsub(&quot;[na]&quot;,&quot;&quot;,texto)
+</code></pre>
+
+<pre><code>[1] &quot;U srt&quot;  &quot;2d srt&quot;
+</code></pre>
+
+<pre><code class="r">sub(&quot;[na]&quot;,&quot;&quot;,texto)
+</code></pre>
+
+<pre><code>[1] &quot;Ua sarta&quot; &quot;2d sarta&quot;
+</code></pre>
 
 </div>
 
