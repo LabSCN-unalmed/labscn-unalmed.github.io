@@ -51,3 +51,10 @@ order: 01
 - [Ejemplo de patrones de puntos](/estadistica-espacial/guiones/patrones_de_puntos.html){:target="_blank"}
 - [Base de datos de la distribución de *Hybanthus prunifolius*](/estadistica-espacial/guiones/Hp.csv){:target="_blank"}
 
+## Datos areales
+- [Exploratorio de datos areales](/estadistica-espacial/guiones/datosAreales.html){:target="_blank"}
+- [Mapa de municipios de Antioqua (shp)](/estadistica-espacial/guiones/muniantioq.shp){:target="_blank"}
+- [Mapa de municipios de Antioqua (shx)](/estadistica-espacial/guiones/muniantioq.shx){:target="_blank"}
+- [Mapa de municipios de Antioqua (dbf)](/estadistica-espacial/guiones/muniantioq.dbf){:target="_blank"}
+- [Base de datos de NBI para Colombia](/estadistica-espacial/guiones/NBI.csv){:target="_blank"}
+
