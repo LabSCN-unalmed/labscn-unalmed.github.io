@@ -52,7 +52,7 @@ order: 01
 - [Base de datos de la distribución de *Hybanthus prunifolius*](/estadistica-espacial/guiones/Hp.csv){:target="_blank"}
 
 ## Datos areales
-- [Exploratorio de datos areales](/estadistica-espacial/guiones/datosAreales.html){:target="_blank"}
+- [Exploratorio de datos areales](/estadistica-espacial/guiones/datosAreales2.html){:target="_blank"}
 - [Mapa de municipios de Antioqua (shp)](/estadistica-espacial/guiones/muniantioq.shp){:target="_blank"}
 - [Mapa de municipios de Antioqua (shx)](/estadistica-espacial/guiones/muniantioq.shx){:target="_blank"}
 - [Mapa de municipios de Antioqua (dbf)](/estadistica-espacial/guiones/muniantioq.dbf){:target="_blank"}
