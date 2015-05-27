@@ -20,9 +20,9 @@ order: 00
 
 | Item               | Porcentaje | Fecha entrega                | Formato                                               |
 |:-------------------|:----------:|:-----------------------------|:------------------------------------------------------|
-| Propuesta inicial  |        10% | Martes 17 de Febrero de 2015 | Presentación PDF                                      |
-| Planeación         |        20% | Martes 10 de Marzo de 2015   | Presentación y trabajo PDF                            |
-| Presentación Final |        30% | Jueves 28 de Mayo de 2015    | Trabajo en PDF y poster en formato PDF y físico       |
+| Propuesta inicial  |        10% | Martes 17 de febrero de 2015 | Presentación PDF                                      |
+| Planeación         |        20% | Martes 10 de marzo de 2015   | Presentación y trabajo PDF                            |
+| Presentación Final |        30% | Martes 2 de junio de 2015    | Trabajo en PDF y poster en formato PDF y físico       |
 | Seguimiento        |        40% |                              |                                                       |
 {: .table .table-hover}
 

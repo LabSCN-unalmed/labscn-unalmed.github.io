@@ -133,9 +133,9 @@ del grupo deberá tener la capacidad de contestar las preguntas.
 
 #### Fecha de entrega
 
-28 de Mayo de 2015 en horas de clase 6:00 am hora de Colombia formato físico.
+Martes 2 de junio de 2015 en horas de clase 6:00 am hora de Colombia formato físico.
 
-28 de Mayo de 2015 antes de las 23:59 hora de Colombia formato electrónico (pdf).
+Martes 2 de junio de 2015 antes de las 23:59 hora de Colombia formato electrónico (pdf).
 
 Enviar el formato .pdf a  **krcabrer@unal.edu.co** y 
 en asunto no olvidar **[MEDE]**.
@@ -167,7 +167,7 @@ Presentar de manera escrita los resultados obtenidos del diseño experimental.
 
 #### Fecha de entrega
 
-28 de Mayo de 2015 antes de las 23:59 hora de Colombia formato electrónico (pdf).
+Martes 2 de junio de 2015 antes de las 23:59 hora de Colombia formato electrónico (pdf).
 
 Enviar el formato .pdf, el archivo csv y el script o guión en R a  **krcabrer@unal.edu.co** y 
 en asunto no olvidar **[MEDE]**.
