@@ -88,4 +88,36 @@ Reelaborar una gráfica que sea más adecuada a la información presentada.
   al corrego **krcabrer@unal.edu.co**. No olvidar colocar en asunto
   la sigla **[EDAED]**. 
 
+## Trabajo individual extra
+
+Para aumentar nota en segumiento o suplir trabajos de segimiento no entregadas.
+
+### Objetivo
+
+Realizar un trabajo descriptivo y exploratorio sobre una pregunta de investigación 
+básica con respecto al los resultados de la encuesta a los egresados de diferentes
+universidades de Colombia.
+
+### Pregunta de exploración y análisis
+
+Qué aspecto se muestran más diferenciadores en temas de empleo y satisfacción
+de los egresados con respecto a variables como tipo de universidad (privada o pública),
+tiemo sin empleo, área del conocimiento u otras variables que considere de interés.
+
+### Entregables
+
+1. Trabajo escrito en formato **.pdf** con gráficas exploratorias que respondan
+   la pregunta de análisis.
+2. Guión en R en donde se detalle los análisis realizados y las gráficas obtenidas.
+3. Base de datos en formato **.csv** utilizada en el análisis.
+
+### Fecha de entrega 
+
+Martes 9 de junio de 2015 antes de las 23:59 hora de colombia al correo 
+**krcabrer@unal.edu.co**.
+
+
+ 
+
+
 
