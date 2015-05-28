@@ -95,14 +95,19 @@ Para aumentar nota en segumiento o suplir trabajos de segimiento no entregadas.
 ### Objetivo
 
 Realizar un trabajo descriptivo y exploratorio sobre una pregunta de investigación 
-básica con respecto al los resultados de la encuesta a los egresados de diferentes
+básica con respecto a los resultados de la encuesta a los egresados de diferentes
 universidades de Colombia.
 
 ### Pregunta de exploración y análisis
 
-Qué aspecto se muestran más diferenciadores en temas de empleo y satisfacción
+Qué aspectos se muestran más diferenciadores en temas de empleo y satisfacción
 de los egresados con respecto a variables como tipo de universidad (privada o pública),
-tiemo sin empleo, área del conocimiento u otras variables que considere de interés.
+tiempo sin empleo, área del conocimiento u otras variables que considere de interés.
+
+Usar como mínimo tres variables de tipo respuesta (nivel de satisfacción, 
+tipo de empleo, empleado en lo que estudió, etc) y mínimo tres variables explicativas
+(tipo de universidad, tiempo de haberse graduado, area de conocimiento, etc)
+
 
 ### Entregables
 
