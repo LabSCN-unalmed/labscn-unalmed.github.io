@@ -63,7 +63,7 @@ img {
 <div id="header">
 <h1 class="title">Datos areales</h1>
 <h4 class="author"><em>Universidad Nacional de Colombia, Sede Medellín</em></h4>
-<h4 class="date"><em>miércoles, 27 de mayo de 2015</em></h4>
+<h4 class="date"><em>viernes, 29 de mayo de 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -77,12 +77,14 @@ img {
 <li><a href="#creacion-de-la-matriz-de-adjacencia">Creación de la matriz de adjacencia</a></li>
 <li><a href="#identificacion-del-municipio-con-mas-vecinos">Identificación del municipio con más vecinos</a></li>
 <li><a href="#pruebas-de-autocorrelacion-espacial-en-datos-areales">Pruebas de autocorrelación espacial en datos areales</a></li>
+<li><a href="#estimacion-de-modelos-car-y-sar">Estimación de modelos CAR y SAR</a></li>
 </ul>
 </div>
 
 <div id="lectura-del-mapa-de-municipios-de-antioquia." class="section level2">
 <h2>Lectura del mapa de municipios de Antioquia.</h2>
-<pre class="r"><code>require(spdep)</code></pre>
+<pre class="r"><code># Paquetes requeridos
+require(spdep)</code></pre>
 <pre><code>## Loading required package: spdep
 ## Loading required package: sp
 ## Loading required package: Matrix
@@ -96,7 +98,10 @@ img {
 <pre><code>## Loading required package: maps</code></pre>
 <pre class="r"><code>require(maptools)</code></pre>
 <pre><code>## Loading required package: maptools
-## Checking rgeos availability: TRUE</code></pre>
+## Checking rgeos availability: FALSE
+##      Note: when rgeos is not available, polygon geometry     computations in maptools depend on gpclib,
+##      which has a restricted licence. It is disabled by default;
+##      to enable gpclib, type gpclibPermit()</code></pre>
 <pre class="r"><code>require(classInt)</code></pre>
 <pre><code>## Loading required package: classInt</code></pre>
 <pre class="r"><code>require(RColorBrewer)</code></pre>
@@ -107,8 +112,8 @@ img {
 <pre><code>## Loading required package: rgdal
 ## rgdal: version: 0.9-3, (SVN revision 530)
 ##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 1.11.1, released 2014/09/24
-##  Path to GDAL shared files: /usr/share/gdal/1.11
+##  Loaded GDAL runtime: GDAL 1.10.1, released 2013/08/26
+##  Path to GDAL shared files: /usr/share/gdal/1.10
 ##  Loaded PROJ.4 runtime: Rel. 4.8.0, 6 March 2012, [PJ_VERSION: 480]
 ##  Path to PROJ.4 shared files: (autodetected)
 ##  Linking to sp version: 1.1-0</code></pre>
@@ -2776,6 +2781,76 @@ moran.test(muniantioq@data$NBI, lista_pesos)</code></pre>
 ## sample estimates:
 ## Geary C statistic       Expectation          Variance 
 ##       0.272561469       1.000000000       0.003894318</code></pre>
+</div>
+<div id="estimacion-de-modelos-car-y-sar" class="section level2">
+<h2>Estimación de modelos CAR y SAR</h2>
+<pre class="r"><code>mSAR &lt;- spautolm(NBI~1, data = muniantioq, listw = lista_pesos)
+mSAR</code></pre>
+<pre><code>## 
+## Call:
+## spautolm(formula = NBI ~ 1, data = muniantioq, listw = lista_pesos)
+## 
+## Coefficients:
+## (Intercept)      lambda 
+##  40.8310846   0.8621679 
+## 
+## Log likelihood: -486.0208</code></pre>
+<pre class="r"><code>summary(mSAR)</code></pre>
+<pre><code>## 
+## Call: spautolm(formula = NBI ~ 1, data = muniantioq, listw = lista_pesos)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -28.7542  -6.0058  -1.1243   4.2657  55.6220 
+## 
+## Coefficients: 
+##             Estimate Std. Error z value  Pr(&gt;|z|)
+## (Intercept)  40.8311     6.8475  5.9629 2.477e-09
+## 
+## Lambda: 0.86217 LR test value: 119.07 p-value: &lt; 2.22e-16 
+## Numerical Hessian standard error of lambda: 0.046298 
+## 
+## Log likelihood: -486.0208 
+## ML residual variance (sigma squared): 111.35, (sigma: 10.552)
+## Number of observations: 125 
+## Number of parameters estimated: 3 
+## AIC: 978.04</code></pre>
+<pre class="r"><code>mCAR &lt;- spautolm(NBI~1, data = muniantioq, listw = lista_pesos, family = &quot;CAR&quot;)</code></pre>
+<pre><code>## Warning in spautolm(NBI ~ 1, data = muniantioq, listw = lista_pesos, family
+## = &quot;CAR&quot;): Non-symmetric spatial weights in CAR model</code></pre>
+<pre><code>## Warning in sqrt(fdHess[1, 1]): Se han producido NaNs</code></pre>
+<pre class="r"><code>mCAR</code></pre>
+<pre><code>## 
+## Call:
+## spautolm(formula = NBI ~ 1, data = muniantioq, listw = lista_pesos, 
+##     family = &quot;CAR&quot;)
+## 
+## Coefficients:
+## (Intercept)      lambda 
+##  95.6260915   0.9923201 
+## 
+## Log likelihood: -489.8033</code></pre>
+<pre class="r"><code>summary(mCAR)</code></pre>
+<pre><code>## 
+## Call: spautolm(formula = NBI ~ 1, data = muniantioq, listw = lista_pesos, 
+##     family = &quot;CAR&quot;)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -31.0549  -4.5451  -1.0800   3.7621  54.6658 
+## 
+## Coefficients: 
+##             Estimate Std. Error z value  Pr(&gt;|z|)
+## (Intercept)   95.626     11.196  8.5414 &lt; 2.2e-16
+## 
+## Lambda: 0.99232 LR test value: 111.51 p-value: &lt; 2.22e-16 
+## Numerical Hessian standard error of lambda: NaN 
+## 
+## Log likelihood: -489.8033 
+## ML residual variance (sigma squared): 120.33, (sigma: 10.969)
+## Number of observations: 125 
+## Number of parameters estimated: 3 
+## AIC: 985.61</code></pre>
 </div>
 
 

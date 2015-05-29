@@ -1,0 +1,186 @@
+---
+title: "Datos areales"
+author: "Universidad Nacional de Colombia, Sede Medellín"
+date: '`r format(Sys.Date(),"%A, %d de %B de %Y")`'
+output:
+  html_document:
+    highlight: textmate
+    theme: readable
+    toc: yes
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, 
+                      fig.height=8)
+```
+
+## Lectura del mapa de municipios de Antioquia.
+
+```{r}
+# Paquetes requeridos
+require(spdep)
+require(maps)
+require(maptools)
+require(classInt)
+require(RColorBrewer)
+require(data.table)
+require(rgdal)
+```
+
+```{r}
+muniantioq <- readShapeSpatial("muniantioq.shp")
+
+# Otra forma de leer el mapa de municipios de Antioquia
+muniantioqTemp <- readOGR(".","muniantioq",encoding="latin1")
+```
+
+## Despliegue del mapa de municipios de Antioquia
+```{r}
+plot(muniantioq)
+```
+
+## Manejo de la estructura SpatialPolygonsDataFrame
+```{r}
+summary(muniantioq)
+class(muniantioq)
+str(muniantioq, max.level=2)
+bbox(muniantioq)
+proj4string(muniantioq)
+# http://spatialreference.org/
+proj4string(muniantioq) <- CRS("+proj=tmerc +lat_0=4.599047222222222  +lon_0=-74.08091666666667 +k=1 +x_0=1000000 +y_0=1000000 +ellps=intl +towgs84=307,304,-318,0,0,0,0 +units=m +no_defs")
+proj4string(muniantioq)
+summary(muniantioq)
+slotNames(muniantioq)
+class(muniantioq@data)
+class(muniantioq@polygons)
+slotNames(muniantioq@polygons[[1]])
+datos_muniantioq <- data.table(muniantioq@data)
+muniantioq@data$MUNICIPIO <- factor(iconv(datos_muniantioq$MUNICIPIO,
+                                   "latin1", "UTF-8"))
+summary(muniantioq)
+muniantioq@data$MUNICIPIO
+
+```
+
+
+
+```{r}
+
+muniantioq$rn <- row.names(muniantioq)
+
+NBI <- data.table(read.csv2("NBI.csv"))
+NBI
+
+setkey(NBI,Cod.MpioCompleto)
+
+muniantioqBD <- data.table(muniantioq@data)
+
+setkey(muniantioqBD, CODIGO) 
+
+temp1 <- NBI[muniantioqBD]
+
+setkey(temp1, rn)
+
+muniantioq@data <- temp1[row.names(muniantioq)]
+```
+
+## Despligue de colores de acuerdo a la variable NBI
+```{r}
+escalagrises <- 1-muniantioq@data$NBI/100
+plot(muniantioq, col=gray(escalagrises))
+
+rojo_azul <- brewer.pal(11,"RdBu")
+categorias <- as.integer(cut(1-muniantioq@data$NBI/100, seq(0,1,l=11)))
+plot(muniantioq, col=rojo_azul[categorias])
+
+display.brewer.all()
+
+am_nar_roj <- brewer.pal(9,"YlOrRd")
+categorias <- as.integer(cut(muniantioq@data$NBI/100, seq(0,1,l=9)))
+plot(muniantioq, col=am_nar_roj[categorias])
+
+azul_rojo <- colorRampPalette(c("blue", "red"))(100)
+categorias <- as.integer(cut(muniantioq@data$NBI/100, seq(0,1,l=101)))
+plot(muniantioq, col=azul_rojo[categorias])
+
+categorias <- as.integer(cut(muniantioq@data$NBI/100, seq(0,1,l=101)))
+plot(muniantioq, col=terrain.colors(100)[categorias])
+
+
+spplot(muniantioq, c("NBI"))
+
+l2 <- list("SpatialPolygonsRescale",
+           layout.north.arrow(),
+           offset = c(1000000,1120000), 
+           scale = 50000)
+spplot(muniantioq,  c("NBI"), sp.layout=list(l2))
+
+```
+
+## Exportar el mapa de Antioquia incorporando nueva información
+```{r}
+writeOGR(muniantioq, ".", "municipiosAntioq", driver="ESRI Shapefile",
+         overwrite_layer=TRUE)
+```
+
+## Más manipulación del objeto SpatialPolygonsDataFrame
+```{r}
+plot(muniantioq)
+plot(muniantioq[muniantioq$NBI > 60,], add=TRUE, col="gray")
+
+plot(muniantioq)
+plot(muniantioq[muniantioq$MUNICIPIO == "SALGAR",], add=TRUE, col="black")
+
+```
+
+
+## Creación de la matriz de adjacencia
+
+```{r}
+vecinosAnt <- poly2nb(muniantioq,muniantioq@data$MUNICIPIO)
+vecinosAnt
+summary(vecinosAnt)
+str(vecinosAnt)
+matrizAdjAnt <- nb2mat(vecinosAnt, style="B")
+matrizAdjAnt
+```
+
+## Identificación del municipio con más vecinos
+
+```{r}
+summary(vecinosAnt)
+str(vecinosAnt)
+(IDRegion <- attr(vecinosAnt, "region.id"))
+muniantioq@data[IDRegion=="MEDELLIN",]
+vecinosAnt[IDRegion=="MEDELLIN"]
+(vecinosV <- vecinosAnt[IDRegion=="MEDELLIN"][[1]])
+
+plot(muniantioq)
+plot(muniantioq[IDRegion=="MEDELLIN",], add=TRUE, col="black")
+plot(muniantioq[vecinosV,],add=TRUE, col="gray")
+```
+
+
+## Pruebas de autocorrelación espacial en datos areales
+
+```{r}
+lista_pesos <- nb2listw(vecinosAnt)
+
+moran.test(muniantioq@data$NBI, lista_pesos)
+
+geary.test(muniantioq@data$NBI, lista_pesos)
+```
+
+## Estimación de modelos CAR y SAR
+
+```{r}
+mSAR <- spautolm(NBI~1, data = muniantioq, listw = lista_pesos)
+mSAR
+summary(mSAR)
+mCAR <- spautolm(NBI~1, data = muniantioq, listw = lista_pesos, family = "CAR")
+mCAR
+summary(mCAR)
+```
+
+
