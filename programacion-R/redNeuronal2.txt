@@ -1,0 +1,229 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     DIA 3 y 40-40X-medidas-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0-weka.filters.supervised.attribute.AttributeSelection-Eweka.attributeSelection.CfsSubsetEval -P 1 -E 1-Sweka.attributeSelection.BestFirst -D 1 -N 5
+Instances:    300
+Attributes:   16
+              C10
+              C11
+              C15
+              C18
+              C52
+              C55
+              C57
+              C80
+              C134
+              C190
+              C191
+              C206
+              C209
+              C258
+              C273
+              Clase
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    -1.047823541665591
+    Node 2    -6.441678295654563
+    Node 3    9.464027316134347
+    Node 4    -6.24265873316395
+    Node 5    -2.4964289562865183
+    Node 6    10.714379195555555
+    Node 7    -17.086300714575685
+    Node 8    -5.000227481877421
+    Node 9    -8.02473725423445
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    1.0426390996811075
+    Node 2    6.442049792113987
+    Node 3    -9.458953653062837
+    Node 4    6.239429152881538
+    Node 5    2.4747055506670406
+    Node 6    -10.710864282891318
+    Node 7    17.097195722949678
+    Node 8    5.007187347097551
+    Node 9    8.02772208811499
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -3.048573641250305
+    Attrib C10    11.281397090730964
+    Attrib C11    -2.9174435145356385
+    Attrib C15    1.6763081923133707
+    Attrib C18    -4.5104948799086895
+    Attrib C52    3.1060263596837934
+    Attrib C55    -0.8668876475579922
+    Attrib C57    -4.15603498849563
+    Attrib C80    -7.2948309265032725
+    Attrib C134    -1.6926333780299425
+    Attrib C190    -4.001422394510555
+    Attrib C191    0.6296005406337433
+    Attrib C206    -4.48806204509233
+    Attrib C209    3.008303254192419
+    Attrib C258    -7.5269072333727625
+    Attrib C273    -7.938978585116952
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    -3.958373711969701
+    Attrib C10    7.252416233897857
+    Attrib C11    -1.302793647292411
+    Attrib C15    2.8429314329756665
+    Attrib C18    3.273731718265726
+    Attrib C52    -2.107013308620654
+    Attrib C55    -4.461804103276771
+    Attrib C57    -14.052264506787782
+    Attrib C80    2.9284787851959986
+    Attrib C134    3.0078218638162717
+    Attrib C190    3.003811945585969
+    Attrib C191    -2.009863006784745
+    Attrib C206    -2.4770565370927033
+    Attrib C209    -3.794507238745863
+    Attrib C258    -6.076110107180152
+    Attrib C273    -3.9244441093607905
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    1.359657927773794
+    Attrib C10    1.2336951591728984
+    Attrib C11    -7.0398710587624125
+    Attrib C15    3.1215981437318447
+    Attrib C18    -1.709009370673037
+    Attrib C52    7.708491573552347
+    Attrib C55    3.9135927352178093
+    Attrib C57    -0.2111950645701703
+    Attrib C80    4.602196529985929
+    Attrib C134    -3.3358190635572447
+    Attrib C190    -0.08629768516538229
+    Attrib C191    -3.900732068173007
+    Attrib C206    0.56639695070634
+    Attrib C209    1.5663579615938108
+    Attrib C258    -3.0652509656974605
+    Attrib C273    -1.60638323966554
+Sigmoid Node 5
+    Inputs    Weights
+    Threshold    -0.8621861846197059
+    Attrib C10    1.4100548201844112
+    Attrib C11    2.4721835276630073
+    Attrib C15    -1.382596719422858
+    Attrib C18    -0.055315289270773886
+    Attrib C52    -0.01821915779116784
+    Attrib C55    0.6926661266537318
+    Attrib C57    -0.8955467723113741
+    Attrib C80    0.15507086896007796
+    Attrib C134    0.7474961877548935
+    Attrib C190    0.653362966401038
+    Attrib C191    -1.0133621728856015
+    Attrib C206    -0.2651604471555732
+    Attrib C209    -1.1818365562956963
+    Attrib C258    -0.5455308562644025
+    Attrib C273    1.5235252185549635
+Sigmoid Node 6
+    Inputs    Weights
+    Threshold    7.4128724152854755
+    Attrib C10    3.009859380946597
+    Attrib C11    2.7847136401953536
+    Attrib C15    -0.37872180085991597
+    Attrib C18    6.808822728616556
+    Attrib C52    1.739020483351775
+    Attrib C55    -0.056833758845537166
+    Attrib C57    -4.17946213715388
+    Attrib C80    1.8118148850870726
+    Attrib C134    2.4093057694856412
+    Attrib C190    0.8716989347773877
+    Attrib C191    -0.9472476445312192
+    Attrib C206    6.898246029724809
+    Attrib C209    -0.24496627105239835
+    Attrib C258    -8.114392374547146
+    Attrib C273    9.991004078566979
+Sigmoid Node 7
+    Inputs    Weights
+    Threshold    -6.458403470712634
+    Attrib C10    3.5489496163916225
+    Attrib C11    15.92306808737042
+    Attrib C15    -4.9641735725794005
+    Attrib C18    3.507196334493079
+    Attrib C52    6.4943466986936045
+    Attrib C55    0.22893167169302417
+    Attrib C57    -3.5181261023495254
+    Attrib C80    1.446622033112038
+    Attrib C134    -3.4894872915141493
+    Attrib C190    -6.152621520098549
+    Attrib C191    1.7469857290079494
+    Attrib C206    -1.8209634457937318
+    Attrib C209    7.174603302605502
+    Attrib C258    2.5207838749242892
+    Attrib C273    -11.127183719252686
+Sigmoid Node 8
+    Inputs    Weights
+    Threshold    -0.8719305217444578
+    Attrib C10    0.3279650864146801
+    Attrib C11    4.988024365277772
+    Attrib C15    0.43296400697814785
+    Attrib C18    -1.0640779586447067
+    Attrib C52    -0.7663812893086104
+    Attrib C55    -1.3134697527720922
+    Attrib C57    -0.4521386491724315
+    Attrib C80    3.1148963389917665
+    Attrib C134    2.501384724758389
+    Attrib C190    2.5915988280728492
+    Attrib C191    -1.698324554222499
+    Attrib C206    -0.16129107372913884
+    Attrib C209    -0.9597185787225528
+    Attrib C258    -2.1525969530783424
+    Attrib C273    0.07411974955404987
+Sigmoid Node 9
+    Inputs    Weights
+    Threshold    -0.04191251007855228
+    Attrib C10    -2.8231436441162128
+    Attrib C11    2.558132050427402
+    Attrib C15    -5.715135276029808
+    Attrib C18    2.3835987363443256
+    Attrib C52    4.600381936823672
+    Attrib C55    5.798616399893802
+    Attrib C57    1.9743104659443915
+    Attrib C80    1.30368937664373
+    Attrib C134    -0.5946707350701639
+    Attrib C190    1.9976154190801017
+    Attrib C191    0.03746006766386053
+    Attrib C206    -2.472895856770251
+    Attrib C209    -0.7338302638810801
+    Attrib C258    -3.6150051828635017
+    Attrib C273    8.366421269228288
+Class 3dia
+    Input
+    Node 0
+Class 40dia
+    Input
+    Node 1
+
+
+Time taken to build model: 0.67 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         247               82.3333 %
+Incorrectly Classified Instances        53               17.6667 %
+Kappa statistic                          0.6467
+Mean absolute error                      0.1833
+Root mean squared error                  0.3766
+Relative absolute error                 36.6572 %
+Root relative squared error             75.3133 %
+Coverage of cases (0.95 level)          92.3333 %
+Mean rel. region size (0.95 level)      63.1667 %
+Total Number of Instances              300     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,873    0,227    0,794      0,873    0,832      0,650    0,900     0,890     3dia
+                 0,773    0,127    0,859      0,773    0,814      0,650    0,900     0,909     40dia
+Weighted Avg.    0,823    0,177    0,827      0,823    0,823      0,650    0,900     0,899     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 131  19 |   a = 3dia
+  34 116 |   b = 40dia
+

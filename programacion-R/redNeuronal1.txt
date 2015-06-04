@@ -1,0 +1,85 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     DIA 3 y 40 -4X-nuevos-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0-weka.filters.supervised.attribute.AttributeSelection-Eweka.attributeSelection.CfsSubsetEval -P 1 -E 1-Sweka.attributeSelection.BestFirst -D 1 -N 5
+Instances:    300
+Attributes:   5
+              C39
+              C52
+              C56
+              C260
+              Clase
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    -1.5217611817869152
+    Node 2    6.745153620361437
+    Node 3    1.9741489165355284
+    Node 4    -5.9877033986329335
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    1.521760820419797
+    Node 2    -6.7451413819591055
+    Node 3    -1.9741483058652831
+    Node 4    5.987698427008408
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -3.330240373491409
+    Attrib C39    1.5155402728961305
+    Attrib C52    -5.512368155933724
+    Attrib C56    2.8616708234403623
+    Attrib C260    9.995917120781234
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    2.533373592411774
+    Attrib C39    -12.191564296619136
+    Attrib C52    7.83429619303261
+    Attrib C56    -5.674744545767873
+    Attrib C260    -2.990754284338817
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    -1.726278034834867
+    Attrib C39    -4.881568312700733
+    Attrib C52    5.64115870141157
+    Attrib C56    4.10376977901196
+    Attrib C260    4.803308412241968
+Class 3dia
+    Input
+    Node 0
+Class 40dia
+    Input
+    Node 1
+
+
+Time taken to build model: 0.13 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         184               61.3333 %
+Incorrectly Classified Instances       116               38.6667 %
+Kappa statistic                          0.2267
+Mean absolute error                      0.4372
+Root mean squared error                  0.4895
+Relative absolute error                 87.4345 %
+Root relative squared error             97.8918 %
+Coverage of cases (0.95 level)         100      %
+Mean rel. region size (0.95 level)      97.1667 %
+Total Number of Instances              300     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,780    0,553    0,585      0,780    0,669      0,240    0,644     0,618     3dia
+                 0,447    0,220    0,670      0,447    0,536      0,240    0,644     0,674     40dia
+Weighted Avg.    0,613    0,387    0,628      0,613    0,602      0,240    0,644     0,646     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 117  33 |   a = 3dia
+  83  67 |   b = 40dia
+
