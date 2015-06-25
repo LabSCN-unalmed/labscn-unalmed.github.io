@@ -94,6 +94,8 @@ __db.*__ Comandos para el manejo de **bases de datos**.
 
 ### ¿Cuáles serían los comandos mas básicos estando en GRASS?
 
+Script!!!
+
 - Conocer que archivos raster hay en el sistema para trabajar.  
 **GENERAL**
 

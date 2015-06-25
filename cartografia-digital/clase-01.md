@@ -31,8 +31,14 @@ A continuación se enumeran una serie de comandos básicos para el uso en la ter
 El comando `pwd` (print working directory) imprime la ruta del directorio actual, es muy conveniente utilizarlo para conocer en qué parte del sistema de archivos se está ubicado:
 
 ~~~
-pwd
+usuario@equipo:~$ pwd
 ~~~
+{: .input}
+
+~~~
+/home/usuario 
+~~~
+{: .output}
 
 ### mkdir
 
@@ -198,8 +204,6 @@ rm -r respaldo
 
 **Este comando elimina permanentemente los archivos o directorios especificados, utilizar con precaución**
 
-### Consideraciones generales
-
 ## Hola mundo
 
 A lo largo del curso se hará uso intensivo de archivos de texto con instrucciones que serán ejecutadas una tras otra en el orden en el que se encuentren en el achivo, a estos archivos los llamaremos guiones o 'scripts'.
@@ -207,6 +211,8 @@ A lo largo del curso se hará uso intensivo de archivos de texto con instruccion
 Para la creación de estos archivos se puede utilizar el aplicativo gedit, disponible en el menú de aplicaciones de la máquina virtual.
 
 El primer guión a crear en esta clase introductoria será un guión que imprima en pantalla la famosa frase "¡Hola mundo!", para ello, se deberá copiar el siguiente texto en el editor de texto gedit y guardarse con el nombre `holaMundo.sh`.
+
+
 
 ~~~
 #!/bin/bash
@@ -243,3 +249,11 @@ cat holaMundo.sh
 ~~~
 
 En el caso de archivos de texto de gran tamaño, existen otros comandos como `head` y `tail`, que permiten visualizar las primeras o las últimas líneas del archivo; o comandos como `more` y `less`, que permiten visualizar por páginas los archivos.
+
+<!--http://www.chris.com/ascii/index.php?art=art%20and%20design/stereograms-->
+
+## Cheat Sheet
+
+## Ejercicios
+
+
