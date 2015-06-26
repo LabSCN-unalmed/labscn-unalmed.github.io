@@ -2,7 +2,7 @@
 layout: curso
 title: 'Trabajo final'
 curso: 'cartografia-digital'
-order: 02
+order: 2
 ---
 
 ## Objetivo
