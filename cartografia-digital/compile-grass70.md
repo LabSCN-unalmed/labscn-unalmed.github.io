@@ -1,11 +1,14 @@
 ---
 layout: curso
-title: 'Compilar GRASS GIS 7 en Debian'
+title: 'Compilar GRASS GIS 7'
 curso: 'cartografia-digital'
 order: 3
 ---
 
-Para compilar GRASS GIS 7 en Debian 'Jessie':
+Debian Jessie
+-------------
+
+Para compilar GRASS GIS 7 en Debian Jessie:
 
 * Instalar paquetes necesarios:
 
@@ -16,8 +19,7 @@ sudo apt-get install cmake libboost-all-dev flex bison debhelper dpatch autoconf
   libreadline-dev libtiff5-dev libwxgtk3.0-dev libxmu-dev libxmu-headers \
   libxt-dev mesa-common-dev proj-bin python-numpy python-wxgtk3.0 subversion wx-common \
   zlib1g-dev netcdf-bin libatlas-dev libgegl-dev opencl-headers ocl-icd-libopencl1 \
-  libsqlite3-dev postgresql libnetcdf-dev libgeotiff-dev libblas-dev \
-  libcanberra-gtk-module
+  libsqlite3-dev postgresql libnetcdf-dev libgeotiff-dev libblas-dev mysql-server
 ~~~
 
 * Descargar y compilar libLAS:
@@ -38,8 +40,55 @@ sudo make install
 wget http://grass.osgeo.org/grass70/source/grass-7.0.0.tar.gz
 tar xzfv grass-7.0.0.tar.gz
 cd grass-7.0.0
-​CFLAGS="-g -Wall -Werror-implicit-function-declaration -fno-common -Wextra -Wunused" \
-CXXFLAGS="-g -Wall"  \
+​CFLAGS="-O2 -Wall" \
+CXXFLAGS="${CFLAGS}" \
+LDFLAGS="-s" \
+./configure \
+   --prefix=/usr/local \
+   --with-gdal \
+   --with-proj --with-proj-share=/usr/share \
+   --with-glw --with-nls --with-readline \
+   --with-cxx --enable-largefile \
+   --with-freetype --with-freetype-includes=/usr/include/freetype2 \
+   --with-sqlite --with-cairo --with-python=/usr/bin/python-config \
+   --with-wxwidgets --with-geos --with-blas \
+   --with-lapack-includes=/usr/lib/lapack --with-liblas \
+   --with-netcdf=/usr/bin/nc-config --with-odbc=yes \
+   --with-openmp=yes --with-pthread=yes --with-postgres=yes \
+   --with-postgres-includes=/usr/include/postgresql \
+   --with-postgres-libs=/usr/lib/postgresql \
+   --with-mysql=yes --with-mysql-includes=/usr/include/mysql \
+   --with-mysql-libs=/usr/lib/mysql
+make -j2
+sudo make install
+~~~
+
+Ubuntu 14.04 LTS
+----------------
+
+Para compilar GRASS GIS 7 en Ubuntu 14.04 LTS:
+
+* Instalar paquetes necesarios:
+
+~~~
+sudo apt-get install cmake libboost-all-dev flex bison debhelper dpatch autoconf2.13 autotools-dev \
+  python-dev g++ gcc gettext graphviz libcairo2-dev libfftw3-dev libfreetype6-dev \
+  libgdal1h libgdal1-dev libglu1-mesa-dev libglw1-mesa-dev libncurses5-dev libproj-dev \
+  libreadline-dev libtiff5-dev libwxgtk2.8-dev libxmu-dev libxmu-headers \
+  libxt-dev mesa-common-dev proj-bin python-numpy python-wxgtk2.8 subversion wx-common \
+  zlib1g-dev netcdf-bin libatlas-dev libgegl-dev opencl-headers ocl-icd-libopencl1 \
+  libsqlite3-dev postgresql libnetcdf-dev libgeotiff-dev libblas-dev liblas-c-dev mysql-server
+~~~
+
+* Descargar y compilar GRASS 7:
+
+~~~
+wget http://grass.osgeo.org/grass70/source/grass-7.0.0.tar.gz
+tar xzfv grass-7.0.0.tar.gz
+cd grass-7.0.0
+​CFLAGS="-O2 -Wall" \
+CXXFLAGS="${CFLAGS}" \
+LDFLAGS="-s" \
 ./configure \
    --prefix=/usr/local \
    --with-gdal \
