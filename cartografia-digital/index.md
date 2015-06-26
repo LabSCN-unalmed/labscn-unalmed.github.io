@@ -51,4 +51,3 @@ Los problemas regionales con imágenes regionales, problemas locales con imágen
 Los documentos regionales acotan el tipo de problemas geográficos a resolver.
 
 Los costos de los diferentes tipos de documentos.
-
