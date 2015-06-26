@@ -12,6 +12,12 @@ La filosofía del curso es utilizar software libre porque...
 
 En entornos GNU/Linux es muy común el manejo por medio de la terminal de comandos...
 
+## El prompt
+
+~~~
+usuario@equipo:~ $
+~~~
+
 ## Comandos esenciales
 
 La terminal es una herramienta muy sencilla pero sumamente poderosa, permite interactuar con el sistema por medio de comandos, en el siguiente ejercicio vamos a aprender los comandos más básicos para desenvolvernos dentro de la terminal.
@@ -31,12 +37,11 @@ A continuación se enumeran una serie de comandos básicos para el uso en la ter
 El comando `pwd` (print working directory) imprime la ruta del directorio actual, es muy conveniente utilizarlo para conocer en qué parte del sistema de archivos se está ubicado:
 
 ~~~
-usuario@equipo:~$ pwd
+pwd
 ~~~
-{: .input}
 
 ~~~
-/home/usuario 
+/home/usuario
 ~~~
 {: .output}
 
@@ -90,6 +95,11 @@ Y si se quiere volver al directorio anterior:
 cd -
 ~~~
 
+~~~
+/home/usuario
+~~~
+{: .output}
+
 Una vez más, comprobar con `pwd`.
 
 ### touch
@@ -138,9 +148,29 @@ Opcionalmente, si se quiere ver la lista de un directorio diferente al actual, a
 
 ~~~
 ls directorio
+~~~
+
+~~~
 ls -l ejercicios
+~~~
+
+~~~
+total 4
+drwxrwxr-x 2 usuario usuario 4096 jun 26 15:59 clase1
+~~~
+{: .output}
+
+~~~
 ls -la ejercicios/clase1
 ~~~
+
+~~~
+total 8
+drwxrwxr-x 2 usuario usuario 4096 jun 26 15:59 .
+drwxrwxr-x 3 usuario usuario 4096 jun 26 15:58 ..
+-rw-rw-r-- 1 usuario usuario    0 jun 26 15:59 ejercicio2.txt
+~~~
+{: .output}
 
 ### cp
 
