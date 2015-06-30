@@ -55,13 +55,7 @@ img.img-responsive {
   margin: auto;
 }
 
-// Style input and output classes differently
-pre.input {
-  color: $pre-input-color;
-  background-color: $pre-input-bg;
-}
-
+// Style output classes differently
 pre.output {
-  color: $pre-output-color;
   background-color: $pre-output-bg;
 }
