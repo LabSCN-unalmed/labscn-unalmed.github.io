@@ -12,15 +12,19 @@ La filosofía del curso es utilizar software libre porque...
 
 En entornos GNU/Linux es muy común el manejo por medio de la terminal de comandos...
 
-## El prompt
+## Comandos esenciales
+
+La terminal es una herramienta muy sencilla pero sumamente poderosa, permite interactuar con el sistema por medio de comandos, en el siguiente ejercicio vamos a aprender los comandos más básicos para desenvolvernos dentro de la terminal.
+
+### El prompt
+
+Se conoce como prompt a una línea de texto que se muestra al comienzo de una terminal de comandos, el prompt indica que la terminal se encuentra a la espara de comandos, en los sitemas GNU/Linux, el prompt luce así:
 
 ~~~
 usuario@equipo:~ $
 ~~~
 
-## Comandos esenciales
-
-La terminal es una herramienta muy sencilla pero sumamente poderosa, permite interactuar con el sistema por medio de comandos, en el siguiente ejercicio vamos a aprender los comandos más básicos para desenvolvernos dentro de la terminal.
+Además proporciona información adicional: El usuario `usuario` está en la máquina `ubuntu` y se encuentra en el directorio `~` (el símbolo `~` es una abreviación para la carpeta personal de usuario). El símbolo `$` implica que es un usario regular, en el caso del usuario administrador `root` el símbolo sería `#`.
 
 ### Sintáxis básica de los comandos en la terminal de GNU/Linux
 
@@ -71,7 +75,11 @@ Para acceder a `directorio`:
 cd directorio
 ~~~
 
-Comprobar la ruta actual con el comando `pwd`.
+Comprobar la ruta actual con el comando `pwd`. Además el prompt también indicará la ruta actual:
+
+~~~
+usuario@ubuntu:~/directorio $
+~~~
 
 Si se desea subir un nivel en el árbol de directorios (es decir, ubicarse en el directorio que contiene al directorio actual):
 
@@ -79,7 +87,7 @@ Si se desea subir un nivel en el árbol de directorios (es decir, ubicarse en el
 cd ..
 ~~~
 
-Nuevamente comprobar la ruta actual con `pwd`.
+Nuevamente comprobar la ruta actual con `pwd` y el prompt.
 
 También se puede ingresar a un directorio varios niveles abajo en el árbol de directorios especificando la ruta:
 
@@ -87,7 +95,7 @@ También se puede ingresar a un directorio varios niveles abajo en el árbol de 
 cd ejercicios/clase1
 ~~~
 
-Comprobar con `pwd`.
+Comprobar con `pwd` y observar el cambio en el prompt.
 
 Y si se quiere volver al directorio anterior:
 
@@ -126,29 +134,53 @@ El comando `ls` (list) imprime una lista del contenido del directorio actual:
 ls
 ~~~
 
-El comando `ls` tiene varias opciones que permiten organizar la información brindada, por ejemplo, para ver los elementos ocultos se utiliza la opción `-a` (all):
-
 ~~~
-ls -a
+01CreacionLocations  Desktop     ejercicio1.txt  Pictures  Templates
+02ZonasVida          directorio  ejercicios      Public    Videos
+03AntioquiaVector    Documents   Grass           R
+04UsoVector          Downloads   Music           Shared
 ~~~
+{: .output}
 
-Para ver una lista larga y detallada de los elementos, se utiliza la opción `-l` (long):
+El comando `ls` tiene varias opciones que permiten organizar la información brindada, por ejemplo, para ver una lista larga y detallada de los elementos, se utiliza la opción `-l` (long):
 
 ~~~
 ls -l
 ~~~
 
-Estas opciones se pueden combinar en un sólo comando, que permite ver una lista larga de todos los elementos (incluyendo los ocultos):
-
 ~~~
-ls -la
+total 64
+drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 01CreacionLocations
+drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 02ZonasVida
+drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 03AntioquiaVector
+drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 04UsoVector
+drwxrwxr-x 2 usuario usuario 4096 jun 22 17:02 Desktop
+drwxrwxr-x 2 usuario usuario 4096 jun 30 16:16 directorio
+drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Documents
+drwxr-xr-x 2 usuario usuario 4096 jun 25  2014 Downloads
+-rw-rw-r-- 1 usuario usuario    0 jun 30 16:16 ejercicio1.txt
+drwxrwxr-x 4 usuario usuario 4096 jun 30 16:14 ejercicios
+drwxrwxr-x 3 usuario usuario 4096 abr 24  2014 Grass
+drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Music
+drwxr-xr-x 3 usuario usuario 4096 abr 25  2014 Pictures
+drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Public
+drwxrwxr-x 3 usuario usuario 4096 abr 24  2014 R
+lrwxrwxrwx 1 usuario usuario   17 abr 24  2014 Shared -> /mnt/hgfs/shared/
+drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Templates
+drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Videos
 ~~~
+{: .output}
 
 Opcionalmente, si se quiere ver la lista de un directorio diferente al actual, al comando `ls` se le puede indicar la ruta de dicho directorio como un parámetro, e incluso se pueden especificar las opciones:
 
 ~~~
-ls directorio
+ls -l directorio
 ~~~
+
+~~~
+total 0
+~~~
+{: .output}
 
 ~~~
 ls -l ejercicios
@@ -161,14 +193,12 @@ drwxrwxr-x 2 usuario usuario 4096 jun 26 15:59 clase1
 {: .output}
 
 ~~~
-ls -la ejercicios/clase1
+ls -l ejercicios/clase1
 ~~~
 
 ~~~
-total 8
-drwxrwxr-x 2 usuario usuario 4096 jun 26 15:59 .
-drwxrwxr-x 3 usuario usuario 4096 jun 26 15:58 ..
--rw-rw-r-- 1 usuario usuario    0 jun 26 15:59 ejercicio2.txt
+total 0
+-rw-rw-r-- 1 usuario usuario 0 jun 30 15:59 ejercicio2.txt
 ~~~
 {: .output}
 
@@ -213,6 +243,8 @@ En el caso particular en el que la ubicación es la misma, el archivo o director
 ~~~
 mv directorio respaldo
 ~~~
+
+Comprobar con `ls`.
 
 ### rm
 
