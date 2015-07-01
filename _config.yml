@@ -10,6 +10,26 @@ description: Facultad de Ciencias - Escuela de Geociencias
 baseurl: ""
 permalink: /:categories/:title/
 
+collections:
+  cartografia-digital:
+    output: true
+    title: Cartografía Digital
+  programacion-R:
+    output: true
+    title: Programación en R
+  estadistica-espacial:
+    output: true
+    title: Estadística Espacial
+  estadistica-descriptiva:
+    output: true
+    title: Estadística Descriptiva y Análisis Exploratorio de Datos
+  metodos-estadisticos:
+    output: true
+    title: Métodos Estadísticos (Diseño Experimental)
+  documentacion-interna:
+    output: true
+    title: Documentación Interna
+
 sass:
   style: compressed
 

@@ -5,14 +5,17 @@ layout: page
 <div class="row">
   <div class="col-xs-12 col-sm-3 pull-right" id="rightCol">
     <ul class="nav nav-stacked" id="sidebar">
-      {% assign menu = site.pages | sort: 'order' %}
-      {% for node in menu %}
-        {% if node.order and node.curso == page.curso %}
-          <li class="{% if node.url == page.url %}active{% endif %}">
-            <a href="{{ node.url }}">
-              {% if node.url contains 'index.html' %}Inicio{% else %}{{ node.title }}{% endif %}
-            </a>
-          </li>
+      {% for collection in site.collections %}
+        {% capture label %}{{ collection | first }}{% endcapture %}
+        {% if label == page.collection %}
+          {% assign menu = site.collections.[label].docs | sort: 'order' %}
+          {% for node in menu %}
+            {% if node.order and node.curso == page.curso %}
+              <li class="{% if node.url == page.url %}active{% endif %}">
+                <a href="{{ node.url }}">{% if node.url contains 'index.html' %}Inicio{% else %}{{ node.title }}{% endif %}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
     </ul>
