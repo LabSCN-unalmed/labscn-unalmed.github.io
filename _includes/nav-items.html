@@ -1,18 +1,19 @@
 <ul class="nav navbar-nav">
-  <li class="{% if page.url contains '/cartografia-digital/' %}active{% endif %}">
-    <a href="/cartografia-digital/">Cartografía Digital</a>
-  </li>
-  <li class="{% if page.url contains '/programacion-R/' %}active{% endif %}">
-    <a href="/programacion-R/">Programación R</a>
-  </li>
-  <li class="{% if page.url contains '/estadistica-espacial/' %}active{% endif %}">
-    <a href="/estadistica-espacial/">Estadística Espacial</a>
-  </li>
+  {% for collection in site.collections %}
+    {% if collection[1].main %}
+      <li class="{% if page.collection == collection[0] %}active{% endif %}">
+        <a href="{{ collection[0] | prepend: '/' }}">{{ collection[1].title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Otros Cursos<span class="caret"></span></a>
     <ul class="dropdown-menu">
-      <li><a href="/estadistica-descriptiva/">Estadística Descriptiva y<br>Análisis Exploratorio de Datos</a></li>
-      <li><a href="/metodos-estadisticos/">Métodos Estadísticos<br>(Diseño Experimental)</a></li>
+      {% for collection in site.collections %}
+        {% unless collection[1].main or collection[1].hidden %}
+          <li><a href="{{ collection[0] | prepend: '/' }}">{{ collection[1].title }}</a></li>
+        {% endunless %}
+      {% endfor %}
     </ul>
   </li>
   <li class="{% if page.url contains '/about/' %}active{% endif %}">

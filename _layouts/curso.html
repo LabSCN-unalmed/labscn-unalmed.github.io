@@ -6,9 +6,8 @@ layout: page
   <div class="col-xs-12 col-sm-3 pull-right" id="rightCol">
     <ul class="nav nav-stacked" id="sidebar">
       {% for collection in site.collections %}
-        {% capture label %}{{ collection | first }}{% endcapture %}
-        {% if label == page.collection %}
-          {% assign menu = site.collections.[label].docs | sort: 'order' %}
+        {% if page.collection == collection[0] %}
+          {% assign menu = collection[1].docs | sort: 'order' %}
           {% for node in menu %}
             {% if node.order and node.curso == page.curso %}
               <li class="{% if node.url == page.url %}active{% endif %}">
