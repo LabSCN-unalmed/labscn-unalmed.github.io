@@ -29,7 +29,7 @@ order: 01
 
 ## Modelo Matérn
 
-- [Modelo Matérn](/estadistica-espacial/guiones/modeloMatérn.html){:target="_blank"}
+- [Modelo Matérn](/estadistica-espacial/guiones/modeloMatern.html){:target="_blank"}
 
 ## Semivariograma teóricos
 
