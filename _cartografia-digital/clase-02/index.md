@@ -14,12 +14,14 @@ Al abrir GRASS GIS, aparece la siguiente ventana de inicio:
 
 ![Ventana de inicio del GIS GRASS](grass_startup_screen.png){: .img-responsive}
 
+
+
 Durante este curso vamos a utilizar el location CursoGrass y el mapset con el mismo nombre. Seleccionamos el location y el mapset e iniciamos el GIS GRASS.
 
 Ahora en la terminal aparece esto que quiere decir que ahora podemos introducir comandos de GRASS:
 
 ~~~
-GRASS 6.4.4 (CursoGrass):~ >
+GRASS 6.4.3 (CursoGrass):~ >
 ~~~
 
 Para poder desplegar mapas debemos abrir un monitor, podemos utilizar el siguiente comando, que le dice a GRASS que despliegue el monitor x0:
