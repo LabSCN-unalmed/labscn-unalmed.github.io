@@ -23,7 +23,7 @@ order: 02
 - [Galería de gráficos con R](http://rgraphgallery.blogspot.com/){:target="_blank"}
 
 ## Ejemplos de gráficas inapropiadas y apropiadas
-- [Gráficos](/estadistica-descriptiva/graficas/graficas.html){:target="_blank"}
+- [Gráficos](/estadistica-descriptiva/graficas/){:target="_blank"}
 
 ## Guias para presentación de póster científicos
    - [Póster científico](/estadistica-descriptiva/documentos/DocumentoPrincipalEGuardiola_poster_cientifico.pdf){:target="_blank"}
