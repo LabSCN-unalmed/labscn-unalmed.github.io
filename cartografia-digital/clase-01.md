@@ -10,7 +10,7 @@ Introducción a GNU/Linux
 
 La filosofía del curso es utilizar software libre porque...
 
-En entornos GNU/Linux es muy común el manejo por medio de la terminal de comandos...
+En entornos GNU/Linux existen interfaces gráficas de usuario (GUI) donde se puede hacer click, arrastrar y, con suerte, se puede lograr mucho sin documentarse primero. Sin embargo, el entorno tradicional es una interfaz de línea de comandos (CLI) donde se escriben comandos que le dicen al computador qué hacer. Lo cual es más rápido y poderoso pero requiere aprender qué hacen los comandos.
 
 ## Comandos esenciales
 
@@ -264,41 +264,36 @@ De manera similar a `cp`, se pueden borrar directorios incluyendo su contenido, 
 rm -r respaldo
 ~~~
 
-**Este comando elimina permanentemente los archivos o directorios especificados, utilizar con precaución**
+**Advertencia:** Este comando elimina permanentemente los archivos o directorios especificados, utilizar con precaución.
+{: .alert .alert-warning}
 
 ## Hola mundo
 
-A lo largo del curso se hará uso intensivo de archivos de texto con instrucciones que serán ejecutadas una tras otra en el orden en el que se encuentren en el achivo, a estos archivos los llamaremos guiones o 'scripts'.
+A lo largo del curso se hará uso de archivos de texto con instrucciones que serán ejecutadas una tras otra en el orden en el que se encuentren en el achivo, a estos archivos los llamaremos guiones o "scripts".
 
 Para la creación de estos archivos se puede utilizar el aplicativo gedit, disponible en el menú de aplicaciones de la máquina virtual.
 
 El primer guión a crear en esta clase introductoria será un guión que imprima en pantalla la famosa frase "¡Hola mundo!", para ello, se deberá copiar el siguiente texto en el editor de texto gedit y guardarse con el nombre `holaMundo.sh`.
 
-
-
 ~~~
-#!/bin/bash
-
 # Imprimir el saludo
 cowsay "¡Hola mundo!"
 ~~~
 
-Una vez guardado, se deben otorgar permisos de ejecución al archivo que contiene el guión. Para esto se emplea el comando `chmod`, el cual posee una gran variedad de opciones, que para el objetivo del curso no son pertinentes, se utiliza la opción `+x` (execute) para habilitar el permiso de ejecución en el archivo.
+Una vez creado el archivo, se puede ejecutar con el comando `bash`, de la siguiente manera:
 
 ~~~
-chmod +x holaMundo.sh
-~~~
-
-Una vez creado el archivo y habiéndole dado permisos, se puede ejecutar con `./`, de la siguiente manera:
-
-~~~
-./holaMundo.sh
+bash holaMundo.sh
 ~~~
 
 A partir de este punto, se pueden hacer modificaciones al guión, guardar los cambios y ejecutar de nuevo, facilitando la ejecución de los comandos.
 
-_**Consejo:**_ Introducir la opción `-f tux` al comando `cowsay` en el guión y ejecutar nuevamente.
+**Consejo:** Introducir la opción `-f tux` al comando `cowsay` en el guión y ejecutar nuevamente.
 {: .alert .alert-success}
+
+~~~
+cowsay -f tux "¡Hola mundo!"
+~~~
 
 ### Comandos de visualización de archivos de texto
 
@@ -312,10 +307,14 @@ cat holaMundo.sh
 
 En el caso de archivos de texto de gran tamaño, existen otros comandos como `head` y `tail`, que permiten visualizar las primeras o las últimas líneas del archivo; o comandos como `more` y `less`, que permiten visualizar por páginas los archivos.
 
-<!--http://www.chris.com/ascii/index.php?art=art%20and%20design/stereograms-->
+## Ejercicio
 
-## Cheat Sheet
+Utilizar únicamente la terminal de comandos para el siguiente ejercicio
 
-## Ejercicios
+* Crear un directorio para guardar los guiones o "scripts". El nombre del directorio lo decide el estudiante.
 
+* Crear un archivo dentro de este directorio, con el nombre que desee el estudiante, para en él escribir un nuevo guión similar al "Hola mundo".
 
+* Comprobar los diferentes dibujos (cow files) que tiene el comando `cowsay` utilizando la opción `-l`.
+
+* Abrir el archivo creado en gedit y crear un guión similar al de "Hola mundo", utilizando la opción `-f` del comando `cowsay` y hacer que el saludo sea con el nombre del estudiante.
