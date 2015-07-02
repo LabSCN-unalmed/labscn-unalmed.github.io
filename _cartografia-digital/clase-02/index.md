@@ -32,9 +32,9 @@ El asistente de localizaciones permite crear fácilmente un nuevo LOCATION, a pa
 
 #### ![](circle_5.png) Iniciar GRASS
 
-Una vez se hayan seleccionado el LOCATION y el MAPSET, se puede iniciar GRASS. Para el caso del presente curso será necesario crear un MAPSET con el nombre del estudiante e iniciar GRASS en el LOCATION CursoGrass y el MAPSET recién creado. Al iniciar GRASS se abrirá la interfaz gráfica de usuario (GUI), la cual contiene una ventana de visualización de mapas; y una terminal de comandos.
+Una vez se hayan seleccionado el LOCATION y el MAPSET, se puede iniciar GRASS. Para el caso del presente curso será necesario crear un MAPSET con el nombre del estudiante e iniciar GRASS en el LOCATION CursoGrass y el MAPSET recién creado. Al iniciar GRASS se abrirán la terminal de comandos, y la interfaz gráfica de usuario (GUI), la cual contiene una ventana de administración de capas y una ventana para la visualización de mapas.
 
-Adicionalmente se abre el gedit para ..., de manera que el entorno de trabajo queda así:
+Al iniciar GRASS este es el aspecto del entorno de trabajo:
 
 ![Entorno de trabajo del GIS GRASS](grass_workspace.png){: .img-responsive}
 
@@ -44,150 +44,61 @@ Observar como ahora en la terminal aparece el siguiente prompt de GRASS:
 GRASS 6.4.3 (CursoGrass):~ >
 ~~~
 
-<!-- -->
+Adicionalmente se abre el gedit para facilitar el trabajo con la terminal, pues durante el desarrollo de los ejercicios del curso, se utilizará la terminal para realizar todo el trabajo de procesamiento, y la interfaz gráfica se utilizará para la visualización.
 
-
-
-
-
-
-
-
-
-
-
-Para poder desplegar mapas debemos abrir un monitor, podemos utilizar el siguiente comando, que le dice a GRASS que despliegue el monitor x0:
-
-~~~
-d.mon x0
-~~~
-
-La estructura de una orden en Linux y Grass:
-
-~~~
-comando -opcion1 parametro1 parametro2=valor --opcion2
-~~~
-
-Un **comando** es un escrito (*script*) que especifica la realización de una actividad en el GIS.
-
-Las **opciones** permiten ejecutar el comando de una forma u otra, o formatear la salida de información en la terminal de comandos.
-
-Los **parámetros** en ocasiones son opcionales, normalmente en GRASS se utilizan para definir mapas de entrada y de salida.
-
-### ¿Cómo responde GRASS cuando no existe el comando o cuando no existe el archivo?
-
-- Existe el comando pero no existe el archivo:
-
-~~~
-make love
-~~~
-
-`make: *** No hay ninguna regla para construir el objetivo «love». Alto.`
-
-- No existe el comando y tampoco el archivo:
-
-~~~
-hacer algo
-~~~
-
-`hacer: orden no encontrada`
-
-#### Otro ejemplo
-
-- GRASS "sabe" que el comando existe y es valido pero no existe el archivo:
-
-~~~
-d.rast monitor_cualquiera
-~~~
-
-`ERROR: Mapa ráster <monitor_cualquiera> no encontrado`
-
-- GRASS no conoce el comando y es suficiente (no hace juicio respecto del archivo):
-
-~~~
-Mostrar monitor
-~~~
-
-`Mostrar: orden no encontrada`
+La terminal de comandos en GRASS funciona con el mismo intérprete que la terminal de GNU/Linux, por lo que todos los comandos de GNU/Linux (como por ejemplo los vistos en la clase anterior) funcionan dentro de GRASS, y además, los comandos propios de GRASS conservan una [sintaxis muy similar a la de los comandos GNU/Linux](../clase-01/#sintxis-bsica-de-los-comandos-en-la-terminal-de-gnulinux).
 
 ### La taxonomía de comandos en GRASS
 
 Los comandos en GRASS se organizan de acuerdo con la función que realizan:
 
-__g.*__ Comandos **generales**, con ellos se realizan operaciones generales a los archivos.
+g.*
+: Comandos **generales**, con ellos se realizan operaciones generales a los archivos.
 
-__d.*__ Comandos de **despliegue**, permiten visualizar una orden produciendo una salida gráfica.
+d.*
+: Comandos de **despliegue**, permiten visualizar una orden produciendo una salida gráfica.
 
-__r.*__ Comandos de procesamiento 2D en archivos de tipo **raster**.
+r.*
+: Comandos de procesamiento 2D en archivos de tipo **raster**.
 
-__v.*__ Comandos de procesamiento de archivos de tipo **vectorial**.
+v.*
+: Comandos de procesamiento de archivos de tipo **vectorial**.
 
-__i.*__ Comandos de procesamiento de **imágenes**.
+i.*
+: Comandos de procesamiento de **imágenes**.
 
-__db.*__ Comandos para el manejo de **bases de datos**.
+db.*
+: Comandos para el manejo de **bases de datos**.
+
+### La estruct
 
 ### ¿Cuáles serían los comandos mas básicos estando en GRASS?
 
-Script!!!
-
-- Conocer que archivos raster hay en el sistema para trabajar.  
-**GENERAL**
+- Conocer que archivos raster hay en el sistema para trabajar.
 
 ~~~
-g.list rast
+g.list type=rast
 ~~~
 
-- Activar un un monitor para observar un mapa.  
-**DESPLIEGUE**
-
-~~~
-d.mon x3
-~~~
-
-- Desplegar un archivo raster en el monitor desplegado.  
-**DESPLIEGUE**
-
-~~~
-d.rast porcecito
-~~~
-
-- Ampliar un sector particular del mapa desplegado.  
-**DESPLIEGUE**
-
-~~~
-d.zoom
-~~~
-
-- Borrar el archivo desplegado en el monitor activo.  
-**DESPLIEGUE**
-
-~~~
-d.erase
-~~~
-
-- Copiar un archivo que se encuentra en el mapset `PERMANENT` para tenerlo disponible en el mapset donde se encuentra el usuario. (En el mapset `PERMANENT` deberían estar los mapas básicos sin operar en ellos para evitar daños irreparables.)  
-**GENERAL**
+- Copiar un archivo que se encuentra en el mapset `PERMANENT` para tenerlo disponible en el mapset donde se encuentra el usuario. (En el mapset `PERMANENT` deberían estar los mapas básicos sin operar en ellos para evitar daños irreparables.)
 
 ~~~
 g.copy rast=porcecito@PERMANENT,porcecito
 ~~~
 
-- Cambiarle el nombre a un archivo raster (un mapa).  
-**GENERAL**
+- Cambiarle el nombre a un archivo raster (un mapa).
 
 ~~~
 g.rename rast=porcecito,porcecito_copia
 ~~~
 
-- Borrar un mapa (archivo) del mapset activo.  
-**GENERAL**
+- Borrar un mapa (archivo) del mapset activo.
 
 ~~~
 g.remove rast=porcecito_copia
 ~~~
 
-- Si el monitor para desplegar los mapas se puede ajustar a la región de cada mapa, es un comando básico aquel que define la región a desplegar.  
-**GENERAL**
+- Si el monitor para desplegar los mapas se puede ajustar a la región de cada mapa, es un comando básico aquel que define la región a desplegar.
 
 ~~~
 g.region rast=porcecito
