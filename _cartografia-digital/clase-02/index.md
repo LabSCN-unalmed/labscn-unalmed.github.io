@@ -12,17 +12,49 @@ Sesión introductoria a GRASS GIS
 
 Al abrir GRASS GIS, aparece la siguiente ventana de inicio:
 
-![Ventana de inicio del GIS GRASS](grass_startup_screen.png){: .img-responsive}
+![Ventana de inicio de GRASS](grass_start.png){: .img-responsive}
 
+#### ![](circle_1.png) Seleccionar el directorio de datos SIG
 
+Los datos de GRASS se almacenan en un directorio al cual se le conoce como una base de datos SIG (GISDBASE). Dentro de esta base de datos SIG, se encuentran organizados los proyectos como subdirectorios llamados LOCATIONs.
 
-Durante este curso vamos a utilizar el location CursoGrass y el mapset con el mismo nombre. Seleccionamos el location y el mapset e iniciamos el GIS GRASS.
+#### ![](circle_2.png) Seleccionar la locación del proyecto (LOCATION)
 
-Ahora en la terminal aparece esto que quiere decir que ahora podemos introducir comandos de GRASS:
+Un LOCATION se define por su sistema de coordenadas, proyección y límites geográficos. Los subdirectorios y archivos que definen un LOCATION son creados automáticamente cuando GRASS se inicia la primera vez con un nuevo LOCATION. Es importante comprender que cada proyección permanece en su propio LOCATION.
+
+#### ![](circle_3.png) Seleccionar el directorio de mapas (MAPSET)
+
+Cada LOCATION puede tener múltiples MAPSET. Cada MAPSET es un subdirectorio de un LOCATION. Se pueden crear nuevos MAPSET desde la ventana de inicio de GRASS.
+
+#### ![](circle_4.png) Asistente de localizaciones
+
+El asistente de localizaciones permite crear fácilmente un nuevo LOCATION, a partir de un archivo georeferenciado, o definiendo los parámetros manualmente, o a partir del código de proyección EPSG.
+
+#### ![](circle_5.png) Iniciar GRASS
+
+Una vez se hayan seleccionado el LOCATION y el MAPSET, se puede iniciar GRASS. Para el caso del presente curso será necesario crear un MAPSET con el nombre del estudiante e iniciar GRASS en el LOCATION CursoGrass y el MAPSET recién creado. Al iniciar GRASS se abrirá la interfaz gráfica de usuario (GUI), la cual contiene una ventana de visualización de mapas; y una terminal de comandos.
+
+Adicionalmente se abre el gedit para ..., de manera que el entorno de trabajo queda así:
+
+![Entorno de trabajo del GIS GRASS](grass_workspace.png){: .img-responsive}
+
+Observar como ahora en la terminal aparece el siguiente prompt de GRASS:
 
 ~~~
 GRASS 6.4.3 (CursoGrass):~ >
 ~~~
+
+<!-- -->
+
+
+
+
+
+
+
+
+
+
 
 Para poder desplegar mapas debemos abrir un monitor, podemos utilizar el siguiente comando, que le dice a GRASS que despliegue el monitor x0:
 
