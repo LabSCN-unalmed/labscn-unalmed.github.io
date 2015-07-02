@@ -39,6 +39,9 @@ collections:
     title: Documentación Interna
     hidden: true
 
+kramdown:
+  toc_levels: 1..3
+
 sass:
   style: compressed
 

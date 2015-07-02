@@ -3,7 +3,7 @@ layout: page
 ---
 
 <div class="row">
-  <div class="col-xs-12 col-sm-3 pull-right" id="rightCol">
+  <nav class="col-xs-12 col-sm-3 pull-right" id="rightCol">
     <ul class="nav nav-stacked" id="sidebar">
       {% for collection in site.collections %}
         {% if page.collection == collection[0] %}
@@ -18,7 +18,7 @@ layout: page
         {% endif %}
       {% endfor %}
     </ul>
-  </div>
+  </nav>
   <div class="col-xs-12 col-sm-9 text-justify pull-left" id="content">
     {{ content }}
   </div>
