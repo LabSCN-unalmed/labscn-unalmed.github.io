@@ -1,61 +1,8 @@
 ---
 ---
 
+@import "custom-variables";
 @import "variables";
 @import "bootstrap";
 @import "bootswatch";
-
-#sidebar.affix {
-  position: static;
-}
-
-@media screen and (min-width: $screen-sm-min) {
-  #sidebar.affix {
-    position: fixed;
-    top: 0;
-  }
-
-  #sidebar.affix-bottom {
-    position: absolute;
-  }
-}
-
-@media (min-width: $screen-sm-min) {
-  #sidebar {
-    width: 62px * 3;
-  }
-}
-
-@media (min-width: $screen-md-min) {
-  #sidebar {
-    width: 81px * 3;
-  }
-
-  img.img-responsive {
-    max-width: 90%;
-  }
-}
-
-@media (min-width: $screen-lg-min) {
-  #sidebar {
-    width: 97px * 3;
-  }
-
-  img.img-responsive {
-    max-width: 80%;
-  }
-}
-
-#sidebar li.active {
-  border: 0 $gray-dark solid;
-  border-left-width: 3px;
-}
-
-img.img-responsive {
-  margin: auto;
-}
-
-// Style output classes differently
-pre.output {
-  background-color: $pre-output-bg;
-}
+@import "custom-styles";

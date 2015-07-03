@@ -1,22 +1,33 @@
-// toc = $("ul#toc");
-// $("#content").find("h2").each(function() {
-//   h = $(this);
-//   toc.append("<li><a href='#" + h.attr("id") + "'>" + h.text() + "</a></li>");
-// });
+$('#toc').toc();
 
-$('#toc').toc({
-    listType: 'ul',
-    noBackToTopLinks: true,
-    headers: 'h2, h3',
-    title: ''
-});
-
-$('#sidebar').affix({
-  offset: {
-    top: 200
-  }
-});
-
-$(document.body).scrollspy({
-  target: '#rightCol'
-});
+!function ($) {
+  'use strict';
+  $(function () {
+    // Scrollspy
+    var $window = $(window)
+    var $body   = $(document.body)
+    $body.scrollspy({
+      target: '.lscn-sidebar'
+    })
+    $window.on('load', function () {
+      $body.scrollspy('refresh')
+    })
+    // Sidenav affixing
+    setTimeout(function () {
+      var $sideBar = $('.lscn-sidebar')
+      $sideBar.affix({
+        offset: {
+          top: function () {
+            var offsetTop      = $sideBar.offset().top
+            var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10)
+            var navOuterHeight = $('.lscn-nav').height()
+            return (this.top = offsetTop - navOuterHeight - sideBarMargin)
+          },
+          bottom: function () {
+            return (this.bottom = $('.footer').outerHeight(true))
+          }
+        }
+      })
+    }, 100)
+  })
+}(jQuery)

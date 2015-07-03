@@ -3,23 +3,27 @@ layout: page
 ---
 
 <div class="row">
-  <nav class="col-xs-12 col-sm-3 pull-right" id="rightCol">
-    <ul class="nav nav-stacked" id="sidebar">
-      {% for collection in site.collections %}
-        {% if page.collection == collection[0] %}
-          {% assign menu = collection[1].docs | sort: 'order' %}
-          {% for node in menu %}
-            {% if node.order and node.curso == page.curso %}
-              <li class="{% if node.url == page.url %}active{% endif %}">
-                <a href="{{ node.url }}">{% if node.url contains 'index.html' %}Inicio{% else %}{{ node.title }}{% endif %}</a>
-              </li>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </nav>
-  <div class="col-xs-12 col-sm-9 text-justify pull-left" id="content">
+  <div class="col-md-{% if page.fullwidth == true %}12{% else %}9{% endif %} text-justify" id="content">
     {{ content }}
   </div>
+  {% unless page.fullwidth == true %}
+  <div class="col-md-3">
+    <nav class="lscn-sidebar hidden-print hidden-xs hidden-sm" id="sidebar">
+      <ul class="nav nav-stacked">
+        {% for collection in site.collections %}
+          {% if page.collection == collection[0] %}
+            {% assign menu = collection[1].docs | sort: 'order' %}
+            {% for node in menu %}
+              {% if node.order and node.curso == page.curso %}
+                <li class="{% if node.url == page.url %}active{% endif %}">
+                  <a href="{{ node.url }}">{% if node.url contains 'index.html' %}Inicio{% else %}{{ node.title }}{% endif %}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+  {% endunless %}
 </div>
