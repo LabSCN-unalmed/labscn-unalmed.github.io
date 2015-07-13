@@ -21,7 +21,7 @@ $('#toc').toc();
             var offsetTop      = $sideBar.offset().top
             var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10)
             var navOuterHeight = $('.lscn-nav').height()
-            return (this.top = offsetTop - navOuterHeight - sideBarMargin)
+            return (this.top = offsetTop - navOuterHeight - sideBarMargin - 50)
           },
           bottom: function () {
             return (this.bottom = $('.footer').outerHeight(true))

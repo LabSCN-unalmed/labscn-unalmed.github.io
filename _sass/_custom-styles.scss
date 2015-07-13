@@ -44,10 +44,6 @@ body {
   }
 }
 
-// .push {
-//   margin-top: 50px;
-// }
-
 /*
  * Side navigation
  *
@@ -64,7 +60,7 @@ body {
 
 /* First level of nav */
 .lscn-sidebar {
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
 }
 
@@ -125,6 +121,11 @@ body {
   color: $gray-light;
 }
 .back-to-top:hover {
+  color: $gray-dark;
+  text-decoration: none;
+}
+
+.back-to-top:focus {
   color: $gray-dark;
   text-decoration: none;
 }
