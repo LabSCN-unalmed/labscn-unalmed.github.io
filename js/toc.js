@@ -21,7 +21,7 @@
     var get_level = function(ele) { return parseInt(ele.nodeName.replace("H", ""), 10); }
     var level = get_level(headers[0]),
       this_level,
-      html = "<h4>Contenido</h4><ul class='lscn-sidenav nav'>";
+      html = "<h4>Contenido</h4><ul class='lscn-sidenav nav nav-stacked'>";
     headers.on('click', function() {})
     .each(function(_, header) {
       this_level = get_level(header);
@@ -35,13 +35,14 @@
       }
       else if (this_level > level) { // lower level than before; expand the previous to contain a ol
         for(i = this_level; i > level; i--) {
-          html += "<ul class='nav'><li>"
+          html += "<ul class='nav nav-stacked'><li>"
         }
         html += "<a href='#" + fixedEncodeURIComponent(header.id) + "'>" + header.innerHTML + "</a>";
       }
       level = this_level; // update for the next one
     });
-    html += "</ul><a class='back-to-top' href='#top'>"+"Back to top"+"</a>";
+    html += "</ul><a class='back-to-top' href='#top'>"+"Volver al inicio"+"</a>";
+    html += "<hr><p><a class='btn btn-default' href='../clases.html'>"+"Índice de Clases"+"</a></p>"
     render();
   };
 })(jQuery);

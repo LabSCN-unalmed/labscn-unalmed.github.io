@@ -4,9 +4,12 @@
     {% include head.html %}
   </head>
   <body role="document">
+    <!-- Fixed navbar -->
     {% include navigation.html %}
-    <div class="container">
+    <!-- Begin page content -->
+    <div class="container" id="main">
       {{ content }}
+      <div class="push"></div>
     </div>
     {% include footer.html %}
     <script src="/js/jquery-2.1.4.min.js"></script>
