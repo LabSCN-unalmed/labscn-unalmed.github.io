@@ -70,7 +70,6 @@ i.*
 db.*
 : Comandos para el manejo de **bases de datos**.
 
-### La estruct
 
 ### ¿Cuáles serían los comandos mas básicos estando en GRASS?
 
