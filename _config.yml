@@ -14,18 +14,23 @@ collections:
   cartografia-digital:
     output: true
     title: Cartografía Digital
-    main: true
+    main: 1
     description: Conceptos básicos y funcamentales de los Sistemas de Información Geográfica empleando el software libre GRASS GIS y ejemplos del relieve del departamento de Antioquia. En algunos ejemplos la información obtenida con GRASS se transfiere al software estadístico R para un análisis complementario más riguroso y didáctico.
   programacion-R:
     output: true
     title: Programación en R
-    main: true
+    main: 1
     description: Le proporciona la habilidad de programar el lenguaje estadístico R para la solución de diversos propósitos desde el punto de vista de manejo de datos.
   estadistica-espacial:
     output: true
     title: Estadística Espacial
-    main: true
+    main: 2
     description: Le proporciona al estudiante diferentes herramientas y aborda aspectos de análisis espacial en diferentes contextos.
+  ecologia-numerica:
+    output: true
+    title: Ecología Numérica
+    main: 2
+    description: El curso está orientado a aplicar los procedimientos estadísticos multivariados en diferentes contextos ecológicos. Mediante procedimientos estadísticos se le otorgará al estudiante las herramientas introductorias para abordar el manejo de datos multivariados en el contexto ecológico.
   estadistica-descriptiva:
     output: true
     title: Estadística Descriptiva y<br>Análisis Exploratorio de Datos
