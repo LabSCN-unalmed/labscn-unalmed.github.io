@@ -97,18 +97,26 @@ cd ejercicios/clase1
 
 Comprobar con `pwd` y observar el cambio en el prompt.
 
-Y si se quiere volver al directorio anterior:
+Para ir a la carpeta personal (`/home/usuario`) desde cualquier parte, sólo basta con el comando `cd` sin más parámetros:
+
+~~~
+cd
+~~~
+
+Nuevamente observar el cambio en el prompt y comprobar con `pwd`.
+
+Y si se quiere volver al directorio anterior sin necesidad de ingresar la ruta completa:
 
 ~~~
 cd -
 ~~~
 
 ~~~
-/home/usuario
+/home/usuario/ejercicios/clase1
 ~~~
 {: .output}
 
-Una vez más, comprobar con `pwd`.
+Una vez más, comprobar con `pwd` y observar el cambio en el prompt.
 
 ### touch
 
@@ -120,7 +128,7 @@ Para crear el archivo `ejercicio1.txt` dentro del directorio actual:
 touch ejercicio1.txt
 ~~~
 
-Para crear el archivo `ejercicio2.txt` dentro del directorio `clase1`:
+Para crear el archivo `ejercicio2.txt` dentro del directorio `clase1` que a su vez se encuentra dentro del directorio `ejercicios`:
 
 ~~~
 touch ejercicios/clase1/ejercicio2.txt
@@ -317,4 +325,8 @@ Utilizar únicamente la terminal de comandos para el siguiente ejercicio
 
 * Comprobar los diferentes dibujos (cow files) que tiene el comando `cowsay` utilizando la opción `-l`.
 
-* Abrir el archivo creado en gedit y crear un guión similar al de "Hola mundo", utilizando la opción `-f` del comando `cowsay` y hacer que el saludo sea con el nombre del estudiante.
+~~~
+cowsay -l
+~~~
+
+* Abrir el archivo creado en gedit y crear un guión similar al de "Hola mundo", utilizando la opción `-f` del comando `cowsay` para especificar un dibujo personalizado (del gusto del estudiante), y hacer que el saludo sea con el nombre del estudiante.
