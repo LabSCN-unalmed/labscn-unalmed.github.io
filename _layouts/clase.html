@@ -4,7 +4,40 @@ layout: page
 
 <div class="row">
   <div class="col-md-{% if page.fullwidth == true %}12{% else %}9{% endif %} text-justify" id="content">
+    <!-- <ul class="pager">
+      {% assign pc = page.clase | minus: 1 %}
+      {% assign nc = page.clase | plus: 1 %}
+      {% assign col = page.collection %}
+      {% for node in site.[col] %}
+        {% if node.clase == nc %}
+          {% assign ncu = node.url %}
+        {% elsif node.clase == pc %}
+          {% assign pcu = node.url %}
+        {% endif %}
+      {% endfor %}
+      <li class="previous {% if pc < 1 %}disabled{% endif %}">
+        <a href="{{ pcu }}">Clase anterior</a>
+      </li>
+      <li class="next {% if nc > 15 %}disabled{% endif %}">
+        <a href="{{ ncu }}">Clase siguiente</a>
+      </li>
+    </ul>
+    <hr> -->
     {{ content }}
+    <hr>
+    <nav class="text-center">
+      <ul class="pagination pagination-sm" id="classIndex">
+        {% assign col = page.collection %}
+        {% for node in site.[col] %}
+          {% if node.clase %}
+            <li {% if node.clase == page.clase %}class="active"{% endif %}>
+              <a href="{{ node.url }}">{{ node.clase }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <h4>Índice de clases</h4>
+    </nav>
   </div>
   {% unless page.fullwidth == true %}
   <div class="col-md-3">

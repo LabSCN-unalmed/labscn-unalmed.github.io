@@ -41,8 +41,8 @@
       }
       level = this_level; // update for the next one
     });
-    html += "</ul><a class='back-to-top' href='#top'>"+"Volver al inicio"+"</a>";
-    html += "<hr><p><a class='btn btn-default' href='../clases.html'>"+"Índice de Clases"+"</a></p>"
+    html += "</ul>";
+    // html += "<a class='back-to-top' href='#top'>"+"Volver al inicio"+"</a>";
     render();
   };
 })(jQuery);
