@@ -330,3 +330,7 @@ cowsay -l
 ~~~
 
 * Abrir el archivo creado en gedit y crear un guión similar al de "Hola mundo", utilizando la opción `-f` del comando `cowsay` para especificar un dibujo personalizado (del gusto del estudiante), y hacer que el saludo sea con el nombre del estudiante.
+
+~~~
+cowsay -f <cowfile> "¡Hola <nombre del estudiante>!"
+~~~
