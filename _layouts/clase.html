@@ -4,25 +4,6 @@ layout: page
 
 <div class="row">
   <div class="col-md-{% if page.fullwidth == true %}12{% else %}9{% endif %} text-justify" id="content">
-    <!-- <ul class="pager">
-      {% assign pc = page.clase | minus: 1 %}
-      {% assign nc = page.clase | plus: 1 %}
-      {% assign col = page.collection %}
-      {% for node in site.[col] %}
-        {% if node.clase == nc %}
-          {% assign ncu = node.url %}
-        {% elsif node.clase == pc %}
-          {% assign pcu = node.url %}
-        {% endif %}
-      {% endfor %}
-      <li class="previous {% if pc < 1 %}disabled{% endif %}">
-        <a href="{{ pcu }}">Clase anterior</a>
-      </li>
-      <li class="next {% if nc > 15 %}disabled{% endif %}">
-        <a href="{{ ncu }}">Clase siguiente</a>
-      </li>
-    </ul>
-    <hr> -->
     {{ content }}
     <hr>
     <nav class="text-center">
@@ -36,7 +17,9 @@ layout: page
           {% endif %}
         {% endfor %}
       </ul>
-      <h4>Índice de clases</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="../clases.html">Índice de clases</a></li>
+      </ul>
     </nav>
   </div>
   {% unless page.fullwidth == true %}
