@@ -31,8 +31,11 @@ Además proporciona información adicional: El usuario `usuario` está en la má
 En la terminal, los comandos conservan una estructura de cómo deben ser introducidos para ser interpretados correctamente. En términos genéricos, esta es la estructura para la mayoría de los comandos en GNU/Linux:
 
 ~~~
-comando -opciones parametro1 parametro2
+$ comando -opciones parametro1 parametro2
 ~~~
+
+Observar que los espacios delimitan el comando y los parámetros, es decir, un parámetro no debe contener espacios.
+{: .alert .alert-warning}
 
 A continuación se enumeran una serie de comandos básicos para el uso en la terminal, con ejemplos ilustrativos de las operaciones que permiten realizar.
 
