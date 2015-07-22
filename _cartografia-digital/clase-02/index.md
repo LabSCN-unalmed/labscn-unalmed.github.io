@@ -1,42 +1,55 @@
 ---
 layout: clase
-title: 'Iniciando desde GRASS'
+title: 'Sesión introductoria a GRASS GIS'
 curso: 'cartografia-digital'
 clase: 2
 ---
 
-Sesión introductoria a GRASS GIS
---------------------------------
+Iniciando desde GRASS
+---------------------
 
 *[GRASS GIS]: Geographic Resources Analysis Support System
 
-Al abrir GRASS GIS, aparece la siguiente ventana de inicio:
+Al abrir GRASS GIS, se inicia una terminal de comandos y aparece la siguiente ventana de inicio:
 
-![Ventana de inicio de GRASS](grass_start.png){: .img-responsive}
+![Ventana de inicio de GRASS](./images/grass_start.png){: .img-responsive}
 
-#### ![](circle_1.png) Seleccionar el directorio de datos SIG
+#### ![](./images/circle_1.png) Seleccionar el directorio de datos SIG
 
 Los datos de GRASS se almacenan en un directorio al cual se le conoce como una base de datos SIG (GISDBASE). Dentro de esta base de datos SIG, se encuentran organizados los proyectos como subdirectorios llamados LOCATIONs.
 
-#### ![](circle_2.png) Seleccionar la locación del proyecto (LOCATION)
+#### ![](./images/circle_2.png) Seleccionar la locación del proyecto (LOCATION)
 
 Un LOCATION se define por su sistema de coordenadas, proyección y límites geográficos. Los subdirectorios y archivos que definen un LOCATION son creados automáticamente cuando GRASS se inicia la primera vez con un nuevo LOCATION. Es importante comprender que cada proyección permanece en su propio LOCATION.
 
-#### ![](circle_3.png) Seleccionar el directorio de mapas (MAPSET)
+#### ![](./images/circle_3.png) Seleccionar el directorio de mapas (MAPSET)
 
 Cada LOCATION puede tener múltiples MAPSET. Cada MAPSET es un subdirectorio de un LOCATION. Se pueden crear nuevos MAPSET desde la ventana de inicio de GRASS.
 
-#### ![](circle_4.png) Asistente de localizaciones
+#### ![](./images/circle_4.png) Asistente de localizaciones
 
 El asistente de localizaciones permite crear fácilmente un nuevo LOCATION, a partir de un archivo georeferenciado, o definiendo los parámetros manualmente, o a partir del código de proyección EPSG.
 
-#### ![](circle_5.png) Iniciar GRASS
+#### ![](./images/circle_5.png) Iniciar GRASS
 
-Una vez se hayan seleccionado el LOCATION y el MAPSET, se puede iniciar GRASS. Para el caso del presente curso será necesario crear un MAPSET con el nombre del estudiante e iniciar GRASS en el LOCATION CursoGrass y el MAPSET recién creado. Al iniciar GRASS se abrirán la terminal de comandos, y la interfaz gráfica de usuario (GUI), la cual contiene una ventana de administración de capas y una ventana para la visualización de mapas.
+Una vez se hayan seleccionado el LOCATION y el MAPSET, se puede iniciar GRASS.
 
-Al iniciar GRASS este es el aspecto del entorno de trabajo:
+Para el caso del presente curso será necesario crear un MAPSET con el nombre del estudiante e iniciar GRASS en el LOCATION CursoGrass y el MAPSET recién creado.
 
-![Entorno de trabajo del GIS GRASS](grass_workspace.png){: .img-responsive}
+Al iniciar GRASS se abrirán 2 ventanas adicionales a la terminal de comandos: una ventana de administración de capas y una ventana para la visualización de mapas.
+
+Adicionalmente se recomienda abrir el gedit para registrar los comandos utilizados en la terminal, a manera de guión o script.
+
+Durante el desarrollo de los ejercicios del curso, se utilizará la terminal para realizar todo el trabajo de procesamiento, y la interfaz gráfica se utilizará para la visualización.
+
+Este es el aspecto del entorno de trabajo:
+
+![Entorno de trabajo del GIS GRASS](./images/grass_workspace.png){: .img-responsive}
+
+La terminal de comandos en GRASS
+--------------------------------
+
+![La terminal de comandos de GRASS](./images/grass_terminal.png){: .img-responsive} **¡Sacar la imágen de la terminal aislada!**
 
 Observar como ahora en la terminal aparece el siguiente prompt de GRASS:
 
@@ -44,9 +57,13 @@ Observar como ahora en la terminal aparece el siguiente prompt de GRASS:
 GRASS 6.4.3 (CursoGrass):~ >
 ~~~
 
-Adicionalmente se abre el gedit para facilitar el trabajo con la terminal, pues durante el desarrollo de los ejercicios del curso, se utilizará la terminal para realizar todo el trabajo de procesamiento, y la interfaz gráfica se utilizará para la visualización.
+La terminal de comandos en GRASS funciona con el mismo intérprete que la terminal de GNU/Linux, por lo que todos los comandos de GNU/Linux (como por ejemplo los vistos en la clase anterior) funcionan dentro de GRASS, y además, los comandos propios de GRASS conservan una [sintaxis muy similar a la de los comandos GNU/Linux](../clase-01/#sintxis-bsica-de-los-comandos-en-la-terminal-de-gnulinux):
 
-La terminal de comandos en GRASS funciona con el mismo intérprete que la terminal de GNU/Linux, por lo que todos los comandos de GNU/Linux (como por ejemplo los vistos en la clase anterior) funcionan dentro de GRASS, y además, los comandos propios de GRASS conservan una [sintaxis muy similar a la de los comandos GNU/Linux](../clase-01/#sintxis-bsica-de-los-comandos-en-la-terminal-de-gnulinux).
+~~~
+> x.comando -opciones parametro1=mapa1 parametro2=mapa2
+~~~
+
+De manera que `x` indica el tipo de comando que será utilizado.
 
 ### La taxonomía de comandos en GRASS
 
@@ -54,9 +71,6 @@ Los comandos en GRASS se organizan de acuerdo con la función que realizan:
 
 g.*
 : Comandos **generales**, con ellos se realizan operaciones generales a los archivos.
-
-d.*
-: Comandos de **despliegue**, permiten visualizar una orden produciendo una salida gráfica.
 
 r.*
 : Comandos de procesamiento 2D en archivos de tipo **raster**.
@@ -70,7 +84,6 @@ i.*
 db.*
 : Comandos para el manejo de **bases de datos**.
 
-
 ### ¿Cuáles serían los comandos mas básicos estando en GRASS?
 
 - Conocer que archivos raster hay en el sistema para trabajar.
@@ -79,11 +92,19 @@ db.*
 g.list type=rast
 ~~~
 
-- Copiar un archivo que se encuentra en el mapset `PERMANENT` para tenerlo disponible en el mapset donde se encuentra el usuario. (En el mapset `PERMANENT` deberían estar los mapas básicos sin operar en ellos para evitar daños irreparables.)
+~~~
+~~~
+{: .output}
+
+- Copiar un archivo que se encuentra en el mapset `PERMANENT` para tenerlo disponible en el mapset donde se encuentra el usuario.
 
 ~~~
 g.copy rast=porcecito@PERMANENT,porcecito
 ~~~
+
+~~~
+~~~
+{: .output}
 
 - Cambiarle el nombre a un archivo raster (un mapa).
 
@@ -91,23 +112,84 @@ g.copy rast=porcecito@PERMANENT,porcecito
 g.rename rast=porcecito,porcecito_copia
 ~~~
 
+~~~
+~~~
+{: .output}
+
 - Borrar un mapa (archivo) del mapset activo.
 
 ~~~
 g.remove rast=porcecito_copia
 ~~~
 
-- Si el monitor para desplegar los mapas se puede ajustar a la región de cada mapa, es un comando básico aquel que define la región a desplegar.
+~~~
+~~~
+{: .output}
+
+- Ajustar la región a un mapa raster.
 
 ~~~
 g.region rast=porcecito
 ~~~
 
+~~~
+~~~
+{: .output}
+
+La interfaz gráfica de GRASS
+----------------------------
+
+Tomado del [manual de GRASS](http://grass.osgeo.org/grass64/manuals/wxGUI.html).
+
+La interfaz gráfica está compuesta por 2 ventanas:
+
+* El **Administrador de Capas**
+* El **Visualizador de Mapas**
+
+### Administrador de Capas
+
+El administrador de capas constituye una herramienta para crear y administrar monitores (Displays). Contiene una barra de herramientas para manejar las capas desplegadas, y un marco de capas en donde se organizan las capas a desplegar, utilizando pestañas para cada monitor.
+
+![Administrador de Capas](./images/grass_layer_manager.png){: .img-responsive} **¡Sacar la imágen del layer manager aislada!**
+
+#### Barra de herramientas del administrador de capas
+
+![Abrir nuevo monitor](./images/monitor-create.png) Abrir nuevo monitor
+: Abre una ventana de visualización de mapas adicional y crea una pestaña en la ventana de administración de capas.
+
+![Crear un nuevo espacio de trabajo](./images/create.png) Crear un nuevo espacio de trabajo
+: Quita todas las capas del árbol de capas.
+
+![Abrir espacio de trabajo](./images/open.png) Abrir espacio de trabajo
+: Abre un archivo de espacio de trabajo, que contiene un conjunto de capas con sus respectivas opciones.
+
+![Guardar espacio de trabajo](./images/save.png) Guardar espacio de trabajo
+: Guarda el conjunto actual de capas y sus respectivas opciones en un archivo.
+
+![Cargar mapas al espacio de trabajo](./images/layer-open.png) Cargar mapas al espacio de trabajo
+: Carga mapas raster o vectoriales seleccionados.
+
+![Agregar capa de mapa raster](./images/layer-raster-add.png) Agregar capa de mapa raster
+: Agrega
+
+![](./images/layer-raster-more.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
 ### La región de trabajo
 
-Hacer esto, implica manejar el concepto de región de trabajo. Se puede cambiar de una región a otra, siempre y cuando, las regiones que se desean desplegar estén arropadas o cubiertas por la zona seleccionada inicialmente en la definición del location.
-
-Teniendo la región predeterminada que se define para el location "CursoGrass", utilizando la opción `-d`, desplegar los tres mapas que se tienen en el mapset `PERMANENT`:
+Teniendo la región predeterminada que se define para el location **CursoGrass**, utilizando la opción `-d`, desplegar los tres mapas que se tienen en el mapset `PERMANENT`:
 
 ~~~
 g.region -d
@@ -152,7 +234,8 @@ Y si se quiere almacenar en un archivo de texto para su posterior consulta:
 history > clase1.txt
 ~~~
 
-**NOTA:** El nombre del archivo destino no debe contener espacios.
+**Advertencia:** El nombre del archivo destino no debe contener espacios.
+{: .alert .alert-warning}
 
 ### Consultar la documentación de los comandos
 
