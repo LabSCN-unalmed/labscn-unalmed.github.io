@@ -65,3 +65,15 @@ install.views("Spatial")
 ## Mapa de las comunas de Medellín
 
 [Comunas de Medellín](/estadistica-espacial/datos/comunas.kmz){:target="_blank"}
+
+<!--
+Este párrafo será de color verde
+{: .text-success}
+
+Este tendrá el fondo rojo
+{: .bg-danger}
+
+Este será de color amarillo y fondo azul
+{: .text-warning .bg-info}
+-->
+
