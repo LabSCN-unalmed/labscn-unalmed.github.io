@@ -46,6 +46,255 @@ Este es el aspecto del entorno de trabajo:
 
 ![Entorno de trabajo del GIS GRASS](./images/grass_workspace.png){: .img-responsive}
 
+La interfaz gráfica de GRASS
+----------------------------
+
+Tomado del [manual de GRASS](http://grass.osgeo.org/grass64/manuals/wxGUI.html).
+
+La interfaz gráfica está compuesta por 2 ventanas:
+
+* El **Administrador de Capas**
+* El **Visualizador de Mapas**
+
+### Administrador de Capas
+
+El administrador de capas constituye una herramienta para crear y administrar monitores (displays). Contiene una barra de herramientas para controlar las capas desplegadas, y un marco de capas en donde se organizan las capas a desplegar, utilizando pestañas para cada monitor.
+
+![Administrador de Capas](./images/grass_layer_manager.png){: .img-responsive} **¡Sacar la imágen del layer manager aislada!**
+
+#### Barra de herramientas del administrador de capas
+
+![Abrir nuevo monitor](./images/monitor-create.png) Abrir nuevo monitor
+: Abre una ventana de visualización de mapas adicional y crea una pestaña vacía en la ventana de administración de capas.
+
+![Crear un nuevo espacio de trabajo](./images/create.png) Crear un nuevo espacio de trabajo
+: Quita todas las capas del árbol de capas.
+
+![Abrir espacio de trabajo](./images/open.png) Abrir espacio de trabajo
+: Abre un archivo de espacio de trabajo, que contiene un conjunto de capas con sus respectivas opciones.
+
+![Guardar espacio de trabajo](./images/save.png) Guardar espacio de trabajo
+: Guarda el conjunto actual de capas y sus respectivas opciones en un archivo.
+
+![Cargar mapas al espacio de trabajo](./images/layer-open.png) Cargar mapas al espacio de trabajo
+: Carga mapas raster o vectoriales seleccionados a la actual lista de capas.
+
+![Agregar capa de mapa raster](./images/layer-raster-add.png) Agregar capa de mapa raster
+: Agrega un mapa raster a la lista de capas.
+
+![Agregar varias capas de mapas raster](./images/layer-raster-more.png) Agregar varias capas de mapas raster (RGB, HIS, relieve sombreado...)
+: Abre un menu desplegable que permite seleccionar:
+
+![Agregar una capa de mapa raster 3D](./images/layer-raster3d-add.png) Agregar una capa de mapa raster 3D
+: Agrega un mapa raster 3D a la lista de capas.
+
+![Agregar una capa raster RGB](./images/layer-rgb-add.png) Agregar una capa raster RGB
+:
+
+![Agregar una capa raster HIS](./images/layer-his-add.png) Agregar una capa raster HIS
+:
+
+![Agregar una capa de mapa raster de relieve sombreado](./images/layer-shaded-relief-add.png) Agregar una capa raster de relieve sombreado
+:
+
+![Agregar una capa raster de flechas](./images/layer-aspect-arrow-add.png) Agregar una capa raster de flechas
+:
+
+![Agregar una capa raster de números](./images/layer-cell-cats-add.png) Agregar una capa raster de números
+:
+
+![Agregar una capa de mapa vector](./images/layer-vector-add.png) Agregar una capa de mapa vector
+:
+
+![Agregar varias capas de mapas vector](./images/layer-vector-more.png) Agregar varias capas de mapas vector (temática, gráfica...)
+:
+
+![Agregar una capa de mapa de área temática](./images/layer-vector-thematic-add.png) Agregar una capa de mapa de área temática (para todos los tipos de mapa vector)
+:
+
+![Agregar una capa de gráfica temática](./images/layer-vector-chart-add.png) Agregar una capa de gráfica temática (para mapas vector de puntos)
+:
+
+![Agregar grupo](./images/layer-group-add.png) Agregar grupo
+: Agrega un grupo vacío al cual se pueden agregar capas.
+
+![](./images/layer-more.png)
+:
+
+![](./images/layer-grid-add.png)
+:
+
+![](./images/layer-label-add.png)
+:
+
+![](./images/shortest-distance.png)
+:
+
+![](./images/shortest-distance.png)
+:
+
+![](./images/layer-command-add.png)
+:
+
+![](./images/layer-remove.png)
+:
+
+![](./images/table.png)
+:
+
+![](./images/layer-open.png)
+:
+
+![](./images/layer-import.png)
+:
+
+![](./images/layer-import.png)
+:
+
+![](./images/calculator.png)
+:
+
+![](./images/modeler-main.png)
+:
+
+![](./images/georectify.png)
+:
+
+![](./images/print-compose.png)
+:
+
+![](./images/settings.png)
+:
+
+![](./images/help.png)
+:
+
+<!--
+![](./images/.png)
+:
+-->
+
+#### Atajos de teclado claves
+
+`Ctrl+Q`
+: Salir de la interfaz gráfica.
+
+`Ctrl+N`
+: Crear un nuevo espacio de trabajo.
+
+`Ctrl+O`
+: Cargar un espacio de trabajo de un archivo.
+
+`Ctrl+S`
+: Guardar el espacio de trabajo actual a un archivo.
+
+`Ctrl+Shift+L`
+: Agregar múltiples capas de mapas raster o vector al monitor actual.
+
+`Ctrl+Shift+R`
+: Agrega una capa de mapa raster al monitor actual.
+
+`Ctrl+Shift+V`
+: Agrega una capa de mapa vector al monitor actual.
+
+`Ctrl+W`
+: Cierra el monitor actual.
+
+<!--
+`Tab`
+: Muestra una guía rápida del comando.
+
+`Esc`
+: Esconde la guía rápida del comando.
+
+`Ctrl+Space`
+: Permite autocompletar los nombres de los comandos, los parámetros y los mapas.
+
+`Arriba/Abajo`
+: Navega por el historial de comandos.
+
+`Enter`
+: Ejecuta el comando.
+-->
+
+### Visualizador de Mapas
+
+La ventana de visualización de mapas incluye una barra de herramientas, un espacio en donde se despliegan los mapas, y una barra de estado con información de la región geográfica de los mapas desplegados.
+
+![Visualizador de Mapas](./images/grass_map_display.png){: .img-responsive} **¡Sacar la imágen del map display aislada!**
+
+
+
+#### Barra de herramientas del visualizador de mapas
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+![](./images/.png)
+:
+
+<!--
+![](./images/.png)
+:
+-->
+
 La terminal de comandos en GRASS
 --------------------------------
 
@@ -136,57 +385,50 @@ g.region rast=porcecito
 ~~~
 {: .output}
 
-La interfaz gráfica de GRASS
-----------------------------
+### Consultar la documentación de los comandos
 
-Tomado del [manual de GRASS](http://grass.osgeo.org/grass64/manuals/wxGUI.html).
+Se puede consultar la documentación de los comandos para saber qué parámetros requieren y cuales son opcionales, así como sus funciones.
 
-La interfaz gráfica está compuesta por 2 ventanas:
+~~~
+g.copy help
+~~~
 
-* El **Administrador de Capas**
-* El **Visualizador de Mapas**
+De igual manera se puede abrir una documentación más completa en el
+navegador web con el comando `g.manual`:
 
-### Administrador de Capas
+~~~
+g.manual -i
+~~~
 
-El administrador de capas constituye una herramienta para crear y administrar monitores (Displays). Contiene una barra de herramientas para manejar las capas desplegadas, y un marco de capas en donde se organizan las capas a desplegar, utilizando pestañas para cada monitor.
+Esto abre el índice (parámetro `-i`) de la documentación, el ampersand "&" se utiliza para poder continuar escribiendo comandos sin que se cierre el navegador.
 
-![Administrador de Capas](./images/grass_layer_manager.png){: .img-responsive} **¡Sacar la imágen del layer manager aislada!**
+También se pueden abrir directamente los manuales de comandos específicos:
 
-#### Barra de herramientas del administrador de capas
+~~~
+g.manual g.copy
+~~~
 
-![Abrir nuevo monitor](./images/monitor-create.png) Abrir nuevo monitor
-: Abre una ventana de visualización de mapas adicional y crea una pestaña en la ventana de administración de capas.
+### Consulta del historial de los comandos usados
 
-![Crear un nuevo espacio de trabajo](./images/create.png) Crear un nuevo espacio de trabajo
-: Quita todas las capas del árbol de capas.
+El historial no se conserva cuando se trabaja con la interfaz gráfica. Desde la terminal se puede consultar con el siguiente comando:
 
-![Abrir espacio de trabajo](./images/open.png) Abrir espacio de trabajo
-: Abre un archivo de espacio de trabajo, que contiene un conjunto de capas con sus respectivas opciones.
+~~~
+history
+~~~
 
-![Guardar espacio de trabajo](./images/save.png) Guardar espacio de trabajo
-: Guarda el conjunto actual de capas y sus respectivas opciones en un archivo.
+Y si se quiere almacenar en un archivo de texto para su posterior consulta:
 
-![Cargar mapas al espacio de trabajo](./images/layer-open.png) Cargar mapas al espacio de trabajo
-: Carga mapas raster o vectoriales seleccionados.
+~~~
+history > clase1.txt
+~~~
 
-![Agregar capa de mapa raster](./images/layer-raster-add.png) Agregar capa de mapa raster
-: Agrega
+**Advertencia:** El nombre del archivo destino no debe contener espacios.
+{: .alert .alert-warning}
 
-![](./images/layer-raster-more.png)
-:
 
-![](./images/.png)
-:
 
-![](./images/.png)
-:
 
-![](./images/.png)
-:
-
-![](./images/.png)
-:
-
+<!--
 ### La región de trabajo
 
 Teniendo la región predeterminada que se define para el location **CursoGrass**, utilizando la opción `-d`, desplegar los tres mapas que se tienen en el mapset `PERMANENT`:
@@ -219,50 +461,7 @@ d.rast ituango
 ~~~
 
 ![Ituango](/cartografia-digital/images/ituango.png){: .img-responsive}
-
-### Consulta del historial de los comandos usados
-
-El historial no se conserva cuando se trabaja con la interfaz gráfica. Desde la terminal se puede consultar con el siguiente comando:
-
-~~~
-history
-~~~
-
-Y si se quiere almacenar en un archivo de texto para su posterior consulta:
-
-~~~
-history > clase1.txt
-~~~
-
-**Advertencia:** El nombre del archivo destino no debe contener espacios.
-{: .alert .alert-warning}
-
-### Consultar la documentación de los comandos
-
-Se puede consultar la documentación de los comandos para saber qué parámetros requieren y cuales son opcionales, así como sus funciones.
-
-~~~
-g.copy help
-d.rast help
-r.in.gdal help
-~~~
-
-De igual manera se puede abrir una documentación más completa en el
-navegador web con el comando `g.manual`:
-
-~~~
-g.manual -i &
-~~~
-
-Esto abre el índice (parámetro `-i`) de la documentación, el ampersand "&" se utiliza para poder continuar escribiendo comandos sin que se cierre el navegador.
-
-También se pueden abrir directamente los manuales de comandos específicos:
-
-~~~
-g.manual g.copy &
-g.manual d.rast &
-g.manual r.in.gdal &
-~~~
+-->
 
 Iniciamos trabajo
 -----------------
@@ -320,6 +519,7 @@ Volvamos al nombre inicial para economizar tiempo de escritura.
 g.rename rast=porcecito_copia,porcecito1
 ~~~
 
+<!--
 El uso de ayudas
 ----------------
 
@@ -346,122 +546,7 @@ La ayuda incluye:
 **Opciones:** El SIG GRASS emplea el signo ‘-’ acompañado de letras como opciones para el usuario si desea que se despliegue el resultado de una acción o que no se despliegue.
 
 **Parámetros:** Hace referencia a una acción o a un objeto (archivo) que se desea hacer o desplegar respectivamente.
-
-### Explorar las potencialidades del comando d.mon
-
-Vamos a explorar algunas de las acciones que se pueden realizar con el comando `d.mon`.
-
-- Mostrar todas las opciones que se pueden realizar: crear archivos PNG, desplegar monitores, etc.
-
-~~~
-d.mon -l
-~~~
-
-- Indicar cuales acciones están activas y cuales están inactivas.
-
-~~~
-d.mon -L
-~~~
-
-- Imprimir el nombre del monitor seleccionado actualmente.
-
-~~~
-d.mon -p
-~~~
-
-**NOTA:** Es necesario estudiar todas las opciones que brindan los diferentes comandos que se utilizan en una sesión de trabajo para utilizar eficientemente el SIG GRASS.
-
-Ampliar una zona de interés en un mapa
---------------------------------------
-
-Desplegamos un mapa.
-
-~~~
-d.rast porcecito1
-~~~
-
-Entramos al modo de ampliación con el siguiente comando:
-
-~~~
-d.zoom
-~~~
-
-Sale una leyenda que indica como realizar una ampliación de una parte del mapa. El botón de la izquierda para señalar la primera esquina, el boton del medio para quitar el efecto de ampliación, y el botón de la derecha para salir del modo de ampliación.
-
-~~~
-Buttons:
-Left:   1. corner
-Middle: Unzoom
-Right:  Quit
-~~~
-
-Una vez se señala la primera esquina haciendo click izquierdo en el monitor, se despliegan en la terminal de comandos las coordenadas planas del punto, y una leyenda que indica las nuevas opciones:
-
-El botón de la izquierda para cambiar la posición de la primera esquina, el botón del medio para señalar la segunda esquina y completar así la ampliación, y el botón de la derecha para salir del modo de ampliación.
-
-~~~
-Buttons:
-Left:   1. corner (reset)
-Middle: 2. corner
-Right:  Quit
-~~~
-
-Luego con el botón del centro del ratón se indica la esquina diagonal opuesta para delimitar el rectángulo que se desea ampliar. Una vez hecho se despliegan las coordenadas planas de este segundo punto.
-
-Finalmente se despliegan en la terminal las coordenadas de las lineas que delimitan el rectangulo.
-
-Finalmente se hace click con el botón derecho en cualquier lugar del monitor para salir del modo de ampliación.
-
-Cuando se hacen estas acciones se termina teniendo únicamente la zona de interés en el monitor desplegado.
-
-Puede ocurrir que nuestro interés no sea en la totalidad de un mapa sino únicamente en una porción de él. Por lo tanto se ahorra procesamiento y almacenamiento si las actividades posteriores se llevan a cabo en este "pedazo" o porción. Por lo tanto, es recomendable tener el "pedazo" como una región de trabajo o un nuevo mapa.
-
-### Primera opción: Modificando la región
-
-En este caso se construye una nueva región de despliegue en lugar de crear un nuevo mapa.
-
-Primero se ajusta la región al mapa mayor y se despliega.
-
-~~~
-g.region rast=porcecito
-d.rast porcecito
-~~~
-
-Con el comando `d.zoom` se selecciona la zona de interés.
-
-~~~
-d.zoom
-~~~
-
-Una vez que se tiene la zona de interés desplegada en el monitor, 'asegurar' y 'guardar' la región desplegada.
-
-~~~
-g.region save=porcecito_pedazo
-g.list region
-~~~
-
-Ahora con la 'región' asegurada y guardada se llama y se despliega el mapa `porcecito`.
-
-~~~
-g.region region=porcecito_pedazo
-d.rast porcecito
-~~~
-
-![Despliegue de una subzona del mapa Porcecito](/cartografia-digital/images/porcecito_zoom.png){: .img-responsive}
-
-### Segunda opción: Construir un nuevo mapa
-
-Empleamos un comando muy importante (se estudiará en detalle mas adelante): `r.mapcalc`
-
-Sintaxis básica:
-
-`r.mapcalc 'mapa_a_crear=mapa_inicial'`
-
-~~~
-r.mapcalc 'porcecito_pdzo=porcecito1'
-~~~
-
-Ahora tenemos en el mapset `CursoGrass` dos mapas diferentes. ¿Cómo confirmarlo?
+-->
 
 Exploración de la información en el DEM
 ---------------------------------------
