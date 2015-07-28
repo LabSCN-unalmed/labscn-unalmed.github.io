@@ -2,7 +2,11 @@ GEM
   remote: http://rubygems.org/
   specs:
     RedCloth (4.2.9)
+<<<<<<< HEAD
     activesupport (4.2.3)
+=======
+    activesupport (4.2.2)
+>>>>>>> 65223b3edb81cd75e8df08003d703324b9bb3740
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -110,8 +114,13 @@ GEM
     rdiscount (2.1.7)
     redcarpet (3.3.1)
     safe_yaml (1.0.4)
+<<<<<<< HEAD
     sass (3.4.16)
     terminal-table (1.5.2)
+=======
+    sass (3.4.14)
+    terminal-table (1.4.5)
+>>>>>>> 65223b3edb81cd75e8df08003d703324b9bb3740
     thread_safe (0.3.5)
     timers (4.0.1)
       hitimes
