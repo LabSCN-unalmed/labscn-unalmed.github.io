@@ -435,15 +435,15 @@ projection: 99 (Transverse Mercator)
 zone:       0
 datum:      ** unknown (default: WGS84) **
 ellipsoid:  international
-north:      1231633.33333336
-south:      1193683.33333335
-west:       854822.22222223
-east:       889777.77777778
+north:      1312911.11111149
+south:      1271905.55555592
+west:       788822.22222209
+east:       829949.99999986
 nsres:      30.55555556
 ewres:      30.55555556
-rows:       1242
-cols:       1144
-cells:      1420848
+rows:       1342
+cols:       1346
+cells:      1806332
 ~~~
 {: .output}
 
