@@ -5,8 +5,8 @@ curso: 'cartografia-digital'
 clase: 2
 ---
 
-Iniciando desde GRASS
----------------------
+Iniciando GRASS
+---------------
 
 *[GRASS GIS]: Geographic Resources Analysis Support System
 
@@ -46,8 +46,8 @@ Este es el aspecto del entorno de trabajo:
 
 ![Entorno de trabajo del GIS GRASS](./images/grass_workspace.png){: .img-responsive}
 
-La interfaz gráfica de GRASS
-----------------------------
+La interfaz gráfica
+-------------------
 
 Tomado del [manual de GRASS](http://grass.osgeo.org/grass64/manuals/wxGUI.html).
 
@@ -311,8 +311,8 @@ Modo de despliegue de mapas
 :
 -->
 
-La terminal de comandos en GRASS
---------------------------------
+La terminal de comandos
+-----------------------
 
 ![La terminal de comandos de GRASS](./images/grass_terminal.png){: .img-responsive}
 
@@ -330,7 +330,7 @@ La terminal de comandos en GRASS funciona con el mismo intérprete que la termin
 
 De manera que `x` indica el tipo de comando que será utilizado.
 
-### La taxonomía de comandos en GRASS
+### La taxonomía de comandos
 
 Los comandos en GRASS se organizan de acuerdo con la función que realizan:
 
@@ -349,7 +349,7 @@ i.*
 db.*
 : Comandos para el manejo de **bases de datos**.
 
-### ¿Cuáles serían los comandos mas básicos estando en GRASS?
+### ¿Cuáles serían los comandos mas básicos?
 
 - Conocer que archivos raster hay en el sistema para trabajar.
 
@@ -388,7 +388,7 @@ g.rename rast=porcecito,porcecito_copia
 Rename raster <porcecito> to <porcecito_copia>
 ADVERTENCIA: 'cell / porcecito' fue encontrado en mas directorios de mapas
              (mapsets) (también fue hallado en <PERMANENT>).
-ADVERTENCIA: Utilizando <porcecito@caesarivs>.
+ADVERTENCIA: Utilizando <porcecito@CursoGrass>.
 ~~~
 {: .output}
 
@@ -400,15 +400,34 @@ g.remove rast=porcecito_copia
 
 ~~~
 Removing raster <porcecito_copia>
-ADVERTENCIA: No se ha encontrado el mapa raster <porcecito_copia>.
-ADVERTENCIA: <porcecito_copia> nothing removed
 ~~~
 {: .output}
 
-- Ajustar la región a un mapa raster y que la imprima en consola.
+- Ajustar la región de cálculo a un mapa raster y que la imprima en consola.
 
 ~~~
 g.region -p rast=porcecito
+~~~
+
+~~~
+projection: 99 (Transverse Mercator)
+zone:       0
+datum:      ** unknown (default: WGS84) **
+ellipsoid:  international
+north:      1231633.33333336
+south:      1193683.33333335
+west:       854822.22222223
+east:       889777.77777778
+nsres:      30.55555556
+ewres:      30.55555556
+rows:       1242
+cols:       1144
+cells:      1420848
+~~~
+{: .output}
+
+~~~
+g.region -p rast=ituango
 ~~~
 
 ~~~
@@ -510,6 +529,8 @@ history > clase1.txt
 
 **Advertencia:** El nombre del archivo destino no debe contener espacios.
 {: .alert .alert-warning}
+
+
 
 <!--
 ### La región de trabajo
@@ -627,7 +648,6 @@ La ayuda incluye:
 **Opciones:** El SIG GRASS emplea el signo ‘-’ acompañado de letras como opciones para el usuario si desea que se despliegue el resultado de una acción o que no se despliegue.
 
 **Parámetros:** Hace referencia a una acción o a un objeto (archivo) que se desea hacer o desplegar respectivamente.
--->
 
 Exploración de la información en el DEM
 ---------------------------------------
@@ -866,3 +886,4 @@ Organizamos los encabezados y le damos un poco de formato a la tabla, de manera 
 |===================|=============|============|============|
 |             TOTAL |     1420848 |     100.00 | 1326.56333 |
 {: .table .table-hover}
+-->
