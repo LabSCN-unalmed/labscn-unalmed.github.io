@@ -37,9 +37,9 @@ sudo make install
 * Descargar y compilar GRASS 7:
 
 ~~~
-wget http://grass.osgeo.org/grass70/source/grass-7.0.0.tar.gz
-tar xzfv grass-7.0.0.tar.gz
-cd grass-7.0.0
+wget http://grass.osgeo.org/grass70/source/grass-7.0.1.tar.gz
+tar xzfv grass-7.0.1.tar.gz
+cd grass-7.0.1
 ​CFLAGS="-O2 -Wall" \
 CXXFLAGS="${CFLAGS}" \
 LDFLAGS="-s" \
@@ -83,9 +83,9 @@ sudo apt-get install cmake libboost-all-dev flex bison debhelper dpatch autoconf
 * Descargar y compilar GRASS 7:
 
 ~~~
-wget http://grass.osgeo.org/grass70/source/grass-7.0.0.tar.gz
-tar xzfv grass-7.0.0.tar.gz
-cd grass-7.0.0
+wget http://grass.osgeo.org/grass70/source/grass-7.0.1.tar.gz
+tar xzfv grass-7.0.1.tar.gz
+cd grass-7.0.1
 ​CFLAGS="-O2 -Wall" \
 CXXFLAGS="${CFLAGS}" \
 LDFLAGS="-s" \
