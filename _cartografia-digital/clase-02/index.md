@@ -885,5 +885,5 @@ Organizamos los encabezados y le damos un poco de formato a la tabla, de manera 
 |   2681.5 - 2873   |        3278 |       0.23 |    3.06048 |
 |===================|=============|============|============|
 |             TOTAL |     1420848 |     100.00 | 1326.56333 |
-{: .table .table-hover}
+{: .table .table-striped}
 -->

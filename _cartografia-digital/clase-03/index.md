@@ -29,7 +29,7 @@ Evaluar distintas combinaciones empleando el programa “gcolor2”: Aplicacione
 | 0 | 0 | 128 |Azul rey    |
 | 0 | 0 |  65 |Azul oscuro |
 | 0 | 0 |   0 |Negro       |
-{: .table .table-hover}
+{: .table .table-striped}
 
 En la combinación `"0:0:255"` se tiene un color azul intenso. A medida que se disminuye el valor de B, el color azul se va tornando mas oscuro. La combinación final `"0:0:0"` corresponde al color negro.
 
