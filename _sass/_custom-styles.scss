@@ -44,6 +44,13 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .footer,
+  .push {
+    height: 200px;
+  }
+}
+
 #classIndex {
   margin: 0;
 }
