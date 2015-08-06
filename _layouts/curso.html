@@ -3,12 +3,8 @@ layout: page
 ---
 
 <div class="row">
-  <div class="col-md-{% if page.fullwidth == true %}12{% else %}9{% endif %} text-justify" id="content">
-    {{ content }}
-  </div>
-  {% unless page.fullwidth == true %}
-  <div class="col-md-3">
-    <nav class="lscn-sidebar hidden-print hidden-xs hidden-sm" id="sidebar">
+  <div class="col-xs-12 col-sm-3 pull-right">
+    <nav class="lscn-sidebar" id="sidebar">
       <ul class="nav nav-stacked">
         {% for collection in site.collections %}
           {% if page.collection == collection[0] %}
@@ -25,5 +21,7 @@ layout: page
       </ul>
     </nav>
   </div>
-  {% endunless %}
+  <div class="col-xs-12 col-sm-9 text-justify pull-left" id="content">
+    {{ content }}
+  </div>
 </div>
