@@ -3,7 +3,10 @@ layout: page
 ---
 
 <div class="row">
-  <div class="col-md-{% if page.fullwidth == true %}12{% else %}9{% endif %} text-justify" id="content">
+  <div class="col-xs-12 col-sm-12 col-md-3 pull-right">
+    <nav class="lscn-sidebar hidden-print hidden-xs hidden-sm" id="toc"></nav>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-9 text-justify pull-left" id="content">
     {{ content }}
     <hr>
     <nav class="text-center">
@@ -22,9 +25,4 @@ layout: page
       </ul>
     </nav>
   </div>
-  {% unless page.fullwidth == true %}
-  <div class="col-md-3">
-    <nav class="lscn-sidebar hidden-print hidden-xs hidden-sm" id="toc"></nav>
-  </div>
-  {% endunless %}
 </div>
