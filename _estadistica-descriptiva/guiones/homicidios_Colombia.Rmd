@@ -1,0 +1,76 @@
+---
+title: "Homicidios en Colombia 2014"
+author: "Kenneth Roy Cabrera Torres"
+date: "9 de agosto de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+## Encabezado
+```{r}
+#------------------------------------------------------------------------------#
+# Título: Lectura y análisis exploratorio inicial.
+# Nombre: Kenneth Roy Cabrera Torres.
+# Fecha: Viernes, 14 de agosto de 2015.
+# Tarea:
+# 1. Leer la base de datos de homicidios en Colombia durante el 2014.
+# 2. Hallar estadísticos básicos de la tasas de homicidios totales.
+# 3. Mostrar una gráfica simple con las tasas de homicidios totales por edades.
+#------------------------------------------------------------------------------#
+```
+
+## Lectura de la base de datos
+
+```{r}
+# Lectura de la base de datos.
+homCol <- read.csv2("HomicidiosColombia2014.csv", encoding = "latin1")
+```
+
+## Estadísticos básicos de la tasa de homicidios totales
+```{r}
+# Hallar estadísticos básicos.
+with(homCol, summary(TasaT))
+# Hallar desviación estándar.
+with(homCol, sd(TasaT))
+```
+
+## Gráfica simple con las tasas de homicidos totales por edad.
+```{r, fig.width=10, fig.height=10}
+# Diagrama de barras con las tasas de homicidios por cada 100.000 personas
+# que perteneces al grupo de edad respectivo.
+with(homCol, barplot(TasaT, names.arg = GrupoEdad, las = 2))
+```
+
+## Gráfica simple más completa con las tasas de homicidos totales por edad.
+```{r, fig.width=10, fig.height=10}
+# Diagrama de barra con las tasas de homicidios por cada 100.000 personas
+# que perteneces al grupo de edad respectivo, más completo.
+with(homCol, 
+     barplot(TasaT, names.arg = GrupoEdad, las = 2,
+             main= "Tasa de homicidios por grupo etáreo",
+             ylab = "Tasa por cada 100.000 personas",
+             col = "tomato"))
+```
+
+## Gráfica simple más completa con las tasas de homicidos totales por edad con ggplot2
+```{r, fig.width=10, fig.height=10}
+# Diagrama de barras utilizando el paquete de gráficos ggplot2
+require(ggplot2)
+g1 <- ggplot(homCol, aes(GrupoEdad,TasaT))
+g1 + geom_bar(stat = "identity") +
+     scale_y_continuous(name="Tasa por cada 100.000 personas", 
+                        breaks=seq(0,70,10),limits=c(0, 70)) +
+     scale_x_discrete(name="Grupo de edad") +
+     ggtitle("Tasa de homicidios por grupo etáreo") +
+     theme(
+       axis.text.x=
+         element_text(angle=90,hjust=1,vjust=0.5, size = 20, color = "black"), 
+       axis.text.y=
+         element_text(color="black", size= 20),
+       axis.title.y = element_text(size=20),
+       axis.title.x = element_text(size=20),
+       plot.title = element_text(size=22))
+```
+
+
