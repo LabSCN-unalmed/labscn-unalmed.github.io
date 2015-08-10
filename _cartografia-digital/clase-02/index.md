@@ -28,7 +28,7 @@ Cada LOCATION puede tener múltiples MAPSET. Cada MAPSET es un subdirectorio de 
 
 #### ![](./images/circle_4.png) Asistente de localizaciones
 
-El asistente de localizaciones permite crear fácilmente un nuevo LOCATION, a partir de un archivo georeferenciado, o definiendo los parámetros manualmente, o a partir del código de proyección EPSG.
+El asistente de localizaciones permite crear fácilmente un nuevo LOCATION, a partir de un archivo georeferenciado, definiendo los parámetros manualmente, o a partir del código de proyección EPSG.
 
 #### ![](./images/circle_5.png) Iniciar GRASS
 
@@ -49,7 +49,7 @@ Este es el aspecto del entorno de trabajo:
 La interfaz gráfica
 -------------------
 
-Tomado del [manual de GRASS](http://grass.osgeo.org/grass64/manuals/wxGUI.html).
+<!--Tomado del [manual de GRASS](http://grass.osgeo.org/grass64/manuals/wxGUI.html).-->
 
 La interfaz gráfica está compuesta por 2 ventanas:
 
@@ -322,10 +322,40 @@ Observar como ahora en la terminal aparece el siguiente prompt de GRASS:
 GRASS 6.4.3 (CursoGrass):~ >
 ~~~
 
+### Gramática en GRASS
+
+Diferenciar entre orden y parámetros del comando:
+
+~~~
+hacer el amor
+~~~
+
+~~~
+hacer: no se encontró la orden
+~~~
+{: .output}
+
+Quiere decir que el sistema no reconoce la orden `hacer`.
+
+Ahora probemos en inglés:
+
+~~~
+make love
+~~~
+
+~~~
+make: *** No hay ninguna regla para construir el objetivo «love».  Alto.
+~~~
+{: .output}
+
+En este caso el sistema si reconoce la orden `make`, pero no reconoce el parámetro `love` como un objetivo válido de la orden `make`.
+
+Si de
+
 La terminal de comandos en GRASS funciona con el mismo intérprete que la terminal de GNU/Linux, por lo que todos los comandos de GNU/Linux (como por ejemplo los vistos en la clase anterior) funcionan dentro de GRASS, y además, los comandos propios de GRASS conservan una [sintaxis muy similar a la de los comandos GNU/Linux](../clase-01/#sintxis-bsica-de-los-comandos-en-la-terminal-de-gnulinux):
 
 ~~~
-> x.comando -opciones parametro1=mapa1 parametro2=mapa2
+> x.comando -opciones parametro1=mapa1 parametro2=mapa2 ...
 ~~~
 
 De manera que `x` indica el tipo de comando que será utilizado.
@@ -351,7 +381,7 @@ db.*
 
 ### ¿Cuáles serían los comandos mas básicos?
 
-- Conocer que archivos raster hay en el sistema para trabajar.
+- Conocer qué capas raster hay en el sistema para trabajar.
 
 ~~~
 g.list type=rast

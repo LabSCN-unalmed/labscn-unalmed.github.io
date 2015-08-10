@@ -5,12 +5,26 @@ curso: 'cartografia-digital'
 clase: 1
 ---
 
+Software libre
+-------------
+
+"Software libre" es el software que respeta la libertad de los usuarios y la comunidad. A grandes rasgos, significa que los usuarios tienen la libertad de ejecutar, copiar, distribuir, estudiar, modificar y mejorar el software. Es decir, el "software libre" es una cuestión de libertad, no de precio. Para entender el concepto, piense en "libre" como en "libre expresión", no como en "barra libre".
+
+Un programa es "software libre" si los usuarios tienen las cuatro libertades esenciales:
+
+* Libertad de ejecutar el programa como se desea, con cualquier propósito.
+* Libertad de estudiar como funciona el programa, y cambiarlo para que haga lo que se quiera. El acceso al código fuente es una condición necesaria para ello.
+* Libertad de redistribuir copias para ayudar a los demás.
+* Libertad de distribuir copias de sus versiones modificadas a los demás. Esto le permite ofrecer a toda la comunidad la oportunidad de beneficiarse de las modificaciones. El acceso al código fuente es una condición necesaria para ello.
+
+Estos principios garantizan que la construcción del software sea realmente accesible a todas las personas y por lo tanto permite desarrollar nuevas tecnologías de manera colaborativa.
+
+El Laboratorio de Sistemas Complejos Naturales apoya esta filosofía en el contexto de la misión de la Universidad Nacional de Colombia, no solamente para sus estudiantes sino para toda la comunidad a la que le debe el conocimiento.
+
 Introducción a GNU/Linux
 ------------------------
 
-La filosofía del curso es utilizar software libre porque...
-
-En entornos GNU/Linux existen interfaces gráficas de usuario (GUI) donde se puede hacer click, arrastrar y, con suerte, se puede lograr mucho sin documentarse primero. Sin embargo, el entorno tradicional es una interfaz de línea de comandos (CLI) donde se escriben comandos que le dicen al computador qué hacer. Lo cual es más rápido y poderoso pero requiere aprender qué hacen los comandos.
+En entornos GNU/Linux existen interfaces gráficas de usuario (GUI) donde se puede hacer click, arrastrar y, con suerte, se puede lograr mucho sin documentarse primero. Sin embargo, el entorno tradicional es una interfaz de línea de comandos (CLI) donde se escriben comandos que le dicen al computador qué hacer. Lo cual es más rápido y poderoso pero requiere aprender qué hacen los comandos. Esta interfaz de línea de comandos, la llamaremos 'la terminal'.
 
 ## Comandos esenciales
 
@@ -18,20 +32,20 @@ La terminal es una herramienta muy sencilla pero sumamente poderosa, permite int
 
 ### El prompt
 
-Se conoce como prompt a una línea de texto que se muestra al comienzo de una terminal de comandos, el prompt indica que la terminal se encuentra a la espara de comandos, en los sitemas GNU/Linux, el prompt luce así:
+Se conoce como prompt a una línea de texto que se muestra al comienzo de una terminal de comandos. El prompt indica que la terminal se encuentra disponible y a la espera de una órden (comando) que dará el usuario. En los sitemas GNU/Linux, el prompt luce así:
 
 ~~~
-usuario@equipo:~ $
+usuario@ubuntu:~ $
 ~~~
 
-Además proporciona información adicional: El usuario `usuario` está en la máquina `ubuntu` y se encuentra en el directorio `~` (el símbolo `~` es una abreviación para la carpeta personal de usuario). El símbolo `$` implica que es un usario regular, en el caso del usuario administrador `root` el símbolo sería `#`.
+Además proporciona información adicional: El usuario `usuario` está en la máquina `ubuntu` y se encuentra en el directorio `~` (el símbolo `~` es una abreviación para la carpeta personal de usuario). El símbolo `$` implica que es un usario regular (sin privilegios de administrador), en el caso del superusuario (con privilegios de administrador) `root` el símbolo sería `#`.
 
 ### Sintáxis básica de los comandos en la terminal de GNU/Linux
 
 En la terminal, los comandos conservan una estructura de cómo deben ser introducidos para ser interpretados correctamente. En términos genéricos, esta es la estructura para la mayoría de los comandos en GNU/Linux:
 
 ~~~
-$ comando -opciones parametro1 parametro2
+$ comando -opciones parametro1 parametro2 ...
 ~~~
 
 **Nota:** Observar que los espacios delimitan el comando y los parámetros, es decir, un parámetro no debe contener espacios.
@@ -52,21 +66,40 @@ pwd
 ~~~
 {: .output}
 
+En la salida del comando `pwd`, vemos lo siguiente:
+
+`/`
+: La raíz del sistema de archivos.
+
+`home`
+: Directorio que contiene la carpeta personal de cada usuario.
+
+`/`
+: Acceso a un subdirectorio dentro de `/home`
+
+`usuario`
+: Directorio que contiene la carpeta personal del usuario actual, el nombre coincide con el nombre de usuario.
+
+**Nota:** Con la combinación de `/` y nombres específicos de directorios, se puede acceder a otros subdirectorios del sistema de archivos.
+{: .alert .alert-info}
+
 ### mkdir
 
 El comando `mkdir` (make directory) crea un directorio o carpeta.
 
-Para crear `directorio` en la ubicación actual:
+Para crear el directorio `directorio` en la ubicación actual:
 
 ~~~
 mkdir directorio
 ~~~
 
-Este comando también cuenta con una opción bastante útil que permite crear un árbol de directorios de manera simultánea. Por ejemplo, suponiendo que se quiere crear el directorio `clase1` dentro del directorio `ejercicios`, se utiliza la opción `-p`:
+Este comando también cuenta con una opción bastante útil que permite crear un árbol de directorios de manera simultánea. Por ejemplo, suponiendo que se quiere crear el directorio `ejercicios` y dentro de éste, el subdirectorio `clase1` , se utiliza la opción `-p`:
 
 ~~~
 mkdir -p ejercicios/clase1
 ~~~
+
+En consecuencia, el directorio `clase1` está dentro del directorio `ejercicios`, y éste último quedará en el directorio `~` (carpeta personal de usuario) al igual que el directorio `directorio`.
 
 ### cd
 
@@ -120,6 +153,8 @@ cd -
 {: .output}
 
 Una vez más, comprobar con `pwd` y observar el cambio en el prompt.
+
+Este último ejemplo, funciona de manera similar al botón "Previous Channel" de los controles remotos de TV.
 
 ### touch
 
@@ -182,6 +217,12 @@ drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Videos
 ~~~
 {: .output}
 
+- La primer columna contiene información del tipo de elemento, es decir, diferencia entre directorio y archivo. Para los directorios la columna inicia con una `d`; para los archivos la columna inicia con un `-`.
+- La tercer y cuarta columna contienen información del propietario del elemento.
+- La quinta columna contiene información del tamaño del elemento.
+- Las columnas sexta, séptima y octava contienen información de la fecha y hora de modificación del elemento.
+- La novena y última columna contiene el nombre del elemento.
+
 Opcionalmente, si se quiere ver la lista de un directorio diferente al actual, al comando `ls` se le puede indicar la ruta de dicho directorio como un parámetro, e incluso se pueden especificar las opciones:
 
 ~~~
@@ -192,6 +233,8 @@ ls -l directorio
 total 0
 ~~~
 {: .output}
+
+Esto indica que el directorio se encuentra vacío, no contiene ni archivos ni subdirectorios.
 
 ~~~
 ls -l ejercicios
@@ -217,7 +260,7 @@ total 0
 
 El comando `cp` (copy) permite copiar archivos y directorios, especificando primero el origen y después el destino.
 
-Por ejemplo para copiar el archivo `ejercicio1.txt` al directorio `clase1`:
+Por ejemplo para copiar el archivo `ejercicio1.txt` al directorio `clase1` dentro de `ejercicios`:
 
 ~~~
 cp ejercicio1.txt ejercicios/clase1
@@ -316,7 +359,7 @@ Para ver el contenido del primer guión:
 cat holaMundo.sh
 ~~~
 
-En el caso de archivos de texto de gran tamaño, existen otros comandos como `head` y `tail`, que permiten visualizar las primeras o las últimas líneas del archivo; o comandos como `more` y `less`, que permiten visualizar por páginas los archivos.
+En el caso de archivos de texto de gran tamaño, existen otros comandos como `head` y `tail`, que permiten visualizar las primeras o las últimas líneas del archivo; o comandos como `more` y `less`, que permiten visualizar los archivos por páginas.
 
 ## Ejercicio
 
@@ -335,5 +378,31 @@ cowsay -l
 * Abrir el archivo creado en gedit y crear un guión similar al de "Hola mundo", utilizando la opción `-f` del comando `cowsay` para especificar un dibujo personalizado (del gusto del estudiante), y hacer que el saludo sea con el nombre del estudiante.
 
 ~~~
-cowsay -f <cowfile> "¡Hola <nombre del estudiante>!"
+cowsay -f <cowfile> "<mensaje>"
 ~~~
+
+* Ejecutar el script con el comando `bash`.
+
+~~~
+ ______________________________________
+/ ¡Fogosa bienvenida al curso de GRASS \
+\ GIS!                                 /
+ --------------------------------------
+      \                    / \  //\
+       \    |\___/|      /   \//  \\
+            /0  0  \__  /    //  | \ \    
+           /     /  \/_/    //   |  \  \  
+           @_^_@'/   \/_   //    |   \   \ 
+           //_^_/     \/_ //     |    \    \
+        ( //) |        \///      |     \     \
+      ( / /) _|_ /   )  //       |      \     _\
+    ( // /) '/,_ _ _/  ( ; -.    |    _ _\.-~        .-~~~^-.
+  (( / / )) ,-{        _      `-.|.-~-.           .~         `.
+ (( // / ))  '/\      /                 ~-. _ .-~      .-~^-.  \
+ (( /// ))      `.   {            }                   /      \  \
+  (( / ))     .----~-.\        \-'                 .~         \  `. \^-.
+             ///.----..>        \             _ -~             `.  ^-`  ^-_
+               ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~
+                                                                  /.-~
+~~~
+{: .output}
