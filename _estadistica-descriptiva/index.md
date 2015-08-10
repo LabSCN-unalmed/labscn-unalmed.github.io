@@ -53,3 +53,4 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 - Toda entrega se realizará al correo **krcabrer@unal.edu.co**
 - Siempre deberá anotarse en asunto la sigla **[EDAED]**, separada de cualquier otro texto adicional.
 - Los grupos de trabajo serán de máximo 5 personas.
+
