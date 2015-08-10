@@ -2,10 +2,13 @@
 layout: curso
 title: 'Documentos'
 curso: 'estadistica-descriptiva'
-output:
-  html_document:
-    toc:yes
 ---
+
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
 
 ## Configuración de una base de datos para trabajar con el R.
 
@@ -17,6 +20,8 @@ Inicialmente se toma el archivo en formato .xlsx o .xls y se ubica en una carpet
 
 En este caso se creó una carpeta con el nombre de `practica1`. Y
 en ese lugar se ubicó el archivo `HomicidiosColombia.xlsx`, como se muestra a continuación:
+
+![Inicio R 03](./iniR/iniR03.png){: .img-responsive}
 
 <img src="/estadistica-descriptiva/iniR/iniR03.png" alt="Inicio R 03" style="width: 700px;"/>
 
