@@ -185,3 +185,11 @@ img.img-responsive {
 pre.output {
   background-color: $pre-output-bg;
 }
+
+/* Syntax Highlighting */
+pre .c, pre .c1 { color: #998; font-style: italic; }
+pre .o { color: #093; }
+pre .p { color: #687687; }
+pre .s { color: #d14; }
+//pre .k { color: #F0E68C; }
+//pre .nf { color: #87CEEB; }
