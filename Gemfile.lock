@@ -9,7 +9,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     blankslate (2.1.2.4)
-    celluloid (0.16.0)
+    celluloid (0.16.1)
       timers (~> 4.0.0)
     classifier-reborn (2.0.3)
       fast-stemmer (~> 1.0)
@@ -120,7 +120,7 @@ GEM
       hitimes
     toml (0.1.2)
       parslet (~> 1.5.0)
-    typhoeus (0.7.2)
+    typhoeus (0.7.3)
       ethon (>= 0.7.4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -131,3 +131,6 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+
+BUNDLED WITH
+   1.10.6
