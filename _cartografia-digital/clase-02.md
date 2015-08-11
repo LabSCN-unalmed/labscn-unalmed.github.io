@@ -12,25 +12,25 @@ Iniciando GRASS
 
 Al abrir GRASS GIS, se inicia una terminal de comandos y aparece la siguiente ventana de inicio:
 
-![Ventana de inicio de GRASS](./images/grass_start.png){: .img-responsive}
+![Ventana de inicio de GRASS](./images/clase-02/grass_start.png){: .img-responsive}
 
-#### ![](./images/circle_1.png) Seleccionar el directorio de datos SIG
+#### ![](./images/clase-02/circle_1.png) Seleccionar el directorio de datos SIG
 
 Los datos de GRASS se almacenan en un directorio al cual se le conoce como una base de datos SIG (GISDBASE). Dentro de esta base de datos SIG, se encuentran organizados los proyectos como subdirectorios llamados LOCATIONs.
 
-#### ![](./images/circle_2.png) Seleccionar la locación del proyecto (LOCATION)
+#### ![](./images/clase-02/circle_2.png) Seleccionar la locación del proyecto (LOCATION)
 
 Un LOCATION se define por su sistema de coordenadas, proyección y límites geográficos. Los subdirectorios y archivos que definen un LOCATION son creados automáticamente cuando GRASS se inicia la primera vez con un nuevo LOCATION. Es importante comprender que cada proyección permanece en su propio LOCATION.
 
-#### ![](./images/circle_3.png) Seleccionar el directorio de mapas (MAPSET)
+#### ![](./images/clase-02/circle_3.png) Seleccionar el directorio de mapas (MAPSET)
 
 Cada LOCATION puede tener múltiples MAPSET. Cada MAPSET es un subdirectorio de un LOCATION. Se pueden crear nuevos MAPSET desde la ventana de inicio de GRASS.
 
-#### ![](./images/circle_4.png) Asistente de localizaciones
+#### ![](./images/clase-02/circle_4.png) Asistente de localizaciones
 
 El asistente de localizaciones permite crear fácilmente un nuevo LOCATION, a partir de un archivo georeferenciado, definiendo los parámetros manualmente, o a partir del código de proyección EPSG.
 
-#### ![](./images/circle_5.png) Iniciar GRASS
+#### ![](./images/clase-02/circle_5.png) Iniciar GRASS
 
 Una vez se hayan seleccionado el LOCATION y el MAPSET, se puede iniciar GRASS.
 
@@ -44,7 +44,7 @@ Durante el desarrollo de los ejercicios del curso, se utilizará la terminal par
 
 Este es el aspecto del entorno de trabajo:
 
-![Entorno de trabajo del GIS GRASS](./images/grass_workspace.png){: .img-responsive}
+![Entorno de trabajo del GIS GRASS](./images/clase-02/grass_workspace.png){: .img-responsive}
 
 La interfaz gráfica
 -------------------
@@ -60,117 +60,117 @@ La interfaz gráfica está compuesta por 2 ventanas:
 
 El administrador de capas constituye una herramienta para crear y administrar monitores (displays). Contiene una barra de herramientas para controlar las capas desplegadas, y un marco de capas en donde se organizan las capas a desplegar, utilizando pestañas para cada monitor.
 
-![Administrador de Capas](./images/grass_layer_manager.png){: .img-responsive}
+![Administrador de Capas](./images/clase-02/grass_layer_manager.png){: .img-responsive}
 
 #### Barra de herramientas del administrador de capas
 
-![Abrir nuevo monitor](./images/monitor-create.png) Abrir nuevo monitor
+![Abrir nuevo monitor](./images/clase-02/monitor-create.png) Abrir nuevo monitor
 : Abre una ventana de visualización de mapas adicional y crea una pestaña vacía en la ventana de administración de capas.
 
-![Crear un nuevo espacio de trabajo](./images/create.png) Crear un nuevo espacio de trabajo
+![Crear un nuevo espacio de trabajo](./images/clase-02/create.png) Crear un nuevo espacio de trabajo
 : Quita todas las capas del árbol de capas.
 
-![Abrir espacio de trabajo](./images/open.png) Abrir espacio de trabajo
+![Abrir espacio de trabajo](./images/clase-02/open.png) Abrir espacio de trabajo
 : Abre un archivo de espacio de trabajo, que contiene un conjunto de capas con sus respectivas opciones.
 
-![Guardar espacio de trabajo](./images/save.png) Guardar espacio de trabajo
+![Guardar espacio de trabajo](./images/clase-02/save.png) Guardar espacio de trabajo
 : Guarda el conjunto actual de capas y sus respectivas opciones en un archivo.
 
-![Cargar mapas al espacio de trabajo](./images/layer-open.png) Cargar mapas al espacio de trabajo
+![Cargar mapas al espacio de trabajo](./images/clase-02/layer-open.png) Cargar mapas al espacio de trabajo
 : Carga mapas raster o vectoriales seleccionados a la actual lista de capas.
 
-![Agregar capa de mapa raster](./images/layer-raster-add.png) Agregar capa de mapa raster
+![Agregar capa de mapa raster](./images/clase-02/layer-raster-add.png) Agregar capa de mapa raster
 : Agrega un mapa raster a la lista de capas.
 
-![Agregar varias capas de mapas raster](./images/layer-raster-more.png) Agregar varias capas de mapas raster (RGB, HIS, relieve sombreado...)
+![Agregar varias capas de mapas raster](./images/clase-02/layer-raster-more.png) Agregar varias capas de mapas raster (RGB, HIS, relieve sombreado...)
 : Abre un menu desplegable que permite:
 
-![Agregar una capa de mapa raster 3D](./images/layer-raster3d-add.png) Agregar una capa de mapa raster 3D
+![Agregar una capa de mapa raster 3D](./images/clase-02/layer-raster3d-add.png) Agregar una capa de mapa raster 3D
 : Agrega un mapa raster 3D a la lista de capas.
 
-![Agregar una capa raster RGB](./images/layer-rgb-add.png) Agregar una capa raster RGB
+![Agregar una capa raster RGB](./images/clase-02/layer-rgb-add.png) Agregar una capa raster RGB
 : Combina y despliega tres mapas raster definidos como canales rojo (Red), verde (Green) y azul (Blue) para crear un mapa de color RGB.
 
-![Agregar una capa raster HIS](./images/layer-his-add.png) Agregar una capa raster HIS
+![Agregar una capa raster HIS](./images/clase-02/layer-his-add.png) Agregar una capa raster HIS
 : Combina y despliega dos o tres mapas raster definidos como canales de matiz (Hue), intensidad (Intensity), y opcionalmente saturación (Saturation) para crear un mapa de color.
 
-![Agregar una capa de mapa raster de relieve sombreado](./images/layer-shaded-relief-add.png) Agregar una capa raster de relieve sombreado
+![Agregar una capa de mapa raster de relieve sombreado](./images/clase-02/layer-shaded-relief-add.png) Agregar una capa raster de relieve sombreado
 : Agrega una capa de mapa raster de relieve sombreado.
 
-![Agregar una capa raster de flechas](./images/layer-aspect-arrow-add.png) Agregar una capa raster de flechas
+![Agregar una capa raster de flechas](./images/clase-02/layer-aspect-arrow-add.png) Agregar una capa raster de flechas
 : Agrega un mapa de pixeles raster con flechas de dirección dibujadas. Las flechas de dirección y su longitud se determinan por mapas separados de aspecto/dirección, y opcionalmente pendiente/intensidad.
 
-![Agregar una capa raster de números](./images/layer-cell-cats-add.png) Agregar una capa raster de números
+![Agregar una capa raster de números](./images/clase-02/layer-cell-cats-add.png) Agregar una capa raster de números
 : Agrega un mapa de pixeles raster con números que representan los valores de los pixeles.
 
-![Agregar una capa de mapa vector](./images/layer-vector-add.png) Agregar una capa de mapa vector
+![Agregar una capa de mapa vector](./images/clase-02/layer-vector-add.png) Agregar una capa de mapa vector
 : Agregar una capa de mapa vector.
 
-![Agregar varias capas de mapas vector](./images/layer-vector-more.png) Agregar varias capas de mapas vector (temática, gráfica...)
+![Agregar varias capas de mapas vector](./images/clase-02/layer-vector-more.png) Agregar varias capas de mapas vector (temática, gráfica...)
 : Abre un menu desplegable que permite:
 
-![Agregar una capa de mapa de área temática](./images/layer-vector-thematic-add.png) Agregar una capa de mapa de área temática (para todos los tipos de mapa vector)
+![Agregar una capa de mapa de área temática](./images/clase-02/layer-vector-thematic-add.png) Agregar una capa de mapa de área temática (para todos los tipos de mapa vector)
 : Agrega una capa para despliegue temático de los valores de un atributo asociado a un mapa vectorial. Las opciones incluyen: Tipo de despliegue temático (colores en gradiente o tamaños de puntos), métodos para crear intervalos de despliegue, consultas SQL para seleccionar y limitar los atributos a desplegar, control de los tipos de íconos y tamaños, control de los esquemas de color, y creación de leyenda para el mapa temático.
 
-![Agregar una capa de gráfica temática](./images/layer-vector-chart-add.png) Agregar una capa de gráfica temática (para mapas vector de puntos)
+![Agregar una capa de gráfica temática](./images/clase-02/layer-vector-chart-add.png) Agregar una capa de gráfica temática (para mapas vector de puntos)
 : Agrega una capa en la cual se pueden crear gráficos de barra o circulares en las ubicaciones de puntos vectoriales. Los gráficos despliegan los valores de columnas seleccionadas en la tabla de atributos asociada. Las opciones incluyen: Tipo de gráfico, capa y atributos a graficar, colores del gráfico, tamaño del gráfico (fijo o basado en un atributo).
 
-![Agregar grupo](./images/layer-group-add.png) Agregar grupo
+![Agregar grupo](./images/clase-02/layer-group-add.png) Agregar grupo
 : Agrega un grupo vacío al cual se pueden agregar capas.
 
-![Agregar cuadrícula o etiquetas vectoriales](./images/layer-more.png) Agregar cuadrícula o etiquetas vectoriales
+![Agregar cuadrícula o etiquetas vectoriales](./images/clase-02/layer-more.png) Agregar cuadrícula o etiquetas vectoriales
 : Abre un menu desplegable que permite:
 
-![Agregar cuadrícula](./images/layer-grid-add.png) Agregar cuadrícula
+![Agregar cuadrícula](./images/clase-02/layer-grid-add.png) Agregar cuadrícula
 : Agrega una capa para desplegar una cuadrícula de coordenadas.
 
-![Agregar una capa de etiquetas para objetos vectoriales](./images/layer-label-add.png) Agregar una capa de etiquetas para objetos vectoriales (a partir de un archivo de etiquetas existente)
+![Agregar una capa de etiquetas para objetos vectoriales](./images/clase-02/layer-label-add.png) Agregar una capa de etiquetas para objetos vectoriales (a partir de un archivo de etiquetas existente)
 : Agrega una capa de texto a partir de un archivo de etiquetas para objetos vectoriales creado con el módulo `v.label`.
 
-![Agregar una capa de líneas geodésicas](./images/shortest-distance.png) Agregar una capa de líneas geodésicas
+![Agregar una capa de líneas geodésicas](./images/clase-02/shortest-distance.png) Agregar una capa de líneas geodésicas
 : Agrega una capa para desplegar líneas geodésicas.
 
-![Agregar una capa de líneas de rumbo](./images/shortest-distance.png) Agregar una capa de líneas de rumbo
+![Agregar una capa de líneas de rumbo](./images/clase-02/shortest-distance.png) Agregar una capa de líneas de rumbo
 : Agrega una capa para desplegar líneas de rumbo.
 
-![Agregar una capa de comandos](./images/layer-command-add.png) Agregar una capa de comandos
+![Agregar una capa de comandos](./images/clase-02/layer-command-add.png) Agregar una capa de comandos
 : Agrega una capa en la cual se pueden ingresar comandos para realizar el despliegue.
 
-![Eliminar capa seleccionada](./images/layer-remove.png) Eliminar capa seleccionada
+![Eliminar capa seleccionada](./images/clase-02/layer-remove.png) Eliminar capa seleccionada
 : Remueve la capa seleccionada (o el grupo) de la lista de capas.
 
-![Mostrar tabla de atributos](./images/table.png) Mostrar tabla de atributos
+![Mostrar tabla de atributos](./images/clase-02/table.png) Mostrar tabla de atributos
 : Abre el administrador de tablas de atributos para el mapa vectorial seleccionado.
 
-![Importar datos raster o vector](./images/layer-open.png) Importar datos raster o vector
+![Importar datos raster o vector](./images/clase-02/layer-open.png) Importar datos raster o vector
 : Permite importar datos raster o vector.
 
-![Importar datos raster](./images/layer-import.png) Importar datos raster
+![Importar datos raster](./images/clase-02/layer-import.png) Importar datos raster
 : Importa datos raster a GRASS usando el módulo `r.in.gdal` y los carga a la lista de capas.
 
-![Importar datos vector](./images/layer-import.png) Importar datos vector
+![Importar datos vector](./images/clase-02/layer-import.png) Importar datos vector
 : Importa datos vector a GRASS usando el módulo `v.in.ogr` y carga a la lista de capas.
 
-![Calculadora de mapas raster](./images/calculator.png) Calculadora de mapas raster
+![Calculadora de mapas raster](./images/clase-02/calculator.png) Calculadora de mapas raster
 : Abre la interfaz gráfica de la calculadora de mapas raster `r.mapcalc`.
 
-![Modelador gráfico](./images/modeler-main.png) Modelador gráfico
+![Modelador gráfico](./images/clase-02/modeler-main.png) Modelador gráfico
 : Abre el modelador gráfico para crear modelos y ejecutarlos.
 
-![Herramienta de georectificación](./images/georectify.png) Herramienta de georectificación
+![Herramienta de georectificación](./images/clase-02/georectify.png) Herramienta de georectificación
 : Abre el administrador de puntos de control terrestre para crear, editar y administrar puntos de amarre.
 
-![Compositor cartográfico](./images/print-compose.png) Compositor cartográfico
+![Compositor cartográfico](./images/clase-02/print-compose.png) Compositor cartográfico
 : Abre el compositor cartográfico para crear mapas imprimibles de forma interactiva.
 
-![Configuración](./images/settings.png) Configuración
+![Configuración](./images/clase-02/settings.png) Configuración
 : Abre un diálogo para modificar la configuración de la interfaz gráfica.
 
-![Ayuda](./images/help.png) Ayuda
+![Ayuda](./images/clase-02/help.png) Ayuda
 : Abre la documentación de GRASS en un navegador web.
 
 <!--
-![](./images/.png)
+![](./images/clase-02/.png)
 :
 -->
 
@@ -221,7 +221,7 @@ El administrador de capas constituye una herramienta para crear y administrar mo
 
 La ventana de visualización de mapas incluye una barra de herramientas, un espacio en donde se despliegan los mapas, y una barra de estado con información de la región geográfica de los mapas desplegados.
 
-![Visualizador de Mapas](./images/grass_map_display.png){: .img-responsive}
+![Visualizador de Mapas](./images/clase-02/grass_map_display.png){: .img-responsive}
 
 Cada ventana de visualización de mapas tiene una lista de capas independiente en el administrador de capas.
 
@@ -233,37 +233,37 @@ El nivel de acercamiento o "zoom", no incide sobre la región de cálculo (estab
 
 #### Barra de herramientas del visualizador de mapas
 
-![Desplegar mapa](./images/show.png) Desplegar mapa
+![Desplegar mapa](./images/clase-02/show.png) Desplegar mapa
 : Despliega todas las capas activas de la lista de capas y renderiza las capas que hayan cambiado, agregado o eliminado.
 
-![Renderizar el mapa](./images/layer-redraw.png) Renderizar el mapa
+![Renderizar el mapa](./images/clase-02/layer-redraw.png) Renderizar el mapa
 : Renderiza nuevamente todas las capas activas.
 
-![Borrar monitor](./images/erase.png) Borrar monitor
+![Borrar monitor](./images/clase-02/erase.png) Borrar monitor
 : Borra el contenido del monitor, dejando el fondo blanco.
 
-![Puntero](./images/pointer.png) Puntero
+![Puntero](./images/clase-02/pointer.png) Puntero
 : Selecciona el puntero como cursor para el monitor.
 
-![Consulta de mapas](./images/info.png) Consulta de mapas
+![Consulta de mapas](./images/clase-02/info.png) Consulta de mapas
 : Consulta la capa seleccionada usando el ratón. El mapa a consultar se debe seleccionar previamente en la lista de capas. Los mapas vectoriales temáticos y de gráficas no pueden ser consultados. Los resultados de la consulta se mostrarán en la consola.
 
-![Vista panorámica](./images/pan.png) Vista panorámica
+![Vista panorámica](./images/clase-02/pan.png) Vista panorámica
 : Permite seleccionar el centro de la vista en el monitor de forma interactiva usando el ratón, arrastrándo el cursor haciendo click con el botón izquierdo. Cambia la ubicación de la región desplegada pero no el tamaño del área o la resolución. _**NO**_ afecta la región de cálculo para los procesamientos.
 
-![Acercar](./images/zoom-in.png) Acercar
+![Acercar](./images/clase-02/zoom-in.png) Acercar
 : Permite acercar la vista de manera interactiva usando el mouse, dibujando un recuadro para que el área seleccionada ocupe completamente el monitor. Hacer click con el cursor de acercar hace que el monitor se acerque 30%, centrándose en el punto donde se hizo click. La resolución del mapa no cambia al acercar pero si se restablece la extensión de la región desplegada. _**NO**_ afecta la región de cálculo para los procesamientos.
 
-![Alejar](./images/zoom-out.png) Alejar
+![Alejar](./images/clase-02/zoom-out.png) Alejar
 : Permite alejar la vista de manera interactiva usando el mouse, dibujando un recuadro para que el área desplegada se reduzca hasta ocupar el recuadro dibujado. Hacer click con el cursor de alejar hace que el monitor se aleje 30%, centrándose en el punto donde se hizo click.  La resolución del mapa no cambia pero si se restablece la extensión de la región desplegada. _**NO**_ afecta la región de cálculo para los procesamientos.
 
-![Acercar al mapa seleccionado](./images/zoom-extent.png) Acercar al mapa seleccionado
+![Acercar al mapa seleccionado](./images/clase-02/zoom-extent.png) Acercar al mapa seleccionado
 : Establece la extensión del monitor basándose en el mapa seleccionado. La resolución del mapa no cambia pero si se restablece la extensión de la región desplegada. _**NO**_ afecta la región de cálculo para los procesamientos.
 
-![Volver al acercamiento anterior](./images/zoom-last.png) Volver al acercamiento anterior
+![Volver al acercamiento anterior](./images/clase-02/zoom-last.png) Volver al acercamiento anterior
 : Vuelve a la extensión de acercamiento anterior. Se mantienen hasta 10 niveles anteriores de acercamiento.
 
-![Opciones de acercamiento](./images/zoom-more.png) Opciones de acercamiento
+![Opciones de acercamiento](./images/clase-02/zoom-more.png) Opciones de acercamiento
 : Abre un menú desplegable que permite elegir una opción:
 
 * Acercamiento que coincida con la extensión de un mapa seleccionado.
@@ -273,48 +273,48 @@ El nivel de acercamiento o "zoom", no incide sobre la región de cálculo (estab
 * Establecer región de cálculo a la extensión de la vista actual (sin cambiar la resolución).
 * Guardar la geometría de la vista actual a una región.
 
-![Menú de análisis](./images/layer-raster-analyze.png) Menú de análisis
+![Menú de análisis](./images/clase-02/layer-raster-analyze.png) Menú de análisis
 : Abre un menú desplegable con las siguientes herramientas:
 
-![Herramienta de medir distancia](./images/measure-length.png) Herramienta de medir distancia
+![Herramienta de medir distancia](./images/clase-02/measure-length.png) Herramienta de medir distancia
 : Medición interactiva de longitudes definidas con el mouse. La longitud de cada segmento y la longitud acumulada se despliega en la consola. Las longitudes se miden en la unidad de medida actual.
 
-![Herramienta de perfil](./images/layer-raster-profile.png) Herramienta de perfil
+![Herramienta de perfil](./images/clase-02/layer-raster-profile.png) Herramienta de perfil
 : Creación de perfil de un mapa raster de forma interactiva. El transecto del perfil se dibuja con el mouse en el monitor. El perfil puede ser del mapa desplegado o de un mapa diferente. Se pueden perfilar hasta tres mapas de manera simultánea.
 
-![Herramienta de histograma](./images/layer-raster-histogram.png) Herramienta de histograma
+![Herramienta de histograma](./images/clase-02/layer-raster-histogram.png) Herramienta de histograma
 : Despliega un histograma del mapa raster seleccionado en una nueva ventana.
 
-![Agregar elementos](./images/overlay-add.png) Agregar elementos
+![Agregar elementos](./images/clase-02/overlay-add.png) Agregar elementos
 : Abre un menú desplegable que permite:
 
-![Agregar escala y flecha norte](./images/scalebar-add.png) Agregar escala y flecha norte
+![Agregar escala y flecha norte](./images/clase-02/scalebar-add.png) Agregar escala y flecha norte
 : Agrega una capa para desplegar una escala y una flecha norte. Las opciones incluyen la ubicación (usando coordenadas o el mouse), el formato y los colores de la escala.
 
-![Agregar leyenda de mapa raster](./images/legend-add.png) Agregar leyenda de mapa raster
+![Agregar leyenda de mapa raster](./images/clase-02/legend-add.png) Agregar leyenda de mapa raster
 : Agrega una capa para desplegar una leyenda del mapa raster seleccionado.
 
-![Agregar texto](./images/text-add.png) Agregar texto
+![Agregar texto](./images/clase-02/text-add.png) Agregar texto
 : Agrega una capa para desplegar una línea de texto utilizando el tipo de letra predeterminado de GRASS. Las opciones incluyen la ubicación (coordenadas), el tamaño, el formato y el color del texto.
 
-![Guardar el monitor a un archivo](./images/map-export.png) Guardar el monitor a un archivo
+![Guardar el monitor a un archivo](./images/clase-02/map-export.png) Guardar el monitor a un archivo
 : Guarda la imágen visible en el monitor a diferentes formatos de gráficos raster.
 
-![Imprimir mapa](./images/print.png) Imprimir mapa
+![Imprimir mapa](./images/clase-02/print.png) Imprimir mapa
 : Imprime el mapa en la impresora nativa del sistema, o en un dispositivo PostScript; guarda el mapa visible (incluyendo texto y etiquetas) en archivos PDF o EPS.
 
 Modo de despliegue de mapas
 : Menú desplegable donde se elige si se quieren visualizar los mapas en 2D o 3D. También da la opción de digitalizar mapas vectoriales agregando una barra de herramientas para la digitalización. Permite digitalizar un nuevo mapa o editar uno existente.
 
 <!--
-![](./images/.png)
+![](./images/clase-02/.png)
 :
 -->
 
 La terminal de comandos
 -----------------------
 
-![La terminal de comandos de GRASS](./images/grass_terminal.png){: .img-responsive}
+![La terminal de comandos de GRASS](./images/clase-02/grass_terminal.png){: .img-responsive}
 
 Observar como ahora en la terminal aparece el siguiente prompt de GRASS:
 
