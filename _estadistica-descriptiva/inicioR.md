@@ -10,14 +10,17 @@ curso: 'estadistica-descriptiva'
 * ToC
 {: toc}
 
-## Configuración de una base de datos para trabajar con el R.
+## Preparar una base de datos para leer en el R.
 
 Se realizará el ejemplo del uso del R, utilizando una base de datos externa. En esta caso una base de datos en donde se registra por grupo de edad y género el número de homicidios en Colombia durante el 2014.
 
 Inicialmente se toma el archivo en formato .xlsx o .xls y se ubica en una carpeta nueva. La premisa es que se debe ubicar la base de datos en el mismo lugar en donde se grabará el guión o código de R.
 
+### Base de datos.
+
 - [Homicidios en Colombia (xlsx)](/estadistica-descriptiva/iniR/HomicidiosColombia2014.xlsx){:target="_blank"}
 
+### Crear una carpeta para la base de datos.
 En este caso se creó una carpeta con el nombre de `practica1`. Y
 en ese lugar se ubicó el archivo `HomicidiosColombia.xlsx`, como se muestra a continuación:
 
@@ -27,6 +30,7 @@ Seguidamente se abre en Excel como se muestra en la siguiente imagen:
 
 ![Inicio R 04](./iniR/iniR04.png){: width="700"}
 
+### Guardarla en formato .csv
 Se debe guardar con el formato `.csv` siguiendo la ruta de `guardar como ...` en la misma carpeta en donde está el archivo `.xlsx` y seleccionando la opción de `CSV (delimitado por comas) `, como se muestra a continuación:
 
 ![Inicio R 05](./iniR/iniR05.png){: width="700"}
@@ -35,6 +39,7 @@ En la carpeta deberán entonces mostrarse dos archivos, uno con formato `.xlsx`y
 
 ![Inicio R 06](./iniR/iniR06.png){: width="700"}
 
+### Verificación del formato
 Para verificar el formato en el cual está codificado el archivo `.csv` se abre con el programa `bloc de notas` y se debe mostrar como la siguiente imagen:
 
 ![Inicio R 07](./iniR/iniR07.png){: width="700"}
@@ -53,12 +58,15 @@ Aparece la pantalla del R studio.
 
 ![Inicio R 02](./iniR/iniR02.png){: width="700"}
 
+### Crear un guión en R.
+
 Para crear un nuevo guión o script se sigue la ruta `File > New File > R Script`
 
 Y ahora la apariencia es la siguiente:
 
 ![Inicio R 08](./iniR/iniR08.png){: width="700"}
 
+### Guardar un guión de R.
 A continuación se sigue la ruta `File > Save as` y se graba con un nombre como `guion_homicidios_Colombia` en el mismo lugar en donde se encuentran ubicadas las bases de datos. Así como se muestra a continuación:
 
 ![Inicio R 09](./iniR/iniR09.png){: width="700"}
@@ -67,17 +75,24 @@ Entonces ahora la interfaz RStudio deberá quedar de la siguiente manera:
 
 ![Inicio R 10](./iniR/iniR10.png){: width="700"}
 
+### Verificar la ruta el RStudio.
+
 En la ventana de `console` de digita el siguiente comando `dir()` y luego la tecla `enter` y se mostrarán algunos nombres de archivos. En este caso **no** aparecen los nombres de los archivos de las bases de datos que se quieren leer. 
 
 ![Inicio R 11](./iniR/iniR11.png){: width="700"}
 
+### Cambiar la ruta del RStudio.
 Se sigue la siguiente ruta para cambiar de carpeta o directorio de trabajo: `Session > Set Working Directory > To Source File Location` y se deberá mostar algo similar a la siguiente imagen:
 
 ![Inicio R 12](./iniR/iniR12.png){: width="700"}
 
+### Verificar la ruta correcta en el RStudio.
+
 De nuevo se digita en la consola el comando o instrucción `dir()` y ahora aparecerán los nombres de los archivos de las bases de datos, junto con el nombre del script como se muestra a continuación:
 
 ![Inicio R 13](./iniR/iniR13.png){: width="700"}
+
+### Lectura de la base de datos en R.
 
 En la ventana del guión o script se escribe el siguiente código:
 
@@ -88,7 +103,7 @@ homCol <- read.csv2("HomicidiosColombia2014.csv")
 homCol
 {% endhighlight %}
 
-En el caso de que el formato sea el *anglosajón* en lugar de `read.csv2()` se utiliza la función `read.csv()`.
+**Nota:** En el caso de que el formato sea el *anglosajón* en lugar de `read.csv2()` se utiliza la función `read.csv()`.
 
 Para ejecutar el código se ubica en cada renglón y se presiona `Ctrl-Enter` y así cada línea se ejecutará una a una repitiendo la teclas `Ctrl-Enter'.
 
@@ -97,6 +112,8 @@ Para ejecutar **todo** el código se presiona las tecla `Ctrl-Alt-R`.
 El resultado de la ejecución del código es:
 
 ![Inicio R 14](./iniR/iniR14.png){: width="700"}
+
+### Código en el script del R.
 
 Para realizar otras actividades, ya sean de cálcuo o gráficas se añade el código correspondiente como se muestra a continuación:
 
@@ -115,6 +132,6 @@ El resultado final se muestra en la siguiente imagen:
 
 Si se desea terminar la sesión se procede a cerrar el programa el cual mostrará una pantalla como la siguiente:
 
-![Inicio R 16](./iniR/iniR16.png){: width="700"}
+![Inicio R 16](./iniR/iniR16.png){: width="400"}
 
 En este caso se elige la opción `Save` para guardar el espacio de trabajo o `workspace`.
