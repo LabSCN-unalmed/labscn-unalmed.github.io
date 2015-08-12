@@ -1,7 +1,7 @@
 ---
 title: "Homicidios en Colombia 2014"
 author: "Kenneth Roy Cabrera Torres"
-date: "9 de agosto de 2015"
+date: "12 de agosto de 2015"
 output: 
   html_document: 
     toc: yes
@@ -50,7 +50,9 @@ with(homCol,
      barplot(TasaT, names.arg = GrupoEdad, las = 2,
              main= "Tasa de homicidios por grupo etáreo",
              ylab = "Tasa por cada 100.000 personas",
-             col = "tomato"))
+             col = "tomato",
+             ylim = c(0,70)))
+grid(nx=NA,ny=NULL)
 ```
 
 ## Gráfica simple más completa con las tasas de homicidos totales por edad con ggplot2
