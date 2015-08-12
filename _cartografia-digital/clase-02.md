@@ -224,7 +224,11 @@ En la parte superior de la ventana se encuentra una barra de herramientas con bo
 
 En la parte inferior de la ventana se encuentra la barra de estado, en ella se puede elegir si presentar las coordenadas bajo el cursor, la extensión de la región actual, la región de cálculo (incluyendo visualización gráfica), la geometría del mapa desplegado (número de fílas, columnas y resolución), y la escala. Marcar la opción de **renderizar** hace que la ventana se actualice automáticamente cada que se añade un mapa, se borra, o se cambia en la lista de capas.
 
-El nivel de acercamiento o "zoom", no incide sobre la región de cálculo (establecida mediante `g.region`).
+El nivel de acercamiento o "zoom", no incide sobre la región de cálculo establecida mediante `g.region`.
+
+#### Región de cálculo
+
+El comando `g.region` define lo que se denominará **región de cálculo**{: .text-info}, la cual corresponde a la región sobre la cual se ejecutarán los comandos de procesamiento **raster**{: .text-warning}. Y es independiente de la visualización de las capas.
 
 <!--
 #### Barra de herramientas del visualizador de mapas
@@ -481,10 +485,10 @@ Removing raster <porcecito_copia>
 ~~~
 {: .output}
 
-- Ajustar la región de cálculo a un mapa raster y que la imprima en consola.
+- Imprimir la región de cálculo
 
 ~~~
-g.region -p rast=porcecito
+g.region -p
 ~~~
 
 ~~~
@@ -503,6 +507,14 @@ cols:       1144
 cells:      1420848
 ~~~
 {: .output}
+
+- Ajustar la región de cálculo a un mapa raster.
+
+~~~
+g.region rast=riogrande_sup
+~~~
+
+- Ajustar la región de cálculo a un mapa raster e imprimirla en consola.
 
 ~~~
 g.region -p rast=ituango
@@ -525,49 +537,125 @@ cells:      1806332
 ~~~
 {: .output}
 
+- Cambiar la tabla de colores de un mapa raster:
+
+~~~
+r.colors map=porcecito color=bcyr
+~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'bcyr'
+~~~
+{: .output}
+
+Utilizando el botón ![Renderizar el mapa](./images/clase-02/layer-redraw.png), se refrescan las capas desplegadas y se observa el cambio de color:
+
+![](./images/clase-02/clase-02_13.png){: .img-responsive}
+
 ### Consultar la documentación de los comandos
 
 Se puede consultar la documentación de los comandos para saber qué parámetros requieren y cuales son opcionales, así como sus funciones.
 
 ~~~
-g.copy help
+r.colors help
 ~~~
 
 ~~~
 Descripción:
- Copia archivos de datos disponibles en la ruta de búsqueda del directorio de datos y localización actuales del usuario a los directorios de elementos adecuados bajo el directorio de mapas actual de usuario.
+ Crea/modifica la tabla de colores asociada a una capa de mapa ráster.
 
 Palabras clave:
- general, gestión de mapas
+ raster, tabla 
 
 Uso:
- g.copy [rast=from,to] [rast3d=from,to] [vect=from,to]
-   [oldvect=from,to] [asciivect=from,to] [icon=from,to] [labels=from,to]
-   [sites=from,to] [region=from,to] [region3d=from,to] [group=from,to]
-   [3dview=from,to] [--verbose] [--quiet]
+ r.colors [-rwlngaeiq] [map=name] [color=style] [raster=string]
+   [rules=name] [--verbose] [--quiet]
 
 Identificadores:
+  -r   Eliminar la tabla de colores existente
+  -w   Sólo escribir nueva tabla de colores si no existe ya una
+  -l   Listar reglas disponibles y salir
+  -n   Invertir colores
+  -g   Escalado logarítmico
+  -a   Escalado logarítmico-absoluto
+  -e   Ecualización de histograma
+  -i   Introducir reglas de forma interactiva
+  -q   Ejecutar en modo silencioso
  --v   Salida detallada del módulo.
  --q   Salida "silenciosa" del módulo.
 
 Parámetros:
-       rast   rast archivo(s) a copiar
-     rast3d   rast3d archivo(s) a copiar
-       vect   vect archivo(s) a copiar
-    oldvect   oldvect archivo(s) a copiar
-  asciivect   asciivect archivo(s) a copiar
-       icon   icon archivo(s) a copiar
-     labels   labels archivo(s) a copiar
-      sites   sites archivo(s) a copiar
-     region   region archivo(s) a copiar
-   region3d   region3d archivo(s) a copiar
-      group   group archivo(s) a copiar
-     3dview   3dview archivo(s) a copiar
+     map   Nombre del mapa raster de entrada.
+   color   Tipo de tabla de colores
+           opciones: aspect,aspectcolr,bcyr,bgyr,byg,byr,celsius,corine,
+                    curvature,differences,elevation,etopo2,evi,gdd,grey,
+                    grey.eq,grey.log,grey1.0,grey255,gyr,haxby,ndvi,
+                    population,population_dens,precipitation,
+                    precipitation_monthly,rainbow,ramp,random,rstcurv,rules,
+                    ryb,ryg,sepia,slope,srtm,terrain,wave
+            aspect: aspect oriented grey colors
+            aspectcolr: aspect oriented rainbow colors
+            bcyr: blue through cyan through yellow to red
+            bgyr: blue through green through yellow to red
+            byg: blue through yellow to green
+            byr: blue through yellow to red
+            celsius: blue to red for degree Celsius temperature
+            corine: EU Corine land cover colors
+            curvature: for terrain curvatures (from v.surf.rst and r.slope.aspect)
+            differences: differences oriented colors
+            elevation: maps relative ranges of raster values to elevation color ramp
+            etopo2: colors for ETOPO2 worldwide bathymetry/topography
+            evi: enhanced vegetative index colors
+            gdd: accumulated growing degree days
+            grey: grey scale
+            grey.eq: histogram-equalized grey scale
+            grey.log: histogram logarithmic transformed grey scale
+            grey1.0: grey scale for raster values between 0.0-1.0
+            grey255: grey scale for raster values between 0-255
+            gyr: green through yellow to red
+            haxby: relative colors for bathymetry or topography
+            ndvi: Normalized Difference Vegetation Index colors
+            population: color table covering human population classification breaks
+            population_dens: color table covering human population density classification breaks
+            precipitation: precipitation color table (0..2000mm)
+            precipitation_monthly: precipitation color table (0..1000mm)
+            rainbow: rainbow color table
+            ramp: color ramp
+            random: random color table
+            rstcurv: terrain curvature (from r.resamp.rst)
+            rules: create new color table based on user-specified rules read from stdin
+            ryb: red through yellow to blue
+            ryg: red through yellow to green
+            sepia: yellowish-brown through to white
+            slope: r.slope.aspect-type slope colors for raster values 0-90
+            srtm: color palette for Shuttle Radar Topography Mission elevation
+            terrain: global elevation color table covering -11000 to +8850m
+            wave: color wave
+  raster   Nombre del mapa ráster del que copiar la tabla de colores
+   rules   Path to rules file ("-" to read rules from stdin)
 ~~~
 {: .output}
 
-De igual manera se puede abrir una documentación más completa en el
-navegador web con el comando `g.manual`:
+Colocando al final de cada comando de GRASS el parámetro `help`, obtenemos información acerca de lo que puede realizar cada comando.
+
+La ayuda incluye:
+
+Descripción
+: En pocas palabras dice lo que se puede hacer con el comando.
+
+Palabras claves
+: Palabras indicadoras de la operación que realiza el comando.
+
+Uso
+: Indica la manera como se debe escribir la orden para que el computador la comprenda y la pueda llevar a cabo. El uso es por lo tanto la sintaxis del comando: La manera como deben ir las letras, las palabras, los signos y los espacios para que el mensaje pueda entenderse por el sistema GRASS.
+
+Opciones (Identificadores)
+: El SIG GRASS emplea el signo `-` acompañado de letras como opciones para el usuario si desea que se despliegue el resultado de una acción o que no se despliegue.
+
+Parámetros
+: Hace referencia a una acción o a un objeto (archivo) que se desea hacer o desplegar respectivamente.
+
+De igual manera se puede abrir una documentación más completa en el navegador web con el comando `g.manual`:
 
 ~~~
 g.manual -i
@@ -578,16 +666,56 @@ Starting browser <xdg-open> for module index...
 ~~~
 {: .output}
 
-Esto abre el índice (parámetro `-i`) de la documentación, el ampersand "&" se utiliza para poder continuar escribiendo comandos sin que se cierre el navegador.
+Esto abre el índice (parámetro `-i`) de la documentación.
 
 También se pueden abrir directamente los manuales de comandos específicos:
 
 ~~~
-g.manual g.copy
+g.manual entry=r.colors
 ~~~
 
 ~~~
-Starting browser <xdg-open> for module g.copy...
+Starting browser <xdg-open> for module r.colors...
+~~~
+{: .output}
+
+### Consultar los estadísticos básicos de un mapa raster
+
+~~~
+r.univar map=porcecito
+~~~
+
+~~~
+ 100%
+~~~
+{: .output}
+
+El cálculo de los estadísticos básicos de un mapa se realiza sobre la región de cálculo, es decir, si la región de cálculo no corresponde con el mapa a consultar, la salida será nula.
+
+Para obtener el resultado correcto, primero debemos asegurarnos de tener la región de cálculo bien definida al mapa que será consultado:
+
+~~~
+g.region rast=porcecito
+r.univar map=porcecito
+~~~
+
+~~~
+ 100%
+total null and non-null cells: 1420848
+total null cells: 0
+
+Of the non-null cells:
+----------------------
+n: 1420848
+minimum: 958
+maximum: 2873
+range: 1915
+mean: 1794.74
+mean of absolute values: 1794.74
+standard deviation: 413.958
+variance: 171362
+variation coefficient: 23.0651 %
+sum: 2550048192
 ~~~
 {: .output}
 
@@ -608,360 +736,13 @@ history > clase1.txt
 **Advertencia:** El nombre del archivo destino no debe contener espacios.
 {: .alert .alert-warning}
 
+## Tarea 2
+{: .text-danger}
 
+Elaborar un guión que:
 
-<!--
-### La región de trabajo
+- Defina la región de cálculo al mapa `ituango`.
 
-Teniendo la región predeterminada que se define para el location **CursoGrass**, utilizando la opción `-d`, desplegar los tres mapas que se tienen en el mapset `PERMANENT`:
+- Consulte los estadísticos básicos del mismo mapa.
 
-~~~
-g.region -d
-d.rast porcecito
-d.rast -o ituango
-d.rast -o riogrande_sup
-~~~
-
-![Despliegue de varios mapas simultáneamente](/cartografia-digital/images/cursograss.png){: .img-responsive}
-
-La opción `-o` se utiliza para desplegar mapas superpuestos en el monitor activo.
-
-Los tres mapas o archivos se pueden desplegar en el monitor y pueden salir porque la región con que se define el location "CursoGrass" abarca una región mas amplia.
-
-Ahora vamos a modificar la región de trabajo para que todo el espacio del monitor de visualización esté ocupado por uno de los mapas que se seleccione.
-
-~~~
-g.region rast=porcecito
-d.rast porcecito
-~~~
-
-![Porcecito](/cartografia-digital/images/porcecito.png){: .img-responsive}
-
-~~~
-g.region rast=ituango
-d.rast ituango
-~~~
-
-![Ituango](/cartografia-digital/images/ituango.png){: .img-responsive}
-
-Iniciamos trabajo
------------------
-
-- Abrir la maquina virtual.
-- Iniciar el GIS GRASS.
-- Ubicarse en el mapset *CursoGrass*
-- ¿Existen mapas en este lugar de almacenamiento? ¿SI? ¿NO?
-- Evitar la realización de operaciones con los archivos almacenados en el mapset `PERMANENT`.
-
-### Crear una copia de un archivo que se encuentra en el mapset PERMANENT
-
-Se crean dos mapas (solamente como procedimiento de aprendizaje).
-
-Un primer mapa lo vamos a denominar `porcecito1` y el otro como `porcecito_temp`.
-
-~~~
-g.copy rast=porcecito,porcecito1
-g.copy rast=porcecito,porcecito_temp
-~~~
-
-### Borrar un mapa del mapset activo
-
-~~~
-g.remove porcecito_temp
-~~~
-
-Comprobar si se removió el archivo no deseado. ¿Cómo hacerlo?
-
-### Cambiarle el nombre a un archivo raster (un mapa)
-
-El archivo que se encuentra en el mapset `CursoGrass` se llama `porcecito1` pero quisiera ponerle otro nombre cualquiera. Por ejemplo añadirle ese "1" para diferenciarlo del mapa que se encuentra en el mapset `PERMANENT`. Son dos mapas ubicados en dos sitios diferentes. También podría denominarlo `porcecito_copia`.
-
-Si se le asigna el mismo nombre que se tiene en `PERMANENT`, el sistema envía una advertencia subrayando este hecho: similitud de nombres.
-
-~~~
-g.rename rast=porcecito1,porcecito
-~~~
-
-Cambiemos el nombre y luego lo recuperamos.
-
-~~~
-g.rename rast=porcecito1,porcecito_copia
-~~~
-
-Comprobar:
-
-~~~
-g.list rast
-~~~
-
-Volvamos al nombre inicial para economizar tiempo de escritura.
-
-~~~
-g.rename rast=porcecito_copia,porcecito1
-~~~
-
-El uso de ayudas
-----------------
-
-De manera intuitiva ya sabemos que escribimos la orden `d.mon x0` se despliega el monitor identificado con el nombre `x0`. Existen 8 monitores disponibles, desde el `x0` hasta el `x7`.
-
-### El contenido de un comando
-
-Si escribimos la siguiente orden, vamos a recibir información resumida acerca de lo que se puede hacer con este comando.
-
-~~~
-d.mon help
-~~~
-
-Colocando al final de cada comando de GRASS la palabra "help", obtenemos información acerca de lo que puede realizar cada comando.
-
-La ayuda incluye:
-
-**Descripción:** En pocas palabras dice lo que se puede hacer con el comando.
-
-**Palabras claves:** Palabras indicadoras de la operación que realiza el comando.
-
-**Uso:** Indica la manera como se debe escribir la orden para que el computador la comprenda y la pueda llevar a cabo. El uso es por lo tanto la sintaxis del comando: La manera como deben ir las letras, las palabras, los signos y los espacios para que el mensaje pueda entenderse por el sistema GRASS.
-
-**Opciones:** El SIG GRASS emplea el signo ‘-’ acompañado de letras como opciones para el usuario si desea que se despliegue el resultado de una acción o que no se despliegue.
-
-**Parámetros:** Hace referencia a una acción o a un objeto (archivo) que se desea hacer o desplegar respectivamente.
-
-Exploración de la información en el DEM
----------------------------------------
-
-Un comando de uso intensivo en GRASS es `d.rast`. Se emplea para desplegar mapas en un monitor que se encuentre disponible para el despliegue.
-
-Desplegar solamente los valores de altitud ubicados dentro de un rango.
-
-~~~
-d.rast map=porcecito val=1000-1500
-~~~
-
-`ADVERTENCIA: Ignorando lista de valores: el mapa es entero (por favor usar 'cat=')`
-
-~~~
-d.rast map=porcecito cat=1000-1500
-~~~
-
-![1000-1500](/cartografia-digital/images/porcecito_1000_1500.png){: .img-responsive}
-
-~~~
-d.rast map=porcecito cat=2000-2300
-~~~
-
-![2000-2300](/cartografia-digital/images/porcecito_2000_2300.png){: .img-responsive}
-
-En este punto de la sesión de trabajo surge un interrogante: No se pueden desplegar valores (vallist), pero si se pueden desplegar categorías (catlist).
-
-*¿Cuál es la diferencia entre "values" y "categories" en un archivo raster?*
-
-Para desplegar el segundo rango borra el primer rango. ¿Qué hacer para tener los dos o más rangos que se desean desplegar?
-
-~~~
-d.rast map=porcecito catlist=1000-1500
-d.rast map=porcecito catlist=2000-2300 -o
-~~~
-
-![Despliegue simultáneo de dos rangos altitudinales](/cartografia-digital/images/porcecito_1000_2300.png){: .img-responsive}
-
-Este ejercicio tiene una limitación importante: Desconocemos en este punto cual es el valor de altitud máxima y el valor de altitud mínima para seleccionar rangos de manera adecuada.
-
-Comandos de consulta del mapa
------------------------------
-
-### Conocer el valor de un píxel y sus respectivas coordenadas
-
-Se trata de un comando interactivo: Se escribe la orden en la terminal de comandos y aparecen unas indicaciones para que se vaya al mapa desplegado en el monitor y con los botones del ratón se realice una selección y la respuesta se obtiene en la terminal de comandos.
-
-~~~
-d.what.rast porcecito
-~~~
-
-Con la ayuda de los colores del mapa trate de identificar los valores mayores y menores de altitud en el mapa desplegado.
-
-Utilizar el botón derecho del ratón para salir de la situación interactiva y retornar a la terminal de comandos para continuar.
-
-### Identificar las coordenadas de un punto
-
-El siguiente comando permite identificar las coordenadas planas de un punto.
-
-~~~
-d.where
-~~~
-
-La opción `-1` se utiliza para identificar un sólo punto y salir del comando.
-
-~~~
-d.where -1
-~~~
-
-Si se agrega la opción `-l` también permite identificar las coordenadas geográficas en formato "Grados:Minutos:Segundos".
-
-~~~
-d.where -1l
-~~~
-
-Agregándole la opción `-d` muestra las coordenadas geográficas en formato decimal.
-
-~~~
-d.where -1ld
-~~~
-
-### Visualizar los valores de los píxeles de un zona determinada: Observar visualmente la estructura raster del archivo
-
-Desplegar el mapa de interés, por ejemplo, `porcecito`.
-
-~~~
-d.rast porcecito
-~~~
-
-Hacer zoom en una zona muy pequeña.
-
-~~~
-d.zoom
-~~~
-
-Repetir la acción de zoom hasta que se logren percibir los píxeles (un aspecto de retícula grande en el monitor)
-
-Una vez el reticulado es lo suficientemente grande, escribir el siguiente comando para ver en la retícula los valores de cada píxel:
-
-~~~
-d.rast.num porcecito
-~~~
-
-![Retícula con valores de altitud en cada píxel](/cartografia-digital/images/porcecito_small.png){: .img-responsive}
-
-### Reporte de la información contenida en el mapa
-
-El comando `r.report` permite obtener información estadística básica del mapa ráster que se consulta.
-
-El comando `r.report` require que el usuario entre alguna información para poder realizar la tarea. Le decimos que las unidades de las estadisticas vayan en numero de píxeles `c`, en porcentaje `p` y en kilometros cuadrados `k`, y que realice la segmentacion de las altitudes en 10 rangos de altitud.
-
-~~~
-r.report -h map=porcecito units=c,p,k nsteps=10
-~~~
-
-Observar que pasa cuando los valores del mapa se encuentra en enteros.
-
-No divide en 10 rangos como se le había programado, sino que entrega la información para píxeles que van variando metro a metro, es decir, como enteros.
-
-Al final dice que el archivo contiene 1420848 píxeles que corresponde al 100% y que la extensión del mapa es de 1326.56 km<sup>2</sup>.
-
-El tipo de dato del mapa o archivo vuelve a presentarnos un problema: sabemos que los valores de altitud están en enteros.
-
-Para continuar y superar el problema de la naturaleza de los datos consultemos la información que contiene el archivo.
-
-#### Los metadatos del archivo porcecito
-
-Vamos a consultar cual es la información del mapa (metadatos).
-
-~~~
-r.info porcecito1
-~~~
-
-La información recibida indica que el tipo de dato es `CELL` que en otros términos quiere decir que los valores de altitud del mapa `porcecito` se encuentran en números enteros. Para trabajar adecuadamente necesitamos transformar estos datos a números decimales para realizar operaciones con el comando `r.report` y otras operaciones posteriores.
-
-#### Transformar los datos de números enteros a números decimales sin alterar los valores del archivo
-
-Pasar el mapa de integer a double precision:
-
-~~~
-r.mapcalc 'porcecito1=porcecito*1.0'
-~~~
-
-Consultar nuevamente la información del mapa
-
-~~~
-r.info porcecito1
-~~~
-
-Observar que los datos del archivo se transformaron de `CELL` a `DCELL`.
-
-#### Volver a consultar la información contenida en el mapa porcecito
-
-Reporte con el mapa ya en double precision:
-
-~~~
-r.report -h map=porcecito1 units=c,p,k nsteps=10
-~~~
-
-*¿Qué información importante obtenemos con el comando `r.report`?*
-
-- Seleccionar a voluntad del usuario el número de rangos altitudinales para obtener los estadísticos del archivo.
-- Conocemos los valores mínimo y máximo de la altitud para el archivo en estudio.
-- Utilizando el N° de píxeles, el porcentaje y la extensión podemos tener una idea adecuada de la distribución altitudinal en la región que representa el mapa.
-
-Representación gráfica de la distribución altitudinal
------------------------------------------------------
-
-Una representación gráfica de los valores de altitud en el mapa `porcecito`.
-
-~~~
-d.histogram map=porcecito1 nsteps=10
-~~~
-
-![Distribución altitudinal en porcecito](/cartografia-digital/images/porcecito_hist.png){: .img-responsive}
-
-Para obtener la imagen en formato PNG, se puede utilizar el comando `d.out.file`.
-
-~~~
-d.out.file porcecito_histogram
-~~~
-
-Este comando genera el archivo `porcecito_histogram.png` en el directorio actual, con los contenidos del monitor activo.
-
-Presentación de la tabla que se obtiene con r.report
-----------------------------------------------------
-
-Guardamos la salida del comando a un archivo de texto utilizando el parámetro "`output`" e indicando el nombre del archivo con la extensión ".csv" para poderlo importar a una hoja de cálculo, y la abrimos en gedit para arreglarla:
-
-~~~
-r.report -h map=porcecito1 units=c,p,k nsteps=10 output=porcecito.csv
-gedit porcecito.csv
-~~~
-
-Borramos las líneas con guiones y organizamos bien las columnas para que sólo queden separadas por el símbolo `|`:
-
-### porcecito.csv
-
-~~~
-|           |   Category Information                |   cell|   %  |    square|
-|          #|description                            |  count| cover|kilometers|
-| 958-1149.5|from  to . . . . . . . . . . . . . . . | 116302|  8.19| 108.58443|
-|1149.5-1341|from  to . . . . . . . . . . . . . . . | 138526|  9.75| 129.33369|
-|1341-1532.5|from  to . . . . . . . . . . . . . . . | 148585| 10.46| 138.72519|
-|1532.5-1724|from  to . . . . . . . . . . . . . . . | 199335| 14.03| 186.10752|
-|1724-1915.5|from  to . . . . . . . . . . . . . . . | 219269| 15.43| 204.71874|
-|1915.5-2107|from  to . . . . . . . . . . . . . . . | 234964| 16.54| 219.37225|
-|2107-2298.5|from  to . . . . . . . . . . . . . . . | 192389| 13.54| 179.62245|
-|2298.5-2490|from  to . . . . . . . . . . . . . . . | 131903|  9.28| 123.15018|
-|2490-2681.5|from  to . . . . . . . . . . . . . . . |  36297|  2.55|  33.88840|
-|2681.5-2873|from  to . . . . . . . . . . . . . . . |   3278|  0.23|   3.06048|
-|TOTAL      |                                       |1420848|100.00|1326.56333|
-~~~
-
-Abrimos la carpeta personal y abrimos el archivo csv que creamos.
-
-![Importación de texto separado por comas en LibreOffice](/cartografia-digital/images/csv_import.png){: .img-responsive}
-
-En el diálogo que se abre, configuramos las opciones como se ve en la imagen: en las opciones de separador seleccionamos "Separado por" y "Otros" y escribimos el símbolo `|`, seleccionamos las columnas primera y tercera y seleccionamos "Ocultar" en "Tipo de columna".
-
-Organizamos los encabezados y le damos un poco de formato a la tabla, de manera que nos queda algo como en la siguiente tabla:
-
-| Rango altitudinal | No. Píxeles | Porcentaje | Área (km2) |
-|:-----------------:|:-----------:|:----------:|:----------:|
-|    958   - 1149.5 |      116302 |       8.19 |  108.58443 |
-|   1149.5 - 1341   |      138526 |       9.75 |  129.33369 |
-|   1341   - 1532.5 |      148585 |      10.46 |  138.72519 |
-|   1532.5 - 1724   |      199335 |      14.03 |  186.10752 |
-|   1724   - 1915.5 |      219269 |      15.43 |  204.71874 |
-|   1915.5 - 2107   |      234964 |      16.54 |  219.37225 |
-|   2107   - 2298.5 |      192389 |      13.54 |  179.62245 |
-|   2298.5 - 2490   |      131903 |       9.28 |  123.15018 |
-|   2490   - 2681.5 |       36297 |       2.55 |   33.88840 |
-|   2681.5 - 2873   |        3278 |       0.23 |    3.06048 |
-|===================|=============|============|============|
-|             TOTAL |     1420848 |     100.00 | 1326.56333 |
-{: .table .table-striped}
--->
+- Cambie la tabla de colores del mapa `ituango` por una que pueda destacar mejor algunos rasgos del relieve.
