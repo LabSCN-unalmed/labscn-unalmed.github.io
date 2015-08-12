@@ -62,6 +62,7 @@ El administrador de capas constituye una herramienta para crear y administrar mo
 
 ![Administrador de Capas](./images/clase-02/grass_layer_manager.png){: .img-responsive}
 
+<!--
 #### Barra de herramientas del administrador de capas
 
 ![Abrir nuevo monitor](./images/clase-02/monitor-create.png) Abrir nuevo monitor
@@ -169,11 +170,6 @@ El administrador de capas constituye una herramienta para crear y administrar mo
 ![Ayuda](./images/clase-02/help.png) Ayuda
 : Abre la documentación de GRASS en un navegador web.
 
-<!--
-![](./images/clase-02/.png)
-:
--->
-
 #### Atajos de teclado claves
 
 `Ctrl+Q`
@@ -200,7 +196,6 @@ El administrador de capas constituye una herramienta para crear y administrar mo
 `Ctrl+W`
 : Cierra el monitor actual.
 
-<!--
 `Tab`
 : Muestra una guía rápida del comando.
 
@@ -231,6 +226,7 @@ En la parte inferior de la ventana se encuentra la barra de estado, en ella se p
 
 El nivel de acercamiento o "zoom", no incide sobre la región de cálculo (establecida mediante `g.region`).
 
+<!--
 #### Barra de herramientas del visualizador de mapas
 
 ![Desplegar mapa](./images/clase-02/show.png) Desplegar mapa
@@ -305,11 +301,63 @@ El nivel de acercamiento o "zoom", no incide sobre la región de cálculo (estab
 
 Modo de despliegue de mapas
 : Menú desplegable donde se elige si se quieren visualizar los mapas en 2D o 3D. También da la opción de digitalizar mapas vectoriales agregando una barra de herramientas para la digitalización. Permite digitalizar un nuevo mapa o editar uno existente.
-
-<!--
-![](./images/clase-02/.png)
-:
 -->
+
+## Despliegue de mapas
+
+Utilizando el botón ![Agregar capa de mapa raster](./images/clase-02/layer-raster-add.png) vamos a agregar una nueva capa: el mapa `porcecito`.
+
+La siguiente es la ventana de selección del mapa a desplegar:
+
+![](./images/clase-02/clase-02_01.png){: .img-responsive}
+
+El administrador de capas ahora tendrá la capa del mapa `porcecito`, así:
+
+![](./images/clase-02/clase-02_02.png){: .img-responsive}
+
+Y este será desplegado en el visualizador de mapas, así:
+
+![](./images/clase-02/clase-02_03.png){: .img-responsive}
+
+Agregando una segunda capa, en este caso del mapa `ituango`:
+
+![](./images/clase-02/clase-02_04.png){: .img-responsive}
+
+El administrador de capas muestra las 2 capas agregadas:
+
+![](./images/clase-02/clase-02_05.png){: .img-responsive}
+
+Sin embargo, el visualizador de mapas sigue mostrando el mapa `porcecito`. Esto es debido a que ambas capas corresponden a regiones geográficas diferentes, por lo tanto, para visualizar el nuevo mapa `ituango`, en el visualizar de mapas se utiliza el botón ![Acercar al mapa seleccionado](./images/clase-02/zoom-extent.png). Ahora si se muestra el mapa correspondiente.
+
+![](./images/clase-02/clase-02_06.png){: .img-responsive}
+
+Si se quieren visualizar ambos mapas, se deben seleccionar en el administrador de capas utilizando haciendo click sobre las capas mientras se presiona la tecla `Ctrl`:
+
+![](./images/clase-02/clase-02_07.png){: .img-responsive}
+
+Y nuevamente utilizando el botón ![Acercar al mapa seleccionado](./images/clase-02/zoom-extent.png) en el visualizador de mapas, obtendremos:
+
+![](./images/clase-02/clase-02_08.png){: .img-responsive}
+
+Observemos que en el administrador de capas, cada una de las capas agregadas, tiene una casilla de verificación, la cual permite activar o desactivar la capa respectiva:
+
+![](./images/clase-02/clase-02_09.png){: .img-responsive}
+
+Y al desactivar una de las capas:
+
+![](./images/clase-02/clase-02_10.png){: .img-responsive}
+
+Esta dejará de desplegarse en el visualizador de mapas:
+
+![](./images/clase-02/clase-02_11.png){: .img-responsive}
+
+La activación es diferente de la selección, por lo que al utilizar el botón ![Acercar al mapa seleccionado](./images/clase-02/zoom-extent.png), sólo se tendrán en cuenta las capas activas de las seleccionadas, por lo que acercará unicamente a la capa activa.
+
+De manera similar, intentar acercar a una capa inactiva:
+
+![](./images/clase-02/clase-02_12.png){: .img-responsive}
+
+No tendría ningún efecto en la región desplegada.
 
 La terminal de comandos
 -----------------------
