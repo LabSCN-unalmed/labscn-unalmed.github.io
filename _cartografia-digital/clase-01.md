@@ -83,38 +83,83 @@ En la salida del comando `pwd`, vemos lo siguiente:
 **Nota:** Con la combinación de `/` y nombres específicos de directorios, se puede acceder a otros subdirectorios del sistema de archivos.
 {: .alert .alert-info}
 
-### mkdir
+### ls
 
-El comando `mkdir` (make directory) crea un directorio o carpeta.
-
-Para crear el directorio `directorio` en la ubicación actual:
+El comando `ls` (list) imprime una lista del contenido del directorio actual:
 
 ~~~
-mkdir directorio
+ls
 ~~~
 
-Este comando también cuenta con una opción bastante útil que permite crear un árbol de directorios de manera simultánea. Por ejemplo, suponiendo que se quiere crear el directorio `ejercicios` y dentro de éste, el subdirectorio `clase1` , se utiliza la opción `-p`:
+~~~
+01CreacionLocations  04UsoVector  Downloads  Pictures  Shared
+02ZonasVida          Desktop      Grass      Public    Templates
+03AntioquiaVector    Documents    Music      R         Videos
+~~~
+{: .output}
+
+El comando `ls` tiene varias opciones que permiten organizar la información brindada, por ejemplo, para ver una lista larga y detallada de los elementos, se utiliza la opción `-l` (long):
 
 ~~~
-mkdir -p ejercicios/clase1
+ls -l
 ~~~
 
-En consecuencia, el directorio `clase1` está dentro del directorio `ejercicios`, y éste último quedará en el directorio `~` (carpeta personal de usuario) al igual que el directorio `directorio`.
+~~~
+total 56
+drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 01CreacionLocations
+drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 02ZonasVida
+drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 03AntioquiaVector
+drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 04UsoVector
+drwxrwxr-x 2 usuario usuario 4096 jun 22 15:50 Desktop
+drwxr-xr-x 2 usuario usuario 4096 jun 22 16:37 Documents
+drwxr-xr-x 2 usuario usuario 4096 jul 29 10:34 Downloads
+drwxrwxr-x 3 usuario usuario 4096 abr 24  2014 Grass
+drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Music
+drwxr-xr-x 3 usuario usuario 4096 abr 25  2014 Pictures
+drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Public
+drwxrwxr-x 3 usuario usuario 4096 abr 24  2014 R
+lrwxrwxrwx 1 usuario usuario   17 ago  6  2014 Shared -> /media/sf_shared/
+drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Templates
+drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Videos
+~~~
+{: .output}
+
+- La primer columna contiene información del tipo de elemento, es decir, diferencia entre directorio y archivo. Para los directorios la columna inicia con una `d`; para los archivos la columna inicia con un `-`.
+- La tercer y cuarta columna contienen información del propietario del elemento.
+- La quinta columna contiene información del tamaño del elemento.
+- Las columnas sexta, séptima y octava contienen información de la fecha y hora de modificación del elemento.
+- La novena y última columna contiene el nombre del elemento.
+
+Opcionalmente, si se quiere ver la lista de un directorio diferente al actual, al comando `ls` se le puede indicar la ruta de dicho directorio como un parámetro, e incluso se pueden especificar las opciones:
+
+~~~
+ls -l 02ZonasVida
+~~~
+
+~~~
+total 1424
+-rwxrwxrwx 1 usuario usuario    3330 abr 21  2008 zvidantioq.dbf
+-rwxrwxrwx 1 usuario usuario     284 ago 27  2001 zvidantioq.sbn
+-rwxrwxrwx 1 usuario usuario     132 ago 27  2001 zvidantioq.sbx
+-rwxrwxrwx 1 usuario usuario 1440196 ago 27  2001 zvidantioq.shp
+-rwxrwxrwx 1 usuario usuario     228 ago 27  2001 zvidantioq.shx
+~~~
+{: .output}
 
 ### cd
 
 El comando `cd` (change diretory) cambia de directorio, permitiendo ubicarse en una ruta diferente a la actual.
 
-Para acceder a `directorio`:
+Para acceder al directorio `02ZonasVida`:
 
 ~~~
-cd directorio
+cd 02ZonasVida
 ~~~
 
 Comprobar la ruta actual con el comando `pwd`. Además el prompt también indicará la ruta actual:
 
 ~~~
-usuario@ubuntu:~/directorio $
+usuario@ubuntu:~/02ZonasVida $
 ~~~
 
 Si se desea subir un nivel en el árbol de directorios (es decir, ubicarse en el directorio que contiene al directorio actual):
@@ -128,7 +173,7 @@ Nuevamente comprobar la ruta actual con `pwd` y el prompt.
 También se puede ingresar a un directorio varios niveles abajo en el árbol de directorios especificando la ruta:
 
 ~~~
-cd ejercicios/clase1
+cd Grass/CursoGrass/
 ~~~
 
 Comprobar con `pwd` y observar el cambio en el prompt.
@@ -148,13 +193,31 @@ cd -
 ~~~
 
 ~~~
-/home/usuario/ejercicios/clase1
+/home/usuario/Grass/CursoGrass/
 ~~~
 {: .output}
 
 Una vez más, comprobar con `pwd` y observar el cambio en el prompt.
 
 Este último ejemplo, funciona de manera similar al botón "Previous Channel" de los controles remotos de TV.
+
+### mkdir
+
+El comando `mkdir` (make directory) crea un directorio o carpeta.
+
+Para crear el directorio `directorio` en la ubicación actual:
+
+~~~
+mkdir directorio
+~~~
+
+Este comando también cuenta con una opción bastante útil que permite crear un árbol de directorios de manera simultánea. Por ejemplo, suponiendo que se quiere crear el directorio `ejercicios` y dentro de éste, el subdirectorio `clase1` , se utiliza la opción `-p`:
+
+~~~
+mkdir -p ejercicios/clase1
+~~~
+
+En consecuencia, el directorio `clase1` está dentro del directorio `ejercicios`, y éste último quedará en el directorio `~` (carpeta personal de usuario) al igual que el directorio `directorio`.
 
 ### touch
 
@@ -171,90 +234,6 @@ Para crear el archivo `ejercicio2.txt` dentro del directorio `clase1` que a su v
 ~~~
 touch ejercicios/clase1/ejercicio2.txt
 ~~~
-
-### ls
-
-El comando `ls` (list) imprime una lista del contenido del directorio actual:
-
-~~~
-ls
-~~~
-
-~~~
-01CreacionLocations  Desktop     ejercicio1.txt  Pictures  Templates
-02ZonasVida          directorio  ejercicios      Public    Videos
-03AntioquiaVector    Documents   Grass           R
-04UsoVector          Downloads   Music           Shared
-~~~
-{: .output}
-
-El comando `ls` tiene varias opciones que permiten organizar la información brindada, por ejemplo, para ver una lista larga y detallada de los elementos, se utiliza la opción `-l` (long):
-
-~~~
-ls -l
-~~~
-
-~~~
-total 64
-drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 01CreacionLocations
-drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 02ZonasVida
-drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 03AntioquiaVector
-drwxrwxr-x 2 usuario usuario 4096 ago  5  2014 04UsoVector
-drwxrwxr-x 2 usuario usuario 4096 jun 22 17:02 Desktop
-drwxrwxr-x 2 usuario usuario 4096 jun 30 16:16 directorio
-drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Documents
-drwxr-xr-x 2 usuario usuario 4096 jun 25  2014 Downloads
--rw-rw-r-- 1 usuario usuario    0 jun 30 16:16 ejercicio1.txt
-drwxrwxr-x 4 usuario usuario 4096 jun 30 16:14 ejercicios
-drwxrwxr-x 3 usuario usuario 4096 abr 24  2014 Grass
-drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Music
-drwxr-xr-x 3 usuario usuario 4096 abr 25  2014 Pictures
-drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Public
-drwxrwxr-x 3 usuario usuario 4096 abr 24  2014 R
-lrwxrwxrwx 1 usuario usuario   17 abr 24  2014 Shared -> /mnt/hgfs/shared/
-drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Templates
-drwxr-xr-x 2 usuario usuario 4096 abr 24  2014 Videos
-~~~
-{: .output}
-
-- La primer columna contiene información del tipo de elemento, es decir, diferencia entre directorio y archivo. Para los directorios la columna inicia con una `d`; para los archivos la columna inicia con un `-`.
-- La tercer y cuarta columna contienen información del propietario del elemento.
-- La quinta columna contiene información del tamaño del elemento.
-- Las columnas sexta, séptima y octava contienen información de la fecha y hora de modificación del elemento.
-- La novena y última columna contiene el nombre del elemento.
-
-Opcionalmente, si se quiere ver la lista de un directorio diferente al actual, al comando `ls` se le puede indicar la ruta de dicho directorio como un parámetro, e incluso se pueden especificar las opciones:
-
-~~~
-ls -l directorio
-~~~
-
-~~~
-total 0
-~~~
-{: .output}
-
-Esto indica que el directorio se encuentra vacío, no contiene ni archivos ni subdirectorios.
-
-~~~
-ls -l ejercicios
-~~~
-
-~~~
-total 4
-drwxrwxr-x 2 usuario usuario 4096 jun 26 15:59 clase1
-~~~
-{: .output}
-
-~~~
-ls -l ejercicios/clase1
-~~~
-
-~~~
-total 0
--rw-rw-r-- 1 usuario usuario 0 jun 30 15:59 ejercicio2.txt
-~~~
-{: .output}
 
 ### cp
 
