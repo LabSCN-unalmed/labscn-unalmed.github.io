@@ -362,6 +362,12 @@ cowsay -f <cowfile> "<mensaje>"
 
 * Ejecutar el script con el comando `bash`.
 
+
+## Tarea 1
+{: .text-danger}
+
+Siguiendo una metodología similar al ejercicio anterior, realizar un guión que muestre la siguiente salida:
+
 ~~~
  ______________________________________
 / ¡Fogosa bienvenida al curso de GRASS \
