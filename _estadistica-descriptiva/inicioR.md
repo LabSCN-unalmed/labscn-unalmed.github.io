@@ -18,7 +18,7 @@ Inicialmente se toma el archivo en formato .xlsx o .xls y se ubica en una carpet
 
 ### Base de datos.
 
-- [Homicidios en Colombia (xlsx)](/estadistica-descriptiva/iniR/HomicidiosColombia2014.xlsx){:target="_blank"}
+- [Homicidios en Colombia (xlsx)](./basesdedatos/HomicidiosColombia2014.xlsx){:target="_blank"}
 
 ### Crear una carpeta para la base de datos.
 En este caso se creó una carpeta con el nombre de `practica1`. Y
