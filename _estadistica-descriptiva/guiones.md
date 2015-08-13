@@ -13,3 +13,5 @@ order: 01
 ## Análisis descriptivo y exploratorio de la encuesta (Edad)
 
 * [Análisis descriptivo y exploratorio para Edad](./guiones/Explora1.html){:target="_blank"}
+* [Encuesta (xslx)](./basesdedatos/Encuesta.xlsx){:target="_blank"}
+* [Encuesta (csv)](./basesdedatos/Encuesta.csv){:target="_blank"}
