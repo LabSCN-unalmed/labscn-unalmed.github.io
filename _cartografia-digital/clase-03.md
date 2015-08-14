@@ -225,6 +225,8 @@ r.colors map=porcecito1 rules=TC_porce3
 
 ![Tercera versión](/cartografia-digital/images/TC_porce3.png){: .img-responsive}
 
+<Mostrar con el visualizador la manera de obtener el mapa en 3D>
+
 **Un primer descreste:** Con el comando `nviz` visualizar lo hecho. La diferencia entre una observación 2D del relieve y una observación 3D del mismo.
 
 ![Visualización del relieve en 3D utilizando nviz](/cartografia-digital/images/porcecito3D.png){: .img-responsive}
@@ -381,7 +383,6 @@ La secuencia de ordenes en GRASS es la siguiente:
 g.list rast
 g.copy rast=ituango,ituan
 g.region rast=ituan
-d.rast ituan
 r.colors map=ituan raster=porcecito1
 ~~~
 
@@ -391,7 +392,7 @@ r.colors map=ituan raster=porcecito1
 
 *¿Por qué aparecen zonas en el mapa `ituan` que no presentan color? ¿Cómo explicarlo?*
 
-### Eliminar la tabla de colores traída de porcecito y aplicada a ituan
+### Eliminar la tabla de colores traída de porcecito y aplicada a ituango
 
 Se puede eliminar la tabla traída de otro mapa y desplegar la tabla inicial de colores que tenía el mapa.
 
@@ -399,9 +400,28 @@ Se puede eliminar la tabla traída de otro mapa y desplegar la tabla inicial de 
 r.colors -r ituan
 ~~~
 
+
+## Tarea 3
+{: .text-danger}
+
+Problema: Se tiene el mapa topográfico de ituango y se require que se 
+coloree de tal manera que se reflejen los aspectos topográficos lo más cerano
+al aspecto natural del mismo y a su vez se reslte la red de drenaje.
+
+Enviar los siguiente elementos:
+
+- Guión con extensión `.sh` y con la documentación pertinente para resolver el problemas.
+- Enviar el archivo de tipo `TC` con la tabla de colores utilizada.
+- Enviar un archivo `png` con el resultado del mapa coloreado.
+- Enviar un archivo `pdf` con una corta discusión de los resultados obtenidos y
+  la justificación de los colores utilizados y su interpretación.
+
+
+
+<!--
 Actividad extracurso
 --------------------
 
 1. Pasar los mapas `ituango` y `riogrande_sup` de integer a double precision. (Los mapas en double precision, son los que se van a seguir empleando en las próximas sesiones).
 2. Crear una copia del mapa ituango y asignarles a cada uno tablas de colores diferentes, con los mismos rangos altitudinales y colores diferentes. Evaluar la calidad de la visualización.
-3. Calcular la extensión en km<sup>2</sup> y número píxeles en el mapa ituango para los terrenos localizados por encima de los 3.000 msnm y por debajo de los 500 msnm, de la manera más aproximada posible.
+3. Calcular la extensión en km<sup>2</sup> y número píxeles en el mapa ituango para los terrenos localizados por encima de los 3.000 msnm y por debajo de los 500 msnm, de la manera más aproximada posible. -->
