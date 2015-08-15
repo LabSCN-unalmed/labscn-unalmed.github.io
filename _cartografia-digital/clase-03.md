@@ -404,9 +404,15 @@ r.colors -r ituan
 ## Tarea 3
 {: .text-danger}
 
-Problema: Se tiene el mapa topográfico de ituango y se require que se 
-coloree de tal manera que se reflejen los aspectos topográficos lo más cerano
-al aspecto natural del mismo y a su vez se reslte la red de drenaje.
+Problema: Se tiene el mapa topográfico de Ituango y se requiere que se 
+coloree de tal manera que se reflejen las características topográficos lo más cerano
+al aspecto natural del mismo y a su vez se resalte la red de drenaje.
+
+Consideremos que la región presenta clima húmedo en todos sus pisos, por
+lo tanto utilizar simbolismos de color pertinentes a cada una de las zonas
+de vida de diferentes franjas altitudinales. Tratar de que los colores
+seleccionados constituyan una representación de la condición natural.
+
 
 Enviar los siguiente elementos:
 
@@ -415,7 +421,6 @@ Enviar los siguiente elementos:
 - Enviar un archivo `png` con el resultado del mapa coloreado.
 - Enviar un archivo `pdf` con una corta discusión de los resultados obtenidos y
   la justificación de los colores utilizados y su interpretación.
-
 
 
 <!--
