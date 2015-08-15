@@ -404,8 +404,8 @@ r.colors -r ituan
 ## Tarea 3
 {: .text-danger}
 
-Problema: Se tiene el mapa topográfico de Ituango y se requiere que se 
-coloree de tal manera que se reflejen las características topográficos lo más cerano
+Problema: Se tiene el mapa topográfico de `ituango` y se requiere que se 
+coloree de tal manera que se reflejen las características topográficos lo más cercano
 al aspecto natural del mismo y a su vez se resalte la red de drenaje.
 
 Consideremos que la región presenta clima húmedo en todos sus pisos, por
