@@ -13,7 +13,7 @@ order: 03
 
 ### Taller 2
 
-* Tomando como base de datos, la tabla de [homicidios en Colombia en el 2014](./iniR/HomicidiosColombia2014.xlsx){:target="_blank"},
+* Tomando como base de datos, la tabla de [homicidios en Colombia en el 2014](./basesdedatos/HomicidiosColombia2014.xlsx){:target="_blank"},
   realice lo siguiente:
   - Construya mediante un guión en R, dos gráficas 
     (una para hombres y otra para mujeres) en donde
