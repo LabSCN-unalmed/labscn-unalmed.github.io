@@ -1,9 +1,9 @@
 // Colors
-$brand-primary:         #008cba;
-$brand-success:         #43ac6a;
-$brand-info:            #5bc0de;
-$brand-warning:         #E99002;
-$brand-danger:          #F04124;
+$brand-primary:           #008cba;
+$brand-success:           #43ac6a;
+$brand-info:              #5bc0de;
+$brand-warning:           #E99002;
+$brand-danger:            #F04124;
 
 
 // Font families
@@ -24,17 +24,20 @@ $headings-font-family:    $font-family-headings;
 $icon-font-path:          "../fonts/bootstrap/";
 
 // Code
+$pre-bg:                  #333;
+$pre-color:               #fff;
 $pre-output-bg:           #fff;
+$pre-output-color:        #333;
 
 // Navbar collapse
 $grid-float-breakpoint:   992px;
 
 // Alerts
-$alert-success-bg:            lighten($brand-success, 10%);
-$alert-success-text:          darken($alert-success-bg, 50%);
-$alert-info-bg:               lighten($brand-info, 10%);
-$alert-info-text:             darken($alert-info-bg, 50%);
-$alert-warning-bg:            lighten($brand-warning, 10%);
-$alert-warning-text:          darken($alert-warning-bg, 50%);
-$alert-danger-bg:             lighten($brand-danger, 10%);
-$alert-danger-text:           darken($alert-danger-bg, 50%);
+$alert-success-bg:        lighten($brand-success, 10%);
+$alert-success-text:      darken($alert-success-bg, 50%);
+$alert-info-bg:           lighten($brand-info, 10%);
+$alert-info-text:         darken($alert-info-bg, 50%);
+$alert-warning-bg:        lighten($brand-warning, 10%);
+$alert-warning-text:      darken($alert-warning-bg, 50%);
+$alert-danger-bg:         lighten($brand-danger, 10%);
+$alert-danger-text:       darken($alert-danger-bg, 50%);
