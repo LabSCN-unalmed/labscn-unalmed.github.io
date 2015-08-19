@@ -62,7 +62,26 @@ El administrador de capas constituye una herramienta para crear y administrar mo
 
 ![Administrador de Capas](./images/clase-02/grass_layer_manager.png){: .img-responsive}
 
-<!--
+### Visualizador de Mapas
+
+La ventana de visualización de mapas incluye una barra de herramientas, un espacio en donde se despliegan los mapas, y una barra de estado con información de la región geográfica de los mapas desplegados.
+
+![Visualizador de Mapas](./images/clase-02/grass_map_display.png){: .img-responsive}
+
+Cada ventana de visualización de mapas tiene una lista de capas independiente en el administrador de capas.
+
+En la parte superior de la ventana se encuentra una barra de herramientas con botones para manipular el mapa desplegado (ampliación, vista panorámica), consulta y análisis (medir distancia, creación de perfiles e histogramas, agregar elementos al mapa (escala, flecha de norte, leyenda y etiquetas de texto personalizadas), y para exportar o imprimir el monitor.
+
+En la parte inferior de la ventana se encuentra la barra de estado, en ella se puede elegir si presentar las coordenadas bajo el cursor, la extensión de la región actual, la región de cálculo (incluyendo visualización gráfica), la geometría del mapa desplegado (número de fílas, columnas y resolución), y la escala. Marcar la opción de **renderizar** hace que la ventana se actualice automáticamente cada que se añade un mapa, se borra, o se cambia en la lista de capas.
+
+El nivel de acercamiento o "zoom", no incide sobre la región de cálculo establecida mediante `g.region`.
+
+#### Región de cálculo
+
+El comando `g.region` define lo que se denominará **región de cálculo**{: .text-info}, la cual corresponde a la región sobre la cual se ejecutarán los comandos de procesamiento **raster**{: .text-warning}. Y es independiente de la visualización de las capas.
+
+### Barras de herramientas
+
 #### Barra de herramientas del administrador de capas
 
 ![Abrir nuevo monitor](./images/clase-02/monitor-create.png) Abrir nuevo monitor
@@ -210,27 +229,7 @@ El administrador de capas constituye una herramienta para crear y administrar mo
 
 `Enter`
 : Ejecuta el comando.
--->
 
-### Visualizador de Mapas
-
-La ventana de visualización de mapas incluye una barra de herramientas, un espacio en donde se despliegan los mapas, y una barra de estado con información de la región geográfica de los mapas desplegados.
-
-![Visualizador de Mapas](./images/clase-02/grass_map_display.png){: .img-responsive}
-
-Cada ventana de visualización de mapas tiene una lista de capas independiente en el administrador de capas.
-
-En la parte superior de la ventana se encuentra una barra de herramientas con botones para manipular el mapa desplegado (ampliación, vista panorámica), consulta y análisis (medir distancia, creación de perfiles e histogramas, agregar elementos al mapa (escala, flecha de norte, leyenda y etiquetas de texto personalizadas), y para exportar o imprimir el monitor.
-
-En la parte inferior de la ventana se encuentra la barra de estado, en ella se puede elegir si presentar las coordenadas bajo el cursor, la extensión de la región actual, la región de cálculo (incluyendo visualización gráfica), la geometría del mapa desplegado (número de fílas, columnas y resolución), y la escala. Marcar la opción de **renderizar** hace que la ventana se actualice automáticamente cada que se añade un mapa, se borra, o se cambia en la lista de capas.
-
-El nivel de acercamiento o "zoom", no incide sobre la región de cálculo establecida mediante `g.region`.
-
-#### Región de cálculo
-
-El comando `g.region` define lo que se denominará **región de cálculo**{: .text-info}, la cual corresponde a la región sobre la cual se ejecutarán los comandos de procesamiento **raster**{: .text-warning}. Y es independiente de la visualización de las capas.
-
-<!--
 #### Barra de herramientas del visualizador de mapas
 
 ![Desplegar mapa](./images/clase-02/show.png) Desplegar mapa
@@ -305,7 +304,6 @@ El comando `g.region` define lo que se denominará **región de cálculo**{: .te
 
 Modo de despliegue de mapas
 : Menú desplegable donde se elige si se quieren visualizar los mapas en 2D o 3D. También da la opción de digitalizar mapas vectoriales agregando una barra de herramientas para la digitalización. Permite digitalizar un nuevo mapa o editar uno existente.
--->
 
 ## Despliegue de mapas
 
@@ -401,8 +399,6 @@ make: *** No hay ninguna regla para construir el objetivo «love».  Alto.
 {: .output}
 
 En este caso el sistema si reconoce la orden `make`, pero no reconoce el parámetro `love` como un objetivo válido de la orden `make`.
-
-Si de
 
 La terminal de comandos en GRASS funciona con el mismo intérprete que la terminal de GNU/Linux, por lo que todos los comandos de GNU/Linux (como por ejemplo los vistos en la clase anterior) funcionan dentro de GRASS, y además, los comandos propios de GRASS conservan una [sintaxis muy similar a la de los comandos GNU/Linux](../clase-01/#sintxis-bsica-de-los-comandos-en-la-terminal-de-gnulinux):
 
