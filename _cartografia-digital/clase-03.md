@@ -16,7 +16,7 @@ Cada uno de estos colores base presenta 255 valores diferentes.
 
 Un color por lo tanto se obtiene como una combinación de valores para *rojo*, *verde*, y *azul*.
 
-Evaluar distintas combinaciones empleando el programa “gcolor2”: Aplicaciones &rarr; Gráficos &rarr; Gcolor2
+Evaluar distintas combinaciones empleando el programa "gcolor2": Aplicaciones &rarr; Gráficos &rarr; Gcolor2
 
 ![Selector de color gcolor2](/cartografia-digital/images/gcolor2.png){: .img-responsive}
 
@@ -33,7 +33,7 @@ Evaluar distintas combinaciones empleando el programa “gcolor2”: Aplicacione
 
 En la combinación `"0:0:255"` se tiene un color azul intenso. A medida que se disminuye el valor de B, el color azul se va tornando mas oscuro. La combinación final `"0:0:0"` corresponde al color negro.
 
-Las combinación `"0:0:255"` ubica el punto de los colores en el centro de la franja del circulo de colores correspondiente a los azules. La combinación `"0:255:0"` ubica el punto en el centro de la franja correspondiente a los “verdes” y la combinación `"255.0:0"` ubica el punto en el centro de la franja correspondiente a los rojos.
+Las combinación `"0:0:255"` ubica el punto de los colores en el centro de la franja del circulo de colores correspondiente a los azules. La combinación `"0:255:0"` ubica el punto en el centro de la franja correspondiente a los "verdes" y la combinación `"255.0:0"` ubica el punto en el centro de la franja correspondiente a los rojos.
 
 La combinación de dos colores manteniendo el otro valor en cero (0) hace variar la posición del punto del color a lo largo de la circunferencia externa de los colores.
 
@@ -69,46 +69,71 @@ Para conocer los nombres disponibles mas inmediatos:
 d.colorlist
 ~~~
 
+~~~
+red,orange,yellow,green,blue,indigo,violet,white,black,gray,brown,magenta,aqua,grey,cyan,purple
+~~~
+{: .output}
+
 Asignación de color por tablas predefinidas
 -------------------------------------------
 
 Existe en GRASS un conjunto de tablas preestablecidas que se pueden aplicar a un mapa dado.
 
-El comando `r.colors` permite crear o modificar la tabla de colores asociada a un mapa raster. En este comando, el parámetro “color” permite seleccionar una tabla especifica de unas 30 tablas disponibles.
+El comando `r.colors` permite crear o modificar la tabla de colores asociada a un mapa raster. En este comando, el parámetro "color" permite seleccionar una tabla especifica de unas 30 tablas disponibles.
 
 Vamos a utilizar algunas tabla de colores preestablecidas.
 
-### La tabla de colores “aspect”
+### La tabla de colores "aspect"
 
 ~~~
-r.colors map=porcecito1 color=aspect
+r.colors map=porcecito color=aspect
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'aspect'
+~~~
+{: .output}
 
 ![La tabla de colores "aspect"](/cartografia-digital/images/porcecito_aspect.png){: .img-responsive}
 
 *¿Qué rasgos de la región resaltan con esta tabla de colores?*
 
-### La tabla de colores “bcyr”
+### La tabla de colores "bcyr"
 
 ~~~
-r.colors map=porcecito1 color=bcyr
+r.colors map=porcecito color=bcyr
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'bcyr'
+~~~
+{: .output}
 
 ![La tabla de colores "bcyr"](/cartografia-digital/images/porcecito_bcyr.png){: .img-responsive}
 
-### La tabla de colores “elevation”
+### La tabla de colores "elevation"
 
 ~~~
-r.colors map=porcecito1 color=elevation
+r.colors map=porcecito color=elevation
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'elevation'
+~~~
+{: .output}
 
 ![La tabla de colores "elevation"](/cartografia-digital/images/porcecito_elevation.png){: .img-responsive}
 
-### La tabla de colores “rainbow”
+### La tabla de colores "rainbow"
 
 ~~~
-r.colors map=porcecito1 color=rainbow
+r.colors map=porcecito color=rainbow
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'rainbow'
+~~~
+{: .output}
 
 ![La tabla de colores "rainbow"](/cartografia-digital/images/porcecito_rainbow.png){: .img-responsive}
 
@@ -144,12 +169,32 @@ Existe el comando `r.univar` que permite conocer los estadísticos básicos de c
 - Otros parámetros.
 
 ~~~
-r.univar porcecito1
+r.univar map=porcecito
 ~~~
+
+~~~
+ 100%
+total null and non-null cells: 1420848
+total null cells: 0
+
+Of the non-null cells:
+----------------------
+n: 1420848
+minimum: 958
+maximum: 2873
+range: 1915
+mean: 1794.74
+mean of absolute values: 1794.74
+standard deviation: 413.958
+variance: 171362
+variation coefficient: 23.0651 %
+sum: 2550048192
+~~~
+{: .output}
 
 ### Crear una tabla de colores en gedit con variación gradual del color y asignarle una identificación
 
-#### ¿Qué significa “con variación gradual del color”?
+#### ¿Qué significa "con variación gradual del color"?
 
 Si a la altitud 1000 msnm le asignamos el color *rojo* y a la altitud 2000 msnm le asignamos el color *amarillo*, la variación gradual del color significa que a los píxeles en el rango 1000-2000 les asigna colores intermedios entre rojo y amarillo dependiendo de la cercanía altitudinal los dos extremos conocidos. Por lo tanto muchos píxeles tendrán colores en la tonalidad del *naranja* que es el color correspondiente a la recombinación variable de *rojo* y *amarillo*.
 
@@ -174,8 +219,13 @@ Pasos a seguir:
 ~~~
 
 ~~~
-r.colors map=porcecito1 rules=TC_porce1
+r.colors map=porcecito rules=TC_porce1
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce1'
+~~~
+{: .output}
 
 ![Primera versión](/cartografia-digital/images/TC_porce1.png){: .img-responsive}
 
@@ -199,8 +249,13 @@ Mirando el mapa y teniendo el archivo abierto en gedit al lado, le hacemos las m
 ~~~
 
 ~~~
-r.colors map=porcecito1 rules=TC_porce2
+r.colors map=porcecito rules=TC_porce2
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce2'
+~~~
+{: .output}
 
 ![Segunda versión](/cartografia-digital/images/TC_porce2.png){: .img-responsive}
 
@@ -220,16 +275,19 @@ r.colors map=porcecito1 rules=TC_porce2
 ~~~
 
 ~~~
-r.colors map=porcecito1 rules=TC_porce3
+r.colors map=porcecito rules=TC_porce3
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce3'
+~~~
+{: .output}
 
 ![Tercera versión](/cartografia-digital/images/TC_porce3.png){: .img-responsive}
 
-<Mostrar con el visualizador la manera de obtener el mapa en 3D>
+**Un primer descreste:** Utilizar la _Vista 3D_ del visualizador de mapas para diferenciar entre una observación 2D y 3D del relieve.
 
-**Un primer descreste:** Con el comando `nviz` visualizar lo hecho. La diferencia entre una observación 2D del relieve y una observación 3D del mismo.
-
-![Visualización del relieve en 3D utilizando nviz](/cartografia-digital/images/porcecito3D.png){: .img-responsive}
+![Visualización del relieve en 3D](/cartografia-digital/images/porcecito3D.png){: .img-responsive}
 
 **NOTA:** Hemos utilizado la idea de variación gradual del color pero nos restringimos a los colores que por nombre identifica el GRASS.
 
@@ -252,8 +310,13 @@ Utilizando nombres y la nomenclatura RGB.
 ~~~
 
 ~~~
-r.colors map=porcecito1 rules=TC_porce4
+r.colors map=porcecito rules=TC_porce4
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce4'
+~~~
+{: .output}
 
 ![Cuarta versión](/cartografia-digital/images/TC_porce4.png){: .img-responsive}
 
@@ -275,12 +338,17 @@ En este caso, se trata de definir rangos altitudinales discretos (un comienzo y 
 ~~~
 
 ~~~
-r.colors map=porcecito1 rules=TC_porce5
+r.colors map=porcecito rules=TC_porce5
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce5'
+~~~
+{: .output}
 
 ![Variación discreta de color por altitud](/cartografia-digital/images/TC_porce5.png){: .img-responsive}
 
-En la tabla antes creada (`TC_porce5`) no se cubre todo el rango altitudinal del archivo `porcecito1`. Al aplicar el comando `r.colors` sale una advertencia señalando este hecho.
+En la tabla antes creada (`TC_porce5`) no se cubre todo el rango altitudinal del archivo `porcecito`. Al aplicar el comando `r.colors` sale una advertencia señalando este hecho.
 
 Luego en el mapa desplegado quedarán en blanco los píxeles para el rango altitudinal que no se involucró.
 
@@ -301,8 +369,13 @@ En este caso iniciamos con un porcentaje del 0% en la altitud mas baja y asignam
 ~~~
 
 ~~~
-r.colors map=porcecito1 rules=TC_porce6
+r.colors map=porcecito rules=TC_porce6
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce6'
+~~~
+{: .output}
 
 ![Primera versión](/cartografia-digital/images/TC_porce6.png){: .img-responsive}
 
@@ -320,8 +393,13 @@ r.colors map=porcecito1 rules=TC_porce6
 ~~~
 
 ~~~
-r.colors map=porcecito1 rules=TC_porce6a
+r.colors map=porcecito rules=TC_porce6a
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce6a'
+~~~
+{: .output}
 
 ![Segunda versión](/cartografia-digital/images/TC_porce6a.png){: .img-responsive}
 
@@ -342,28 +420,41 @@ Después de varias modificaciones terminamos con esta combinación:
 ~~~
 
 ~~~
-r.colors map=porcecito1 rules=TC_porce7
+r.colors map=porcecito rules=TC_porce7
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce7'
+~~~
+{: .output}
 
 ![Versión Final](/cartografia-digital/images/TC_porce7.png){: .img-responsive}
 
 ### Crear una nueva carpeta para guardar las tablas de colores creadas
 
-Durante las sesiones en GRASS creamos numerosas y diversas tablas de colores. Por omisión, el sistema las guarda en la carpeta personal (usuario). Es recomendable crear una nueva carpeta (directorio) dentro de la carpeta personal de usuario para guardar allí todas las tablas de colores creadas. Al hacer esto, es necesario indicar al comando que toma el “script” que éste se encuentra en una carpeta diferente a la personal.
+Durante las sesiones en GRASS creamos numerosas y diversas tablas de colores. Por omisión, el sistema las guarda en la carpeta personal (usuario). Es recomendable crear una nueva carpeta (directorio) dentro de la carpeta personal de usuario para guardar allí todas las tablas de colores creadas. Al hacer esto, es necesario indicar al comando que toma el "script" que éste se encuentra en una carpeta diferente a la personal.
 
 Si no señalamos donde se encuentra el script, al aplicar el comando sale el error:
 
 ~~~
-r.colors map=porcecito1 rules=TC_porce7
+r.colors map=porcecito rules=TC_porce7
 ~~~
 
-`ERROR: No se puede cargar el archivo de reglas <TC_porce7>`
+~~~
+ERROR: No se puede cargar el archivo de reglas <TC_porce7>
+~~~
+{: .output}
 
 El archivo sí existe pero se encuentra en otro directorio. Debemos indicar en qué carpeta se encuentra el archivo.
 
 ~~~
-r.colors map=porcecito1 rules=TablasColores/TC_porce7
+r.colors map=porcecito rules=TablasColores/TC_porce7
 ~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TablasColores/TC_porce7'
+~~~
+{: .output}
 
 Asignar a un mapa la tabla de colores de otro mapa
 --------------------------------------------------
@@ -375,7 +466,7 @@ Un ejemplo:
 - Hacer copia del mapa `ituango` que está en el mapset `PERMANENT` en el mapset `CursoGrass`.
 - Colocar la región de despliegue al mapa ituango.
 - Desplegar la copia creada para ver sus colores.
-- Cambiar la tabla de colores del mapa ituango copiándola del mapa `porcecito1`.
+- Cambiar la tabla de colores del mapa ituango copiándola del mapa `porcecito`.
 
 La secuencia de ordenes en GRASS es la siguiente:
 
@@ -383,7 +474,7 @@ La secuencia de ordenes en GRASS es la siguiente:
 g.list rast
 g.copy rast=ituango,ituan
 g.region rast=ituan
-r.colors map=ituan raster=porcecito1
+r.colors map=ituan raster=porcecito
 ~~~
 
 ![Antes](/cartografia-digital/images/ituan.png){: .img-responsive}
@@ -400,28 +491,19 @@ Se puede eliminar la tabla traída de otro mapa y desplegar la tabla inicial de 
 r.colors -r ituan
 ~~~
 
-
 ## Tarea 3
 {: .text-danger}
 
-Problema: Se tiene el mapa topográfico de `ituango` y se requiere que se 
-coloree de tal manera que se reflejen las características topográficos lo más cercano
-al aspecto natural del mismo y a su vez se resalte la red de drenaje.
+Problema: Se tiene el mapa topográfico de `ituango` y se requiere que se coloree de tal manera que se reflejen las características topográficos lo más cercano al aspecto natural del mismo y a su vez se resalte la red de drenaje.
 
-Consideremos que la región presenta clima húmedo en todos sus pisos, por
-lo tanto utilizar simbolismos de color pertinentes a cada una de las zonas
-de vida de diferentes franjas altitudinales. Tratar de que los colores
-seleccionados constituyan una representación de la condición natural.
-
+Consideremos que la región presenta clima húmedo en todos sus pisos, por lo tanto utilizar simbolismos de color pertinentes a cada una de las zonas de vida de diferentes franjas altitudinales. Tratar de que los colores seleccionados constituyan una representación de la condición natural.
 
 Enviar los siguiente elementos:
 
-- Guión con extensión `.sh` y con la documentación pertinente para resolver el problemas.
+- Guión con extensión `.sh` y con la documentación pertinente para resolver el problema.
 - Enviar el archivo de tipo `TC` con la tabla de colores utilizada.
 - Enviar un archivo `png` con el resultado del mapa coloreado.
-- Enviar un archivo `pdf` con una corta discusión de los resultados obtenidos y
-  la justificación de los colores utilizados y su interpretación.
-
+- Enviar un archivo `pdf` con una corta discusión de los resultados obtenidos y la justificación de los colores utilizados y su interpretación.
 
 <!--
 Actividad extracurso
@@ -429,4 +511,5 @@ Actividad extracurso
 
 1. Pasar los mapas `ituango` y `riogrande_sup` de integer a double precision. (Los mapas en double precision, son los que se van a seguir empleando en las próximas sesiones).
 2. Crear una copia del mapa ituango y asignarles a cada uno tablas de colores diferentes, con los mismos rangos altitudinales y colores diferentes. Evaluar la calidad de la visualización.
-3. Calcular la extensión en km<sup>2</sup> y número píxeles en el mapa ituango para los terrenos localizados por encima de los 3.000 msnm y por debajo de los 500 msnm, de la manera más aproximada posible. -->
+3. Calcular la extensión en km<sup>2</sup> y número píxeles en el mapa ituango para los terrenos localizados por encima de los 3.000 msnm y por debajo de los 500 msnm, de la manera más aproximada posible.
+-->
