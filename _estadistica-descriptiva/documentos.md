@@ -17,6 +17,9 @@ order: 02
 - [Tabla de símbolos](/estadistica-descriptiva/documentos/points.png){:target="_blank"}
 - [Tabla de líneas](/estadistica-descriptiva/documentos/lines.png){:target="_blank"}
 
+## Elementos básicos de estadística descriptiva y exploratoria
+- [Presentación](./documentos/explora1.html){:target="_blank"}
+
 ## Guía para gráficos básicos en R.
 - [Guía para gráficos](/estadistica-descriptiva/documentos/grafi3.pdf){:target="_blank"}
 
