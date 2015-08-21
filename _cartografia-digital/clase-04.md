@@ -125,16 +125,19 @@ Se obtiene el mapa de relieve relativo calculando el rango de altitud en la zona
 
 ~~~
 r.neighbors input=porcecito1 output=porce1_RR_33 method=range size=33
-d.rast porce1_RR_33
 ~~~
+
+<!--- d.rast porce1_RR_33 -->
 
 ![Mapa de relieve relativo](/cartografia-digital/images/porce1_RR_33.png){: .img-responsive}
 
 #### Visualización 3D del mapa construido
 
+<!---
 ~~~
 nviz porce1_RR_33
 ~~~
+-->
 
 ![Visualización 3D del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D.png){: .img-responsive}
 
@@ -146,9 +149,11 @@ nviz porce1_RR_33
 
 #### Explorar esta otra opción y contestar los interrogantes precedentes
 
+<!---
 ~~~
 nviz porcecito1 color=porce1_RR_33
 ~~~
+-->
 
 ![Visualización 3D del mapa porcecito1 con los colores del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D2.png){: .img-responsive}
 
@@ -285,15 +290,19 @@ Con el informe obtenido podemos responder preguntas, tales como:
 
 Desplegar en 2D y en 3D el mapa reclasificado de relieve relativo
 
+<!---
 ~~~
 d.rast porce1_RR_33_reclass
 ~~~
+-->
 
 ![2D](/cartografia-digital/images/porce1_RR_33_reclass.png){: .img-responsive}
 
+<!---
 ~~~
 nviz porcecito1 color=porce1_RR_33_reclass
 ~~~
+-->
 
 ![3D](/cartografia-digital/images/porce1_RR_33_reclass3D.png){: .img-responsive}
 
@@ -322,13 +331,42 @@ Se aplica el comando de reclasificación.
 
 ~~~
 r.reclass input=porce1_RR_33_reclass output=porce1_RR_33_reclass_simplif rules=RCLS_porce1_RR-simplif
-d.rast porce1_RR_33_reclass_simplif
 ~~~
+
+<!--- d.rast porce1_RR_33_reclass_simplif -->
 
 ![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive}
 
-~~~
+En vista 3D se obtiene:
+
+<!--- ~~~
 nviz porcecito1 color=porce1_RR_33_reclass_simplif
-~~~
+~~~ -->
 
 ![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive}
+
+## Tarea 4
+{: .text-danger}
+
+Elaborar el mapa de relieve relativo del archivo “ituango”. 
+Utilizando la referencia para clasificar el relieve relativo que se presenta en esta clase, 
+entregar los siguientes productos:
+
+1. Un mapa 2D de los valores de relieve relativo con variación gradual del color, 
+   empleando tres colores, un color para el valor mas bajo de RR, 
+   un segundo color para el valor de mediana del relieve relativo 
+   y un tercer color para el valor máximo de relieve relativo. 
+   El objetivo es seleccionar tres colores que permitan una visualización óptima del relieve relativo en el archivo.
+
+2. Reclasificar el mapa de relieve relativo y emplear la variación 
+   gradual del color para diferenciar y contrastar
+   los relieves de montaña y los relieves de colinas en el archivo.
+
+3. Entregar una tabla (utilizar LibreOfficeCalc) indicando
+   la extensión y el porcentaje de cada uno de los tipos
+   de relieve identificados en el archivo “ituango”.
+  
+4. Un guión en donde se muestre el procedimiento documentado para obtener
+ la información requeridad para desarrollar los puntos anteriores. 
+
+
