@@ -356,7 +356,8 @@ entregar los siguientes productos:
    empleando tres colores, un color para el valor mas bajo de RR, 
    un segundo color para el valor de mediana del relieve relativo 
    y un tercer color para el valor máximo de relieve relativo. 
-   El objetivo es seleccionar tres colores que permitan una visualización óptima del relieve relativo en el archivo.
+   El objetivo es seleccionar tres colores que permitan una
+   visualización óptima del relieve relativo en el archivo.
 
 2. Reclasificar el mapa de relieve relativo y emplear la variación 
    gradual del color para diferenciar y contrastar
@@ -367,6 +368,6 @@ entregar los siguientes productos:
    de relieve identificados en el archivo “ituango”.
   
 4. Un guión en donde se muestre el procedimiento documentado para obtener
- la información requeridad para desarrollar los puntos anteriores. 
+   la información requerida para desarrollar los puntos anteriores. 
 
 
