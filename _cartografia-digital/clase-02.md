@@ -49,8 +49,6 @@ Este es el aspecto del entorno de trabajo:
 La interfaz gráfica
 -------------------
 
-<!--Tomado del [manual de GRASS](http://grass.osgeo.org/grass64/manuals/wxGUI.html).-->
-
 La interfaz gráfica está compuesta por 2 ventanas:
 
 * El **Administrador de Capas**

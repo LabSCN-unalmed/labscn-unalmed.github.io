@@ -97,11 +97,42 @@ Para la elaboración del mapa de relieve relativo de la zona representada en el 
 
 ### Consultar el contenido del mapa porcecito1
 
+Vamos a consultar cual es la información del mapa (metadatos).
+
 ~~~
-r.info porcecito1
+r.info map=porcecito1
 ~~~
 
-Resaltamos de la información del mapa: Tiene 1242 filas y 1144 columnas; contiene 1’420.848 píxeles. La resolución espacial del mapa es la de un píxel cuadrad de 30.5 metros. La altitud mínima es de 958 msnm y la altitud máxima es de 2873 msnm.
+Resaltamos de la información del mapa:
+
+- 1242 filas.
+- 1144 columnas.
+- 1’420.848 píxeles.
+- 30.5 metros de resolución por píxel.
+- La altitud mínima es de 958 msnm.
+- La altitud máxima es de 2873 msnm.
+- El tipo de datos del mapa es `CELL`. {: .text-danger}
+
+La información recibida indica que el tipo de dato es `CELL` que en otros términos quiere decir que los valores de altitud del mapa `porcecito` se encuentran en números enteros. Para trabajar adecuadamente necesitamos transformar estos datos a números decimales para realizar operaciones.
+
+#### Transformar los datos de números enteros a números decimales sin alterar los valores del archivo
+
+Se utiliza el comando `r.mapcalc`, que permite realizar operaciones matemáticas sobre los valores de los mapas raster
+
+~~~
+r.mapcalc "porcecito1 = double(porcecito@PERMANENT)"
+~~~
+
+Utilizamos la función `double()`, que convierte los valores numéricos al tipo "double precision", que es un tipo de datos decimal.
+
+Consultar nuevamente la información del mapa:
+
+~~~
+r.info map=porcecito1
+~~~
+
+Observar que los datos del archivo se transformaron de `CELL` a `DCELL`.
+
 
 ### Cálculo de las dimensiones de la zona de vecindad
 
@@ -121,43 +152,36 @@ La zona de vecindad corresponde a un cuadrado cuyo lado es equivalente a la long
 
 ### El mapa de relieve relativo
 
+**Advertencia:** Es importante definir la región de cálculo antes de calcular el mapa de relieve relativo, de lo contrario el mapa resultante podría quedar con errores.
+{: .alert .alert-warning}
+
 Se obtiene el mapa de relieve relativo calculando el rango de altitud en la zona de vecindad.
 
 ~~~
 r.neighbors input=porcecito1 output=porce1_RR_33 method=range size=33
 ~~~
 
-<!--- d.rast porce1_RR_33 -->
+**Nota:** Al calcular el mapa de relieve relativo, este "hereda" la tabla de colores del mapa de entrada `porcecito1`, es necesario asignarle una tabla nueva al mapa recién crado para visualizarlo correctamente.
+{: .alert .alert-info}
 
 ![Mapa de relieve relativo](/cartografia-digital/images/porce1_RR_33.png){: .img-responsive}
 
 #### Visualización 3D del mapa construido
 
-<!---
-~~~
-nviz porce1_RR_33
-~~~
--->
-
 ![Visualización 3D del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D.png){: .img-responsive}
 
-*¿Qué se observa en la imagen anterior?*
-
-*¿Se puede visualizar la estructura del relieve?*
-
-*¿En qué parte del relieve se presentan los desniveles altitudinales más pronunciados?*
+_**¿Qué se observa en la imagen anterior?**_<br>
+_**¿Se puede visualizar la estructura del relieve?**_<br>
+_**¿En qué parte del relieve se presentan los desniveles altitudinales más pronunciados?**_
+{: .text-danger .text-center}
 
 #### Explorar esta otra opción y contestar los interrogantes precedentes
 
-<!---
-~~~
-nviz porcecito1 color=porce1_RR_33
-~~~
--->
+1. Visualizar el mapa `porcecito1` en 3D.
+2. Ir a la pestaña "Datos" del controlador de Vista 3D en la ventana de administración de capas.
+3. En la sección "Atributos de superficie", seleccionar el nuevo mapa `porce1_RR_33` como "Reglas de color".
 
 ![Visualización 3D del mapa porcecito1 con los colores del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D2.png){: .img-responsive}
-
-En esta última orden le decimos al sistema que despliegue en tres dimensiones el mapa `porcecito1` pero que le coloque los colores del mapa `porce1_RR_33`.
 
 ### Reclasificación del mapa de relieve relativo
 
@@ -171,7 +195,7 @@ En el mapa de relieve relativo (`porce1_RR_33`):
 #### El contenido del mapa de relieve relativo
 
 ~~~
-r.info porce1_RR_33
+r.info map=porce1_RR_33
 ~~~
 
 Este comando nos permite saber que el valor mínimo de RR es 45 metros y el valor máximo de RR es 783 metros.
@@ -180,9 +204,7 @@ Este comando nos permite saber que el valor mínimo de RR es 45 metros y el valo
 r.report -h map=porce1_RR_33 units=p,c,k nsteps=20
 ~~~
 
-Con el comando `r.report` se obtiene información sobre la distribución de los valores de relieve relativo en la zona del mapa de `porce1_RR_33`. Si los valores de la tabla, que se despliega en la terminal de comandos, se guardan en un archivo `.csv` utilizando el parámetro `output`, y se organiza en gedit, luego se puede abrir con LibreOffice Calc, en donde se ajusta un poco la presentación.
-
-De allí se copia y se pega en el procesador de texto, para obtener la siguiente tabla.
+Con el comando `r.report` se obtiene información sobre la distribución de los valores de relieve relativo en la zona del mapa de `porce1_RR_33`.
 
 | Relieve Relativo | Porcentaje | No. Píxeles | Área (km<sup>2</sup>) |
 |:----------------:|:----------:|:-----------:|:---------------------:|
@@ -209,6 +231,9 @@ De allí se copia y se pega en el procesador de texto, para obtener la siguiente
 |==================|============|=============|=======================|
 |        **TOTAL** | **100.00** | **1420848** |        **1326.56333** |
 {: .table .table-hover}
+
+**Nota:** Los datos del mapa deben ser del tipo `DCELL` para poder ser resumidos en rangos por el parámetro `nsteps` del comando `r.report`.
+{: .alert .alert-info}
 
 En un trabajo acerca del relieve de Antioquia hemos empleado la clasificación que se observa en la siguiente tabla  para la definición de tipos de relieve de acuerdo al valor del Relieve Relativo.
 
