@@ -15,5 +15,5 @@ order: 01
 
 ## Análisis descriptivo y exploratorio de la encuesta (Número aleatorio, Género, Hora de llegada)
 
-* [Análisis descriptivo y exploratorio para Edad](./guiones/Explora3.html){:target="_blank"}
+* [Análisis descriptivo y exploratorio para Número aleatorio, Género, Hora de llegada](./guiones/Explora3.html){:target="_blank"}
 
