@@ -13,3 +13,7 @@ order: 01
 
 * [Análisis descriptivo y exploratorio para Edad](./guiones/Explora1.html){:target="_blank"}
 
+## Análisis descriptivo y exploratorio de la encuesta (Número aleatorio, Género, Hora de llegada)
+
+* [Análisis descriptivo y exploratorio para Edad](./guiones/Explora1.html){:target="_blank"}
+
