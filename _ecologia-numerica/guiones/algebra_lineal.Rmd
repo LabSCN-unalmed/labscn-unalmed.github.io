@@ -1,0 +1,242 @@
+---
+title: "Algebra Lineal"
+author: "Universidad Nacional de Colombia, Sede Medellín"
+date: "Miércoles, 26 de agosto de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+## Abundancias de dos especies en 7 sitios
+```{r}
+sitio1 <- c(10, 15)
+sitio2 <- c(19, 32)
+sitio3 <- c(5, 3)
+sitio4 <- c(10,20)
+sitio5 <- c(19,3)
+sitio6 <- c(4,18)
+sitio7 <- c(7,7)
+```
+
+## Constuir una sola matriz con todas las abundancias
+```{r}
+matrizAbun <- rbind(sitio1,sitio2,sitio3,sitio4,sitio5,sitio6,sitio7)
+matrizAbun
+```
+
+## Gráfica de dispersión de las abundancias de las dos especies
+```{r}
+plot(matrizAbun,xlim = c(0,35), ylim = c(0,35), asp = 1, pch = 19)
+text(matrizAbun, labels = row.names(matrizAbun), pos = 1)
+```
+
+## Hallar la distancia magnitud de la abundancia por algunos sitios
+```{r}
+nsitio1 <- sqrt(sum(sitio1^2))
+nsitio1
+nsitio2 <- sqrt(sum(sitio2^2))
+nsitio2
+```
+
+## Hallar la abundancias "conjunta" de todos los sitios.
+
+Cálculo de la norma de cada vector fila.
+```{r}
+normas <- sqrt(rowSums(matrizAbun^2))
+normas
+```
+
+## Hallar las abundancias totales de cada sitio.
+
+```{r}
+sumas <- rowSums((matrizAbun))
+sumas
+```
+
+## Gráfica de comparación de las dos distancias o magnitudes de cada sitio como vector.
+
+```{r}
+plot(sumas,normas,
+     asp = 1, xlim = c(0,55), ylim = c(0,55), pch =19)
+text(sumas,normas, labels = 1:nrow(matrizAbun), pos = 1)
+```
+
+## Cálculo de los vectores unitarios para cada vector (sitio).
+
+```{r}
+matrizNormalizadas <- matrizAbun/normas
+```
+
+## Gráfica de los vectores unitarios.
+
+```{r}
+
+plot(matrizNormalizadas, asp=1, pch = 19)
+text(matrizNormalizadas, labels = 1:nrow(matrizAbun), pos = 2)
+
+```
+
+## Cálculo de la matriz centrada de abundancias.
+
+```{r}
+colMeans(matrizAbun)
+matrizCentrada <- t(t(matrizAbun)-colMeans(matrizAbun))
+matrizCentrada
+```
+
+## Gráfica de los sitios con respecto al centroide o centro de masa de abundancias
+
+```{r}
+plot(matrizCentrada,xlim = c(-13,20), ylim = c(-13,20), asp = 1, pch = 19)
+text(matrizCentrada, labels = row.names(matrizAbun), pos = 1)
+abline(h=0, col = "red")
+abline(v=0, col = "red")
+grid()
+```
+
+## Matriz de varianza y covarianza de matrices de abundancias y de abunacias centradas
+```{r}
+matrizAbun
+var(matrizAbun)
+
+matrizCentrada
+var(matrizCentrada)
+```
+
+
+## Composición de referencia
+
+```{r}
+composicion1 <- c(8,18)
+composicion2 <- c(-18,8)
+
+## Producto punto de dos vectores
+composicion1%*%composicion2
+## Matriz con los vectores de refeerencia
+composicion <- rbind(composicion1,composicion2)
+```
+
+
+
+## Gráfica de los sitios centrados y las abundancias de referencia
+
+```{r}
+
+plot(matrizCentrada,xlim = c(-13,20), ylim = c(-13,20), asp = 1, pch = 19)
+text(matrizCentrada, labels = row.names(matrizAbun), pos = 1)
+abline(h=0, col = "red")
+abline(v=0, col = "red")
+arrows(0,0,composicion1[1],composicion1[2], col = "blue")
+arrows(0,0,composicion2[1],composicion2[2], col = "blue")
+grid()
+```
+
+
+## Proyección sobre vectores unitarios
+
+```{r}
+
+compoUnidad <- composicion/sqrt(rowSums(composicion^2))
+
+matrizProyectada <- matrizCentrada %*% t(compoUnidad)
+
+plot(matrizProyectada, asp = 1, pch = 19, ylim = c(-20,20))
+text(matrizProyectada, labels = row.names(matrizAbun), pos = 1)
+abline(h=0, col = "red")
+abline(v=0, col = "red")
+grid()
+
+var(matrizProyectada)
+```
+
+
+## Vectores propios
+
+```{r}
+m_vc <- var(matrizCentrada)
+vp1 <- eigen(m_vc)
+vp1
+
+(matrizRotada_vp <- matrizCentrada%*%vp1$vectors)
+
+plot(matrizRotada_vp, asp = 1, pch = 19, ylim = c(-16,16))
+text(matrizRotada_vp, labels = row.names(matrizAbun), pos = 3)
+abline(h=0, col = "red")
+abline(v=0, col = "red")
+grid()
+
+round(var(matrizRotada_vp),3)
+
+```
+
+
+## Transformaciones
+
+### Dibujo inicial
+```{r}
+casa <- matrix(c(1,2,1,1,2,1,2,2,1,2,1.5,2.5,2,2,2,1.4,1.8,1.4,1.8,1),
+               10,2,byrow=TRUE)
+plot(casa, type= "l", asp=1, ylim = c(-2.5,2.5), xlim = c(-2.5,2.5))
+abline(h=0,col="red",lty=2)
+abline(v=0,col="red",lty=2)
+
+```
+
+### Rotación 90 grados siguiendo las manecillas del reloj.
+```{r}
+M <- matrix(c(0, -1, 1, 0), 2, 2, byrow = T)
+
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-2.2,2.5), xlim=c(-2.5,2.5))
+abline(h=0,col="red",lty=2)
+abline(v=0,col="red",lty=2)
+```
+
+### Reflexión con relación al eje x.
+```{r}
+M <- matrix(c(1, 0, 0, -1), 2, 2, byrow = T)
+
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-2.5,2.5), xlim=c(-2.5,2.5))
+abline(h=0,col="red",lty=2)
+abline(v=0,col="red",lty=2)
+```
+
+### Reflexión con relación al eje y.
+```{r}
+M <- matrix(c(-1, 0, 0, 1), 2, 2, byrow = T)
+
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-2.5,2.5), xlim=c(-2.5,2.5))
+abline(h=0,col="red",lty=2)
+abline(v=0,col="red",lty=2)
+```
+
+### Escalado por dos (2) en todas las direcciones
+```{r}
+M <- matrix(c(2, 0, 0, 2), 2, 2, byrow = T)
+
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-5,5), xlim=c(-5,5))
+abline(h=0,col="red",lty=2)
+abline(v=0,col="red",lty=2)
+```
+
+### Cizallado vertical
+
+```{r}
+z <- 1
+M <- matrix(c(1, z, 0, 1), 2, 2, byrow = T)
+
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-5,5), xlim=c(-5,5))
+abline(h=0,col="red",lty=2)
+abline(v=0,col="red",lty=2)
+```
+
+
+### Rotación e inversión
+
+```{r}
+M <- matrix(c(0,-1,-1,0),2,2,byrow=T)
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-2.2,2.5), xlim=c(-2.5,2.5))
+abline(h=0,col="red",lty=2)
+abline(v=0,col="red",lty=2)
+
+```
+
