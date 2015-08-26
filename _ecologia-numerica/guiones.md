@@ -5,5 +5,7 @@ curso: 'ecologia-numerica'
 order: 1
 ---
 
-## Introducción al R.
+## Elementos básicos de álgebra lineal.
+
+* [Álgebra lineal](./guiones/algebra_lineal.html){:target="_blank"}
 
