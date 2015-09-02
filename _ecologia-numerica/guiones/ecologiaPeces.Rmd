@@ -1,0 +1,204 @@
+---
+title: "Ecologia de peces"
+author: "Kenneth Roy Cabrera Torres"
+date: "2 de septiembre de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=11, 
+                      fig.height=7)
+```
+
+## Contextualización
+
+Datos de la tesis doctoral de Verneaux (1973)
+
+Verneaux, J. (1973) Cours d'eau de Franche-Comté (Massif du Jura). 
+Recherches écologiques sur le réseau hydrographique du Doubs.
+Essai de biotypologie. Thèse d'état, Besançon. 1–257
+
+![alt text](mapa_Rio_Dubs.jpg "Río Doubs")
+
+![alt text](doubs-river-near-the-stairs-of-death-vuillafans.jpg "Río Doubs")
+
+![alt text](Rio_Dubs_Aguas_Abajo.jpg "Río Doubs")
+
+![alt text](Rio_Dubs_Zona_Urbana.jpg "Río Doubs")
+
+La tesis propone el uso de las especies de peces para caracterizar
+las zonas ecológicas a lo largo de rios y quebradas de Europa.
+Él mostró que las comunidades de peses son buenos indicadores
+biológicos para estos cuerpos de agua.
+A partir del nacimiento propuso una topología en cuatro zonas,
+y las designó de acuerdo a las características de las especies como:
+
+ - Zona de la trucha (Trout zone)
+ - Zona del tímalo (Grayling zone)
+ - Zona del barbo (Barbel zone)
+ - Zona de la brema (Bream zone)
+
+Las condiciones ecológicas correspondientes, con mucha variación entre los
+rios, varía desde agua relativamente pristinas, bien oxigendadas y
+oligotróficas hasta eutróficas y sin oxígeno.
+
+Los datos se tomaron en 30 lugares a lo largo del río Doubs.
+Este río corre cerca de la frontera franco-suiza 
+al borde del macizo del Jura.
+
+## Listado de las bases de datos.
+
+ - La base de datos de **peces** tienen las abundancias de 27 especies de peces.
+Las abundancias están reescalada a una medida semicuantitativa de 1 a 5.
+ - La base de datos **ambientales** tiene 11 variable ambientales relacionadas
+con la hidrología, la geomorfología y la química del rio.
+ - La base de datos de **localidades** tiene las coordenadas planas de
+cada uno de los sitios de muestreo.
+ - La base de datos **nombre de especies** tiene los códigos, los nombres
+científicos, los nombres en inglés y en francés de las 27 especies 
+reconocidas en el estudio.
+ - La base de datos **Nombres de variables ambientales** tiene los códigos de
+las variables ambientales, la designación completa y las unidades de
+cada variable.
+
+## Lectura de las bases de datos
+
+```{r}
+ambient<-read.csv2("ambientales.csv",enc="latin1",row.names=1)
+peces<-read.csv2("peces.csv",enc="latin1",row.names=1)
+locs<-read.csv2("localidades.csv",enc="latin1",row.names=1)
+nomEspec<-read.csv2("nombresdeespecies.csv",enc="latin1")
+nomVarAmbient<-read.csv2("Nombresdevariablesambientales.csv",enc="latin1")
+```
+
+## Análisis descriptivo univariado
+
+### Abundancia de peces.
+
+Despliegue de la base de datos.
+(Este procedimiento no es recomendado para grandes base de datos.)
+```{r}
+peces
+```
+
+### Resumen de la base de datos de peces
+```{r}
+summary(peces)
+```
+
+
+### Conteo de los casos para cada clase de abundancia
+```{r}
+(ab <- table(unlist(peces)))
+ab <- data.frame(ab)
+names(ab) <- c("Caso","Frecuencia")
+```
+
+### Diagrama de barras de los conteos de abundancia
+```{r}
+require(ggplot2)
+barras <- ggplot(data.frame(ab), aes(Caso,Frecuencia))
+barras + geom_bar(stat = "identity") +
+   ggtitle("Distribución de abundancia de clases") +
+   xlab("Clase de abundancia")+
+   ylab("Frecuencia")
+```
+
+### Mapa de localizaciones
+
+```{r}
+require(ggplot2)
+mapa <- ggplot(locs, aes(x, y))
+mapa + geom_point() + 
+       coord_fixed() +
+       geom_path(col = "blue") +
+       geom_text(label = row.names(locs)) +
+       geom_text(data = NULL, x=50, y = 10, label = "Nacimiento") +
+       geom_text(data = NULL, x=30, y = 120, label = "Desembocadura") +
+       ggtitle("Localización")
+```
+
+## Gráfica de cuatro especies
+```{r}
+seleccion1 <- subset(peces, select = c(Satr, Thth, Baba, Abbr))
+seleccion1 <- data.frame(locs, seleccion1)
+require(reshape2)
+seleccion2 <- melt(seleccion1, id.vars = c("x","y"), variable.name = "especie",
+     value.name = "abundancia")
+seleccion2$especie2 <- factor(seleccion2$especie,
+                             labels = c("Trucha parda",
+                             "Tímalo", "Barbo", "Brema comúm"))
+
+require(ggplot2)
+especs <- ggplot(seleccion2, aes(x, y, size = abundancia))
+especs + geom_point() + 
+         coord_fixed() +
+         facet_wrap( ~ especie2, ncol = 2) +
+         scale_size_continuous(range = c(3,7)) +
+         ggtitle("Abundancia de cuatro especies")
+
+seleccion3 <- merge(seleccion2, nomEspec, by.x = "especie", by.y = "code")
+
+require(ggplot2)
+especs <- ggplot(seleccion3, aes(x, y, size = abundancia))
+especs + geom_point() + 
+         coord_fixed() +
+         facet_wrap( ~ Scientific, ncol = 2) +
+         scale_size_continuous(range = c(3,7)) +
+         ggtitle("Abundancia de cuatro especies")
+
+```
+
+## Comparación de especies
+```{r}
+# Calcular el número de sitios donde cada especie está presente.
+# Para sumar por columnas, el segundo argumento de la
+# función apply() se establece en 2.
+peces.pres <- apply(peces > 0, 2, sum)
+# Ordenar el resultado en orden creciente
+sort(peces.pres)
+# Calcular las frecuencias en porcentajes
+peces.fRel <- 100*peces.pres/nrow(peces)
+# Ordenar y redondear el resultado a un dígito
+round(sort(peces.fRel), 1)
+# Convertir a base de datos
+peces.fRel <- data.frame(distribucion = round(sort(peces.fRel), 1))
+```
+
+Gráfica de presencia de distribución (dispersión) de especies.
+
+```{r}
+require(ggplot2)
+hist1 <- ggplot(peces.fRel, aes(distribucion))
+hist1 + geom_histogram(binwidth = 5) +
+        ggtitle("Ocurrencias de especies") +
+        xlab("Porcentaje  de ocurrencia (%)") +
+        ylab("Número de especies")
+```
+
+## Riqueza de especies por sitio
+```{r}
+# Cálculo del número de especies por sitio
+# Para sumar por filas el segundo argumento de apply() se establece en 1
+sit.pres <- apply(peces > 0, 1, sum)
+# Ordenación de los resultados en orden creciente
+sort(sit.pres)
+```
+
+Ejercicio: Consturir el mapa de riqueza.
+
+```{r, echo=FALSE}
+bdsit.pres <- data.frame(locs, num_espec = sit.pres)
+
+require(ggplot2)
+mapa <- ggplot(bdsit.pres, aes(x, y, size = num_espec))
+mapa + geom_point() + 
+       coord_fixed() +
+       ggtitle("Riqueza de especies por sitio")
+```
+
+
+

@@ -1,0 +1,12 @@
+Code;Description of the variable;Descripción de la variable;unidades
+das;Distance from the source [km];Distancia de la fuente;Km
+alt;Altitude [m a.s.l.];Altitud;msnm
+slo;Slope [per thousand];Pendiente;por milaje
+flo;Mean minimum discharge [m3s-1];Promedio de descarga mínima;m3s-1
+pH;pH of water;pH;upH
+har;Calcium concentration (hardness) [mgL-1];Concentracion de Calcio;mgL-1
+pho;Phosphate concentration [mgL-1];Concentración de Fosfato;mgL-1
+nit;Nitrate concentration [mgL-1];Concentración de Nitrato;mgL-1
+amm;Ammonium concentration [mgL-1];Concentracion de Amonio;mgL-1
+oxy;Dissolved oxygen [mgL-1];Oxígeno disuelto;mgL-1
+bdo;Biological oxygen demand [mgL-1];Demanda de oxígeno biológico;mgL-1

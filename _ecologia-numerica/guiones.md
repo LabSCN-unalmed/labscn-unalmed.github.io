@@ -9,3 +9,6 @@ order: 1
 
 * [Álgebra lineal](./guiones/algebra_lineal.html){:target="_blank"}
 
+## Análisis exploratorio con R
+
+* [Análisis exploratorio](./guiones/ecologiaPeces.html){:target="_blank"}
