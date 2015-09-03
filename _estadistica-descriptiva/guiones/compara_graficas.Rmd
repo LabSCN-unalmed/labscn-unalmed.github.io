@@ -1,0 +1,289 @@
+---
+title: "Comparación barras - pastel"
+author: "Universidad Nacional de Colombia, Sede Medellín"
+date: "3 de septiembre de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=11, 
+                      fig.height=7)
+```
+
+## Lectura y adecuación de las bases de datos
+
+### Lectura
+```{r}
+
+estimaciones <- read.csv2("compara_graficas.csv", enc = "UTF-8")
+estimaciones$figura <- factor(estimaciones$figura,
+                              labels = c("Areas","Barras","Pastel 1",
+                                         "Pastel 2"))
+valoresVerdaderos <- data.frame(nivel = c(55,20,15,10),
+                               pendiente = c(0, 0, 0, 0),
+                               sector = c("A", "B", "C", "D"))
+```
+
+### Adecuación
+```{r}
+require(reshape2)
+estimaciones2 <- melt(estimaciones, id.vars = c("id", "figura"),
+     variable.name = "sector", value.name = "porcentaje")
+```
+
+## Tablas de resumen
+
+```{r}
+
+estimaciones2 <- merge(estimaciones2, valoresVerdaderos)
+
+estimaciones2$error <- with(estimaciones2, porcentaje - nivel)
+
+medias <- as.data.frame.table(with(estimaciones2, tapply(porcentaje, list(figura=figura,sector=sector), mean)))
+names(medias)[3] <- "media"
+
+medianas <- as.data.frame.table(with(estimaciones2, tapply(porcentaje, list(figura=figura,sector=sector), median)))
+names(medianas)[3] <- "mediana"
+
+desv_estand <- as.data.frame.table(with(estimaciones2, tapply(porcentaje, list(figura=figura,sector=sector), sd)))
+names(desv_estand)[3] <- "desv_estand"
+
+desv_med_abs <- as.data.frame.table(with(estimaciones2, tapply(error, list(figura=figura,sector=sector), function(x) mean(abs(x)))))
+names(desv_med_abs)[3] <- "desv_med_abs"
+
+desv_med_cuad <- as.data.frame.table(with(estimaciones2, tapply(error, list(figura=figura,sector=sector), function(x) mean(x^2))))
+names(desv_med_cuad)[3] <- "desv_med_cuad"
+
+
+estadisticos <- merge(medias,medianas)
+estadisticos <- merge(desv_estand, estadisticos)
+estadisticos <- merge(desv_med_abs, estadisticos)
+estadisticos <- merge(desv_med_cuad, estadisticos)
+
+estadisticos$cv <- with(estadisticos, desv_estand/media*100)
+
+estadisticos
+
+subset(estadisticos, sector == "A")
+
+subset(estadisticos, sector == "B")
+
+subset(estadisticos, sector == "C")
+
+subset(estadisticos, sector == "D")
+```
+
+
+## Gráficas
+
+### Primera propuesta comparativa
+
+```{r}
+require(RColorBrewer)
+colores <- brewer.pal(4, "Dark2")
+
+require(ggplot2)
+g1 <- ggplot(estimaciones2, aes(sector, 
+                                porcentaje, col = sector))
+g1 + 
+     geom_point(size = 2) +
+     facet_grid(. ~ figura) +
+     geom_abline(aes(intercept = nivel, slope = pendiente, 
+                     col = sector), linetype = 1, size = 0.7,
+                 data = valoresVerdaderos) +
+  ggtitle("Comparación de percepción de gráficas") +
+  scale_colour_manual(values=colores) +
+  scale_y_continuous(breaks = seq(0, 80, 5),
+                     labels = paste(seq(0, 80, 5),"%",sep ="")) + 
+  theme(
+      plot.title = element_text(size=18),
+      axis.title.y = element_text(size=18),
+      axis.title.x = element_text(size=18),
+      axis.text.x=
+        element_text(size = 18, color = "black"), 
+      axis.text.y=
+       element_text(color="black", size= 18),
+      strip.text.x = element_text(size = 18),
+      legend.text = element_text(size=18),
+      legend.title = element_text(size=18))
+```
+
+
+### Propuesta comparativa final
+
+```{r}
+require(RColorBrewer)
+colores <- brewer.pal(6, "Dark2")
+require(ggplot2)
+g1 <- ggplot(estimaciones2, aes(sector, 
+                                porcentaje, col = sector))
+g1 + geom_violin() +
+     geom_jitter(size = 2,
+                 position = position_jitter(width = .2, height = 0)) +
+     facet_grid(. ~ figura) +
+     geom_abline(aes(intercept = nivel, slope = pendiente, 
+                     col = sector), linetype = 1, size = 0.7,
+                 data = valoresVerdaderos) +
+  ggtitle("Comparación de percepción de gráficas") +
+  scale_colour_manual(values=colores) +
+  scale_y_continuous(breaks = seq(0, 80, 5),
+                     labels = paste(seq(0, 80, 5),"%",sep ="")) + 
+  stat_summary(aes(colour="Media",shape="Media",group=1),
+              fun.y = mean, geom = "point", shape = 10, size = 5) +
+  stat_summary(aes(colour="Mediana",shape="Mediana",group = 1),
+               fun.y = median, geom = "point", shape = 7, size = 5) +
+  theme(
+      plot.title = element_text(size=18),
+      axis.title.y = element_text(size=18),
+      axis.title.x = element_text(size=18),
+      axis.text.x=
+        element_text(size = 18, color = "black"), 
+      axis.text.y=
+       element_text(color="black", size= 18),
+      strip.text.x = element_text(size = 18),
+      legend.text = element_text(size=18),
+      legend.title = element_text(size=18))
+```
+
+
+## Comparar sólo el valor A
+
+```{r}
+require(RColorBrewer)
+colores <- brewer.pal(6, "Dark2")
+
+sectorA <- droplevels(subset(estimaciones2, sector == "A"))
+require(ggplot2)
+ggplot(sectorA, aes(figura,porcentaje, col = figura)) +
+  geom_violin() +
+  geom_jitter(size = 5,
+              position = position_jitter(width = .2, height = 0)) +
+  scale_colour_manual(values=colores) +
+  geom_abline(aes(intercept=55, slope=0), col = "black") +
+  stat_summary(aes(colour="Media",shape="Media",group=1),
+              fun.y = mean, geom = "point", shape = 10, size = 5) +
+  stat_summary(aes(colour="Mediana",shape="Mediana",group = 1),
+               fun.y = median, geom = "point", shape = 7, size = 5) +
+  theme(
+      plot.title = element_text(size=18),
+      axis.title.y = element_text(size=18),
+      axis.title.x = element_text(size=18),
+      axis.text.x=
+        element_text(size = 18, color = "black"), 
+      axis.text.y=
+       element_text(color="black", size= 18),
+      strip.text.x = element_text(size = 18),
+      legend.text = element_text(size=18),
+      legend.title = element_text(size=18)) +
+  ggtitle("Comparación de figuras con el A")+
+  scale_y_continuous(breaks = seq(0, 80, 5),
+                     labels = paste(seq(0, 80, 5),"%",sep =""))
+
+```
+
+## Comparar sólo el valor B
+
+```{r}
+require(RColorBrewer)
+colores <- brewer.pal(6, "Dark2")
+
+sectorB <- droplevels(subset(estimaciones2, sector == "B"))
+require(ggplot2)
+ggplot(sectorB, aes(figura,porcentaje, col = figura)) +
+  geom_violin() +
+  geom_jitter(size = 5,
+              position = position_jitter(width = .2, height = 0)) +
+  scale_colour_manual(values=colores) +
+  geom_abline(aes(intercept=20, slope=0), col = "black") +
+  stat_summary(aes(colour="Media",shape="Media",group=1),
+              fun.y = mean, geom = "point", shape = 10, size = 5) +
+  stat_summary(aes(colour="Mediana",shape="Mediana",group = 1),
+               fun.y = median, geom = "point", shape = 7, size = 5) +
+  theme(
+      plot.title = element_text(size=18),
+      axis.title.y = element_text(size=18),
+      axis.title.x = element_text(size=18),
+      axis.text.x=
+        element_text(size = 18, color = "black"), 
+      axis.text.y=
+       element_text(color="black", size= 18),
+      strip.text.x = element_text(size = 18),
+      legend.text = element_text(size=18),
+      legend.title = element_text(size=18))+
+      ggtitle("Comparación de figuras con el B")+
+  scale_y_continuous(breaks = seq(0, 80, 5),
+                     labels = paste(seq(0, 80, 5),"%",sep =""))
+```
+
+## Comparar sólo el valor C
+
+```{r}
+require(RColorBrewer)
+colores <- brewer.pal(6, "Dark2")
+
+sectorC <- droplevels(subset(estimaciones2, sector == "C"))
+require(ggplot2)
+ggplot(sectorC, aes(figura,porcentaje, col = figura)) +
+  geom_violin() +
+  geom_jitter(size = 5,
+              position = position_jitter(width = .2, height = 0)) +
+  scale_colour_manual(values=colores) +
+  geom_abline(aes(intercept=15, slope=0), col = "black") +
+  stat_summary(aes(colour="Media",shape="Media",group=1),
+              fun.y = mean, geom = "point", shape = 10, size = 5) +
+  stat_summary(aes(colour="Mediana",shape="Mediana",group = 1),
+               fun.y = median, geom = "point", shape = 7, size = 5) +
+  theme(
+      plot.title = element_text(size=18),
+      axis.title.y = element_text(size=18),
+      axis.title.x = element_text(size=18),
+      axis.text.x=
+        element_text(size = 18, color = "black"), 
+      axis.text.y=
+       element_text(color="black", size= 18),
+      strip.text.x = element_text(size = 18),
+      legend.text = element_text(size=18),
+      legend.title = element_text(size=18))+
+      ggtitle("Comparación de figuras con el C")+
+  scale_y_continuous(breaks = seq(0, 80, 5),
+                     labels = paste(seq(0, 80, 5),"%",sep =""))
+```
+
+## Comparar sólo el valor D
+
+```{r}
+require(RColorBrewer)
+colores <- brewer.pal(6, "Dark2")
+
+sectorD <- droplevels(subset(estimaciones2, sector == "D"))
+require(ggplot2)
+ggplot(sectorD, aes(figura,porcentaje, col = figura)) +
+  geom_violin() +
+  geom_jitter(size = 5,
+              position = position_jitter(width = .2, height = 0)) +
+  scale_colour_manual(values=colores) +
+  geom_abline(aes(intercept=10, slope=0), col = "black") +
+  stat_summary(aes(colour="Media",shape="Media",group=1),
+              fun.y = mean, geom = "point", shape = 10, size = 5) +
+  stat_summary(aes(colour="Mediana",shape="Mediana",group = 1),
+               fun.y = median, geom = "point", shape = 7, size = 5) +
+  theme(
+      plot.title = element_text(size=18),
+      axis.title.y = element_text(size=18),
+      axis.title.x = element_text(size=18),
+      axis.text.x=
+        element_text(size = 18, color = "black"), 
+      axis.text.y=
+       element_text(color="black", size= 18),
+      strip.text.x = element_text(size = 18),
+      legend.text = element_text(size=18),
+      legend.title = element_text(size=18)) +
+      ggtitle("Comparación de figuras con el D")+
+  scale_y_continuous(breaks = seq(0, 80, 5),
+                     labels = paste(seq(0, 80, 5),"%",sep =""))
+```
+
+

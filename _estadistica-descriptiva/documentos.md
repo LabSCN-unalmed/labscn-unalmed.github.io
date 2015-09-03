@@ -36,3 +36,6 @@ order: 02
    - [Resumen corto de los elementos de un póster científico](/estadistica-descriptiva/documentos/mgi20400.pdf){:target="_blank"}
    - [Guía rápida para elaboración de un póster científico](/estadistica-descriptiva/documentos/poster-1209925152397079-9.pdf){:target="_blank"}
 
+## Tipo de gráficas comparadas
+- [Tipo de gráficas](/estadistica-descriptiva/documentos/graficasBarras_pastel.pdf){:target="_blank"}
+

@@ -19,5 +19,9 @@ order: 01
 
 ## Introducción a ggplot2
 
-* [Grafiación ggplot2 (carros y calidad del aire)](./guiones/graficacion_ggplot2.html){:target="_blank"}
+* [Graficación ggplot2 (carros y calidad del aire)](./guiones/graficacion_ggplot2.html){:target="_blank"}
+
+## Comparación de tipos de gráficas
+
+* [Comparación de gráficas](./guiones/compara_graficas.html){:target="_blank"}
 

@@ -18,3 +18,7 @@ order: 05
 ## Encuesta sobre hábitos de estudio II.
 
 * [Encuesta (csv)](./basesdedatos/Encuesta2.csv){:target="_blank"}
+
+## Datos de comparación de gráficas
+
+* [Datos de comparación](./basesdedatos/compara_graficas.xlsx){:target="_blank"}
