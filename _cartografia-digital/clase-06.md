@@ -17,6 +17,14 @@ Un lineamiento resalta cuando la luz incidente proviene de una trayectoria trans
 r.shaded.relief map=porcecito1 shadedmap=porce1_shaded altitude=45 azimuth=45
 ~~~
 
+~~~
+Calculating shading, please stand by.
+ 100%
+Tabla de colores para mapa raster <porce1_shaded> establecida a 'grey'
+Shaded relief map created and named <porce1_shaded>.
+~~~
+{: .output}
+
 ![Mapa sombreado con altitud 45° y azimuth 45°](/cartografia-digital/images/porce1_shaded45_45.png){: .img-responsive}
 
 Para cambiar los parámetros de altitud y azimuth y construir un nuevo
@@ -27,4 +35,15 @@ sobreescribir el mapa ya existente.
 r.shaded.relief map=porcecito1 shadedmap=porce1_shaded altitude=30 azimuth=135 --o
 ~~~
 
+~~~
+Calculating shading, please stand by.
+ 100%
+Tabla de colores para mapa raster <porce1_shaded> establecida a 'grey'
+Shaded relief map created and named <porce1_shaded>.
+~~~
+{: .output}
+
 ![Mapa sombreado con altitud 30° y azimuth 135°](/cartografia-digital/images/porce1_shaded30_135.png){: .img-responsive}
+
+
+<!-- Agregar contenido sobre visualización HIS del mapa de relieve sombreado -->

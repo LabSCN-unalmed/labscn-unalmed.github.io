@@ -16,7 +16,7 @@ Cada uno de estos colores base presenta 255 valores diferentes.
 
 Un color por lo tanto se obtiene como una combinación de valores para *rojo*, *verde*, y *azul*.
 
-Evaluar distintas combinaciones empleando el programa "gcolor2": Aplicaciones &rarr; Gráficos &rarr; Gcolor2
+Evaluar distintas combinaciones empleando el programa **gcolor2**: Aplicaciones &rarr; Gráficos &rarr; Gcolor2
 
 ![Selector de color gcolor2](/cartografia-digital/images/gcolor2.png){: .img-responsive}
 
@@ -31,9 +31,9 @@ Evaluar distintas combinaciones empleando el programa "gcolor2": Aplicaciones &r
 | 0 | 0 |   0 |Negro       |
 {: .table .table-striped}
 
-En la combinación `"0:0:255"` se tiene un color azul intenso. A medida que se disminuye el valor de B, el color azul se va tornando mas oscuro. La combinación final `"0:0:0"` corresponde al color negro.
+En la combinación `0:0:255` se tiene un color azul intenso. A medida que se disminuye el valor de B, el color azul se va tornando mas oscuro. La combinación final `0:0:0` corresponde al color negro.
 
-Las combinación `"0:0:255"` ubica el punto de los colores en el centro de la franja del circulo de colores correspondiente a los azules. La combinación `"0:255:0"` ubica el punto en el centro de la franja correspondiente a los "verdes" y la combinación `"255.0:0"` ubica el punto en el centro de la franja correspondiente a los rojos.
+Las combinación `0:0:255` ubica el punto de los colores en el centro de la franja del circulo de colores correspondiente a los azules. La combinación `0:255:0` ubica el punto en el centro de la franja correspondiente a los "verdes" y la combinación `255.0:0` ubica el punto en el centro de la franja correspondiente a los rojos.
 
 La combinación de dos colores manteniendo el otro valor en cero (0) hace variar la posición del punto del color a lo largo de la circunferencia externa de los colores.
 
@@ -43,7 +43,7 @@ Cuando se emplean valores entre 0 y 255 para R, G y B se obtienen diveros colore
 
 `49:200:100`: El valor mayor corresponde al verde.
 
-Cuando los tres valores son iguales pero diferentes de `"0:0:0"` (negro) y `"255:255:255"` (blanco) se obtienen colores en tonalidades de gris desde un gris muy oscuro, como en la combinación `"100:100:100"`, hasta tonalidades de un gris muy claro como en la combinación `"200:200:200"`
+Cuando los tres valores son iguales pero diferentes de `0:0:0` (negro) y `255:255:255` (blanco) se obtienen colores en tonalidades de gris desde un gris muy oscuro, como en la combinación `100:100:100`, hasta tonalidades de un gris muy claro como en la combinación `200:200:200`
 
 #### Un ejercicio:
 
@@ -477,7 +477,11 @@ g.region rast=ituan
 r.colors map=ituan raster=porcecito
 ~~~
 
+### Antes
+
 ![Antes](/cartografia-digital/images/ituan.png){: .img-responsive}
+
+### Después
 
 ![Después](/cartografia-digital/images/ituan_porce1.png){: .img-responsive}
 
