@@ -788,13 +788,23 @@ Iniciar GRASS nuevamente e ingresar al mapset `vergel` de la localización `Verg
 
 Utilizando el álgebra de mapas diferenciar en el mapa `vergel1`, con colores diferentes, las pendientes suaves (menores de 3 grados) localizadas en los fondos de los valles y en las cimas de las colinas.
 
+Entregables:
+
+* El guión con los comandos utilizados, debidamente documentado (archivo de texto con extensión `.sh`).
+* El mapa obtenido en formato `.png`.
+* Los archivos auxiliares utilizados (tablas de color, tablas de reclasificación, tablas de categorías).
+
 ## Tarea 6
 {: .text-danger}
 
 En el mapa `ituango` definir 3 cultivos distintos para 3 rangos altitudinales diferentes, los cuales se pueden implementar en pendientes con un umbral mínimo y un umbral máximo. En cada rango altitudinal, las pendientes por encima del umbral máximo se dedicarán a conservación natural, y por debajo del umbral mínimo se dedicarán a ganadería. Elaborar este mapa y entregar:
 
-* Un mapa coloreado con los diferentes usos del suelo
-* Una tabla con las extensiones de cada uso y el porcentaje ocupado respecto al mapa `ituango`.
+* El guión con los comandos utilizados, debidamente documentado (archivo de texto con extensión `.sh`).
+* Un mapa coloreado con los diferentes usos del suelo (en formato `.png`).
+* Los archivos auxiliares utilizados (tablas de color, tablas de reclasificación, tablas de categorías).
+* Un documento en formato `.pdf` que contenga:
+  - La justificación de los rangos utilizados en la elaboración de los mapas.
+  - Una tabla con las extensiones de cada uso y el porcentaje ocupado respecto al mapa `ituango`.
 
 <!--
 Combinar mapa de pendientes y mapa de curvatura vertical
