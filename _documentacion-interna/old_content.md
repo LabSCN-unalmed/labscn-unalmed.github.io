@@ -301,3 +301,52 @@ Organizamos los encabezados y le damos un poco de formato a la tabla, de manera 
 |===================|=============|============|============|
 |             TOTAL |     1420848 |     100.00 | 1326.56333 |
 {: .table .table-striped}
+
+Combinar mapa de pendientes y mapa de curvatura vertical
+--------------------------------------------------------
+
+Este procedimiento se puede utilizar para diferenciar pendientes de cima de colina y pendientes de fondo de valle.
+
+Ya tenemos un mapa de pendientes y lo reclasificamos en 3 categorías (`porce1_slope3_reclass`).
+
+También tenemos un mapa de curvaturas horizontales (`porce1_planc7`) y se reclasificó; de manera similar, crearemos un mapa de curvaturas verticales, lo reclasificaremos y lo combinaremos con el mapa reclasificado de pendientes.
+
+### Procedimiento para combinar los mapas
+
+Se utiliza el comando `r.mapcalc` para combinar los dos mapas.
+
+~~~
+r.mapcalc 'porce1_slope_profc=porce1_slope3_reclass*3+porce1_profc7_reclass'
+r.report -h map=porce1_slope_profc units=p,c,k
+~~~
+
+Se aplica la siguiente tabla de colores:
+
+`TC_porce1_slope_profc`
+
+~~~
+ 2 blue
+ 3 166 251 155 # verde muy claro
+ 4 245 169 131 # cafe claro
+ 5 cyan
+ 6  36 233   9 # verde
+ 7 241 130  75 # cafe brillante
+ 8 aqua
+ 9  25 161   7 # verde oscuro
+10 189  73  15 # cafe
+~~~
+
+~~~
+r.colors map=porce1_slope_profc rules=TC_porce1_slope_profc
+d.rast porce1_slope_profc
+~~~
+
+![2D](/cartografia-digital/images/porce1_slope_profc.png){: .img-responsive}
+
+~~~
+nviz porcecito1 color=porce1_slope_profc
+~~~
+
+![3D](/cartografia-digital/images/porce1_slope_profc_3D.png){: .img-responsive}
+
+De manera similar, se pueden combinar los mapas de curvaturas vertical y horizontal.
