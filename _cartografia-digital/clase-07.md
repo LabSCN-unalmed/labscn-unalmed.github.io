@@ -805,6 +805,7 @@ En el mapa `ituango` definir 3 cultivos distintos para 3 rangos altitudinales di
 * Un documento en formato `.pdf` que contenga:
   - La justificación de los rangos utilizados en la elaboración de los mapas.
   - Una tabla con las extensiones de cada uso y el porcentaje ocupado respecto al mapa `ituango`.
+  - Conclusiones y recomendaciones.
 
 <!--
 Combinar mapa de pendientes y mapa de curvatura vertical
