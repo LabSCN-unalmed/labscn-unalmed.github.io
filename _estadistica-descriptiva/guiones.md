@@ -25,3 +25,7 @@ order: 01
 
 * [Comparación de gráficas](./guiones/compara_graficas.html){:target="_blank"}
 
+## Ejercicio de tamaño de muestra
+
+* [Tamaño de muestra](./guiones/tammuest.html){:target="_blank"}
+
