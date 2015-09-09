@@ -778,10 +778,10 @@ r.report -h map=porce1_tipo_vert units=p,c,k
 ## Tarea 5
 {: .text-danger}
 
-Para esta tarea es necesario descargar el siguiente archivo [vergel.zip](./vergel.zip) al directorio `Descargas` de la máquina virtual y descomprimirlo utilizando el siguiente comando desde la terminal:
+Para esta tarea es necesario descargar el siguiente archivo [vergel.zip](./vergel.zip) y guardarlo en la carpeta personal de la máquina virtual y descomprimirlo utilizando el siguiente comando desde la terminal:
 
 ~~~
-unzip ~/Descargas/vergel.zip -d ~/Grass
+unzip ~/vergel.zip -d ~/Grass
 ~~~
 
 Iniciar GRASS nuevamente e ingresar al mapset `vergel` de la localización `Vergel`.
