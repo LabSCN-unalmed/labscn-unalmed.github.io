@@ -14,7 +14,7 @@ knitr::opts_chunk$set(fig.width=11,
                       fig.height=8)
 ```
 
-## Imágen original
+## Imagen original
 
 ![Desercion escoloar](desercion_escolar.png)
 
