@@ -1,0 +1,113 @@
+---
+title: "Deserción Escolar"
+author: "Universidad Nacional de Colombia, Sede Medellín"
+date: "10 de septiembre de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=11, 
+                      fig.height=8)
+```
+
+## Lectura de la base de datos
+
+```{r}
+des_esc_1 <- read.csv2("desercion_escolar.csv", check.names = FALSE)
+```
+
+
+## Arreglo de la base de datos
+
+```{r}
+head(des_esc_1)
+
+require(reshape2)
+des_esc_2 <- melt(des_esc_1, id.vars = c("Nombre","Numero","Tipo","Zona"),
+                  variable.name = "Año", value.name = "porcentaje")
+
+head(des_esc_2)
+```
+
+## Por orden alfabético
+
+```{r}
+require(ggplot2)
+graf1 <- ggplot(des_esc_2, aes(Nombre, porcentaje, fill = Año))
+graf1 + geom_bar(stat = "identity", position = "dodge")+
+  theme(plot.title = element_text(size=18),
+        axis.title.y = element_text(size=18),
+       axis.title.x = element_text(size=18),
+       axis.text.x=
+        element_text(angle = 90,size = 18, color = "black"), 
+       axis.text.y=
+        element_text(color="black", size= 18),
+       strip.text.x = element_text(size = 18),
+       legend.text = element_text(size=18),
+       legend.title = element_text(size=18))
+```
+
+## Reproducir la gráfica original
+
+```{r}
+des_esc_2$Nombre <- factor(des_esc_2$Nombre, as.character(des_esc_1$Nombre))
+graf1 <- ggplot(des_esc_2, aes(Nombre, porcentaje, fill = Año))
+graf1 + geom_bar(stat = "identity", position = "dodge")+
+  theme(plot.title = element_text(size=18),
+        axis.title.y = element_text(size=18),
+       axis.title.x = element_text(size=18),
+       axis.text.x=
+        element_text(angle = 90,size = 18, color = "black"), 
+       axis.text.y=
+        element_text(color="black", size= 18),
+       strip.text.x = element_text(size = 18),
+       legend.text = element_text(size=18),
+       legend.title = element_text(size=18))
+
+```
+
+## Ordenar descendentemente por promedio de porcentajes
+
+```{r}
+des_esc_2$Nombre <- reorder(des_esc_2$Nombre, des_esc_2$porcentaje)
+des_esc_2$Nombre <- factor(des_esc_2$Nombre, rev(levels(des_esc_2$Nombre)))
+graf1 <- ggplot(des_esc_2, aes(Nombre, porcentaje, fill = Año))
+graf1 + geom_bar(stat = "identity", position = "dodge") +
+  theme(plot.title = element_text(size=18),
+        axis.title.y = element_text(size=18),
+       axis.title.x = element_text(size=18),
+       axis.text.x=
+        element_text(angle = 90,size = 18, color = "black"), 
+       axis.text.y=
+        element_text(color="black", size= 18),
+       strip.text.x = element_text(size = 18),
+       legend.text = element_text(size=18),
+       legend.title = element_text(size=18))
+```
+
+
+
+## Agrupar por zonas
+
+```{r ,fig.width=20}
+des_esc_2$Zona <- factor(des_esc_2$Zona, unique(as.character(des_esc_1$Zona)))
+graf1 <- ggplot(des_esc_2, aes(Nombre, porcentaje, fill = Año))
+graf1 + geom_bar(stat = "identity", position = "dodge", width = 0.8) +
+  facet_grid( ~ Zona, space = "free_x", scale = "free_x") +
+  scale_fill_manual(values=c("red", "blue")) +
+  theme(plot.title = element_text(size=18),
+        axis.title.y = element_text(size=18),
+       axis.title.x = element_text(size=18),
+       axis.text.x=
+        element_text(angle = 90,size = 18, color = "black"), 
+       axis.text.y=
+        element_text(color="black", size= 18),
+       strip.text.x = element_text(size = 14),
+       legend.text = element_text(size=18),
+       legend.title = element_text(size=18))
+```
+

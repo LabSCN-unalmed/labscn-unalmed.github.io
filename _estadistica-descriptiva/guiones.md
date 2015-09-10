@@ -29,3 +29,7 @@ order: 01
 
 * [Tamaño de muestra](./guiones/tammuest.html){:target="_blank"}
 
+## Deserción Escolar
+
+* [Deserción escolar](./guiones/desercion_escolar.html){:target="_blank"}
+

@@ -22,3 +22,7 @@ order: 05
 ## Datos de comparación de gráficas
 
 * [Datos de comparación](./basesdedatos/compara_graficas.xlsx){:target="_blank"}
+
+## Datos de deserción escoloar
+
+* [Deserción escolar](./basesdedatos/deserción_escolar_2015.xlsx){:target="_blank"}
