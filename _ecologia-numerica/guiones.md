@@ -17,3 +17,7 @@ order: 1
    - [Abundancias](./bases_datos/peces.xlsx){:target="_blank"}
    - [Nombres de especies](./bases_datos/nombresdeespecies.xlsx){:target="_blank"}
    - [Nombres de variables ambientales](./bases_datos/Nombresdevariablesambientales.xlsx){:target="_blank"}
+
+## Componentes principales (gorriones)
+
+* [Álgebra lineal](./guiones/gorriones.html){:target="_blank"}

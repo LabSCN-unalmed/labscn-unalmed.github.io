@@ -1,0 +1,114 @@
+---
+title: "Componentes principales"
+author: "Kenneth Roy Cabrera Torres"
+date: "10 de septiembre de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=10, 
+                      fig.height=10)
+```
+
+
+```{r}
+gorriones <- read.csv2("gorriones.csv")
+medidas <- subset(gorriones, select = LongT:Esternon)
+```
+
+```{r}
+summary(medidas)
+sapply(medidas, sd)
+```
+
+
+```{r}
+pairs(medidas, col = gorriones$Sobrevivio, pch = 19, asp = 1)
+```
+
+```{r}
+with(gorriones, plot(LongT, LongAla, col = Sobrevivio, pch = 19, asp = 1))
+with(gorriones, text(LongT, LongAla, pos = 2, col = as.integer(Sobrevivio)))
+```
+
+
+```{r}
+cp1 <- princomp(medidas)
+summary(cp1)
+plot(cp1)
+```
+
+```{r}
+loadings(cp1)
+
+unclass(loadings(cp1))
+```
+
+
+```{r}
+biplot(cp1)
+```
+
+
+```{r}
+fact_exp <- 8
+plot(cp1$scores[,1], cp1$scores[,2], col = gorriones$Sobrevivio, 
+     pch = 19, asp = 1, xlab = "Componente principal 1",
+     ylab = "Componente principal 2")
+abline(h = 0, col = "blue", lty = 2)
+abline(v = 0, col = "blue", lty = 2)
+text(cp1$scores[,1], cp1$scores[,2], 
+     pos = 3, col = as.integer(gorriones$Sobrevivio))
+arrows(0,0,cp1$loadings[,1]*fact_exp, cp1$loadings[,2]*fact_exp, length = 0.1,
+       col = "blue")
+text(cp1$loadings[,1]*fact_exp, cp1$loadings[,2]*fact_exp,
+     dimnames(cp1$loadings)[[1]], col = "blue", pos = 2)
+```
+
+```{r}
+pairs(medidas, col = gorriones$Sobrevivio, pch = 19)
+```
+
+
+
+```{r}
+cp2 <- princomp(medidas, cor = TRUE)
+summary(cp2)
+plot(cp2)
+```
+
+```{r}
+loadings(cp2)
+
+unclass(loadings(cp2))
+```
+
+
+```{r}
+biplot(cp2)
+```
+
+
+```{r}
+fact_exp <- 3
+plot(cp2$scores[,1], cp2$scores[,2], col = gorriones$Sobrevivio, 
+     pch = 19, asp = 1, xlab = "Componente principal 1",
+     ylab = "Componente principal 2")
+abline(h = 0, col = "blue", lty = 2)
+abline(v = 0, col = "blue", lty = 2)
+text(cp2$scores[,1], cp2$scores[,2], 
+     pos = 3, col = as.integer(gorriones$Sobrevivio))
+arrows(0,0,cp2$loadings[,1]*fact_exp, cp2$loadings[,2]*fact_exp, length = 0.1,
+       col = "blue")
+text(cp2$loadings[,1]*fact_exp, cp2$loadings[,2]*fact_exp,
+     dimnames(cp2$loadings)[[1]], col = "blue", pos = 2)
+```
+
+```{r}
+gorriones2 <- data.frame(gorriones, atipico = rowSums(cp2$scores[,3:5]^2))
+gorriones2[order(gorriones2$atipico),]
+```
+
