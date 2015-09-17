@@ -76,6 +76,11 @@ order: 03
   de Colombia al correo krcabrer@unal.edu.co. 
   No olvidar escribir en asunto **[EDAED]**{: .text-danger}.    
   
+### Taller 2
+
+Taller en clase y en grupo con una primera estimación del diámetro de los círculos.
+
+Fecha de realización: Martes 15 de septiembre de 2015, hora de clase.
      
   
    
