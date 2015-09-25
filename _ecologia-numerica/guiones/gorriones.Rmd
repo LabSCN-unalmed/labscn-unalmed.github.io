@@ -13,27 +13,33 @@ knitr::opts_chunk$set(fig.width=10,
                       fig.height=10)
 ```
 
-
+## Lectura de la base de datos
 ```{r}
 gorriones <- read.csv2("gorriones.csv")
 medidas <- subset(gorriones, select = LongT:Esternon)
 ```
+
+## Estadísticos básicos
 
 ```{r}
 summary(medidas)
 sapply(medidas, sd)
 ```
 
+## Diagrama de panel de pares de variables
 
 ```{r}
 pairs(medidas, col = gorriones$Sobrevivio, pch = 19, asp = 1)
 ```
+
+## Comparación de dos variables de la base de datos
 
 ```{r}
 with(gorriones, plot(LongT, LongAla, col = Sobrevivio, pch = 19, asp = 1))
 with(gorriones, text(LongT, LongAla, pos = 2, col = as.integer(Sobrevivio)))
 ```
 
+## Cálculo de las componentes principales de los datos originales sin trasformar
 
 ```{r}
 cp1 <- princomp(medidas)
@@ -41,17 +47,21 @@ summary(cp1)
 plot(cp1)
 ```
 
+## Resultados de las componentes principales (cargas)
+
 ```{r}
 loadings(cp1)
 
 unclass(loadings(cp1))
 ```
 
+## Gráfica "biplot" de las componentes principales
 
 ```{r}
 biplot(cp1)
 ```
 
+## Biplot con las escalas proporcionales.
 
 ```{r}
 fact_exp <- 8
@@ -68,11 +78,13 @@ text(cp1$loadings[,1]*fact_exp, cp1$loadings[,2]*fact_exp,
      dimnames(cp1$loadings)[[1]], col = "blue", pos = 2)
 ```
 
+## Diagramas de pares con las variables estandarizadas.
+
 ```{r}
 pairs(medidas, col = gorriones$Sobrevivio, pch = 19)
 ```
 
-
+## Cálculo de las componentes principales con las varaibles estandarizadas
 
 ```{r}
 cp2 <- princomp(medidas, cor = TRUE)
@@ -80,17 +92,21 @@ summary(cp2)
 plot(cp2)
 ```
 
+## Resultados de las componentes principales
+
 ```{r}
 loadings(cp2)
 
 unclass(loadings(cp2))
 ```
 
+## Gráficas "biplot" de componentes principales
 
 ```{r}
 biplot(cp2)
 ```
 
+## Biplot con las escalas proporcionales.
 
 ```{r}
 fact_exp <- 3
@@ -106,6 +122,8 @@ arrows(0,0,cp2$loadings[,1]*fact_exp, cp2$loadings[,2]*fact_exp, length = 0.1,
 text(cp2$loadings[,1]*fact_exp, cp2$loadings[,2]*fact_exp,
      dimnames(cp2$loadings)[[1]], col = "blue", pos = 2)
 ```
+
+## Detección de valores atípicos multivariados.
 
 ```{r}
 gorriones2 <- data.frame(gorriones, atipico = rowSums(cp2$scores[,3:5]^2))
