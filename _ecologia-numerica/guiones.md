@@ -20,4 +20,4 @@ order: 1
 
 ## Componentes principales (gorriones)
 
-* [Álgebra lineal](./guiones/gorriones.html){:target="_blank"}
+* [Componentes principales](./guiones/gorriones.html){:target="_blank"}
