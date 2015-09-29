@@ -26,3 +26,9 @@ order: 05
 ## Datos de deserción escoloar
 
 * [Deserción escolar](./basesdedatos/deserción_escolar_2015.xlsx){:target="_blank"}
+
+## Arreglo de base de datos
+
+* [Religiones](./basesdedatos/religions.xlsx){:target="_blank"}
+* [Tuberculosis en el mundo](./basesdedatos/tb.xlsx){:target="_blank"}
+* [Paises](./basesdedatos/paises.xlsx){:target="_blank"}

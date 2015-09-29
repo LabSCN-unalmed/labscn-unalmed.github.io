@@ -33,3 +33,8 @@ order: 01
 
 * [Deserción escolar](./guiones/desercion_escolar.html){:target="_blank"}
 
+## Arreglo de bases de datos
+
+* [Arreglo de base de datos](./guiones/ArregloBaseDatos.html){:target="_blank"}
+
+
