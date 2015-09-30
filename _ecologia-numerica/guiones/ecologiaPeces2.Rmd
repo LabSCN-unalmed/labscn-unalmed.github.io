@@ -213,13 +213,13 @@ par(op)
 ```{r}
 op<-par(no.readonly=TRUE)
 par(mfrow=c(2,2))
-plot(ambient$das, ambient$alt, type="l", xlab="Distance desde el nacimiento [km]", 
+plot(ambient$das, ambient$alt, type="l", xlab="Distancia desde el nacimiento [km]", 
      ylab="Altitud (m)", col="red", main="Altura")
-plot(ambient$das, ambient$flo, type="l", xlab="Distance desde el nacimiento [km]", 
+plot(ambient$das, ambient$flo, type="l", xlab="Distancia desde el nacimiento [km]", 
      ylab="Descarga (m3/s)", col="blue", main="Descarga")
-plot(ambient$das, ambient$oxy, type="l", xlab="Distance desde el nacimiento [km]", 
+plot(ambient$das, ambient$oxy, type="l", xlab="Distancia desde el nacimiento [km]", 
      ylab="Oxígeno (mg/L)", col="green3", main="Oxígeno")
-plot(ambient$das, ambient$nit, type="l", xlab="Distance desde el nacimiento [km]", 
+plot(ambient$das, ambient$nit, type="l", xlab="Distancia desde el nacimiento [km]", 
      ylab="Nitrato (mg/L)", col="brown", main="Nitrato")
 par(op)
 
