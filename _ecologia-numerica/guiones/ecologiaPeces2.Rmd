@@ -149,7 +149,7 @@ par(op)
 op<-par(no.readonly=TRUE)
 par(mfrow=c(2,2))
 plot(ambient$das, peces$Satr, type="l", col=4, main="Datos Crudos",
-     xlab="Distance desde el nacimiento [km]",
+     xlab="Distancia desde el nacimiento [km]",
      ylab="Codificacion de abundancia crudo")
 lines(ambient$das, peces$Thth, col=3)
 lines(ambient$das, peces$Baba, col="orange")
@@ -158,7 +158,7 @@ lines(ambient$das, peces$Neba, col=1, lty="dotted")
 
 plot(ambient$das, peces.scal$Satr, type="l", col=4, 
      main="Perfiles de especies (max)",
-     xlab="Distance desde el nacimiento [km]", ylab="Abundancia estandarizada")
+     xlab="Distancia desde el nacimiento [km]", ylab="Abundancia estandarizada")
 lines(ambient$das, peces.scal$Thth, col=3)
 lines(ambient$das, peces.scal$Baba, col="orange")
 lines(ambient$das, peces.scal$Abbr, col=2)
@@ -166,7 +166,7 @@ lines(ambient$das, peces.scal$Neba, col=1, lty="dotted")
 
 plot(ambient$das, peces.hel$Satr, type="l", col=4,
      main="Perfiles de sitios (Hellinger)",
-     xlab="Distance desde el nacimiento [km]", ylab="Abundancia estandarizada")
+     xlab="Distancia desde el nacimiento [km]", ylab="Abundancia estandarizada")
 lines(ambient$das, peces.hel$Thth, col=3)
 lines(ambient$das, peces.hel$Baba, col="orange")
 lines(ambient$das, peces.hel$Abbr, col=2)
@@ -174,7 +174,7 @@ lines(ambient$das, peces.hel$Neba, col=1, lty="dotted")
 
 plot(ambient$das, peces.chi$Satr, type="l", col=4,
      main="Perfiles dobles (Chi-square)",
-     xlab="Distance desde el nacimiento [km]", ylab="Abundancia estandarizada")
+     xlab="Distancia desde el nacimiento [km]", ylab="Abundancia estandarizada")
 lines(ambient$das, peces.chi$Thth, col=3)
 lines(ambient$das, peces.chi$Baba, col="orange")
 lines(ambient$das, peces.chi$Abbr, col=2)
