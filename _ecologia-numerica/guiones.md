@@ -21,3 +21,8 @@ order: 1
 ## Componentes principales (gorriones)
 
 * [Componentes principales](./guiones/gorriones.html){:target="_blank"}
+
+## Transformaciones 
+
+* [Algunas transformaciones](./guiones/ecologiaPeces2.html){:target="_blank"}
+
