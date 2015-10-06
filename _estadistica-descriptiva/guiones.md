@@ -37,4 +37,7 @@ order: 01
 
 * [Arreglo de base de datos](./guiones/ArregloBaseDatos.html){:target="_blank"}
 
+## Análisis descriptivo y exploratorio de las técnicas de estudio.
+
+* [Análisis descriptivo y exploratorio para Edad](./guiones/Explora2.html){:target="_blank"}
 
