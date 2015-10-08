@@ -26,3 +26,12 @@ order: 1
 
 * [Algunas transformaciones](./guiones/ecologiaPeces2.html){:target="_blank"}
 
+## Análisis Aglomerativo I (Cluster Analysis)
+
+* [Análisis aglomerativo I](./guiones/cluster1.html){:target="_blank"}
+
+### Archivos auxiliares
+
+* [Código hcoplot.R](./guiones/hcoplot.R){:target="_blank"}
+* [Código test.a.R](./guiones/test.a.R){:target="_blank"}
+* [Código coldiss.R](./guiones/coldiss.R){:target="_blank"}
