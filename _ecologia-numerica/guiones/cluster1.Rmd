@@ -111,7 +111,9 @@ establecer como:
 
  ![](enlaces2.png) 
 
- ![](enlaces1.png) 
+ ![](enlaces1.png)
+ 
+ ![](contracting_dilating.png) 
  
 ```{r}
 # Cálculo de la matriz utilizando la distancia de Chord
