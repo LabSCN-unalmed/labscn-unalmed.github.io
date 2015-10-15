@@ -41,8 +41,12 @@ order: 01
 
 * [Análisis descriptivo y exploratorio para ténicas de estudio](./guiones/Explora2.html){:target="_blank"}
 
-## Segmentación de la base de datos mediante "cluster analysis"
+## Segmentación I de la base de datos mediante "cluster analysis"
 
-* ["Cluster analysis" exploratorio](./guiones/segmenta.html){:target="_blank"}
+* ["Cluster analysis" exploratorio I](./guiones/segmenta.html){:target="_blank"}
+* [Encuesta.csv](./guiones/Encuesta2.csv){:target="_blank"}
 
+## Segmentación II de la base de datos mediante "cluster analysis"
+
+* ["Cluster analysis" exploratorio II](./guiones/segmenta2.html){:target="_blank"}
 
