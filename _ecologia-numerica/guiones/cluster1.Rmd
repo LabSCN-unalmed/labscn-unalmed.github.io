@@ -130,12 +130,18 @@ peces[c(20,21),]
 peces.norm[c(20,21),]
 # Gráfica del dendograma usando las opciones por omisión.
 plot(peces.ch.single,main="Peces - Chord - Enlace simple")
+
 # Gráfica que muestra posibles gradientes determinados por la agrupación
 # Ordenación con respecto al gradiente de distancia a la desembocadura.
-plot(peces.ch.single$order,ambient$das)
+plot(peces.ch.single$order,ambient$das, pch = 19)
+text(peces.ch.single$order, ambient$das, 
+     labels =peces.ch.single$labels[peces.ch.single$order[peces.ch.single$order]], pos = 2)
 abline(coef=coef(lm(ambient$das~peces.ch.single$order)),col="red")
+
 # Ordenación con respecto al gradiente concentración de Nitrato.
-plot(peces.ch.single$order,ambient$nit)
+plot(peces.ch.single$order,ambient$nit, pch = 19)
+text(peces.ch.single$order, ambient$das, 
+     labels =peces.ch.single$labels[peces.ch.single$order[peces.ch.single$order]], pos = 2)
 abline(coef=coef(lm(ambient$nit~peces.ch.single$order)),col="red")
 
 # Cálculo utilizand el enlace completo
