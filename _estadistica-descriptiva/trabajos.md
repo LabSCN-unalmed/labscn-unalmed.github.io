@@ -62,6 +62,40 @@ sobre la estimación de un promedio de una población.
 #### Fecha de entrega:
   Domingo 20 de septiembre antes de las 23:59 hora de Colombia al 
   correo krcabrer@unal.edu.co, no olvidar en asunto [EDAED].
+
+### Segundo trabajo en grupo
+
+#### Objetivo:
+
+Realizar un análisis exploratorio y descriptivo de la base de datos de la
+encuesta sobre hábitos de estudio con el fin de mostrar variables que
+influencien el PAPA y determinar relaciones entre variables.
+
+
+#### Contenido del trabajo escrito
+
+  - Breve introducción.
+  - Análisis descriptivo de las variables relevantes como:
+    * Distribución de los tiempos de los estudiantes en distintas actividades.
+    * Análisis descriptivo del tiempo dedicado a la asignatura EDAED.
+    * Análisis descriptivo del tiempo dedicado a las asignaturas en general.
+  - Análisis exploratorio de variables que influencien el PAPA.
+  - Análisis exploratorio de variables que puedan esta relacionadas entre si.
+    * Por ejemplo relación de semestre con distribución de tiempo en las asignaturas.
+    * Relación de carreras con estrato.
+    * Etc.
+  - Análisis de cluster que determinte grupos que sean estadísticamente diferentes
+    en mediana (mediante gráficas boxplot con "cintura").
+  - Conclusiones.
+  - Recomendaciones.
+  - Bibliografía y cibergrafía.
   
+  Nota: Recordar que los análisis exploratorios y descriptivos deben estar
+  acompañados por gráficas claras, resumidas y completas.
+      
+#### Fecha de entrega:
+  Jueves 5 de noviembre de 2015 antes de las 23:59 hora de Colombia al 
+  correo krcabrer@unal.edu.co, no olvidar en asunto [EDAED].
+    
          
 
