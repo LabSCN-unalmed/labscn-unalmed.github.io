@@ -50,3 +50,7 @@ order: 01
 
 * ["Cluster analysis" exploratorio II](./guiones/segmenta2.html){:target="_blank"}
 
+## Análisis de componentes principales.
+
+* [Componentes principales](./guiones/componentesPrincipales.html){:target="_blank"}
+
