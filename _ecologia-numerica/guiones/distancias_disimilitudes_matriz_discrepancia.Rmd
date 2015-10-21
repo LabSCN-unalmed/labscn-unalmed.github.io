@@ -228,7 +228,7 @@ require(vegan)
 # Transformación de perfiles por sito
 peces.log_gow <- decostand(peces, method = "log", logbase = 10)
 # Matriz de distancias entre perfiles
-d19 <- dist(peces.hell, method = "manhattan")
+d19 <- dist(peces.log_gow, method = "manhattan")
 # Cluster utilizando esta distancia entre sitios.
 cl19 <- hclust(d19)
 # Dendrograma
