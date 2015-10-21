@@ -85,7 +85,9 @@ img {
 <li><a href="#similitudes">Similitudes</a><ul>
 <li><a href="#similitud-s_21">Similitud <span class="math">\(S_{21}\)</span></a></li>
 <li><a href="#similitudes-s_22-y-s_23.">Similitudes <span class="math">\(S_{22}\)</span> y <span class="math">\(S_{23}\)</span>.</a></li>
+<li><a href="#ejemplo-5">Ejemplo</a></li>
 <li><a href="#similitud-s_26">Similitud <span class="math">\(S_{26}\)</span></a></li>
+<li><a href="#ejemplo-6">Ejemplo</a></li>
 </ul></li>
 </ul>
 </div>
@@ -286,6 +288,9 @@ S_{21} = 1- D_{15} = 1 - \chi^2
 </ul>
 <p>Estas dos similitudes cambian si el número de sitios o cambian, situación que no se presenta con las otra medidas de similitud.</p>
 <p>Estas dos similitudes son semimétricas y no son euclídeas al realizar la transformación <span class="math">\(D = 1-S\)</span>, y se desconoce el comportamiento de sus raices cuadradas.</p>
+</div>
+<div id="ejemplo-5" class="section level3">
+<h3>Ejemplo</h3>
 <pre class="r"><code>require(nomclust)</code></pre>
 <pre><code>## Loading required package: nomclust
 ## Loading required package: cluster
@@ -310,6 +315,9 @@ S_{26}(x_1,x_2) = \frac{2a+d}{2p} = \frac{a-b-c}{2p} + \frac{1}{2}
 \]</span></p>
 <p>El valor de <span class="math">\(S_{26}\)</span> decrece con el incremento de los doble ceros.</p>
 <p>Esta similitud es métrica pero no euclídea, sin embargo sus raices cuadradas son tanto métricas como euclídeas.</p>
+</div>
+<div id="ejemplo-6" class="section level3">
+<h3>Ejemplo</h3>
 <pre class="r"><code>require(vegan)
 
 D26 &lt;- designdist((peces&gt;0), &quot;1-(a-b-c)/(2*(a+b+c+d))+1/2&quot;, abcd = TRUE)
