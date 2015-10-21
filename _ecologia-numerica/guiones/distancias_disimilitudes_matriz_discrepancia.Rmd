@@ -1,0 +1,353 @@
+---
+title: "Distancias y similitudes"
+author: "Kenneth Roy Cabrera Torres"
+date: "18 de octubre de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+## Lectura de las bases de datos
+
+```{r}
+# Lectura
+ambient       <- read.csv2("ambientales.csv",enc="latin1",row.names=1)
+peces         <- read.csv2("peces.csv",enc="latin1",row.names=1)
+locs          <- read.csv2("localidades.csv",enc="latin1",row.names=1)
+nomEspec      <- read.csv2("nombresdeespecies.csv",enc="latin1")
+nomVarAmbient <- read.csv2("Nombresdevariablesambientales.csv",enc="latin1")
+
+# Adecuación
+# Quitar el sitio que no tiene ninguna especie
+sumEsp  <- apply(peces,1,sum)
+peces   <- peces[sumEsp!=0,]
+ambient <- ambient[sumEsp!=0,]
+locs    <- locs[sumEsp!=0,]
+
+```
+
+
+## Definiciones
+
+Una distancia es **métrica** si:
+
+1. Mínimo 0: si $a$ = $b$, entonces $D(a,b)$ = 0.
+2. Positivo: si $a \ne b$, entonces $D(a,b) < 0$.
+3. Simétrico: $D(a,b) = D(b,a)$.
+4. Desigualdad triangular: $D(a,b) + D(b,c) \ge D(a,c)$
+
+Una distancias es **semimétrica** o **seudométrica** si comple sólo las tres
+primeras propiedades.
+
+Las distancias **no-métricas** son las que incumplen la primera condición.
+
+Una distancia se dice que tiene la propiedad **euclidiana** si está contenida
+completamente en un espacio **euclídeo** y que las valores propios de una
+matriz con esta distancia no produce valores propios negativos.
+
+Un **espacio euclídeo** es un espacio vectorial  que tienen definido un
+producto interno y el resultado de ese producto interno 
+siempre es un número real positivo.
+
+
+
+## Distancias
+
+### Distancias entre perfiles de especies ($D_{18}$).
+
+$$
+D_{18}(x_1,x_2) = \sqrt{\sum_{j=1}^p \left(\frac{y_{1j}}{y_{1.}} - \frac{y_{2j}}{y_{2.}}\right)^2}
+$$
+
+Esta distancia es la distancias entre las proporciones de las especies por sitio.
+
+En este caso las especies más abundantes contribuyen a la definición
+de la distancias y es insensible al problema de doble cero, el límite
+superior es de $\sqrt{2}$.
+
+### Ejemplo
+
+```{r}
+require(vegan)
+# Transformación de perfiles por sito
+peces.perfil <- decostand(peces, method = "total")
+# Verificación
+apply(peces.perfil, 1, sum)
+# Matriz de distancias entre perfiles
+d18 <- dist(peces.perfil, method = "euclidean")
+# Cluster utilizando esta distancia entre sitios.
+cl18 <- hclust(d18)
+# Dendrograma
+plot(cl18, hang = -1)
+```
+
+
+### La métrica $\chi^2$ ($D_{15}$).
+
+Si ponderamos la distancia con las proporciones entre el inverso de
+la sumas de especies $y_{.j}$, se tiene entonces la denominada métrica 
+$\chi^2$ definida como la distancia $D_{15}$. 
+
+$$
+D_{15}(x_1,x_2) = \chi^2 = \sqrt{\sum_{j=1}^p \frac{1}{y_{.j}} \left(\frac{y_{1j}}{y_{1.}} - \frac{y_{2j}}{y_{2.}}\right)^2}
+$$
+
+En la mayoría de los casos produce distancias menores de uno (1) y el valor
+máximo posible es $\sqrt{2}$.
+
+Si realizamos primero en los datos de abundancia originales la transformación:
+
+$$
+y'_{ij} = \frac{y_{ij}}{y_{i.}\sqrt{y_{.j}}}
+$$
+
+Y luego hallamos la distancia euclídea de estos datos transformados entre
+sitios, es idéntica a la  mética $\chi^2$ ($D_{15}$).
+
+### Ejemplo
+
+```{r}
+require(vegan)
+# Transformación de perfiles por sito
+peces.perfil <- decostand(peces, method = "total")
+# Ajuste por sumas de columnas
+peces.chi_met<- t(t(peces.perfil)/sqrt(apply(peces, 2, sum)))
+# Matriz de distancias entre perfiles
+d15 <- dist(peces.chi_met, method = "euclidean")
+# Cluster utilizando esta distancia entre sitios.
+cl15 <- hclust(d15)
+# Dendrograma
+plot(cl15, hang = -1)
+```
+
+
+### La distancia $\chi^2$ ($D_{16}$).
+
+Si multiplicamos la transformación, definida anteriormente,
+por la raiz cuadrada de la abundancia total (\sqrt{y_{..}}),
+entonces se tiene la distancia $\chi^2$ ($D_{16}$). 
+
+Es decir si se realiza la transformación siguiente:
+
+
+$$
+y'_{ij} = \sqrt{y_{..}}\frac{y_{ij}}{y_{i.}\sqrt{y_{.j}}}
+$$
+
+Y luego se halla la distancia euclídea entre sitios es la denominada
+distancia $\chi^2$ ($D_{16}$) que es la que en CA y en CCA se preserva.
+
+El valor máximo de $D_{16}$ es $\sqrt{2y_{..}}$.
+
+
+### Ejemplo
+
+```{r}
+require(vegan)
+# Transformación de perfiles por sito
+peces.chi_dist <- decostand(peces, method = "chi.square")
+# Matriz de distancias entre perfiles
+d16 <- dist(peces.chi_dist, method = "euclidean")
+# Cluster utilizando esta distancia entre sitios.
+cl16 <- hclust(d16)
+# Dendrograma
+plot(cl16, hang = -1)
+```
+
+
+### La distancia de Hellinger ($D_{17}$).
+
+Esta distancia se define como:
+
+$$
+D_{17} = \sqrt{\sum_{j=1}^p \left(\sqrt{\frac{y_{1j}}{y_{1.}}} - \sqrt{\frac{y_{2j}}{y_{2.}}}\right)^2}
+$$
+
+Es decir que si primero transformamos las proporciones por filas y
+se le saca la raiz cuadrada a esas proporciones y hallamos la distancias 
+euclídea, entonces tenemos la distancias de Hellinger ($D_{17}$).
+
+Otra forma de ver esta distancia es si se toma la raiz cuadrada de
+las abundancias absolutas y luego se halla la distancia de
+Chord (la distancia de cuerda) se tiene de nuevo la distancia de Hellinger ($D_{17}$).
+
+Recordemos que la distancia de Chord (la distancia de cuerda) es 
+la distancias entre los vectores unitarios de los renglones (normalizacion) 
+de la matriz de abundancias.
+
+Esta distancias no es sensible al problema de doble cero, su límite superior
+es $\sqrt{2}$. 
+
+### Ejemplo
+
+```{r}
+require(vegan)
+# Transformación de perfiles por sito
+peces.hell <- decostand(peces, method = "hellinger")
+# Matriz de distancias entre perfiles
+d17 <- dist(peces.hell, method = "euclidean")
+# Cluster utilizando esta distancia entre sitios.
+cl17 <- hclust(d17)
+# Dendrograma
+plot(cl17, hang = -1)
+```
+
+
+
+### Diferencia de características promedio modificada ($D_{19}$).
+
+Si el número de especies entre dos sitios que no tienen doble cero
+es $pp$ en los sitios $x_1$ y $x_2$ entonces la distanciss $D_{19}$ es:
+
+$$
+D_{19}(x1,x2) = \frac{1}{pp} \sum_{j=1}^p |y_{1j} - y_{2j}|
+$$
+
+Esta distancia no tiene límite superior.
+
+Ni esta distancias, su complemento o su raiz cuadrada son métricos o
+euclideos. Sin embargo si se aplica a una matriz de presencia ausencia,
+esta distancia se convierte en el complmento a uno del coeficiente
+de Jaccard ($1-S_{7}$), que es métrico, pero no euclídeo, mientras
+que la raiz cuadrada es tanto mética como euclídea.
+
+Una propuesta de mejora en matrices de abundancias es la denominada
+disimilitud de Gower modificada,
+que es aplicar la misma distancia después de la siguiente transformación:
+
+$$
+y'_{ij} = log_{10}(y_{ij}) + 1, \quad \textrm{si} \quad y_{ij} > 0 \\
+\quad \textrm{o} \quad \\
+y'_{ij} = 0, \quad \textrm{si} \quad y_{ij} = 0
+$$
+
+### Ejemplo
+
+```{r}
+require(vegan)
+# Transformación de perfiles por sito
+peces.log_gow <- decostand(peces, method = "log", logbase = 10)
+# Matriz de distancias entre perfiles
+d19 <- dist(peces.hell, method = "manhattan")
+# Cluster utilizando esta distancia entre sitios.
+cl19 <- hclust(d19)
+# Dendrograma
+plot(cl19, hang = -1)
+```
+
+
+
+## Similitudes
+
+### Similitud $S_{21}$
+
+La similitud $S_{21}$ se define como el complemento a uno de $D_{15}$:
+
+$$
+S_{21} = 1- D_{15} = 1 - \chi^2
+$$
+
+Dado que $\chi^2$ produce valores menores que 1, entonces $S_{21}$ producirá
+valores  cercanos a cero o negativos cuando no haya similitud y valores cercanos
+a uno cuando son parecidos. 
+
+Notemos que $D = 1-S$ de nuevo es la distancias $D_{15}$ que es mética y 
+euclídea, notemos que también su raiz cuadrada es mética y euclídea.
+
+### Similitudes $S_{22}$ y $S_{23}$.
+
+Este coeficiente pertenece a un grupo especial que tienen en cuenta
+la distribución de probabilidad de las características y realza la
+similitud de las especies raras en comparación con la probabilidad
+total de que aparezca.
+
+El coeficiente $S_{22}$ está basado en la probabilidad de los varios
+estadios del descriptor. Y la similitud resultante es a su vez una 
+probabilidad que refleja el complemento de la probabilidad de que
+ese ensamble entre dos sitios sea debido al azar.
+
+Se siguen los siguientes pasos:
+
+* Calcular mediante una medida de similitud una primera asociación parcial
+  para todos los pares de sitios. Se suelen utilizar los coeficientes
+  parciales de $S_{19}$, o el de $S_{20}$. Se omiten los doble ceros.
+  También se utiliza $S_{17}$. Otras formas de realizar estas medidas
+  de similitud parcial es la distancia de Chor y la de Hellinger.
+  El resultado es una matriz de $p$ filas (número de especies) y 
+  $\frac{n(n-1)}{2}$ columnas que corresponden a todos los pares posibles
+  de sitios.
+* Utilizando la anterior matriz se obtiene una nueva matriz con las 
+  mismas dimensiones en donde se calcula la proporción de los valores
+  de similitud que pertenece a la especie $j$ que sea igual o mayor
+  que la similitud parcial del par de sitios considerados. Entre mayor
+  sea la proporción, son menos similares el par de sitios en consideración.
+  Se considera el mismo valor para el cálcuo.
+* Se construye una matriz de $n \times n$ de similitud para todas las
+  combinaciones de sitio, multiplicando las probabilidades de cada especie,
+  suponiendo independencia entre las especies.
+* Ahora se calcula la matriz de similitud de Goodall, mediante la fórmula
+  $$
+  S_{22}(x_1,x_2) = \frac{\sum_{parejas} d}{\frac{n(n-1)}{2}}
+  $$
+  Donde $d =1$ si $\Pi \ge \Pi_{12}$ o $d=0$ si $\Pi < \Pi_{12}$
+  Es decir se calcula la proporción de probabilidades que son mayores o iguales
+  a la probabilidad que se está considerando dentro de toda la matriz obtenida
+  anteriormente de orden $n \times n$.
+* Un segundo índice surge si es toma la aproximación $\chi^2$. En este
+  caso se calcula el índice de similitud:
+  $$
+  S_{23}(x_1,x_2) = 1 - prob(\chi^2_{12})
+  $$
+  Donde $\chi^2_{12} = - 2 log_{e}\Pi_{12}$ y $prob(\chi^2_{12})$ es la
+  probabilidad de que una distribución $\chi^2$ con $2p$ grados de libertad
+  exceda el valor observado de $\chi^2_{12}$.
+  
+Estas dos similitudes cambian si el número de sitios o cambian, situación
+que no se presenta con las otra medidas de similitud.
+
+Estas dos similitudes son semimétricas y no son euclídeas al
+realizar la transformación $D = 1-S$, y se desconoce
+el comportamiento de sus raices cuadradas.
+
+
+```{r}
+require(nomclust)
+# Matriz de distancias 
+d22 <-as.dist(good1(peces))
+# Cluster utilizando esta distancia entre sitios.
+cl22 <- hclust(d22)
+# Dendrograma
+plot(cl22, hang = -1)
+```
+
+
+### Similitud $S_{26}$
+
+Se parte de la tabla de contingencia $2 \times 2$
+
+![](matriz2x2.png) 
+
+Se define como un descuento de las presencias cruzadas en relación con la
+doble presencia.
+
+Se calcula como:
+
+$$
+S_{26}(x_1,x_2) = \frac{2a+d}{2p} = \frac{a-b-c}{2p} + \frac{1}{2}
+$$
+
+El valor de $S_{26}$ decrece con el incremento de los doble ceros.
+
+Esta similitud es métrica pero no euclídea, sin embargo sus raices cuadradas
+son tanto métricas como euclídeas.
+
+```{r}
+require(vegan)
+
+D26 <- designdist((peces>0), "1-(a-b-c)/(2*(a+b+c+d))+1/2", abcd = TRUE)
+
+cl26 <- hclust(D26)
+
+plot(cl26, hang = -1)
+```
+

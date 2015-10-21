@@ -35,3 +35,8 @@ order: 1
 * [Código hcoplot.R](./guiones/hcoplot.R){:target="_blank"}
 * [Código test.a.R](./guiones/test.a.R){:target="_blank"}
 * [Código coldiss.R](./guiones/coldiss.R){:target="_blank"}
+
+
+## Análisis Aglomerativo II (Cluster Analysis)
+
+* [Distancias y similitudes](./guiones/distancias_disimilitudes_matriz_discrepancia.html){:target="_blank"}
