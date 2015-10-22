@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Introducción al R (Parte II)</h1><p>Kenneth Cabrera<br/>martes, 21 de abril de 2015</p>
+<h1>Introducción al R (Parte II)</h1><p>Kenneth Cabrera<br/>jueves, 22 de octubre de 2015</p>
 
 <div class="slideContent" >
 
@@ -1159,12 +1159,10 @@ categóricas.</li>
 <h3>Factores</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- factor(c(&quot;si&quot;, &quot;si&quot;, &quot;no&quot;, &quot;si&quot;, &quot;no&quot;))
-table(x)
+levels(x)
 </code></pre>
 
-<pre><code>x
-no si 
- 2  3 
+<pre><code>[1] &quot;no&quot; &quot;si&quot;
 </code></pre>
 
 <pre><code class="r">unclass(x)
@@ -1181,13 +1179,25 @@ attr(,&quot;levels&quot;)
 <section data-transition="linear" data-transition-speed="default">
 <h3>Factores</h3>
 <div class="slideContent" >
-<pre><code class="r">x &lt;- factor(c(&quot;si&quot;, &quot;si&quot;, &quot;no&quot;, &quot;si&quot;, &quot;no&quot;),
-            levels = c(&quot;si&quot;, &quot;no&quot;))
-x
+<pre><code class="r">x &lt;- factor(c(&quot;si&quot;, &quot;si&quot;, &quot;no&quot;, &quot;si&quot;, &quot;no&quot;))
+
+as.numeric(x)
 </code></pre>
 
-<pre><code>[1] si si no si no
-Levels: si no
+<pre><code>[1] 2 2 1 2 1
+</code></pre>
+
+<pre><code class="r">x &lt;- factor(x, levels = c(&quot;si&quot;,&quot;no&quot;))
+levels(x)            
+</code></pre>
+
+<pre><code>[1] &quot;si&quot; &quot;no&quot;
+</code></pre>
+
+<pre><code class="r">as.numeric(x)
+</code></pre>
+
+<pre><code>[1] 1 1 2 1 2
 </code></pre>
 
 </div>
@@ -1486,6 +1496,12 @@ x[1]
 <pre><code>[1] 6 5 4 3 2 1
 </code></pre>
 
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Ejemplo subconjuntos (listas) II</h3>
+<div class="slideContent" >
 <pre><code class="r">x$bar
 </code></pre>
 
@@ -1498,17 +1514,18 @@ x[1]
 <pre><code>[1] 0.6
 </code></pre>
 
-<pre><code class="r">4[&quot;bar&quot;]
+<pre><code class="r">x[&quot;bar&quot;]
 </code></pre>
 
-<pre><code>[1] NA
+<pre><code>$bar
+[1] 0.6
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Ejemplo subconjuntos (listas) II</h3>
+<h3>Ejemplo subconjuntos (listas) III</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- list(foo = 6:1, bar = 0.6, baz = &quot;hello&quot;)
 x[c(1,3)]
@@ -1525,7 +1542,7 @@ $baz
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Ejemplo subconjuntos (listas) III</h3>
+<h3>Ejemplo subconjuntos (listas) IV</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- list(foo = 6:1, bar = 0.6, baz = &quot;hello&quot;)
 nombre &lt;- &quot;foo&quot;
@@ -1551,7 +1568,7 @@ x[[nombre]]
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Ejemplo subconjuntos (listas) IV</h3>
+<h3>Ejemplo subconjuntos (listas) V</h3>
 <div class="slideContent" >
 <pre><code class="r">x &lt;- list(a = list(10, 12, 14), b = c(3.14, 2.81))
 x[[c(1,3)]]
