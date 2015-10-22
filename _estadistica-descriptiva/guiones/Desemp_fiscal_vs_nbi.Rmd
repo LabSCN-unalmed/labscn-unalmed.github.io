@@ -1,0 +1,125 @@
+---
+title: "Manejo de bases de datos"
+author: "Universidad Nacional de Colombia, Sede Medellín"
+date: "Jueves, 22 de octubre de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=11, 
+                      fig.height=8)
+```
+
+
+## Lectura de las bases de datos
+
+```{r}
+desemp_fiscal <- read.csv2("Ranking 2013 Municipios.csv", enc = "utf-8", skip = 4)
+
+nombres_nbi <- c("Cod_Depto","Nom_Dpto","Cod_mun","Nom_Mun",
+                 "NBI_cab","CVE_cab",
+                 "NBI_resto","CVE_resto",
+                 "NBI_total","CVE_total",
+                 "Nota")
+
+nbi <- read.csv2("MunicipiosNBI.csv", enc = "utf-8", skip = 9,
+                 col.names = nombres_nbi,
+                 colClasses = c(rep("character",4)))
+
+str(desemp_fiscal)
+
+str(nbi)
+```
+
+## Adecuación de las bases de datos
+
+```{r}
+require(stringr)
+nombres_Desemp <- c("Codigo_mun","Dpto","Nomb_mun",
+                    "Autofin","Resp_deuda","Dependencia",
+                    "Gen_recur","Mag_inv","Capacidad_ahorro",
+                    "Desemp_fiscal")
+names(desemp_fiscal) <- nombres_Desemp
+desemp_fiscal$Codigo_mun <- str_trim(as.character(desemp_fiscal$Codigo_mun))
+desemp_fiscal$Dpto <- str_trim(as.character(desemp_fiscal$Dpto))
+desemp_fiscal$Nomb_mun <- str_trim(as.character(desemp_fiscal$Nomb_mun))
+desemp_fiscal$Capacidad_ahorro <- as.numeric(gsub(",",".",as.character(desemp_fiscal$Capacidad_ahorro)))
+desemp_fiscal <- droplevels(subset(desemp_fiscal, Codigo_mun != ""))
+
+head(desemp_fiscal)
+
+nbi$NBI_cab <- as.numeric(gsub(",",".",nbi$NBI_cab))
+nbi$NBI_resto <- as.numeric(gsub(",",".",nbi$NBI_resto))
+nbi$NBI_total <- as.numeric(gsub(",",".",nbi$NBI_total))
+
+nbi$CVE_cab <- as.numeric(gsub(",",".",nbi$CVE_cab))
+nbi$CVE_resto <- as.numeric(gsub(",",".",nbi$CVE_resto))
+nbi$CVE_total <- as.numeric(gsub(",",".",nbi$CVE_total))
+
+nbi <- droplevels(subset(nbi, Cod_mun != ""))
+
+head(nbi)
+```
+
+## Construcción de clave única
+
+```{r}
+desemp_fiscal$Codigo_mun <- as.factor(desemp_fiscal$Codigo_mun)
+nbi$Cod <- as.factor(with(nbi, paste(Cod_Depto, Cod_mun, sep = "")))
+```
+
+## Juntar la bases de datos solo con los elementos comunes.
+```{r}
+total1 <- merge(desemp_fiscal, nbi, by.x="Codigo_mun", by.y = "Cod", all = FALSE)
+
+head(total1)
+```
+
+## Juntar la bases de datos  con todos los elementos.
+```{r}
+total2 <- merge(desemp_fiscal, nbi, by.x="Codigo_mun", by.y = "Cod", all = TRUE)
+
+head(total2)
+```
+
+## Juntar la bases de datos  con todos los elementos de la base de datos de la izquierda.
+```{r}
+total3 <- merge(desemp_fiscal, nbi, by.x="Codigo_mun", by.y = "Cod", all.x = TRUE)
+
+head(total3)
+```
+
+
+## Juntar la bases de datos  con todos los elementos de la base de datos de la derecha.
+```{r}
+total4 <- merge(desemp_fiscal, nbi, by.x="Codigo_mun", by.y = "Cod", all.y = TRUE)
+
+head(total4)
+```
+
+## Identificación de diferencias.
+```{r}
+subset(total2, !(total2$Codigo_mun %in% levels(total3$Codigo_mun)))
+
+subset(total2, !(total2$Codigo_mun %in% levels(total4$Codigo_mun)))
+```
+
+## Relación entre el NBI y el desempeño fiscal
+```{r}
+require(ggplot2)
+g1 <- ggplot(total1, aes(Desemp_fiscal,NBI_total))
+g1 + geom_point() + geom_smooth(method = "lm", col = "red", size = 2)
+```
+
+## Relación entre el NBI y el desempeño fiscal
+```{r}
+require(ggplot2)
+g1 <- ggplot(total1, aes(Desemp_fiscal,NBI_total))
+g1 + geom_point() + facet_wrap(~Dpto) + 
+  geom_smooth(se=FALSE, method="lm", col = "red", size = 2)
+```
+

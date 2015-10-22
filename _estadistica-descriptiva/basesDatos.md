@@ -32,3 +32,11 @@ order: 05
 * [Religiones](./basesdedatos/religions.xlsx){:target="_blank"}
 * [Tuberculosis en el mundo](./basesdedatos/tb.xlsx){:target="_blank"}
 * [Paises](./basesdedatos/paises.xlsx){:target="_blank"}
+
+## Desempeño fiscal
+
+* [Desempeño fiscal](./basesdedatos/Ranking 2013 Municipios.csv){:target="_blank"}
+
+## Necesidads básicas insatisfechas
+
+* [NBI](./basesdedatos/MunicipiosNBI.csv){:target="_blank"}

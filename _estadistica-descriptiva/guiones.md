@@ -54,3 +54,7 @@ order: 01
 
 * [Componentes principales](./guiones/componentesPrincipales.html){:target="_blank"}
 
+## Desempeño fiscal y NBI.
+
+* [Desempeño fiscal vs NBI](./guiones/Desemp_fiscal_vs_nbi.html){:target="_blank"}
+
