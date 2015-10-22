@@ -3,6 +3,8 @@ Lectura/Escritura en R
 author: Kenneth Cabrera
 date: 22 octubre, 2015
 transition: rotate
+width: 1440
+height: 900
 
 
 Modos de texto I
