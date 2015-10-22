@@ -7,6 +7,7 @@ width: 1440
 height: 900
 
 
+
 Modos de texto I
 ========================================================
 - `dumping` y `dputing` son útiles porque el archivo que resulta es en
