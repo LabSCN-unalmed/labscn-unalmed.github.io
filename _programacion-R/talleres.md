@@ -27,7 +27,7 @@ order: 05
    * Lectura de la base de datos [NBI_Desem_fiscal](./dbs/NBI_Desem_fiscal.xlsx),
      (recuerde pasarlo al formato **csv** para facilitar la lectura de la base 
      de datos en R)
-   * Gráfica de las variables **NBI_total**(eje y) vs **Desemp**(eje x).
+   * Gráfica de las variables **NBI_total**(eje y) vs **Desemp_fiscal**(eje x).
    
 5. Enviar el archivo en formato *htlm*  al correo **krcabrer@unal.edu.co** el día 26 de
    octubre de 2015 antes de las 23:59 hora de Colombia.
