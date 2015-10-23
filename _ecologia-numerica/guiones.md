@@ -40,3 +40,7 @@ order: 1
 ## Análisis Aglomerativo II (Cluster Analysis)
 
 * [Distancias y similitudes](./guiones/distancias_disimilitudes_matriz_discrepancia.html){:target="_blank"}
+
+## Análisis Aglomerativo III (Comparación de agrupaciones)
+
+* [Comparaciones](./guiones/cluster3.html){:target="_blank"}
