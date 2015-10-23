@@ -32,4 +32,5 @@ order: 05
 5. Enviar el archivo en formato *htlm*  al correo **krcabrer@unal.edu.co** el día 26 de
    octubre de 2015 antes de las 23:59 hora de Colombia.
    
-   
+### Documento a entregar
+   * Archivo en formato **html**, que incluya el código en R y los resultados.
