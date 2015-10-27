@@ -20,7 +20,7 @@ order: 05
    ```
    
 4. Construir un archivo en formato **html** (mediante el knit html) que contenga las siguientes
-   especificaciones y los código en R corespondientes en el mismo archivo:
+   especificaciones y los código en R correspondientes en el mismo archivo:
    
    * Titulo: Primer Taller.
    * Autor: (Nombre completo del estudiante)
@@ -36,3 +36,4 @@ order: 05
    
 ### Documento a entregar
    * Archivo en formato **html**, que incluya el código en R y los resultados.
+   * Base de datos en formato **.csv**.
