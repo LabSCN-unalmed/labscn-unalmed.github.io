@@ -1,7 +1,7 @@
 Lectura/Escritura en R
 ========================================================
 author: Kenneth Cabrera
-date: 22 octubre, 2015
+date: 27 octubre, 2015
 transition: rotate
 width: 1440
 height: 900
@@ -111,11 +111,12 @@ Recuperar el valor de la TRM desde enero 1 hasta hoy
 ```r
 require(stringr)
 fechas <- str_extract(x, "[0-9]{2}/[0-9]{2}/[0-9]{4}")
-valores <- str_extract(x, "[0-9][,][0-9]{3}\\.[0-9]{2}")
+valores <- str_extract(x, "[0-9]\\.[0-9]{3},[0-9]{2}")
 fechas <- fechas[!is.na(fechas)]
 fechas <- as.POSIXct(strptime(fechas, format = "%d/%m/%Y"))
 valores <- valores[!is.na(valores)]
-valores <- as.numeric(str_replace(valores, "[,]",""))
+valores <- str_replace(valores, "[.]","")
+valores <- as.numeric(str_replace(valores, "[,]","."))
 trm <- data.frame(fechas, valores)
 ```
 
