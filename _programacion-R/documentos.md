@@ -16,4 +16,9 @@ order: 02
 
 - [url_banrep_trm.txt](./slides/url_banrep_trm.txt){:target="_blank"}
 
+## Clase 4
+[Estructuras de control](./slides/04_Estructuras_de_control.html){:target="_blank"}
+
+## Clase 5
+[Funciones](./slides/05_Funciones.html){:target="_blank"}
 
