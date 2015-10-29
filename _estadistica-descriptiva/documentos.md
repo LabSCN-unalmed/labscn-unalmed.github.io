@@ -39,3 +39,7 @@ order: 02
 ## Tipo de gráficas comparadas
 - [Tipo de gráficas](/estadistica-descriptiva/documentos/graficasBarras_pastel.pdf){:target="_blank"}
 
+## Encuesta de hábitos de estudio
+- [Encuesta](/estadistica-descriptiva/documentos/Encuesta1.pdf){:target="_blank"}
+
+

@@ -40,3 +40,12 @@ order: 05
 ## Necesidads básicas insatisfechas
 
 * [NBI](./basesdedatos/MunicipiosNBI.csv){:target="_blank"}
+
+## NBI vs Desmpeño fiscal
+
+* [NBI vs Desempeño fiscal](./basesdedatos/NBI_vs_DesempeñoFiscal.xlsx){:target="_blank"}
+
+## Población por municipio en 2011
+
+* [Población 2011](./basesdedatos/poblacion_col.xlsx){:target="_blank"}
+

@@ -58,3 +58,8 @@ order: 01
 
 * [Desempeño fiscal vs NBI](./guiones/Desemp_fiscal_vs_nbi.html){:target="_blank"}
 
+## Resúmenes estadísticos de base de datos.
+
+* [Resumen de bases de datos](./guiones/resumenBasesDatos.html){:target="_blank"}
+
+
