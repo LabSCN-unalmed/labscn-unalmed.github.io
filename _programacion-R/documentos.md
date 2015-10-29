@@ -22,3 +22,10 @@ order: 02
 ## Clase 5
 [Funciones](./slides/05_Funciones.html){:target="_blank"}
 
+## Clase 6
+[Herramientas de programación](./slides/07-Herramientas-programacion.html){:target="_blank"}
+
+## Clase 7
+[Graficación (Parte 1)](./slides/09_Graficacion_I.html){:target="_blank"}
+
+
