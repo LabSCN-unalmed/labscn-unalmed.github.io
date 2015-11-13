@@ -1,0 +1,89 @@
+---
+title: "Ordenación restringida"
+author: "Kenneth Roy Cabrera Torres"
+date: "13 de noviembre de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=11, 
+                      fig.height=7)
+```
+
+
+## Paquetes necesarios
+```{r}
+require(vegan)
+require(dplyr)
+```
+
+## Lectura de base de datos
+
+```{r}
+# Lectura
+ambient       <- read.csv2("ambientales.csv",enc="latin1",row.names=1)
+peces         <- read.csv2("peces.csv",enc="latin1",row.names=1)
+locs          <- read.csv2("localidades.csv",enc="latin1",row.names=1)
+nomEspec      <- read.csv2("nombresdeespecies.csv",enc="latin1")
+nomVarAmbient <- read.csv2("Nombresdevariablesambientales.csv",enc="latin1")
+
+# Adecuación
+# Quitar el sitio que no tiene ninguna especie
+sumEsp  <- apply(peces,1,sum)
+peces   <- peces[sumEsp!=0,]
+ambient <- ambient[sumEsp!=0,]
+locs    <- locs[sumEsp!=0,]
+
+```
+
+## Adecuación de base de datos
+```{r}
+# Reservar la variable distancia a la desembocadura para futuro análisis
+das <- ambient %>% select(das)
+ambient1 <- ambient %>% select(-das)
+ambient2 <- ambient1
+ambient2$slo <- cut(ambient1$slo, quantile(ambient1$slo), include.lowest = TRUE, 
+                    labels = c("bajo","moderado","pendiente","muy pendiente"))
+with(ambient2, table(slo))
+
+fisio <- ambient2 %>% select(alt:flo)
+quim <- ambient2 %>% select(pH:bdo)
+
+peces.hel <- decostand(peces, "hellinger")
+``` 
+
+## RDA
+
+```{r}
+(peces.rda <- rda(peces.hel ~ ., ambient2))
+summary(peces.rda)
+
+coef(peces.rda)
+```
+
+### Análisis RDA
+```{r}
+(R2 <- RsquareAdj(peces.rda)$r.squared)
+
+(R2adj <- RsquareAdj(peces.rda)$adj.r.squared)
+```
+
+### Gráficas
+```{r}
+plot(peces.rda, scaling=1, 
+	main="Triplot RDA peces.hel ~ ambient2 - escalamiento 1")
+peces.sc <- scores(peces.rda, choices=1:2, scaling=1, display="sp")
+arrows(0, 0, peces.sc[, 1], peces.sc[, 2], length=0, lty=1, col="red")
+
+```
+
+```{r}
+plot(peces.rda, main="Triplot RDA peces.hel ~ ambient2 - escalamiento 2")
+spe2.sc <- scores(peces.rda, choices=1:2, display="sp")
+arrows(0, 0, spe2.sc[, 1], spe2.sc[, 2], length=0, lty=1, col="red")
+
+```
+

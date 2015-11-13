@@ -44,3 +44,7 @@ order: 1
 ## Análisis Aglomerativo III (Comparación de agrupaciones)
 
 * [Comparaciones](./guiones/cluster3.html){:target="_blank"}
+
+## Ordenación: análisis de redundancia.
+
+* [Comparaciones](./guiones/rda.html){:target="_blank"}
