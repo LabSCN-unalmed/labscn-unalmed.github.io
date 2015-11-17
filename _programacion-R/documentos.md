@@ -28,4 +28,9 @@ order: 02
 ## Clase 7
 [Graficación (Parte 1)](./slides/09_Graficacion_I.html){:target="_blank"}
 
+## Clase 8
+[Graficación (Parte 2)](./slides/10_Graficacion_II.html){:target="_blank"}
+
+## Clase 9
+[Expresiones regulares](./slides/11_Expresiones_Regulares.html){:target="_blank"}
 
