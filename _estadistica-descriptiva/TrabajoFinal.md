@@ -12,8 +12,9 @@ Realizar una análisis exploratorio de la cuenca LL de datos
 ecohidrológicos en una Estación Meteorológica Automática (EMA) y
 en Sensores de Humedad del Suelo (SHS) en un intervalo de tiempo
 corto (cada 15 minutos) en un espacio de tiempo inciando en
-febrero de 2015 hasta junio de 2015 en dos zonas: intervenida y
-no intervenida.
+julio de 2013 hasta junio de 2015 en dos zonas: intervenida y
+no intervenida. (Note que no todas las bases de datos coinciden en las fechas,
+también noten que no todas las hojas tienen exactamente las mismas variables).
 
 ## Bases de datos
 - [Estación Meteorológica Automática](./basesdedatos/cuencaLL/EMA_LL.xlsx){:target="_blank"}
