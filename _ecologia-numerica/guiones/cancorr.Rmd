@@ -1,0 +1,78 @@
+---
+title: "Análisis de correlación canónica"
+author: "Kenneth Roy Cabrera Torres"
+date: "18 de noviembre de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=11, 
+                      fig.height=7)
+```
+
+
+## Paquetes necesarios
+```{r}
+require(vegan)
+require(dplyr)
+```
+
+## Lectura de base de datos
+
+```{r}
+# Lectura
+ambient       <- read.csv2("ambientales.csv",enc="latin1",row.names=1)
+peces         <- read.csv2("peces.csv",enc="latin1",row.names=1)
+locs          <- read.csv2("localidades.csv",enc="latin1",row.names=1)
+nomEspec      <- read.csv2("nombresdeespecies.csv",enc="latin1")
+nomVarAmbient <- read.csv2("Nombresdevariablesambientales.csv",enc="latin1")
+
+# Adecuación
+# Quitar el sitio que no tiene ninguna especie
+sumEsp  <- apply(peces,1,sum)
+peces   <- peces[sumEsp!=0,]
+ambient <- ambient[sumEsp!=0,]
+locs    <- locs[sumEsp!=0,]
+
+```
+
+## Adecuación de base de datos
+```{r}
+peces.hel <- decostand(peces, "hellinger")
+``` 
+
+## CCA (Canonical Correlation Analysis)
+
+```{r}
+require(CCA)
+CCA1 <- cc(peces.hel, ambient)
+CCA1
+
+```
+
+## Graficas del CCA
+
+```{r}
+plot(CCA1$cor, type = "b")
+plt.cc(CCA1, var.label = TRUE)
+```
+
+## Gráfica de las dos variables canónicas
+
+```{r}
+plot(CCA1$scores$xscores[,1],CCA1$scores$yscores[,1])
+```
+
+## Imágenes de matrices de correlación
+
+```{r}
+matriz_corr <- matcor(peces.hel, ambient)
+
+img.matcor(matriz_corr)
+
+img.matcor(matriz_corr, type = 2)
+```
+

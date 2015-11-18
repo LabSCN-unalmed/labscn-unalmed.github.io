@@ -48,3 +48,7 @@ order: 1
 ## Ordenación: análisis de redundancia.
 
 * [RDA](./guiones/rda.html){:target="_blank"}
+
+## Análisis de correlación canónica 
+
+* [cancor](./guiones/cancorr.html){:target="_blank"}
