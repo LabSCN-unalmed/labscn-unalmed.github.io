@@ -5,45 +5,48 @@ date: "20 de noviembre de 2015"
 output: html_document
 ---
 
-Lectura una de las base de datos de EMA.
+Lectura una de las base de datos de EMA e intervenida de enero de 2015
 ```{r}
-abr2014 <- read.csv2("Abr 2014.csv")
+ene2015ema <- read.csv2("Ene_2015EMA.csv")
+ene2015interv <- read.csv2("Ene_2015Inter.csv")
 ```
 
-## Convertir a formato fecha
-Convertir al formato fecha de manera adecuada.
+Derretir la base de datos de suelos para que queden una sola variable
+de humedad diferenciado por las profundidades.
+```{r}
+require(reshape2)
+ene2015interv2 <- melt(ene2015interv, id.vars = c("Fecha","Hora"),
+                       variable.name = "Profundidad",
+                       value.name = "Humedad")
+```
+
+La variable hora (Time) de la base de datos de EMA, debera ser igual al
+formato de la base de datos de suelo intervenido (Hora)
 
 ```{r}
+summary(ene2015ema$Time)
+summary(ene2015interv2$Hora)
+
+head(ene2015interv2$Hora)
 require(stringr)
-# Extrae hora y minutos
-horas_min <- str_extract(abr2014$Time, "[0-9]*:[0-9]{2}")
-# Extrae si son am o pm.
-am_pm <-str_extract(abr2014$Time, "[AP]M")
-# Crea una nueva variable de hora
-hora2 <- paste(horas_min, am_pm)
-# Combina la fecha con la nueva hora
-fecha_comb <- paste(abr2014$Date, hora2, sep = "-")
-# Crea una nueva variable en formato fecha y la convierte a tipo fecha
-abr2014$Fecha <- as.POSIXct(strptime(fecha_comb,format = "%d/%m/%Y-%I:%M %p"))
+horaTemp <- substring(ene2015interv2$Hora, 1, 5)
+horaTemp <- substring(ene2015interv2$Hora, 1, 5)
+am_pm <- substring(ene2015interv2$Hora, 10, 11)
+ene2015interv2$Hora <- paste(horaTemp,am_pm)
+
+ene2015ema$FechaT <- with(ene2015ema, paste(Date, Time))
+ene2015interv2$FechaT <- with(ene2015interv2, paste(Fecha, Hora))
+
+summary(ene2015ema$FechaT)
+summary(ene2015interv2$FechaT)
 ```
 
-## Resumir por cada tres horas los resultados
+
+Combinar los dos base de datos.
 ```{r}
-require(dplyr)
-
-# Agrupar y resumir bases de datos cada tres dias.
-abr2014$tres_dias <- cut.POSIXt(abr2014$Fecha, "3 day")
-abr2014r <- abr2014 %>% group_by(tres_dias) %>% summarize(Rain = sum(Rain))
-
-# Resultado suma de la lluvia cada tres días
-abr2014r
-
-# Agrupar y resumir base de datos cada 6 horas.
-abr2014$seis_horas <- cut.POSIXt(abr2014$Fecha, "6 hour")
-abr2014r2 <- abr2014 %>% group_by(seis_horas) %>% summarize(Rain = sum(Rain))
-
-# Resultado suma de la lluvia cada tres días
-abr2014r2
-
+ene2015 <- merge(ene2015ema, ene2015interv2,
+                 by.x = c("FechaT"),
+                 by.y = c("FechaT"))
+head(ene2015)
 ```
 

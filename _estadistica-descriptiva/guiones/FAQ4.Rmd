@@ -7,7 +7,7 @@ output: html_document
 
 Lectura una de las base de datos de EMA.
 ```{r}
-abr2014 <- read.csv2("Abr 2014.csv")
+abr2014 <- read.csv2("Abr_2014.csv")
 ```
 
 ## Convertir a formato fecha
@@ -37,7 +37,10 @@ abr2014r <- abr2014 %>% group_by(tres_dias) %>% summarize(Rain = sum(Rain))
 
 # Resultado suma de la lluvia cada tres días
 abr2014r
+```
 
+## Resumir por cada seis horas los resultados
+```{r}
 # Agrupar y resumir base de datos cada 6 horas.
 abr2014$seis_horas <- cut.POSIXt(abr2014$Fecha, "6 hour")
 abr2014r2 <- abr2014 %>% group_by(seis_horas) %>% summarize(Rain = sum(Rain))

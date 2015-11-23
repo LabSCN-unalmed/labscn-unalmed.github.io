@@ -67,76 +67,142 @@ img {
 </div>
 
 
-<p>Lectura una de las base de datos de EMA.</p>
-<pre class="r"><code>abr2014 &lt;- read.csv2(&quot;Abr 2014.csv&quot;)</code></pre>
-<div id="convertir-a-formato-fecha" class="section level2">
-<h2>Convertir a formato fecha</h2>
-<p>Convertir al formato fecha de manera adecuada.</p>
+<p>Lectura una de las base de datos de EMA e intervenida de enero de 2015</p>
+<pre class="r"><code>ene2015ema &lt;- read.csv2(&quot;Ene_2015EMA.csv&quot;)
+ene2015interv &lt;- read.csv2(&quot;Ene_2015Inter.csv&quot;)</code></pre>
+<p>Derretir la base de datos de suelos para que queden una sola variable de humedad diferenciado por las profundidades.</p>
+<pre class="r"><code>require(reshape2)</code></pre>
+<pre><code>## Loading required package: reshape2</code></pre>
+<pre class="r"><code>ene2015interv2 &lt;- melt(ene2015interv, id.vars = c(&quot;Fecha&quot;,&quot;Hora&quot;),
+                       variable.name = &quot;Profundidad&quot;,
+                       value.name = &quot;Humedad&quot;)</code></pre>
+<p>La variable hora (Time) de la base de datos de EMA, debera ser igual al formato de la base de datos de suelo intervenido (Hora)</p>
+<pre class="r"><code>summary(ene2015ema$Time)</code></pre>
+<pre><code>## 01:00 AM 01:00 PM 01:15 AM 01:15 PM 01:30 AM 01:30 PM 01:45 AM 01:45 PM 
+##       27       26       27       26       27       26       27       26 
+## 02:00 AM 02:00 PM 02:15 AM 02:15 PM 02:30 AM 02:30 PM 02:45 AM 02:45 PM 
+##       27       26       27       26       27       26       27       26 
+## 03:00 AM 03:00 PM 03:15 AM 03:15 PM 03:30 AM 03:30 PM 03:45 AM 03:45 PM 
+##       27       26       27       26       27       26       27       26 
+## 04:00 AM 04:00 PM 04:15 AM 04:15 PM 04:30 AM 04:30 PM 04:45 AM 04:45 PM 
+##       27       26       27       26       27       26       27       26 
+## 05:00 AM 05:00 PM 05:15 AM 05:15 PM 05:30 AM 05:30 PM 05:45 AM 05:45 PM 
+##       27       26       27       26       27       26       27       26 
+## 06:00 AM 06:00 PM 06:15 AM 06:15 PM 06:30 AM 06:30 PM 06:45 AM 06:45 PM 
+##       27       26       27       26       27       26       27       27 
+## 07:00 AM 07:00 PM 07:15 AM 07:15 PM 07:30 AM 07:30 PM 07:45 AM 07:45 PM 
+##       27       27       27       27       27       27       27       27 
+## 08:00 AM 08:00 PM 08:15 AM 08:15 PM 08:30 AM 08:30 PM 08:45 AM 08:45 PM 
+##       27       27       27       27       27       27       27       27 
+## 09:00 AM 09:00 PM 09:15 AM 09:15 PM 09:30 AM 09:30 PM 09:45 AM 09:45 PM 
+##       27       27       27       27       27       27       27       27 
+## 10:00 AM 10:00 PM 10:15 AM 10:15 PM 10:30 AM 10:30 PM 10:45 AM 10:45 PM 
+##       27       27       27       27       27       27       26       27 
+## 11:00 AM 11:00 PM 11:15 AM 11:15 PM 11:30 AM 11:30 PM 11:45 AM 11:45 PM 
+##       26       27       26       27       26       27       26       27 
+## 12:00 AM 12:00 PM 12:15 AM 12:15 PM 12:30 AM 12:30 PM 12:45 AM 12:45 PM 
+##       27       26       27       26       27       26       27       26</code></pre>
+<pre class="r"><code>summary(ene2015interv2$Hora)</code></pre>
+<pre><code>## 01:00:00 AM 01:00:00 PM 01:05:00 AM 01:05:00 PM 01:10:00 AM 01:10:00 PM 
+##         155         155         155         155         155         155 
+## 01:15:00 AM 01:15:00 PM 01:20:00 AM 01:20:00 PM 01:25:00 AM 01:25:00 PM 
+##         155         155         155         155         155         155 
+## 01:30:00 AM 01:30:00 PM 01:35:00 AM 01:35:00 PM 01:40:00 AM 01:40:00 PM 
+##         155         155         155         155         155         155 
+## 01:45:00 AM 01:45:00 PM 01:50:00 AM 01:50:00 PM 01:55:00 AM 01:55:00 PM 
+##         155         155         155         155         155         155 
+## 02:00:00 AM 02:00:00 PM 02:05:00 AM 02:05:00 PM 02:10:00 AM 02:10:00 PM 
+##         155         155         155         155         155         155 
+## 02:15:00 AM 02:15:00 PM 02:20:00 AM 02:20:00 PM 02:25:00 AM 02:25:00 PM 
+##         155         155         155         155         155         155 
+## 02:30:00 AM 02:30:00 PM 02:35:00 AM 02:35:00 PM 02:40:00 AM 02:40:00 PM 
+##         155         155         155         155         155         155 
+## 02:45:00 AM 02:45:00 PM 02:50:00 AM 02:50:00 PM 02:55:00 AM 02:55:00 PM 
+##         155         155         155         155         155         155 
+## 03:00:00 AM 03:00:00 PM 03:05:00 AM 03:05:00 PM 03:10:00 AM 03:10:00 PM 
+##         155         155         155         155         155         155 
+## 03:15:00 AM 03:15:00 PM 03:20:00 AM 03:20:00 PM 03:25:00 AM 03:25:00 PM 
+##         155         155         155         155         155         155 
+## 03:30:00 AM 03:30:00 PM 03:35:00 AM 03:35:00 PM 03:40:00 AM 03:40:00 PM 
+##         155         155         155         155         155         155 
+## 03:45:00 AM 03:45:00 PM 03:50:00 AM 03:50:00 PM 03:55:00 AM 03:55:00 PM 
+##         155         155         155         155         155         155 
+## 04:00:00 AM 04:00:00 PM 04:05:00 AM 04:05:00 PM 04:10:00 AM 04:10:00 PM 
+##         155         155         155         155         155         155 
+## 04:15:00 AM 04:15:00 PM 04:20:00 AM 04:20:00 PM 04:25:00 AM 04:25:00 PM 
+##         155         155         155         155         155         155 
+## 04:30:00 AM 04:30:00 PM 04:35:00 AM 04:35:00 PM 04:40:00 AM 04:40:00 PM 
+##         155         155         155         155         155         155 
+## 04:45:00 AM 04:45:00 PM 04:50:00 AM 04:50:00 PM 04:55:00 AM 04:55:00 PM 
+##         155         155         155         155         155         155 
+## 05:00:00 AM 05:00:00 PM 05:05:00 AM     (Other) 
+##         155         155         155       29295</code></pre>
+<pre class="r"><code>head(ene2015interv2$Hora)</code></pre>
+<pre><code>## [1] 12:00:00 AM 12:05:00 AM 12:10:00 AM 12:15:00 AM 12:20:00 AM 12:25:00 AM
+## 288 Levels: 01:00:00 AM 01:00:00 PM 01:05:00 AM 01:05:00 PM ... 12:55:00 PM</code></pre>
 <pre class="r"><code>require(stringr)</code></pre>
 <pre><code>## Loading required package: stringr</code></pre>
-<pre class="r"><code># Extrae hora y minutos
-horas_min &lt;- str_extract(abr2014$Time, &quot;[0-9]*:[0-9]{2}&quot;)
-# Extrae si son am o pm.
-am_pm &lt;-str_extract(abr2014$Time, &quot;[AP]M&quot;)
-# Crea una nueva variable de hora
-hora2 &lt;- paste(horas_min, am_pm)
-# Combina la fecha con la nueva hora
-fecha_comb &lt;- paste(abr2014$Date, hora2, sep = &quot;-&quot;)
-# Crea una nueva variable en formato fecha y la convierte a tipo fecha
-abr2014$Fecha &lt;- as.POSIXct(strptime(fecha_comb,format = &quot;%d/%m/%Y-%I:%M %p&quot;))</code></pre>
-</div>
-<div id="resumir-por-cada-tres-horas-los-resultados" class="section level2">
-<h2>Resumir por cada tres horas los resultados</h2>
-<pre class="r"><code>require(dplyr)</code></pre>
-<pre><code>## Loading required package: dplyr
-## 
-## Attaching package: 'dplyr'
-## 
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-## 
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code># Agrupar y resumir bases de datos cada tres dias.
-abr2014$tres_dias &lt;- cut.POSIXt(abr2014$Fecha, &quot;3 day&quot;)
-abr2014r &lt;- abr2014 %&gt;% group_by(tres_dias) %&gt;% summarize(Rain = sum(Rain))
+<pre class="r"><code>horaTemp &lt;- substring(ene2015interv2$Hora, 1, 5)
+horaTemp &lt;- substring(ene2015interv2$Hora, 1, 5)
+am_pm &lt;- substring(ene2015interv2$Hora, 10, 11)
+ene2015interv2$Hora &lt;- paste(horaTemp,am_pm)
 
-# Resultado suma de la lluvia cada tres días
-abr2014r</code></pre>
-<pre><code>## Source: local data frame [6 x 2]
-## 
-##    tres_dias  Rain
-##       (fctr) (dbl)
-## 1 2014-04-01   0.4
-## 2 2014-04-04   0.8
-## 3 2014-04-07   0.0
-## 4 2014-04-10   0.0
-## 5 2014-04-13   0.0
-## 6 2014-04-16   0.0</code></pre>
-<pre class="r"><code># Agrupar y resumir base de datos cada 6 horas.
-abr2014$seis_horas &lt;- cut.POSIXt(abr2014$Fecha, &quot;6 hour&quot;)
-abr2014r2 &lt;- abr2014 %&gt;% group_by(seis_horas) %&gt;% summarize(Rain = sum(Rain))
+ene2015ema$FechaT &lt;- with(ene2015ema, paste(Date, Time))
+ene2015interv2$FechaT &lt;- with(ene2015interv2, paste(Fecha, Hora))
 
-# Resultado suma de la lluvia cada tres días
-abr2014r2</code></pre>
-<pre><code>## Source: local data frame [62 x 2]
-## 
-##             seis_horas  Rain
-##                 (fctr) (dbl)
-## 1  2014-04-01 00:00:00   0.0
-## 2  2014-04-01 06:00:00   0.0
-## 3  2014-04-01 12:00:00   0.0
-## 4  2014-04-01 18:00:00   0.0
-## 5  2014-04-02 00:00:00   0.4
-## 6  2014-04-02 06:00:00   0.0
-## 7  2014-04-02 12:00:00   0.0
-## 8  2014-04-02 18:00:00   0.0
-## 9  2014-04-03 00:00:00   0.0
-## 10 2014-04-03 06:00:00   0.0
-## ..                 ...   ...</code></pre>
-</div>
+summary(ene2015ema$FechaT)</code></pre>
+<pre><code>##    Length     Class      Mode 
+##      2560 character character</code></pre>
+<pre class="r"><code>summary(ene2015interv2$FechaT)</code></pre>
+<pre><code>##    Length     Class      Mode 
+##     44640 character character</code></pre>
+<p>Combinar los dos base de datos.</p>
+<pre class="r"><code>ene2015 &lt;- merge(ene2015ema, ene2015interv2,
+                 by.x = c(&quot;FechaT&quot;),
+                 by.y = c(&quot;FechaT&quot;))
+head(ene2015)</code></pre>
+<pre><code>##                FechaT       Date     Time Hour Temp.Out Hi.Temp Low.Temp
+## 1 02/01/2015 06:45 PM 02/01/2015 06:45 PM   18     14.3    14.3     14.0
+## 2 02/01/2015 06:45 PM 02/01/2015 06:45 PM   18     14.3    14.3     14.0
+## 3 02/01/2015 06:45 PM 02/01/2015 06:45 PM   18     14.3    14.3     14.0
+## 4 02/01/2015 06:45 PM 02/01/2015 06:45 PM   18     14.3    14.3     14.0
+## 5 02/01/2015 06:45 PM 02/01/2015 06:45 PM   18     14.3    14.3     14.0
+## 6 02/01/2015 07:00 PM 02/01/2015 07:00 PM   19     14.3    14.3     14.2
+##   Out.Hum Dew.Pt. Wind.Speed Wind.Dir Wind.Dir.2 Wind.Run Hi.Speed Hi.Dir
+## 1      99    14.2          0       NE         45        0      3.2     NE
+## 2      99    14.2          0       NE         45        0      3.2     NE
+## 3      99    14.2          0       NE         45        0      3.2     NE
+## 4      99    14.2          0       NE         45        0      3.2     NE
+## 5      99    14.2          0       NE         45        0      3.2     NE
+## 6      99    14.2          0       NE         45        0      1.6     NE
+##   Wind.Chill Heat.Index THW.Index THSW.Index    Bar Rain Rain.Rate
+## 1       14.3       14.6      14.6       12.3 1015.2    0         0
+## 2       14.3       14.6      14.6       12.3 1015.2    0         0
+## 3       14.3       14.6      14.6       12.3 1015.2    0         0
+## 4       14.3       14.6      14.6       12.3 1015.2    0         0
+## 5       14.3       14.6      14.6       12.3 1015.2    0         0
+## 6       14.3       14.6      14.6       12.2 1015.7    0         0
+##   Solar.Rad. Solar.Energy Hi.Solar.Rad. Heat.D.D Cool.D.D In.Temp In.Hum
+## 1         13         0.28            25    0.042        0    17.2     70
+## 2         13         0.28            25    0.042        0    17.2     70
+## 3         13         0.28            25    0.042        0    17.2     70
+## 4         13         0.28            25    0.042        0    17.2     70
+## 5         13         0.28            25    0.042        0    17.2     70
+## 6          3         0.06            11    0.042        0    17.2     70
+##   In.Dew In.Heat In.EMC In.Air.Density ET Wind.Samp Wind.Tx ISS.Recept
+## 1   11.6      17  13.31         0.0751  0       350       1        100
+## 2   11.6      17  13.31         0.0751  0       350       1        100
+## 3   11.6      17  13.31         0.0751  0       350       1        100
+## 4   11.6      17  13.31         0.0751  0       350       1        100
+## 5   11.6      17  13.31         0.0751  0       350       1        100
+## 6   11.6      17  13.31         0.0751  0       350       1        100
+##   Arc..Int.      Fecha     Hora Profundidad Humedad
+## 1        15 02/01/2015 06:45 PM      Port.4   0.348
+## 2        15 02/01/2015 06:45 PM      Port.5   0.230
+## 3        15 02/01/2015 06:45 PM      Port.3   0.374
+## 4        15 02/01/2015 06:45 PM      Port.2   0.447
+## 5        15 02/01/2015 06:45 PM      Port.1   0.457
+## 6        15 02/01/2015 07:00 PM      Port.5   0.230</code></pre>
 
 
 </div>

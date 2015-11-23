@@ -68,7 +68,7 @@ img {
 
 
 <p>Lectura una de las base de datos de EMA.</p>
-<pre class="r"><code>abr2014 &lt;- read.csv2(&quot;Abr 2014.csv&quot;)</code></pre>
+<pre class="r"><code>abr2014 &lt;- read.csv2(&quot;Abr_2014.csv&quot;)</code></pre>
 <div id="convertir-a-formato-fecha" class="section level2">
 <h2>Convertir a formato fecha</h2>
 <p>Convertir al formato fecha de manera adecuada.</p>
@@ -115,6 +115,9 @@ abr2014r</code></pre>
 ## 4 2014-04-10   0.0
 ## 5 2014-04-13   0.0
 ## 6 2014-04-16   0.0</code></pre>
+</div>
+<div id="resumir-por-cada-seis-horas-los-resultados" class="section level2">
+<h2>Resumir por cada seis horas los resultados</h2>
 <pre class="r"><code># Agrupar y resumir base de datos cada 6 horas.
 abr2014$seis_horas &lt;- cut.POSIXt(abr2014$Fecha, &quot;6 hour&quot;)
 abr2014r2 &lt;- abr2014 %&gt;% group_by(seis_horas) %&gt;% summarize(Rain = sum(Rain))

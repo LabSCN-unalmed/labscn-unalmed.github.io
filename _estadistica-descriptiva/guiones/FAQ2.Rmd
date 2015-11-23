@@ -7,7 +7,7 @@ output: html_document
 
 Lectura una de las base de datos de EMA.
 ```{r}
-abr2014 <- read.csv2("Abr 2014.csv")
+abr2014 <- read.csv2("Abr_2014.csv")
 ```
 
 ## Convertir a formato fecha

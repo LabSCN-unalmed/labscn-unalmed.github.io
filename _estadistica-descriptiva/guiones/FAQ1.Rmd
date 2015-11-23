@@ -7,9 +7,9 @@ output: html_document
 
 Lectura de tres meses de la base de datos de EMA.
 ```{r}
-abr2014 <- read.csv2("Abr 2014.csv")
-abr2015 <- read.csv2("Abr 2015.csv")
-ago2013 <- read.csv2("Ago 2013.csv")
+abr2014 <- read.csv2("Abr_2014.csv")
+abr2015 <- read.csv2("Abr_2015.csv")
+ago2013 <- read.csv2("Ago_2013.csv")
 ```
 
 ## Unir bases de datos por fila
