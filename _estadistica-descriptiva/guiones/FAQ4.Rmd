@@ -1,0 +1,49 @@
+---
+title: "Preguntas frecuentes 4"
+author: "Kenneth Cabrera"
+date: "20 de noviembre de 2015"
+output: html_document
+---
+
+Lectura una de las base de datos de EMA.
+```{r}
+abr2014 <- read.csv2("Abr 2014.csv")
+```
+
+## Convertir a formato fecha
+Convertir al formato fecha de manera adecuada.
+
+```{r}
+require(stringr)
+# Extrae hora y minutos
+horas_min <- str_extract(abr2014$Time, "[0-9]*:[0-9]{2}")
+# Extrae si son am o pm.
+am_pm <-str_extract(abr2014$Time, "[AP]M")
+# Crea una nueva variable de hora
+hora2 <- paste(horas_min, am_pm)
+# Combina la fecha con la nueva hora
+fecha_comb <- paste(abr2014$Date, hora2, sep = "-")
+# Crea una nueva variable en formato fecha y la convierte a tipo fecha
+abr2014$Fecha <- as.POSIXct(strptime(fecha_comb,format = "%d/%m/%Y-%I:%M %p"))
+```
+
+## Resumir por cada tres horas los resultados
+```{r}
+require(dplyr)
+
+# Agrupar y resumir bases de datos cada tres dias.
+abr2014$tres_dias <- cut.POSIXt(abr2014$Fecha, "3 day")
+abr2014r <- abr2014 %>% group_by(tres_dias) %>% summarize(Rain = sum(Rain))
+
+# Resultado suma de la lluvia cada tres días
+abr2014r
+
+# Agrupar y resumir base de datos cada 6 horas.
+abr2014$seis_horas <- cut.POSIXt(abr2014$Fecha, "6 hour")
+abr2014r2 <- abr2014 %>% group_by(seis_horas) %>% summarize(Rain = sum(Rain))
+
+# Resultado suma de la lluvia cada tres días
+abr2014r2
+
+```
+

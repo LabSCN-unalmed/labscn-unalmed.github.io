@@ -1,0 +1,29 @@
+---
+title: "Preguntas frecuentes 3"
+author: "Kenneth Cabrera"
+date: "20 de noviembre de 2015"
+output: html_document
+---
+
+Lectura de tres meses de la base de datos de EMA.
+```{r}
+abr2014 <- read.csv2("Abr 2014.csv")
+ago2013 <- read.csv2("Ago 2013.csv")
+require(plyr)
+totalEMA <- rbind.fill(abr2014, ago2013)
+totalEMA$Fecha <- as.POSIXct(strptime(totalEMA$Date, format = "%d/%m/%Y"))
+```
+
+## Ordenar base de datos por alguna variable
+
+```{r}
+require(dplyr)
+totalEMA <- totalEMA %>% arrange(Fecha)
+```
+
+## Resultado
+```{r}
+head(totalEMA)
+tail(totalEMA)
+```
+

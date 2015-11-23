@@ -62,4 +62,23 @@ order: 01
 
 * [Resumen de bases de datos](./guiones/resumenBasesDatos.html){:target="_blank"}
 
+## Preguntas frecuentes
+
+* [Unión por fila de bases de datos](./guiones/FAQ1.html){:target="_blank"}
+* [Convertir en formato fecha](./guiones/FAQ2.html){:target="_blank"}
+* [Ordenación de base de datos](./guiones/FAQ3.html){:target="_blank"}
+* [Resumen de base de datos](./guiones/FAQ4.html){:target="_blank"}
+* [Resumen de bases de datos](./guiones/FAQ5.html){:target="_blank"}
+* [Combinación de bases de datos (merge)](./guiones/FAQ6.html){:target="_blank"}
+
+Bases de datos utilizadas
+
+* [EMA Abril 2014.csv](./guiones/Abr_2014.csv){:target="_blank"}
+* [EMA Abril 2015.csv](./guiones/Abr_2015.csv){:target="_blank"}
+* [EMA Agosto 2013.csv](./guiones/Ago_2013.csv){:target="_blank"}
+
+* [Suelo Bosque Enero 2015.csv](./guiones/Ene_2015Bosque.csv){:target="_blank"}
+* [Suelo Intervenido Enero 2015.csv](./guiones/Ene_2015Inter.csv){:target="_blank"}
+* [EMA Enero 2015.csv](./guiones/Ene_2015EMA.csv){:target="_blank"}
+
 
