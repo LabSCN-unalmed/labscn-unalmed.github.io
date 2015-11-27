@@ -1,0 +1,56 @@
+---
+title: "Encuesta de calidad de vida (Educación)"
+author: "Universidad Nacional de Colombia, Sede Medellín"
+date: "27 de noviembre de 2015"
+output: 
+  html_document: 
+    toc: yes
+---
+
+## Lectura de la base de datos de viviendas.
+```{r}
+hogares <- read.table("Condiciones_de_vida_del_hogar_y_tenencia_de_bienes.txt",
+                       sep = "\t", header = TRUE)
+```
+
+## Lectura de la base de datos datos sobre educación.
+```{r}
+educa <- read.table("Educacion.txt", sep = "\t", header = TRUE)
+```
+
+## Verificación de clave única.
+
+Tenga en cuenta que las variables iniciales son:
+
+ - DIRECTORIO: Es la identificación de la residencia.
+ - SECUENCIA_ENCUESTA: Es la identificación de la encuesta a cada persona
+   de la casa, es decir a cada persona del hogar.
+ - SECUENCIA_P: Es la identificación del hogar en la residencia.
+   En la mayoría de los casos por cada residencia hay un sólo hogar, pero
+   se encuentra también que en una misma residencia hay varios hogares.
+   Esta variable diferencia cada hogar dentro de una misma residencia.
+
+Note que la combinación de las variables DIRECTORIO, SECUENCIA_ENCUESTA y
+SECUENCIA_P configuran una identificación única para cada renglón que
+corresponde a cada fila de la base de datos.
+   
+
+```{r}
+nrow(educa)
+length(unique(with(educa,paste(DIRECTORIO,SECUENCIA_ENCUESTA,SECUENCIA_P))))
+```
+
+Note también que el número de hogares es la combinación la residencia
+y cada uno de los hogares.
+
+
+
+```{r}
+nrow(hogares)
+length(with(educa, unique(paste(DIRECTORIO,SECUENCIA_P))))
+```
+
+
+
+
+
