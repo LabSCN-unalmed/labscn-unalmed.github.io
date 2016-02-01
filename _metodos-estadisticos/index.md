@@ -20,10 +20,10 @@ order: 00
 
 | Item               | Porcentaje | Fecha entrega                | Formato                                               |
 |:-------------------|:----------:|:-----------------------------|:------------------------------------------------------|
-| Propuesta inicial  |        10% | Martes 17 de febrero de 2015 | Presentación PDF                                      |
-| Planeación         |        20% | Martes 10 de marzo de 2015   | Presentación y trabajo PDF                            |
-| Presentación Final |        30% | Martes 2 de junio de 2015    | Trabajo en PDF y poster en formato PDF y físico       |
-| Seguimiento        |        40% |                              |                                                       |
+| Propuesta inicial  |        10% | Martes 16 de febrero de 2016 | Presentación PDF                                      |
+| Planeación         |        20% | Martes 15 de marzo de 2016   | Presentación y trabajo PDF                            |
+| Presentación Final |        30% | Jueves 26 de mayo de 2016    | Trabajo en PDF y poster en formato PDF y físico       |
+| Seguimiento        |        40% |                              | Talleres y trabajos durante el curso                  |
 {: .table .table-hover}
 
 ## Enlaces principales
@@ -48,6 +48,6 @@ order: 00
 
 ## Horario de atención
 
-- Lunes 10:00 am - 12:00 m
+- Miércoles 8:00 am - 10:00 am
 
 - Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)

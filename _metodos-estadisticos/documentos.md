@@ -7,7 +7,7 @@ order: 01
 
 ## Artículo base
 
-[Artículo base](/metodos-estadisticos/docs/ASystematicApproachtoPlanningforaDesignedIndustrualExperiment.pdf){:target="_blank"}
+[A Systematic Approach to Planning for a Designed Industrial Experiment](/metodos-estadisticos/docs/ASystematicApproachtoPlanningforaDesignedIndustrualExperiment.pdf){:target="_blank"}
 
 ## Hoja maestra
 

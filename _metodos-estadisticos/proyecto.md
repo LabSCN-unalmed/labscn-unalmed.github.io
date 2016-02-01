@@ -44,7 +44,7 @@ Presentación en formato **.pdf** que tenga los siguientes elementos:
       
 ### Fecha de entrega
 
-Martes 17 de Febrero de 2015 al correo **krcabrer@unal.edu.co**
+Martes 16 de Febrero de 2016 al correo **krcabrer@unal.edu.co**
 
 En asunto no olvidar **[MEDE]**, enviar antes de las 23:59 hora colombiana.
 
@@ -88,12 +88,12 @@ Entrega de la planeación completa del experimento, tanto como ajustes e indicac
 
 ### Fecha de entrega
 
-Martes 10 de marzo de 2015 y jueves 12 de marzo de 2015 al correo **krcabrer@unal.edu.co**
+Martes 15 de marzo de 2016 y jueves 17 de marzo de 2016 al correo **krcabrer@unal.edu.co**
 
 En asunto no olvidar **[MEDE]**, enviar los archivos antes de las 23:59 hora colombiana del día de la presentación.
 
 En el momento de clase se seleccionará al azar los grupos que 
-realizarán la presentación el día 10 de marzo y los que lo harán el día 12 de marzo.
+realizarán la presentación el día 15 de marzo y los que lo harán el día 17 de marzo.
 
 Cada grupo tendrá diez (10) minutos para presentar su propuesta y 10 minutos de discusión.
 
@@ -133,9 +133,9 @@ del grupo deberá tener la capacidad de contestar las preguntas.
 
 #### Fecha de entrega
 
-Martes 2 de junio de 2015 en horas de clase 6:00 am hora de Colombia formato físico.
+Jueves 26 de mayo de 2016 en horas de clase 6:00 am hora de Colombia formato físico.
 
-Martes 2 de junio de 2015 antes de las 23:59 hora de Colombia formato electrónico (pdf).
+Jueves 26 de mayo de 2016 antes de las 23:59 hora de Colombia formato electrónico (pdf).
 
 Enviar el formato .pdf a  **krcabrer@unal.edu.co** y 
 en asunto no olvidar **[MEDE]**.
@@ -167,7 +167,7 @@ Presentar de manera escrita los resultados obtenidos del diseño experimental.
 
 #### Fecha de entrega
 
-Martes 2 de junio de 2015 antes de las 23:59 hora de Colombia formato electrónico (pdf).
+Jueves 26 de mayo de 2016 antes de las 23:59 hora de Colombia formato electrónico (pdf).
 
 Enviar el formato .pdf, el archivo csv y el script o guión en R a  **krcabrer@unal.edu.co** y 
 en asunto no olvidar **[MEDE]**.
