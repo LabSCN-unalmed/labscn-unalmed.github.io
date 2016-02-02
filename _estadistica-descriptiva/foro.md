@@ -1,9 +1,9 @@
----
+<!---
 layout: curso
 title: 'Foro'
 curso: 'estadistica-descriptiva'
 order: 07
----
+--->
 
 
 ## Foro del curso

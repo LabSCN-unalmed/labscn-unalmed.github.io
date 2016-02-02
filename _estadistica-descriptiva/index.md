@@ -39,12 +39,15 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 
 ## Enlaces importantes
 
-* [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="_blank"}
-* [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="_blank"}
+* [Sitio de descarga del Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="_blank"}
+* [Sitio de descarga de la interfaz para el R: RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="_blank"}
+
+* [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="_blank"}
+* [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="_blank"}
 
 ## Horario de atención:
 
-- Lunes 10:00 a.m. - 12:00 m.
+- Miércoles 8:00 am - 10:00 am
 
 - Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
 
