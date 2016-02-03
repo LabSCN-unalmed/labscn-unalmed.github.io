@@ -1,8 +1,8 @@
 <ul class="nav navbar-nav">
   {% for collection in site.collections %}
-    {% if collection[1].main %}
-      <li class="{% if page.collection == collection[0] %}active{% endif %}">
-        <a href="{{ collection[0] | prepend: '/' }}">{{ collection[1].title }}</a>
+    {% if collection.main == 1 or collection.main == 2 %}
+      <li class="{% if page.collection == collection.label %}active{% endif %}">
+        <a href="{{ collection.label | prepend: '/' }}">{{ collection.title }}</a>
       </li>
     {% endif %}
   {% endfor %}
@@ -10,9 +10,9 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Otros Cursos<span class="caret"></span></a>
     <ul class="dropdown-menu">
       {% for collection in site.collections %}
-        {% unless collection[1].main or collection[1].hidden %}
-          <li><a href="{{ collection[0] | prepend: '/' }}">{{ collection[1].title }}</a></li>
-        {% endunless %}
+        {% if collection.main == 0 %}
+          <li><a href="{{ collection.label | prepend: '/' }}">{{ collection.title }}</a></li>
+        {% endif %}
       {% endfor %}
     </ul>
   </li>

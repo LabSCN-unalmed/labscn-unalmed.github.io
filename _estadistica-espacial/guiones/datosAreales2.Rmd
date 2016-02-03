@@ -1,7 +1,6 @@
 ---
 title: "Datos areales"
 author: "Universidad Nacional de Colombia, Sede Medellín"
-date: '`r format(Sys.Date(),"%A, %d de %B de %Y")`'
 output:
   html_document:
     highlight: textmate

@@ -7,8 +7,8 @@ layout: page
     <nav class="lscn-sidebar" id="sidebar">
       <ul class="nav nav-stacked">
         {% for collection in site.collections %}
-          {% if page.collection == collection[0] %}
-            {% assign menu = collection[1].docs | sort: 'order' %}
+          {% if page.collection == collection.label %}
+            {% assign menu = collection.docs | sort: 'order' %}
             {% for node in menu %}
               {% if node.order and node.curso == page.curso %}
                 <li class="{% if node.url == page.url %}active{% endif %}">
