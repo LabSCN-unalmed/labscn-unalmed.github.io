@@ -1,7 +1,6 @@
 ---
 title: "Tamaño de muestra"
 author: "Kenneth Roy Cabrera Torres"
-date: "`r format(Sys.Date(),format = '%A, %d de %B de %Y')`"
 output:
   html_document:
     highlight: haddock

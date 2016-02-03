@@ -8,7 +8,6 @@ subtitle: Universidad Nacional de Colombia - Sede Medellín
 simple_search: https://www.google.com/search
 description: Facultad de Ciencias - Escuela de Geociencias
 baseurl: ""
-permalink: pretty
 
 collections:
   cartografia-digital:
@@ -34,10 +33,12 @@ collections:
   estadistica-descriptiva:
     output: true
     title: Estadística Descriptiva y<br>Análisis Exploratorio de Datos
+    main: 0
     description: Permite al estudiante adquirir habilidades en el manejo de datos y en realizar análisis descrptivos y exploratorios utilizando herramientas para este propósito.
   metodos-estadisticos:
     output: true
     title: Métodos Estadísticos<br>(Diseño Experimental)
+    main: 0
     description: Una visión general sobre los procedimientos estadísticos y la planeación de un diseño experimental válido desde el punto de vista científico.
   documentacion-interna:
     output: true
