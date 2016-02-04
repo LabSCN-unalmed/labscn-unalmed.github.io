@@ -1,0 +1,106 @@
+---
+title: "Bacterias sicotrópicas"
+author: "Kenneth Roy Cabrera Torres"
+date: "3 de febrero de 2016"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+## Supresión del crecimiento bacterial en carnes almacenadas
+
+Ejemplo del libro: Kuehl, Robert O. Diseño de Experimentos. Principios estadísticos para el diseño y análisis de investigaciones. 2da Edición. Thomson Learning. 2001
+
+La vida de anaquel de las carnes almacenadas es el tiempo que un corte previamente
+empacado es sano, nutritivo y vendible. Un paquete normal expuesto al
+aire ambiental tiene una vida aproximada de 48 horas, después de las cuales la
+carne comienza a deteriorarse por contaminación de microbios, degradación del
+color y encogimiento. El empaque al vacío es efectivo para suprimir el desarrollo
+de microbios; sin embargo, continúan siendo un problema los otros aspectos.
+
+Algunos estudios recientes sugieren las atmósferas controladas de gas, como 
+altemativa a los empaques actuales. Dos atmósferas que prometen combinar la capacidad de suprimir el desarrollo de microbios con la conservación de las
+cualidades de la carne son: 1) dióxido de carbono puro (CO,), y 2) mezclas de
+monóxido de carbono (CO), oxígeno (O,) y nitrógeno (N).
+
+### Hipótesis de investigación:
+
+Con base en esta nueva información, el investigador
+plantea la hipótesis de que alguna forma de atmósfera controlada proporcionará un entorno más efectivo de empaque para el almacenamiento de carne.
+
+### Diseño del tratamiento:
+
+El diseño del tratamiento desarrollado por el investigador
+para evaluar la hipótesis incluyó empaques con: 1) aire del ambiente con un
+empaque comercial de plástico; 2) al vacío; 3) una mezcla de gases con 1% CO, 
+40% O2 y 59% N y 4)100% CO2. Los empaques con el aire del ambiente y al vacío sirven como tratamientos de control, ya que ambos son estándares con cuya efectividad se puede comparar la de los nuevos empaques.
+
+
+Diseño del experimento: Se usó un diseño totalmente aleatorizado para el
+experimento. A cada conjunto de condiciones de empaque se le asignaron al azar 3
+cortes del mismo tamaño (75 g). Cada corte se empacó por separado en las condiciones asignadas.
+
+En este ejemplo, se evalúa la efectividad de cada tratamiento para suprimir el
+desarrollo bacterial. Después de 9 días de almacenamiento a 4°C en una instalación
+normal, se midió el número de bacterias sicotrópicas en la carne. Las bacterias
+sicotrópicas se encuentran en la superficie de la carne y se asocian con la
+carne deteriorada.
+
+### Resultados
+
+Los resultados se muestran en la siguiente tabla:
+
+![alt text](BacteriasEnCarne.png)
+
+
+## Lectura de la base de datos
+```{r}
+bacterias <- read.csv2("Bacterias_en_carne.csv")
+```
+
+## Despligue de la base de datos
+```{r}
+bacterias
+```
+
+## Resumen estadístico
+```{r}
+summary(bacterias)
+sd(bacterias$logNcm2)
+```
+
+## Resumen estadístico por tipo de empaque
+```{r}
+with(bacterias, tapply(logNcm2, Empaque, summary))
+with(bacterias, tapply(logNcm2, Empaque, sd))
+```
+
+
+## Gráfica simple
+```{r}
+with(bacterias, plot(Empaque, logNcm2))
+```
+
+## Gráfica mejorada I
+```{r}
+with(bacterias, plot(as.integer(Empaque), logNcm2, axes = FALSE,
+                     pch  = 19, col = "blue",
+                     main = "Bacterias sicotrópicas en relación al empaque",
+                     ylab = "Bacterias (log N/cm2)",
+                     xlab = "Tipo de empaque"))
+axis(1, at = 1:4, labels = levels(bacterias$Empaque), las = 1)
+box()
+```
+
+## Gráficas mejorada II
+```{r}
+require(ggplot2)
+ggplot(bacterias, aes(Empaque, logNcm2)) +
+  geom_boxplot() +
+  geom_point(col = "blue") +
+  ylab("Bacterias (log N/cm2") +
+  xlab("Tipo de empaque") +
+  ggtitle("Bacterias sicotrópicas")
+```
+
