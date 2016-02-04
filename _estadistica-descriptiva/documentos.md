@@ -17,3 +17,4 @@ order: 02
 - [Tabla de símbolos](/estadistica-descriptiva/documentos/points.png){:target="_blank"}
 - [Tabla de líneas](/estadistica-descriptiva/documentos/lines.png){:target="_blank"}
 
+
