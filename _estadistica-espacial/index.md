@@ -69,6 +69,7 @@ install.views("Spatial")
 ## Horario de atención
 
 Hora: Miércoles 8:00 am a 10:00
+
 Lugar: Laboratorio de Sistemas Complejos Naturales, 21-215
 
 
