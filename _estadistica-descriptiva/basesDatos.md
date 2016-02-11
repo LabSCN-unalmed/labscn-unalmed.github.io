@@ -8,4 +8,9 @@ order: 05
 
 ## Homicidios en Colombia
 
-[Base de datos del año 2014](basededatos/HomicidiosColombia2014.xlsx)
+[Homicidios en Colombia (xlsx)](./basesdedatos/HomicidiosColombia2014.xlsx){:target="_blank"}
+
+
+## Encuesta
+
+[Encuesta versión 1](./basesdedatos/Encuesta1.xlsx){:target="_blank"}

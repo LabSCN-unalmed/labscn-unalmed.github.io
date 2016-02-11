@@ -1,0 +1,72 @@
+---
+title: "Encuesta Conspiraciones"
+author: "Universidad Nacional de Colombia, Sede Medellín"
+date: "10 de febrero de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+encuesta <- read.csv2("Encuesta1.csv", skip = 4)
+# Muestra primeros 6 registros
+head(encuesta)
+# Muestra los últimos 6 registros
+tail(encuesta)
+```
+
+## Resumen de la base de datos de cada variable.
+```{r}
+summary(encuesta)
+```
+
+## Depuración de la base de datos.
+```{r}
+# Quitar el primer regístro
+encuestad <- droplevels(encuesta[-1,])
+```
+
+## Resumen de la base de datos sin el registro vacio
+```{r}
+summary(encuestad)
+```
+
+## Histograma de edad
+```{r}
+# Histograma inicial básico
+with(encuestad, hist(Edad))
+
+# Histograma mejorado 1
+with(encuestad, hist(Edad, nclass = 10))
+
+# Histograma mejorado 2
+with(encuestad, hist(Edad, nclass = 10, 
+                     main = "Histograma de Edad",
+                     ylab = "Frecuencia",
+                     xlab = "Edad (años cumplidos)"))
+```
+
+## Histograma y línea de estimación de la densidad
+```{r}
+with(encuestad, hist(Edad, nclass = 10, freq = FALSE,
+                     main = "Histograma de Edad",
+                     ylab = "Densidad",
+                     xlab = "Edad (años cumplidos)",
+                     ylim = c(0, 0.25),
+                     xlim = c(15,40),
+                     col = "cyan"))
+with(encuestad, lines(density(Edad), col = "red", lwd = 2))
+```
+
+## Diagrama de caja y bigotes de la distribución de edad
+```{r}
+# Diagrama vertical
+with(encuestad, boxplot(Edad))
+# Diagrama horizontal
+with(encuestad, boxplot(Edad, horizontal = TRUE))
+```
+
