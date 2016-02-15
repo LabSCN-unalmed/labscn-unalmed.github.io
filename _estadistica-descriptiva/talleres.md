@@ -9,4 +9,4 @@ order: 03
 
 ### Taller 1 
 
-   
+  - [Encuesta sobre conspiraciones](./documentos/Encuesta1.pdf){:target="_blank"}  
