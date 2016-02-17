@@ -20,3 +20,10 @@ Utilizando los siguientes datos.
 Enviar un mapa con el croquis de los municipios de Colombia y superponer los puntos.
 
 Fecha de entrega 17 de febrero de 2016 antes de las 10:00 am.
+
+Documentos a entregar:
+
+ - Mapa de municipios, superpuestos los puntos de referencia.
+ - Archivo del código en R.
+ 
+ 
