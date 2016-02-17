@@ -1,73 +1,15 @@
 ---
 title: "Introducción datos espaciales en R"
 author: "Kenneth Roy Cabrera Torres"
-date: "11/02/2015"
+date: "17 de feb de 2016"
 output:
   html_document:
+    keep_md: yes
     toc: yes
 ---
 
-# Elementos de la estructra de datos en R
 
-```{r}
-# Uso del R como aparente calculadora
-pi * 10^2
-
-# Operación "real" como funciones dentro de R
-"*"(pi, "^"(10,2))
-
-# Asignación de un resultado.
-# Realmente "x" es un objeto.
-# Un objeto tiene datos y métodos.
-x <- pi*10^2
-
-# Uso implícito del método "print()".
-x
-
-# Uso explícito del método "print()".
-print(x)
-
-# Uso explícito del método "print()", con parámetros adicionales.
-print(x, digits=12)
-
-# Identificación de la clase de objeto.
-class(x)
-
-# Identificación del tipo de objeto.
-typeof(x)
-
-# Ejemplo de la clase "data.frame" (no espacial).
-data(cars)
-# Clase
-class(cars)
-# Tipo
-typeof(cars)
-# Atributo mediante el método "names()"
-names(cars)
-# Método
-summary(cars)
-
-# Muestra la estrucutra del objeto. "La función más útil de R"
-str(cars)
-
-# Otra clase usada en modelación en R
-class(dist ~ speed)
-
-# Ejemplo de la diferencia en los tipos de objetos,
-# en particular de la clase "factor".
-cars$qspeed <- with(cars, cut(speed, breaks = quantile(speed), include.lowest = TRUE))
-is.factor(cars$qspeed)
-
-# Respuesta diferente del objeto "formula" de acuerdo a la clase de datos
-plot(dist ~ speed, data = cars)
-plot(dist ~ qspeed, data = cars)
-
-# Ejemplo de la diferencia en la modelación de acuerdo al tipo de objeto
-lm(dist ~  speed, data = cars)
-lm(dist ~ qspeed, data = cars)
-```
-
-# La clase **Spatial** del paquete **sp**
+## La clase **Spatial** del paquete **sp**
 
 Clase "Spatial":
 
@@ -76,25 +18,29 @@ Dos slots:
 1. Matriz con coordenadas del marco (box) que contiene la información
 de el rectángulo que tiene los datos espaciales.
 Esta matriz numérica tiene: 
+
   - Dos columnas: mínimo ("min") y máximo ("max").
   - Dos filas:
      * La primera fila que se refiere a las coordenada este (eje x).
      * la segunda fila a las coordenadas norte (eje y).
 
-2. Un objeto de la clase CRS (Coordinate Reference System) que indica el tipo de referencia espacial de los datos. Es decir el sitema de coordenadas sobre la cual están los datos.
+2. Un objeto de la clase CRS (Coordinate Reference System) que indica el tipo de referencia espacial de los datos. Es decir el sitema de coordenadas sobre
+la cual están los datos.
 
 ```{r}
+
 # Carga el paquete "sp"
 require(sp)
 
 # Muestra las características de la clase "Spatial"
 getClass("Spatial")
 
-# El objeto "CRS", más de cerca. 
+# La "CRS", más de cerca. 
 getClass("CRS")
+
 ```
 
-# Construcción de un ejemplo simple del objeto "Spatial"
+## Construcción de un ejemplo simple del objeto "Spatial"
 
 La proyección CRS sigue el formato de PROJ.4, que se ha convertido en un estándar para respresentar proyecciones terrestres.
 
@@ -111,9 +57,87 @@ S <- Spatial(bbox = m, proj4string = crs)
 S
 ```
 
-### Ejemplo de una proyección mal especificada
 
-```{r, error=TRUE}
-bb <- matrix(c(350, 85, 370, 95), ncol = 2, dimnames = list(NULL, c("min","max")))
-Spatial(bb, proj4string = CRS("+proj=longlat"))
+## Sistemas de coordenadas para Colombia
+
+### Sistemas de referencia
+[http://spatialreference.org/](http://spatialreference.org/)
+
+### Conversión de proyecciones
+[http://www.sumapa.com/](http://www.sumapa.com/geocalc/geocalc.cfm)
+
+
+## Subclase **SpatialPoints**
+
+
+Ejemplo utilizando las coordenadas de algunos lugares en Colombia.
+
+
+```{r}
+# Lectura a una base de datos
+ciud_col_bd <- read.table("ciudades_de_colombia.csv", header = TRUE,
+                      sep = ";", dec = ",")
+ciud_col_mat <- cbind(ciud_col_bd$long, ciud_col_bd$lat)
+row.names(ciud_col_mat) <- ciud_col_bd$Nombre
+str(ciud_col_mat)
+
+
+# Especificaciones de la clase SpatialPoints
+require(sp)
+getClass("SpatialPoints")
+
+# Construcción de la clase de tipos espaciales
+sistema_proj <- CRS("+proj=longlat +ellps=WGS84")
+ciud_col_sp <- SpatialPoints(ciud_col_mat, proj4string = sistema_proj)
+# Resumen
+summary(ciud_col_sp)
 ```
+
+## Algunos métodos asociados.
+
+### Información principal
+```{r}
+# Extracción de la información de las coordenadas.
+bbox(ciud_col_sp)
+# Extracción de la información de de la proyección.
+proj4string(ciud_col_sp)
+```
+
+### Gráfica de puntos de ciudades
+```{r}
+plot(ciud_col_sp)
+```
+
+## Lectura de un mapa en formato "shape"
+
+### Lectura con maptools
+```{r}
+require(maptools)
+col1 <- readShapeSpatial("COL_adm1.shp")
+class(col1)
+bbox(col1)
+proj4string(col1)
+proj4string(col1) <- CRS("+proj=longlat +ellps=WGS84")
+proj4string(col1)
+plot(col1)
+```
+
+### Lectura con rgdal
+```{r}
+require(rgdal)
+col2 <- readOGR(".","COL_adm1")
+class(col2)
+bbox(col2)
+proj4string(col2)
+plot(col2)
+```
+
+
+## Graficación de ambos formatos
+
+```{r}
+plot(col2, col = "green")
+points(ciud_col_sp, col = "blue")
+```
+
+
