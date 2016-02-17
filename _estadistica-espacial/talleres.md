@@ -10,7 +10,7 @@ custom_js: 'mathjax'
 
 Utilizando los siguientes datos.
 
-   - [Croquis de municipios de Colombia (shape)](./datos/COL_adm2.shp){:target="_blank"}
+   - [Croquis de municipios de Colombia (shp)](./datos/COL_adm2.shp){:target="_blank"}
    - [Croquis de municipios de Colombia (proj)](./datos/COL_adm2.prj){:target="_blank"}
    - [Croquis de municipios de Colombia (dbf)](./datos/COL_adm2.dbf){:target="_blank"}
    - [Croquis de municipios de Colombia (sbn)](./datos/COL_adm2.sbn){:target="_blank"}
