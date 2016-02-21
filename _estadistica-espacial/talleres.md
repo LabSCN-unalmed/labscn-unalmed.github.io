@@ -27,4 +27,41 @@ Documentos a entregar:
  - Mapa de municipios, superpuestos los puntos de referencia.
  - Archivo del código en R.
  
+## Taller individual 2
+
+### Actividades
+Códigos realizados por los estudiantes:
  
+ - [Código 1](./datos/christian_matern.R){:target="_blank"}
+ - [Código 2](./datos/función_matern.R){:target="_blank"}
+ - [Código 3](./datos/JPVA_Clase6EstEsp_GrafExpGaus_19Feb2016.R){:target="_blank"}
+ - [Código en Python](./datos/matern.py){:target="_blank"}
+ 
+1. Elaborar un código (puede utilizar como base los código de los compañeros)
+   que muestre curvas para:
+
+   - Función de correlación exponencial con $$\phi$$ = 1, 3, 5 y 10.
+   - Función de correlación gauss con $$\phi$$ = 1, 3, 5 y 10.
+   
+   Estimen el rango práctico para cada caso.
+   Es decir halle el valor de $$u$$ para cuando $$\rho(u)=0.05$$.
+   
+2. Nombre de la variable que ha pensado como ejemplo, la justificación
+   del posible modelo y el rango práctico.
+
+3. Graficar el modelo de la variable propuesta.
+
+### Documentos a entregar
+
+   - Archivo del código en R, debidamente documentado.
+   - Archivo con las gráficas pedidas en las actividades.
+
+### Fecha de entrega
+
+   Viernes 26 de Febrero de 2016 antes de las 23:59 hora de Colombia
+   al correo **krcabrer@unal.edu.co** y  no olvidar escribir en asunto: **[EE]**.
+   
+   
+
+      
+      
