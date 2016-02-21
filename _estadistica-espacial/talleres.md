@@ -35,7 +35,9 @@ Códigos realizados por los estudiantes:
  - [Código 1](./datos/christian_matern.R){:target="_blank"}
  - [Código 2](./datos/función_matern.R){:target="_blank"}
  - [Código 3](./datos/JPVA_Clase6EstEsp_GrafExpGaus_19Feb2016.R){:target="_blank"}
+ - [Código 4](./datos/modelos_exp_gauss.R){:target="_blank"} 
  - [Código en Python](./datos/matern.py){:target="_blank"}
+
  
 1. Elaborar un código (puede utilizar como base los código de los compañeros)
    que muestre curvas para:
