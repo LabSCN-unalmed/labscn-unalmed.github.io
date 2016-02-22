@@ -14,3 +14,5 @@ order: 05
 ## Encuesta
 
 [Encuesta versión 1 (xlsx)](./basesdedatos/Encuesta1.xlsx){:target="_blank"}
+
+[Encuesta versión 2 (xlsx)](./basesdedatos/Encuesta2.xlsx){:target="_blank"}
