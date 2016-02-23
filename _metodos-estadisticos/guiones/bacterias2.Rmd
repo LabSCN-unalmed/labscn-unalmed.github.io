@@ -1,0 +1,129 @@
+---
+title: "Bacterias sicotrópicas II"
+author: "Kenneth Roy Cabrera Torres"
+date: "22 de febrero de 2016"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+
+## Lectura de la base de datos
+```{r}
+bacterias <- read.csv2("Bacterias_en_carne.csv", encoding = "latin1")
+bacterias
+```
+
+
+## Resumen estadístico por tipo de empaque
+```{r}
+with(bacterias, tapply(logNcm2, Empaque, summary))
+(desEst <- with(bacterias, tapply(logNcm2, Empaque, sd)))
+(medias <- with(bacterias, tapply(logNcm2, Empaque, mean)))
+```
+
+
+## Gráfica con la desviación estándar de cada nivel
+```{r, fig.height=6, fig.width=8}
+op <- par(no.readonly = TRUE)
+par(mar = op$mar + c(0,1,0,0))
+with(bacterias, plot(as.integer(Empaque), logNcm2, pch = 19,
+                     axes = FALSE, xlim = c(0,5), ylim = c(2.5,8),
+                     main = "Exploratorio: Bacterias sicotrópicas vs empaque",
+                     xlab = "Tipo de empaque", las = 1,
+                     ylab = expression("Log10(N/" ~ cm^2 ~")")))
+axis(1, at = 1:4, labels = levels(bacterias$Empaque))
+axis(2)
+points(1:4, medias, pch = 18, col = "red", cex = 1.5)
+arrows(1:4, medias, 1:4, medias + desEst, pch = 17, col = "red", angle = 90)
+arrows(1:4, medias, 1:4, medias - desEst, pch = 17, col = "red", angle = 90)
+box()
+par(op)
+```
+
+
+## Tabla ANOVA del experimento
+```{r}
+modelo1 <- aov(logNcm2 ~ Empaque, data = bacterias)
+summary(modelo1)
+anova(modelo1)
+(dsError <- sqrt(anova(modelo1)$"Mean Sq"[2]))
+
+```
+
+## Gráfico del modelo
+```{r, fig.height=6, fig.width=8}
+op <- par(no.readonly = TRUE)
+par(mar = op$mar + c(0,1,0,0))
+with(bacterias, plot(as.integer(Empaque), logNcm2, pch = 19,
+                     axes = FALSE, xlim = c(0,5), ylim = c(2.5,8),
+                     main = "Modelo final: Bacterias sicotrópicas vs empaque",
+                     xlab = "Tipo de empaque", las = 1,
+                     ylab = expression("Log10(N/" ~ cm^2 ~")")))
+axis(1, at = 1:4, labels = levels(bacterias$Empaque))
+axis(2)
+points(1:4, medias, pch = 18, col = "red", cex = 1.5)
+arrows(1:4, medias, 1:4, medias + dsError, pch = 17, col = "red", angle = 90)
+arrows(1:4, medias, 1:4, medias - dsError, pch = 17, col = "red", angle = 90)
+box()
+par(op)
+```
+
+## Verificación de los supuestos
+
+### Verificación gráfica de modelos
+```{r, fig.height=8, fig.width=8}
+# Verificación gráfica de supuesto
+op <- par(no.readonly = TRUE)
+par(mfrow = c(2,2))
+plot(modelo1)
+par(op)
+```
+
+
+
+### Normalidad de los residuales
+```{r}
+(bacterias$residuales <- residuals(modelo1))
+# Gráfico cuantil-cuantil
+qqnorm(bacterias$residuales, pch = 19)
+qqline(bacterias$residuales)
+# Prueba de normailidad
+shapiro.test(bacterias$residuales)
+```
+
+
+### Igualdad de varianzas (homocedasticidad)
+```{r}
+# Prueba de Bartlett si son normales.
+bartlett.test(logNcm2 ~ Empaque, data = bacterias)
+
+# Prueba de Levene si son no normales.
+require(car)
+leveneTest(logNcm2 ~ Empaque, data = bacterias)
+
+# Prueba de Fligner-Killeen cuando los residuales son fuertemente no normales.
+fligner.test(logNcm2 ~ Empaque, data = bacterias)
+
+```
+
+### Prueba de independencia
+
+```{r}
+# Gráfica de residuales contra orden de aleatorización
+with(bacterias, plot(Asignación,residuales, pch = 19,
+                     ylim = c(-2*dsError, 2*dsError), las = 2))
+abline(h=0, lty = 2, col = "red")
+
+require(lmtest)
+dwtest(logNcm2 ~ Empaque, order.by = ~Asignación, data = bacterias,
+       alternative = "two.sided")
+
+(bacteriasTemp <- bacterias[order(bacterias$Asignación),])
+modelo1Temp <- aov(logNcm2 ~ Empaque, data = bacteriasTemp)
+require(car)
+durbinWatsonTest(modelo1Temp, alternative = "two.sided")
+```
+
+
