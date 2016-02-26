@@ -20,3 +20,7 @@ order: 01
 ## Modelo de covarianza Matérn
 
  - [Modelo Matérn](./guiones/modeloMatérn.html){:target="_blank"}
+ 
+## Simulaciones de campos aleatorios exponencial y gaussiano
+
+ - [Simulaciones](./guiones/simulaciones_exp_gauss.html){:target="_blank"}
