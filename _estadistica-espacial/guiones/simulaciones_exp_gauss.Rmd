@@ -1,0 +1,61 @@
+---
+title: "Simulación de campos aleatorios"
+author: "Kenneth Roy Cabrera Torres"
+date: "26 de febrero de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+rangoPractico <- 30
+## Definición de la malla
+desde <- 0
+hasta <- 120
+x.seq <- seq(desde, hasta, length=200)
+y.seq <- seq(desde, hasta, length=200)
+```
+
+
+
+```{r}
+require(RandomFields)
+
+modeloExp <- RMexp(var = 2, scale = rangoPractico/3) + RMtrend(mean = 5)
+
+RFoptions(seed = 7)
+simuExp <- RFsimulate(modeloExp, x=x.seq, y=y.seq)
+png("graph1.png")
+plot(simuExp, asp=1)
+dev.off()
+```
+
+![Campo aleatorio exponencial](graph1.png)
+
+
+```{r}
+modeloGau <- RMgauss(var = 2, scale = rangoPractico/sqrt(3)) + RMtrend(mean = 5)
+
+RFoptions(seed = 7)
+simuGau <- RFsimulate(modeloGau, x=x.seq, y=y.seq)
+png("graph2.png")
+plot(simuGau, asp=1)
+dev.off()
+```
+
+![Campo aleatorio exponencial](graph2.png)
+
+
+```{r}
+# Cálculo del variograma empírico de los datos simulados Exponencial
+varioempE<-RFempiricalvariogram(data=simuExp)
+plot(varioempE,model=modeloExp)
+```
+
+```{r}
+# Cálculo del variograma empírico de los datos simulados Gaussianos
+varioempG<-RFempiricalvariogram(data=simuGau)
+plot(varioempG,model=modeloGau)
+```
