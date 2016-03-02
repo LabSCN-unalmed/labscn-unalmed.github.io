@@ -19,3 +19,7 @@ order: 01
 ### Análisis de variables continuas y discretas de la encuesta
 
 - [Análisis de la encuesta corregida](./guiones/Encuesta3.html){:target="_blank"}
+
+### Cruces de varias variables
+
+- [Cruce de variables](./guiones/cruce_variables.html){:target="_blank"}

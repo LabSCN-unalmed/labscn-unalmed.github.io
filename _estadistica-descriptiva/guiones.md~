@@ -6,12 +6,16 @@ order: 01
 ---
 
 
-# Análisis exploratorio preliminar de la encuesta sin depurar
+## Análisis exploratorio preliminar de la encuesta sin depurar
 
-## Análisis de la edad
+### Análisis de la edad
 
-- [Análisis preliminar](./guiones/Encuesta1.html){:target="_blank"}
+- [Análisis preliminar edad](./guiones/Encuesta1.html){:target="_blank"}
 
-## Análisis de las conspiraciones
+### Análisis de las conspiraciones I
 
-- [Análisis preliminar](./guiones/Encuesta2.html){:target="_blank"}
+- [Análisis preliminar conspiraciones](./guiones/Encuesta2.html){:target="_blank"}
+
+### Análisis de variables continuas y discretas de la encuesta
+
+- [Análisis de la encuesta corregida](./guiones/Encuesta3.html){:target="_blank"}
