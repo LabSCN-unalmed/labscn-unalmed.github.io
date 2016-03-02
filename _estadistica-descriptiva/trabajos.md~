@@ -43,7 +43,7 @@ order: 04
   * Análisis exploratorio de las hipótesis planteadas, incluyendo las gráficas correspondientes.
   * Conclusiones y recomendaciones.
 - Base de datos depurada con los cambios hechos por el grupo o la base de datos original si no
-  se realizó ningún cambio.
+  se realizó ningún cambio en formato ".csv".
 - Guión en R con los comando utilizados para obtener las gráficas realizadas para el análisis
   exploratorio, debidamente documentado en formato "*.R".
 

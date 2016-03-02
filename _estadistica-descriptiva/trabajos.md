@@ -18,6 +18,8 @@ order: 04
 
 #### Actividades
 
+- Configurar grupo de trabajo con mínimo tres estudiantes y máximo cinco estudiantes,
+  si existe un grupo de seis estudiantes, se dividen en dos grupos de tres cada uno.
 - Realizar una depuración de la base de datos, si considera que algunos datos 
   no se utilizarán debido a que son errores o no perteneces a la población objetivo.
   Justifique cada cambio que realice sobre la base de datos.
