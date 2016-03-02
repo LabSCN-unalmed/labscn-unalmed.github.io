@@ -24,3 +24,8 @@ order: 01
 ## Simulaciones de campos aleatorios exponencial y gaussiano
 
  - [Simulaciones](./guiones/simulaciones_exp_gauss.html){:target="_blank"}
+ 
+## Campos aleatorios reales
+
+ - [Variograma empírico de campos aleatorios reales](./guiones/campos_aleatorios_reales.html){:target="_blank"}
+ 

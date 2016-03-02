@@ -63,7 +63,78 @@ Códigos realizados por los estudiantes:
    Viernes 26 de Febrero de 2016 antes de las 23:59 hora de Colombia
    al correo **krcabrer@unal.edu.co** y  no olvidar escribir en asunto: **[EE]**.
    
-   
+## Taller individual 3
 
+## Actividades
+
+Realizar "manualmente", la construcción de un semivariograma empírico
+utilizando los siguientes datos:
+
+![datos](./datos/ejemploSencillo.png)
+
+### Documentos a entegar
+
+- Enviar el procedimiento mediante el cual se calculó el semivariograma empírico.
+- Enviar la gráfica del semivariograma obtenido.
+
+### Fecha de entrega   
+
+24 de febrero de 2016 antes de las 23:59 hora de Colombia al correo
+ **krcabrer@unal.edu.co** y  no olvidar escribir en asunto: **[EE]**.
+
+## Taller individual 4
+
+### Actividades
+
+Estimar los parámetros de la variable propia pero siguiendo un
+modelo Matérn.
+
+Simular una realización de un campo aleatorio siguiendo los parámetros
+de un modelo Matérn para la variable propia.
+
+Graficar el variograma empírico y el teórico para esta variable.
+
+### Documentos a entregar
+
+- Enviar el código en R para desarrollar las actividades propuestas.
+  El código deberá estar documentado.
+- Enviar la gráfica del la simulación de una realización del campo aleatorio.
+- Enviar la gráfica de comparación del variograma empírico y 
+  teórico par esta simulación.
+  
+### Fecha de entrega
+
+Viernes 4 de marzo de 2016 antes de las 23:59 hora de Colombia al correo
+ **krcabrer@unal.edu.co** y  no olvidar escribir en asunto: **[EE]**.
+
+## Taller individual 5
+
+### Actividades
+
+Tomar una foto desde celular de un ejemplo real de campo aleatorio.
+Constuir variograma empírico del campo aleatorio real.
+"Ajustar a ojo" un modelo Matérn para el campo aleatorio obtenido.
+Mostrar la gráfica de comparación entre el campo aleatorio real y
+el "ajustado a ojo".
+
+### Documentos a a entregar
+- Documento en ".pdf" con la foto y un comentario sobre el campo
+  aleatorio utilizado. El documento deberá contener:
+  * Portada.
+  * Foto del campo aleatorio real.
+  * Variograma empírico.
+  * Variograma teórico Matérn "ajustado a ojo".
+  * Conlusiones y recomendaciones.
+  
+- Archivo en formato ".R" con el código utilzado para obtener los resultados.
+
+### Fecha de entrega
+
+Miércoles 9 de marzo de 2016 antes de las 23:59 hora de Colombia al correo
+ **krcabrer@unal.edu.co** y  no olvidar escribir en asunto: **[EE]**.
+
+
+
+ 
       
       
