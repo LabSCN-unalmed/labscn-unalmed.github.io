@@ -27,5 +27,5 @@ order: 01
  
 ## Campos aleatorios reales
 
- - [Variograma empírico de campos aleatorios reales](./guiones/campos_aleatorios_reales.html){:target="_blank"}
+ - [Semivariograma empírico de campos aleatorios reales](./guiones/campos_aleatorios_reales.html){:target="_blank"}
  

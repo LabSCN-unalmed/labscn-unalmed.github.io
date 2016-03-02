@@ -54,6 +54,9 @@ John Wiley & Sons, Inc. 2011
 * [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="_blank"}
 * [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="_blank"}
 
+* [Descarga del Gimp](http://www.gimp.org/downloads/){:target="_blank"}
+* [Descarga del imageJ](http://fiji.sc/Downloads){:target="_blank"}
+
 ## Libro complementario:
 
 * [Lecturas sobre estadística espacial](https://www.dropbox.com/s/hfqfqtevsu85twy/contemporaryStatisticalModels.pdf?dl=0)
