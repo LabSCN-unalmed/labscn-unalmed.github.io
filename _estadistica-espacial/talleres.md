@@ -92,14 +92,14 @@ modelo Matérn.
 Simular una realización de un campo aleatorio siguiendo los parámetros
 de un modelo Matérn para la variable propia.
 
-Graficar el variograma empírico y el teórico para esta variable.
+Graficar el semivariograma empírico y el teórico para esta variable.
 
 ### Documentos a entregar
 
 - Enviar el código en R para desarrollar las actividades propuestas.
   El código deberá estar documentado.
 - Enviar la gráfica del la simulación de una realización del campo aleatorio.
-- Enviar la gráfica de comparación del variograma empírico y 
+- Enviar la gráfica de comparación del semivariograma empírico y 
   teórico par esta simulación.
   
 ### Fecha de entrega
@@ -112,7 +112,7 @@ Viernes 4 de marzo de 2016 antes de las 23:59 hora de Colombia al correo
 ### Actividades
 
 Tomar una foto desde celular de un ejemplo real de campo aleatorio.
-Constuir variograma empírico del campo aleatorio real.
+Constuir semivariograma empírico del campo aleatorio real.
 "Ajustar a ojo" un modelo Matérn para el campo aleatorio obtenido.
 Mostrar la gráfica de comparación entre el campo aleatorio real y
 el "ajustado a ojo".
@@ -122,8 +122,8 @@ el "ajustado a ojo".
   aleatorio utilizado. El documento deberá contener:
   * Portada.
   * Foto del campo aleatorio real.
-  * Variograma empírico.
-  * Variograma teórico Matérn "ajustado a ojo".
+  * Semivariograma empírico.
+  * Semivariograma teórico Matérn "ajustado a ojo".
   * Conlusiones y recomendaciones.
   
 - Archivo en formato ".R" con el código utilzado para obtener los resultados.

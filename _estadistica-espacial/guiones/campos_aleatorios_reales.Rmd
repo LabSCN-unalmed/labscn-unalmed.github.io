@@ -29,6 +29,13 @@ plot(variog2)
 
 mean(img2$band1)
 var(img2$band1)
+
+hist(img2$band1, freq = FALSE, col = "pink", nclass = 100,
+     main = "Histograma del campo aleatorio de pasto",
+     ylab = "Densidad",
+     xlab = "Valor de intensidad digital (Nivel de gris)")
+lines(density(img2$band1), col = "blue", lwd = 2)
+
 modeloExpo <- RMexp(var = 570, scale = 15/3) + RMtrend(mean = 132)
 plot(variog2, model=modeloExpo)
 ```
