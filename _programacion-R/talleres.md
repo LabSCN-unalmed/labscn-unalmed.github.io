@@ -24,14 +24,14 @@ order: 05
    
    * Titulo: Primer Taller.
    * Autor: (Nombre completo del estudiante)
-   * Fecha: Lunes, 26 de octubre de 2015
+   * Fecha: Jueves, 10 de marzo de 2016.
    * Lectura de la base de datos [NBI_Desem_fiscal](./dbs/NBI_Desem_fiscal.xlsx),
      (recuerde pasarlo al formato **csv** para facilitar la lectura de la base 
      de datos en R)
    * Gráfica de las variables **NBI_total** (eje y) vs **Desemp_fiscal** (eje x).
    
-5. Enviar el archivo en formato **html**  al correo **krcabrer@unal.edu.co** el día 26 de
-   octubre de 2015 antes de las 23:59 hora de Colombia, no olvidar en asunto
+5. Enviar el archivo en formato **html**  al correo **krcabrer@unal.edu.co** el
+   día jueves 10 de marzo de 2016 antes de las 23:59 hora de Colombia, no olvidar en asunto
    escribir [Modulo_R].
    
 ### Documento a entregar

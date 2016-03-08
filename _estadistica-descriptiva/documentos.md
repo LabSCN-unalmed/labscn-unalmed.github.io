@@ -24,3 +24,6 @@ order: 02
 - [Artículo de prensa 2](http://www.elespectador.com/noticias/actualidad/un-matematico-destruye-teorias-de-conspiracion-articulo-613338)
 - [Artículo de prensa 3](http://www.lacuartacolumna.com/formula-matematica-conspiraciones)
 
+## Ejemplos de gráficas inapropiadas y apropiadas
+- [Gráficos](/estadistica-descriptiva/graficas/){:target="_blank"}
+
