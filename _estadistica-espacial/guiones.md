@@ -29,3 +29,9 @@ order: 01
 
  - [Semivariograma empírico de campos aleatorios reales](./guiones/campos_aleatorios_reales.html){:target="_blank"}
  
+## Construcción de semivariogramas empíricos
+
+ - [Semivariogramas empíricos](./guiones/elevacion2.html){:target="_blank"}
+ - [Datos de elevación](./guiones/elevacion2.txt){:target="_blank"}
+
+ 
