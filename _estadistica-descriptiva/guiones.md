@@ -27,3 +27,5 @@ order: 01
 ### Problemas con gráficas (Caso colombiano)
 
 - [Caso colombiano](./guiones/casos_colombianos.html){:target="_blank"}
+
+

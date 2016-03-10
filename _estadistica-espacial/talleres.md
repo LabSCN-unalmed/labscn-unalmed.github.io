@@ -117,7 +117,7 @@ Constuir semivariograma empírico del campo aleatorio real.
 Mostrar la gráfica de comparación entre el campo aleatorio real y
 el "ajustado a ojo".
 
-### Documentos a a entregar
+### Documentos a entregar
 - Documento en ".pdf" con la foto y un comentario sobre el campo
   aleatorio utilizado. El documento deberá contener:
   * Portada.

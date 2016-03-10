@@ -7,6 +7,42 @@ order: 04
 
 ## Trabajos individuales
 
+### Primer trabajo individual
+
+#### Objetivo
+
+Buscar una gráfica con problemas publicada en un periódico o resvista colombiano, no
+más antiguo de 2000 y proponer una mejor gráficas realizada en R.
+
+#### Actividades
+
+1. Buscar en una publicación colombiana una gráfica que tenga problemas y
+   mostrar y comentar los problemas que tenga esa gráfica. La publicación
+   no puede ser más antigua del año 2000, deberá ser colombiana.
+2. Proponer una gráfica mejorada que corrija los problemas mostrados,
+   codificada en R.
+   
+#### Materiales a entregar
+
+1. Documento en formato ".pdf" en donde se muestre:
+   * Portada.
+   * Introducción o contexto del problema en donde se muestra la gráfica.
+   * La gráfica con problemas (escaneada).
+   * El origen de la publicación (referencia bibliográfica).
+   * Los comentarios o críticas a la gráfica.
+   * Una gráfica que corrija los problemas encontrados.
+   * Conclusiones y recomendaciones.
+2. Guión en un archivo ".R" con los comandos documentados para
+   la construcción de la gráfica.
+3. Base o base de datos utilizadas para la construcción de la 
+   gráfica en formato ".csv".
+   
+#### Fecha de entrega
+
+Martes, 28 de marzo de 2016 antes de las 23:59 hora de Colombia al
+correo **krcabrer@unal.edu.co** y poner en asunto **[EDAED]**.
+
+   
 
 ## Trabajos en grupo
 
