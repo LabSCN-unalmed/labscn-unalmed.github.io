@@ -23,3 +23,7 @@ order: 01
 ### Cruces de varias variables
 
 - [Cruce de variables](./guiones/cruce_variables.html){:target="_blank"}
+
+### Problemas con gráficas (Caso colombiano)
+
+- [Caso colombiano](./guiones/casos_colombianos.html){:target="_blank"}
