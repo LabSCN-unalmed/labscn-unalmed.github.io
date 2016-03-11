@@ -37,12 +37,15 @@ Valor de $$\sigma^2$$ usual:
 |        |   Tipos de modelos    ||
 |Rango   | Cercano a exponencial | Cercano a gausiano |
 --------- |:-------------:|----------:|
-|1/2 de la distancia máxima| efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$) | efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$) |
-|Doble de la distancia máxima| efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$) | efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$)  |
-|5% de la distancia máxima| efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$) | efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$)  |
+|1/2 de la distancia máxima| efecto pepita  | efecto pepita  |
+| | ($$\tau^2$$=0, 30%, 50% y 80% de $$\sigma^2$$) | ($$\tau^2$$=0, 30%, 50% y 80% de $$\sigma^2$$) |
+|Doble de la distancia máxima| efecto pepita  | efecto pepita  |
+| | ($$\tau^2$$=0, 30%, 50% y 80% de $$\sigma^2$$) | ($$\tau^2$$=0, 30%, 50% y 80% de $$\sigma^2$$) |
+|5% de la distancia máxima| efecto pepita  | efecto pepita |
+| | ($$\tau^2$$=0, 30%, 50% y 80% de $$\sigma^2$$) | ($$\tau^2$$=0, 30%, 50% y 80% de $$\sigma^2$$) |
 
 
-Repetir la tabla con dos valores de $$\sigma^2$$, por encima y por debajo
+* Repetir la tabla con dos valores de $$\sigma^2$$, por encima y por debajo
 del valor usual.
    
 ### Documentos a entregar
@@ -53,7 +56,9 @@ del valor usual.
 
 ### Fecha de entrega
 
-Viernes, 1 de abril de 2016 se realizará la exposición en clase, 
+Viernes, 1 de abril de 2016 se realizará la exposición en clase.
+Antes de las 23:59 hora de Colombia se entregarán los documentos pedidos,
+al correo **krcabrer@unal.edu.co** con asunto **[EE]**.
    
    
       
