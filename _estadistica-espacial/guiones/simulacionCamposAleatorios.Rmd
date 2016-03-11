@@ -162,8 +162,11 @@ plot(semivariog1, env = mc1, xlab="Distancia",ylab="Semivarianza",pch=19,lwd=2)
 ```{r}
 # Construye una realizaciòn de un campo aleatorio
 rango_practico <- 300
-modeloGauss2<- RMtrend(mean=20)+RMgauss(var=10,scale=rango_practico/sqrt(3))
-RFoptions(seed=2168432)
+modeloGauss2<- RMtrend(mean=10) +
+              RMgauss(var=50,scale=rango_practico/sqrt(3)) +
+              RMnugget(var=0)
+
+RFoptions(seed=21684323)
 simuGauss2  <- RFsimulate(modeloGauss2, x=sec.x, y=sec.y, grid=TRUE)
 datosGauss2 <- data.frame(simuExp,coordinates(simuGauss2))
 
@@ -172,6 +175,7 @@ datosGauss2 <- data.frame(simuExp,coordinates(simuGauss2))
 nmuestras <- 80
 nsimul <- 10
 RFoptions(seed=NULL)
+set.seed(NULL)
 l1 <- NULL
 for (i in 1:nsimul){
   idmuestras<-sample(1:nrow(datosGauss2),nmuestras)

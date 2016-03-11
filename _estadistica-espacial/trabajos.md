@@ -2,6 +2,7 @@
 layout: curso
 title: 'Trabajos'
 curso: 'estadistica-espacial'
+custom_js: 'mathjax'
 order: 05
 ---
 
@@ -31,26 +32,28 @@ order: 05
    de los tamaños muestrales para cada uno de los escenarios simulados.
 10. Realizar una presentación de los resultados obtenidos.
 
-Valor de $$\sigma^2$$ usual
+Valor de $$\sigma^2$$ usual:
 
 |        |   Tipos de modelos    ||
 |Rango   | Cercano a exponencial | Cercano a gausiano |
 --------- |:-------------:|----------:|
-|1/2 de la distancia máxima| tamaños de muestra | tamaños de muestra  |
-|Doble de la distancia máxima| tamaños de muestra | tamaños de muestra  |
-|5% de la distancia máxima| tamaños de muestra | tamaños de muestra  |
+|1/2 de la distancia máxima| efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$) | efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$) |
+|Doble de la distancia máxima| efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$) | efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$)  |
+|5% de la distancia máxima| efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$) | efecto pepita ($$\tau$$=0, 30%, 50% y 80% de $$\sigma^2$$)  |
+
 
 Repetir la tabla con dos valores de $$\sigma^2$$, por encima y por debajo
 del valor usual.
-
-Repetir los escenarios anteriores con efectos pepida de 30% de la varianza,
-50% y 80% de la varianza.
    
 ### Documentos a entregar
 1. Presentación en formato ".pdf" en donde se muestran los resultados
    obtenidos.
 2. Guión o código en R, donde se documente el procedimiento utilizado
    para obtener los resultados de las simulaciones.
+
+### Fecha de entrega
+
+Viernes, 1 de abril de 2016 se realizará la exposición en clase, 
    
    
       
