@@ -34,4 +34,6 @@ order: 01
  - [Semivariogramas empíricos](./guiones/elevacion2.html){:target="_blank"}
  - [Datos de elevación](./guiones/elevacion2.txt){:target="_blank"}
 
- 
+## Simulaciones para detectar tamaños de muestra
+
+ - [Semivariogramas empíricos](./guiones/simulacionCamposAleatorios.html){:target="_blank"}
