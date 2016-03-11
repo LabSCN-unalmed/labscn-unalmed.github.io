@@ -48,11 +48,22 @@ reservEmb$vacio  <- with(reservEmb, Capacidad - actual)
 
 def.par <- par(no.readonly = TRUE)
 par(mar = def.par$mar + c(6,0,0,0))
-with(reservEmb, barplot(t(as.matrix(reservEmb[, c("actual","vacio")])),
+colores <- c("darkgreen","navajowhite4", "aquamarine4", "mediumorchid4", "brown")
+bx <- with(reservEmb, barplot(t(as.matrix(reservEmb[, c("actual","vacio")])),
                         main = "Nivel de los embalses en Colombia",
                         ylim = c(0,5000),
                         col = c("darkblue","gray"),
                         names.arg = reservEmb$Embalse, las = 2))
+rect(0,0,bx[10]+bx[1],5000, lwd = 2, border = colores[1])
+rect(bx[11]-bx[1],0,bx[11]+bx[1],5000, lwd = 2, border = colores[2])
+rect(bx[12]-bx[1],0,bx[17]+bx[1],5000, lwd = 2, border = colores[3])
+rect(bx[18]-bx[1],0,bx[20]+bx[1],5000, lwd = 2, border = colores[4])
+rect(bx[21]-bx[1],0,bx[23]+bx[1],5000, lwd = 2, border = colores[5])
+text((bx[5]+bx[6])/2,4000,"Antioquia", col =  colores[1])
+text(bx[11],4000,"Caribe", col = colores[2], srt = 90)
+text((bx[14]+bx[15])/2,4000,"Centro", col = colores[3])
+text(bx[19],4000,"Oriente", col = colores[4])
+text(bx[22],4000,"Valle", col = colores[5])
 par(def.par)
 ```
 
