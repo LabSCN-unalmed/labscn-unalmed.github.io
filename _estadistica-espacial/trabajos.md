@@ -59,6 +59,14 @@ del valor usual.
 Viernes, 1 de abril de 2016 se realizará la exposición en clase.
 Antes de las 23:59 hora de Colombia se entregarán los documentos pedidos,
 al correo **krcabrer@unal.edu.co** con asunto **[EE]**.
+
+### Tip del estudiante Cristian Santa
+
+De acuerdo con el estudiante Cristian Santa, se sugiere hacer la simulación
+utilizando varios núcleos de acuerdo a la guía que se encuentra en la
+siguiente página:
+
+[Ciclos paralelos en R para windows y linux](http://www.r-bloggers.com/parallel-r-loops-for-windows-and-linux/){:target="_blank"}
    
    
       
