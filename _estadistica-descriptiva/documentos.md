@@ -27,3 +27,9 @@ order: 02
 ## Ejemplos de gráficas inapropiadas y apropiadas
 - [Gráficos](/estadistica-descriptiva/graficas/){:target="_blank"}
 
+## Guias para presentación de pósters
+
+- [Póster científico](./documentos/DocumentoPrincipalEGuardiola_poster_cientifico.pdf){:target="_blank"}
+- [Presentación de carteles o pósters](./documentos/mgi20400.pdf){:target="_blank"}
+- [Guía para elaboración de pósters científicos](./documentos/poster-1209925152397079-9.pdf){:target="_blank"}
+

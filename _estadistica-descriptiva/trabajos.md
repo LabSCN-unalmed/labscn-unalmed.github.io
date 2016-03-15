@@ -39,10 +39,56 @@ más antiguo de 2000 y proponer una mejor gráficas realizada en R.
    
 #### Fecha de entrega
 
-Martes, 28 de marzo de 2016 antes de las 23:59 hora de Colombia al
+Martes, 29 de marzo de 2016 antes de las 23:59 hora de Colombia al
 correo **krcabrer@unal.edu.co** y poner en asunto **[EDAED]**.
 
+### Segundo trabajo individual
+
+#### Objetivo
+
+Realizar una evaluación y califiación de pósters de estudiantes de grupos
+de EDAED anteriores contrastando con los parámetros de un póster con
+el póster entregado a cada estudiante.
+
+#### Actividades.
+
+1. Cada estudiante irá a la oficina del profesor y tendrá un póster para
+llevarlo y analizarlo de acuerdo a los documentos entregados como guías de
+la elaboración de pósters. Deberá escribir en un formato, el título del póster
+la fecha de elaboración y los integrantes del mismo, para llevar la relación.
+
+2. El estudiante le tomará una foto al póster que el correspondió y realizará 
+una crítica al póster que le correspondió en cuanto a:
+  * Identificación de miembros del equipo.
+  * Título del póster.
+  * Claridad en el tipo de resultados presentados.
+  * Claridad en las gráficas presentadas.
+  * Claridad en las conclusiones.
+  * Recomendaciones adecuadas con los resultados del experimento.
+  * Diagramación y composición del póster. Combinación de colores. 
+  * Redacción y ortografía.
+  * Tipo de letra utilizada y cantidad de texto en el póster.
+
+3. Procederá a calificar el póster de acuerdo a los criterios analizados.
+   La calificación va de 0.0 a 5.0.
    
+4. Realizará recomendaciones y sugerencias para mejorar el póster.
+
+#### Documentos para entregar
+
+Un archivo en formato ".pdf" con los siguiente elementos:
+
+ - Portada.
+ - Solución a los elementos pedidos en el numeral 2 de **Actividades**.
+ - Califiación los la justificación respectiva.
+ - Recomendaciones y sugerencias.
+ 
+#### Fecha de entrega
+
+Martes 5 de abril de 2016 antes de las 23:59 hora de Colombia al
+correo **krcabrer@unal.edu.co** y poner en asunto **[EDAED]**.
+    
+
 
 ## Trabajos en grupo
 
