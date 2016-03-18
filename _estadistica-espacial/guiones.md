@@ -37,3 +37,7 @@ order: 01
 ## Simulaciones para detectar tamaños de muestra
 
  - [Semivariogramas empíricos](./guiones/simulacionCamposAleatorios.html){:target="_blank"}
+ 
+## Estimación y predicción de modelos geoestadísticos
+
+ - [Estimación y predicción](./guiones/elevacion3.html){:target="_blank"}
