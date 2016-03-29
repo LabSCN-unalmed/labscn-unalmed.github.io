@@ -1,7 +1,7 @@
 ggplot2
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: martes, 17 de noviembre de 2015
+date: martes, 29 de marzo de 2016
 
 ¿Qué es ggplot2? I
 ========================================================
@@ -55,7 +55,7 @@ g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-3](10_Graficacion_II-figure/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](10_Graficacion_II-figure/unnamed-chunk-3-1.png)
 
 
 Segunda gráfica
@@ -66,7 +66,7 @@ g1 <- ggplot(mpg, aes(displ, hwy, col = drv))
 g1 + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-4](10_Graficacion_II-figure/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](10_Graficacion_II-figure/unnamed-chunk-4-1.png)
 
 Adición de una "geom_"
 ========================================================
@@ -76,7 +76,7 @@ g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point() + geom_smooth()
 ```
 
-![plot of chunk unnamed-chunk-5](10_Graficacion_II-figure/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](10_Graficacion_II-figure/unnamed-chunk-5-1.png)
 
 Histograma
 ========================================================
@@ -86,7 +86,7 @@ g1 <- ggplot(mpg, aes(hwy))
 g1 + geom_histogram()
 ```
 
-![plot of chunk unnamed-chunk-6](10_Graficacion_II-figure/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](10_Graficacion_II-figure/unnamed-chunk-6-1.png)
 
 Histogramas
 ========================================================
@@ -96,7 +96,7 @@ g1 <- ggplot(mpg, aes(hwy, fill = drv))
 g1 + geom_histogram()
 ```
 
-![plot of chunk unnamed-chunk-7](10_Graficacion_II-figure/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](10_Graficacion_II-figure/unnamed-chunk-7-1.png)
 
 Facetas (páneles) I
 ========================================================
@@ -106,7 +106,7 @@ g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point() + facet_grid( . ~ drv)
 ```
 
-![plot of chunk unnamed-chunk-8](10_Graficacion_II-figure/unnamed-chunk-8-1.png) 
+![plot of chunk unnamed-chunk-8](10_Graficacion_II-figure/unnamed-chunk-8-1.png)
 
 Facetas (páneles) II
 ========================================================
@@ -116,7 +116,7 @@ g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point() + facet_grid( drv ~ .)
 ```
 
-![plot of chunk unnamed-chunk-9](10_Graficacion_II-figure/unnamed-chunk-9-1.png) 
+![plot of chunk unnamed-chunk-9](10_Graficacion_II-figure/unnamed-chunk-9-1.png)
 
 Facetas (páneles) III
 ========================================================
@@ -126,7 +126,7 @@ g1 <- ggplot(mpg, aes(hwy))
 g1 + geom_histogram() + facet_grid( drv ~ .)
 ```
 
-![plot of chunk unnamed-chunk-10](10_Graficacion_II-figure/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](10_Graficacion_II-figure/unnamed-chunk-10-1.png)
 
 Calidad del aire
 ========================================================
