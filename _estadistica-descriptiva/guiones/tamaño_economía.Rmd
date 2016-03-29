@@ -1,0 +1,35 @@
+---
+title: "Tamaño Economía"
+author: "Kenneth Roy Cabrera Torres"
+date: "14 de marzo de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+tamEco <- read.csv2("Tamaño_economia.csv")
+```
+
+```{r}
+bx1 <- barplot(tamEco$Tamaño, names.arg = tamEco$Año, 
+        horiz = TRUE, las = 2, axes = F,
+        main = "TAMAÑO DE LA ECONOMÍA EN PESOS\nA precios constantes de 2005, en billones")
+text(150, bx1[1], "284.76", cex = 3)
+text(150, bx1[4], "531.38", cex = 3)
+```
+
+
+```{r, fig.height=6, fig.width=9}
+symbols(tamEco$Año, rep(2,4), circles = tamEco$Tamaño,
+        bg = "gray", axes = F,
+        ylab = "", xlab = "",
+        main = "TAMAÑO DE LA ECONOMÍA EN PESOS\nA precios constantes de 2005, en billones",
+        xlim = c(1998,2017))
+text(2000, 2,  "284.76", cex = 1.5)
+text(2015, 2,  "531.38", cex = 3)
+axis(1)
+```
+

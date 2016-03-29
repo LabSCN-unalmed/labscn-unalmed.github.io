@@ -28,4 +28,7 @@ order: 01
 
 - [Caso colombiano](./guiones/casos_colombianos.html){:target="_blank"}
 
+### Comparación de tipos de figuras
+
+- [Comparación de figuras](./guiones/figuras.html){:target="_blank"}
 

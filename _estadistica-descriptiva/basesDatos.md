@@ -22,3 +22,7 @@ order: 05
    * [Proyeccion eléctrica](./basesdedatos/ejemplo1.xlsx){:target="_blank"}
    * [Reserva de los embalses](./basesdedatos/Reservas_de_embalses.xlsx){:target="_blank"}
    * [Consumo de los electrodomésticos](./basesdedatos/consumoElectrodomesticos.xlsx){:target="_blank"}
+   
+## Base de datos del resultado de la encuesta
+
+   * [Figuras](./basesdedatos/figuras.xlsx){:target="_blank"}
