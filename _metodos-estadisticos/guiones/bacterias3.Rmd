@@ -1,0 +1,69 @@
+---
+title: "Bacterias sicotrópicas III"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves, 31 de marzo de 2016"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+
+## Lectura de la base de datos
+```{r}
+bacterias <- read.csv2("Bacterias_en_carne.csv", encoding = "latin1")
+bacterias
+```
+
+
+
+## Tabla ANOVA del experimento
+```{r}
+modelo1 <- aov(logNcm2 ~ Empaque, data = bacterias)
+summary(modelo1)
+anova(modelo1)
+(dsError <- sqrt(anova(modelo1)$"Mean Sq"[2]))
+(medias <- with(bacterias, tapply(logNcm2, Empaque, mean)))
+```
+
+
+## Gráfico del modelo
+```{r, fig.height=6, fig.width=8}
+op <- par(no.readonly = TRUE)
+par(mar = op$mar + c(0,1,0,0))
+with(bacterias, plot(as.integer(Empaque), logNcm2, pch = 19,
+                     axes = FALSE, xlim = c(0,5), ylim = c(2.5,8),
+                     main = "Modelo final: Bacterias sicotrópicas vs empaque",
+                     xlab = "Tipo de empaque", las = 1,
+                     ylab = expression("Log10(N/" ~ cm^2 ~")")))
+axis(1, at = 1:4, labels = levels(bacterias$Empaque))
+axis(2)
+points(1:4, medias, pch = 18, col = "red", cex = 1.5)
+arrows(1:4, medias, 1:4, medias + dsError, pch = 17, col = "red", angle = 90)
+arrows(1:4, medias, 1:4, medias - dsError, pch = 17, col = "red", angle = 90)
+box()
+par(op)
+```
+
+## Estimación de efectos
+```{r}
+model.tables(modelo1, se = TRUE)
+model.tables(modelo1, type = "means", se = TRUE)
+```
+
+
+## Comparaciones pareadas
+```{r}
+(tk1 <- TukeyHSD(modelo1))
+```
+
+
+
+## Gráficos de comparaciones pareadas
+```{r}
+op <- par(no.readonly = TRUE) 
+par(mar = op$mar + c(0,6,0,0))
+plot(tk1, las = 1)
+par(op)
+```
+

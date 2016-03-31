@@ -16,4 +16,8 @@ custom_js: 'mathjax'
 
 - [Ejemplo 2](./guiones/bacterias2.html){:target="_blank"}
 
+## Diseños de una sola vía completamente aleatorizado (Inferencia)
+
+- [Ejemplo 3](./guiones/bacterias3.html){:target="_blank"}
+
 
