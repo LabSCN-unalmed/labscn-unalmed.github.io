@@ -45,7 +45,11 @@ order: 05
    secundarias de una matriz cuadrada.
 
 ### Materiales a entregar
-   - Código en R documentado.   
+   - Código en R documentado.
+
+### Fecha de entrega
+   - Viernes 1 de abril de 2016, antes de las 23:59 hora de colombia al correo
+     **krcabrer@unal.edu.co** y no olvidar en asunto escribir [Modulo_R].
    
 ## Tercer taller individual
 
@@ -66,4 +70,8 @@ order: 05
    Código en R de la simulación e histograma de la distribución de los
    tiempo en formato ".html" obtenido mediante Rmarkdown.
         
-     
+### Fecha de entrega
+
+   - Martes 5 de abril de 2016, antes de las 23:59 hora de colombia al correo
+     **krcabrer@unal.edu.co** y no olvidar en asunto escribir [Modulo_R].
+         
