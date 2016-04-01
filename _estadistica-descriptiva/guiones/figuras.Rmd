@@ -36,11 +36,11 @@ with(figuras, plot(as.integer(Tipo.de.gráficas),Figura.1, pch = 19))
 ## Resultados para el año 2005
 ```{r}
 colores <- c("black","magenta")
-medias <- with(subset(figuras, Figura.1 > 280),
+medias <- with(figuras,
                tapply(Figura.1, Tipo.de.gráficas, mean))
-ds  <- with(subset(figuras, Figura.1 > 280),
+ds  <- with(figuras,
                tapply(Figura.1, Tipo.de.gráficas, sd))
-n  <- with(subset(figuras, Figura.1 > 280),
+n  <- with(figuras,
                tapply(Figura.1, Tipo.de.gráficas, length))
 dsm <- ds/sqrt(n)
 with(figuras, boxplot(Figura.1 ~ Tipo.de.gráficas, notch = TRUE,
