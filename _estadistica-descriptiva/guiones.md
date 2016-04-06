@@ -32,3 +32,7 @@ order: 01
 
 - [Comparación de figuras](./guiones/figuras.html){:target="_blank"}
 
+### Análisis exploratorio parcial del desempeño del las pruebas saber 11 del año 2015 segundo semestre.
+
+- [Pruebas saber 11 2015-02](./guiones/ICFES_2015_02.html){:target="_blank"}
+
