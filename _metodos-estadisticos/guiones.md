@@ -20,4 +20,8 @@ custom_js: 'mathjax'
 
 - [Ejemplo 3](./guiones/bacterias3.html){:target="_blank"}
 
+## Diseños de una sola vía con dos bloques completos completamente aleatorizado
+
+- [Base de datos (excel)](/metodos-estadisticos/guiones/formulasParaNiños.xlsx){:target="_blank"}
+- [Ejemplo 4](./guiones/formulasParaNiños.html){:target="_blank"}
 
