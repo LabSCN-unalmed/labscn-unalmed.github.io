@@ -34,3 +34,9 @@ order: 02
 ## Clase 9
 [Expresiones regulares](./slides/11_Expresiones_Regulares.html){:target="_blank"}
 
+## Clase 10
+[Manejo de base de datos](./slides/12_Manejo_bases_de_datos.html){:target="_blank"}
+
+- [ICFES 2015 02](./dbs/20152.xls){:target="_blank"}
+
+
