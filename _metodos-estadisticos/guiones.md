@@ -25,3 +25,13 @@ custom_js: 'mathjax'
 - [Base de datos (excel)](/metodos-estadisticos/guiones/formulasParaNiños.xlsx){:target="_blank"}
 - [Ejemplo 4](./guiones/formulasParaNiños.html){:target="_blank"}
 
+## Diseños de dos factores completos, completamentamente aleatorizados.
+
+- [Base de datos (excel)](./guiones/menus.xlsx){:target="_blank"}
+- [Ejemplo 5](./guiones/diseño_factorial.html){:target="_blank"}
+
+## Diseños de tres factores completos, completamentamente aleatorizados.
+
+- [Base de datos (excel)](./guiones/camarones.xlsx){:target="_blank"}
+- [Ejemplo 6](./guiones/camarones.html){:target="_blank"}
+
