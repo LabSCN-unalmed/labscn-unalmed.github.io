@@ -34,4 +34,6 @@ custom_js: 'mathjax'
 
 - [Base de datos (excel)](./guiones/camarones.xlsx){:target="_blank"}
 - [Ejemplo 6](./guiones/camarones.html){:target="_blank"}
+- [Ejemplo 7 (Heterocedasticidad)](./guiones/camarones2.html){:target="_blank"}
+
 
