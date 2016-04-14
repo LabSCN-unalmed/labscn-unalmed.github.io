@@ -36,4 +36,10 @@ custom_js: 'mathjax'
 - [Ejemplo 6](./guiones/camarones.html){:target="_blank"}
 - [Ejemplo 7 (Heterocedasticidad)](./guiones/camarones2.html){:target="_blank"}
 
+## Diseños 2^k
+
+- [Base de datos (excel)](./guiones/conversion.xlsx){:target="_blank"}
+- [Ejemplo 8](./guiones/conversion.html){:target="_blank"}
+
+
 
