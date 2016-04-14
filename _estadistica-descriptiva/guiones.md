@@ -40,3 +40,8 @@ order: 01
 
 - [Pruebas saber 11 2015-02 II](./guiones/ICFES_2015_02_II.html){:target="_blank"}
 
+### Análisis exploratorio III del desempeño del las pruebas saber 11 del año 2015 segundo semestre (componentes principales).
+
+
+- [Pruebas saber 11 2015-02 II](./guiones/ICFES_2015_02_III.html){:target="_blank"}
+
