@@ -9,8 +9,8 @@ order: 06
 
 ### Objetivo.
 
-Realizar la toma de datos y un análisis exploratorio y descriptivo de
-los mismos para mostrar los diseños de avión de papel que tengan 
+Realizar la toma de datos, un análisis exploratorio y descriptivo de
+éstos mismos datos para mostrar los diseños de avión de papel que tengan 
 un mejor desempeño en: alcance (distancia de vuelo), duración de vuelo y
 precisión a un blanco determinado.
 
@@ -21,7 +21,7 @@ En grupos de estudiantes de mínimo 3 estudiantes y máximo 5 se realizará
 un experimento en donde se tomen datos para determinar el mejor diseño 
 de avión de papel para las siguientes variables respuesta:
 
-- Alcance (distancia en vuelo) (medida en metros desde el punto de lanzamiento).
+- Alcance (distancia en vuelo) (metros desde el punto de lanzamiento).
 - Tiempo de vuelo (duración del vuelo) (Segundos).
 - Precisión (Distancia a un objetivo) (metros).
 
@@ -34,8 +34,10 @@ Variables que permanecerán constantes:
 - Tipo de papel (El grupo determinará el tipo y tamaño de papel).
 - Grosor o calibre de papel (Un sólo grosor para todos los diseños).
 - Número de lanzamientos:
-  * Si es manual el grupo deberá lanzarlo mínimo veinticinco (25) veces.
-  * Si es con plataforma de lanzamiento se deberá lanzarlo mínimo treinta (30) veces.
+  * Si es manual el grupo deberá lanzar cada diseño mínimo veinticinco (25) veces en
+    donde todas las demás variables son constantes.
+  * Si es con plataforma de lanzamiento se deberá lanzar cada diseño mínimo treinta (30) veces en
+    donde todas los demás variables son constantes.
    
 Variables que serán medidas de manera adicional 
 
@@ -46,7 +48,7 @@ Variables que serán medidas de manera adicional
    como otra variable a considerar.
 - Medir variables adicionales que el grupo considere que influencian
   las variables respuesta y que sean viables y fáciles de medir
-  (por ejemplo velocidad del viento, con anemómetro casero, humedad relativa
+  (por ejemplo velocidad del viento (con anemómetro casero), humedad relativa
   del aire, temperatura del medio ambiente, etc).
   Tener en cuenta variables como el número del lanzamiento para relacionarlo
   ya sea con fatiga del lanzador o con fatiga de la plataforma de lanzamiento.
@@ -113,12 +115,15 @@ parte de los demás compañeros de clase.
     - Autores (Nombre completo y apellido).
     - Identificación del origen académico y fecha de presentación.
     - Objetivo e hipótesis del experimento.
-    - Metodología (materiales y métodos). Incluir un código QR que
-      permita tener un enlace al video del modo en que se tomaron 
-      los datos, los diseños utilizados, el modo de lanzamiento,
-      etc. (Máximo de 2 minutos de duración).
+    - Metodología (materiales y métodos). 
       Se puede utilizar fotos de los diseños de aviones y
       de la plataforma de lanzamiento si el grupo la construyó.
+      Indicar también la aleatorización realizada para garantizar
+      que el error se distribuya de manera uniforme.
+      Incluir un código QR que
+      permita tener un enlace a un video que muestre el modo en que se tomaron 
+      los datos, los diseños utilizados, el modo de lanzamiento,
+      etc. (Máximo de 2 minutos de duración).
     - Resultados.
     - Conclusiones.
     - Recomendaciones.
@@ -127,7 +132,7 @@ parte de los demás compañeros de clase.
     - Diagramación del póster, distribución, colores y uso del espacio en el póster.
   * (40%) Claridad en la gráficas y tablas. Si el grupo considera
       se pueden omitir tablas, pero no gráficas. 
-    - Título e identificación de los elementos mostrados.
+    - Título e identificación de los elementos mostrados en la gráfica.
     - Uso de colores y convenciones adecuados.
     - Nitidez y claridad en las gráficas.
     - Claridad en las tablas de datos mostradas.
@@ -149,11 +154,11 @@ La hoja de excel tendrá como mínimo las siguientes columnas:
 * NumGrupo: Número del grupo asignado.
 * Posición: Número que indique la posición (El uno (1) corresponde al mejor).
 
-Se puede añadir una columna de observaciones si considera adecuado la justificación
-del posición dada.
+Se puede añadir una columna de observaciones si considera adecuada la justificación
+de la posición dada.
 
 Si el estudiante recibirá una penalización en su nota de trabajo final si
-la posición que ubicó a algún póster está en más de dos posiciones de
+la posición que ubicó a algún póster está en más de tres posiciones de
 diferencia entre el que ubició el estudiante y el realizado por el profesor.
 Recibirá 0.1 de penalización por cada equivocación.
 
