@@ -41,3 +41,7 @@ order: 01
 ## Estimación y predicción de modelos geoestadísticos
 
  - [Estimación y predicción](./guiones/elevacion3.html){:target="_blank"}
+ 
+## Patrones de puntos
+
+ - [Modelización para patrones de puntos](./guiones/patrones_de_puntos.html){:target="_blank"}
