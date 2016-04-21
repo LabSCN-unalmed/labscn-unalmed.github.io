@@ -41,5 +41,8 @@ custom_js: 'mathjax'
 - [Base de datos (excel)](./guiones/conversion.xlsx){:target="_blank"}
 - [Ejemplo 8](./guiones/conversion.html){:target="_blank"}
 
+## Diseño 2^k fraccionado
+- [Base de datos (excel)](./guiones/tasaFiltracion.xlsx){:target="_blank"}
+- [Ejemplo 9](./guiones/tasaFiltracion.html){:target="_blank"}
 
 
