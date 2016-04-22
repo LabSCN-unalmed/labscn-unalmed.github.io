@@ -45,3 +45,14 @@ order: 01
 ## Patrones de puntos
 
  - [Modelización para patrones de puntos](./guiones/patrones_de_puntos.html){:target="_blank"}
+ 
+## Lectura y despliegue de datos areales
+
+ - [Datos areales I](/estadistica-espacial/guiones/datosArealesI.html){:target="_blank"}
+ - [NBI para Colombia](./guiones/NBI.xlsx){:target="_blank"}
+ - Croquis de los municipios de Antioquia:
+ 
+   * [Municipios de Antioquia (shp)](./guiones/muniantioq.shp){:target="_blank"}
+   * [Municipios de Antioquia (dbf)](./guiones/muniantioq.dbf){:target="_blank"}
+   * [Municipios de Antioquia (shx)](./guiones/muniantioq.shx){:target="_blank"}
+
