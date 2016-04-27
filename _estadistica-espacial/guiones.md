@@ -48,11 +48,20 @@ order: 01
  
 ## Lectura y despliegue de datos areales
 
- - [Datos areales I](/estadistica-espacial/guiones/datosArealesI.html){:target="_blank"}
+ - [Datos areales 1](/estadistica-espacial/guiones/datosArealesI.html){:target="_blank"}
  - [NBI para Colombia](./guiones/NBI.xlsx){:target="_blank"}
  - Croquis de los municipios de Antioquia:
  
    * [Municipios de Antioquia (shp)](./guiones/muniantioq.shp){:target="_blank"}
    * [Municipios de Antioquia (dbf)](./guiones/muniantioq.dbf){:target="_blank"}
    * [Municipios de Antioquia (shx)](./guiones/muniantioq.shx){:target="_blank"}
+
+## Modelación con datos areales
+
+ - [Datos areales 2](/estadistica-espacial/guiones/datosAreales2.html){:target="_blank"}
+
+   * [Municipios de Antioquia (shp)](./datos/municipiosAntioq.shp){:target="_blank"}
+   * [Municipios de Antioquia (dbf)](./datos/municipiosAntioq.dbf){:target="_blank"}
+   * [Municipios de Antioquia (shx)](./datos/municipiosAntioq.shx){:target="_blank"}
+   * [Municipios de Antioquia (prj)](./datos/municipiosAntioq.prj){:target="_blank"}
 
