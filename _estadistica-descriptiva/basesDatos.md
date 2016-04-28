@@ -30,3 +30,6 @@ order: 05
 ## Resultados de pruebas saber 11 2015 segundo semestre
 
    * [20152](./basesdedatos/20152.xls){:target="_blank"}
+   
+## Muestreo de círculos
+   * [Muestreo de círculos de estudiantes](./basesdedatos/circulosEstud.xlsx){:target="_blank"}

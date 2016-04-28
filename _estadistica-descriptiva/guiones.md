@@ -49,5 +49,8 @@ order: 01
 - [Tamaño de muestra](./guiones/tammuest.html){:target="_blank"}
 - [Código para estimar tamaño de muestra mediante simulación](./guiones/tammuest.R){:target="_blank"}
 
+### Tipos de muestreo (Círculos)
+
+- [Muestreo de círculos](./guiones/muestreo_circulos.html){:target="_blank"}
 
 
