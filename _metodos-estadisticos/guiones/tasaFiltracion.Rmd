@@ -1,0 +1,240 @@
+---
+title: "Experimento de tasa de filtración"
+author: "Kenneth Roy Cabrera Torres"
+date: "20 de abril de 2016"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Experimento de la tasa de filtración.
+
+Un producto químico se produce una cámara de presión. 
+Se llevó a cabo un experimento factorial fraccionado para estudiar
+los factores que influencian en la tasa de filtración del producto obtenido.
+Los cuatro factores son: temperatura (A), presión (B),
+concentración de formaldehido (C) y velocidad de agitación (D). 
+Cada uno de los factores se tomó a dos niveles.
+
+Se realizó un experimento $2^{4-1}_{IV}$.
+
+## Efectos dobles y sus alias
+```{r}
+require(pid)
+tradeoff(runs = 8, factors = 4)
+```
+
+
+## Lectura de la base de datos
+```{r}
+tasaFilt <- read.csv2("tasaFiltracion.csv")
+tasaFilt
+tasaFilt$A <- factor(tasaFilt$A, labels = c("B T", "A T"))
+tasaFilt$B <- factor(tasaFilt$B, labels = c("B P", "A P"))
+tasaFilt$C <- factor(tasaFilt$C, labels = c("B H2C=O", "A H2C=O"))
+tasaFilt$D <- factor(tasaFilt$D, labels = c("B V", "A V"))
+tasaFilt
+
+```
+
+## Gráfica exploratoria
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(tasaFilt, aes(A, TF, col = B))
+g1 + geom_point(size = 5) + facet_grid(C ~ D)
+```
+
+## Modelización
+
+```{r}
+modelo1 <- aov(TF ~ A + B + C + D + A:B + A:C + A:D, data = tasaFilt)
+summary(modelo1)
+```
+
+## Determinación de interacciones significativas
+
+```{r}
+require(pid)
+paretoPlot(modelo1)
+efectos <- unlist(model.tables(modelo1))
+efectos <- efectos[substring(names(efectos),1,6)=="tables"]
+names(efectos)<-gsub("tables.","",names(efectos))
+qqR<-qqnorm(efectos, xlim = c(-3, 3), ylim = c(-15,15), pch = 19, cex = 0.5)
+qqline(efectos)
+with(qqR,text(x,y,labels=names(efectos),cex=0.7,pos=3))
+```
+
+## Modelización definitiva
+
+```{r}
+modelo2 <- aov(TF ~ A + B + C + D  + A:C + A:D, data = tasaFilt)
+summary(modelo2)
+
+modelo3 <- aov(TF ~ A  + C + D  + A:C + A:D, data = tasaFilt)
+summary(modelo3)
+
+```
+
+## Diagnósticos
+
+```{r}
+# Normalidad
+residualesStud <- rstudent(modelo3)
+shapiro.test(residualesStud)
+# Igualdad de varianza
+bartlett.test(TF ~ A, data = tasaFilt)
+bartlett.test(TF ~ B, data = tasaFilt)
+bartlett.test(TF ~ C, data = tasaFilt)
+bartlett.test(TF ~ D, data = tasaFilt)
+bartlett.test(TF ~ paste(A,C), data = tasaFilt)
+bartlett.test(TF ~ paste(A,D), data = tasaFilt)
+```
+
+## Comparaciones de Tukey
+```{r}
+require(multcomp)
+require(multcompView)
+require(sandwich)
+tasaFilt$AC <- with(tasaFilt, interaction(A, C))
+
+modelo3_1 <- aov(TF ~ -1 + AC, data = tasaFilt)
+summary(modelo3_1)
+
+compMultHetero <- glht(modelo3_1, linfct = mcp(AC = "Tukey"), vcov = sandwich)
+summary(compMultHetero)
+
+op <- par(no.readonly = TRUE) 
+par(mar=op$mar+c(0,12,0,0))
+plot(compMultHetero)
+par(op)
+```
+
+## Predicción del modelo
+```{r}
+tasaFilt$TFp <- predict(modelo3)
+g1 <- ggplot(tasaFilt, aes(A, TF, col = C))
+g1 + geom_point() + facet_grid(. ~ D) +
+  geom_line(aes(A, TFp, group = C)) +
+  geom_point(aes(A, TFp, col = C), shape = 17)
+```
+
+## Valor de los efectos
+```{r}
+model.tables(modelo3, se = TRUE)
+model.tables(modelo3, se = TRUE, type = "mean")
+```
+
+## Realización de los datos complementarios
+```{r}
+tasaFilt2 <- read.csv2("tasaFiltracion2.csv")
+tasaFilt2
+tasaFilt2$A <- factor(tasaFilt2$A, labels = c("B T", "A T"))
+tasaFilt2$B <- factor(tasaFilt2$B, labels = c("B P", "A P"))
+tasaFilt2$C <- factor(tasaFilt2$C, labels = c("B H2C=O", "A H2C=O"))
+tasaFilt2$D <- factor(tasaFilt2$D, labels = c("B V", "A V"))
+tasaFilt2$Etapa <- factor(tasaFilt2$Etapa, labels = c("E 1", "E 2"))
+tasaFilt2
+```
+
+## Gráfica exploratoria 2
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(tasaFilt2, aes(A, TF, col = B))
+g1 + geom_point(size = 5) + facet_grid(C ~ D)
+```
+
+
+## Modelización
+
+```{r}
+modelo4 <- aov(TF ~ A + B + C + D + A*B*C*D + Etapa, data = tasaFilt2)
+summary(modelo4)
+```
+
+
+## Determinación de interacciones significativas
+
+```{r}
+require(pid)
+paretoPlot(modelo4)
+efectos <- unlist(model.tables(modelo4))
+efectos <- efectos[substring(names(efectos),1,6)=="tables"]
+names(efectos)<-gsub("tables.","",names(efectos))
+qqR<-qqnorm(efectos, xlim = c(-3, 3), ylim = c(-15,15), pch = 19, cex = 0.5)
+qqline(efectos)
+with(qqR,text(x,y,labels=names(efectos),cex=0.7,pos=3))
+```
+
+## Modelización definitiva 2
+
+```{r}
+modelo5 <- aov(TF ~ A + B + C + D  + A*B*C*D + Etapa - A:B:C:D,
+               data = tasaFilt2)
+summary(modelo5)
+
+modelo6 <- aov(TF ~ A + B + C + D  + A*B*C*D + Etapa - A:B:C:D - A:C:D,
+               data = tasaFilt2)
+summary(modelo6)
+
+modelo6 <- aov(TF ~ A + B + C + D  + A*B*C*D + Etapa 
+               - A:B:C:D - A:C:D - A:B:C -B:C:D - A:B:D
+               - A:B - B:D - C:D - B:C - Etapa - B,
+               data = tasaFilt2)
+summary(modelo6)
+
+```
+
+## Diagnósticos
+
+```{r}
+# Normalidad
+residualesStud <- rstudent(modelo6)
+shapiro.test(residualesStud)
+# Igualdad de varianza
+bartlett.test(TF ~ A, data = tasaFilt2)
+bartlett.test(TF ~ B, data = tasaFilt2)
+bartlett.test(TF ~ C, data = tasaFilt2)
+bartlett.test(TF ~ D, data = tasaFilt2)
+bartlett.test(TF ~ paste(A,C), data = tasaFilt2)
+bartlett.test(TF ~ paste(A,D), data = tasaFilt2)
+```
+
+## Comparaciones de Tukey
+```{r}
+require(multcomp)
+require(multcompView)
+require(sandwich)
+tasaFilt2$AC <- with(tasaFilt, interaction(A, C))
+
+modelo6_1 <- aov(TF ~ -1 + AC, data = tasaFilt2)
+summary(modelo6_1)
+
+compMultHetero <- glht(modelo6_1, linfct = mcp(AC = "Tukey"), vcov = sandwich)
+summary(compMultHetero)
+
+op <- par(no.readonly = TRUE) 
+par(mar=op$mar+c(0,12,0,0))
+plot(compMultHetero)
+par(op)
+```
+
+## Predicción del modelo
+```{r}
+tasaFilt2$TFp <- predict(modelo6)
+g1 <- ggplot(tasaFilt2, aes(A, TF, col = C))
+g1 + geom_point() + facet_grid(. ~ D) +
+  geom_line(aes(A, TFp, group = C)) +
+  geom_point(aes(A, TFp, col = C), shape = 17)
+```
+
+## Valor de los efectos
+```{r}
+model.tables(modelo6, se = TRUE)
+model.tables(modelo6, se = TRUE, type = "mean")
+```
