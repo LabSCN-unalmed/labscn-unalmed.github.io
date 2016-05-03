@@ -38,6 +38,10 @@ order: 03
        establecer garantizar que queden constantes.
      * Listado de variables de ruido y el modo de manejarlas. 
      
-     
+### Taller 2
+   
+   - Ejercicio de los círculo (Muestreo)
+   
+
           
       

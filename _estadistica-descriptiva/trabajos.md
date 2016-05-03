@@ -135,4 +135,54 @@ correo **krcabrer@unal.edu.co** y poner en asunto **[EDAED]**.
 - Jueves 17 de marzo de 2016 antes de las 23:59 hora de Colombia, al correo **krcabrer@unal.edu.co**,
   no olvidar escribir en asunto **[EDAED]**. 
 
+### Segundo trabajo en grupo
+
+#### Objetivo
+   Proponer una gráfica exploratoria con la tabla de posiciones de cada fecha del futbol
+   colombiano en el primer semestre del 2016 (torneo apertura Liga Águila) y
+   con los datos de goles marcados, goles a favor, en contra, etc que permita
+   observar el comportamiento durante el año de los 20 equipos participantes.
+   
+#### Actividades   
+   
+   En [este enlace](http://www.rsssf.com/tablesc/col2016.html#1aperreg){:target="_blank"} 
+   se encuentra los partidos de cada fecha a partir de los
+   cuales se puede armar la tabla de posiciones de cada fecha.
+   
+   Utilizando la información que se tiene de la tabla de posiciones después
+   de cada fecha se construye una gráfica que muestre el comportamiento 
+   de cada equipo en cuanto a suposición en cada una de las fechas jugadas.
+   
+   Para obtener un incentivo, se debe mostrar más información en una sola
+   gráfica. La información adicional puede ser el nùmero de goles diferencia,
+   el número de tarjetas amarillas, identificar si el equipo es local o
+   visitante, etc.
+   
+#### Documentos a entregar.
+   
+   * Documento en pdf con la gráfica en donde se realiza un análisis 
+     de la gràfica obtenida.
+   * Código en R que reproduzca la gráfica.
+   * Base de datos utilizada en R para producir la gráfica en formato ".csv".
+   
+#### Fecha de entrega
+   
+   Martes, 10 de mayo de 2016 antes de las 23:58 hora de Colombia al correo
+   **krcabrer@unal.edu.co** y no olvidar la sigla **[EDAED]** en asunto.
+   
+#### Incentivo extra
+    
+   Si el grupo muestra más allá de la gráfica básica (fecha y posición)
+   cada miembro tiene un incentivo de la siguiente manera:
+   
+   * Si le hace falta alguna nota de algún taller será sustituido.
+   * Si tiene las notas completa, no necesita hacer el siguiente taller.
+    
+       
+      
+   
+   
+   
+   
+   
 
