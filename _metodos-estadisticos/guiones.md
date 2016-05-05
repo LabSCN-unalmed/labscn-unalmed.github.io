@@ -46,4 +46,7 @@ custom_js: 'mathjax'
 - [Base de datos (excel) Etapa2](./guiones/tasaFiltracion2.xlsx){:target="_blank"}
 - [Ejemplo 9](./guiones/tasaFiltracion.html){:target="_blank"}
 
+## Diseño de dos factores y un bloque
+- [Base de datos (excel)](./guiones/factorial_bloque.xlsx){:target="_blank"}
+- [Ejemplo 10](./guiones/factorial_bloque.html){:target="_blank"}
 
