@@ -50,3 +50,12 @@ custom_js: 'mathjax'
 - [Base de datos (excel)](./guiones/factorial_bloque.xlsx){:target="_blank"}
 - [Ejemplo 10](./guiones/factorial_bloque.html){:target="_blank"}
 
+## Diseño con medidas repetidas en el tiempo.
+- [Base de datos (excel)](./guiones/flebitis.xlsx){:target="_blank"}
+- [Ejemplo 11](./guiones/analisisFlebitis.html){:target="_blank"}
+
+## Diseño con superficie de respuesta I
+- [Base de datos (excel)](./guiones/reaccionQuimica.xlsx){:target="_blank"}
+- [Ejemplo 12](./guiones/superficieRtaI.html){:target="_blank"}
+
+
