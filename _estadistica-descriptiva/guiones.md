@@ -53,4 +53,7 @@ order: 01
 
 - [Muestreo de círculos](./guiones/muestreo_circulos.html){:target="_blank"}
 
+### Análisis aglomerativo y componentes principales
+
+- [Cluster + Componentes principales](./guiones/ICFES_2015_02_Cluster.html){:target="_blank"}
 
