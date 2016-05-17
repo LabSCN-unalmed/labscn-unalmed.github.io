@@ -58,4 +58,10 @@ custom_js: 'mathjax'
 - [Base de datos (excel)](./guiones/reaccionQuimica.xlsx){:target="_blank"}
 - [Ejemplo 12](./guiones/superficieRtaI.html){:target="_blank"}
 
+## Diseño de mezclas
+
+- [Base de datos incial](./guiones/mezcla1.xlsx){:target="_blank"}
+- [Base de datos para predecir](./guiones/mezcla1p.xlsx){:target="_blank"}
+- [Ejemplo 13](./guiones/mezcla.html){:target="_blank"}
+
 
