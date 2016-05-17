@@ -89,7 +89,6 @@ Martes 5 de abril de 2016 antes de las 23:59 hora de Colombia al
 correo **krcabrer@unal.edu.co** y poner en asunto **[EDAED]**.
     
 
-
 ## Trabajos en grupo
 
 ### Primer trabajo en grupo
@@ -161,7 +160,7 @@ correo **krcabrer@unal.edu.co** y poner en asunto **[EDAED]**.
 #### Documentos a entregar.
    
    * Documento en pdf con la gráfica en donde se realiza un análisis 
-     de la gràfica obtenida.
+     de la gráfica obtenida.
    * Código en R que reproduzca la gráfica.
    * Base de datos utilizada en R para producir la gráfica en formato ".csv".
    
@@ -178,8 +177,45 @@ correo **krcabrer@unal.edu.co** y poner en asunto **[EDAED]**.
    * Si le hace falta alguna nota de algún taller será sustituido.
    * Si tiene las notas completa, no necesita hacer el siguiente taller.
     
+### Tercer trabajo en grupo
+
+#### Objetivo
+
+Realizar un análisis exploratorio de datos que muestre relaciones entre
+el resultado del ICFES de 2015, el índice de probreza NBI y el
+desempeño fiscal por cada municipio de Colombia.
+
+#### Preguntas específicas.
+
+  * ¿Existe relación entre el resultado del ICFES y el desempeño fiscal?
+  * ¿Existe relación entre el resultado del ICFES y el índice de NBI?
+  * ¿Existe relación entre el resultado del NBI y el desempeño fiscal?
+  * ¿En qué departamentos es más evidente esta relación?
+  * ¿En qué poblaciones o conjunto de poblaciones es más crítico el problema
+     debido al número de habitantes?
+
+#### Posibles fuentes de información
+
+  * [Necesidades Básicas Insatisfechas 2011](https://www.dropbox.com/s/f2uty8tuvzxizg0/NBI_total_municipios_30_Jun_2012.xls?dl=0).
+  * [Desempeño fiscal 2013](https://www.dropbox.com/s/bvlvznskz38ughr/Desempe%C3%B1o%20integral%202013.xlsx?dl=0)
+  * [Estimación de la poblacion por municipio, genero y edad](https://www.dropbox.com/s/c9a0yg2km80esw3/Edades_Simples_1985-2020.xls?dl=0)
+
+#### Documentos a entregar
+
+  * Documento en formato pdf con el resumen del análisis realizado, 
+    en donde se contesten las cinco preguntas formuladas.
+  * Código en R que reproduzca los gráficos y los análisis realizados.
+  * Enlaces a sitios Dropbox de las bases de datos utilizadas
+    si son más grandes de 2Mb, 
+    si son menores a 2Mb se pueden enviar en el correo.
+
+#### Fecha de entrega
+
+   Lunes, 30 de mayo de 2016 antes de las 23:58 hora de Colombia al correo
+   **krcabrer@unal.edu.co** y no olvidar la sigla **[EDAED]** en asunto.
+
        
-      
+
    
    
    
