@@ -175,7 +175,7 @@ correo **krcabrer@unal.edu.co** y poner en asunto **[EDAED]**.
    cada miembro tiene un incentivo de la siguiente manera:
    
    * Si le hace falta alguna nota de algún taller será sustituido.
-   * Si tiene las notas completa, no necesita hacer el siguiente taller.
+   * Si tiene las notas completas, no necesita hacer el siguiente trabajo.
     
 ### Tercer trabajo en grupo
 
