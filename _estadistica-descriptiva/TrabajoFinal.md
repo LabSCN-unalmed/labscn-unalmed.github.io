@@ -162,7 +162,7 @@ la posición que ubicó a algún póster está en más de tres posiciones de
 diferencia entre el que ubició el estudiante y el realizado por el profesor.
 Recibirá 0.1 de penalización por cada equivocación.
 
-La evaluación individual se enviará el día lunes 30 de Mayo de 2016 antes de las
+La evaluación individual se enviará el día martes 31 de Mayo de 2016 antes de las
 23:59 hora de Colombia al correo **krcabrer@unal.edu.co** con asunto
 [EDAED]
   
