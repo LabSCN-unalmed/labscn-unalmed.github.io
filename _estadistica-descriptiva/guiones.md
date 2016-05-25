@@ -57,3 +57,7 @@ order: 01
 
 - [Cluster + Componentes principales](./guiones/ICFES_2015_02_Cluster.html){:target="_blank"}
 
+### Manejo de bases de datos con R
+
+- [Manejo de BD](./guiones/12_Manejo_bases_de_datos.html){:target="_blank"}
+
