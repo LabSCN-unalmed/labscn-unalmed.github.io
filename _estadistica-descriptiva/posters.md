@@ -2,7 +2,7 @@
 layout: curso
 title: 'Poster'
 curso: 'estadistica-descriptiva'
-order: 08
+order: 9
 ---
 
 

@@ -2,7 +2,7 @@
 layout: curso
 title: 'Documentos'
 curso: 'estadistica-descriptiva'
-order: 02
+order: 3
 ---
 
 ## Inicio con el R

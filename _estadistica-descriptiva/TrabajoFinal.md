@@ -2,7 +2,7 @@
 layout: curso
 title: 'Trabajo final'
 curso: 'estadistica-descriptiva'
-order: 06
+order: 7
 ---
 
 ## El mejor diseño de aeroplano de papel

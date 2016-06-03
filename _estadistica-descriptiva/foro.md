@@ -2,7 +2,7 @@
 layout: curso
 title: 'Foro'
 curso: 'estadistica-descriptiva'
-order: 07
+order: 8
 ---
 
 
