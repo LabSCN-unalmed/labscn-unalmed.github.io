@@ -40,6 +40,11 @@ collections:
     title: Métodos Estadísticos<br>(Diseño Experimental)
     main: 0
     description: Una visión general sobre los procedimientos estadísticos y la planeación de un diseño experimental válido desde el punto de vista científico.
+  modulo-R:
+    output: true
+    title: Lenguajes estadísticos (Módulo R)
+    main: 0
+    description: Módulo del lenguaje de programación R en la asignatura lenguajes estadísticos.
   documentacion-interna:
     output: true
     title: Documentación Interna

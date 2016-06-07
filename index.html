@@ -39,7 +39,7 @@ title: 'Bienvenido'
 <div class="row text-justify">
   {% for collection in site.collections %}
     {% if collection.main == 0 %}
-      <div class="col-md-6">
+      <div class="col-md-4">
         <h3>{{ collection.title }}</h3>
         <p>{{ collection.description }}</p>
         <p><a href="/{{ collection.label }}" class="btn btn-default" role="button">Ver Curso</a></p>
