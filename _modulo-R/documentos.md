@@ -1,8 +1,8 @@
 ---
 layout: curso
 title: 'Clases'
-curso: 'programacion-R'
-order: 02
+curso: 'modulo-R'
+order: 2
 ---
 
 ## Clase 1
@@ -38,5 +38,3 @@ order: 02
 [Manejo de base de datos](./slides/12_Manejo_bases_de_datos.html){:target="_blank"}
 
 - [ICFES 2015 02](./dbs/20152.xls){:target="_blank"}
-
-

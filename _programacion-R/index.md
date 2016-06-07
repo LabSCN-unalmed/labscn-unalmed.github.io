@@ -1,29 +1,14 @@
 ---
 layout: curso
-title: 'Lenguajes estadísticos (Módulo de R)'
+title: 'Programación en R'
 curso: 'programacion-R'
-order: 00
+order: 0
 ---
 
 ## Objetivos
 
-* Manejar los conceptos básicos del lenguaje estadístico R.
-* Utilizar las estructuras de control del lenguaje R.
-* Aprovechar la programación vectorial o matricial del R.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lorem diam, sagittis sit amet tellus at, maximus molestie quam. Integer vitae auctor urna. Duis vel lacinia ante. Nunc consequat blandit nulla vitae feugiat. Duis dignissim bibendum urna, at molestie augue faucibus at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam malesuada pretium arcu ac sodales. Cras convallis risus sit amet nisl vehicula, ut luctus eros vehicula. Sed rutrum odio non diam suscipit, ut pharetra sem imperdiet. Nam malesuada, urna at accumsan tincidunt, ligula elit vehicula augue, sed ultricies est metus in mi. Aliquam a enim enim. Sed in vehicula enim.
 
-## Políticas del curso
-  - Los trabajos y talleres se enviarán al correo **krcabrer@unal.edu.co** con
-    la sigla **[Modulo_R]**.
-  - Los documentos serán enviados en formato **.pdf** o en formato **.html**,
-    de acuerdo a como se indique en el enunciado del ejercicio.
-  - Las bases de datos serán enviadas en formato **.csv**, a menos que se indique
-    lo contrario.
-  - Las fechas de entrega tendrán una hora específica límite. Si entrega el trabajo
-    después de esa hora se calificará sobre 4.0. Se tomará la última entrega como 
-    la válida para calificar incluyendo la hora de entrega.
+## Evaluación
 
-## Evaluación.
-  - Trabajo final corresponde al 50% del módulo.
-  - Talleres cortos 20% del módulo.
-  - Trabajos individuales o en grupo 30% del módulo.
-  
+Quisque ut eleifend orci, vitae mollis dui. Aenean vulputate imperdiet nisl, vitae rhoncus risus rhoncus facilisis. Integer dapibus vitae quam sit amet malesuada. Nunc convallis, lorem non posuere lacinia, velit orci feugiat libero, ac blandit lacus ipsum quis risus. Nunc maximus felis mollis, ullamcorper orci ac, vulputate nibh. Duis luctus laoreet magna, sed dapibus massa scelerisque eget. Morbi vel ultricies tortor. Nam cursus tincidunt nibh non imperdiet. Donec vitae consequat est. Vivamus finibus, ex sit amet auctor pellentesque, lorem elit iaculis lacus, id eleifend ante ipsum ut massa. Duis auctor porta pellentesque. Suspendisse viverra vestibulum metus id vestibulum. Sed pulvinar odio a sollicitudin egestas. Integer consequat faucibus quam. Praesent molestie quam malesuada urna fermentum, et auctor quam gravida.

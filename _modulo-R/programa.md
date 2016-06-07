@@ -1,8 +1,8 @@
 ---
 layout: curso
 title: 'Programa resumido'
-curso: 'programacion-R'
-order: 01
+curso: 'modulo-R'
+order: 1
 ---
 
 ## Temas
@@ -25,4 +25,3 @@ De manera resumida estos son los temas que se tratarán en el módulo.
 ## Página al semillero de R en la UN
 
 [Semillero de R en la UN](https://srunal.wordpress.com/)
-

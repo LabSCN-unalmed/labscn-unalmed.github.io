@@ -1,8 +1,8 @@
 ---
 layout: curso
 title: 'Trabajos'
-curso: 'programacion-R'
-order: 04
+curso: 'modulo-R'
+order: 4
 ---
 
 ## Trabajo final (50% del módulo)
@@ -46,5 +46,3 @@ Sugerencias de mejoras al programa:
 
 
 Enviar el código documentado al correo **krcabrer@unal.edu.co**
-
-
