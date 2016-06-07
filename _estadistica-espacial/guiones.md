@@ -6,3 +6,62 @@ order: 01
 ---
 
 ## Introducción al manejo de datos espaciales en R
+
+ - [Ejemplo 1](/estadistica-espacial/guiones/intro_espacial.html){:target="_blank"}
+ - [Puntos de referencia en Colombia](./guiones/ciudades_de_colombia.xlsx){:target="_blank"}
+ - Croquis de Colombia
+   * [Croquis de los departamentos de Colombia (shp)](./guiones/COL_adm1.shp){:target="_blank"}
+   * [Croquis de los departamentos de Colombia (proj)](./guiones/COL_adm1.prj){:target="_blank"}
+   * [Croquis de los departamentos de Colombia (dbf)](./guiones/COL_adm1.dbf){:target="_blank"}
+   * [Croquis de los departamentos de Colombia (sbn)](./guiones/COL_adm1.sbn){:target="_blank"}
+   * [Croquis de los departamentos de Colombia (sbx)](./guiones/COL_adm1.sbx){:target="_blank"}
+   * [Croquis de los departamentos de Colombia (shx)](./guiones/COL_adm1.shx){:target="_blank"}
+
+## Modelo de covarianza Matérn
+
+ - [Modelo Matérn](./guiones/modeloMatérn.html){:target="_blank"}
+ 
+## Simulaciones de campos aleatorios exponencial y gaussiano
+
+ - [Simulaciones](./guiones/simulaciones_exp_gauss.html){:target="_blank"}
+ 
+## Campos aleatorios reales
+
+ - [Semivariograma empírico de campos aleatorios reales](./guiones/campos_aleatorios_reales.html){:target="_blank"}
+ 
+## Construcción de semivariogramas empíricos
+
+ - [Semivariogramas empíricos](./guiones/elevacion2.html){:target="_blank"}
+ - [Datos de elevación](./guiones/elevacion2.txt){:target="_blank"}
+
+## Simulaciones para detectar tamaños de muestra
+
+ - [Semivariogramas empíricos](./guiones/simulacionCamposAleatorios.html){:target="_blank"}
+ 
+## Estimación y predicción de modelos geoestadísticos
+
+ - [Estimación y predicción](./guiones/elevacion3.html){:target="_blank"}
+ 
+## Patrones de puntos
+
+ - [Modelización para patrones de puntos](./guiones/patrones_de_puntos.html){:target="_blank"}
+ 
+## Lectura y despliegue de datos areales
+
+ - [Datos areales 1](/estadistica-espacial/guiones/datosArealesI.html){:target="_blank"}
+ - [NBI para Colombia](./guiones/NBI.xlsx){:target="_blank"}
+ - Croquis de los municipios de Antioquia:
+ 
+   * [Municipios de Antioquia (shp)](./guiones/muniantioq.shp){:target="_blank"}
+   * [Municipios de Antioquia (dbf)](./guiones/muniantioq.dbf){:target="_blank"}
+   * [Municipios de Antioquia (shx)](./guiones/muniantioq.shx){:target="_blank"}
+
+## Modelación con datos areales
+
+ - [Datos areales 2](/estadistica-espacial/guiones/datosAreales2.html){:target="_blank"}
+
+   * [Municipios de Antioquia (shp)](./datos/municipiosAntioq.shp){:target="_blank"}
+   * [Municipios de Antioquia (dbf)](./datos/municipiosAntioq.dbf){:target="_blank"}
+   * [Municipios de Antioquia (shx)](./datos/municipiosAntioq.shx){:target="_blank"}
+   * [Municipios de Antioquia (prj)](./datos/municipiosAntioq.prj){:target="_blank"}
+

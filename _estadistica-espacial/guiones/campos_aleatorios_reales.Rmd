@@ -1,0 +1,43 @@
+---
+title: "Campos Aleatorios Reales"
+author: "Kenneth Roy Cabrera Torres"
+date: "2 de marzo de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+require(RandomFields)
+require(rgdal)
+```
+
+```{r}
+img1 <- readGDAL("hojas1.png")
+image(img1, col = gray(seq(0,1, length = 256)))
+variog1 <- RFempiricalvariogram(data = sp2RF(img1), bin = seq(0, 20, 0.7))
+plot(variog1)
+```
+
+```{r}
+img2 <- readGDAL("pasto1.png")
+image(img2, col = gray(seq(0,1, length = 256)))
+variog2 <- RFempiricalvariogram(data = sp2RF(img2), bin = seq(0, 30, 2))
+plot(variog2)
+
+mean(img2$band1)
+var(img2$band1)
+
+hist(img2$band1, freq = FALSE, col = "pink", nclass = 100,
+     main = "Histograma del campo aleatorio de pasto",
+     ylab = "Densidad",
+     xlab = "Valor de intensidad digital (Nivel de gris)")
+lines(density(img2$band1), col = "blue", lwd = 2)
+
+modeloExpo <- RMexp(var = 570, scale = 15/3) + RMtrend(mean = 132)
+plot(variog2, model=modeloExpo)
+```
+
+

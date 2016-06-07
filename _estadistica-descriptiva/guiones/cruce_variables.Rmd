@@ -1,0 +1,185 @@
+---
+title: "Exploratorio con dos variables o más"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves 3 de marzo de 2016"
+output: 
+  html_document: 
+    highlight: pygments
+    theme: readable
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Lectura de la base de datos depurada
+```{r}
+encuesta2 <- read.csv2("Encuesta2.csv")
+```
+
+
+## Cálculo de nuevas variables
+```{r}
+# Hallar si llega temprano o tarde a clase
+hLleg <- as.numeric(substring(encuesta2$Llegada,1,2))
+mLleg <- as.numeric(substring(encuesta2$Llegada,4,5))
+hLlegada <- hLleg + mLleg/60
+encuesta2$aTiempo <- (ifelse(hLlegada >= 7, 8 - hLlegada, 6 - hLlegada))*60
+
+# Hallar el tiempo total de las actividades
+encuesta2$tiempoTotal <- with(encuesta2, 
+                          T.de.llegada/60 * 2 * 4 +
+                          Asignaturas * 4 + Estudio +
+                          Deporte + Sueño + Trabajo + Internet )
+
+# Hallar el número de aciertos de las conspiraciones
+consp <- subset(encuesta2, select = Luna:Sífilis)
+correctas <- c(0,1,0,0,0,1,1)
+encuesta2$correctas <- apply(t(consp)==correctas,2,sum)
+
+# Hallar el número de acierto de las conspiraciones verdaderas
+conspV <- subset(encuesta2, select = c(FBI, NSA, Sífilis))
+encuesta2$correctasV <- apply(t(conspV)==correctas[c(2,6,7)],2,sum)
+
+# Hallar el número de aciertos de las que no son conspiraciones.
+conspF <- subset(encuesta2, select = c(Luna, Clima, Vacunas, Cancer))
+encuesta2$correctasF <- apply(t(conspF)==correctas[-c(2,6,7)],2,sum)
+
+encuesta2$HoraXAsig <- with(encuesta2, Estudio/Asignaturas)
+```
+
+## Relación carrera vs conspiraciones
+```{r}
+colores <- c("gold3", "forestgreen")
+tabla1 <- with(encuesta2, table(Carrera,correctas))
+barplot(tabla1, beside = TRUE, col = colores,
+        ylim = c(0,11),
+        xlab = "Número de aciertos",
+        ylab = "Número de personas",
+        main = "Carrera vs Conspiraciones")
+legend("topright", rownames(tabla1), fill = colores)
+```
+
+```{r}
+colores <- c("gold3", "forestgreen")
+tabla1Porc <- t(t(tabla1)/apply(tabla1,1,sum)) * 100
+barplot(tabla1Porc, beside = TRUE, col = colores,
+        ylim = c(0,40),
+        xlab = "Número de aciertos",
+        ylab = "Porcentaje con respecto a la Carrera",
+        main = "Carrera vs Conspiraciones\n distribución porcentual")
+legend("topright", rownames(tabla1), fill = colores)
+grid()
+```
+
+## Relación con la conspiración NSA
+```{r}
+colores <- c("gold3", "forestgreen")
+tabla2 <- with(encuesta2, table(Carrera, NSA))
+barplot(tabla2, col = colores,
+        ylim = c(0,50), axes = FALSE,
+        xlab = "¿Es NSA conspiración?",
+        ylab = "Número de personas",
+        main = "Carrera vs NSA",
+        names.arg = c("No","Si"))
+legend("topleft", rownames(tabla1), fill = colores)
+axis(2, at = seq(0,50,5), las = 2)
+grid(nx = NA, ny = 5)
+```
+
+## Horas dedicadas al estudio vs asignaturas matriculadas
+```{r}
+promHE <- with(encuesta2, tapply(Estudio, Asignaturas, mean, na.rm = TRUE))
+with(encuesta2, plot(jitter(Asignaturas,0.9), Estudio, 
+                     pch = 19,
+                     xlim = c(2,7),
+                     main = "Horas de estudio semanales vs asignaturas matriculadas",
+                     ylab = "Número de horas semanales dedicadas al estudio",
+                     xlab = "Número de asignaturas matriculadas"))
+points(sort(unique(encuesta2$Asignaturas)),promHE, 
+       col = "red", cex = 2, pch = 12)
+```
+
+## Eficiencias de los géneros en el estudio
+```{r}
+colores <- c("red","blue")
+with(encuesta2, plot(HoraXAsig, PAPA, col = colores[as.integer(Genero)],
+                     pch = 19, las = 1,
+                     xlab = "Horas de estudio por asignatura",
+                     ylab = "PAPA",
+                     main = "PAPA vs horas de estudio por género"))
+legend("bottomright", c("Femenino","Masculino"), pch = 19, col = colores)
+```
+
+## Relación de semestre, horas dedicadas al estudio y PAPA
+```{r}
+require(RColorBrewer)
+colores <- rev(brewer.pal(8, "OrRd")[2:8])
+op <- par(no.readonly = TRUE) 
+par(bg = "darkslategray4")
+with(encuesta2, plot(jitter(Estudio, 2), jitter(PAPA, 2), 
+                     col = colores[as.integer(factor(Semestre))], 
+                     pch = 19, las = 1, 
+                     xlim = c(0, 110),
+                     xlab = "Horas dedicadas al estudio",
+                     ylab = "PAPA",
+                     main = "PAPA vs horas de estudio y semestre"))
+legend("topright", legend=sort(unique(encuesta2$Semestre)), 
+       col = colores, pch = 19, title = "Semestre")
+par(op)
+```
+
+## Horas de sueño y PAPA
+```{r}
+with(encuesta2, plot(jitter(Sueño, 3), jitter(PAPA, 3), pch = 19,
+                     main = "PAPA vs horas de sueño a la semana",
+                     ylab = "PAPA", xlab = "Horas de sueño a la semana"))
+
+# Ranking de horas de sueño vs PAPA
+encuesta2[order(encuesta2$PAPA, decreasing = TRUE),c("PAPA","Sueño")]
+```
+
+## Relación entre uso de internet, contactos, tiempo dedicado al estudio y PAPA
+```{r}
+op <- par(no.readonly = TRUE) 
+par(bg = "gray")
+with(encuesta2, plot(log10(Contactos+1), log10(Internet+1), type = "n",
+                     xlim = c(-1,4.5), axes = FALSE,
+                     main = "Desempeño académico vs variables de uso del tiempo",
+                     ylab = "Horas de internet",
+                     xlab = "Número de contactos"))
+rect(par("usr")[1], par("usr")[3], 
+     par("usr")[2], par("usr")[4], col = "cadetblue1")
+with(encuesta2, symbols(log10(Contactos+1), log10(Internet+1), 
+                        circles = (PAPA-min(PAPA))/diff(range(PAPA)), 
+                        inches = 0.1, 
+                        bg = heat.colors(nrow(encuesta2))[order(HoraXAsig)],
+                        add = TRUE))
+grid()
+legend("topright", 
+       legend = with(encuesta2, seq(min(PAPA),max(PAPA), l = 5)),
+       pt.cex = seq(0.1,2,l=5), 
+       pch = 19, bg = "darkturquoise",
+       title = "PAPA")
+legend("topleft",
+       legend = with(encuesta2, 
+                     seq(min(HoraXAsig, na.rm = TRUE), 
+                         max(HoraXAsig, na.rm = TRUE), l = 5)),
+      pch =19, bg = "darkturquoise",
+      col = heat.colors(5),
+      title = "Horas/Asig")
+ ticks1 <- seq(0,4,0.5)
+ ticks2 <- seq(0,3,0.2)
+ axis(1, at = ticks1, labels = round(10^ticks1,0), las = 2)
+ axis(2, at = ticks2, labels = round(10^ticks2,0), las = 2)
+par(op)
+```
+
+## Ranqueo por PAPA y las variables de interés
+
+```{r}
+encuesta2[order(encuesta2$PAPA, decreasing = TRUE), c("PAPA","HoraXAsig","Contactos","Internet")]
+```
+

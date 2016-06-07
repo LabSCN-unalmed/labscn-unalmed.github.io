@@ -2,7 +2,7 @@
 layout: curso
 title: 'Estadística Descriptiva y Análisis Exploratorio de Datos'
 curso: 'estadistica-descriptiva'
-order: 00
+order: 1
 ---
 
 ## Objetivo general:

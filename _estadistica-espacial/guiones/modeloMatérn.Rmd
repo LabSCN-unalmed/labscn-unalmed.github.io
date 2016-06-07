@@ -1,0 +1,78 @@
+---
+title: "Modelo Matérn"
+author: "Kenneth Cabrera"
+date: 'Miércoles 24 de Febrero de 2016'
+output:
+  html_document:
+    highlight: textmate
+    theme: readable
+    toc: yes
+---
+
+## Modelos Matérn con diferentes valores de kappa y phi.
+```{r}
+require(geoR)
+x <- seq(0, 100, l = 101)
+plot(x, cov.spatial(x, cov.model = "matern", kappa = 0.5,
+    cov.pars = c(1, 25)), type = "l", xlab= "u", lwd=2,
+    ylab = expression(rho(u)), ylim = c(0, 1))
+lines(x, cov.spatial(x, cov.model = "matern", kappa = 1,
+    cov.pars = c(1, 19)), lty = 2, lwd=2)
+lines(x, cov.spatial(x, cov.model = "matern", kappa = 1.5,
+    cov.pars = c(1, 16)), lty = 3, lwd=2)
+lines(x, cov.spatial(x, cov.model = "matern", kappa = 2.5,
+    cov.pars = c(1, 13)), lty = 4, lwd=2)
+lines(x, cov.spatial(x, cov.model = "matern", kappa = 3,
+    cov.pars = c(1, 12)), lty = 5, lwd=2)
+legend(30,1,
+      legend=c("kappa= 0.5, phi= 25",
+               "kappa= 1.0, phi= 18",
+               "kappa= 1.5, phi= 16",
+               "kappa= 2.5, phi= 13",
+               "kappa= 3.0, phi= 12"),
+      lty=c(1,2,3,4,5),lwd=2)
+abline(h=0.05, col= "red")
+abline(v=75, col = "red")
+abline(v=3*(25),col="magenta")
+abline(v=4*(19),col="magenta",lty=2)
+abline(v=4.75*(16),col="magenta",lty=3)
+abline(v=5.92*(13),col="magenta",lty=4)
+abline(v=6.42*(12),col="magenta",lty=5)
+
+```
+
+## Hallar los valores de phi y de kappa, para un rango práctico fijo
+```{r}
+
+# Función de Matérn para igualar a 0
+# Nivel de rango práctico rho = 0.05
+
+require(geoR)
+fM <- function(x,kappa, rho = 0.05, phi = 1) 
+  cov.spatial(x,cov.pars=c(1,phi),kappa=kappa,cov.model="matern")-rho
+
+# Hallar los límites para encontrar la raiz de la función
+fM(c(2,11), kappa=0.5)
+fM(c(2,11), kappa=2.5)
+fM(c(2,11), kappa=3.5)
+
+# Encontrar el factor multiplicador de phi
+(r1 <- uniroot(fM,c(2,11),kappa=0.5)$root)
+(r2 <- uniroot(fM,c(2,11),kappa=1)$root)
+(r3 <- uniroot(fM,c(2,11),kappa=1.5)$root)
+(r4 <- uniroot(fM,c(2,11),kappa=2.5)$root)
+(r5 <- uniroot(fM,c(2,11),kappa=3)$root)
+(r6 <- uniroot(fM,c(2,11),kappa=3.5)$root)
+
+# Dado un rango práctico
+RangoP <- 75
+
+# Encontrar los valores de phi adecuados.
+(phi1 <- RangoP/r1)
+(phi2 <- RangoP/r2)
+(phi3 <- RangoP/r3)
+(phi4 <- RangoP/r4)
+(phi5 <- RangoP/r5)
+(phi6 <- RangoP/r6)
+```
+

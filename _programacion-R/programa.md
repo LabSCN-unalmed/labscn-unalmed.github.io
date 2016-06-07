@@ -22,6 +22,7 @@ De manera resumida estos son los temas que se tratarán en el módulo.
   * Herramientas de depuración de código.
   * Perfilación del código.
 
+## Página al semillero de R en la UN
 
-
+[Semillero de R en la UN](https://srunal.wordpress.com/)
 

@@ -1,0 +1,73 @@
+---
+title: "Taller individual 2"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves, 31 de marzo de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Asignación de datos
+
+Se realizó un experimento en donde a un grupo de 16 personas se les asignó al azar suprimir, 1, 2, 3 y 4 horas de sueño.
+
+La siguiente secuencia muestra la asignación que se hizo a cada persona.
+```{r, echo=FALSE}
+set.seed(1)
+df1 <- as.data.frame(cbind(c(1:4),matrix(sample(1:16),4,4)))
+names(df1) <- c("Horas de sueño_surimidas", rep("_",4))
+df1
+```
+
+
+Luego se les realizó la misma prueba de desempeño de atención y vigilancia a todos los participantes y se contabilizó el número de errores cometidos por cada persona.
+
+
+Los siguientes son los datos que le corresponde a cada estudiante:
+
+```{r, echo=FALSE}
+medias   <- c(26, 37, 57, 61)
+
+errorExp <- 12
+
+set.seed(716848)
+x1 <- function(x) {round(replicate(4, rnorm(4, mean = medias, sd = errorExp)),0)}
+
+l1 <- lapply(1:19, x1)
+
+arreglo <- function(m){
+  m <- as.data.frame(m)
+  m$Horas_suprim_sueño <- c(1,2,3,4)
+  m <- m[,c(5,1:4)]
+  names(m)[2:5] <- "_"
+  return(m)
+}
+
+l2 <- lapply(l1, arreglo)
+
+estudiantes <- read.csv2("lista.csv")
+
+names(l2) <- estudiantes$nombres
+
+print(l2)
+```
+
+## Documentos entregables
+
+  - Documento en formato ".pdf" en donde se muestre los siguientes resultados.
+    + Corta introducción.
+    + Análisis exploratorio y descriptivo de los datos.
+    + Ajuste del modelo de una via completo, completamente aleatorizados de efectos fijos.
+    + Verificación de supuestos.
+    + Inferencia e interpretación de resultados.
+  - Base de datos en formato ".csv"
+  - Guión en R con los comando utilzados para realizar el análisis.
+    
+## Fecha de entrega
+
+Enviar antes del viernes 8 de abril de 2016, antes de las 23:59 hora de Colombia,
+al correo **krcabrer@unal.edu.co**  no olvidar en el asunto escribir [MEDE] .
+    
+    

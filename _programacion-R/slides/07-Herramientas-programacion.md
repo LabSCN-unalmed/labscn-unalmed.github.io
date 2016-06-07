@@ -1,7 +1,7 @@
 Herramientas de programación
 ========================================================
 author: Kenneth Roy Cabrera Torres 
-date: jueves, 29 de octubre de 2015
+date: martes, 29 de marzo de 2016
 width: 1440
 height: 900
 

@@ -1,7 +1,7 @@
 Expresiones Regulares
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: martes, 17 de noviembre de 2015
+date: martes, 29 de marzo de 2016
 
 Expresiones regulares en R
 ========================================================

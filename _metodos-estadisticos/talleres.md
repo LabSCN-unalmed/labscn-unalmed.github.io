@@ -48,4 +48,8 @@ Los resultados de las 16 personas se muestra en la siguiente tabla:
 Jueves 11 de Febrero de 2016 antes de las 23:59 hora de Colombia,
 al correo **krcabrer@unal.edu.co** en asunto colocar **[MEDE]**.
 
+## Taller individual 2
+
+- [Taller individual 2](./talleres/horas_sueño.html){:target="_blank"}
+
 

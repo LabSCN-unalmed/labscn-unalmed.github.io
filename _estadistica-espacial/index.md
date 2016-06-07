@@ -23,6 +23,8 @@ order: 00
 2. Bivand, Roger S, Pebesma Edzer y Gómez-Rubio Virgilio.
 Applied Spatial Data Analysis with R. Second Edition. Springer New York.
 2013
+3. Diggle Peter J. y Ribeiro Pablo J. Jr. Model-based Geostatistics. 
+Springer Science+Business Media, LLC. 2007.
 
 ### Textos complementarios
 
@@ -35,6 +37,9 @@ Handbook of Spatial Statistics. Chapman & Hall/CRC Press. Handbooks of
 Modern Statistical Methods. 2010.
 4. Cressie Noel y Wikle Christopher K. Statistics for Spation-temporal Data.
 John Wiley & Sons, Inc. 2011
+5. Schabenberger, Oliver y Pierce Francis J. Contemporary Statistical Models:
+for the Plant and Soil Sciencies. 
+Capítulo 09:Statistical Models for Spatial Data. CRC Press. 2002
 
 ## Evaluación
 
@@ -53,6 +58,9 @@ John Wiley & Sons, Inc. 2011
 
 * [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="_blank"}
 * [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="_blank"}
+
+* [Descarga del Gimp](http://www.gimp.org/downloads/){:target="_blank"}
+* [Descarga del imageJ](http://fiji.sc/Downloads){:target="_blank"}
 
 ## Libro complementario:
 

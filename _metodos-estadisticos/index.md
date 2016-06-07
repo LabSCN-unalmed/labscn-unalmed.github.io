@@ -16,6 +16,10 @@ order: 00
 7. Diseños de mezclas
 8. Medidas repetidas.
 
+## Presentaciones
+
+* [Diapositivas 1](./clase1.pdf){:target="_blank"}
+
 ## Evaluación
 
 | Item               | Porcentaje | Fecha entrega                | Formato                                               |

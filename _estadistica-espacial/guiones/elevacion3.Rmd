@@ -1,0 +1,132 @@
+---
+title: "Elevación (ajuste y predicción)"
+author: "Kenneth Cabrera"
+date: "Viernes, 18 de marzo de 2016"
+output:
+  html_document:
+    highlight: textmate
+    theme: readable
+    toc: yes
+---
+
+## Lectura de la base de datos
+```{r}
+require(geoR)
+elevacion<-read.geodata("elevacion.txt",header=T, enc="latin1")
+summary(elevacion)
+```
+
+## Semovariograma empírico sin tener en cuenta tendencia
+```{r}        
+variog1 <- variog(elevacion, uvec = seq(0, 90, by = 5), max.dist=90)
+plot(variog1, type = "b",xlab="Distancia",ylab="Semivarianza")
+```
+
+## Semivariograma empírico teniendo en cuenta la tendencia lineal
+```{r}
+res1.v <- variog(elevacion, trend = "1st", uvec = seq(0, 90, by = 5), max.dist=90)
+plot(res1.v, type = "b",xlab="Distancia",ylab="Semivarianza")
+```
+
+## Semivariograma empírico teniendo en cuenta la tendencia cuadrática
+```{r}
+res2.v <- variog(elevacion, trend = "2nd", uvec = seq(0,90, by = 5), max.dist=90)
+plot(res2.v, type = "b", lty = 2, ylab="Semivarianza")        
+```
+
+## Verificación de estructura espacial
+
+```{r}
+set.seed(231)
+mc1 <- variog.mc.env(elevacion, obj = res1.v)
+plot(res1.v, env = mc1, xlab="Distancia",ylab="Semivarianza")
+mc2 <- variog.mc.env(elevacion, obj = res2.v)
+plot(res2.v, env = mc2, xlab="Distancia",ylab="Semivarianza")
+```
+
+## Estimación de los modelos
+```{r}
+ml0 <- likfit(elevacion, ini = c(700, 40), cov.model = "matern", kappa = 1.5,
+              fix.nugget=TRUE, nugget=0, fix.kappa=FALSE)
+ml0
+
+ml1 <- likfit(elevacion, trend = "1st", ini = c(150,40), cov.model = "matern", 
+              kappa = 1.5, fix.nugget=TRUE, nugget=0, fix.kappa=FALSE)
+ml1
+
+ml2 <- likfit(elevacion, trend = "2nd", ini = c(80,40), cov.model = "matern",
+              kappa = 1.5, fix.nugget=TRUE, nugget=0, fix.kappa=FALSE)
+ml2
+
+```
+
+## Modelos ajustados a los datos empíricos
+
+```{r}
+u <- seq(0,100)
+
+mlt0 <- ml0$sigmasq*(1-cov.spatial(u, 
+                                   cov.model = ml0$cov.model,
+                                   cov.pars=c(1,ml0$phi)))
+plot(u,mlt0,type="l", ylim=c(0,700))
+with(variog1,lines(u,v,type="b"))
+
+mlt1 <- ml1$sigmasq*(1-cov.spatial(u, 
+                                   cov.model = ml1$cov.model,
+                                   cov.pars=c(1,ml1$phi)))
+plot(u,mlt1,type="l", ylim=c(0,200))
+with(res1.v,lines(u,v,type="b"))
+
+mlt2 <- ml2$sigmasq*(1-cov.spatial(u, 
+                                   cov.model = ml2$cov.model,
+                                   cov.pars=c(1,ml2$phi)))
+plot(u,mlt2,type="l", ylim=c(0,100))
+with(res2.v,lines(u,v,type="b"))
+
+
+```
+
+
+```{r}
+puntos_pred <- pred_grid(c(0, 100), c(0, 100), by = 1)
+
+KC <- krige.control(type = "sk", obj.mod = ml0)
+sk <- krige.conv(elevacion, krige = KC, loc = puntos_pred)
+
+KCt <- krige.control(type = "sk", obj.mod = ml1, trend.d = "1st",trend.l = "1st")
+skt <- krige.conv(elevacion, krige = KCt, loc = puntos_pred)
+
+KCtc <- krige.control(type = "sk", obj.mod = ml2, trend.d = "2nd",trend.l = "2nd")
+sktc <- krige.conv(elevacion, krige = KCtc, loc = puntos_pred)
+
+
+pred.lim <- range(c(sk$pred, skt$pred))
+sd.lim <- range(sqrt(c(sk$kr, skt$kr)))
+
+image(sk, col = gray(seq(1, 0, l = 51)), zlim = pred.lim)
+contour(sk, add = T, nlev = 6)
+points(elevacion, add = TRUE, cex.max = 2)
+
+image(skt, col = gray(seq(1, 0, l = 51)), zlim = pred.lim)
+contour(skt, add = T, nlev = 6)
+points(elevacion, add = TRUE, cex.max = 2)
+
+image(sktc, col = gray(seq(1, 0, l = 51)), zlim = pred.lim)
+contour(sktc, add = T, nlev = 8)
+points(elevacion, add = TRUE, cex.max = 2)
+
+
+image(sk, value = sqrt(sk$krige.var), col = gray(seq(1,0, l = 51)), zlim = sd.lim)
+contour(sk, value = sqrt(sk$krige.var), levels = seq(0,10, by = 1), add = T)
+points(elevacion$coords, pch = "+")
+
+image(skt, value = sqrt(skt$krige.var), col = gray(seq(1,0, l = 51)), zlim = sd.lim)
+contour(skt, value = sqrt(skt$krige.var), levels = seq(0,10, by = 1), add = T)
+points(elevacion$coords, pch = "+")
+
+image(sktc, value = sqrt(sktc$krige.var), col = gray(seq(1,0, l = 51)), zlim = sd.lim)
+contour(sktc, value = sqrt(sktc$krige.var), levels = seq(0,10, by = 1), add = T)
+points(elevacion$coords, pch = "+")
+
+```
+

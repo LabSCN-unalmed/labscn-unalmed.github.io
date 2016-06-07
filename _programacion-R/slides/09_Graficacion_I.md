@@ -1,7 +1,7 @@
 Graficación
 ========================================================
 author: Kenneth Roy Cabrera Torres  
-date: jueves, 29 de octubre de 2015
+date: martes, 29 de marzo de 2016
 width: 1440
 height: 900
 
@@ -67,7 +67,7 @@ require(datasets)
 hist(airquality$Ozone)
 ```
 
-![plot of chunk unnamed-chunk-1](09_Graficacion_I-figure/unnamed-chunk-1-1.png) 
+![plot of chunk unnamed-chunk-1](09_Graficacion_I-figure/unnamed-chunk-1-1.png)
 
 Ejemplo II
 ========================================================
@@ -77,7 +77,7 @@ require(datasets)
 with(airquality, plot(Wind, Ozone))
 ```
 
-![plot of chunk unnamed-chunk-2](09_Graficacion_I-figure/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](09_Graficacion_I-figure/unnamed-chunk-2-1.png)
 
 Ejemplo III
 ========================================================
@@ -88,7 +88,7 @@ airquality <- transform(airquality, Month2 = factor(Month))
 boxplot(Ozone ~ Month2, airquality, xlab = "Mes", ylab = "Ozono (ppmm)")
 ```
 
-![plot of chunk unnamed-chunk-3](09_Graficacion_I-figure/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](09_Graficacion_I-figure/unnamed-chunk-3-1.png)
 
 Parámetros importantes I
 ========================================================
@@ -189,7 +189,7 @@ with(airquality, plot(Wind, Ozone))
 title(main = "Ozono y viento en la ciudad de Nueva York")
 ```
 
-![plot of chunk unnamed-chunk-6](09_Graficacion_I-figure/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](09_Graficacion_I-figure/unnamed-chunk-6-1.png)
 
 
 Gráfica con "anotación" II
@@ -201,7 +201,7 @@ with(airquality, plot(Wind, Ozone, main = "Ozono y viento en la ciudad de Nueva 
 with(subset(airquality, Month == 5), points(Wind, Ozone, col = "blue"))
 ```
 
-![plot of chunk unnamed-chunk-7](09_Graficacion_I-figure/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](09_Graficacion_I-figure/unnamed-chunk-7-1.png)
 
 Gráfica con "anotación" III
 ========================================================
@@ -227,7 +227,7 @@ modelo <- lm(Ozone ~ Wind, airquality)
 abline(modelo, lwd = 2)
 ```
 
-![plot of chunk unnamed-chunk-9](09_Graficacion_I-figure/unnamed-chunk-9-1.png) 
+![plot of chunk unnamed-chunk-9](09_Graficacion_I-figure/unnamed-chunk-9-1.png)
 
 Múltiples gráficas I
 ========================================================
@@ -241,7 +241,7 @@ plot(Solar.R, Ozone, main = "Ozone y radiación solar")
 })
 ```
 
-![plot of chunk unnamed-chunk-10](09_Graficacion_I-figure/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](09_Graficacion_I-figure/unnamed-chunk-10-1.png)
 
 ```r
 par(op)
@@ -306,7 +306,7 @@ require(datasets)
 xyplot(Ozone ~ Wind, data = airquality)
 ```
 
-![plot of chunk unnamed-chunk-13](09_Graficacion_I-figure/unnamed-chunk-13-1.png) 
+![plot of chunk unnamed-chunk-13](09_Graficacion_I-figure/unnamed-chunk-13-1.png)
 
 Ejemplo "lattice" II
 ========================================================
@@ -318,7 +318,7 @@ airquality <- transform(airquality, Month2 = factor(Month))
 xyplot(Ozone ~ Wind | Month2, data = airquality, layout = c(5, 1))
 ```
 
-![plot of chunk unnamed-chunk-14](09_Graficacion_I-figure/unnamed-chunk-14-1.png) 
+![plot of chunk unnamed-chunk-14](09_Graficacion_I-figure/unnamed-chunk-14-1.png)
 
 Comportamiento de "lattice" I
 ========================================================
@@ -339,7 +339,7 @@ p <- xyplot(Ozone ~ Wind, data = airquality)
 print(p) ## Se muestra la gráfica.
 ```
 
-![plot of chunk unnamed-chunk-15](09_Graficacion_I-figure/unnamed-chunk-15-1.png) 
+![plot of chunk unnamed-chunk-15](09_Graficacion_I-figure/unnamed-chunk-15-1.png)
 
 
 ```r
@@ -367,7 +367,7 @@ f <- factor(f, labels = c("Groupo 1", "Groupo 2"))
 xyplot(y ~ x | f, layout = c(2, 1)) ## Gráfica con dos páneles
 ```
 
-![plot of chunk unnamed-chunk-17](09_Graficacion_I-figure/unnamed-chunk-17-1.png) 
+![plot of chunk unnamed-chunk-17](09_Graficacion_I-figure/unnamed-chunk-17-1.png)
 
 Funciones de panel de "lattice" III
 ========================================================
@@ -390,5 +390,5 @@ panel.lmline(x, y, col = 2) ## Una línea de regresión
 })
 ```
 
-![plot of chunk unnamed-chunk-19](09_Graficacion_I-figure/unnamed-chunk-19-1.png) 
+![plot of chunk unnamed-chunk-19](09_Graficacion_I-figure/unnamed-chunk-19-1.png)
 
