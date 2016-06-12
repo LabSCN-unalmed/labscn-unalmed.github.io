@@ -1,12 +1,8 @@
 ---
 layout: curso
-title: 'Clases'
+title: 'Tareas'
 curso: 'programacion-R'
-order: 2
+order: 3
 ---
 
-## Tema 1
-
-## Tema 2
-
-## Tema 3
+## Tarea 1

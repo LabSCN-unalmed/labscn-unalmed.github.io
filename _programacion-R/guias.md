@@ -1,6 +1,6 @@
 ---
 layout: curso
-title: 'Guias'
+title: 'Guías'
 curso: 'programacion-R'
 order: 1
 ---
@@ -23,9 +23,12 @@ order: 1
 # Fecha:
 # Enunciado:
 # -----------------------------------------------------------------------------#
+
+Cuerpo del código
+
 ```
 
-## Ejemplo de entrega de Tareas
+## Ejemplo de entrega de tareas
 
 ```
 # -----------------------------------------------------------------------------#
