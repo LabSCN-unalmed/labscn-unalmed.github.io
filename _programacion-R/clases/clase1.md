@@ -26,7 +26,7 @@ curso: 'programacion-R'
     * subsarta(s,ini,fin)
     * indice(s)
 
-3. Relaciones lógicas:
+3. Relaciones de comparación:
     - \>  : mayor que
     - \>= : mayor igual que
     - <  : menor que
@@ -34,7 +34,12 @@ curso: 'programacion-R'
     - == : igual
     - != : diferente
 
-3. Estructuras básicas:
+4. Conectivos lógicos:
+   - Conjunción: &&
+   - Disyunción: \|\|
+   - Negación:   !
+
+5. Estructuras básicas:
    - Asignación.
 
 ```   

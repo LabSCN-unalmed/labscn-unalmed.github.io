@@ -50,9 +50,9 @@ order: 0
      límite de entrega. ¡Cualquier tarea, taller o trabajo que se entrega
      más allá de las 24 horas o si se han agotado las tres entregas tardes
      **NO** será tenida encuenta y se toma como no entregada!
-   - El la fecha de entrega se indica la hora de Colombia antes de la cual
+   - En la fecha de entrega se indica la hora de Colombia antes de la cual
      se considera entregada a tiempo, y a partir de la cual se toman las 24:00
-     horas de gracias para una entrega tarde.
+     horas de gracia para una entrega tarde.
    - Las 24 horas se toman calendario (literales a partir de la fecha y hora de
      vencimiento). Exceptuando las 23:59 horas de un viernes,
      el plazo para la entrega tarde será el siguiente lunes a las 23:59 horas.  
