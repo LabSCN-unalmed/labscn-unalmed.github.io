@@ -128,7 +128,7 @@ Plantilla o esquema de la escritura en seudocódigo.
 
 ```
 Algoritmo suma_enteros
-  Entero num1, num2
+  Entero num1, num2, suma
 
 Inicio
   Escriba "Entre dos números enteros"
@@ -183,7 +183,7 @@ Algoritmo suma_enteros2
    Escriba "Entre dos números enteros"
    Lea num1, num2
    resultado <- suma_num(num1,num2)
-   Escriba "La suma de", num1, "y", num2, "es:", suma
+   Escriba "La suma de", num1, "y", num2, "es:", resultado
  Fin
 ```
 
