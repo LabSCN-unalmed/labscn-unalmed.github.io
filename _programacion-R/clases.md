@@ -7,4 +7,4 @@ order: 2
 
 ## [Lógica de programación (Algoritmos)](./clases/clase1.html)
 
-## [Lenguaje de programación C, C++](./clases/clase2.md)
+## [Lenguaje de programación C, C++](./clases/clase2.html)
