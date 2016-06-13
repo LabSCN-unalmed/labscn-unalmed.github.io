@@ -12,8 +12,11 @@ order: 1
   - [Herramientas básicas de desarrollo en R](https://cran.r-project.org/bin/windows/Rtools/)
   - [MiKTeX](http://miktex.org/download)
 
+## Documentos
 
-## Plantilla de entrega de tareas.
+ - [Introducción a la programación orientada a objetos](ProgOrientadaObjetos.pdf)
+
+## Plantilla de entrega de tareas (seudocódigo).
 
 ```
 # -----------------------------------------------------------------------------#
@@ -28,7 +31,7 @@ Cuerpo del código
 
 ```
 
-## Ejemplo de entrega de tareas
+## Ejemplo de entrega de tareas (seudocódigo).
 
 ```
 # -----------------------------------------------------------------------------#

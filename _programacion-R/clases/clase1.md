@@ -22,6 +22,8 @@ Un algoritmo tiene las siguientes características:
                usando lápiz y papel. No sólo la instrucción deberá
                ser definida sino también viable o factible.            
 
+![](caja_negra1.png)
+
 ## Tipos y operaciones
 
 1. Tipos de variables.
@@ -194,6 +196,8 @@ Escriba un algoritmo que:
  - Lea el radio de un círculo y que muestre como respuesta su área.
  - Lea el nombre de una persona y le responda con un saludo.
  - Lea un número real y muestre el valor absoluto de mismo.
+ - Lea un número real y muestre el valor absoluto de mismo sin utilizar
+   la estructura de decisión o repetición.
  - Lea las coordenadas de dos puntos y que muestre la distancias
    entre los dos puntos.
  - Lea las tres coordenadas de los vértices de un tríangulo y que
@@ -208,12 +212,12 @@ Escriba un algoritmo que:
    un cero (0) sin el número es impar, (Sin utilizar ni la estructura de
    decisión o la de repetición).   
  - Lea un número entero de tres cifras y muestre el mísmo número de pero con
-   los dígitos invertidos.   
+   los dígitos invertidos (sin utilizar el tipo sarta).   
  - Calcule la suma de los números impares por un lado y los números
    pares por otro entre dos números enteros dados (suponga que el primero
    es menor que el segundo)
  - Calcule la [corona circular](https://es.wikipedia.org/wiki/Corona_circular)
-   dados los radios de dos círculos. (No importa
+   dados los radios de dos círculos concéntricos. (No importa
    la manera como se lea el orden de los radios).
  - Dados dos punto de una recta determine si es paralela a otra recta de donde
    se dan dos puntos que pertenecen a la otra recta.
@@ -223,7 +227,7 @@ Escriba un algoritmo que:
    raíz del número. Mejore el resultado hallando el promedio entre el número
    inicial y el número aproximado dividido el número inicial. Este promedio
    es de nuevo un valor aproximado a la raíz. Continuar el proceso hasta que
-   la aproximación sea correcta en el orden de las millonésima. (No utilizar
+   la aproximación sea correcta en el orden de las millonésimas. (No utilizar
    la operación ^)
  - Dado las dimensiones de una matriz (n filas, m columnas), mostrar los índices
    de la matriz en forma de zig-zag (horizontal),
