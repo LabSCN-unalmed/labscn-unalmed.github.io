@@ -5,6 +5,6 @@ curso: 'programacion-R'
 order: 2
 ---
 
-## [Tema 1](./clases/clase1.html)
+## [Lógica de programación (Algoritmos)](./clases/clase1.html)
 
-## [Tema 2](./clases/clase2.md)
+## [Lenguaje de programación C, C++](./clases/clase2.md)
