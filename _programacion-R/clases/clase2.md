@@ -9,9 +9,24 @@ curso: 'programacion-R'
 Se utilizará la integración del lenguaje C, C++ al
 lenguaje R
 
+### Equivalencias de tipos de datos
+
+ - Escalares
+
+    * `int` : Entero
+    * `double` : Real
+
+ - Vectoriales
+
+    * `IntegerVector`:  Entero vector[]
+    * `NumericVector`:  Real vector[]
+    * `IntegerMatrix`:  Entero matrix[][]
+    * `NumericMatrix`:  Real matrix[][]
+
+
 ### Plantilla ejemplo básica
 
-```C
+``` c++
 #include <Rcpp.h>
 using namespace Rcpp;
 
@@ -25,5 +40,3 @@ int sume(int x, int y) {
 sume(1,2)
 */
 ```
-
-
