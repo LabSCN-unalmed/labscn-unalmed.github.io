@@ -172,7 +172,7 @@ Fin
 Algoritmo suma_enteros2
  Entero num1, num2, resultado
 
- Funcion entero suma_num(entero n1, n2)
+ Funcion entero suma_num(entero n1, entero n2)
    Entero suma
  Inicio
    suma <- n1 + n2
