@@ -225,7 +225,7 @@ Escriba un algoritmo que:
    la siguiente manera: Lea un número al cual se le hallará la raíz, y luego
    lea un número cualquiera como primera aproximación a la
    raíz del número. Mejore el resultado hallando el promedio entre el número
-   inicial y el número aproximado dividido el número inicial. Este promedio
+   inicial y la división del número inicial y el número aproximado. Este promedio
    es de nuevo un valor aproximado a la raíz. Continuar el proceso hasta que
    la aproximación sea correcta en el orden de las millonésimas. (No utilizar
    la operación ^)
