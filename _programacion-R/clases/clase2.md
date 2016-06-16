@@ -48,7 +48,7 @@ lenguaje R
 
 ## Simplificaciones de contadores y acumuladores.
 
-  - La operación `i++`, es equivalente a `i = i - 1`.
+  - La operación `i++`, es equivalente a `i = i + 1`.
   - La operación `i--`, es equivalente a `i = i - 1`.
   - La operación `c += a`, es equivalente a `c = c + a`.
   - La operación `c -= a`, es equivalente a `c = c - a`.
@@ -76,7 +76,7 @@ Las salidas se prefiere que sean también responsabilidad del R.
 Pero en donde sea necesario se utiliza la siguiente estructura.
 
 ``` c++
-    Rcout::cout << var1 << var2 << std::endl;
+    Rcout << var1 << var2 << std::endl;
 ```
 
   - Decisión
@@ -183,10 +183,12 @@ Escriba una función en C++ integrada a R que:
   de la matriz en forma de zig-zag (horizontal),
   comenzando por la posición [1][1]. Los índices se entregan en una matrix de orden (n*m)x2.
 - dada la dimensión de una matriz cuadrada muestre los índices de las diagonales
-  secundarias comenzando por la posición [1][1] en una matriz de orden (n*n)x2.
+  secundarias comenzando por la posición [1][1] en una
+  matriz de orden $$(n\times n)\times 2$$.
 - dado un número encuentre su factorial. Recuerde que
-  $$n! = n\cdot(n-1)\cdot...2\cdot1$$ y además $$0! = !$$.
+  $$n! = n\cdot(n-1)\cdot...2\cdot1$$ y además $$0! = 1$$.
 - dado un ángulo en radianes calcule el valor de la función trigonomética
   seno mediante la [expansión de Taylor](https://es.wikipedia.org/wiki/Serie_de_Taylor).
-- dado un ángulo en radianes muestre el número de término que se necesitan
-  para tener una aproximación a la millonésima.    
+  Use una presición de milésimas.
+- dado un ángulo en radianes muestre el número de términos de la expansión de
+  Taylor que se necesitan para tener una aproximación a la millonésima.    

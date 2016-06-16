@@ -11,7 +11,7 @@ using namespace Rcpp;
 
 // [[Rcpp::export]]
 void saludo(){
-  std::cout << "Hola, mundo" << std::endl;
+  Rcout << "Hola, mundo" << std::endl;
 }
 
 /*** R
