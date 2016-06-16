@@ -2,6 +2,7 @@
 layout: curso
 title: 'Tema 2'
 curso: 'programacion-R'
+custom_js: 'mathjax'
 ---
 
 ## Contenido.
@@ -168,4 +169,24 @@ Escriba una función en C++ integrada a R que:
 
 Escriba una función en C++ integrada a R que:
 
--
+- dado un número entero de tres cifras y muestre el mísmo número de pero con
+  los dígitos invertidos (sin utilizar el tipo sarta).
+- halle la aproximación a la raiz de un número de
+  la siguiente manera: Lea un número al cual se le hallará la raíz, y luego
+  lea un número cualquiera como primera aproximación a la
+  raíz del número. Mejore el resultado hallando el promedio entre el número
+  aproximado y la división del número inicial y el número aproximado. Este promedio
+  es de nuevo un valor aproximado a la raíz. Continuar el proceso hasta que
+  la aproximación sea correcta en el orden de las millonésimas. (No utilizar
+  la operación `std::pow()`).
+- dadas las dimensiones de una matriz (n filas, m columnas), mostrar los índices
+  de la matriz en forma de zig-zag (horizontal),
+  comenzando por la posición [1][1]. Los índices se entregan en una matrix de orden (n*m)x2.
+- dada la dimensión de una matriz cuadrada muestre los índices de las diagonales
+  secundarias comenzando por la posición [1][1] en una matriz de orden (n*n)x2.
+- dado un número encuentre su factorial. Recuerde que
+  $$n! = n\cdot(n-1)\cdot...2\cdot1$$ y además $$0! = !$$.
+- dado un ángulo en radianes calcule el valor de la función trigonomética
+  seno mediante la [expansión de Taylor](https://es.wikipedia.org/wiki/Serie_de_Taylor).
+- dado un ángulo en radianes muestre el número de término que se necesitan
+  para tener una aproximación a la millonésima.    
