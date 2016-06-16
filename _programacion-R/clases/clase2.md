@@ -113,7 +113,7 @@ Pero en donde sea necesario se utiliza la siguiente estructura.
 ```
 
 ``` c++
-    for( <condición inicial>; <condición de final>; <incremento>)
+    for( <condición inicial>; <condición de final>; <incremento>){
       <instrucción 1>
       <instrucción 2>
       .
@@ -139,7 +139,7 @@ Pero en donde sea necesario se utiliza la siguiente estructura.
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-int sume(int x, int y) {
+int sume(int x, int y){
   int suma = x + y;
   return suma;
 }
@@ -182,14 +182,15 @@ Escriba una función en C++ integrada a R que:
   la operación `std::pow()`).
 - dadas las dimensiones de una matriz (n filas, m columnas), mostrar los índices
   de la matriz en forma de zig-zag (horizontal),
-  comenzando por la posición [1][1]. Los índices se entregan en una matrix de orden (n*m)x2.
+  comenzando por la posición [1][1]. Los índices se entregan en una
+   matrix de orden $$(nm)\times 2$$.
 - dada la dimensión de una matriz cuadrada muestre los índices de las diagonales
   secundarias comenzando por la posición [1][1] en una
-  matriz de orden $$(n\times n)\times 2$$.
+  matriz de orden $$(n^2)\times 2$$.
 - dado un número encuentre su factorial. Recuerde que
   $$n! = n\cdot(n-1)\cdot...2\cdot1$$ y además $$0! = 1$$.
 - dado un ángulo en radianes calcule el valor de la función trigonomética
   seno mediante la [expansión de Taylor](https://es.wikipedia.org/wiki/Serie_de_Taylor).
-  Use una presición de milésimas.
+  Use una precisión de milésimas.
 - dado un ángulo en radianes muestre el número de términos de la expansión de
   Taylor que se necesitan para tener una aproximación a la millonésima.    
