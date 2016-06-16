@@ -24,6 +24,7 @@ lenguaje R
     * `float`, `double` : Real.
     * `std::string`: Sarta.
     * `std::char`: Carácter.
+    * `bool`: booleano. Toma los valores de `true` o `false`
 
  - Vectoriales
 
