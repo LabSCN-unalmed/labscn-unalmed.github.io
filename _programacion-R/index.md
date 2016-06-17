@@ -22,23 +22,23 @@ order: 0
 
 ## Programa
 
-   | Dia | Item |
-   |:-------:|:------|
-   | 1   | Introducción y Estructuras básicas |
-   | 2   | Estructuras básicas |
-   | 3   | Vectores y matrices |
-   | 4   | Funciones           |
-   | 5   | Introducción al C, C++ desde R |
-   | 6   | Estructuras, matrices y vectores en C, C++ |
-   | 7   | Funciones en C, C++ |
-   | 8   | Introducción al R, estructuras de datos, tipos, clases  |
-   | 9   | Funciones en R |
-   | 10  | Orientación a objetos en R |
-   | 11  | Graficación básica en R |
-   | 12  | Graficación avanzada en R |
-   | 13  | Manejo de base de datos en R |
-   | 14  | Programación avanzada en R |
-   | 15  | Entrega de trabajo final en R |
+   | Dia | Item                                                   |
+   |:---:|:-------------------------------------------------------|
+   | 1   | Introducción y Estructuras básicas                     |
+   | 2   | Estructuras básicas                                    |
+   | 3   | Vectores y matrices                                    |
+   | 4   | Funciones                                              |
+   | 5   | Introducción al C, C++ desde R                         |
+   | 6   | Estructuras, matrices y vectores en C, C++             |
+   | 7   | Funciones en C, C++                                    |
+   | 8   | Introducción al R, estructuras de datos, tipos, clases |
+   | 9   | Funciones en R                                         |
+   | 10  | Orientación a objetos en R                             |
+   | 11  | Graficación básica en R                                |
+   | 12  | Graficación avanzada en R                              |
+   | 13  | Manejo de base de datos en R                           |
+   | 14  | Programación avanzada en R                             |
+   | 15  | Entrega de trabajo final en R                          |
 {: .table .table-hover}
 
 ## Políticas del curso
