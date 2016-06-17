@@ -9,11 +9,11 @@ custom_js: 'mathjax'
 Introducción
 ------------
 
-Un perfil topográfico corresponde a una relación entre distancia y altitud para una región dada. La gráfica de esta relación permite visualizar la distribución de la altitud a lo largo de una linea o transecto. Se pueden construir perfiles de longitud muy variable y con orientaciones muy diversas. 
+Un perfil topográfico corresponde a una relación entre distancia y altitud para una región dada. La gráfica de esta relación permite visualizar la distribución de la altitud a lo largo de una linea o transecto. Se pueden construir perfiles de longitud muy variable y con orientaciones muy diversas.
 
-La selección de la longitud y la orientación de los perfiles a construir está condicionada por el interés del usuario por visualizar la estructura de la distribución de altitudes con respecto a una estructura especifica del relieve. Por ejemplo, puede ser del interés del usuario conocer la morfología de los perfiles topográficos transversales o longitudinales respecto a un valle, a una cadena montañosa o a un tipo de relieve especifico, tal como un bloque tectónico basculado. 
+La selección de la longitud y la orientación de los perfiles a construir está condicionada por el interés del usuario por visualizar la estructura de la distribución de altitudes con respecto a una estructura especifica del relieve. Por ejemplo, puede ser del interés del usuario conocer la morfología de los perfiles topográficos transversales o longitudinales respecto a un valle, a una cadena montañosa o a un tipo de relieve especifico, tal como un bloque tectónico basculado.
 
-En estos casos u otros, el interés reside en conocer la distribución espacial de la altitud en una dirección paralela o transversal a la estructura que se desea estudiar. 
+En estos casos u otros, el interés reside en conocer la distribución espacial de la altitud en una dirección paralela o transversal a la estructura que se desea estudiar.
 
 Sin embargo, la información que se obtiene utilizando un perfil topográfico único deja una serie de incertidumbres respecto a la distribución de las altitudes en la zona donde se hace el levantamiento; por ejemplo, es factible que el perfil levantado no exprese los valores de altitud máxima o de altitud mínima en la zona de interés. En este caso, solo se tiene certeza de las altitudes máxima y mínima a lo largo del transecto levantado, lo cual no necesariamente corresponde con las altitudes máximas y mínimas de la zona.
 
@@ -21,7 +21,7 @@ El uso de grupos de perfiles paralelos, equidistantes y de la misma longitud per
 
 El uso de conjuntos de perfiles se aplica en dos casos distintos:
 
-1. El altiplano de Santa Rosa de Osos en la parte norte de la cordillera Central presenta una expresión morfológica clara de un bloque tectónico basculado al sureste. Con un sistema de perfiles longitudinales orientados en el sentido del basculamiento se busca hacer explicito este fenomeno. Igualmente se construye otro conjunto de perfiles transversales para visualizar los efectos morficos de redes de drenaje. 
+1. El altiplano de Santa Rosa de Osos en la parte norte de la cordillera Central presenta una expresión morfológica clara de un bloque tectónico basculado al sureste. Con un sistema de perfiles longitudinales orientados en el sentido del basculamiento se busca hacer explicito este fenomeno. Igualmente se construye otro conjunto de perfiles transversales para visualizar los efectos morficos de redes de drenaje.
 
 2. El segundo ejemplo consiste en trazar perfiles transversales al cañón del río Medellín entre Copacabana y Barbosa para hacer explicita la relación espacial entre cañones lineales y altiplanos en la zona central de Antioquia.
 
@@ -43,7 +43,7 @@ Procedimiento
 Desarrollo
 ----------
 
-Se debe descargar e importar el mapa raster de [altiplanos](/cartografia-digital/altiplanos.tif) (recordar el procedimiento explicado en la [Clase 10](/cartografia-digital/clase-10.html)).
+Se debe descargar e importar el mapa raster de [altiplanos](/cartografia-digital/altiplanos.tif) (recordar el procedimiento explicado en la [Clase 10](/cartografia-digital/clases/clase-10.html)).
 
 ### Importar el nuevo mapa al location CursoGrass
 

@@ -745,7 +745,7 @@ Para asignarle etiquetas a las categorías del nuevo mapa, primero debemos crear
 Y lo aplicamos utilizando el comando `r.category`.
 
 ~~~
-r.category map=porce1_tipo_vert rules=CAT_porce1_tipo_vert 
+r.category map=porce1_tipo_vert rules=CAT_porce1_tipo_vert
 ~~~
 
 Consultamos la distribución nuevamente:
@@ -778,7 +778,7 @@ r.report -h map=porce1_tipo_vert units=p,c,k
 ## Tarea 5
 {: .text-danger}
 
-Para esta tarea es necesario descargar el siguiente archivo [vergel.zip](./vergel.zip) y guardarlo en la carpeta personal de la máquina virtual y descomprimirlo utilizando el siguiente comando desde la terminal:
+Para esta tarea es necesario descargar el siguiente archivo [vergel.zip](/cartografia-digital/vergel.zip) y guardarlo en la carpeta personal de la máquina virtual y descomprimirlo utilizando el siguiente comando desde la terminal:
 
 ~~~
 unzip ~/vergel.zip -d ~/Grass
