@@ -39,7 +39,7 @@ order: 0
    | 13  | Manejo de base de datos en R |
    | 14  | Programación avanzada en R |
    | 15  | Entrega de trabajo final en R |
-
+{: .table .table-hover}
 
 ## Políticas del curso
 
