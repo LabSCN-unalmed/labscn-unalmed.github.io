@@ -58,10 +58,11 @@ order: 0
 
 ## Evaluación
 
-  | Item | Porcentaje |
-  |:-----|-----------:|
-  | Examen escrito (Algoritmos básicos) | 10% |
-  | Examen (Lenguaje C, C++, integrado a R) | 10% |
-  | Trabajo inicial | 15% |
-  | Trabajo final | 25% |
-  | Seguimiento (Tareas y talleres) | 40% |
+  | Item                                    | Porcentaje |
+  |:----------------------------------------|:----------:|
+  | Examen escrito (Algoritmos básicos)     | 10%        |
+  | Examen (Lenguaje C, C++, integrado a R) | 10%        |
+  | Trabajo inicial                         | 15%        |
+  | Trabajo final                           | 25%        |
+  | Seguimiento (Tareas y talleres)         | 40%        |
+{: .table .table-hover}
