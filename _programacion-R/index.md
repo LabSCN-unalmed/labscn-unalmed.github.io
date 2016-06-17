@@ -23,7 +23,7 @@ order: 0
 ## Programa
 
    | Dia | Item |
-   |:-------:|------:|   
+   |:-------:|:------|
    | 1   | Introducción y Estructuras básicas |
    | 2   | Estructuras básicas |
    | 3   | Vectores y matrices |
