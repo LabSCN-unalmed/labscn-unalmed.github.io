@@ -1,22 +1,17 @@
 ---
-layout: curso
-title: 'Tema 2'
+layout: clase
+title: 'Lenguaje de programación C, C++'
 curso: 'programacion-R'
+clase: 2
 custom_js: 'mathjax'
 ---
 
-## Contenido.
-{: .no_toc}
-
-* ToC
-{: toc}
-
-## Lenguaje de programación C, C++.
+## Lenguaje de programación C, C++
 
 Se utilizará la integración del lenguaje C, C++ al
 lenguaje R
 
-## Equivalencias de tipos de datos.
+## Equivalencias de tipos de datos
 
  - Escalares
 
@@ -47,7 +42,7 @@ lenguaje R
   - El operador módulo (mod) es (%).
   - Para potencia se utiliza la función de la biblioteca estándar `std::pow(x,y)`.
 
-## Simplificaciones de contadores y acumuladores.
+## Simplificaciones de contadores y acumuladores
 
   - La operación `i++`, es equivalente a `i = i + 1`.
   - La operación `i--`, es equivalente a `i = i - 1`.
@@ -57,7 +52,7 @@ lenguaje R
   - La operación `c /= a`, es equivalente a `c = c / a`.
   - La operación `c %= a`, es equivalente a `c = c % a`.
 
-## Estructuras básicas.
+## Estructuras básicas
 
   - Asignación
 
@@ -123,33 +118,15 @@ Pero en donde sea necesario se utiliza la siguiente estructura.
     }
 ```
 
-## Plantilla ejemplo básica integrada a R.
+## Plantilla ejemplo básica integrada a R
 
 [Plantilla](plantilla.cpp)
 
 ``` c++
-//----------------------------------------------------------------------------//
-// Titulo: Función para sumar dos enteros.
-// Tipo: Plantilla
-// Nombre: Kenneth Roy Cabrera Torres
-// Fecha: Jueves, 16 de junio de 2016
-// Enunciado: Se construye la función suma.
-//----------------------------------------------------------------------------//
-#include <Rcpp.h>
-using namespace Rcpp;
-
-// [[Rcpp::export]]
-int sume(int x, int y){
-  int suma = x + y;
-  return suma;
-}
-
-/*** R
-sume(1,2)
-*/
+{% include_relative plantilla.cpp %}
 ```
 
-## Ejemplos.
+## Ejemplos
 
 Escriba una función en C++ integrada a R que:
 

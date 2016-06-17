@@ -5,6 +5,9 @@ curso: 'programacion-R'
 order: 2
 ---
 
-## [Lógica de programación (Algoritmos)](./clases/clase1.html)
-
-## [Lenguaje de programación C, C++](./clases/clase2.html)
+{% for clase in site.programacion-R %}
+{% if clase.clase and clase.curso == page.curso %}
+## Tema {{ clase.clase }}
+[{{ clase.title }}]({{ clase.url }})
+{% endif %}
+{% endfor %}

@@ -1,16 +1,11 @@
 ---
-layout: curso
-title: 'Lógica de programación'
+layout: clase
+title: 'Lógica de programación (Algoritmos)'
 curso: 'programacion-R'
+clase: 1
 ---
 
-## Contenido.
-{: .no_toc}
-
-* ToC
-{: toc}
-
-## Algoritmos.
+## Algoritmos
 
 Un **algoritmo** es un conjunto finito de instrucciones que, si se
 siguen rigurosamente, llevan a cabo una tarea específica.
@@ -30,7 +25,7 @@ Un algoritmo tiene las siguientes características:
 
 ![](caja_negra1.png)
 
-## Tipos y operaciones.
+## Tipos y operaciones
 
 1. Tipos de variables.
    - Booleano:
@@ -64,7 +59,7 @@ Un algoritmo tiene las siguientes características:
    - Disyunción: \|\|
    - Negación:   !
 
-## Precedencia de operadores.
+## Precedencia de operadores
 
    El orden de precedencia de mayor a menor es:
 
@@ -89,7 +84,7 @@ Un algoritmo tiene las siguientes características:
    a <- (3 ^2 + 100) ^ (1 / 2)
    ```
 
-## Estructuras básicas.
+## Estructuras básicas
 
    - Asignación.
 
@@ -150,7 +145,7 @@ Un algoritmo tiene las siguientes características:
    Fin
 ```   
 
-## Plantilla básica.
+## Plantilla básica
 
 Plantilla o esquema de la escritura en seudocódigo.
 
@@ -169,12 +164,12 @@ Inicio
 Fin   
 ```
 
-## Esquema de seguimiento o prueba de escritorio.
+## Esquema de seguimiento o prueba de escritorio
 
 ![](seguimiento1.png)
 
 
-## Vectores y matrices.
+## Vectores y matrices
 
  - Un vector es un arreglo de un único tipo de datos identificado
    por las posiciones de cada elemento en el arreglo.
@@ -190,7 +185,7 @@ Fin
  Sarta matriz[10][10]
 ```
 
-## Funciones.
+## Funciones
 
 - Son subalgoritmos que realizan una tarea específica.
 - Opcionalmente puede tener entradas, pero **siempre** deberá tener
@@ -218,7 +213,7 @@ Algoritmo suma_enteros2
  Fin
 ```
 
-## Ejercicios.
+## Ejercicios
 
 Escriba un algoritmo que:
 
