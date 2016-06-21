@@ -51,7 +51,7 @@ o
 siguiendo la plantilla dada para el curso.
 
 ## Tarea 2
-Fecha de entrega: lunes 20 de junio de 2016 antes de las 23:59
+Fecha de entrega: martes 21 de junio de 2016 antes de las 23:59
   [hora de Colombia](http://horalegal.inm.gov.co/).
 
 Escriba una función en C++ integrada a R que:
