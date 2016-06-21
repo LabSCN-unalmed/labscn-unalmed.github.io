@@ -126,5 +126,90 @@ rbind(B, D)
 
 c(B) 
 # Listas
+
+ n <- c(2, 3, 5) 
+ s <- c("aa", "bb", "cc", "dd", "ee") 
+ b <- c(TRUE, FALSE, TRUE, FALSE, FALSE) 
+ x <- list(n, s, b, 3)
+ 
+x[2]
+
+x[c(2, 4)]
+
+x[[2]]
+
+
+x[[2]] <- "ta"
+
+s
+
+
+v <- list(numeros=c(2, 3, 5), nombres=c("aa", "bb")) 
+v 
+
+v["numeros"]
+
+c[c("nombres", "numeros")]
+
+v[["numeros"]]
+
+v$numeros
+
+attach(v)
+numeros
+detach(v)
+
+
 # Bases de datos (data.frames)
+
+n <- c(2, 3, 5) 
+s <- c("aa", "bb", "cc") 
+b <- c(TRUE, FALSE, TRUE) 
+df <- data.frame(n, s, b)
+
+
+mtcars
+
+mtcars[1, 2]
+
+mtcars["Mazda RX4", "cyl"]
+
+head(mtcars)
+
+mtcars[[9]]
+
+mtcars[["am"]]
+
+mtcars$am
+
+mtcars[, "am"]
+
+mtcars[1]
+
+mtcars["mpg"]
+
+mtcars[c("mpg", "hp")]
+
+mtcars[24, ]
+
+mtcars[c(3, 24), ]
+
+mtcars["camaro Z28", ]
+
+mtcars[c("Datsun 710", "Camaro Z28"), ]
+
+L = mtcars$am == 0
+L
+
+mtcars[L, ]
+
+mtcars[L, ]$mpg
+
+
+
+
+
+
+
+
 
