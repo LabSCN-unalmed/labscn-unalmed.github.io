@@ -95,3 +95,30 @@ Archivos para entrega:
 o
 
  - Tarea2PuntoExtra.cpp
+
+## Tarea 3
+
+Fecha de entrega: viernes 24 de junio de 2016 antes de las 23:59
+  [hora de Colombia](http://horalegal.inm.gov.co/).
+
+Se pide resolver los algoritmos y las funciones de C++, pero todo en
+código R y simplificar donde sea posible en forma matricial el código
+respectivo.
+
+Archivos para entregar:
+
+  - Tarea3Punto1seudo.R
+  - Tarea3Punto2seudo.R
+  - Tarea3Punto3seudo.R
+  - Tarea3Punto4seudo.R
+  - Tarea3Punto5seudo.R    
+  - Tarea3Punto1cpp.R
+  - Tarea3Punto2cpp.R    
+  - Tarea3Punto3cpp.R    
+  - Tarea3Punto4cpp.R    
+  - Tarea3Punto5cpp.R    
+
+o
+
+  - Tarea2PuntoExtraseudo.R
+  - Tarea2PuntoExtracpp.R
