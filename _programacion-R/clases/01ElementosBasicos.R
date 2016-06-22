@@ -100,3 +100,35 @@ sub("Mambrú", "José", "Mambrú se fue a la guerra")
 
 help("sub")
 
+paste("x", 1:5)
+
+paste("x", 1:5, sep = "")
+
+paste("x", 1:5)
+
+cat("x", 1:5)
+
+cat("x", 1:5, sep = "")
+
+mensaje <- paste("Ejemplo de", "un mensaje", "con 'paste()'")
+mensaje
+
+mensaje <- paste("Ejemplo de", "un mensaje", 'con "paste()"')
+mensaje
+print(mensaje)
+cat(mensaje)
+
+cat("Otro ejemplo:\n", "con dos renglones")
+paste("Otro ejemplo:\n", "con dos renglones")
+mensaje2 <- paste("Otro ejemplo:\n", "con dos renglones")
+mensaje2
+print(mensaje2)
+cat(mensaje2)
+
+cat("Otro ejemplo:\n", "con dos renglones", sep = "")
+paste("Otro ejemplo:\n", "con dos renglones", sep = "")
+mensaje2 <- paste("Otro ejemplo:\n", "con dos renglones", sep = "")
+mensaje2
+print(mensaje2)
+cat(mensaje2)
+

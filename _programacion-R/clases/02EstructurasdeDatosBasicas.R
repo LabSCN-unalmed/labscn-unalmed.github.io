@@ -69,6 +69,9 @@ v["Primera"]
 
 v[c("Última", "Primera")]
 
+# Funciones útiles con vectores
+length(v)
+
 # Factores
 
 colores_mangos <- c('verde','verde','amarillo','rojo','rojo','rojo','verde')
@@ -84,7 +87,33 @@ print(nlevels(factor_col_mangos))
 class(factor_col_mangos)
 typeof(factor_col_mangos)
 
+meses <- c("enero", "enero", "febrero", "abril", "abril", "abril")
+meses <- factor(meses)
+meses
+as.integer(meses)
 
+meses <- factor(meses, levels = c("enero", "febrero", "abril"))
+meses
+as.integer(meses)
+
+meses <- factor(meses, labels  = c("Enero", "Febrero", "Abril"))
+meses
+as.integer(meses)
+
+# ¿Porqué este código es un problema?
+meses <- c("enero", "enero", "febrero", "abril", "abril", "abril")
+meses <- factor(meses, labels = c("Enero", "Febrero", "Abril"))
+meses
+as.integer(meses)
+
+# Una mejor forma
+meses <- c("enero", "enero", "febrero", "abril", "abril", "abril")
+meses <- factor(meses, levels = c("enero", "febrero", "abril"),
+                labels = c("Enero", "Febrero", "Abril"))
+meses
+as.integer(meses)
+
+                
 # Matrices
 
 A <- matrix(c(2, 4, 3, 1, 5, 7), nrow=2, ncol=3, byrow = TRUE)        
@@ -111,10 +140,7 @@ B
 t(B)
 
 
-C <- matrix( 
-     c(7, 4, 2), 
-      nrow=3, 
-      ncol=1) 
+C <- matrix(c(7, 4, 2), nrow=3, ncol=1) 
 C 
 
 cbind(B, C)
@@ -127,10 +153,10 @@ rbind(B, D)
 c(B) 
 # Listas
 
- n <- c(2, 3, 5) 
- s <- c("aa", "bb", "cc", "dd", "ee") 
- b <- c(TRUE, FALSE, TRUE, FALSE, FALSE) 
- x <- list(n, s, b, 3)
+n <- c(2, 3, 5) 
+s <- c("aa", "bb", "cc", "dd", "ee") 
+b <- c(TRUE, FALSE, TRUE, FALSE, FALSE) 
+x <- list(n, s, b, 3)
  
 x[2]
 
@@ -149,7 +175,7 @@ v
 
 v["numeros"]
 
-c[c("nombres", "numeros")]
+v[c("nombres", "numeros")]
 
 v[["numeros"]]
 
@@ -205,11 +231,71 @@ mtcars[L, ]
 
 mtcars[L, ]$mpg
 
+# Problemas a evitar en el uso de los "data.frames"
+mal <- data.frame(cbind(a = 1:2, b = c("a", "b")))
+mal
+str(mal)
+
+bien1 <- data.frame(a = 1:2, b = c("a", "b"))
+bien1
+str(bien1)
+
+bien2 <- data.frame(a = 1:2, b = c("a", "b"), stringsAsFactors = FALSE)
+bien2
+str(bien2)
 
 
+# "Columnas" especiales en las bases de datos.
+df <- data.frame(x = 1:3)
+df$y <- list(1:2, 1:3, 1:4)
+df
+str(df)
 
+# data.frame(x = 1:3, y = list(1:2, 1:3, 1:4)) # Se genera un error
 
+dfl <- data.frame(x = 1:3, y = I(list(1:2, 1:3, 1:4)))
+dfl
+str(dfl)
+dfl[2, "y"]
 
+dfm <- data.frame(x = 1:3, y = I(matrix(1:9, nrow = 3)))
+dfm
+str(dfm)
+dfm[2, "y"]
 
+# Se debe tener mucho cuidado al utilizar estas opciones en las
+# bases de datos porque muchas funciones asumen que cada columa de 
+# una base de datos es de tipo atómico.
+
+# Atributos de objetos (estructura de datos) en R.
+
+y <- 1:10
+attr(y, "mi_attribute") <- "Este es un vector"
+attr(y, "mi_attribute")
+str(attributes(y))
+
+(y2 <- structure(1:10, mi_attribute = "Este es un vector"))
+
+attributes(y[1])
+attributes(y2[1])
+
+attributes(sum(y))
+attributes(sum(y2))
+
+# Ejemplo del uso de atributos
+x <- 1:10
+y <- rnorm(10)
+
+modeloLineal1 <- lm(y ~ x)
+
+str(modeloLineal1)
+attributes(modeloLineal1)
+attr(modeloLineal1, "class") ## No es aconsejable utilizarlo de esta manera
+class(modeloLineal1)
+
+# Los tres atributos más importantes son:
+# 1. names(): Aplica a vectores y listas.
+# 2. dim(): Aplica a matrices y arreglos.
+# 3. class(): Aplica a cualquier objeto.
 
 

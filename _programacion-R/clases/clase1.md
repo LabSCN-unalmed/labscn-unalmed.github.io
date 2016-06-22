@@ -81,7 +81,7 @@ Un algoritmo tiene las siguientes características:
    Ejemplo:
 
    ```
-   a <- (3 ^2 + 100) ^ (1 / 2)
+   a <- (3 ^ 2 + 100) ^ (1 / 2)
    ```
 
 ## Estructuras básicas

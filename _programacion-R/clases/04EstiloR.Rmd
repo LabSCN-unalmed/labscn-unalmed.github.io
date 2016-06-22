@@ -1,0 +1,168 @@
+---
+title: "Estilo de programación en R"
+author: "Kenneth Roy Cabrera Torres"
+date: "22 de junio de 2016"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Notación y denominación
+
+### Archivos
+
+```{r eval=FALSE}
+# bien
+modelos-ajustado.R
+funciones-auxiliares.R
+
+# mal
+programa.r
+funciones1.r
+
+# Los nombres de archivos pueden comenzar con números
+0-descarga.R
+1-adecuacion.R
+2-exploracion.R
+```
+
+
+### Objetos
+```{r eval=FALSE}
+#Bien
+un_dia
+dia_1
+diaUno
+
+#Mal
+primer_dia_del_mes_para_pago
+DiaUno
+diauno
+djm1
+
+# No utilizar nombres de variables de funciones ya existentes 
+# o que puedan confundir.
+T <- FALSE
+c <- 10
+mean <- function(x) sum(x)
+```
+
+## Sintáxis
+
+```{r eval=FALSE}
+# Bien
+promedio <- mean(pies / 12 + pulgadas, na.rm = TRUE)
+
+# Mal
+promedio<-mean(pies/12+pulgadas,na.rm=TRUE)
+
+# Excepción :, ::, :::.
+
+# Bien
+x <- 1:10
+base::get
+
+# Mal
+x <- 1 : 10
+base :: get
+```
+
+Con el uso de los paréntesis: 
+espacio antes del paréntesis izquierdo si no es una función, y
+sin espacion antes del paréntesis izquierdo si es una función.
+```{r eval=FALSE}
+# Bien
+if (debug) do(x)
+plot(x, y)
+
+# Mal
+if(debug)do(x)
+plot (x, y)
+
+```
+
+Varias líneas de una instrucción para mayor claridad.
+
+Alinear con `<-` y con `=`. 
+
+```{r eval=FALSE}
+list(
+  total = a + b + c, 
+  mean  = (a + b + c) / n
+)
+```
+
+```{r eval=FALSE}
+# Bien
+if (debug) do(x)
+diamonds[5, ]
+
+# Mal
+if ( debug ) do(x)  
+x[1,]   
+x[1 ,]  
+```
+
+Uso de las llaves `{}`. 
+
+```{r eval=FALSE}
+# Bien
+
+if (y < 0 && debug) {
+  message("Y es negativo")
+}
+
+if (y == 0) {
+  log(x)
+} else {
+  y ^ x
+}
+
+# Mal
+
+if (y < 0 && debug)
+message("Y es negativo")
+
+if (y == 0) {
+  log(x)
+} 
+else {
+  y ^ x
+}
+```
+
+```{r eval=FALSE}
+long_function_name <- function(a = "un argumento largo con muchas operaciones", 
+                               b = "otro argumento",
+                               c = "y uno mas!") {
+  x <- a * c
+  ...
+  ...
+}
+
+```
+
+Líneas de comentarios y subtítulos
+
+```{r eval=FALSE}
+# Desgarga de datos.        ---------------------------
+
+# Graficación exploratorio  ---------------------------
+
+#=============================================================================#
+# Se inicia una sección
+#=============================================================================#
+
+#-----------------------------------------------------------------------------#
+# Cambia de procedimiento
+
+```
+
+
+
+
+
