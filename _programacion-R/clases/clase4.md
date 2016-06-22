@@ -91,3 +91,8 @@ is.integer(y)
 ## Estilo de codificación en R
 
   - [Estilo en R](04EstiloR.html)
+
+## Estructuras de control en R
+
+  - [Estrucutras de control](05Estructuradeprogramacion.html)
+  

@@ -80,6 +80,12 @@ seq(2, 15, along.with = x)
 
 sequence(c(3, 4, 2))
 
+(x <- 6:10)
+
+seq_along(x)
+
+seq_len(5)
+
 rep(4, 6)
 
 rep(c(1, 3, 2), 3)

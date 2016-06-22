@@ -297,5 +297,7 @@ class(modeloLineal1)
 # 1. names(): Aplica a vectores y listas.
 # 2. dim(): Aplica a matrices y arreglos.
 # 3. class(): Aplica a cualquier objeto.
+# Se llaman directamente con su función respectiva,
+# los demás atributos se utiiza la función attributes() y attr().
 
 

@@ -96,6 +96,11 @@ list(
 )
 ```
 
+Antes de coma no va espacio en blanco.
+Después de coma va espacio en blanco.
+Evitar espacios en blanco en los paréntesis exceptuando el
+primer paréntesis izquierdo que sigue la regla dada.
+
 ```{r eval=FALSE}
 # Bien
 if (debug) do(x)
@@ -111,9 +116,8 @@ Uso de las llaves `{}`.
 
 ```{r eval=FALSE}
 # Bien
-
 if (y < 0 && debug) {
-  message("Y es negativo")
+  message("y es negativo")
 }
 
 if (y == 0) {
@@ -125,7 +129,7 @@ if (y == 0) {
 # Mal
 
 if (y < 0 && debug)
-message("Y es negativo")
+message("y es negativo")
 
 if (y == 0) {
   log(x)
@@ -134,6 +138,8 @@ else {
   y ^ x
 }
 ```
+
+Alinear los argumentos de las fuciones si son muy largos y varios argumentos.
 
 ```{r eval=FALSE}
 long_function_name <- function(a = "un argumento largo con muchas operaciones", 
