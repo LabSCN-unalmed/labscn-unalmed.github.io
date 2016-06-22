@@ -129,7 +129,7 @@ if (y == 0) {
 # Mal
 
 if (y < 0 && debug)
-message("y es negativo")
+ message("y es negativo")
 
 if (y == 0) {
   log(x)

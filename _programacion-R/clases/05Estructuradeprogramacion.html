@@ -136,7 +136,7 @@ $(document).ready(function () {
     y &lt;- 0
   }</code></pre>
 <p>El resultado se puede llevar a una variable</p>
-<pre class="r"><code>  y &lt;- if (x&gt;3) { 10 } else { 0 }</code></pre>
+<pre class="r"><code>  y &lt;- if (x &gt; 3) { 10 } else { 0 }</code></pre>
 </div>
 <div id="estructuras-de-repeticion" class="section level2">
 <h2>Estructuras de repetición</h2>
@@ -176,7 +176,7 @@ z &lt;- 5
 while (z &gt;= 3 &amp;&amp; z &lt;= 10) {
   print(z)
   coin &lt;-rbinom(1,1,0.5)
-  if (coin==1) {
+  if (coin == 1) {
     z &lt;- z + 1
   } else {
     z &lt;- z - 1        
@@ -188,7 +188,7 @@ x0 &lt;- 1
 tol &lt;- 1e-8
 repeat {
   x1 &lt;- computeEstimate()
-  if ( abs(x1 - x0) &lt; tol ) {
+  if (abs(x1 - x0) &lt; tol) {
     break
   } else {
   x0 &lt;- x1
