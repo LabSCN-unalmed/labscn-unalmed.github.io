@@ -131,7 +131,6 @@ $(document).ready(function () {
 <li><a href="#tipos-de-argumentos.">Tipos de argumentos.</a></li>
 <li><a href="#validacion-de-argumentos.">Validación de argumentos.</a></li>
 <li><a href="#funciones-como-objetos">Funciones como objetos</a></li>
-<li><a href="#entorno-de-funciones">Entorno de funciones</a></li>
 <li><a href="#programacion-vectorial-y-matricial-en-r.">Programación vectorial y matricial en R.</a><ul>
 <li><a href="#apply"><code>apply()</code></a></li>
 <li><a href="#by"><code>by()</code></a></li>
@@ -183,6 +182,20 @@ lm(y ~ x, misdatos, 1:100, model = FALSE)</code></pre>
 </div>
 <div id="entorno-de-variables-en-funciones" class="section level2">
 <h2>Entorno de variables en funciones</h2>
+<pre class="r"><code>x &lt;- 3
+fNada1 &lt;- function(a){
+  x &lt;- 1
+  a + x
+}
+
+fNada1(6)</code></pre>
+<pre><code>## [1] 7</code></pre>
+<pre class="r"><code>fNada2 &lt;- function(a){
+  a + x
+}
+
+fNada2(6)</code></pre>
+<pre><code>## [1] 9</code></pre>
 <pre class="r"><code>f1 &lt;- function(x1) {
   f2 &lt;- function(x2) {
     f3 &lt;- function(x3) {
@@ -223,7 +236,7 @@ f(45)</code></pre>
 <pre class="r"><code>mean</code></pre>
 <pre><code>## function (x, ...) 
 ## UseMethod(&quot;mean&quot;)
-## &lt;bytecode: 0x3bbae98&gt;
+## &lt;bytecode: 0x308e038&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>El argumento <code>...</code> es necesario cuando el número de argumentos que se pasan a una función no se sabe con anticipación.</p>
 <pre class="r"><code>args(paste)</code></pre>
@@ -300,8 +313,8 @@ f3(m1, m2)</code></pre>
 <div id="validacion-de-argumentos." class="section level2">
 <h2>Validación de argumentos.</h2>
 <pre class="r"><code>f4 &lt;- function(a, b, c, d) {
-  stopifnot(a &gt;=0, a &lt;=1, b &gt; 1, c &gt; 0)
-  r1 &lt;- c(qnorm(a), log(b-1), sqrt(c))
+  stopifnot(a &gt;= 0, a &lt;= 1, b &gt; 1, c &gt; 0)
+  r1 &lt;- c(qnorm(a), log(b - 1), sqrt(c))
   return(r1)
 }
 
@@ -331,23 +344,6 @@ cubo(2)</code></pre>
 <pre><code>## [1] 8</code></pre>
 <pre class="r"><code>cubo(4)</code></pre>
 <pre><code>## [1] 64</code></pre>
-</div>
-<div id="entorno-de-funciones" class="section level2">
-<h2>Entorno de funciones</h2>
-<pre class="r"><code>x &lt;- 3
-fNada1 &lt;- function(a){
-  x &lt;- 1
-  a + x
-}
-
-fNada1(6)</code></pre>
-<pre><code>## [1] 7</code></pre>
-<pre class="r"><code>fNada2 &lt;- function(a){
-  a + x
-}
-
-fNada2(6)</code></pre>
-<pre><code>## [1] 9</code></pre>
 </div>
 <div id="programacion-vectorial-y-matricial-en-r." class="section level2">
 <h2>Programación vectorial y matricial en R.</h2>
@@ -454,48 +450,49 @@ sapply(l, mean)</code></pre>
 <h3><code>vapply()</code></h3>
 <p>Aplica la función sobre una lista y devuelve el resultado de acuerdo a un formato indicado.</p>
 <pre class="r"><code>l &lt;- list(a = 1:10, b = 11:20)
-l.fivenum &lt;- vapply(l, 
-                    fivenum, 
-                    c(Min.=0, &quot;1st Qu.&quot;=0, Median=0, &quot;3rd Qu.&quot;=0, Max.=0))
-class(l.fivenum)</code></pre>
+lFivenum &lt;- vapply(l, 
+                   fivenum, 
+                   c(Min. = 0, &quot;1er Cuart.&quot; = 0, 
+                     Mediana = 0, &quot;3er Cuart.&quot; = 0, Max. = 0))
+class(lFivenum)</code></pre>
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
-<pre class="r"><code>l.fivenum</code></pre>
-<pre><code>##            a    b
-## Min.     1.0 11.0
-## 1st Qu.  3.0 13.0
-## Median   5.5 15.5
-## 3rd Qu.  8.0 18.0
-## Max.    10.0 20.0</code></pre>
+<pre class="r"><code>lFivenum</code></pre>
+<pre><code>##               a    b
+## Min.        1.0 11.0
+## 1er Cuart.  3.0 13.0
+## Mediana     5.5 15.5
+## 3er Cuart.  8.0 18.0
+## Max.       10.0 20.0</code></pre>
 </div>
 <div id="replicate" class="section level3">
 <h3><code>replicate()</code></h3>
 <p>Replica la ejecución de una función un número específico de veces.s</p>
 <pre class="r"><code>replicate(10, rnorm(10))</code></pre>
-<pre><code>##             [,1]       [,2]        [,3]        [,4]       [,5]
-##  [1,] -0.9235814 -2.2007181  0.09304562 -0.37571718 -1.8557296
-##  [2,]  0.2518645 -0.3092849 -0.65310005 -0.82727495  0.8619648
-##  [3,]  0.6035621 -0.7688006 -1.42955870  0.08075743 -0.5284083
-##  [4,]  0.9072251  0.9057352 -0.18842027  0.63179004  1.4852917
-##  [5,] -1.0938028 -0.9076524  2.37162096  1.09892602  0.3334651
-##  [6,]  1.3268247  0.2529572 -0.49752394  0.20375500 -0.5121454
-##  [7,]  0.1821497 -0.4809306  1.17404500  1.78907450 -0.8598588
-##  [8,] -0.3063794  1.2319246 -1.29267323 -1.55062224  0.8558467
-##  [9,] -1.0391510  0.6850739 -2.09624075  0.03907179 -1.3121873
-## [10,]  0.1066820  1.9489535 -0.89798732  1.35584750  0.2712840
-##               [,6]        [,7]        [,8]       [,9]       [,10]
-##  [1,] -0.196189905 -1.66028529 -1.35824170 -0.9690607 -0.26836656
-##  [2,] -0.318211447 -0.90503610  0.49913044 -1.3114516 -2.26945981
-##  [3,]  0.983353650 -0.62232329  0.01255898 -1.2601125 -0.35185234
-##  [4,]  0.609652925  1.23103447  1.97443844  0.2834653  1.92205678
-##  [5,]  0.393515281 -0.06142784  0.10602409  0.6208649  0.06682315
-##  [6,]  0.679626028 -0.38769350  0.93784696  0.8985512 -0.56788992
-##  [7,]  0.407886710  0.22018180  0.59042520 -0.1227183  0.10672115
-##  [8,]  2.250169601 -2.04983372  0.03106413 -0.9511473  1.18411589
-##  [9,] -0.678700276  1.83670193  0.14946203  0.5682972 -1.07755113
-## [10,]  0.001179025 -0.78355891  1.35129836  0.3983383 -0.70951770</code></pre>
+<pre><code>##             [,1]       [,2]       [,3]       [,4]        [,5]        [,6]
+##  [1,]  0.3307180  0.3483185 -0.4565328 -0.3206994 -0.19875630  0.42201744
+##  [2,] -0.1127943 -0.4329255  1.6030946 -1.7238082  1.52425026  0.28584717
+##  [3,] -1.4538364 -1.7017545  0.6146186 -0.4233681 -0.32532129 -0.28626076
+##  [4,]  2.2343678  0.3847550 -0.2807283 -0.1101170 -0.84045811  0.39086546
+##  [5,] -0.1897410 -0.8711948 -0.1077113  0.4615459 -1.03993315  0.07788871
+##  [6,] -1.3515794 -0.1018832  0.1672976 -1.2857373  0.05888384 -1.00925261
+##  [7,]  0.4158242 -0.8666547  1.3936225 -0.4646883  0.10377681  0.66111141
+##  [8,] -0.8067595  1.3696174  2.4085537  0.4410471  1.08512456  3.75437382
+##  [9,]  3.0822522 -0.0650694  0.7784058 -0.5872478 -0.14333567 -0.89049925
+## [10,] -1.4354629  1.1757521 -1.5394842 -0.4488133  0.37141925  0.26041222
+##             [,7]       [,8]       [,9]       [,10]
+##  [1,] -1.0026573  0.1624476  0.6164078  0.35603443
+##  [2,]  1.0335738  1.6021452  1.1554795 -2.07323947
+##  [3,]  0.6876513 -1.6455523 -1.3173628  0.65395971
+##  [4,]  2.1906078  0.9768545 -2.0564753 -1.06652510
+##  [5,] -0.5852083  0.5690220 -0.8239187  0.84384080
+##  [6,] -0.2105144 -0.1244530 -0.8346169 -0.65741285
+##  [7,] -0.4533970 -0.7526652  0.2305484  0.11754949
+##  [8,]  0.5366957  2.1919855  0.9576892 -0.42721245
+##  [9,]  0.2434092 -1.8058566  0.7089778  0.01090176
+## [10,]  0.3741805  1.1949707 -1.0413675 -1.71362072</code></pre>
 <pre class="r"><code>replicate(8, mean(rexp(10)))</code></pre>
-<pre><code>## [1] 1.2608492 0.5187350 1.7645779 0.5087798 1.0141115 1.1019517 0.8794466
-## [8] 1.1083698</code></pre>
+<pre><code>## [1] 0.6316896 1.0492741 0.9759895 1.0958898 0.6492026 0.8047240 0.7070070
+## [8] 1.0449037</code></pre>
 </div>
 <div id="mapply" class="section level3">
 <h3><code>mapply()</code></h3>
@@ -505,6 +502,14 @@ l2 &lt;- list(c = c(21:30), d = c(31:40))
 
 mapply(sum, l1$a, l1$b, l2$c, l2$d)</code></pre>
 <pre><code>##  [1]  64  68  72  76  80  84  88  92  96 100</code></pre>
+<pre class="r"><code>mapply(sum, l1, l2)</code></pre>
+<pre><code>##   a   b 
+## 310 510</code></pre>
+<pre class="r"><code>l2 &lt;- list(c = c(21:30), d = c(31:40), z = c(31:50))
+
+mapply(sum, l1$a, l1$b, l2$c, l2$z)</code></pre>
+<pre><code>##  [1]  64  68  72  76  80  84  88  92  96 100  74  78  82  86  90  94  98
+## [18] 102 106 110</code></pre>
 </div>
 <div id="tapply" class="section level3">
 <h3><code>tapply()</code></h3>
