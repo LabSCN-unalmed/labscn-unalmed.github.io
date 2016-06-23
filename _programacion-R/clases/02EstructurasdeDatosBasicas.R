@@ -129,7 +129,6 @@ A[, 3]
 dimnames(A) = list( 
      c("fila1", "fila2"),        
      c("col1", "col2", "col3"))
-
 A
 
 A["fila2","col3"]
@@ -270,11 +269,11 @@ dfm[2, "y"]
 # Atributos de objetos (estructura de datos) en R.
 
 y <- 1:10
-attr(y, "mi_attribute") <- "Este es un vector"
-attr(y, "mi_attribute")
+attr(y, "mi_atributo") <- "Este es un vector"
+attr(y, "mi_atributo")
 str(attributes(y))
 
-(y2 <- structure(1:10, mi_attribute = "Este es un vector"))
+(y2 <- structure(1:10, mi_atributo = "Este es un vector"))
 
 attributes(y[1])
 attributes(y2[1])

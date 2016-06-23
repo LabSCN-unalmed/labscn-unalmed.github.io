@@ -120,5 +120,5 @@ Archivos para entregar:
 
 o
 
-  - Tarea2PuntoExtraseudo.R
-  - Tarea2PuntoExtracpp.R
+  - Tarea3PuntoExtraseudo.R
+  - Tarea3PuntoExtracpp.R

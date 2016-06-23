@@ -1,0 +1,408 @@
+---
+title: "Funciones en R (II)"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves, 23 de junio de 2016"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Argumentos formales de funciones en R.
+
+En R los argumentos de las funciones se pueden indicar por su
+posición o por su nombre.
+
+```{r eval=FALSE}
+misdatos <- rnorm(100)
+formals(sd)
+sd(misdatos)
+sd(x = misdatos)
+sd(x = misdatos, na.rm = FALSE)
+sd(na.rm = FALSE, x = misdatos)
+sd(na.rm = FALSE, misdatos)
+```
+
+Se recomienda utilizar el nombre de los argumentos y conservar el orden.
+
+
+Se puede mezclar el emparejamiento por posición y por nombre.
+Cuándo se empareja por nombre, se "saca" de la lista de argumentos y
+los demás argumentos siguen el orden en que están definidos.
+
+
+```{r eval = FALSE}
+formals(lm)
+args(lm)
+
+x <- rnorm(1000, mean = 50, sd = 10)
+y <- 1 + 5 * x + rnorm(1000)
+
+misdatos <- data.frame(x,y)
+
+lm(data = misdatos, y ~ x,  model = FALSE,  1:100)
+lm(y ~ x, misdatos, 1:100, model = FALSE)
+```
+
+Los argumentos de las funciones pueden ser *parcialmente* 
+emparejadas, lo cuál es útil en un trabajo interactivo.
+
+El orden de emparejamiento es:
+
+- Chequea el emparejado exacto para un argumento con nombre.
+- Realiza un chequeo parcial.
+- Realiza un chequeo posicional.
+
+Además de no definir un valor por omisión se puede
+establecer como un argumento de NULL.
+
+
+```{r eval=FALSE}
+f <- function(a, b = 1, c = 2, d = NULL) {
+   
+}
+```
+
+## Entorno de variables en funciones
+```{r eval=FALSE}
+f1 <- function(x1) {
+  f2 <- function(x2) {
+    f3 <- function(x3) {
+      x1 + x2 + x3
+    }
+    f3(3)
+  }
+  f2(2)
+}
+f1(1)
+f1(3)
+```
+
+
+## Evaluación "perezosa".
+
+Los argumentos de una función se evalúan de manera
+*perezosa*, de forma que se evalúan si se necesitan.
+
+
+```{r eval=FALSE}
+f <- function(a, b){
+  a ^ 2
+}
+
+f(2)
+```
+
+Debido a que esta función realmente no utiliza el argumento `b`,
+el llamado la función `f(2)` no produce ningún error, porque
+el `2` se empareja con la variable `a`.
+
+```{r eval=FALSE}
+f <- function(a, b){
+  print(a)
+  print(b)
+}
+
+f(45)
+```
+
+Note que se muestra el `45` antes que se muestre el error.
+Sólo se muestra el error cuando se evalúa `print(b)`
+
+
+## El argumento `...`
+
+El argumento `...` indica un número variable de argumentos,
+que usualmente se pasan a otras funciones.
+
+`...` se usa para extender otra función y no se quiere copiar
+la lista completa de los argumentos de la función.
+
+
+```{r eval = FALSE}
+miplot <- function(x, y, type = "l", ...){
+  plot(x, y, type = type, ...)  
+}
+```
+
+Las funciones genéricas usan `...` para que los argumentos
+extras se pasen a los métodos. (POO).
+
+
+```{r}
+mean
+```
+
+El argumento `...` es necesario cuando el número de
+argumentos que se pasan a una función no se sabe
+con anticipación.
+
+```{r}
+args(paste)
+```
+
+
+```{r}
+args(cat)
+```
+
+
+Todo argumento que aparezca *depués* de `...` deberá
+ser nombrado explícitamente y no se puede emparejar
+parcialmente.
+
+
+```{r}
+args(paste)
+```
+
+```{r eval = FALSE}
+paste("a", "b", sep = ":")
+
+paste("a", "b", se = ":")
+```
+
+## Devolución de valores de tipo `function`.
+
+```{r eval = FALSE}
+fmala <- function(x, y) {
+ z1 <- 2 * x + y
+ z2 <- x + 2 * y
+ z3 <- 2 * x + 2 * y
+ z4 <- x / y
+}
+r1 <- fmala(8, 10)
+r1
+```
+
+```{r eval = FALSE}
+fcorrecta <- function(x, y) {
+ z1 <- 2 * x + y
+ z2 <- x + 2 * y
+ z3 <- 2 * x + 2 * y
+ z4 <- x / y
+ return(c(z1, z2, z3, z4))
+}
+
+r1 <- fcorrecta(1, 2)
+r1
+```
+
+Si se retorna elementos más complejos es convenviente devolverlo en
+forma de lista.
+
+```{r eval = FALSE}
+f2 <- function(x, y) {
+  z1 <- x + y
+  z2 <- x + 2 * y
+  list(z1, z2) 
+}
+
+f2(2, 5)
+
+f2(2, 5)[[2]]
+
+f2(2, 5)$z1
+```
+
+```{r eval = FALSE}
+f3 <- function(x, y) {
+  z1 <- x + y
+  z2 <- x + 2 * y
+  list(result1=z1, result2=z2)
+}
+
+f3(2, 5)
+
+f3(2, 5)[[2]]
+
+f3(2, 5)$result2
+```
+
+## Tipos de argumentos.
+
+```{r eval = FALSE}
+v1 <- c(2, 3, 5, 7)
+v2 <- c(4, 0, 1, 9)
+f3(v1, v2)
+
+m1 <- matrix(c(1, 2, 3, 4,  5,  6), ncol = 2)
+
+m2 <- matrix(c(2, 4, 6, 8, 10, 12), ncol = 2)
+
+f3(m1, m2)
+```
+
+## Validación de argumentos.
+```{r eval = FALSE}
+f4 <- function(a, b, c, d) {
+  stopifnot(a >=0, a <=1, b > 1, c > 0)
+  r1 <- c(qnorm(a), log(b-1), sqrt(c))
+  return(r1)
+}
+
+f4(2, 2, 0.5)
+
+f4(0.1, 0.5, 0.5)
+
+f4(0.1, 5, -2)
+
+f4(0.1, 0.5, -1)
+```
+
+## Funciones como objetos
+
+```{r}
+potencia <- function(exponente) {
+  function(x) {
+    x ^ exponente
+  }
+}
+
+cuadrado <- potencia(2)
+cuadrado(2)
+cuadrado(4)
+
+cubo <- potencia(3)
+cubo(2)
+cubo(4)
+```
+
+## Entorno de funciones
+
+```{r}
+x <- 3
+fNada1 <- function(a){
+  x <- 1
+  a + x
+}
+
+fNada1(6)
+
+fNada2 <- function(a){
+  a + x
+}
+
+fNada2(6)
+```
+
+## Programación vectorial y matricial en R.
+
+### `apply()` 
+
+Aplica la función sobre un la marginal de un arreglo o matriz.
+
+```{r}
+(m <- matrix(c(1:10, 11:20), nrow = 10, ncol = 2))
+apply(m, 1, mean)
+apply(m, 2, mean)
+apply(m, 1:2, function(x) x/2)
+```
+
+
+### `by()`
+
+Aplica la función sobre una división de una base de datos (`data.frame`) por
+un factor.
+
+```{r}
+head(iris)
+by(iris[, 1:4], iris$Species, colMeans)
+```
+
+
+### `eapply()`
+
+Aplica la función sobre los valores de un entorno.
+
+```{r}
+e <- new.env()
+
+e$a <- 1:10
+e$b <- 11:20
+
+eapply(e, mean)
+```
+
+### `lapply()`
+
+Aplica una función sobre una lista o un vector.
+
+```{r}
+l <- list(a = 1:10, b = 11:20)
+lapply(l, mean)
+lapply(l, sum)
+```
+
+### `sapply()`
+Aplica una función sobre una lista o un vector y si el resultado se puede
+simplificar en un formato más simple, lo hace.
+
+```{r}
+l <- list(a = 1:10, b = 11:20)
+sapply(l, mean)
+sapply(l, sum)
+```
+
+### `vapply()`
+
+Aplica la función sobre una lista y devuelve el resultado de acuerdo
+a un formato indicado.
+
+```{r}
+l <- list(a = 1:10, b = 11:20)
+l.fivenum <- vapply(l, 
+                    fivenum, 
+                    c(Min.=0, "1st Qu."=0, Median=0, "3rd Qu."=0, Max.=0))
+class(l.fivenum)
+l.fivenum
+```
+
+### `replicate()`
+Replica la ejecución de una función un número específico de veces.s
+```{r}
+replicate(10, rnorm(10))
+
+replicate(8, mean(rexp(10)))
+```
+
+### `mapply()`
+Es la versión multivariada de `lapply` y `sapply`.
+Aplica la función a los elementos correspondientes de
+múltiples listas. 
+```{r}
+l1 <- list(a = c(1:10), b = c(11:20))
+l2 <- list(c = c(21:30), d = c(31:40))
+
+mapply(sum, l1$a, l1$b, l2$c, l2$d)
+
+```
+
+
+### `tapply()`
+Aplica la función sobre un vector, de acuerdo a una clasificación de la
+variable tipo `factor`.
+
+```{r}
+tapply(iris$Petal.Length, iris$Species, mean)
+```
+
+## Recomendaciones
+
+- Realice los ejercicios de algoritmos. (Adquira un pensamiento algorítmico).
+- Comente su código.
+- RTFM!. (LEMM o LEPM)
+- Piense antes de escribir. (Piense primero en el que y luego en el como).
+- Diseñe en forma *"top-down"*, codifique en forma *"bottom up"*.
+- Divida el problema en pequeñas funciones significativas.
+- Evite escribir la misma rutina dos veces.
+- Use nombres relevantes.
+- Realice una prueba de escritorio o seguimiento. (función por función en
+   forma *"bottom up"*)
+- No se rinda, ¡¡quéjese!! (ayuda a listas, compañeros, etc).
+- Evite iteracciones (R es vectorizado)
+
+

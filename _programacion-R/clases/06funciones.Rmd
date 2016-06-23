@@ -1,0 +1,68 @@
+---
+title: "Funciones en R"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves, 23 de junio de 2016"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## Ejemplo de una función simple
+```{r}
+# Definción de una función simple
+miPrimeraFuncion <- function(n) {
+  n*n  #  Halle el cuadrado de un número.
+}
+# Uso de la función.
+# Definir un valor:
+
+k <- 10
+# Llamado a la función
+# Tres forma de llamar a una función
+
+miPrimeraFuncion(k)
+
+m <- miPrimeraFuncion(k)
+m
+
+(m <- miPrimeraFuncion(k))
+```
+
+
+```{r}
+body(miPrimeraFuncion)
+
+formals(miPrimeraFuncion)
+
+environment(miPrimeraFuncion)
+```
+
+
+¿Cuál será el resultado del siguiente código?
+
+```{r eval=FALSE}
+x <- 10
+f1 <- function(x) {
+  function() {
+    x + 10
+  }
+}
+f1(1)()
+```
+
+
+¿Mostrará el siguiente código un error?
+
+```{r eval=FALSE}
+f2 <- function(a, b) {
+  a * 10
+}
+f2(10, stop("This is an error!"))
+```
+

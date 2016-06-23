@@ -1,0 +1,44 @@
+---
+title: "Funciones en R (I)"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves, 23 de junio de 2016"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Definción de una función simple
+miPrimeraFuncion <- function(n) {
+  n*n  #  Halle el cuadrado de un número.
+}
+# Uso de la función.
+# Definir un valor:
+
+k <- 10
+# Llamado a la función
+# Tres forma de llamar a una función
+
+miPrimeraFuncion(k)
+
+m <- miPrimeraFuncion(k)
+m
+
+(m <- miPrimeraFuncion(k))
+```
+
+
+```{r}
+body(miPrimeraFuncion)
+
+formals(miPrimeraFuncion)
+
+environment(miPrimeraFuncion)
+```
+
+
+
