@@ -182,7 +182,7 @@ paste("a", "b", sep = ":")
 paste("a", "b", se = ":")
 ```
 
-## Devolución de valores de tipo `function`.
+## Entrega de resultados de funciones
 
 ```{r eval = FALSE}
 fmala <- function(x, y) {
@@ -270,7 +270,7 @@ f4(0.1, 5, -2)
 f4(0.1, 0.5, -1)
 ```
 
-## Funciones como objetos
+## Devolución de valores de tipo `function` o como objetos
 
 ```{r}
 potencia <- function(exponente) {

@@ -127,10 +127,10 @@ $(document).ready(function () {
 <li><a href="#entorno-de-variables-en-funciones">Entorno de variables en funciones</a></li>
 <li><a href="#evaluacion-perezosa.">Evaluación “perezosa”.</a></li>
 <li><a href="#el-argumento-...">El argumento <code>...</code></a></li>
-<li><a href="#devolucion-de-valores-de-tipo-function.">Devolución de valores de tipo <code>function</code>.</a></li>
+<li><a href="#entrega-de-resultados-de-funciones">Entrega de resultados de funciones</a></li>
 <li><a href="#tipos-de-argumentos.">Tipos de argumentos.</a></li>
 <li><a href="#validacion-de-argumentos.">Validación de argumentos.</a></li>
-<li><a href="#funciones-como-objetos">Funciones como objetos</a></li>
+<li><a href="#devolucion-de-valores-de-tipo-function-o-como-objetos">Devolución de valores de tipo <code>function</code> o como objetos</a></li>
 <li><a href="#programacion-vectorial-y-matricial-en-r.">Programación vectorial y matricial en R.</a><ul>
 <li><a href="#apply"><code>apply()</code></a></li>
 <li><a href="#by"><code>by()</code></a></li>
@@ -236,7 +236,7 @@ f(45)</code></pre>
 <pre class="r"><code>mean</code></pre>
 <pre><code>## function (x, ...) 
 ## UseMethod(&quot;mean&quot;)
-## &lt;bytecode: 0x308e038&gt;
+## &lt;bytecode: 0x313a860&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>El argumento <code>...</code> es necesario cuando el número de argumentos que se pasan a una función no se sabe con anticipación.</p>
 <pre class="r"><code>args(paste)</code></pre>
@@ -254,8 +254,8 @@ f(45)</code></pre>
 
 paste(&quot;a&quot;, &quot;b&quot;, se = &quot;:&quot;)</code></pre>
 </div>
-<div id="devolucion-de-valores-de-tipo-function." class="section level2">
-<h2>Devolución de valores de tipo <code>function</code>.</h2>
+<div id="entrega-de-resultados-de-funciones" class="section level2">
+<h2>Entrega de resultados de funciones</h2>
 <pre class="r"><code>fmala &lt;- function(x, y) {
  z1 &lt;- 2 * x + y
  z2 &lt;- x + 2 * y
@@ -326,8 +326,8 @@ f4(0.1, 5, -2)
 
 f4(0.1, 0.5, -1)</code></pre>
 </div>
-<div id="funciones-como-objetos" class="section level2">
-<h2>Funciones como objetos</h2>
+<div id="devolucion-de-valores-de-tipo-function-o-como-objetos" class="section level2">
+<h2>Devolución de valores de tipo <code>function</code> o como objetos</h2>
 <pre class="r"><code>potencia &lt;- function(exponente) {
   function(x) {
     x ^ exponente
@@ -468,31 +468,31 @@ class(lFivenum)</code></pre>
 <h3><code>replicate()</code></h3>
 <p>Replica la ejecución de una función un número específico de veces.s</p>
 <pre class="r"><code>replicate(10, rnorm(10))</code></pre>
-<pre><code>##             [,1]       [,2]       [,3]       [,4]        [,5]        [,6]
-##  [1,]  0.3307180  0.3483185 -0.4565328 -0.3206994 -0.19875630  0.42201744
-##  [2,] -0.1127943 -0.4329255  1.6030946 -1.7238082  1.52425026  0.28584717
-##  [3,] -1.4538364 -1.7017545  0.6146186 -0.4233681 -0.32532129 -0.28626076
-##  [4,]  2.2343678  0.3847550 -0.2807283 -0.1101170 -0.84045811  0.39086546
-##  [5,] -0.1897410 -0.8711948 -0.1077113  0.4615459 -1.03993315  0.07788871
-##  [6,] -1.3515794 -0.1018832  0.1672976 -1.2857373  0.05888384 -1.00925261
-##  [7,]  0.4158242 -0.8666547  1.3936225 -0.4646883  0.10377681  0.66111141
-##  [8,] -0.8067595  1.3696174  2.4085537  0.4410471  1.08512456  3.75437382
-##  [9,]  3.0822522 -0.0650694  0.7784058 -0.5872478 -0.14333567 -0.89049925
-## [10,] -1.4354629  1.1757521 -1.5394842 -0.4488133  0.37141925  0.26041222
-##             [,7]       [,8]       [,9]       [,10]
-##  [1,] -1.0026573  0.1624476  0.6164078  0.35603443
-##  [2,]  1.0335738  1.6021452  1.1554795 -2.07323947
-##  [3,]  0.6876513 -1.6455523 -1.3173628  0.65395971
-##  [4,]  2.1906078  0.9768545 -2.0564753 -1.06652510
-##  [5,] -0.5852083  0.5690220 -0.8239187  0.84384080
-##  [6,] -0.2105144 -0.1244530 -0.8346169 -0.65741285
-##  [7,] -0.4533970 -0.7526652  0.2305484  0.11754949
-##  [8,]  0.5366957  2.1919855  0.9576892 -0.42721245
-##  [9,]  0.2434092 -1.8058566  0.7089778  0.01090176
-## [10,]  0.3741805  1.1949707 -1.0413675 -1.71362072</code></pre>
+<pre><code>##              [,1]       [,2]       [,3]       [,4]        [,5]
+##  [1,] -0.48775626  1.9609803  0.3668494 -0.1128052 -0.95224668
+##  [2,]  0.09953773 -0.2652795  0.8575048  1.0222691  0.29429652
+##  [3,] -1.03327510 -0.2569672  1.0167500 -0.2608626 -0.63808246
+##  [4,]  0.12963465 -2.0149070  0.1606118  0.2614432 -0.08256457
+##  [5,] -2.12757086  0.5534440  0.2126003  0.1538548 -0.31654515
+##  [6,] -0.14694578  1.0633715  1.6290361 -0.3758155  0.36742189
+##  [7,]  0.12327989  0.8569183  0.7413986  0.8231191 -0.01684796
+##  [8,]  0.20932433  0.9861895 -0.3025560  0.2773125  0.64516521
+##  [9,] -0.34999280  0.2756905 -0.4007153  0.9269755  0.67950364
+## [10,]  0.52413938  0.3541818 -0.2833891  1.4327797  1.03498203
+##               [,6]        [,7]        [,8]        [,9]      [,10]
+##  [1,]  1.247165726  1.22358993  0.68316071 -0.37911335  0.3361529
+##  [2,] -0.223325034 -0.50971406 -2.66912800  0.47169204  0.5611205
+##  [3,] -0.008202568 -0.75001889  1.26379635 -0.11094403 -2.0619451
+##  [4,]  0.823831958 -0.17050605 -0.84554977 -0.45587362 -0.8414985
+##  [5,] -0.443180840  0.02400735  0.07145053 -0.71142957  0.2472891
+##  [6,] -0.239001552  0.05377669 -1.33758771  0.25437446 -0.2313527
+##  [7,] -0.858196837 -0.97092344  1.13218754  0.38249122  1.1430613
+##  [8,] -0.783138082 -0.34312364  0.04521823  0.07218379  0.3477238
+##  [9,] -0.241564857 -0.37875828  0.49653295 -0.99295421 -0.9072226
+## [10,]  0.421809326  0.86141444  0.65544778 -0.10712871 -1.3319660</code></pre>
 <pre class="r"><code>replicate(8, mean(rexp(10)))</code></pre>
-<pre><code>## [1] 0.6316896 1.0492741 0.9759895 1.0958898 0.6492026 0.8047240 0.7070070
-## [8] 1.0449037</code></pre>
+<pre><code>## [1] 0.9479414 0.7750731 0.9215332 1.7507772 0.7206723 1.0254246 0.7249538
+## [8] 0.4656976</code></pre>
 </div>
 <div id="mapply" class="section level3">
 <h3><code>mapply()</code></h3>
