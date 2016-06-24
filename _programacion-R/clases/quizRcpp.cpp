@@ -1,5 +1,14 @@
 #include <Rcpp.h>
 using namespace Rcpp;
+//----------------------------------------------------------------------------//
+// Titulo: Función que muestra las posiciones a las cuales salta un caballo.
+// Tipo: Ejemplo de función en Rcpp.
+// Nombre: Kenneth Roy Cabrera Torres
+// Fecha: Viernes, 24 de junio de 2016
+// Enunciado: Se crea una función para obtener en una matriz nx2
+//            los índices de las posiciones a las cuales puede saltar 
+//            un caballo en un tablero de ajedrez.
+//----------------------------------------------------------------------------//
 
 // [[Rcpp::export]]
 NumericVector saltoCaballo(int fil, int colum){
@@ -33,7 +42,3 @@ NumericVector saltoCaballo(int fil, int colum){
   return M;
 }
 
-
-/*** R
-saltoCaballo(1, 1)
-*/
