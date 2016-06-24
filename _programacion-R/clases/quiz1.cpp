@@ -23,10 +23,12 @@ int main(){
            x = a*2 + fil;
            y = b*1 + colum;
          }else{
-           x = b*2 + fil;
+           x = b*1 + fil;
            y = a*2 + colum;
          }
-         cout << x << " " << y << endl;
+         if ((x >= 1 && x <= 8) && (y >= 1 && y <= 8)){
+           cout << x << " " << y << endl;
+         }
        }
      }
    }
