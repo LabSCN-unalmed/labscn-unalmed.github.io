@@ -126,6 +126,7 @@ Pero en donde sea necesario se utiliza la siguiente estructura.
 {% include_relative plantilla.cpp %}
 ```
 
+
 ## Ejemplos
 
 Escriba una función en C++ integrada a R que:
@@ -142,6 +143,27 @@ Escriba una función en C++ integrada a R que:
  - Utilice como entrada tres vectores en donde están las
    coordenadas de tres puntos y mediante la fórmula de Herón,
    muestre el área del triángulo correspondiente. ([Ejemplo 5](ejemplo5.cpp)).
+
+Uso de las listas en la integración de R y C++.
+
+``` c++
+#include <Rcpp.h>
+using namespace Rcpp;
+
+// [[Rcpp::export]]
+List ejemploLista(int a, int b, List w) {
+  CharacterVector x = CharacterVector::create("Angelica", "Maria");
+  NumericVector y   = NumericVector::create(0.0, 1.0);
+  y(0) = a;
+  List z            = List::create(x, y, a, b, w);
+  return z;
+}
+
+/*** R
+y <- list(nada = 2, algo = 5)
+ejemploLista(11, 9, y)
+*/
+```
 
 ## Ejercicios
 
