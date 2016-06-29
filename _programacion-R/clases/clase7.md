@@ -2,7 +2,8 @@
 layout: clase
 title: 'Graficación básica en R'
 curso: 'programacion-R'
-clase: 7
+clase: 07
+order: 7
 custom_js: 'mathjax'
 ---
 

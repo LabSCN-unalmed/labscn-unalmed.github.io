@@ -2,7 +2,8 @@
 layout: clase
 title: 'Introducción al R'
 curso: 'programacion-R'
-clase: 4
+clase: 04
+order: 4
 custom_js: 'mathjax'
 ---
 
@@ -95,4 +96,3 @@ is.integer(y)
 ## Estructuras de control en R
 
   - [Estrucutras de control](05Estructuradeprogramacion.html)
-  
