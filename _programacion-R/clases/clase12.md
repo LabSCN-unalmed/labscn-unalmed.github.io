@@ -8,8 +8,9 @@ custom_js: 'mathjax'
 ---
 
 
-
 ## Orientación a objetos S3
+
+Mostrar el código interno de la función `summary`.
 
 ```r
 summary
@@ -18,7 +19,7 @@ summary
 ```
 ## function (object, ...)
 ## UseMethod("summary")
-## <bytecode: 0x1fce9c8>
+## <bytecode: 0x2dd4720>
 ## <environment: namespace:base>
 ```
 
@@ -56,8 +57,8 @@ summary(y)
 ```
 
 ```
-##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.
-## -1.1020000 -0.8217000  0.0002262 -0.0522900  0.2376000  1.7430000
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+## -1.4960 -1.0000  0.4186  0.1007  0.7112  2.6390
 ```
 
 ```r
@@ -119,7 +120,7 @@ summary.factor
 ##         c(tt, `NA's` = sum(nas))
 ##     else tt
 ## }
-## <bytecode: 0x14346a8>
+## <bytecode: 0x21a3428>
 ## <environment: namespace:base>
 ```
 
@@ -173,7 +174,7 @@ summary.default
 ##     class(value) <- c("summaryDefault", "table")
 ##     value
 ## }
-## <bytecode: 0x1e13288>
+## <bytecode: 0x2dcc6c0>
 ## <environment: namespace:base>
 ```
 
@@ -193,7 +194,7 @@ getAnywhere(summary.loess)
 ##     class(object) <- "summary.loess"
 ##     object
 ## }
-## <bytecode: 0x1b7d4b8>
+## <bytecode: 0x2977b30>
 ## <environment: namespace:stats>
 ```
 
@@ -201,7 +202,7 @@ getAnywhere(summary.loess)
 
 
 ```r
-estadisticoss <- function(x) {
+estadisticos <- function(x) {
   n = length(x)
   p = mean(x)
   mu = n*p
@@ -210,15 +211,15 @@ estadisticoss <- function(x) {
 }
 
 y1 <- rbinom(100, size = 1, p = 0.3)
-estadisticoss(y1)
+estadisticos(y1)
 ```
 
 ```
 ## $mu
-## [1] 27
+## [1] 29
 ##
 ## $sigma
-## [1] 4.439595
+## [1] 4.537621
 ##
 ## $n
 ## [1] 100
@@ -226,15 +227,15 @@ estadisticoss(y1)
 
 ```r
 y2 <- rnorm(100, mean = 0.3, sd = 1)
-estadisticoss(y2)
+estadisticos(y2)
 ```
 
 ```
 ## $mu
-## [1] 32.33302
+## [1] 23.46921
 ##
 ## $sigma
-## [1] 4.677476
+## [1] 4.238062
 ##
 ## $n
 ## [1] 100
@@ -245,7 +246,7 @@ mean(y2)
 ```
 
 ```
-## [1] 0.3233302
+## [1] 0.2346921
 ```
 
 ```r
@@ -253,7 +254,7 @@ sd(y2)
 ```
 
 ```
-## [1] 1.049093
+## [1] 0.8793631
 ```
 
 ### Definición de clases
@@ -284,12 +285,12 @@ class(y1)
 ```
 
 ```r
-y2 <- as.binomial(y2)
+y2 <- as.normal(y2)
 class(y2)
 ```
 
 ```
-## [1] "binomial"
+## [1] "normal"
 ```
 
 ## Definición de métodos
@@ -325,10 +326,10 @@ estadisticos(y1)
 
 ```
 ## $mu
-## [1] 27
+## [1] 29
 ##
 ## $sigma
-## [1] 4.439595
+## [1] 4.537621
 ##
 ## $n
 ## [1] 100
@@ -340,10 +341,10 @@ estadisticos(y2)
 
 ```
 ## $mu
-## [1] 32.33302
+## [1] 0.2346921
 ##
 ## $sigma
-## [1] 4.677476
+## [1] 0.8793631
 ##
 ## $n
 ## [1] 100
@@ -383,7 +384,7 @@ estadisticos(y4)
 
 ```
 ## $mu
-## [1] 0.08808433
+## [1] 0.09918677
 ##
 ## $sigma
 ## [1] 1
@@ -440,6 +441,16 @@ print.persona <- function(x, ...) {
 }
 
 print(juan)
+```
+
+```
+## Nombre: Juan
+## Estatura: 173 metros
+## Peso: 75 kilogramos
+```
+
+```r
+juan
 ```
 
 ```
@@ -716,6 +727,6 @@ getAnywhere("residuals.HoltWinters")
 ##
 ## function (object, ...)
 ## object$x - object$fitted[, 1]
-## <bytecode: 0x28f48d8>
+## <bytecode: 0x33aa830>
 ## <environment: namespace:stats>
 ```
