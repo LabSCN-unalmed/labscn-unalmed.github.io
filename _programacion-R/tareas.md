@@ -122,3 +122,7 @@ o
 
   - Tarea3PuntoExtraseudo.R
   - Tarea3PuntoExtracpp.R
+
+## Tarea extra
+
+  [Tarea extra](tareaExtra.html)
