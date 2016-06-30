@@ -3,7 +3,6 @@ layout: clase
 title: 'Programación Orientada a Objetos con C++'
 curso: 'programacion-R'
 clase: 03
-order: 3
 custom_js: 'mathjax'
 ---
 

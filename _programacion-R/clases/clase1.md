@@ -3,7 +3,6 @@ layout: clase
 title: 'Lógica de programación (Algoritmos)'
 curso: 'programacion-R'
 clase: 01
-order: 1
 ---
 
 ## Algoritmos

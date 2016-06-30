@@ -3,9 +3,22 @@ layout: clase
 title: 'Programación orientada a objetos en R'
 curso: 'programacion-R'
 clase: 12
-order: 12
 custom_js: 'mathjax'
 ---
+
+<style type="text/css">
+body, td {
+   font-size: 25px;
+}
+code.r{
+  font-size: 20px;
+}
+pre {
+  font-size: 15px
+}
+</style>
+
+
 
 
 ## Orientación a objetos S3
@@ -19,7 +32,7 @@ summary
 ```
 ## function (object, ...)
 ## UseMethod("summary")
-## <bytecode: 0x2dd4720>
+## <bytecode: 0x396d030>
 ## <environment: namespace:base>
 ```
 
@@ -57,8 +70,8 @@ summary(y)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
-## -1.4960 -1.0000  0.4186  0.1007  0.7112  2.6390
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
+## -1.76500 -0.50960 -0.03265 -0.09539  0.30170  1.83700
 ```
 
 ```r
@@ -120,7 +133,7 @@ summary.factor
 ##         c(tt, `NA's` = sum(nas))
 ##     else tt
 ## }
-## <bytecode: 0x21a3428>
+## <bytecode: 0x36e79b8>
 ## <environment: namespace:base>
 ```
 
@@ -174,7 +187,7 @@ summary.default
 ##     class(value) <- c("summaryDefault", "table")
 ##     value
 ## }
-## <bytecode: 0x2dcc6c0>
+## <bytecode: 0x39754d0>
 ## <environment: namespace:base>
 ```
 
@@ -194,7 +207,7 @@ getAnywhere(summary.loess)
 ##     class(object) <- "summary.loess"
 ##     object
 ## }
-## <bytecode: 0x2977b30>
+## <bytecode: 0x2b1ef68>
 ## <environment: namespace:stats>
 ```
 
@@ -216,10 +229,10 @@ estadisticos(y1)
 
 ```
 ## $mu
-## [1] 29
+## [1] 27
 ##
 ## $sigma
-## [1] 4.537621
+## [1] 4.439595
 ##
 ## $n
 ## [1] 100
@@ -232,10 +245,10 @@ estadisticos(y2)
 
 ```
 ## $mu
-## [1] 23.46921
+## [1] 31.36249
 ##
 ## $sigma
-## [1] 4.238062
+## [1] 4.639658
 ##
 ## $n
 ## [1] 100
@@ -246,7 +259,7 @@ mean(y2)
 ```
 
 ```
-## [1] 0.2346921
+## [1] 0.3136249
 ```
 
 ```r
@@ -254,7 +267,7 @@ sd(y2)
 ```
 
 ```
-## [1] 0.8793631
+## [1] 1.028473
 ```
 
 ### Definición de clases
@@ -326,10 +339,10 @@ estadisticos(y1)
 
 ```
 ## $mu
-## [1] 29
+## [1] 27
 ##
 ## $sigma
-## [1] 4.537621
+## [1] 4.439595
 ##
 ## $n
 ## [1] 100
@@ -341,10 +354,10 @@ estadisticos(y2)
 
 ```
 ## $mu
-## [1] 0.2346921
+## [1] 0.3136249
 ##
 ## $sigma
-## [1] 0.8793631
+## [1] 1.028473
 ##
 ## $n
 ## [1] 100
@@ -384,7 +397,7 @@ estadisticos(y4)
 
 ```
 ## $mu
-## [1] 0.09918677
+## [1] 0.1605578
 ##
 ## $sigma
 ## [1] 1
@@ -727,6 +740,273 @@ getAnywhere("residuals.HoltWinters")
 ##
 ## function (object, ...)
 ## object$x - object$fitted[, 1]
-## <bytecode: 0x33aa830>
+## <bytecode: 0x3d48548>
 ## <environment: namespace:stats>
+```
+
+## Orientación a objetos S4
+
+Tiene las siguientes características:
+
+ - Es más formal en la definición de objetos.
+ - Los métodos pueden tener múltiples argumentos.
+ - El operador para extraer atributos es `@`.
+   Los atributos se denominan `slots`
+
+### Reconocimiento de tipos de objetos
+
+
+```r
+library(stats4)
+
+y <- c(26, 17, 13, 12, 20, 5, 9, 8, 5, 4, 8)
+nLL <- function(lambda) - sum(dpois(y, lambda, log = TRUE))
+fit <- mle(nLL, start = list(lambda = 5), nobs = length(y))
+
+require(pryr)
+```
+
+```
+## Loading required package: pryr
+```
+
+```r
+isS4(fit)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+otype(fit)
+```
+
+```
+## [1] "S4"
+```
+
+```r
+otype(y1)
+```
+
+```
+## [1] "S3"
+```
+
+```r
+otype(juan)
+```
+
+```
+## [1] "S3"
+```
+
+```r
+ftype(estadisticos)
+```
+
+```
+## [1] "s3"      "generic"
+```
+
+```r
+isS4(nobs)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+ftype(nobs)
+```
+
+```
+## [1] "s4"      "generic"
+```
+
+### Definición de objetos
+
+
+```r
+setClass("Persona",
+  slots = list(nombre = "character", edad = "numeric"))
+setClass("Empleado",
+  slots = list(jefe = "Persona"),
+  contains = "Persona")
+
+pedro <- new("Persona", nombre = "Pedro", edad = 40)
+lina <- new("Empleado", nombre = "Lina", edad = 20, jefe = pedro)
+
+pedro@edad
+```
+
+```
+## [1] 40
+```
+
+```r
+slot(lina, "jefe")
+```
+
+```
+## An object of class "Persona"
+## Slot "nombre":
+## [1] "Pedro"
+##
+## Slot "edad":
+## [1] 40
+```
+
+
+```r
+setClass("RangedNumeric",
+  contains = "numeric",
+  slots = list(min = "numeric", max = "numeric"))
+
+rn <- new("RangedNumeric", 1:10, min = 1, max = 10)
+
+rn@min
+```
+
+```
+## [1] 1
+```
+
+```r
+rn@.Data
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+
+
+```r
+setGeneric("union")
+```
+
+```
+## [1] "union"
+```
+
+```r
+setMethod("union",
+  c(x = "data.frame", y = "data.frame"),
+  function(x, y) {
+    unique(rbind(x, y))
+  }
+)
+```
+
+```
+## [1] "union"
+```
+
+### Definición de métodos nuevos
+
+
+```r
+lados <- function(object) 0
+setGeneric("lados")
+```
+
+```
+## [1] "lados"
+```
+
+```r
+setGeneric("lados", function(object) {
+  standardGeneric("lados")
+})
+```
+
+```
+## [1] "lados"
+```
+
+### Definición de jerarquía.
+
+
+```r
+setClass("Forma")
+setClass("Poligono", representation(lados = "integer"), contains = "Forma")
+setClass("Triangulo", contains = "Poligono")
+setClass("Cuadrado", contains = "Poligono")
+setClass("Circulo", contains = "Forma")
+```
+
+### Definición de métodos
+
+
+```r
+setMethod("lados", signature(object = "Poligono"), function(object) {
+  object@lados
+})
+```
+
+```
+## [1] "lados"
+```
+
+```r
+setMethod("lados", signature("Triangulo"), function(object) 3)
+```
+
+```
+## [1] "lados"
+```
+
+```r
+setMethod("lados", signature("Cuadrado"),   function(object) 4)
+```
+
+```
+## [1] "lados"
+```
+
+```r
+setMethod("lados", signature("Circulo"),   function(object) Inf)
+```
+
+```
+## [1] "lados"
+```
+
+### Uso de los métodos
+
+
+```r
+showMethods("lados")
+```
+
+```
+## Function: lados (package .GlobalEnv)
+## object="ANY"
+## object="Circulo"
+## object="Cuadrado"
+## object="Poligono"
+## object="Triangulo"
+```
+
+```r
+forma1 <- new("Circulo")
+
+lados(forma1)
+```
+
+```
+## [1] Inf
+```
+
+```r
+forma2 <- new("Cuadrado")
+
+lados(forma2)
+```
+
+```
+## [1] 4
 ```

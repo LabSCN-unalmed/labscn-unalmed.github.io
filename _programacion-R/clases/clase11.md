@@ -3,7 +3,6 @@ layout: clase
 title: 'Fecha y tiempo'
 curso: 'programacion-R'
 clase: 11
-order: 11
 custom_js: 'mathjax'
 ---
 

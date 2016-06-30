@@ -3,7 +3,6 @@ layout: clase
 title: 'Funciones en R'
 curso: 'programacion-R'
 clase: 05
-order: 5
 custom_js: 'mathjax'
 ---
 

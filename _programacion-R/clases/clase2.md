@@ -3,7 +3,6 @@ layout: clase
 title: 'Lenguaje de programación C, C++'
 curso: 'programacion-R'
 clase: 02
-order: 2
 custom_js: 'mathjax'
 ---
 

@@ -3,7 +3,6 @@ layout: clase
 title: 'Expresiones regulares'
 curso: 'programacion-R'
 clase: 10
-order: 10
 custom_js: 'mathjax'
 ---
 
