@@ -48,3 +48,56 @@ Inicio
   Escriba "Hola, mundo"
 Fin
 ```
+
+
+## Convertir de sartas a expresiones en R
+
+```r
+sarta1 <- "function(x) x^2"
+f1 <- eval(parse(text = sarta1))
+f1(5)
+```
+
+```
+## [1] 25
+```
+
+```r
+sartas <- c("function(x) x^2", "function(x) x^3")
+stof <- function(x) eval(parse(text=x))
+funciones <- sapply(sartas, stof)
+
+funciones[[1]](3)
+```
+
+```
+## [1] 9
+```
+
+```r
+funciones[[2]](3)
+```
+
+```
+## [1] 27
+```
+
+## Cambiar de tamaño de letras en archivos `.Rmd`.
+
+Después del encabezado del archivo `.Rmd` se escribe
+el siguiente código `css`.
+
+```css
+<style type="text/css">
+body, td {
+   font-size: 25px;
+}
+code.r{
+  font-size: 20px;
+}
+pre {
+  font-size: 15px
+}
+</style>
+
+```
