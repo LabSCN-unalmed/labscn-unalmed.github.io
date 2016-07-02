@@ -65,7 +65,7 @@ El archivo a entrgar es un documento en formato ".pdf".
 
 # Trabajo 2 (Etapa final)
 
-Fecha de entrega: Jueves 30 de junio de 2016 antes de las 23:59 hora de Colombia
+Fecha de entrega: Viernes 1 de julio de 2016 antes de las 23:59 hora de Colombia
 al correo **krcabrer@unal.edu.co** y no olvidar la etiqueta **[CursoR]**.
 Entrega de un paquete en R en donde se muestre la implementación del trabajo
 planteado en la primera etapa del proyecto.
@@ -99,5 +99,5 @@ Condiciones del paquete:
   en código C++.
 
 
-El archivo a entregar es un archivo ".zip" a partir del cual se pueda instalar
+El archivo a entregar es un archivo ".tar.gz" a partir del cual se pueda instalar
 el paquete en el R.
