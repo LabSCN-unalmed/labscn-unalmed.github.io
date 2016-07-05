@@ -2,7 +2,7 @@
 layout: clase
 title: 'Manejo de base de datos'
 curso: 'programacion-R'
-clase: 09
+clase: 9
 custom_js: 'mathjax'
 ---
 
