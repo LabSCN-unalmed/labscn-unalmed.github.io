@@ -1,6 +1,6 @@
 ---
 layout: curso
-title: 'Poster'
+title: 'Poster (Curso Anterior)'
 curso: 'estadistica-descriptiva'
 order: 9
 ---

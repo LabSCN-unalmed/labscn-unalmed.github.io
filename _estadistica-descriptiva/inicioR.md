@@ -18,7 +18,7 @@ Inicialmente se toma el archivo en formato .xlsx o .xls y se ubica en una carpet
 
 ### Base de datos.
 
-- [Homicidios en Colombia (xlsx)](./basesdedatos/HomicidiosColombia2014.xlsx){:target="_blank"}
+- [Homicidios en Colombia (xlsx)](./basesdedatos/HomicidiosColombia2014.xlsx)
 
 ### Crear una carpeta para la base de datos.
 En este caso se creó una carpeta con el nombre de `practica1`. Y
@@ -77,7 +77,7 @@ Entonces ahora la interfaz RStudio deberá quedar de la siguiente manera:
 
 ### Verificar la ruta el RStudio.
 
-En la ventana de `console` de digita el siguiente comando `dir()` y luego la tecla `enter` y se mostrarán algunos nombres de archivos. En este caso **no** aparecen los nombres de los archivos de las bases de datos que se quieren leer. 
+En la ventana de `console` de digita el siguiente comando `dir()` y luego la tecla `enter` y se mostrarán algunos nombres de archivos. En este caso **no** aparecen los nombres de los archivos de las bases de datos que se quieren leer.
 
 ![Inicio R 11](./iniR/iniR11.png){: width="700"}
 
@@ -105,7 +105,7 @@ homCol
 
 **Nota:** En el caso de que el formato sea el *anglosajón* en lugar de `read.csv2()` se utiliza la función `read.csv()`.
 
-Para ejecutar el código se ubica en cada renglón y se presiona `Ctrl-Enter` y así cada línea se ejecutará una a una repitiendo la teclas `Ctrl-Enter'.
+Para ejecutar el código se ubica en cada renglón y se presiona `Ctrl-Enter` y así cada línea se ejecutará una a una repitiendo la teclas `Ctrl-Enter`.
 
 Para ejecutar **todo** el código se presiona las tecla `Ctrl-Alt-R`.
 

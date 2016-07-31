@@ -7,41 +7,52 @@ order: 4
 
 ## Talleres individuales
 
-### Taller 1 
+### Primer taller individual
 
-  - [Encuesta sobre conspiraciones](./documentos/Encuesta1.pdf){:target="_blank"}
+Objetivo: Recolectar la información solicitada para el primer día de clase.
 
-### Taller 2
+Entregar llena la encuesta realizada el primer día de clase, martes
+agosto 2 de 2016 en la hora de clase.
 
-  - [Encuesta sobre percepción de gráficas](./documentos/tamEcon.pdf){:target="_blank"}
+
+### Segundo taller individual
+
+#### Objetivo:
+
+Realizar una lectura de la base de datos de homicidios en Colombia
+y mostrar una gráfica de barras que muestre la tasa de homicidios por
+cada cien mil persoas de rangos de edades específicos ya sea de hombres o
+de mujeres.
+
+Si usted es mujer utilice la tasa de homicidios de los hombres y si es hombre
+lo realiza con la tasa de homcidios de las mujeres.
+
+#### Ejemplo del guión ([homicidiosColombia2014.R](./guiones/HomicidiosColombia2014.R))
+
+```r
+# Lectura de la base de datos de homicidios en Colombia en el 2014
+homCol <- read.csv2("HomicidiosColombia2014.csv")
+# Muestra la base de datos de homicidios en Colombia en el 2014
+homCol
+# Cálculo de estadísticos de tasa de homicidios totales
+with(homCol, summary(TasaT))
+# Gráfica sencilla con las tasas de homicidios totales por grupo de edad
+with(homCol, barplot(TasaT))
+# Gráfica mejorada con las tasas de homicidios totales por grupo de edad
+with(homCol, barplot(TasaT, names.arg = GrupoEdad, las = 2,
+                     main = "Tasas de homicidios para cada cien mil habitantes"))     
+```
+
+#### Materiales a engregar:
+
+ + Documento en formato ".pdf" en donde se muestre la gráfica realizada y
+   un breve análisis de los resultados obtenidos.
+ + Guión en R que muestre la manera como obtuvo la gráfica en formato ".R"
+   debidamente documentado.
+
+#### Fecha de entrega:
+
+Miércoles 10 de agosto de 2016 antes de las 23:59 hora de colombia al correo
+***krcabrer@unal.edu.co*** y no olvidar escribir en asunto **[EDAED]**.
 
 ## Talleres en grupo
-  
-### Taller 1
-
-  - [Diseños y consideraciones de aviones de papel](http://www.paperaeroplanes.com/){:target="_blank"}
-  - Actividades:  
-      * Formar grupos de máximo 5 estudiantes y mínimo de dos estudiantes.
-      * Discutir los elementos que habría que tener en cuenta para lograr 
-        el siguiente objetivo:      
-        + Diseñar un experimento que permita establecer el diseño de avión
-          de papel más adecuado para mayor tiempo de vuelo, mayor distancia
-          alcanzada y mayor precisión a un objetivo.
-          
-      * El experimento deberá ser barato y considerar las variables que intervienen
-        en el experimento y el modo de conservarlas constantes.        
-   - Materiales a entregar:   
-     * En una hoja de papel los nombres de los integrante del equipo.(Solo los
-       presentes en el día 31 de marzo de 2016 en la hora de clase).
-     * Listado de variables respuestas y el modo que se van a medir.
-     * Listado de variables que permanecerán constantes y el modo de
-       establecer garantizar que queden constantes.
-     * Listado de variables de ruido y el modo de manejarlas. 
-     
-### Taller 2
-   
-   - Ejercicio de los círculo (Muestreo)
-   
-
-          
-      
