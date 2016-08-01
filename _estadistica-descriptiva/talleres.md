@@ -43,7 +43,7 @@ with(homCol, barplot(TasaT, names.arg = GrupoEdad, las = 2,
                      main = "Tasas de homicidios para cada cien mil habitantes"))     
 ```
 
-#### Materiales a engregar:
+#### Materiales a entregar:
 
  + Documento en formato ".pdf" en donde se muestre la gráfica realizada y
    un breve análisis de los resultados obtenidos.
