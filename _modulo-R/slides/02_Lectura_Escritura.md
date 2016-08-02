@@ -1,7 +1,7 @@
 Lectura/Escritura en R
 ========================================================
 author: Kenneth Cabrera
-date: 27 octubre, 2015
+date: 02 agosto, 2016
 transition: rotate
 width: 1440
 height: 900
@@ -14,8 +14,8 @@ Modos de texto I
    un formato que se puede corregir, y en caso de que el archivo se
    degrade, potencialmente se puede recuperar.
 - A diferencia de escribir los resultados en una tabla o en un formato
-  `csv`, `dump` y `dput` mantiene la información de `metadatos` 
-  (sacrificando algo de legibilidad), de tal manera que otro usuario no 
+  `csv`, `dump` y `dput` mantiene la información de `metadatos`
+  (sacrificando algo de legibilidad), de tal manera que otro usuario no
   tendría que reconstruir el objeto de nuevo.
 
 Modos de texto II
@@ -67,7 +67,7 @@ str(file)
    * `a` adición a un archivo.
    * `rb`, `rb`, `ab`, lectura, escritura y adición en modo binario
      (únicamente en `windows`)
-     
+
 Conexiones
 ========================================================
 ```
@@ -133,7 +133,7 @@ Con graficación básica
 plot(trm, type = "l")
 ```
 
-![plot of chunk unnamed-chunk-3](02_Lectura_Escritura-figure/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](02_Lectura_Escritura-figure/unnamed-chunk-3-1.png)
 
 Gráfica de la TRM hasta hoy II
 ========================================================
@@ -144,7 +144,7 @@ require(lattice)
 xyplot(valores ~ fechas, data = trm, type = "l")
 ```
 
-![plot of chunk unnamed-chunk-4](02_Lectura_Escritura-figure/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](02_Lectura_Escritura-figure/unnamed-chunk-4-1.png)
 
 Gráfica de la TRM hasta hoy III
 ========================================================
@@ -156,6 +156,6 @@ g1 <- ggplot(trm, aes(fechas, valores)) + geom_line()
 g1
 ```
 
-![plot of chunk unnamed-chunk-5](02_Lectura_Escritura-figure/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](02_Lectura_Escritura-figure/unnamed-chunk-5-1.png)
 
 

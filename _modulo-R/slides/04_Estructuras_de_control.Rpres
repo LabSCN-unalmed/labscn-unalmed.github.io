@@ -1,13 +1,14 @@
----
-title: "Estructuras de control"
+Estructuras de control
+========================================================
 author: Kenneth Cabrera
-output:
-  ioslides_presentation:
-    widescreen: true
-    smaller: true
----
+date: `r format(Sys.time(), "%d %B, %Y")`
+transition: rotate
+width: 1440
+height: 900
 
-## Estructuras de contol en R
+
+Estructuras de contol en R
+========================================================
 
 - `if, else`: Condicionales.
 - `for`: Estructura de repetición con un número
@@ -19,8 +20,8 @@ mientras las condición sea verdadera.
 - `next`: Se salta un ciclo de repetición o interacción
 - `return`: Sale de una función.
 
-## Estructura condicional I
-
+Estructura condicional I
+========================================================
 ```{r, eval=FALSE}
 if (<condición>) {
    ## instrucciones
@@ -37,10 +38,9 @@ if (<condición>) {
 }
 ```
 
-## Estructura condicional II
-
+Estructura condicional II
+========================================================
 Estructura válida:
-
 ```{r, eval=FALSE}
 if (x > 3) {
      y <- 10
@@ -48,9 +48,7 @@ if (x > 3) {
      y <- 0
 }
 ```
-
 También es estructura válida:
-
 ```{r, eval=FALSE}
 y <- if (x > 3) {
      10
@@ -59,16 +57,16 @@ y <- if (x > 3) {
 }
 ```
 
-## Estructura de repetición I
-
+Estructura de repetición I
+========================================================
 ```{r}
 for (i in 1:10) {
   print(i)
 }
 ```
 
-## Estructura de repetición II
-
+Estructura de repetición II
+========================================================
 ```{r, eval=FALSE}
 x <- c("a", "b", "c", "d")
 for (i in 1:4){
@@ -86,8 +84,8 @@ for (letra in x) {
 for (i in 1:4) print(x[i])
 ```
 
-## Estructura de repetición III
-
+Estructura de repetición III
+========================================================
 ```{r, eval=FALSE}
 x <- matrix(1:6, 2, 3)
 for (i in seq_len(nrow(x))) {
@@ -96,10 +94,10 @@ for (i in seq_len(nrow(x))) {
     }
 }
 ```
-
 No se recomienda anidar más de 2 a 3 niveles.
 
-## Estructura de repetición IV
+Estructura de repetición IV
+========================================================
 
 ```{r, eval=FALSE}
 conteo <- 0
@@ -108,11 +106,11 @@ while (conteo < 10) {
    conteo <- conteo + 1
 }
 ```
-
 ¡Recuerde evitar los ciclos infinitos!
 
-## Estructura de repetición V
 
+Estructura de repetición V
+========================================================
 ```{r, eval=FALSE}
 z <- 5
 while (z >= 3 && z <= 10){
@@ -125,21 +123,20 @@ while (z >= 3 && z <= 10){
     }
 }
 ```
-
 La estructura condicional simpre se evalúa de izquierda a derecha.
 
-## Diferencia entre & y &&
-
+Diferencia entre & y &&.
+========================================================
 ```{r, eval=FALSE}
 ((-2:2) >= 0) & ((-2:2) <= 0)
 
 ((-2:2) >= 0) && ((-2:2) <= 0)
 ```
 
-## Eficiencia de la forma vectorizada
-
+Eficiencia de la forma vectorizada
+========================================================
 ```{r, eval=FALSE}
-n <- 10000000
+n <- 100000
 # Primera forma
 vect <- numeric(0)
 system.time(for(i in 1:n) vect <- c(vect, i*2))
@@ -152,14 +149,15 @@ system.time(vect <- seq(0,n,2))
 system.time(vect <- (1:n)* 2)
 ```
 
-## Estructura de repetición VI
+Estructura de repetición VI
+========================================================
 
 ```{r, eval=FALSE}
-x0 <- 1; tol <- 1e-2; i <- 0
+x0 <- 1; tol <- 1e-6; i <- 0
 repeat {
      x1 <- 1/(x0+1)
      i <- i + 1
-     cat("inter= i","valor= ",x1, "\n")
+     cat("inter= ",i,"valor= ",x1, "\n")
      if (abs(x1 - x0) < tol) {
         break
      } else {
@@ -167,13 +165,12 @@ repeat {
      }
 }
 ```
-
 La única forma de salir del `repeat` es mediante el `break`.
 
 Mejor sería limitar el número de interacciones.
 
-## Estructura de repetición VII
-
+Estructura de repetición VII
+========================================================
 ```{r, eval=FALSE}
 for (i in 1:100) {
     if ((i + 1)%%7 != 0){
@@ -184,3 +181,5 @@ for (i in 1:100) {
 ```
 
 El `return` se utiliza en el contexto de funciones
+
+

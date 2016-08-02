@@ -13,7 +13,7 @@ order: 0
 
 ## Políticas del curso
   - Los trabajos y talleres se enviarán al correo **krcabrer@unal.edu.co** con
-    la sigla **[Modulo_R]**.
+    la sigla **[ModuloR]**.
   - Los documentos serán enviados en formato **.pdf** o en formato **.html**,
     de acuerdo a como se indique en el enunciado del ejercicio.
   - Las bases de datos serán enviadas en formato **.csv**, a menos que se indique
@@ -23,6 +23,6 @@ order: 0
     la válida para calificar incluyendo la hora de entrega.
 
 ## Evaluación.
-  - Trabajo final corresponde al 50% del módulo.
-  - Talleres cortos 20% del módulo.
+  - Talleres inividuales o en grupo cortos 20% del módulo.
   - Trabajos individuales o en grupo 30% del módulo.
+  - Trabajo final corresponde al 50% del módulo.  

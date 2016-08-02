@@ -1,7 +1,12 @@
 Estructuras de control
 ========================================================
 author: Kenneth Cabrera
-date: 27 octubre, 2015
+date: 02 agosto, 2016
+transition: rotate
+width: 1440
+height: 900
+
+
 Estructuras de contol en R
 ========================================================
 

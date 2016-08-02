@@ -1,7 +1,7 @@
 Funciones
 ========================================================
 author: Kenneth Cabrera
-date: 02 agosto, 2016
+date: `r format(Sys.time(), "%d %B, %Y")`
 width: 1440
 height: 900
 
@@ -12,8 +12,7 @@ Funciones I
 Las funciones se crean con la instrucción `function()` y
 se guardan en R como cualquier objeto. Son de la clase "function".
 
-
-```r
+```{r,eval=FALSE}
 f <- function(<argumentos>) {
        ## Instrucciones
      }
@@ -41,8 +40,7 @@ Funciones II
 En R los argumentos de las funciones se pueden indicar por su
 posición o por su nombre.
 
-
-```r
+```{r, eval=FALSE}
 misdatos <- rnorm(100)
 formals(sd)
 sd(misdatos)
@@ -57,8 +55,7 @@ sd(na.rm = FALSE, misdatos)
 
 Funciones III
 ===================================================
-
-```r
+```{r, eval=FALSE}
 formals(lm)
 args(lm)
 
@@ -87,8 +84,7 @@ El orden de emparejamiento es:
 
 Definición de función
 ===================================================
-
-```r
+```{r, eval=FALSE}
  f <- function(a, b = 1, c = 2, d = NULL) {
 
  }
@@ -102,8 +98,7 @@ Evaluación "perezosa" I
 Los argumentos de una función se evalúan de manera
 *perezosa*, de forma que se evalúan si se necesitan.
 
-
-```r
+```{r, eval=FALSE}
 f <- function(a, b){
   a^2
 }
@@ -118,14 +113,14 @@ el `2` se empareja con la variable `a`.
 
 Evaluación "perezosa" II
 ===================================================
-
-```r
+```{r, eval=FALSE}
 f <- function(a, b){
   print(a)
   print(b)
 }
 
 f(45)
+
 ```
 
 Note que se muestra el `45` antes que se muestre el error.
@@ -140,8 +135,7 @@ que usualmente se pasan a otras funciones.
 - `...` se usa para extender otra función y no se quiere copiar
 la lista completa de los argumentos de la función.
 
-
-```r
+```{r, eval=FALSE}
 miplot <- function(x, y, type = "l", ...){
   plot(x,y, type = type, ...)
 }
@@ -149,16 +143,8 @@ miplot <- function(x, y, type = "l", ...){
 - Las funciones genéricas usan `...` para que los argumentos
 extras se pasen a los métodos. (POO).
 
-
-```r
+```{r}
 mean
-```
-
-```
-function (x, ...) 
-UseMethod("mean")
-<bytecode: 0x21f6580>
-<environment: namespace:base>
 ```
 
 El argumento "..." II
@@ -167,24 +153,10 @@ El argumento `...` es necesario cuando el número de
 argumentos que se pasan a una función no se sabe
 con anticipación.
 
-
-```r
+```{r,}
 args(paste)
-```
 
-```
-function (..., sep = " ", collapse = NULL) 
-NULL
-```
-
-```r
 args(cat)
-```
-
-```
-function (..., file = "", sep = " ", fill = FALSE, labels = NULL, 
-    append = FALSE) 
-NULL
 ```
 
 Argumentos después de "..."
@@ -193,18 +165,11 @@ Todo argumento que aparezca *depués* de `...` deberá
 ser nombrado explícitamente y no se puede emparejar
 parcialmente.
 
-
-```r
+```{r}
 args(paste)
 ```
 
-```
-function (..., sep = " ", collapse = NULL) 
-NULL
-```
-
-
-```r
+```{r, eval=FALSE}
 paste("a", "b", sep = ":")
 
 paste("a", "b", se = ":")
@@ -212,8 +177,7 @@ paste("a", "b", se = ":")
 
 Ejemplo I
 ================================================================================
-
-```r
+```{r}
 fmala <- function(x, y) {
  z1 <- 2*x + y
  z2 <- x + 2*y
@@ -224,14 +188,9 @@ r1 <- fmala(8, 10)
 r1
 ```
 
-```
-[1] 0.8
-```
-
 Ejemplo I (corregido)
 ================================================================================
-
-```r
+```{r}
 fcorrecta <- function(x, y) {
  z1 <- 2*x + y
  z2 <- x + 2*y
@@ -244,14 +203,9 @@ r1 <- fcorrecta(1, 2)
 r1
 ```
 
-```
-[1] 4.0 5.0 6.0 0.5
-```
-
 Ejemplo II
 ================================================================================
-
-```r
+```{r, eval=FALSE}
 f2 <- function(x, y) {
   z1 <- x + y
   z2 <- x + 2*y
@@ -267,8 +221,7 @@ f2(2, 5)$z1
 
 Ejemplo III
 ================================================================================
-
-```r
+```{r, eval=FALSE}
 f3 <- function(x, y) {
   z1 <- x + y
   z2 <- x + 2*y
@@ -282,8 +235,7 @@ f3(2, 5)$result2
 
 Ejemplo IV
 ================================================================================
-
-```r
+```{r, eval=FALSE}
 v1 <- c(2, 3, 5, 7)
 v2 <- c(4, 0, 1, 9)
 f3(v1, v2)
@@ -295,8 +247,7 @@ f3(m1, m2)
 
 Validación de argumentos
 ================================================================================
-
-```r
+```{r, eval=FALSE}
 f4 <- function(a, b, c, d){
   stopifnot(a >=0, a <=1, b > 1, c > 0)
   r1 <- c(qnorm(a), log(b-1), sqrt(c))

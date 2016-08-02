@@ -7,7 +7,7 @@
 Introducción al R (Parte II)
 ========================================================
 author: Kenneth Cabrera
-date: martes, 02 de agosto de 2016
+date: `r format(Sys.Date(), format="%A, %d de %B de %Y")`
 
 
 Clases de objetos
@@ -50,53 +50,30 @@ El símbolo `<-` es el operador de asignación. También
 se utiliza `->` para realizar la asignación de izquierda a
 derecha.
 
-
-```r
+```{r}
 x <- 1
 print(x)
 ```
-
-```
-[1] 1
-```
-
-```r
+```{r}
 45 -> y
 print(y)
-```
-
-```
-[1] 45
 ```
 
 
 Salida
 ========================================================
-
-```r
+```{r}
 x <- 1:20
 x
-```
-
-```
- [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
 ```
 
 El operador `:` crea secuencias.
 
 Vectores I
 ========================================================
-
-```r
+```{r}
 x <- c(0.5, 0.6)      ## numérico
 class(x)
-```
-
-```
-[1] "numeric"
-```
-
-```r
 x <- c(TRUE, FALSE)   ## lógico
 x <- c(TRUE, FALSE)   ## lógico
 x <- c("a", "b", "c") ## alfanumérico, carácter, sarta.
@@ -104,8 +81,7 @@ x <- c("a", "b", "c") ## alfanumérico, carácter, sarta.
 
 Vectores II
 ========================================================
-
-```r
+```{r}
 x <- c(0.5, 0.6)      ## numérico
 x <- 9:29             ## entero
 x <- c(1+0i, 2+4i)    ## complejo
@@ -114,36 +90,19 @@ x <- vector("numeric", length = 10)
 x
 ```
 
-```
- [1] 0 0 0 0 0 0 0 0 0 0
-```
-
 
 Vectores III
 ========================================================
-
-```r
+```{r}
 x <- 1
 class(x)
-```
-
-```
-[1] "numeric"
-```
-
-```r
 x <- 1L
 class(x)
 ```
 
-```
-[1] "integer"
-```
-
 Mezcla de objetos (conversión implícita)
 ========================================================
-
-```r
+```{r}
 y <- c(1.7, "a")
 y <- c(TRUE, 2)
 y <- c("a", TRUE)
@@ -151,200 +110,75 @@ y <- c("a", TRUE)
 
 Conversión explícita I.
 ========================================================
-
-```r
+```{r}
 x <- 0:6
 class(x)
-```
-
-```
-[1] "integer"
-```
-
-```r
 as.numeric(x)
-```
-
-```
-[1] 0 1 2 3 4 5 6
-```
-
-```r
 as.logical(x)
-```
-
-```
-[1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ```
 
 Conversión explícita II.
 ========================================================
-
-```r
+```{r}
 x <- 0:6
 as.character(x)
-```
-
-```
-[1] "0" "1" "2" "3" "4" "5" "6"
-```
-
-```r
 as.complex(x)
-```
-
-```
-[1] 0+0i 1+0i 2+0i 3+0i 4+0i 5+0i 6+0i
 ```
 
 Conversión explícita II.
 ========================================================
-
-```r
+```{r}
 x <- c("a", "b", "c")
 as.numeric(x)
-```
-
-```
-[1] NA NA NA
-```
-
-```r
 as.logical(x)
-```
-
-```
-[1] NA NA NA
-```
-
-```r
 as.complex(x)
-```
-
-```
-[1] NA NA NA
 ```
 
 
 Matrices I
 ========================================================
 class: small-code
-
-```r
+```{r}
 m <- matrix(nrow = 2, ncol = 3)
 m
-```
-
-```
-     [,1] [,2] [,3]
-[1,]   NA   NA   NA
-[2,]   NA   NA   NA
-```
-
-```r
 dim(m)
-```
-
-```
-[1] 2 3
-```
-
-```r
 attributes(m)
-```
-
-```
-$dim
-[1] 2 3
 ```
 
 
 Matrices II
 ========================================================
 class: small-code
-
-```r
+```{r}
 m <- matrix(1:6, nrow = 2, ncol = 3)
 m
-```
-
-```
-     [,1] [,2] [,3]
-[1,]    1    3    5
-[2,]    2    4    6
 ```
 
 Matrices III
 ========================================================
 class: small-code
-
-```r
+```{r}
 m <- 1:10
 m
-```
-
-```
- [1]  1  2  3  4  5  6  7  8  9 10
-```
-
-```r
 dim(m) <- c(2, 5)
 m
-```
-
-```
-     [,1] [,2] [,3] [,4] [,5]
-[1,]    1    3    5    7    9
-[2,]    2    4    6    8   10
 ```
 
 Concatenación por fila o por columna
 ========================================================
 class: small-code
-
-```r
+```{r}
 x <- 1:3
 y <- 10:12
 cbind(x, y)
-```
-
-```
-     x  y
-[1,] 1 10
-[2,] 2 11
-[3,] 3 12
-```
-
-```r
 rbind(x, y)
-```
-
-```
-  [,1] [,2] [,3]
-x    1    2    3
-y   10   11   12
 ```
 
 Listas
 ========================================================
-
-```r
+```{r}
 x <- list(1, "a", TRUE, 1 + 4i)
 x
-```
-
-```
-[[1]]
-[1] 1
-
-[[2]]
-[1] "a"
-
-[[3]]
-[1] TRUE
-
-[[4]]
-[1] 1+4i
 ```
 
 Factores
@@ -360,55 +194,22 @@ a un vector donde cada categoría tiene una etiqueta.
 Factores
 ========================================================
 class: small-code
-
-```r
+```{r}
 x <- factor(c("si", "si", "no", "si", "no"))
 levels(x)
-```
-
-```
-[1] "no" "si"
-```
-
-```r
 unclass(x)
-```
-
-```
-[1] 2 2 1 2 1
-attr(,"levels")
-[1] "no" "si"
 ```
 
 Factores
 ========================================================
 class: small-code
-
-```r
+```{r}
 x <- factor(c("si", "si", "no", "si", "no"))
 
 as.numeric(x)
-```
-
-```
-[1] 2 2 1 2 1
-```
-
-```r
 x <- factor(x, levels = c("si","no"))
 levels(x)
-```
-
-```
-[1] "si" "no"
-```
-
-```r
 as.numeric(x)
-```
-
-```
-[1] 1 1 2 1 2
 ```
 
 Valores faltantes
@@ -421,42 +222,18 @@ Valores faltantes
 
 Valores faltantes I
 ========================================================
-
-```r
+```{r}
 x <- c(1, 2, NA, 10, 3)
 is.na(x)
-```
-
-```
-[1] FALSE FALSE  TRUE FALSE FALSE
-```
-
-```r
 is.nan(x)
-```
-
-```
-[1] FALSE FALSE FALSE FALSE FALSE
 ```
 
 Valores faltantes II
 ========================================================
-
-```r
+```{r}
 x <- c(1, 2, NaN, NA, 4)
 is.na(x)
-```
-
-```
-[1] FALSE FALSE  TRUE  TRUE FALSE
-```
-
-```r
 is.nan(x)
-```
-
-```
-[1] FALSE FALSE  TRUE FALSE FALSE
 ```
 
 Bases de datos (data frames)
@@ -478,111 +255,40 @@ Bases de datos (data frames)
 Bases de datos (data frames)
 ========================================================
 class: small-code
-
-```r
+```{r}
 x <- data.frame(foo = 1:4, bar = c(T, T, F, F))
 x
-```
-
-```
-  foo   bar
-1   1  TRUE
-2   2  TRUE
-3   3 FALSE
-4   4 FALSE
-```
-
-```r
 nrow(x)
-```
-
-```
-[1] 4
-```
-
-```r
 ncol(x)
-```
-
-```
-[1] 2
 ```
 
 Nombres de los objetos (vectores)
 ========================================================
 class: small-code
-
-```r
+```{r}
 x <- 1:3
 names(x)
-```
-
-```
-NULL
-```
-
-```r
 names(x) <- c("foo", "bar", "norf")
 x
-```
-
-```
- foo  bar norf 
-   1    2    3 
-```
-
-```r
 names(x)
-```
-
-```
-[1] "foo"  "bar"  "norf"
 ```
 
 
 Nombres de los objetos (listas)
 ========================================================
-
-```r
+```{r}
 x <- list(a = 1, b = 2, c = 3)
 x
-```
-
-```
-$a
-[1] 1
-
-$b
-[1] 2
-
-$c
-[1] 3
 ```
 
 
 Nombres de los objetos (matrices)
 ========================================================
-
-```r
+```{r}
 m <- matrix(1:4, nrow = 2, ncol = 2)
 m
-```
-
-```
-     [,1] [,2]
-[1,]    1    3
-[2,]    2    4
-```
-
-```r
 dimnames(m) <- list(c("a", "b"),c("c", "d"))
 m
-```
-
-```
-  c d
-a 1 3
-b 2 4
 ```
 
 
@@ -597,59 +303,21 @@ Subconjuntos en listas
 
 Ejemplo de subconjuntos I
 ========================================================
-
-```r
+```{r}
 x <- c("a", "b", "c", "c", "d", "a")
 x[1]
-```
-
-```
-[1] "a"
-```
-
-```r
 x[2]
-```
-
-```
-[1] "b"
-```
-
-```r
 x[1:4]
-```
-
-```
-[1] "a" "b" "c" "c"
 ```
 
 Ejemplo de subconjuntos II
 ========================================================
-
-```r
+```{r}
 x <- c("a", "b", "c", "c", "d", "a")
 x > "a"
-```
-
-```
-[1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE
-```
-
-```r
 x[x > "a"]
-```
-
-```
-[1] "b" "c" "c" "d"
-```
-
-```r
 u <- x > "a"
 x[u]
-```
-
-```
-[1] "b" "c" "c" "d"
 ```
 
 
@@ -686,125 +354,45 @@ x[1, , drop = FALSE]
 
 Ejemplo subconjuntos (listas) I
 ========================================================
-
-```r
+```{r}
 x <- list(foo = 6:1, bar = 0.6)
 x[1]
-```
-
-```
-$foo
-[1] 6 5 4 3 2 1
-```
-
-```r
 x[[1]]
-```
-
-```
-[1] 6 5 4 3 2 1
 ```
 
 Ejemplo subconjuntos (listas) II
 ========================================================
-
-```r
+```{r}
 x$bar
-```
-
-```
-[1] 0.6
-```
-
-```r
 x[["bar"]]
-```
-
-```
-[1] 0.6
-```
-
-```r
 x["bar"]
-```
-
-```
-$bar
-[1] 0.6
 ```
 
 Ejemplo subconjuntos (listas) III
 ========================================================
 class: small-code
-
-```r
+```{r}
 x <- list(foo = 6:1, bar = 0.6, baz = "hello")
 x[c(1,3)]
-```
-
-```
-$foo
-[1] 6 5 4 3 2 1
-
-$baz
-[1] "hello"
 ```
 
 Ejemplo subconjuntos (listas) IV
 ========================================================
 class: small-code
-
-```r
+```{r}
 x <- list(foo = 6:1, bar = 0.6, baz = "hello")
 nombre <- "foo"
 x[[nombre]]
-```
-
-```
-[1] 6 5 4 3 2 1
-```
-
-```r
 x$nombre
-```
-
-```
-NULL
-```
-
-```r
 x$foo
-```
-
-```
-[1] 6 5 4 3 2 1
 ```
 
 Ejemplo subconjuntos (listas) V
 ========================================================
 class: small-code
-
-```r
+```{r}
 x <- list(a = list(10, 12, 14), b = c(3.14, 2.81))
 x[[c(1,3)]]
-```
-
-```
-[1] 14
-```
-
-```r
 x[[1]][[3]]
-```
-
-```
-[1] 14
-```
-
-```r
 x[[c(2,1)]]
-```
-
-```
-[1] 3.14
 ```

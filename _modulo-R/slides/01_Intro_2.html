@@ -773,7 +773,7 @@ hljs.initHighlightingOnLoad();
    
   
 
-
+<style>.small-code pre code {  font-size: 1.2em;}</style>
 
 
 
@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Introducción al R (Parte II)</h1><p>Kenneth Cabrera<br/>lunes, 07 de marzo de 2016</p>
+<h1>Introducción al R (Parte II)</h1><p>Kenneth Cabrera<br/>martes, 02 de agosto de 2016</p>
 
 <div class="slideContent" >
 
@@ -856,7 +856,7 @@ Se utiliza la función <code>attribute()</code> para inspeccionarlos.</li>
 <h3>Asignación</h3>
 <div class="slideContent" >
 <p>El símbolo <code>&lt;-</code> es el operador de asignación. También
-se utiliza <code>-&gt;</code> para realizar la asignación de izquierda a 
+se utiliza <code>-&gt;</code> para realizar la asignación de izquierda a
 derecha.</p>
 
 <pre><code class="r">x &lt;- 1
@@ -1028,7 +1028,7 @@ as.numeric(x)
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Matrices I</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">m &lt;- matrix(nrow = 2, ncol = 3)
 m
 </code></pre>
@@ -1056,7 +1056,7 @@ m
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Matrices II</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">m &lt;- matrix(1:6, nrow = 2, ncol = 3)
 m
 </code></pre>
@@ -1071,7 +1071,7 @@ m
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Matrices III</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">m &lt;- 1:10
 m
 </code></pre>
@@ -1093,7 +1093,7 @@ m
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Concatenación por fila o por columna</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">x &lt;- 1:3
 y &lt;- 10:12
 cbind(x, y)
@@ -1157,7 +1157,7 @@ categóricas.</li>
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Factores</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">x &lt;- factor(c(&quot;si&quot;, &quot;si&quot;, &quot;no&quot;, &quot;si&quot;, &quot;no&quot;))
 levels(x)
 </code></pre>
@@ -1178,7 +1178,7 @@ attr(,&quot;levels&quot;)
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Factores</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">x &lt;- factor(c(&quot;si&quot;, &quot;si&quot;, &quot;no&quot;, &quot;si&quot;, &quot;no&quot;))
 
 as.numeric(x)
@@ -1188,7 +1188,7 @@ as.numeric(x)
 </code></pre>
 
 <pre><code class="r">x &lt;- factor(x, levels = c(&quot;si&quot;,&quot;no&quot;))
-levels(x)            
+levels(x)
 </code></pre>
 
 <pre><code>[1] &quot;si&quot; &quot;no&quot;
@@ -1268,7 +1268,7 @@ todos son de la misma clase.</li>
 <li>Los <code>data.frame</code> tienen atributos como <code>row.names</code>.</li>
 <li>Se crean mediante funciones como <code>read.table()</code> o
 <code>read.csv()</code>.</li>
-<li>Se pueden convertir a matrices con <code>data.matrix()</code>.<br/></li>
+<li>Se pueden convertir a matrices con <code>data.matrix()</code>.</li>
 </ul>
 
 </div>
@@ -1276,7 +1276,7 @@ todos son de la misma clase.</li>
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Bases de datos (data frames)</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">x &lt;- data.frame(foo = 1:4, bar = c(T, T, F, F))
 x
 </code></pre>
@@ -1305,7 +1305,7 @@ x
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Nombres de los objetos (vectores)</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">x &lt;- 1:3
 names(x)
 </code></pre>
@@ -1392,7 +1392,7 @@ Semánticamente es similar a <code>[[</code>.</li>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Ejemplo de subconjuntos I</h3>
 <div class="slideContent" >
-<pre><code class="r">x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;)   
+<pre><code class="r">x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;)
 x[1]
 </code></pre>
 
@@ -1417,7 +1417,7 @@ x[1]
 <section data-transition="linear" data-transition-speed="default">
 <h3>Ejemplo de subconjuntos II</h3>
 <div class="slideContent" >
-<pre><code class="r">x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;)   
+<pre><code class="r">x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;)
 x &gt; &quot;a&quot;
 </code></pre>
 
@@ -1526,7 +1526,7 @@ x[1]
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Ejemplo subconjuntos (listas) III</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">x &lt;- list(foo = 6:1, bar = 0.6, baz = &quot;hello&quot;)
 x[c(1,3)]
 </code></pre>
@@ -1543,7 +1543,7 @@ $baz
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Ejemplo subconjuntos (listas) IV</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">x &lt;- list(foo = 6:1, bar = 0.6, baz = &quot;hello&quot;)
 nombre &lt;- &quot;foo&quot;
 x[[nombre]]
@@ -1569,7 +1569,7 @@ x[[nombre]]
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Ejemplo subconjuntos (listas) V</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">x &lt;- list(a = list(10, 12, 14), b = c(3.14, 2.81))
 x[[c(1,3)]]
 </code></pre>

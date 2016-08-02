@@ -1,7 +1,7 @@
 Introducción al R (Parte I)
 ========================================================
 author: Kenneth Cabrera
-date: martes, 02 de agosto de 2016
+date: `r format(Sys.Date(), format="%A, %d de %B de %Y")`
 
 Breve historia
 ========================================================
