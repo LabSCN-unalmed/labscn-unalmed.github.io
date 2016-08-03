@@ -19,7 +19,7 @@ mediante el RMarkdown.
 
 ```{r}
 # Lectura de la base de datos
-olimpicos <- read.csv2("colombia_olimpicos.csv")
+olimpicos <- read.csv2("colombia_olimpicos.csv", fileEncoding = "utf8")
 summary(olimpicos)
 ```
 
