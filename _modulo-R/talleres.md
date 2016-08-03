@@ -9,7 +9,7 @@ order: 5
 
 ### Actividad.
 
-Del periódico El Colombiano del 1 de agosto de 2016 bajo el título de
+Del periódico El Colombiano páginas 2 y 3 del 1 de agosto de 2016 bajo el título de
 "Azul y rojo: la anatomía disímil del votante de Clinton y Trump" tomar
 un aspecto gráfico en donde se muestra el contraste entre los
 candidatos estadounidences y reelaborar la gráfica en R en donde se
@@ -24,6 +24,8 @@ Los aspectos son:
  - Visión de la inmigración.
  - Su visión de los Obama.
 
+![Clinton](./figs/hillary.png)
+![Trump](./figs/trump.png)
 
 ### Materiales a entregar.
   - Enviar un archivo ".Rmd" y el archivo ".html" correspondiente en
