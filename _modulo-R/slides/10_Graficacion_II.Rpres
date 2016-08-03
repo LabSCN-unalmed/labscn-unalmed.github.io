@@ -1,7 +1,7 @@
 ggplot2
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: miércoles, 03 de agosto de 2016
+date: `r format(Sys.time(), "%A, %d de %B de %Y")`
 width: 1440
 height: 900
 
@@ -33,16 +33,14 @@ La función qplot()
 
 Paquete ggplot2
 ========================================================
-
-```r
+```{r}
 require(ggplot2)
 ```
 
 
 Base de datos
 ========================================================
-
-```r
+```{r, eval=FALSE}
 help(mpg)
 str(mpg)
 head(mpg)
@@ -51,89 +49,64 @@ head(mpg)
 
 Primera gráfica
 ========================================================
-
-```r
+```{r}
 g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point()
 ```
-
-![plot of chunk unnamed-chunk-3](10_Graficacion_II-figure/unnamed-chunk-3-1.png)
 
 
 Segunda gráfica
 ========================================================
-
-```r
+```{r}
 g1 <- ggplot(mpg, aes(displ, hwy, col = drv))
 g1 + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-4](10_Graficacion_II-figure/unnamed-chunk-4-1.png)
-
 Adición de una "geom_"
 ========================================================
-
-```r
+```{r}
 g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point() + geom_smooth()
 ```
 
-![plot of chunk unnamed-chunk-5](10_Graficacion_II-figure/unnamed-chunk-5-1.png)
-
 Histograma
 ========================================================
-
-```r
+```{r}
 g1 <- ggplot(mpg, aes(hwy))
 g1 + geom_histogram()
 ```
 
-![plot of chunk unnamed-chunk-6](10_Graficacion_II-figure/unnamed-chunk-6-1.png)
-
 Histogramas
 ========================================================
-
-```r
+```{r}
 g1 <- ggplot(mpg, aes(hwy, fill = drv))
 g1 + geom_histogram()
 ```
 
-![plot of chunk unnamed-chunk-7](10_Graficacion_II-figure/unnamed-chunk-7-1.png)
-
 Facetas (páneles) I
 ========================================================
-
-```r
+```{r}
 g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point() + facet_grid( . ~ drv)
 ```
 
-![plot of chunk unnamed-chunk-8](10_Graficacion_II-figure/unnamed-chunk-8-1.png)
-
 Facetas (páneles) II
 ========================================================
-
-```r
+```{r}
 g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point() + facet_grid( drv ~ .)
 ```
 
-![plot of chunk unnamed-chunk-9](10_Graficacion_II-figure/unnamed-chunk-9-1.png)
-
 Facetas (páneles) III
 ========================================================
-
-```r
+```{r}
 g1 <- ggplot(mpg, aes(hwy))
 g1 + geom_histogram() + facet_grid( drv ~ .)
 ```
 
-![plot of chunk unnamed-chunk-10](10_Graficacion_II-figure/unnamed-chunk-10-1.png)
-
 Calidad del aire
 ========================================================
-
-```r
+```{r, eval=FALSE}
 require(dataset)
 require(airquality)
 help(airquality)
@@ -144,8 +117,7 @@ head(airquality)
 
 Calidad del aire I
 ========================================================
-
-```r
+```{r, eval=FALSE }
 require(ggplot2)
 g1 <- ggplot(airquality, aes(Ozone))
 g1 + geom_histogram()
@@ -153,8 +125,7 @@ g1 + geom_histogram()
 
 Calidad del aire II
 ========================================================
-
-```r
+```{r, eval=FALSE }
 require(ggplot2)
 g1 <- ggplot(airquality, aes(Ozone, fill = factor(Month)))
 g1 + geom_histogram()
@@ -162,8 +133,7 @@ g1 + geom_histogram()
 
 Distribución
 ========================================================
-
-```r
+```{r, eval=FALSE }
 require(ggplot2)
 g1 <- ggplot(airquality, aes(Ozone))
 g1 + geom_density()
@@ -171,8 +141,7 @@ g1 + geom_density()
 
 Distribuciones
 ========================================================
-
-```r
+```{r, eval=FALSE }
 require(ggplot2)
 g1 <- ggplot(airquality, aes(Ozone, col = factor(Month)))
 g1 + geom_density()
@@ -180,8 +149,7 @@ g1 + geom_density()
 
 Diagrama de dispersión I
 ========================================================
-
-```r
+```{r, eval = FALSE}
 require(ggplot2)
 g1 <- ggplot(airquality, aes(Day, Ozone))
 g1 + geom_point()
@@ -189,8 +157,7 @@ g1 + geom_point()
 
 Diagrama de dispersión II
 ========================================================
-
-```r
+```{r, eval = FALSE}
 require(ggplot2)
 g1 <- ggplot(airquality, aes(Day, Ozone, shape=factor(Month)))
 g1 + geom_point()
@@ -198,8 +165,7 @@ g1 + geom_point()
 
 Series de tiempo I
 ========================================================
-
-```r
+```{r, eval = FALSE}
 require(ggplot2)
 g1 <- ggplot(airquality, aes(Day, Ozone, col=factor(Month)))
 g1 + geom_line()
@@ -207,8 +173,7 @@ g1 + geom_line()
 
 Series de tiempo II
 ========================================================
-
-```r
+```{r, eval = FALSE}
 require(ggplot2)
 g1 <- ggplot(subset(airquality, !is.na(Ozone)),
              aes(Day, Ozone, col=factor(Month)))
@@ -217,8 +182,7 @@ g1 + geom_line()
 
 Series de tiempo III
 ========================================================
-
-```r
+```{r, eval = FALSE}
 require(ggplot2)
 g1 <- ggplot(subset(airquality, !is.na(Ozone)),
              aes(Day, Ozone))
@@ -227,8 +191,7 @@ g1 + geom_line() + facet_grid(. ~ Month)
 
 Series de tiempo IV
 ========================================================
-
-```r
+```{r, eval = FALSE}
 require(ggplot2)
 g1 <- ggplot(subset(airquality, !is.na(Ozone)),
              aes(Day, Ozone))
@@ -238,8 +201,7 @@ g1 + geom_smooth() + facet_grid(. ~ Month) + geom_point()
 
 Anotaciones I
 ========================================================
-
-```r
+```{r, eval = FALSE}
 require(ggplot2)
 g1 <- ggplot(subset(airquality, !is.na(Ozone)),
              aes(Day, Ozone))
@@ -253,8 +215,7 @@ g1 + geom_smooth() +
 
 Anotaciones II
 ========================================================
-
-```r
+```{r, eval = FALSE}
 require(ggplot2)
 fecha1 <- as.Date(paste(with(airquality,seq(min(Month),max(Month))),"01"), format = "%m%d")
 nombreMeses <- format(fecha1,"%B")
@@ -269,8 +230,7 @@ g1 + geom_smooth() +
 
 Anotaciones III
 ========================================================
-
-```r
+```{r, eval = FALSE}
 require(ggplot2)
 fecha1 <- as.Date(paste(with(airquality,seq(min(Month),max(Month))),"01"), format = "%m%d")
 require(Hmisc)
@@ -286,8 +246,7 @@ g1 + geom_smooth() +
 
 Estadísticas I
 ========================================================
-
-```r
+```{r, eval=FALSE}
 g1 <- ggplot(mtcars, aes(x = cyl, y = mpg, colour = factor(vs)))
 g1 +  geom_point() +
   stat_summary(fun.y = mean, geom="line", size = 2)
@@ -295,8 +254,7 @@ g1 +  geom_point() +
 
 Estadísticas II
 ========================================================
-
-```r
+```{r, eval = FALSE}
 g1 <- ggplot(mpg, aes(hwy))
 g1 + stat_bin(aes(ymax = ..count..), geom = "area")
 g1 + stat_bin(aes(size = ..density..), binwidth = 0.1,

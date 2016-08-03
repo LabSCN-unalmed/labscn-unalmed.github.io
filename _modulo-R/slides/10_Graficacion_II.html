@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>ggplot2</h1><p>Kenneth Roy Cabrera Torres<br/>martes, 29 de marzo de 2016</p>
+<h1>ggplot2</h1><p>Kenneth Roy Cabrera Torres<br/>miércoles, 03 de agosto de 2016</p>
 
 <div class="slideContent" >
 
@@ -849,7 +849,7 @@ una <em>geometría</em>.</li>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Base de datos </h3>
+<h3>Base de datos</h3>
 <div class="slideContent" >
 <pre><code class="r">help(mpg)
 str(mpg)
@@ -1049,7 +1049,7 @@ g1 + geom_line()
 <h3>Series de tiempo II</h3>
 <div class="slideContent" >
 <pre><code class="r">require(ggplot2)
-g1 &lt;- ggplot(subset(airquality, !is.na(Ozone)), 
+g1 &lt;- ggplot(subset(airquality, !is.na(Ozone)),
              aes(Day, Ozone, col=factor(Month)))
 g1 + geom_line()
 </code></pre>
@@ -1061,7 +1061,7 @@ g1 + geom_line()
 <h3>Series de tiempo III</h3>
 <div class="slideContent" >
 <pre><code class="r">require(ggplot2)
-g1 &lt;- ggplot(subset(airquality, !is.na(Ozone)), 
+g1 &lt;- ggplot(subset(airquality, !is.na(Ozone)),
              aes(Day, Ozone))
 g1 + geom_line() + facet_grid(. ~ Month)
 </code></pre>
@@ -1073,7 +1073,7 @@ g1 + geom_line() + facet_grid(. ~ Month)
 <h3>Series de tiempo IV</h3>
 <div class="slideContent" >
 <pre><code class="r">require(ggplot2)
-g1 &lt;- ggplot(subset(airquality, !is.na(Ozone)), 
+g1 &lt;- ggplot(subset(airquality, !is.na(Ozone)),
              aes(Day, Ozone))
 g1 + geom_smooth() + facet_grid(. ~ Month) + geom_point()
 </code></pre>
@@ -1085,10 +1085,10 @@ g1 + geom_smooth() + facet_grid(. ~ Month) + geom_point()
 <h3>Anotaciones I</h3>
 <div class="slideContent" >
 <pre><code class="r">require(ggplot2)
-g1 &lt;- ggplot(subset(airquality, !is.na(Ozone)), 
+g1 &lt;- ggplot(subset(airquality, !is.na(Ozone)),
              aes(Day, Ozone))
-g1 + geom_smooth() + 
-     facet_grid(. ~ Month) + 
+g1 + geom_smooth() +
+     facet_grid(. ~ Month) +
      geom_point() +
      ggtitle(&quot;Comportamiento del ozono por mes&quot;) +
      xlab(&quot;Día&quot;) +
@@ -1106,8 +1106,8 @@ fecha1 &lt;- as.Date(paste(with(airquality,seq(min(Month),max(Month))),&quot;01&
 nombreMeses &lt;- format(fecha1,&quot;%B&quot;)
 airquality &lt;- transform(airquality, Mes = factor(Month, labels = nombreMeses))
 g1 &lt;- ggplot(subset(airquality, !is.na(Ozone)), aes(Day, Ozone))
-g1 + geom_smooth() + 
-     facet_grid(. ~ Mes) + 
+g1 + geom_smooth() +
+     facet_grid(. ~ Mes) +
      geom_point() +
      ggtitle(expression(paste(&quot;Comportamiento del ozono &quot;,O[3],&quot; por mes&quot;))) +
      xlab(&quot;Día&quot;) + ylab(expression(paste(O[3], &quot;(ppmm)&quot;)))
@@ -1125,8 +1125,8 @@ require(Hmisc)
 nombreMeses &lt;- capitalize(format(fecha1,&quot;%B&quot;))
 airquality &lt;- transform(airquality, Mes = factor(Month, labels = nombreMeses))
 g1 &lt;- ggplot(subset(airquality, !is.na(Ozone)), aes(Day, Ozone))
-g1 + geom_smooth() + 
-     facet_grid(. ~ Mes) + 
+g1 + geom_smooth() +
+     facet_grid(. ~ Mes) +
      geom_point() +
      ggtitle(expression(paste(&quot;Comportamiento del ozono &quot;,O[3],&quot; por mes&quot;))) +
      xlab(&quot;Día&quot;) + ylab(expression(paste(O[3], &quot; (ppmm)&quot;)))
@@ -1226,8 +1226,8 @@ function commandsForSlide(indexh) {
       transition: 'linear',
       transitionSpeed: 'default',
       rtl: false,
-      width: 960,
-      height: 700,
+      width: 1440,
+      height: 900,
     
       dependencies: []
     });

@@ -1,7 +1,7 @@
 Herramientas de programación
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: miércoles, 03 de agosto de 2016
+date: `r format(Sys.time(), "%A, %d de %B de %Y")`
 width: 1440
 height: 900
 
@@ -10,8 +10,7 @@ height: 900
 split()
 ========================================================
 
-
-```r
+```{r, eval=FALSE}
 str(split)
 ```
 
@@ -22,15 +21,13 @@ str(split)
 
 Ejemplo split I
 ========================================================
-
-```r
+```{r, eval=FALSE}
 x <- c(rnorm(10), runif(10), rnorm(10, 1))
 f <- gl(3, 10)
 split(x, f)
 ```
 Uso combinado de lapply y split.
-
-```r
+```{r, eval=FALSE}
 lapply(split(x, f), mean)
 ```
 
@@ -38,8 +35,7 @@ Ejemplo split II
 ========================================================
 
 En una base de datos.
-
-```r
+```{r, eval=FALSE}
 library(datasets)
 head(airquality)
 s <- split(airquality, airquality$Month)
@@ -50,8 +46,7 @@ sapply(s, function(x) colMeans(x[,c("Ozone", "Solar.R", "Wind")], na.rm = T))
 
 Ejemplo split III
 ========================================================
-
-```r
+```{r, eval=FALSE}
 x <- rnorm(10)
 f1 <- gl(2, 5)
 f2 <- gl(5, 2)
@@ -86,8 +81,7 @@ Fechas
 Las fechas se representan por la clase `Date` y se
 convierte de una sarta usando la función `as.Date()`.
 
-
-```r
+```{r, eval=FALSE}
 x <- as.Date("1970-01-01")
 x
 
@@ -124,8 +118,7 @@ Tiempo en R III
 
 Ejemplo 1:
 
-
-```r
+```{r, eval=FALSE}
 x <- Sys.time()
 x
 
@@ -134,13 +127,13 @@ p <- as.POSIXlt(x)
 names(unclass(p))
 
 p$sec
+
 ```
 
 
 Tiempo en R IV
 ========================================================
-
-```r
+```{r, eval=FALSE}
 x <- Sys.time()
 x
 unclass(x)
@@ -154,8 +147,7 @@ Tiempo en R V
 La función `srtptime` para convertir fechas
 en formatos diferentes al tipo fecha.
 
-
-```r
+```{r, eval=FALSE}
 sarta_fechas <- c("Enero 10, 2012 10:40", "diciembre 8, 2011 9:10",
                   "MAYO 30, 2015 23:59")
 x <- strptime(sarta_fechas, "%B %d, %Y %H:%M")
@@ -173,8 +165,7 @@ Operaciones con fechas I
 Se pueden hacer operaciones de + y -, como también
 comparaciones (==, <=, etc).
 
-
-```r
+```{r, eval=FALSE}
 x <- as.Date("2012-01-01")
 y <- strptime("9 ene 2011 11:34:21", "%d %b %Y %H:%M:%S")
 x-y
@@ -186,20 +177,19 @@ Operaciones con fechas II
 ========================================================
 Se lleva registro de los años bisiestos, segundos adicionales,
 horario de invierno y zonas horarias.
-
-```r
+```{r, eval=FALSE}
 x <- as.Date("2012-03-01"); y <- as.Date("2012-02-28")
 x-y
 
 x <- as.POSIXct("2012-10-25 01:00:00")
 y <- as.POSIXct("2012-10-25 01:00:00", tz = "GMT")
 y-x
+
 ```
 
 Operaciones con fechas III
 ========================================================
-
-```r
+```{r, eval=FALSE}
 x1 <- as.POSIXct(strptime("1 de mayo de 1992 00:00","%d de %B de %Y %H:%M"))
 x1
 weekdays(x1)
@@ -241,8 +231,7 @@ dentro del código de las funciones.
 
 traceback, debug y recover
 ========================================================
-
-```r
+```{r, eval=FALSE}
 mean(w)
 traceback()
 

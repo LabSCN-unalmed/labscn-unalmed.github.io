@@ -12,9 +12,13 @@ order: 2
 [Introducción a R (Parte 2)](./slides/01_Intro_2.html)
 
 ## Clase 3
-[Lectura/Escritura](./slides/02_Lectura_Escritura.html)
+ * [Lectura/Escritura](./slides/02_Lectura_Escritura.html)
+   - [url_banrep_trm.txt](./slides/url_banrep_trm.txt)
 
-- [url_banrep_trm.txt](./slides/url_banrep_trm.txt)
+ * [Arreglo de bases de datos](./slides/03_Arreglo_Base_Datos.html)
+   - [Religiones](./slides/religions.csv)
+   - [Tuberculosis](./slides/tb.csv)
+   - [Paises](./slides/paises.csv)
 
 ## Clase 4
 [Estructuras de control](./slides/04_Estructuras_de_control.html)

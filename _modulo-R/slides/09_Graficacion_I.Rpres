@@ -1,7 +1,7 @@
 Graficación
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: miércoles, 03 de agosto de 2016
+date: `r format(Sys.time(), "%A, %d de %B de %Y")`
 width: 1440
 height: 900
 
@@ -61,34 +61,25 @@ Sistema básico II
 Ejemplo I
 ========================================================
 
-
-```r
+```{r}
 require(datasets)
 hist(airquality$Ozone)
 ```
 
-![plot of chunk unnamed-chunk-1](09_Graficacion_I-figure/unnamed-chunk-1-1.png)
-
 Ejemplo II
 ========================================================
-
-```r
+```{r}
 require(datasets)
 with(airquality, plot(Wind, Ozone))
 ```
 
-![plot of chunk unnamed-chunk-2](09_Graficacion_I-figure/unnamed-chunk-2-1.png)
-
 Ejemplo III
 ========================================================
-
-```r
+```{r}
 require(datasets)
 airquality <- transform(airquality, Month2 = factor(Month))
 boxplot(Ozone ~ Month2, airquality, xlab = "Mes", ylab = "Ozono (ppmm)")
 ```
-
-![plot of chunk unnamed-chunk-3](09_Graficacion_I-figure/unnamed-chunk-3-1.png)
 
 Parámetros importantes I
 ========================================================
@@ -116,56 +107,18 @@ una sesión de R. Algunos comunes son:
 Parámetros importantes III
 ========================================================
 Valores por omisión de algunos parámetros
-
-```r
+```{r}
 par("lty")
-```
-
-```
-[1] "solid"
-```
-
-```r
 par("col")
-```
-
-```
-[1] "black"
-```
-
-```r
 par("pch")
-```
-
-```
-[1] 1
 ```
 
 Parámetros importantes III
 ========================================================
-
-```r
+```{r}
 par("bg")
-```
-
-```
-[1] "white"
-```
-
-```r
 par("mar")
-```
-
-```
-[1] 5.1 4.1 4.1 2.1
-```
-
-```r
 par("mfrow")
-```
-
-```
-[1] 1 1
 ```
 
 Funciones de graficación básicas
@@ -182,31 +135,24 @@ Funciones de graficación básicas
 
 Gráfica con "anotación" I
 ========================================================
-
-```r
+```{r}
 require(datasets)
 with(airquality, plot(Wind, Ozone))
 title(main = "Ozono y viento en la ciudad de Nueva York")
 ```
 
-![plot of chunk unnamed-chunk-6](09_Graficacion_I-figure/unnamed-chunk-6-1.png)
-
 
 Gráfica con "anotación" II
 ========================================================
-
-```r
+```{r}
 require(datasets)
 with(airquality, plot(Wind, Ozone, main = "Ozono y viento en la ciudad de Nueva York"))
 with(subset(airquality, Month == 5), points(Wind, Ozone, col = "blue"))
 ```
 
-![plot of chunk unnamed-chunk-7](09_Graficacion_I-figure/unnamed-chunk-7-1.png)
-
 Gráfica con "anotación" III
 ========================================================
-
-```r
+```{r, eval=FALSE}
 with(airquality, plot(Wind, Ozone, main = "Ozono y viento en la ciudad de Nueva York", xlab = "Velocidad del viento (Mph)", ylab = "Ozono (ppmm)",
 type = "n"))
 with(subset(airquality, Month == 5), points(Wind, Ozone, col
@@ -219,38 +165,28 @@ legend("topright", pch = 1, col = c("blue", "red"), legend =
 
 Con una recta de regresión
 ========================================================
-
-```r
+```{r}
 with(airquality, plot(Wind, Ozone, main = "Ozono y viento en la ciudad de Nueva York",
 pch = 20))
 modelo <- lm(Ozone ~ Wind, airquality)
 abline(modelo, lwd = 2)
 ```
 
-![plot of chunk unnamed-chunk-9](09_Graficacion_I-figure/unnamed-chunk-9-1.png)
-
 Múltiples gráficas I
 ========================================================
-
-```r
+```{r}
 op <- par(no.readonly = TRUE)
 par(mfrow = c(1, 2))
 with(airquality, {
 plot(Wind, Ozone, main = "Ozone y viento")
 plot(Solar.R, Ozone, main = "Ozone y radiación solar")
 })
-```
-
-![plot of chunk unnamed-chunk-10](09_Graficacion_I-figure/unnamed-chunk-10-1.png)
-
-```r
 par(op)
 ```
 
 Múltiples gráficas II
 ========================================================
-
-```r
+```{r, eval=FALSE}
 op <- par(no.readonly = TRUE)
 par(mfrow = c(1, 3), mar = c(4, 4, 2, 1), oma = c(0, 0, 2, 0))
 with(airquality, {
@@ -286,8 +222,7 @@ Funciones de "lattice" I
 
 Funciones de "lattice" II
 ========================================================
-
-```r
+```{r, eval=FALSE}
 xyplot(y ~ x | f * g, data)
 ```
 - Se usa la notación de fórmula, por eso la `~`.
@@ -299,26 +234,20 @@ xyplot(y ~ x | f * g, data)
 
 Ejemplo "lattice" I
 ========================================================
-
-```r
+```{r}
 require(lattice)
 require(datasets)
 xyplot(Ozone ~ Wind, data = airquality)
 ```
 
-![plot of chunk unnamed-chunk-13](09_Graficacion_I-figure/unnamed-chunk-13-1.png)
-
 Ejemplo "lattice" II
 ========================================================
-
-```r
+```{r}
 require(datasets)
 require(lattice)
 airquality <- transform(airquality, Month2 = factor(Month))
 xyplot(Ozone ~ Wind | Month2, data = airquality, layout = c(5, 1))
 ```
-
-![plot of chunk unnamed-chunk-14](09_Graficacion_I-figure/unnamed-chunk-14-1.png)
 
 Comportamiento de "lattice" I
 ========================================================
@@ -332,17 +261,13 @@ Comportamiento de "lattice" I
 
 Comportamiento de "lattice" II
 ========================================================
-
-```r
+```{r}
 p <- xyplot(Ozone ~ Wind, data = airquality)
  ## No muestra nada.
 print(p) ## Se muestra la gráfica.
 ```
 
-![plot of chunk unnamed-chunk-15](09_Graficacion_I-figure/unnamed-chunk-15-1.png)
-
-
-```r
+```{r, eval=FALSE}
 xyplot(Ozone ~ Wind, data = airquality) ## Se autoimprime
 ```
 
@@ -357,8 +282,7 @@ Funciones de panel de "lattice" I
 
 Funciones de panel de "lattice" II
 ========================================================
-
-```r
+```{r}
 set.seed(10)
 x <- rnorm(100)
 f <- rep(0:1, each = 50)
@@ -367,12 +291,9 @@ f <- factor(f, labels = c("Groupo 1", "Groupo 2"))
 xyplot(y ~ x | f, layout = c(2, 1)) ## Gráfica con dos páneles
 ```
 
-![plot of chunk unnamed-chunk-17](09_Graficacion_I-figure/unnamed-chunk-17-1.png)
-
 Funciones de panel de "lattice" III
 ========================================================
-
-```r
+```{r, eval=FALSE}
 ## Custom panel function
 xyplot(y ~ x | f, panel = function(x, y, ...) {
 panel.xyplot(x, y, ...) ## Llamado a la función xyplot
@@ -382,13 +303,10 @@ panel.abline(h = median(y), lty = 2) ## Adcionar una línea horizontal para la m
 
 Funciones de panel de "lattice" IV
 ========================================================
-
-```r
+```{r}
 xyplot(y ~ x | f, panel = function(x, y, ...) {
 panel.xyplot(x, y, ...) ## Llamado a la función xyplot
 panel.lmline(x, y, col = 2) ## Una línea de regresión
 })
 ```
-
-![plot of chunk unnamed-chunk-19](09_Graficacion_I-figure/unnamed-chunk-19-1.png)
 
