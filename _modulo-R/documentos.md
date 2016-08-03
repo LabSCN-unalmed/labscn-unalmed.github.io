@@ -1,12 +1,12 @@
 ---
 layout: curso
-title: 'Sesión'
+title: 'Sesiones'
 curso: 'modulo-R'
 order: 2
 ---
 
 ## Sesión 1
-[Introducción a R (Parte 1)](./slides/01_Intro_1.html){:target="_blank"}
+[Introducción a R (Parte 1)](./slides/01_Intro_1.html)
 
 ## Sesión 2
 [Introducción a R (Parte 2)](./slides/01_Intro_2.html)
