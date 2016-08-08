@@ -53,7 +53,7 @@ habilidades en el análisis exploratorio de bases de datos.
 
 ## Horario de atención:
 
-- Miércoles 8:00 am - 10:00 am
+- Lunes 10:00 am a 12:00 m
 
 - Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
 
