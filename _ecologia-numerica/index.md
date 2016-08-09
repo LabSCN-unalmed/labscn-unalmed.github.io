@@ -22,6 +22,10 @@ leer los artículos de investigación donde hace uso de estas herramientas.
  - Análisis canónico.
  - Interpretación de estructuras ecológicas multidimensionales.
 
+## Horario de atención
+
+ Lunes 10 am - 12 m. Laboratorio de sistemas complejos naturales 21-215.
+
 ## Bibliografía
  - Legendre, Pierre y Legendre, Louis. Numerical Ecology. Third Edition, Elsevier, 2012.
  - Borcard, Daniel, Gillet François, Gillet y Legendre, Pierre. Numerical Ecology with R. 2011.
@@ -44,5 +48,5 @@ leer los artículos de investigación donde hace uso de estas herramientas.
 
 ## Enlaces principales
 
-* [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="_blank"}
-* [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="_blank"}
+* [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
+* [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/)

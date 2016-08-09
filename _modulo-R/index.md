@@ -22,6 +22,10 @@ order: 0
     después de esa hora se calificará sobre 4.0. Se tomará la última entrega como
     la válida para calificar incluyendo la hora de entrega.
 
+## Horario de atención
+
+   Lunes 10 am - 12 m. Laboratorio de Sistemas Complejos Naturales. 21-215.    
+
 ## Evaluación.
   - Talleres inividuales o en grupo cortos 20% del módulo.
   - Trabajos individuales o en grupo 30% del módulo.
