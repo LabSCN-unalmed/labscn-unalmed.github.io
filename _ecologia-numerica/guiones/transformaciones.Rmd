@@ -1,0 +1,91 @@
+---
+title: "Transformaciones lineales"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes, 2 de agosto de 2016"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Dibujo inicial
+```{r}
+casa <- matrix(c(  1,   2, 
+                   1,   1,
+                   2,   1,
+                   2,   2,
+                   1,   2,
+                 1.5, 2.5,
+                   2,   2,
+                   2, 1.4,
+                 1.8, 1.4,
+                 1.8,   1),
+               10, 2, 
+               byrow = TRUE)
+plot(casa, type = "l", asp = 1, ylim = c(-2.5, 2.5), xlim = c(-2.5, 2.5))
+abline(h = 0, col = "red", lty = 2)
+abline(v = 0, col = "red", lty=2)
+```
+
+## Rotación 90 grados siguiendo las manecillas del reloj.
+```{r}
+M <- matrix(c(0, -1, 1, 0), 2, 2, byrow = T)
+
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-2.2, 2.5), xlim = c(-2.5, 2.5))
+abline(h = 0,col = "red", lty = 2)
+abline(v = 0,col = "red", lty = 2)
+```
+
+## Reflexión con relación al eje x.
+```{r}
+M <- matrix(c(1, 0, 0, -1), 2, 2, byrow = T)
+
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-2.5, 2.5), xlim = c(-2.5, 2.5))
+abline(h = 0,col = "red", lty = 2)
+abline(v = 0,col = "red", lty = 2)
+```
+
+## Reflexión con relación al eje y.
+```{r}
+M <- matrix(c(-1, 0, 0, 1), 2, 2, byrow = T)
+
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-2.5, 2.5), xlim = c(-2.5, 2.5))
+abline(h = 0, col = "red", lty = 2)
+abline(v = 0, col = "red", lty = 2)
+```
+
+## Escalado por dos (2) en todas las direcciones
+```{r}
+M <- matrix(c(2, 0, 0, 2), 2, 2, byrow = T)
+
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-5,5), xlim = c(-5, 5))
+abline(h = 0,col = "red", lty = 2)
+abline(v = 0,col = "red", lty = 2)
+```
+
+## Cizallado vertical
+
+```{r}
+z <- 1
+M <- matrix(c(1, z, 0, 1), 2, 2, byrow = T)
+
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-5, 5), xlim=c(-5, 5))
+abline(h = 0,col = "red", lty = 2)
+abline(v = 0,col = "red", lty = 2)
+```
+
+
+## Rotación e inversión
+
+```{r}
+M <- matrix(c(0,-1,-1,0), 2, 2,byrow = T)
+plot(casa%*%M, type = "l", asp = 1, ylim = c(-2.2, 2.5), xlim=c(-2.5, 2.5))
+abline(h = 0,col = "red", lty = 2)
+abline(v = 0,col = "red", lty = 2)
+
+```
+
