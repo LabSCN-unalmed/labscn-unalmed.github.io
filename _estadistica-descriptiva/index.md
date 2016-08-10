@@ -44,11 +44,11 @@ habilidades en el análisis exploratorio de bases de datos.
 
 ## Enlaces importantes
 
-* [Sitio de descarga del Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
-* [Sitio de descarga de la interfaz para el R: RStudio.](http://www.rstudio.com/products/rstudio/download/)
+* [Sitio de descarga del Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="blank"}
+* [Sitio de descarga de la interfaz para el R: RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="blank"}
 
-* [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM)
-* [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc)
+* [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="blank"}
+* [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="blank"}
 
 
 ## Horario de atención:
