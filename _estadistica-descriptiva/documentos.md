@@ -14,7 +14,7 @@ order: 3
 
 ## Introducción a Estadística Descriptiva y Análisis Exploratorio de Datos.
 
-- [Introducción](./documentos/explora1.html)
+- [Introducción](/estadistica-descriptiva/documentos/explora1.html)
 
 ## Numb3rs
 - [Episodio 01 Temporada 01 (Español de España)](https://dl.dropboxusercontent.com/u/5532451/numb3rs101/Numb3s_1x01_Piloto_Espanol(Espana).avi).
