@@ -1,0 +1,63 @@
+---
+title: "Exploración de la encuesta"
+author: "Kenneth Roy Cabrera Torres"
+date: "11 de agosto de 2016"
+output: 
+  html_document: 
+    highlight: tango
+    theme: cerulean
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+options(width = 110)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos.
+```{r}
+encuesta <- read.csv2("encuesta201602_1.csv")
+```
+
+## Resumen inicial de la base de datos.
+```{r}
+summary(encuesta)
+```
+
+## Descripición variable por variable.
+
+### Número de encuesta (NroEnc)
+```{r}
+# Tamaño de la base de datos
+dim(encuesta)
+
+# Resumen de la variables NroEnc
+summary(encuesta$NroEnc)
+
+# Longitud de la variable
+length(encuesta$NroEnc)
+
+# Longitud de los valores únicos de la variable
+length(unique(encuesta$NroEnc))
+```
+
+### Género
+```{r}
+summary(encuesta$Genero)
+
+tgenero <- table(encuesta$Genero)
+tgenero
+
+pgenero <- tgenero/sum(tgenero)*100
+pgenero
+
+barplot(pgenero)
+
+bpg <- barplot(pgenero, col = c("red", "blue"), names.arg = c("Mujeres", "Hombres"),
+        las = 1, ylim = c(0,90), axes = FALSE,
+        main = "Distribución por género")
+axis(2, at = seq(0, 80, 5), las = 1)
+text(bpg, pgenero+5, paste(tgenero," (",round(pgenero,1), "%)", sep = ""))
+```
+
+

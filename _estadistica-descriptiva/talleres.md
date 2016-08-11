@@ -11,7 +11,7 @@ order: 4
 
 Objetivo: Recolectar la información solicitada para el primer día de clase.
 
-Entregar llena la encuesta realizada el primer día de clase, martes
+Entregar llena la [encuesta](./documentos/Encuesta201602.pdf) realizada el primer día de clase, martes
 agosto 2 de 2016 en la hora de clase.
 
 

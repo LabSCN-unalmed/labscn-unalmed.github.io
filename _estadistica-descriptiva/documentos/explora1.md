@@ -1,7 +1,7 @@
 Estadistica descriptiva y exploratoria
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: 20 Agosto de 2015
+date: 11 Agosto de 2016
 transition: rotate
 
 Estadística Exploratoria vs Confirmatoria
@@ -15,7 +15,7 @@ Estadística Exploratoria vs Confirmatoria
 |Usa datos disponibles | Usa datos depurados|
 |Privilegia la representación gráfica | Poca importancia a la representación gráfica|
 |Visión intuitiva | Visión con un modelo  preciso en mente |
-|Semeja una investigación policial | Semeja un juicio 
+|Semeja una investigación policial | Semeja un juicio
 
 
 Definición
@@ -46,7 +46,7 @@ Tipos de variables
   * Continuas:
      - Razón (Cero).
      - Intervalo (No cero)
-     
+
 Tipos de medidas
 ========================================================
 
@@ -66,8 +66,6 @@ Descripciones usuales
 ========================================================
 Escala de medida | Frecuencias | Posición | Dispersión | Distribución | Gráficos
 ---             |---          | ---      | ---        | ---          | ---
-Nominal | Si | Moda | No | No | Barras y pastel 
+Nominal | Si | Moda | No | No | Barras y pastel
 Ordinal | Si | Moda | No | No | Barras, áreas y pastel
 Escala  | No | Media, mediana, moda | Si | Si | Histograma, áreas, dispersión.
-
-
