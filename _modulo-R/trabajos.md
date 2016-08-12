@@ -33,6 +33,34 @@ Miércoles 17 de agosto de 2016 antes de las 23:59 hora de Colombia al
 correo **krcabrer@unal.edu.co** y no olvidar en asunto escribir la sigla,
 entre corchetes **[ModuloR]**.
 
+## Trabajo extra individual ("Fenómeno de El Niño online")
+
+### Objetivo
+Realizar el mismo primer trabajo individual, pero leyendo la información
+directamente desde la
+[página del NOAA](http://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ensoyears.shtml)
+y que además tome también los colores que identifican una información
+en cuanto al fenómeno del El Niño o de La Niña y que muestre en la gráfica este mismo color,
+en los puntos correspondientes.
+
+### Incentivo
+Este trabajo sustituye todos los talleres y trabajos del curso (vale un 50%)
+del curso (exceptuando el final).
+
+### Documentos a entregar
+
+1. Archivo en formato ".Rmd" del código correspondiente.
+2. Informe ejecutivo en formato ".html" (sin código) con unicamente la gráfica y un análisis del resultado
+   y los efectos del fenómeno en la economía colombiana en los años más críticos
+   del los periodos Niño y Niña (sustentado con bibliografía).
+
+### Fecha de entrega
+
+Miércoles 24 de Agosto de 2016 antes de 23:59 hora de Colombia al correo
+al correo **krcabrer@unal.edu.co** y no olvidar en asunto escribir la sigla,
+entre corchetes **[ModuloR]**.
+
+
 ## Trabajo final ("Batalla naval").
 
 ### Objetivo
