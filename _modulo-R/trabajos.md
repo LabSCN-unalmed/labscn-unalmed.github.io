@@ -23,7 +23,7 @@ similar a la siguiente, sólo desde el mes y año de su fecha de nacimiento:
 ### Documentos a entregar.
   - Documento en formato ".Rmd" con el código que realiza la lectura,
     transformación y graficación de la base de datos.
-  - Documento en formato ".html" con únicamente la gráfica (sin código)
+  - Informe ejecutivo en formato ".html" con únicamente la gráfica (sin código)
     y un breve comentario sobre el comportamiento del índice del fenómeno de
     "El Niño" y su impacto en Colombia.
 
