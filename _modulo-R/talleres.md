@@ -30,7 +30,7 @@ Los aspectos son:
 ### Materiales a entregar.
   - Enviar un archivo ".Rmd" y el archivo ".html" correspondiente en
     donde se lee la base de datos y se realiza la graficación del contraste
-    seleccioneado.
+    seleccionado.
   - Enviar el archivo ".csv" en donde se escribe la base de datos utilizada
     para elaborar la gráfica.
 
