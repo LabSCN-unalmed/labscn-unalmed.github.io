@@ -32,3 +32,34 @@ similar a la siguiente, sólo desde el mes y año de su fecha de nacimiento:
 Miércoles 17 de agosto de 2016 antes de las 23:59 hora de Colombia al
 correo **krcabrer@unal.edu.co** y no olvidar en asunto escribir la sigla,
 entre corchetes **[ModuloR]**.
+
+## Trabajo final ("Batalla naval").
+
+### Objetivo
+Constuir el juego de la batalla naval en el R.
+En [esta página](http://es.battleship-game.org/) se puede encontrar un ejemplo del juego.
+
+### Condiciones
+En grupos de máximo seis (6) personas de debe constuir de manera que se puede
+interactuar entre dos computadores conectados mediante un cable de red
+tipo cruzado para conectar dos equipos directamente.
+
+Se calificará con un ranking en orden desde el mejor juego.
+
+Criterios de evaluación:
+
+1. Si tiene animación.
+2. Si toma tiempos de juego.
+3. Dibujos y figuras interesantes.
+4. Que permita armar el tablero de manera iteractiva.
+
+#### Documentos a entregar.
+ - Archivo en formato ".R" con el código del juego, junto con otros archivos
+   de código en R, si son necesarios.
+ - Archivo en ".pdf" donde indique cómo jugar el juego y como configurar los
+   equipos y el programa para que funcione adecuadamente el juego.
+
+### Fecha de entrega
+ Viernes, 2 de septiembre en la hora de clase. Y los códigos y documentos
+ a la dirección **krcabrer@unal.edu.co** antes de las 23:59 horas
+ y no olvidar en asunto escribir la sigla, entre corchetes **[ModuloR]**.

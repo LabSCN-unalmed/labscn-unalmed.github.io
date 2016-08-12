@@ -14,3 +14,7 @@ order: 3
 ## Ejemplo de la escalera
  - [Escalera](./codigos/escalera1.R)
  - [Funciones auxiliares](./codigos/funciones.R)
+
+## Indicación de la batalla naval.
+ - [Tablero simple](./codigos/interactua.R)
+ - [Archivo de intercambio](./codigos/jugada.txt)
