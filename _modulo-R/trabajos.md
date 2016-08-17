@@ -44,8 +44,8 @@ en cuanto al fenómeno del El Niño o de La Niña y que muestre en la gráfica e
 en los puntos correspondientes.
 
 ### Incentivo
-Este trabajo sustituye todos los talleres y trabajos del curso (vale un 50%)
-del curso (exceptuando el final).
+  Este trabajo sustituye todos los talleres y trabajos del módulo (vale un 50% del módulo,
+  el otro 50% del módulo es el trabajo final).
 
 ### Documentos a entregar
 
