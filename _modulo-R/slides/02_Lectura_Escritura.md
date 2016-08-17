@@ -1,7 +1,7 @@
 Lectura/Escritura en R
 ========================================================
 author: Kenneth Cabrera
-date: 11 agosto, 2016
+date: 17 agosto, 2016
 transition: rotate
 width: 1440
 height: 900
