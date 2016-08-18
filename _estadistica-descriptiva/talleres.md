@@ -55,4 +55,13 @@ with(homCol, barplot(TasaT, names.arg = GrupoEdad, las = 2,
 Miércoles 10 de agosto de 2016 antes de las 23:59 hora de colombia al correo
 ***krcabrer@unal.edu.co*** y no olvidar escribir en asunto **[EDAED]**.
 
+### Tercer taller individual.
+
+Responder en clase las siguientes dos preguntas:
+
+1. Resuma en un párrafo el argumento principal del espisodio 1 de
+   la primera temporada de Numb3rs.
+
+2. Describa un detalle particular que le haya llamado la atención.   
+
 ## Talleres en grupo

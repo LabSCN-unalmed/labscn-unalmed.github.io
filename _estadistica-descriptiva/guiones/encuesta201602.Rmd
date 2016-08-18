@@ -1,7 +1,7 @@
 ---
 title: "Exploración de la encuesta"
 author: "Kenneth Roy Cabrera Torres"
-date: "11 de agosto de 2016"
+date: "17 de agosto de 2016"
 output: 
   html_document: 
     highlight: tango
@@ -41,7 +41,7 @@ length(encuesta$NroEnc)
 length(unique(encuesta$NroEnc))
 ```
 
-### Género
+### Género (Genero)
 ```{r}
 summary(encuesta$Genero)
 
@@ -54,10 +54,57 @@ pgenero
 barplot(pgenero)
 
 bpg <- barplot(pgenero, col = c("red", "blue"), names.arg = c("Mujeres", "Hombres"),
-        las = 1, ylim = c(0,90), axes = FALSE,
+        las = 1, ylim = c(0,90), axes = FALSE, 
         main = "Distribución por género")
-axis(2, at = seq(0, 80, 5), las = 1)
+axis(2, at = seq(0, 80, 5), las = 1, labels = paste(seq(0, 80, 5),"%", sep = ""))
 text(bpg, pgenero+5, paste(tgenero," (",round(pgenero,1), "%)", sep = ""))
 ```
 
+### Edad (Edad)
+
+
+```{r}
+# Diagrama de barras para Edad
+tEdad <- table(encuesta$Edad)
+barplot(tEdad, main = "Diagrama de barras para edad", las = 1,
+        xlab = "Edad (años cumplidos)", ylab = "Número de estudiantes")
+```
+
+```{r}
+# Histograma para Edad
+hist(encuesta$Edad, nclass = 15, axes = F, col = "gray", 
+     ylab = "Frecuencia", ylim = c(0, 22), 
+     main = "Distribución de las edades\n de los estudiantes del curso EDAED",
+     xlab = "Edad (años cumplidos)")
+axis(1, at = seq(16, 36, 2))
+axis(2, at = seq(0, 22, 2), las = 1)
+```
+
+```{r}
+hist(encuesta$Edad, nclass = 50, axes = F, col = "grey", 
+     ylab = "Frecuencia", ylim = c(0, 22), 
+     main = "Distribución de las edades\n de los estudiantes del curso EDAED",
+     xlab = "Edad (años cumplidos)")
+axis(1, at = seq(16, 36, 2))
+axis(2, at = seq(0, 22, 2), las = 1)
+```
+
+```{r}
+hist(encuesta$Edad, nclass = 5, axes = F, col = "grey", 
+     ylab = "Frecuencia", ylim = c(0, 60), 
+     main = "Distribución de las edades\n de los estudiantes del curso EDAED",
+     xlab = "Edad (años cumplidos)")
+axis(1, at = seq(15, 41, 2))
+axis(2, at = seq(0, 60, 5), las = 1)
+```
+
+```{r}
+hist(encuesta$Edad, nclass = 15, axes = F, col = "cyan", 
+     ylab = "Densidad", freq = FALSE, ylim = c(0, 0.3), right = FALSE,
+     main = "Distribución de las edades\n de los estudiantes del curso EDAED",
+     xlab = "Edad (años cumplidos)")
+lines(density(encuesta$Edad), col = "red", lwd = 2.5)
+axis(1, at = seq(16, 36, 2))
+axis(2, at = seq(0, 0.3, 0.05), las = 1)
+```
 
