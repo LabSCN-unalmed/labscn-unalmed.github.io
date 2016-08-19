@@ -67,6 +67,72 @@ entre corchetes **[ModuloR]**.
 Constuir el juego de la batalla naval en el R.
 En [esta página](http://es.battleship-game.org/) se puede encontrar un ejemplo del juego.
 
+### Procedimiento para conectar dos computadores.
+
+1. Se utiliza un cable cruzado o "crossover" para la conexión. Aunque
+   actualmente la mayoría de los equipos se pueden conectar con cables
+   de red usuales.
+2. Conecte los dos computadores mediante el cable de red. (Algunas veces
+    este paso es suficiente para realizar la conexión).
+    Selecciones uno de los computadores como el anfitrion (HOST) y
+    el otro será el invitado o huesped (GUEST).
+3. Para realizar la conexión manual con windows 7, 8 o 10 se procede a
+   presionar las teclas "Windows + R".
+4. Se escribe en la ventana que se muestra la orden "ncpa.cpi" (sin las comillas).
+   Deberán aparecer las conexiones de red.
+5. Utilice el click derecho del mouse en "Conexión de área local" y selecciona
+   la opción de "Propiedades".
+6. En la pestaña de "General" se busca la opción que dice
+   "Protocolo de internet versión 4 (TCP/IP)" o "Internet Protocol Version 4 (TCP/IP)".
+7. Seleccione la opción de "Usar la siguiente dirección IP:".
+8. Configurar del siguiente modo el computador 1 (HOST o anfitrión).
+
+   * Dirección IP:       192.168.0.1
+   * Máscara de subred:  255.255.255.0
+   * Los demás campos se dejan vacíos.
+
+   Configurar del siguiente modlo el comptador 2 (GUEST, invitado o huesped).
+
+   * Dirección IP:       192.168.0.2
+   * Máscara de subred:  255.255.255.0
+   * Los demás campos se dejan vacíos.
+
+
+ 9. Mediante el "Explorador de archivos" busca en Red la conexión de cualquiera
+    de los dos computadores en el otro.
+    Si el sistema le pide una clave hay que desactivar el sistema de clave en
+    la red del hogar.
+
+### Desactivar solicitud de contraseña.
+  1. Incio > panel de control > redes e internet.
+  2. Grupo Hogar > cambiar configuración de uso
+     compartido avanzado.
+  3. Casi al final se encuentra y se marca la opción:
+     "Desactivar el uso compartido con petición por contraseña".
+  4. Se puede hacer el mismo procedimiento en "Centro de redes y recursos compartidos".
+
+
+### Procedimiento para comprartir una carpeta o archivo en red.
+
+ 1. Se realiza click derecho en una carpeta.
+ 2. En la pestaña "Compartir" y se marca el botón "Uso compartido avanzado".
+ 3. Marcar "Compartir esta carpeta", y la configuración de
+    se desee de acuerdo a criterios del usuario.
+ 4. Se recomienda hacer este procedimiento en el computador HOST o anfitrión.
+    (Pero no es obligatorio)
+
+### Direccionamiento del archivo en R
+
+  1. Los archivos compartidos se detectan en la red mediante direcciones como:
+     **\\\computador\users\naval\archivoJugadas.txt**, sin embargo a la hora
+     de escribir en R la dirección del archivo para leerlo con la
+     función `readLines()` se utiliza la dirección de la siguiente manera
+     **\\\computador/users/naval/archivo.txt**. En la mayoría de las veces
+     también funciona como: **\\\\computador\\\users\\\naval\\\archivoJugadas.txt**
+
+   2. Procure no utilizar espacios en blanco en los nombres de los archivos y
+       carpetas porque esa forma the ruta es más compleja de manejar por el R.     
+
 ### Condiciones
 En grupos de máximo seis (6) personas de debe constuir de manera que se puede
 interactuar entre dos computadores conectados mediante un cable de red
