@@ -78,7 +78,7 @@ En [esta página](http://es.battleship-game.org/) se puede encontrar un ejemplo 
     el otro será el invitado o huesped (GUEST).
 3. Para realizar la conexión manual con windows 7, 8 o 10 se procede a
    presionar las teclas "Windows + R".
-4. Se escribe en la ventana que se muestra la orden "ncpa.cpi" (sin las comillas).
+4. Se escribe en la ventana que se muestra la orden "ncpa.cpl" (sin las comillas).
    Deberán aparecer las conexiones de red.
 5. Utilice el click derecho del mouse en "Conexión de área local" y selecciona
    la opción de "Propiedades".
