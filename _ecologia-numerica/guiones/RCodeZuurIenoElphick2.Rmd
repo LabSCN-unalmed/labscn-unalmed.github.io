@@ -66,11 +66,12 @@ options(width = 110)
 Sparrows <- read.table(file = "SparrowsElphick.txt", header = TRUE)
 
 
-
+op <- par(no.readonly = TRUE)
 par(mfrow= c (1,2), mar = c(5,4,2,1))
 boxplot(Sparrows$wingcrd,  ylab = "Wing length (mm)")
 dotchart(Sparrows$wingcrd, xlab = "Wing length (mm)",
          ylab = "Order of the data")
+par(op)
 
 
 
