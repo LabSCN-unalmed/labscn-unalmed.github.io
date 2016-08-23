@@ -4,8 +4,8 @@
 ################################################################################
 
 # Número de hombres y mujeres de un grupo en particular
-numhombres <- 52
-nummujeres <- 15
+numhombres <- 58
+nummujeres <- 18
 
 # Tamaño de muestra de la población
 tammuestra <- 10

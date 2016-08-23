@@ -14,3 +14,8 @@ order: 2
 
 - [Descriptiva Inicial](./guiones/encuesta201602.html){:target="blank"}
 - [Encuesta](./basesdedatos/encuesta201602_1.xlsx)
+
+## Tamaño de muestra
+
+- [Tamaño de muestra](./guiones/tammuest.html)
+- [Archivo ".R"](./guiones/tammuest.R)
