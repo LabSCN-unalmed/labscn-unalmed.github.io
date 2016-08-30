@@ -1,7 +1,7 @@
 ---
 title: "Ecologia de peces"
 author: "Kenneth Roy Cabrera Torres"
-date: "2 de septiembre de 2015"
+date: "30 de agosto de 2016"
 output: 
   html_document: 
     toc: yes
@@ -21,13 +21,13 @@ Verneaux, J. (1973) Cours d'eau de Franche-Comté (Massif du Jura).
 Recherches écologiques sur le réseau hydrographique du Doubs.
 Essai de biotypologie. Thèse d'état, Besançon. 1–257
 
-![alt text](mapa_Rio_Dubs.jpg "Río Doubs")
+<center>![](mapa_Rio_Dubs.jpg "Río Doubs")</center>
 
-![alt text](doubs-river-near-the-stairs-of-death-vuillafans.jpg "Río Doubs")
+<center>![](doubs-river-near-the-stairs-of-death-vuillafans.jpg "Río Doubs")</center>
 
-![alt text](Rio_Dubs_Aguas_Abajo.jpg "Río Doubs")
+<center>![](Rio_Dubs_Aguas_Abajo.jpg "Río Doubs")</center>
 
-![alt text](Rio_Dubs_Zona_Urbana.jpg "Río Doubs")
+<center>![](Rio_Dubs_Zona_Urbana.jpg "Río Doubs")</center>
 
 La tesis propone el uso de las especies de peces para caracterizar
 las zonas ecológicas a lo largo de rios y quebradas de Europa.
@@ -115,7 +115,7 @@ mapa <- ggplot(locs, aes(x, y))
 mapa + geom_point() + 
        coord_fixed() +
        geom_path(col = "blue") +
-       geom_text(label = row.names(locs)) +
+       geom_text(label = row.names(locs), hjust = 1.5) +
        geom_text(data = NULL, x=50, y = 10, label = "Nacimiento") +
        geom_text(data = NULL, x=30, y = 120, label = "Desembocadura") +
        ggtitle("Localización")

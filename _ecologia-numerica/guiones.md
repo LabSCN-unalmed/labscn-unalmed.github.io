@@ -27,3 +27,15 @@ Bases de datos:
 
  - [Página de datos del ENSO](http://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ensoyears.shtml)
  - [Base de datos en EXCEL](./bases_datos/ENSO.xlsx)
+
+## Ecología de peces
+
+ * [Ecología de peces](./guiones/ecologiaPeces.html)
+
+Bases de datos  
+
+ - [Variables ambientales](./bases_datos/ambientales.xlsx)
+ - [Abundancia de peces](./bases_datos/peces.xlsx)
+ - [Localizaciones](./bases_datos/localidades.xlsx)
+ - [Nombres de especies](./bases_datos/nombresdeespecies.xlsx)
+ - [Nombres de variables ambientales](./bases_datos/Nombresdevariablesambientales.xlsx)
