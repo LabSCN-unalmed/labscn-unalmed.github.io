@@ -25,7 +25,7 @@ nomVarAmbient <- read.csv2("Nombresdevariablesambientales.csv", enc = "latin1")
 
 ## Cálculo del índice de alfa-diversidad de la comunidad de peces
 
-El [artículo](./docs/diversity-vegan.pdf) asocidado al paquete
+El [artículo](../docs/diversity-vegan.pdf) asocidado al paquete
 **vegan** del autor Jari Oksanen ofrece una orientación a aspectos
 del uso de los parámetros de diversidad.
 
