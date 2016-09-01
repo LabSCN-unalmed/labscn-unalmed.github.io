@@ -1,0 +1,117 @@
+---
+title: "Exploración de la encuesta II"
+author: "Kenneth Roy Cabrera Torres"
+date: "1 de septiembre de 2016"
+output: 
+  html_document: 
+    highlight: tango
+    theme: cerulean
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+options(width = 110)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos.
+```{r}
+encuesta <- read.csv2("encuesta201602_2.csv")
+```
+
+## Resumen inicial de la base de datos.
+```{r}
+summary(encuesta)
+```
+
+## Convertir coordenadas geográficas a MAGNA-SIRGAS
+
+Para la proyección en metros utilizada en colombia se puede
+utilizar el siguiente 
+[sitio para referencia de proyecciones](http://spatialreference.org/).
+
+El código EPSG se utiliza para designar una proyección específica.
+
+
+```{r}
+# Paquetes requeridos
+require(sp)
+require(rgdal)
+
+# Convertir las coordenadas de residencia
+coord1 <- subset(encuesta, select = c("NroEnc", "long_res", "lat_res"))
+coord1 <- na.omit(coord1)
+coordinates(coord1) <- c("long_res", "lat_res")
+proj4string(coord1) <- CRS("+init=epsg:4326")
+CRSdest <- CRS("+init=epsg:3116")
+coord2 <- spTransform(coord1, CRSdest)
+coord1$long_res_proy <- coord2@coords[,1]
+coord1$lat_res_proy <- coord2@coords[,2]
+encuesta <- base::merge(encuesta, coord1@data, all.x = TRUE)
+
+# Convertir las coordenadas destino
+coord1 <- subset(encuesta, select = c("NroEnc", "long_dest", "lat_dest"))
+coord1 <- na.omit(coord1)
+coordinates(coord1) <- c("long_dest", "lat_dest")
+proj4string(coord1) <- CRS("+init=epsg:4326")
+CRSdest <- CRS("+init=epsg:3116")
+coord2 <- spTransform(coord1, CRSdest)
+coord1$long_dest_proy <- coord2@coords[,1]
+coord1$lat_dest_proy <- coord2@coords[,2]
+encuesta <- base::merge(encuesta, coord1@data, all.x = TRUE)
+
+```
+
+## Despliegue de puntos origen-destino
+
+```{r}
+plot(encuesta$long_res_proy, encuesta$lat_res_proy, asp = 1, pch = 19,
+     ylab = "X", xlab = "Y", main = "Origen y destino")
+points(encuesta$long_dest_proy, encuesta$lat_dest_proy, pch = 19, col = "red")
+legend("topright", legend = c("Origen", "Destino"), pch = 19, 
+       col = c("black", "red"))
+grid()
+
+with(encuesta,plot(long_res_proy, lat_res_proy, asp = 1, pch = 19,
+     ylab = "X", xlab = "Y", main = "Origen y destino"))
+with(encuesta,points(long_dest_proy, lat_dest_proy, pch = 19, col = "red"))
+legend("topright", legend = c("Origen", "Destino"), pch = 19, 
+       col = c("black", "red"))
+grid()
+
+```
+
+## Cálculo de la distancia recorrida
+```{r}
+encuesta$distancia <- with(encuesta, sqrt((long_res_proy - long_dest_proy) ^ 2 +
+                                          (lat_res_proy - lat_dest_proy) ^ 2))
+```
+
+## Distribución de la distancia recorrida
+```{r}
+summary(encuesta$distancia)
+sd(encuesta$distancia, na.rm = TRUE)
+hist(encuesta$distancia/1000, freq = FALSE, 
+     main = "Histograma de la distancia recorrida",
+     ylab = "Densidad", xlab = "Distancia (Km)", col = "lightblue")
+lines(density(encuesta$distancia/1000, na.rm = TRUE), 
+      col = "red", lty = 2, lwd = 2)
+```
+
+## Diagrama de caja y bigotes de la distancia recorrida
+```{r}
+promDist <- mean(encuesta$distancia/1000, na.rm = TRUE)
+dsDist   <- sd(encuesta$distancia/1000, na.rm = TRUE)
+limInf   <- promDist - dsDist
+limSup   <- promDist + dsDist
+boxplot(encuesta$distancia/1000, horizontal = TRUE, 
+        main = "Diagrama de caja y bigotes para la distancia recorrida",
+        xlab = "Distancia (Km)", col = "orange", pch = 19)
+points(promDist, 1.1, 
+       col = "blue", pch = 19, cex = 2)
+arrows(limInf, 1.1, limSup, 1.1, col = "blue", 
+       code = 3, angle = 90, length = 0.2)
+legend("topright", legend = c("Media +/- 1 desv. est."), 
+                              pch = 19, lty = 1, col = "blue")
+```
+
