@@ -12,7 +12,7 @@ layout: page
     <nav class="text-center">
       <ul class="pagination pagination-sm" id="classIndex">
         {% assign col = page.collection %}
-        {% for node in site.[col] %}
+        {% for node in site[col] %}
           {% if node.clase %}
             <li {% if node.clase == page.clase %}class="active"{% endif %}>
               <a href="{{ node.url }}">{{ node.clase }}</a>
