@@ -13,9 +13,14 @@ order: 2
 ## Encuesta (Inicio de Estadística descriptiva)
 
 - [Descriptiva Inicial](./guiones/encuesta201602.html){:target="blank"}
-- [Encuesta](./basesdedatos/encuesta201602_1.xlsx)
+- [Encuesta 1](./basesdedatos/encuesta201602_1.xlsx)
 
 ## Tamaño de muestra
 
 - [Tamaño de muestra](./guiones/tammuest.html)
 - [Archivo ".R"](./guiones/tammuest.R)
+
+## Encuesta (Exploración II)
+
+- [Descipción para distancia recorrida](./guiones/encuesta201602_2.html){:target="blank"}
+- [Encuesta 2](./basesdedatos/encuesta201602_2.xlsx)

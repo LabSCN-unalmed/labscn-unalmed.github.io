@@ -1,7 +1,7 @@
 ---
-title: "Ecologia de peces"
+title: "Ecologia de peces 2"
 author: "Kenneth Roy Cabrera Torres"
-date: "30 de agosto de 2016"
+date: "30 de septiembre de 2015"
 output: 
   html_document: 
     toc: yes
@@ -10,59 +10,8 @@ output:
 
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(fig.width=11, 
-                      fig.height=7)
+                      fig.height=11)
 ```
-
-## Contextualización
-
-Datos de la tesis doctoral de Verneaux (1973)
-
-Verneaux, J. (1973) Cours d'eau de Franche-Comté (Massif du Jura). 
-Recherches écologiques sur le réseau hydrographique du Doubs.
-Essai de biotypologie. Thèse d'état, Besançon. 1–257
-
-<center>![](mapa_Rio_Dubs.jpg "Río Doubs")</center>
-
-<center>![](doubs-river-near-the-stairs-of-death-vuillafans.jpg "Río Doubs")</center>
-
-<center>![](Rio_Dubs_Aguas_Abajo.jpg "Río Doubs")</center>
-
-<center>![](Rio_Dubs_Zona_Urbana.jpg "Río Doubs")</center>
-
-La tesis propone el uso de las especies de peces para caracterizar
-las zonas ecológicas a lo largo de rios y quebradas de Europa.
-Él mostró que las comunidades de peses son buenos indicadores
-biológicos para estos cuerpos de agua.
-A partir del nacimiento propuso una topología en cuatro zonas,
-y las designó de acuerdo a las características de las especies como:
-
- - Zona de la trucha (Trout zone)
- - Zona del tímalo (Grayling zone)
- - Zona del barbo (Barbel zone)
- - Zona de la brema (Bream zone)
-
-Las condiciones ecológicas correspondientes, con mucha variación entre los
-rios, varía desde agua relativamente pristinas, bien oxigendadas y
-oligotróficas hasta eutróficas y sin oxígeno.
-
-Los datos se tomaron en 30 lugares a lo largo del río Doubs.
-Este río corre cerca de la frontera franco-suiza 
-al borde del macizo del Jura.
-
-## Listado de las bases de datos.
-
- - La base de datos de **peces** tienen las abundancias de 27 especies de peces.
-Las abundancias están reescalada a una medida semicuantitativa de 1 a 5.
- - La base de datos **ambientales** tiene 11 variable ambientales relacionadas
-con la hidrología, la geomorfología y la química del rio.
- - La base de datos de **localidades** tiene las coordenadas planas de
-cada uno de los sitios de muestreo.
- - La base de datos **nombre de especies** tiene los códigos, los nombres
-científicos, los nombres en inglés y en francés de las 27 especies 
-reconocidas en el estudio.
- - La base de datos **Nombres de variables ambientales** tiene los códigos de
-las variables ambientales, la designación completa y las unidades de
-cada variable.
 
 ## Lectura de las bases de datos
 
@@ -74,130 +23,261 @@ nomEspec<-read.csv2("nombresdeespecies.csv",enc="latin1")
 nomVarAmbient<-read.csv2("Nombresdevariablesambientales.csv",enc="latin1")
 ```
 
-## Análisis descriptivo univariado
-
-### Abundancia de peces.
-
-Despliegue de la base de datos.
-(Este procedimiento no es recomendado para grandes base de datos.)
-```{r}
-peces
-```
-
-### Resumen de la base de datos de peces
-```{r}
-summary(peces)
-```
-
-
-### Conteo de los casos para cada clase de abundancia
-```{r}
-(ab <- table(unlist(peces)))
-ab <- data.frame(ab)
-names(ab) <- c("Caso","Frecuencia")
-```
-
-### Diagrama de barras de los conteos de abundancia
-```{r}
-require(ggplot2)
-barras <- ggplot(data.frame(ab), aes(Caso,Frecuencia))
-barras + geom_bar(stat = "identity") +
-   ggtitle("Distribución de abundancia de clases") +
-   xlab("Clase de abundancia")+
-   ylab("Frecuencia")
-```
-
-### Mapa de localizaciones
+## Cálculo del índice de alfa-diversidad de la comunidad de peces
 
 ```{r}
-require(ggplot2)
-mapa <- ggplot(locs, aes(x, y))
-mapa + geom_point() + 
-       coord_fixed() +
-       geom_path(col = "blue") +
-       geom_text(label = row.names(locs), hjust = 1.5) +
-       geom_text(data = NULL, x=50, y = 10, label = "Nacimiento") +
-       geom_text(data = NULL, x=30, y = 120, label = "Desembocadura") +
-       ggtitle("Localización")
+#------------------------------------------------------------------------------#
+# Uso de la función diversity() del paquete vegan
+require(vegan)
+# Ayuda de la función diversity()
+?diversity
+
+N0 <- rowSums(peces > 0)         # Riqueza de especies
+H <- diversity(peces)            # Entropía de Shannon
+N1 <- exp(H)                     # Diversidad de Shannon (abundancia de especies)
+N2 <- diversity(peces, "inv")    # Diversidad de Simpson (número de species dominantes)
+J <- H/log(N0)                   # Índice de equitatividad de Pielou
+E10 <- N1/N0                     # Equitatividad de Shannon (razón de Hill)
+E20 <- N2/N0                     # Equitatividad de Simpson (razón de Hill)
+(div <- data.frame(N0, H, N1, N2, E10, E20, J))
 ```
 
-## Gráfica de cuatro especies
-```{r}
-seleccion1 <- subset(peces, select = c(Satr, Thth, Baba, Abbr))
-seleccion1 <- data.frame(locs, seleccion1)
-require(reshape2)
-seleccion2 <- melt(seleccion1, id.vars = c("x","y"), variable.name = "especie",
-     value.name = "abundancia")
-seleccion2$especie2 <- factor(seleccion2$especie,
-                             labels = c("Trucha parda",
-                             "Tímalo", "Barbo", "Brema comúm"))
-
-require(ggplot2)
-especs <- ggplot(seleccion2, aes(x, y, size = abundancia))
-especs + geom_point() + 
-         coord_fixed() +
-         facet_wrap( ~ especie2, ncol = 2) +
-         scale_size_continuous(range = c(3,7)) +
-         ggtitle("Abundancia de cuatro especies")
-
-seleccion3 <- merge(seleccion2, nomEspec, by.x = "especie", by.y = "code")
-
-require(ggplot2)
-especs <- ggplot(seleccion3, aes(x, y, size = abundancia))
-especs + geom_point() + 
-         coord_fixed() +
-         facet_wrap( ~ Scientific, ncol = 2) +
-         scale_size_continuous(range = c(3,7)) +
-         ggtitle("Abundancia de cuatro especies")
-
-```
-
-## Comparación de especies
-```{r}
-# Calcular el número de sitios donde cada especie está presente.
-# Para sumar por columnas, el segundo argumento de la
-# función apply() se establece en 2.
-peces.pres <- apply(peces > 0, 2, sum)
-# Ordenar el resultado en orden creciente
-sort(peces.pres)
-# Calcular las frecuencias en porcentajes
-peces.fRel <- 100*peces.pres/nrow(peces)
-# Ordenar y redondear el resultado a un dígito
-round(sort(peces.fRel), 1)
-# Convertir a base de datos
-peces.fRel <- data.frame(distribucion = round(sort(peces.fRel), 1))
-```
-
-Gráfica de presencia de distribución (dispersión) de especies.
+## Transformación y estandarización de la base de datos de especies
 
 ```{r}
-require(ggplot2)
-hist1 <- ggplot(peces.fRel, aes(distribucion))
-hist1 + geom_histogram(binwidth = 5) +
-        ggtitle("Ocurrencias de especies") +
-        xlab("Porcentaje  de ocurrencia (%)") +
-        ylab("Número de especies")
+#------------------------------------------------------------------------------#
+require(vegan)
+# Ayuda de la función decostand().
+?decostand
+
+# Transformaciones simples
+# Visión parcial de los datos crudos (códigos de abundancia)
+peces[1:5, 2:4]
+# Transformación de abundancias a presencia-ausencia (1-0)
+peces.pa <- decostand(peces, method="pa")
+peces.pa[1:5, 2:4]
 ```
 
-## Riqueza de especies por sitio
+## Perfiles de especies: Estandarización por columna
 ```{r}
-# Cálculo del número de especies por sitio
-# Para sumar por filas el segundo argumento de apply() se establece en 1
-sit.pres <- apply(peces > 0, 1, sum)
-# Ordenación de los resultados en orden creciente
-sort(sit.pres)
+#------------------------------------------------------------------------------#
+# Escalado de abundancias mediante la división 
+# por el máximo valor para cada especie.
+# Nota: MARGIN=2 (por columna, valor por omisión) para este método.
+peces.scal <- decostand(peces, "max")
+peces.scal[1:5,2:4]
+# Despliegue del máximo por columna
+apply(peces.scal, 2, max)
+
+# Escalado de abundancias mediante la división
+# del total de especies.
+# (Abundancia relativa por especies)
+# Nota: MARGIN=2 para este método
+peces.relsp <- decostand(peces, "total", MARGIN=2)
+peces.relsp[1:5,2:4]
+# Despligue la suma por columna
+apply(peces.relsp, 2, sum)
 ```
 
-Ejercicio: Consturir el mapa de riqueza.
+## Perfil de sitios: estandarización por fila
+```{r}
+#------------------------------------------------------------------------------#
+# Escalado de abundancias mediante la división por el total de sitios.
+# (abundancias relativas dividiendo por sitio)
+# Nota: MARGIN=1 (valor por omisión) para este método.
+peces.rel <- decostand(peces, "total")
+peces.rel[1:5,2:4]
+# Despligue de la suma de las filas por verctor para determinar si
+# el escalado funcionó adecuadamente.
+apply(peces.rel, 1, sum)
 
-```{r, echo=FALSE}
-bdsit.pres <- data.frame(locs, num_espec = sit.pres)
+# Dado una longitud de 1 para cada fila (Normalización euclídea)
+peces.norm <- decostand(peces, "normalize")
+peces.norm[1:5,2:4]
+# Vefificar la norma de los vectores fílas.
+norm <- function(x) sqrt(x%*%x)
+apply(peces.norm, 1, norm)
 
-require(ggplot2)
-mapa <- ggplot(bdsit.pres, aes(x, y, size = num_espec))
-mapa + geom_point() + 
-       coord_fixed() +
-       ggtitle("Riqueza de especies por sitio")
+# Cálculo de la raiz cuadrada de la abundancia por sitio
+peces.hel <- decostand(peces, "hellinger")
+peces.hel[1:5,2:4]
+# Verificar la noram de los vectores filas.
+apply(peces.hel, 1, norm)
+```
+
+## Perfiles dobles: Estandarización doble, tanto columna como por fila.
+
+```{r}
+#------------------------------------------------------------------------------#
+# Transformación chi-cuadrada.
+peces.chi <- decostand(peces, "chi.square")
+peces.chi[1:5,2:4]
+# Verificación de lo que pasa en el sitio 8 que no fue encontrada
+# ninguna especie.
+peces.chi[7:9,]
+
+# Estandarización Wisconsin.
+# Las abundancias se ranquean primero por el número de especies máxima
+# y luego por el total de sitios.
+peces.wis <- wisconsin(peces)
+peces.wis[1:5,2:4]
+
+# Diagramas de caja y bigotes de las abundancias transfomrada
+# de una especie común (stone loach (lobo de río, barbatula barbatula))
+op<-par(no.readonly=TRUE)
+par(mfrow=c(2,2))
+boxplot(peces$Neba, sqrt(peces$Neba), log1p(peces$Neba),
+        las=1, main="Transformación simple",
+        names=c("datos crudos", "raiz-cuad", "log"), col="bisque")
+boxplot(peces.scal$Neba, peces.relsp$Neba,
+        las=1, main="Estandarización por especie",
+        names=c("max", "total"), col="lightgreen")
+boxplot(peces.hel$Neba, peces.rel$Neba, peces.norm$Neba,
+        las=1, main="Estandarización por sitio",
+        names=c("Hellinger", "total", "norm"), col="lightblue")
+boxplot(peces.chi$Neba, peces.wis$Neba,
+        las=1, main="Doble estandarización",
+        names=c("Chi-cuadrado", "Wisconsin"), col="orange")
+par(op)
+
+```
+
+## Gráficas a lo largo del gradiente nacimento-desembocadura.
+```{r}
+# Graficación de perfiles a lo largo del 
+# gradiente nacimiento-desembocadura.
+op<-par(no.readonly=TRUE)
+par(mfrow=c(2,2))
+plot(ambient$das, peces$Satr, type="l", col=4, main="Datos Crudos",
+     xlab="Distance desde el nacimiento [km]",
+     ylab="Codificacion de abundancia crudo")
+lines(ambient$das, peces$Thth, col=3)
+lines(ambient$das, peces$Baba, col="orange")
+lines(ambient$das, peces$Abbr, col=2)
+lines(ambient$das, peces$Neba, col=1, lty="dotted")
+
+plot(ambient$das, peces.scal$Satr, type="l", col=4, 
+     main="Perfiles de especies (max)",
+     xlab="Distance desde el nacimiento [km]", ylab="Abundancia estandarizada")
+lines(ambient$das, peces.scal$Thth, col=3)
+lines(ambient$das, peces.scal$Baba, col="orange")
+lines(ambient$das, peces.scal$Abbr, col=2)
+lines(ambient$das, peces.scal$Neba, col=1, lty="dotted")
+
+plot(ambient$das, peces.hel$Satr, type="l", col=4,
+     main="Perfiles de sitios (Hellinger)",
+     xlab="Distance desde el nacimiento [km]", ylab="Abundancia estandarizada")
+lines(ambient$das, peces.hel$Thth, col=3)
+lines(ambient$das, peces.hel$Baba, col="orange")
+lines(ambient$das, peces.hel$Abbr, col=2)
+lines(ambient$das, peces.hel$Neba, col=1, lty="dotted")
+
+plot(ambient$das, peces.chi$Satr, type="l", col=4,
+     main="Perfiles dobles (Chi-square)",
+     xlab="Distance desde el nacimiento [km]", ylab="Abundancia estandarizada")
+lines(ambient$das, peces.chi$Thth, col=3)
+lines(ambient$das, peces.chi$Baba, col="orange")
+lines(ambient$das, peces.chi$Abbr, col=2)
+lines(ambient$das, peces.chi$Neba, col=1, lty="dotted")
+legend("topright", c("Trucha Parda", 
+                     "Tímalo", 
+                     "Barbo", 
+                     "Brema",
+                     "Lobo de Río"), col=c(4,3,"orange",2,1), lty=c(rep(1,4),3))
+par(op)
+```
+
+## Mapa de burbujas de algunas variables ambientales
+```{r}
+#------------------------------------------------------------------------------#
+op<-par(no.readonly=TRUE)
+par(mfrow=c(2,2))
+plot(locs, asp=1, main="Altura", pch=21, col="white", bg="red",
+     cex=5*ambient$alt/max(ambient$alt), xlab="x", ylab="y")
+lines(locs, col="light blue")
+plot(locs, asp=1, main="Descarga", pch=21, col="white", bg="blue",
+     cex=5*ambient$flo/max(ambient$flo), xlab="x", ylab="y")
+lines(locs, col="light blue")
+plot(locs, asp=1, main="Oxígeno", pch=21, col="white", bg="green3",
+     cex=5*ambient$oxy/max(ambient$oxy), xlab="x", ylab="y")
+lines(locs, col="light blue")
+plot(locs, asp=1, main="Nitrato", pch=21, col="white", bg="brown",
+     cex=5*ambient$nit/max(ambient$nit), xlab="x", ylab="y")
+lines(locs, col="light blue")
+par(op)
+
+
+```
+
+## Gráficas de líneas
+```{r}
+op<-par(no.readonly=TRUE)
+par(mfrow=c(2,2))
+plot(ambient$das, ambient$alt, type="l", xlab="Distance desde el nacimiento [km]", 
+     ylab="Altitud (m)", col="red", main="Altura")
+plot(ambient$das, ambient$flo, type="l", xlab="Distance desde el nacimiento [km]", 
+     ylab="Descarga (m3/s)", col="blue", main="Descarga")
+plot(ambient$das, ambient$oxy, type="l", xlab="Distance desde el nacimiento [km]", 
+     ylab="Oxígeno (mg/L)", col="green3", main="Oxígeno")
+plot(ambient$das, ambient$nit, type="l", xlab="Distance desde el nacimiento [km]", 
+     ylab="Nitrato (mg/L)", col="brown", main="Nitrato")
+par(op)
+
+
+
+```
+
+
+## Diagramas de dispersión para todas las variables ambientales.
+```{r}
+# Gráficas bivariadas con histogramas en la diagonal y
+# curvas de tendencia suavizadas.
+panel.hist <- function(x, ...)
+{
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(usr[1:2], 0, 1.5) )
+  h <- hist(x, plot = FALSE)
+  breaks <- h$breaks; nB <- length(breaks)
+  y <- h$counts; y <- y/max(y)
+  rect(breaks[-nB], 0, breaks[-1], y, col = "cyan", ...)
+}
+op<-par(no.readonly=TRUE)
+pairs(ambient, panel=panel.smooth, diag.panel=panel.hist,
+      main="Gráficas bivariadas con curvas de tendencia e histogramas")
+par(op)
+```
+
+## Transformaciones simples de variables ambientales
+
+```{r}
+range(ambient$slo)
+# Transformación logarítimica de la variable pendiente (y=ln(x))
+# Comparación de histogramas y diagramas de caja y bigotes de
+# los datos crudos y transformados.
+op<-par(no.readonly=TRUE)
+par(mfrow=c(2,2))
+hist(ambient$slo, col="bisque", right=FALSE,ylab="Frecuencia absoluta",
+     main="Histograma de pendiente")
+hist(log(ambient$slo), col="light green", right=F, 
+     main="Histograma de ln(pendiente)",ylab="Frecuencia absoluta")
+boxplot(ambient$slo, col="bisque", main="Caja y bigotes de pendiente",
+        ylab="pendiente")
+boxplot(log(ambient$slo), col="light green", 
+        main="Caja y bigotes de ln(pendiente)",
+        ylab="log(pendiente)")
+op<-par(no.readonly=TRUE)
+
+# Estandarización de todas las variables ambientales
+# Centrado y escalado = variables estandarizadas o normalizadas (z-scores)
+require(vegan)
+ambient.z <- decostand(ambient, "standardize")
+apply(ambient.z, 2, mean)	# means = 0
+apply(ambient.z, 2, sd)		# standard deviations = 1
+
+# La misma estandarización pero utilizando la función scale()
+# Esta función devuelve una matriz.
+ambient.z <- as.data.frame(scale(ambient))
+
 ```
 
 

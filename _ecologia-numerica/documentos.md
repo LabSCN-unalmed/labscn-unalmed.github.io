@@ -25,3 +25,7 @@ custom_js: 'mathjax'
 ## Enlace de tutorial de  `dplyr`
 
  - [Tutorial `dplyr`](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html)
+
+## Documento de diversidad del paquete `vegan`
+
+ - [Diversidad en vegan](./docs/diversity-vegan.pdf)
