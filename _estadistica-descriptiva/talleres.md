@@ -125,7 +125,7 @@ determinar que factores influencian el tiempo de reacción.
        1. Generación (Número entero).
        2. Nombre (Por ejemplo Playstation 2, Nintendo DS, Game Boy, Playstation,
          Wii, Xbox 360, Super Nintendo, Xbox One, etc) (Sarta o *string*).
-     * Hora a la semana de juego en videojuegos (horas).
+     * Horas a la semana de juego en videojuegos (horas).
      * Practica algún deporte de actividad física más de 8 horas a la semana (Si, No).
      * Tiene alguna afición o pasatiempo (hobbie) de destreza manual fina
        (Toca instrumento, manualidades, dibujo, pintura, etc.)
