@@ -19,14 +19,14 @@ spec_hora <- read.csv2("hourly_SPEC_2016.csv")
 ### Convertir a tipo fechas y hora
 ```{r}
 require(dplyr)
-spec_hora <- spec_hora %>% mutate(Fecha_hora_local =paste(Date.Local, Time.Local))
+spec_hora <- spec_hora %>% mutate(Fecha_hora_local = paste(Date.Local, Time.Local))
 spec_hora <- spec_hora %>% mutate(Fecha_local = as.POSIXct(strptime(Date.Local, "%Y-%m-%d")))
-spec_hora <- spec_hora %>% mutate(Fecha_hora_local = as.POSIXct(Fecha_hora_local), "%Y-%m-%d %H:%M")
+spec_hora <- spec_hora %>% mutate(Fecha_hora_local = as.POSIXct(strptime(Fecha_hora_local, "%Y-%m-%d %H:%M")))
 
 spec_hora <- spec_hora %>%
-             mutate(Fecha_hora_local =paste(Date.Local, Time.Local),
+             mutate(Fecha_hora_local = paste(Date.Local, Time.Local),
                     Fecha_local = as.POSIXct(strptime(Date.Local, "%Y-%m-%d")),
-                    Fecha_hora_local = as.POSIXct(Fecha_hora_local), "%Y-%m-%d %H:%M")
+                    Fecha_hora_local = as.POSIXct(strptime(Fecha_hora_local, "%Y-%m-%d %H:%M")))
 ```
 
 ### Selección de subbases de datos
