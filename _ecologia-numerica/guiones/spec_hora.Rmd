@@ -1,0 +1,53 @@
+---
+title: "Contaminación del aire en EEUU"
+author: "Kenneth Roy Cabrera Torres"
+date: "6 de septiembre de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+```{r}
+spec_hora <- read.csv2("hourly_SPEC_2016.csv")
+```
+
+## Adecuación de la base de datos
+
+### Convertir a tipo fechas y hora
+```{r}
+require(dplyr)
+spec_hora <- spec_hora %>% mutate(Fecha_hora_local =paste(Date.Local, Time.Local))
+spec_hora <- spec_hora %>% mutate(Fecha_local = as.POSIXct(strptime(Date.Local, "%Y-%m-%d")))
+spec_hora <- spec_hora %>% mutate(Fecha_hora_local = as.POSIXct(Fecha_hora_local), "%Y-%m-%d %H:%M")
+
+spec_hora <- spec_hora %>%
+             mutate(Fecha_hora_local =paste(Date.Local, Time.Local),
+                    Fecha_local = as.POSIXct(strptime(Date.Local, "%Y-%m-%d")),
+                    Fecha_hora_local = as.POSIXct(Fecha_hora_local), "%Y-%m-%d %H:%M")
+```
+
+### Selección de subbases de datos
+```{r}
+levels(spec_hora$Parameter.Name)
+
+spec_hora_CN <- spec_hora %>% filter(Parameter.Name == "Black Carbon PM2.5 at 880 nm")
+
+with(spec_hora_CN, plot(Fecha_hora_local, Sample.Measurement))
+```
+
+### Gráficas exploratorias (lattice)
+```{r}
+require(lattice)
+xyplot(Sample.Measurement ~ Fecha_hora_local | State.Name, data = spec_hora_CN)
+```
+
+### Gráficas exploratorias (ggplot2)
+```{r}
+require(ggplot2)
+ggplot(spec_hora_CN, aes(Fecha_hora_local, Sample.Measurement)) +
+  geom_point() + facet_wrap(~ State.Name)
+```
+
