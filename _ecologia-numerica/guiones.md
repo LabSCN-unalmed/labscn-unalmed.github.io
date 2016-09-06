@@ -48,3 +48,4 @@ Bases de datos
 
  * [Datos de contaminación del aire en EEUU](./guiones/spec_hora.html)
  * [Base de datos](./bases_datos/hourly_SPEC_2016.xlsx)
+ * [Metadatos](./docs/aqs_data_dictionary.pdf)
