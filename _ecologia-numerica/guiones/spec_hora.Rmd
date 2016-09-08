@@ -1,7 +1,7 @@
 ---
 title: "Contaminación del aire en EEUU"
 author: "Kenneth Roy Cabrera Torres"
-date: "6 de septiembre de 2016"
+date: "8 de septiembre de 2016"
 output: html_document
 ---
 
@@ -36,6 +36,13 @@ levels(spec_hora$Parameter.Name)
 spec_hora_CN <- spec_hora %>% filter(Parameter.Name == "Black Carbon PM2.5 at 880 nm")
 
 with(spec_hora_CN, plot(Fecha_hora_local, Sample.Measurement))
+
+with(spec_hora_CN, plot(Fecha_hora_local, Sample.Measurement, type = "l"))
+
+require(dplyr)
+spec_hora_CN <- spec_hora_CN %>% arrange(Fecha_hora_local)
+
+with(spec_hora_CN, plot(Fecha_hora_local, Sample.Measurement, type = "l"))
 ```
 
 ### Gráficas exploratorias (lattice)
@@ -49,5 +56,54 @@ xyplot(Sample.Measurement ~ Fecha_hora_local | State.Name, data = spec_hora_CN)
 require(ggplot2)
 ggplot(spec_hora_CN, aes(Fecha_hora_local, Sample.Measurement)) +
   geom_point() + facet_wrap(~ State.Name)
+```
+
+### Simplificar nombres de variables
+
+Nombres de variables según la [EPA](https://aqs.epa.gov/aqsweb/documents/codetables/parameter_classes.html)
+
+```{r}
+levels(spec_hora$Parameter.Name)
+abbreviate(levels(spec_hora$Parameter.Name))
+
+spec_hora$nomVar <- factor(abbreviate(spec_hora$Parameter.Name))
+```
+
+
+### Resumir bases de datos
+```{r}
+spec_hora %>% summarise(prom = mean(Sample.Measurement))
+
+spec_hora %>% group_by(Parameter.Name) %>% summarise(prom = mean(Sample.Measurement))
+
+spec_hora %>% group_by(Parameter.Name, State.Name) %>% summarise(prom = mean(Sample.Measurement))
+
+with(spec_hora, table(Parameter.Name, State.Name))
+```
+
+```{r}
+spec_hora1 <- spec_hora %>% 
+              group_by(Fecha_local, nomVar) %>% 
+              summarise(Sample.Measurement = mean(Sample.Measurement, na.rm = TRUE))
+```
+
+
+### Obtener una columna por variable
+
+```{r}
+require(tidyr)
+spec_hora_x_var <- spec_hora %>% spread(nomVar, Sample.Measurement, fill = NA)
+
+spec_hora_BC <- spec_hora_x_var %>% filter(!is.na(BCPa8n))
+
+with(spec_hora_BC, plot(State.Name, BCPa8n))
+
+spec_hora_BC <- droplevels(spec_hora_BC)
+
+with(spec_hora_BC, plot(State.Name, BCPa8n))
+
+spec_hora1_x_var <- spec_hora1 %>% spread(nomVar, Sample.Measurement, fill = NA)
+
+plot(spec_hora1_x_var[, -1])
 ```
 
