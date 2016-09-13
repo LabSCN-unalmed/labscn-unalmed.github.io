@@ -1,0 +1,94 @@
+---
+title: "El terrorismo en el mundo"
+author: "Kenneth Roy Cabrera Torres"
+date: "11 de septiembre de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Terrorismo
+
+Bajo el tituar *"El terrorismo que el mundo heredó del 11 de septiembre"*
+de **El Colombiano** del día domingo 11 de septiembre de 2016 en las páginas 4 y 5
+aparce la siguiente gráfica:
+
+![](terrorismo.png)
+
+## Exploración y descripción
+
+```{r}
+terr <- read.csv2("terrorismo.csv")
+```
+
+
+```{r}
+barplot(t(as.matrix(terr[,c(4,5)])), beside = TRUE)
+```
+
+```{r}
+barplot(t(as.matrix(terr[,c(2,3)])), beside = TRUE)
+```
+
+
+```{r}
+barplot(t(as.matrix(terr[,2:4])), beside = TRUE)
+```
+
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(terr, aes(Año, vict_atent))
+g1 + geom_bar(stat = "identity")
+```
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(terr, aes(Año, vict_suicid))
+g1 + geom_bar(stat = "identity")
+```
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(terr, aes(Año, num_atent))
+g1 + geom_bar(stat = "identity")
+```
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(terr, aes(Año, num_suicid))
+g1 + geom_bar(stat = "identity")
+```
+
+```{r}
+terr$vict_x_atent <- with(terr, vict_atent/num_atent * 100)
+terr$vict_x_suicid <- with(terr, vict_suicid/num_suicid * 100)
+
+require(tidyr)
+require(dplyr)
+terr2 <- terr %>% 
+         select(Año, vict_x_atent, vict_x_suicid) %>% 
+         gather(tipo, indice, c(vict_x_atent, vict_x_suicid))
+```
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(terr2, aes(Año, indice, col = tipo))
+g1 + geom_line()
+
+g1 <- ggplot(terr2, aes(Año, indice, col = tipo))
+g1 + geom_line(size = 1.5) +
+     ggtitle("Porcentaje de víctimas por tipo de atentado") +
+     scale_x_continuous(breaks = unique(terr2$Año)) +
+     scale_y_continuous(breaks = seq(0,26,2)) +
+     ylab("Porcentaje (%)") +
+     theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+El El Colombiano de hoy, martes, 13 de septiembre de 2016 aparece la siguiente
+gráfica:
+
+
+![](deforestacion.png)

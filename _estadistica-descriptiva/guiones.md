@@ -27,4 +27,8 @@ order: 2
 
 ## Ejemplos de gráficas
 
-- [Gráficas con problemas](./graficas/index.html)
+- [Gráficas con problemas](./graficas/index.html){:target="blank"}
+
+## Terrorismo en el mundo
+
+- [Terrorismo en el mundo](./guiones/terrorismo.html){:target="blank"}
