@@ -1,7 +1,7 @@
 ---
 title: "Contaminación del aire en EEUU"
 author: "Kenneth Roy Cabrera Torres"
-date: "8 de septiembre de 2016"
+date: "13 de septiembre de 2016"
 output: html_document
 ---
 
@@ -98,12 +98,116 @@ spec_hora_BC <- spec_hora_x_var %>% filter(!is.na(BCPa8n))
 
 with(spec_hora_BC, plot(State.Name, BCPa8n))
 
+
+with(spec_hora_BC, plot(State.Name, BCPa8n, las = 2))
+
+
+op <- par(no.readonly = TRUE)
+ par(mar = op$mar + c(4,0,0,0))
+ with(spec_hora_BC, plot(State.Name, BCPa8n, las = 2))
+par(op)
+
 spec_hora_BC <- droplevels(spec_hora_BC)
 
 with(spec_hora_BC, plot(State.Name, BCPa8n))
 
+op <- par(no.readonly = TRUE)
+ par(mar = op$mar + c(4,0,0,0))
+ with(spec_hora_BC, plot(State.Name, BCPa8n, las = 2))
+par(op)
+```
+
+```{r}
 spec_hora1_x_var <- spec_hora1 %>% spread(nomVar, Sample.Measurement, fill = NA)
 
-plot(spec_hora1_x_var[, -1])
+summary(spec_hora1_x_var)
+
+spec_hora1_x_var %>% filter(is.na(AmbT))
+
+data.frame(spec_hora1_x_var %>% filter(is.na(AmbT)))
+
+apply(is.na(spec_hora1_x_var)*1,1,sum)
+
+spec_hora1_x_var2 <- na.omit(spec_hora1_x_var)
+```
+
+```{r}
+plot(spec_hora1_x_var2[, -1])
+```
+
+```{r}
+dotchart(spec_hora1_x_var2$OCUPLT)
+
+subset(spec_hora1_x_var2, OCUPLT > 10)
+
+require(dplyr)
+spec_hora1_x_var2 %>% filter(OCUPLT > 10)
+spec_hora1_x_var2 %>% filter(OEPLT > 10)
+
+temp1 <- spec_hora %>% filter(as.character(Fecha_local) == "2016-01-29" &
+                                nomVar == "OCUPLT" & 
+                                Sample.Measurement > 10)
+temp1
+
+temp2 <- spec_hora %>% filter(as.character(Fecha_local) == "2016-01-29" &
+                                nomVar != "AmbT" &                                 
+                                Sample.Measurement > 10)
+temp2
+
+```
+
+Valores atípicos de Carbon Orgánico debido al siguiente evento
+sucedido en [ese municipio en este día](http://abc13.com/news/one-injured-in-house-fire-in-west-harris-county/1179586/)
+
+```{r}
+spec_hora2 <- spec_hora %>% filter(!(as.character(Fecha_local) == "2016-01-29" &
+                                nomVar != "AmbT" &                                 
+                                Sample.Measurement > 10))
+spec_hora1 <- spec_hora2 %>% 
+              group_by(Fecha_local, nomVar) %>% 
+              summarise(Sample.Measurement = mean(Sample.Measurement, na.rm = TRUE))
+
+spec_hora1_x_var <- spec_hora1 %>% spread(nomVar, Sample.Measurement, fill = NA)
+
+spec_hora1_x_var2 <- na.omit(spec_hora1_x_var)
+```
+
+```{r}
+plot(spec_hora1_x_var2[, -1])
+```
+
+```{r}
+temp2 <- spec_hora %>% filter(Fecha_local == as.POSIXct("2016-01-09") &
+                                nomVar != "AmbT" &                                 
+                                Sample.Measurement > 4)
+temp2
+
+temp3 <- spec_hora %>% filter(Fecha_local >= as.POSIXct(as.Date("2016-01-09")) &
+                              Fecha_local <= as.POSIXct(as.Date("2016-01-10")) &
+                                nomVar != "AmbT" &
+                                State.Name == "District Of Columbia")
+temp3 %>% select(Date.Local, Time.Local, Parameter.Name, Sample.Measurement,
+                 Units.of.Measure, nomVar)
+
+```
+
+Posible [origen de la medida atípica](http://www.dcfd.com/january-2016-archives.html)
+
+
+```{r}
+spec_hora3 <- spec_hora2 %>% filter(!(Fecha_local == as.POSIXct("2016-01-09") &
+                                nomVar != "AmbT" &                                 
+                                Sample.Measurement > 10))
+spec_hora1 <- spec_hora3 %>% 
+              group_by(Fecha_local, nomVar) %>% 
+              summarise(Sample.Measurement = mean(Sample.Measurement, na.rm = TRUE))
+
+spec_hora1_x_var <- spec_hora1 %>% spread(nomVar, Sample.Measurement, fill = NA)
+
+spec_hora1_x_var2 <- na.omit(spec_hora1_x_var)
+```
+
+```{r}
+plot(spec_hora1_x_var2[, -1])
 ```
 
