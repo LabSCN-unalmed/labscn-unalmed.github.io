@@ -32,3 +32,4 @@ order: 2
 ## Terrorismo en el mundo
 
 - [Terrorismo en el mundo](./guiones/terrorismo.html){:target="blank"}
+- [Base de datos de terrorismo](./basesdedatos/terrorismo.xlsx)
