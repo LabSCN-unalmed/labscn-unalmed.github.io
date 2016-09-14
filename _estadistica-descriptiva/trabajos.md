@@ -27,7 +27,7 @@ nueva gráfica constuida en el lenguaje estadístico R.
    * La gráfica original, referenciando la fuente.
    * Los comentarios y críticas a la gráfica original.
    * Una nueva gráfica propuesta en donde se mejoren aspectos de
-     la gráfica origial.
+     la gráfica original.
    * Cometarios o aclaraciones de la nueva gráfica propuesta.
 
 2. Archivo en formato *".R"* o *".Rmd"* en donde se muestre
