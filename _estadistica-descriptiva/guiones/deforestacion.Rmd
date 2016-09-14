@@ -1,0 +1,87 @@
+---
+title: "Deforestación en Colombia 2015"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves, 15 de septiembre de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width = 9)
+```
+
+
+En **El Colombiano** del martes, 13 de septiembre de 2016,
+bajo el titular *"Antioquia, entre los más deforestados del país"*,
+en las páginas 3 y 4, aparece la siguiente gráfica:
+
+
+![](deforestacion.png)
+
+
+```{r}
+defores <- read.csv2("deforestacion.csv")
+deptos  <- read.csv2("departamentos.csv")
+```
+
+
+```{r}
+require(dplyr)
+total <- defores %>% full_join(deptos, by = c("CodDane" = "Codigo"))
+```
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(total, aes(Departamento, HaDefor))
+g1 + geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+ordenDepto <- total$Departamento[order(total$HaDefor, decreasing = TRUE)]
+total$Departamento <- factor(total$Departamento, levels = ordenDepto)
+
+require(ggplot2)
+g1 <- ggplot(total, aes(Departamento, HaDefor))
+g1 + geom_bar(stat = "identity") +
+  theme(axis.text.x=element_text(angle = 45, hjust = 1)) +
+  ylab("Deforestación (Ha)") +
+  ggtitle("Hectáreas deforestadas por departamento en el 2015")
+```
+
+```{r}
+require(dplyr)
+total <- total %>% mutate(PorcDefor = (HaDefor/100) / Superficie * 100)
+
+ordenDepto <- total$Departamento[order(total$PorcDefor, decreasing = TRUE)]
+total$Departamento <- factor(total$Departamento, levels = ordenDepto)
+
+require(ggplot2)
+g1 <- ggplot(total, aes(Departamento, PorcDefor))
+g1 + geom_bar(stat = "identity") +
+  theme(axis.text.x=element_text(angle = 45, hjust = 1)) +
+  ylab("Porcentaje del área \ntotal deforestada (%)") +
+  ggtitle("Porcentaje de area deforestada por departamento")
+```
+
+```{r}
+ordenDepto <- total$Departamento[order(total$HaDefor, decreasing = TRUE)]
+total$Departamento <- factor(total$Departamento, levels = ordenDepto)
+
+require(ggplot2)
+g1 <- ggplot(total, aes(Departamento, PorcDefor, col = log10(HaDefor)))
+g1 + geom_point(aes(size = Poblacion/1000)) +
+     theme(axis.text.x=element_text(angle = 45, hjust = 1)) +
+     scale_size_continuous(range = c(1,10),
+                           name = "Población en miles",
+                           breaks = c(100, 1000, 2000, 3000, 5000, 6000)) +
+     scale_colour_gradientn(name = "log10 Área (Ha)",
+                            labels = c("10", "100", "1000", "10000"),
+                            breaks = seq(1,4),
+                            colours = c("blue","violet","red")) +
+     ggtitle("Porcentaje de área deforestada por departamento y población") +
+     ylab("Porcentaje del área total \n deforestada (%)") 
+  
+
+```
+
+

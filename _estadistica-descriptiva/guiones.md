@@ -33,3 +33,9 @@ order: 2
 
 - [Terrorismo en el mundo](./guiones/terrorismo.html){:target="blank"}
 - [Base de datos de terrorismo](./basesdedatos/terrorismo.xlsx)
+
+## Deforestación en Colombia (2015)
+
+- [Deforestación en Colombia durante el año 2015](./guiones/deforestacion.html){:target="blank"}
+- [Base de datos de deforestación](./basesdedatos/deforestacion.xlsx)
+- [Base de datos sobre los departamentos en Colombia](./basesdedatos/departamentos.xlsx)
