@@ -34,7 +34,6 @@ ni tampoco el protocolo planteado es exhaustivo.
     y un documento ".Rmd" donde se muestre el código correspondiente, en lugar
     del guión en formaot ".R".
 
-
 ### Fecha de entrega.
 
 Martes 6 de septiembre de 2016 antes de las 23:59 hora de Colombia al correo
