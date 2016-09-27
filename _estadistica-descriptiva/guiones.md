@@ -39,3 +39,7 @@ order: 2
 - [Deforestación en Colombia durante el año 2015](./guiones/deforestacion.html){:target="blank"}
 - [Base de datos de deforestación](./basesdedatos/deforestacion.xlsx)
 - [Base de datos sobre los departamentos en Colombia](./basesdedatos/departamentos.xlsx)
+
+## Comparación de tipos de gráficas.
+
+- [Comparación de gráficas](./guiones/comparagraficas.html){:target="blank"}

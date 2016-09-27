@@ -1,0 +1,117 @@
+---
+title: "Comparación de tipos de gráficas"
+author: "Kenneth Roy Cabrera Torres"
+date: "27 de septiembre de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width = 10)
+```
+## Tipos de gráficas
+### Barras
+![](graf1_bar.png)
+
+### Pastel 2D
+![](graf2_pie.png)
+
+### Pastel 3D
+![](graf3_pie3d.png)
+
+### Círculos
+![](graf4_circulos.png)
+
+
+```{r}
+com_graf <- read.csv2("compara_graficas.csv")
+ing_real <- read.csv2("ingresosReales.csv")
+
+require(dplyr)
+ing_real <- ing_real %>% rename(valorReal = valor)
+```
+
+
+```{r}
+require(tidyr)
+com_graf1 <- com_graf %>% gather(graf, valor, -c(num, tipo))
+com_graf1$graf <- factor(com_graf1$graf)
+
+require(dplyr)
+com_graf2 <- com_graf1 %>% full_join(ing_real, by = c("graf" = "figura"))
+```
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(com_graf2, aes(graf, valor))
+g1 + geom_jitter(width = 0.2) + facet_grid(. ~ tipo) +
+     geom_hline(aes(yintercept = valorReal)) +
+     stat_summary(fun.data=mean_sdl, 
+                  col = "red", fun.args = list(mult = 1))
+```
+
+```{r}
+require(dplyr)
+com_graf3 <- com_graf2 %>% filter(graf == "B")
+
+require(ggplot2)
+g1 <- ggplot(com_graf3, aes(tipo, valor))
+g1 + geom_jitter(width = 0.2) + 
+     geom_hline(aes(yintercept = valorReal)) +
+     stat_summary(fun.data=mean_sdl, 
+                  col = "red", fun.args = list(mult = 1))+
+     ggtitle("B")
+```
+
+```{r}
+require(dplyr)
+com_graf3 <- com_graf2 %>% filter(graf == "C")
+
+require(ggplot2)
+g1 <- ggplot(com_graf3, aes(tipo, valor))
+g1 + geom_jitter(width = 0.2) + 
+     geom_hline(aes(yintercept = valorReal)) +
+     stat_summary(fun.data=mean_sdl, 
+                  col = "red", fun.args = list(mult = 1))+
+     ggtitle("C")
+```
+
+```{r}
+require(dplyr)
+com_graf3 <- com_graf2 %>% filter(graf == "D")
+
+require(ggplot2)
+g1 <- ggplot(com_graf3, aes(tipo, valor))
+g1 + geom_jitter(width = 0.2) + 
+     geom_hline(aes(yintercept = valorReal)) +
+     stat_summary(fun.data=mean_sdl, 
+                  col = "red", fun.args = list(mult = 1))+
+     ggtitle("D")
+```
+
+```{r}
+require(dplyr)
+com_graf3 <- com_graf2 %>% filter(graf == "E")
+
+require(ggplot2)
+g1 <- ggplot(com_graf3, aes(tipo, valor))
+g1 + geom_jitter(width = 0.2) + 
+     geom_hline(aes(yintercept = valorReal)) +
+     stat_summary(fun.data=mean_sdl, 
+                  col = "red", fun.args = list(mult = 1))+
+     ggtitle("E")
+```
+
+
+
+```{r}
+require(dplyr)
+com_graf3 <- com_graf2 %>% filter(graf == "F")
+
+require(ggplot2)
+g1 <- ggplot(com_graf3, aes(tipo, valor))
+g1 + geom_jitter(width = 0.2) + 
+     geom_hline(aes(yintercept = valorReal)) +
+     stat_summary(fun.data=mean_sdl, 
+                  col = "red", fun.args = list(mult = 1))+
+     ggtitle("F")
+```
