@@ -7,6 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+options(width = 100)
 ```
 
 ## Base de datos de contaminación del aire de los EEUU
@@ -14,6 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 contUSA <- read.csv2("Contaminación_aerea_USA.csv")
 contUSA$Fecha_local <- as.POSIXct(contUSA$Fecha_local)
+contUSA$mes <- factor(format(contUSA$Fecha_local, "%B"))
 ##            Ambient Temperature   Black Carbon PM2.5 at 880 nm 
 ##                         "AmbT"                       "BCPa8n" 
 ##            EC CSN PM2.5 LC TOT OC CSN Unadjusted PM2.5 LC TOT 
@@ -26,21 +28,23 @@ contUSA$Fecha_local <- as.POSIXct(contUSA$Fecha_local)
 ##                       "UCPa3n"
 
 summary(contUSA)
-plot(contUSA[, -1])
-colMeans(contUSA[, -1])
-apply(contUSA[, -1], 2, sd)
+require(dplyr)
+contUSAnum <- contUSA %>% select(-c(Fecha_local, mes))
+plot(contUSAnum)
+colMeans(contUSAnum)
+apply(contUSAnum, 2, sd)
 
-(cv1 <- apply(contUSA[, -1], 2, sd)/colMeans(contUSA[, -1])*100)
+(cv1 <- apply(contUSAnum, 2, sd)/colMeans(contUSAnum)*100)
 ```
 
 ```{r}
-round(cov(contUSA[, -1]),3)
+round(cov(contUSAnum),3)
 
-round(cor(contUSA[, -1]),3)
+round(cor(contUSAnum),3)
 ```
 
 ```{r}
-cp1 <- princomp(contUSA[, -1])
+cp1 <- princomp(contUSAnum)
 cp1
 summary(cp1)
 loadings(cp1)
@@ -50,7 +54,7 @@ biplot(cp1)
 
 
 ```{r}
-cp2 <- princomp(contUSA[, -1], cor = TRUE)
+cp2 <- princomp(contUSAnum, cor = TRUE)
 cp2
 summary(cp2)
 loadings(cp2)
@@ -86,6 +90,34 @@ g2 <- ggbiplot(cp2, scale = 0)
 g2
 ```
 
+### Relación con agrupación
 
+```{r}
+g3 <- ggbiplot(cp2, scale = 0, groups = contUSA$mes,
+               ellipse = TRUE)
+g3
+g4 <- ggbiplot(cp2, choices = 3:4, scale = 0, groups = contUSA$mes,
+               ellipse = TRUE)
+g4
+g5 <- ggbiplot(cp2, choices = 8:9, scale = 0, groups = contUSA$mes,
+               ellipse = TRUE)
+g5
 
+```
 
+### Ordenación de la base de datos
+```{r}
+require(dplyr)
+
+contUSA <- data.frame(contUSA, cp2$scores)
+
+contUSA %>% filter(min(Comp.1) == Comp.1)
+
+contUSA %>% filter(max(Comp.1) == Comp.1)
+
+contUSA %>% arrange(Comp.1) %>% 
+            slice(1:10)
+
+contUSA %>% arrange(desc(Comp.1)) %>% 
+            slice(1:10)
+```
