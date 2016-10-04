@@ -49,3 +49,14 @@ Bases de datos
  * [Datos de contaminación del aire en EEUU](./guiones/spec_hora.html)
  * [Base de datos](./bases_datos/hourly_SPEC_2016.xlsx)
  * [Metadatos](./docs/aqs_data_dictionary.pdf)
+
+## Componentes principales (Datos de contaminación USA)
+
+ * [Datos de contaminación USA](./bases_datos/Contaminación_aerea_USA.xlsx)
+ * [Componentes principales](./guiones/componentes_principales.html)
+
+## Introducción a análisis aglomerativo (Resultados pleblscito 2016).
+
+  * [Potencial Electoral](./bases_datos/potencialElectoral.xlsx)
+  * [Resultados y NBI](./bases_datos/Departamentos_plebiscito.xlsx)
+  * [Introducción a cluster analysis](./guiones/plebiscito1.html)

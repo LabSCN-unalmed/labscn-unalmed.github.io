@@ -1,0 +1,123 @@
+---
+title: "Componentes principales"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes 27 de septiembre de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 100)
+```
+
+## Base de datos de contaminación del aire de los EEUU
+
+```{r}
+contUSA <- read.csv2("Contaminación_aerea_USA.csv")
+contUSA$Fecha_local <- as.POSIXct(contUSA$Fecha_local)
+contUSA$mes <- factor(format(contUSA$Fecha_local, "%B"))
+##            Ambient Temperature   Black Carbon PM2.5 at 880 nm 
+##                         "AmbT"                       "BCPa8n" 
+##            EC CSN PM2.5 LC TOT OC CSN Unadjusted PM2.5 LC TOT 
+##                        "ECPLT"                       "OCUPLT" 
+##        Optical EC PM2.5 LC TOT               Sulfate PM2.5 LC 
+##                        "OEPLT"                         "SPML" 
+##      Total Carbon PM2.5 LC TOT         Total Nitrate PM2.5 LC 
+##                        "TCPLT"                         "TNPL" 
+##      UV Carbon PM2.5 at 370 nm 
+##                       "UCPa3n"
+
+summary(contUSA)
+require(dplyr)
+contUSAnum <- contUSA %>% select(-c(Fecha_local, mes))
+plot(contUSAnum)
+colMeans(contUSAnum)
+apply(contUSAnum, 2, sd)
+
+(cv1 <- apply(contUSAnum, 2, sd)/colMeans(contUSAnum)*100)
+```
+
+```{r}
+round(cov(contUSAnum),3)
+
+round(cor(contUSAnum),3)
+```
+
+```{r}
+cp1 <- princomp(contUSAnum)
+cp1
+summary(cp1)
+loadings(cp1)
+plot(cp1)
+biplot(cp1)
+```
+
+
+```{r}
+cp2 <- princomp(contUSAnum, cor = TRUE)
+cp2
+summary(cp2)
+loadings(cp2)
+screeplot(cp2)
+biplot(cp2)
+```
+
+
+### Instalación de ggbiplot
+
+```{r}
+#require(devtools)
+#install_github("ggbiplot", "vqv")
+```
+
+### Biplot de covarianza
+
+Los ángulos entre las variables representan las covarianzas entre las variables.
+
+```{r}
+require(ggbiplot)
+g1 <- ggbiplot(cp2, scale = 1, circle = TRUE)
+g1
+```
+
+### Biplot de forma
+
+La longitud de las variables represetan la proporción de
+variabilidad o comunalidad.
+
+```{r}
+g2 <- ggbiplot(cp2, scale = 0)
+g2
+```
+
+### Relación con agrupación
+
+```{r}
+g3 <- ggbiplot(cp2, scale = 0, groups = contUSA$mes,
+               ellipse = TRUE)
+g3
+g4 <- ggbiplot(cp2, choices = 3:4, scale = 0, groups = contUSA$mes,
+               ellipse = TRUE)
+g4
+g5 <- ggbiplot(cp2, choices = 8:9, scale = 0, groups = contUSA$mes,
+               ellipse = TRUE)
+g5
+
+```
+
+### Ordenación de la base de datos
+```{r}
+require(dplyr)
+
+contUSA <- data.frame(contUSA, cp2$scores)
+
+contUSA %>% filter(min(Comp.1) == Comp.1)
+
+contUSA %>% filter(max(Comp.1) == Comp.1)
+
+contUSA %>% arrange(Comp.1) %>% 
+            slice(1:10)
+
+contUSA %>% arrange(desc(Comp.1)) %>% 
+            slice(1:10)
+```
