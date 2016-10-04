@@ -1,0 +1,74 @@
+---
+title: "Resultados plebiscito por municipio"
+author: "Kenneth Roy Cabrera Torres"
+date: "4 de octubre de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Objetivo
+
+Recolectar los datos de cada municipio en la votación del plebiscito: por el SI,
+por el NO, el número de habilitados para votar, votos no marcados y
+votos nulos.
+
+
+## Listado de estudiantes asignados
+
+En los siguientes listados se tiene la asignación a cada estudiantes el 
+número que identifica el grupo de municipios a digitalizar.
+
+
+![](lista1.png)
+![](lista2.png)
+![](lista3.png)
+
+En este [listado en formato Excel](asignacion_municipios.xlsx) 
+a cada persona le correspondieron 17 municipios de Colombia.
+
+Los datos se toman de
+[esta página](http://plebiscito.registraduria.gov.co/99PL/DPLZZZZZZZZZZZZZZZZZ_L1.htm)
+de la registraduría.
+
+Los tres datos que se toman por municipio son:
+
+  1. Votos por el SI
+  2. Votos por el NO
+  3. Número de personas habilitadas.
+  4. Votos no marcados
+  5. Votos nulos
+  
+Para el caso de Medellín se muestra a continuación:
+
+![](mapa_votacion_medellin_1.png)
+
+Por ejemplo a Sebastian Agudelo Jiménez le correspondió el número
+20, por lo tanto sus municipios son los que se encuentran
+[en este archivo](20AguleloJiménezSebastian.xlsx).
+
+
+## Fecha de entrega
+
+Miércoles 5 de octubre de 2016 antes de las 23:59 hora de Colombia.
+
+El archivo estará en formato Excel iniciando con el número asignado y
+los apellidos y nombres del estudiante con la información solicitada al 
+correo **[krcabrer@unal.edu.co](krcabrer@unal.edu.co)**
+y no olvidar en asunto **[EDAED]**.
+
+Por ejemplo:
+
+**20AguleloJiménezSebastian.xlsx**
+
+
+
+
+
+
+```{r}
+
+```
+
