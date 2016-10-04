@@ -54,3 +54,9 @@ Bases de datos
 
  * [Datos de contaminación USA](./bases_datos/Contaminación_aerea_USA.xlsx)
  * [Componentes principales](./guiones/componentes_principales.html)
+
+## Introducción a análisis aglomerativo (Resultados pleblscito 2016).
+
+  * [Potencial Electoral](./bases_datos/potencialElectoral.xlsx)
+  * [Resultados y NBI](./bases_datos/Departamentos_plebiscito.xlsx)
+  * [Introducción a cluster analysis](./guiones/plebiscito1.html)

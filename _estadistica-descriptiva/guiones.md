@@ -45,3 +45,9 @@ order: 2
 - [Comparación de gráficas](./guiones/comparagraficas.html){:target="blank"}
 - [Datos tomados del taller](./basesdedatos/compara_graficas.xlsx){:target="blank"}
 - [Datos con los valores reales](./basesdedatos/ingresosReales.xlsx){:target="blank"}
+
+## Análisis exploratorio de resultados del plebiscito
+
+* [Potencial Electoral](./basesdedatos/potencialElectoral.xlsx)
+* [Resultados y NBI](./basesdedatos/Departamentos_plebiscito.xlsx)
+* [Análisis exploratorio](./guiones/plebiscito1.html)

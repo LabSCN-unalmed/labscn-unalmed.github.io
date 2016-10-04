@@ -1,0 +1,104 @@
+---
+title: "Resultados plebiscito por departamento"
+author: "Kenneth Roy Cabrera Torres"
+date: "3 de octubre de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.height = 9, fig.width = 9)
+```
+
+## Lectura de base de datos
+```{r}
+nbi_pleb <- read.csv2("Departamentos_plebiscito.csv", skip = 1, 
+                      na.strings = "-")
+nombres <- c("NBI", "Mise", "Vivi", "Serv", "Haci", "Inas", "dEco")
+tipo <- c("Cab", "Rest", "Total")
+nomvar <- c("", "cve")
+nombres2 <- as.vector(outer(nombres, tipo, paste, sep = "_"))
+nombres3 <- as.vector(outer(nomvar, nombres2, paste, sep = ""))
+
+names(nbi_pleb)[3:44] <- nombres3
+
+pot_elec <- read.csv2("potencialElectoral.csv")
+
+require(dplyr)
+
+nbi_pleb <- nbi_pleb %>% inner_join(pot_elec, c("Código.Departamento" = "codigoDane"))
+```
+
+```{r}
+require(dplyr)
+nbi_pleb <- nbi_pleb %>% mutate(prop_si = si / (si + no) * 100,
+                                abstencion = (1 - (si + no) / total) * 100)
+nbi_pleb2 <- nbi_pleb %>% select(nombreDepto,
+                                  NBI_Cab, NBI_Rest, NBI_Total,
+                                  abstencion, prop_si, si)
+```
+
+```{r}
+require(dplyr)
+nbi_pleb_num <- nbi_pleb2 %>% select(-nombreDepto)
+rownames(nbi_pleb_num) <- nbi_pleb2$nombreDepto
+plot(nbi_pleb_num, pch = 19)
+```
+
+
+```{r}
+cp1 <- princomp(nbi_pleb_num, cor = TRUE)
+summary(cp1)
+loadings(cp1)
+```
+
+```{r}
+require(ggbiplot)
+ggbiplot(cp1, scale = 1, labels = nbi_pleb2$nombreDepto)
+ggbiplot(cp1, labels = nbi_pleb2$nombreDepto, scale = 0)
+```
+
+```{r}
+cl1 <- hclust(dist(scale(nbi_pleb_num)))
+```
+
+```{r}
+plot(cl1, hang = -1)
+abline(h = 2, col = "red")
+```
+
+
+```{r}
+nbi_pleb_num2 <- nbi_pleb_num %>% select(NBI_Total, prop_si, abstencion)
+cl2 <- hclust(dist(scale(nbi_pleb_num2)))
+```
+
+```{r}
+plot(cl2, hang = -1)
+abline(h = 2, col = "red")
+```
+
+```{r}
+nbi_pleb_num2$grupos <- cutree(cl2, 7)
+```
+
+```{r}
+data.frame(cl1$merge, cl1$height)
+```
+
+
+```{r}
+sapply(split(nbi_pleb_num2, nbi_pleb_num2$grupos), colMeans)
+```
+
+```{r}
+lapply(split(nbi_pleb_num2, nbi_pleb_num2$grupos), summary)
+```
+
+```{r}
+nbi_pleb_num2[c(6, 20),]
+nbi_pleb_num2[c(13, 23),]
+nbi_pleb_num2[c(4, 15),]
+
+nbi_pleb_num2[c(18, 13, 23),]
+```
+
