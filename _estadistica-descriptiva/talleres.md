@@ -62,7 +62,11 @@ Responder en clase las siguientes dos preguntas:
 1. Resuma en un párrafo el argumento principal del espisodio 1 de
    la primera temporada de Numb3rs.
 
-2. Describa un detalle particular que le haya llamado la atención.   
+2. Describa un detalle particular que le haya llamado la atención.
+
+### Cuarto taller individual.
+
+[Enunciado del cuarto taller individual](Taller4.html)  
 
 ## Primer taller en grupo
 
