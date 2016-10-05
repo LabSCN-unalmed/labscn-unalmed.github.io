@@ -33,7 +33,7 @@ Los datos se toman de
 [esta página](http://plebiscito.registraduria.gov.co/99PL/DPLZZZZZZZZZZZZZZZZZ_L1.htm)
 de la registraduría.
 
-Los tres datos que se toman por municipio son:
+Los cinco (5) datos que se toman por municipio son:
 
   1. Votos por el SI
   2. Votos por el NO
