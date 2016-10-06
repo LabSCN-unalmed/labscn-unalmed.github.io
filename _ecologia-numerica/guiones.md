@@ -60,3 +60,7 @@ Bases de datos
   * [Potencial Electoral](./bases_datos/potencialElectoral.xlsx)
   * [Resultados y NBI](./bases_datos/Departamentos_plebiscito.xlsx)
   * [Introducción a cluster analysis](./guiones/plebiscito1.html)
+
+## Distancias y disimilitudes
+
+  * [Distancias y disimilitudes](distancias_disimilitudes_matriz_discrepancia.html)
