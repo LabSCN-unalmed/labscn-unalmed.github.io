@@ -45,6 +45,10 @@ collections:
     title: Lenguajes estadísticos (Módulo R)
     main: 0
     description: Módulo del lenguaje de programación R en la asignatura lenguajes estadísticos.
+  geomorfometria:
+    output: true
+    title: Geomorfometría
+    hidden: true
   documentacion-interna:
     output: true
     title: Documentación Interna
