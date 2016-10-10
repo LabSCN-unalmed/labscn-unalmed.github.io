@@ -63,4 +63,4 @@ Bases de datos
 
 ## Distancias y disimilitudes
 
-  * [Distancias y disimilitudes](distancias_disimilitudes_matriz_discrepancia.html)
+  * [Distancias y disimilitudes](./guiones/distancias_disimilitudes_matriz_discrepancia.html)
