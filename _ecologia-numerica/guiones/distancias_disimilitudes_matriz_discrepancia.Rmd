@@ -1,7 +1,7 @@
 ---
 title: "Distancias y similitudes"
 author: "Kenneth Roy Cabrera Torres"
-date: "18 de octubre de 2015"
+date: "11 de octubre de 2016"
 output: 
   html_document: 
     toc: yes
