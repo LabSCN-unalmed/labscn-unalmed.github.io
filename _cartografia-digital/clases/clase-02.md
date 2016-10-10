@@ -8,8 +8,6 @@ clase: 2
 Iniciando GRASS
 ---------------
 
-*[GRASS GIS]: Geographic Resources Analysis Support System
-
 Al abrir GRASS GIS, se inicia una terminal de comandos y aparece la siguiente ventana de inicio:
 
 ![Ventana de inicio de GRASS](/cartografia-digital/images/clase-02/grass_start.png){: .img-responsive}
@@ -740,3 +738,5 @@ Elaborar un guión que:
 - Consulte los estadísticos básicos del mismo mapa.
 
 - Cambie la tabla de colores del mapa `ituango` por una que pueda destacar mejor algunos rasgos del relieve.
+
+*[GRASS GIS]: Geographic Resources Analysis Support System
