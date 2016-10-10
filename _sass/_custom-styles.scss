@@ -182,7 +182,7 @@ img.img-responsive {
   margin: auto;
 }
 
-pre.output {
+div.output > pre {
   background-color: $pre-output-bg;
   color: $pre-output-color;
 }

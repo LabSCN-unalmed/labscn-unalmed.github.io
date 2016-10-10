@@ -8,7 +8,6 @@ subtitle: Universidad Nacional de Colombia - Sede Medellín
 simple_search: https://www.google.com/search
 description: Facultad de Ciencias - Escuela de Geociencias
 baseurl: ""
-repository: LabSCN-unalmed/labscn-unalmed.github.io
 
 collections:
   cartografia-digital:
