@@ -278,6 +278,8 @@ estadios del descriptor. Y la similitud resultante es a su vez una
 probabilidad que refleja el complemento de la probabilidad de que
 ese ensamble entre dos sitios sea debido al azar.
 
+![](t2.png)  
+
 Se siguen los siguientes pasos:
 
 * Calcular mediante una medida de similitud una primera asociación parcial
@@ -288,15 +290,24 @@ Se siguen los siguientes pasos:
   El resultado es una matriz de $p$ filas (número de especies) y 
   $\frac{n(n-1)}{2}$ columnas que corresponden a todos los pares posibles
   de sitios.
+
+![](t2.png)  
+  
 * Utilizando la anterior matriz se obtiene una nueva matriz con las 
   mismas dimensiones en donde se calcula la proporción de los valores
   de similitud que pertenece a la especie $j$ que sea igual o mayor
   que la similitud parcial del par de sitios considerados. Entre mayor
   sea la proporción, son menos similares el par de sitios en consideración.
-  Se considera el mismo valor para el cálcuo.
+  Se considera el mismo valor para el cálculo.
+  
+![](t3.png)  
+
 * Se construye una matriz de $n \times n$ de similitud para todas las
   combinaciones de sitio, multiplicando las probabilidades de cada especie,
   suponiendo independencia entre las especies.
+  
+![](t4.png)  
+
 * Ahora se calcula la matriz de similitud de Goodall, mediante la fórmula
   $$
   S_{22}(x_1,x_2) = \frac{\sum_{parejas} d}{\frac{n(n-1)}{2}}
@@ -305,6 +316,9 @@ Se siguen los siguientes pasos:
   Es decir se calcula la proporción de probabilidades que son mayores o iguales
   a la probabilidad que se está considerando dentro de toda la matriz obtenida
   anteriormente de orden $n \times n$.
+  
+![](t5.png)  
+
 * Un segundo índice surge si es toma la aproximación $\chi^2$. En este
   caso se calcula el índice de similitud:
   $$
@@ -313,6 +327,8 @@ Se siguen los siguientes pasos:
   Donde $\chi^2_{12} = - 2 log_{e}\Pi_{12}$ y $prob(\chi^2_{12})$ es la
   probabilidad de que una distribución $\chi^2$ con $2p$ grados de libertad
   exceda el valor observado de $\chi^2_{12}$.
+  
+![](t6.png)    
   
 Estas dos similitudes cambian si el número de sitios o cambian, situación
 que no se presenta con las otra medidas de similitud.
