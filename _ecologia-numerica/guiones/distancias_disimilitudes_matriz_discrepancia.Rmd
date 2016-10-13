@@ -32,7 +32,7 @@ locs    <- locs[sumEsp!=0,]
 Una distancia es **métrica** si:
 
 1. Mínimo 0: si $a$ = $b$, entonces $D(a,b)$ = 0.
-2. Positivo: si $a \ne b$, entonces $D(a,b) < 0$.
+2. Positivo: si $a \ne b$, entonces $D(a,b) > 0$.
 3. Simétrico: $D(a,b) = D(b,a)$.
 4. Desigualdad triangular: $D(a,b) + D(b,c) \ge D(a,c)$
 
@@ -60,6 +60,18 @@ D_{18}(x_1,x_2) = \sqrt{\sum_{j=1}^p \left(\frac{y_{1j}}{y_{1.}} - \frac{y_{2j}}
 $$
 
 Esta distancia es la distancias entre las proporciones de las especies por sitio.
+
+Donde:
+$$
+\begin{align*}
+ p &: \textrm{Número de especies} \\
+ x_i &: \textrm{Pefil de especies del sitio } i\\
+ y_{ij} &: \textrm{Número de individuos en el sitio } i 
+             \textrm{ de la especie } j \\
+ y_{i.} &: \textrm{Suma de los individuos de todas las especies en el sitio } i \\
+ y_{i.} &= \sum_{j=1}^p y_{ij} \\
+\end{align*}
+$$
 
 En este caso las especies más abundantes contribuyen a la definición
 de la distancias y es insensible al problema de doble cero, el límite
@@ -252,7 +264,7 @@ valores  cercanos a cero o negativos cuando no haya similitud y valores cercanos
 a uno cuando son parecidos. 
 
 Notemos que $D = 1-S$ de nuevo es la distancias $D_{15}$ que es mética y 
-euclídea, notemos que también su raiz cuadrada es mética y euclídea.
+euclídea, notemos que también su raiz cuadrada es métrica y euclídea.
 
 ### Similitudes $S_{22}$ y $S_{23}$.
 
