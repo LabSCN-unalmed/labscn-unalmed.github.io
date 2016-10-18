@@ -278,7 +278,7 @@ estadios del descriptor. Y la similitud resultante es a su vez una
 probabilidad que refleja el complemento de la probabilidad de que
 ese ensamble entre dos sitios sea debido al azar.
 
-![](t2.png)  
+![](t1.png)  
 
 Se siguen los siguientes pasos:
 
