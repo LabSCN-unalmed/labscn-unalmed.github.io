@@ -103,7 +103,7 @@ Para visualizar la distribución espacial de altitudes se debe asignar una tabla
 r.colors map=caceri_raw,caceri_dem color=srtm
 ~~~
 
-![DEM with 5km grid and legend](caceri_dem.png){: .img-responsive}
+![DEM with 5km grid and legend](images/caceri_dem.png){: .img-responsive}
 
 ### Extracción de la red de drenaje
 
@@ -116,17 +116,17 @@ r.watershed -s elevation=caceri_dem threshold=3200 accumulation=caceri_accum dra
 Acumulación (accumulation)
 : Mapa accum
 
-![Accum](caceri_accum.png){: .img-responsive}
+![Accum](images/caceri_accum.png){: .img-responsive}
 
 Drenaje (drainage)
 : Mapa drain
 
-![Drain](caceri_drain.png){: .img-responsive}
+![Drain](images/caceri_drain.png){: .img-responsive}
 
 Corrientes (streams)
 : Mapa streams
 
-![Streams](caceri_streams.png){: .img-responsive}
+![Streams](images/caceri_streams.png){: .img-responsive}
 
 Se define un punto en el pixel de desembocadura del río Cacerí al río Nechí.
 
@@ -154,7 +154,7 @@ Se ajusta la región al rectángulo externo que contenga exactamente la cuenca u
 g.region zoom=caceri_basin
 ~~~
 
-![DEM with basin and outlet](caceri_dem_basin_outlet.png){: .img-responsive}
+![DEM with basin and outlet](images/caceri_dem_basin_outlet.png){: .img-responsive}
 
 
 ### Jerarquía de las corrientes
@@ -181,21 +181,21 @@ r.mask -r
 
 Diferenciando por el grosor de la línea
 
-![Strahler](caceri_dem_basin_outlet_strahler.png){: .img-responsive}
+![Strahler](images/caceri_dem_basin_outlet_strahler.png){: .img-responsive}
 
 Diferenciando por color
 
-![Strahler](caceri_dem_basin_outlet_strahler.png){: .img-responsive}
+![Strahler](images/caceri_dem_basin_outlet_strahler.png){: .img-responsive}
 
 #### Horton
 
 Diferenciando por el grosor de la línea
 
-![Horton](caceri_dem_basin_outlet_horton.png){: .img-responsive}
+![Horton](images/caceri_dem_basin_outlet_horton.png){: .img-responsive}
 
 Diferenciando por color
 
-![Horton](caceri_dem_basin_outlet_horton.png){: .img-responsive}
+![Horton](images/caceri_dem_basin_outlet_horton.png){: .img-responsive}
 
 
 ### Distancia y desnivel altitudinal con respecto a la desembocadura
