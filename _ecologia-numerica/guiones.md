@@ -64,3 +64,7 @@ Bases de datos
 ## Distancias y disimilitudes
 
   * [Distancias y disimilitudes](./guiones/distancias_disimilitudes_matriz_discrepancia.html)
+
+## Cluster 1
+
+  * [Análisis aglomerativo I](./guiones/cluster1.html)

@@ -1,8 +1,10 @@
 ---
-title: "Análisis Aglomerativo"
+title: "Análisis Aglomerativo I"
 author: "Universidad Nacional de Colombia, Sede Medellín"
-date: "Viernes, 9 de octubre de 2015"
-output: html_document
+date: "Jueves, 20 de octubre de 2016"
+output: 
+  html_document: 
+    toc: yes
 ---
 
 
@@ -41,15 +43,10 @@ library(vegan)
 library(gclus)
 library(cluster)
 library(RColorBrewer)
-library(labdsv)
 ```
-## Carga de funciones auxiliares
-```{r}
-# Carga de funciones adicionales en archivos de scripts en R.
-source("hcoplot.R")
-source("test.a.R")
-source("coldiss.R")
-```
+
+
+## Métodos aglomerativos
 
 Análisis de conglomerados jerárquico en la base de datos de abundancia
 de especies.
@@ -129,7 +126,7 @@ with(peces.ch.single,cbind(merge,height))
 peces[c(20,21),]
 peces.norm[c(20,21),]
 # Gráfica del dendograma usando las opciones por omisión.
-plot(peces.ch.single,main="Peces - Chord - Enlace simple")
+plot(peces.ch.single, main="Peces - Chord - Enlace simple", hang = -1)
 
 # Gráfica que muestra posibles gradientes determinados por la agrupación
 # Ordenación con respecto al gradiente de distancia a la desembocadura.
@@ -146,23 +143,24 @@ abline(coef=coef(lm(ambient$nit~peces.ch.single$order)),col="red")
 
 # Cálculo utilizand el enlace completo
 peces.ch.complete <- hclust(peces.ch, method="complete")
-plot(peces.ch.complete,main="Peces - Chord - Enlace completo")
+plot(peces.ch.complete,main="Peces - Chord - Enlace completo", hang = -1)
 
 # Cálculo mediante UPGMA
 peces.ch.UPGMA <- hclust(peces.ch, method="average")
-plot(peces.ch.UPGMA,main="Peces - Chord - Promedio")
+plot(peces.ch.UPGMA,main="Peces - Chord - Promedio", hang =  -1)
 
 # Cálculo mediante UPGMC
 peces.ch.centroid <- hclust(peces.ch, method="centroid")
-plot(peces.ch.centroid,main="Peces - Chord - Centroide")
+plot(peces.ch.centroid,main="Peces - Chord - Centroide", hang = -1)
 
 # Utilizando el métod de Ward
 peces.ch.ward <- hclust(peces.ch, method="ward.D")
-plot(peces.ch.ward,main="Peces - Chord - Ward")
+plot(peces.ch.ward,main="Peces - Chord - Ward", hang = -1)
 
 # Transformación raiz cuadrada de la altura
 peces.ch.ward$height <- sqrt(peces.ch.ward$height)
-plot(peces.ch.ward,main="Peces - Chord - sqrt(Ward)")
+plot(peces.ch.ward,main="Peces - Chord - sqrt(Ward)", hang = -1)
 
 ```
+
 
