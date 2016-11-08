@@ -1,7 +1,7 @@
 ---
-title: "Análisis Aglomerativo III"
+title: "Análisis Aglomerativo II"
 author: "Universidad Nacional de Colombia, Sede Medellín"
-date: "Viernes, 23 de octubre de 2015"
+date: "Jueves, 3 de noviembre de 2016"
 output: 
   html_document: 
     toc: yes
@@ -43,7 +43,6 @@ library(vegan)
 library(gclus)
 library(cluster)
 library(RColorBrewer)
-#library(labdsv)
 ```
 ## Carga de funciones auxiliares
 ```{r}
@@ -53,6 +52,36 @@ source("test.a.R")
 source("coldiss.R")
 ```
 
+## Ejemplo didáctico
+
+```{r}
+ejem1 <- read.csv2("ejemplo_simple.csv")
+
+print(ejem1)
+
+plot(ejem1, pch = 19, asp = 1)
+with(ejem1, text(sp1, sp2, labels = rownames(ejem1), pos = 2))
+
+ejem1.prop <- decostand(ejem1, "total")
+ejem1.norm <- decostand(ejem1, "normalize")
+
+ejem1.eu <- vegdist(ejem1.prop, "euc")
+ejem1.ch <- vegdist(ejem1.norm, "euc")
+
+plot(ejem1.prop, pch = 19, asp = 1, xlim = c(0, 1), ylim = c(0, 1))
+with(ejem1.norm, points(sp1,sp2, pch = 19, col = "blue"))
+with(ejem1.prop, text(sp1, sp2, labels = row.names(ejem1.prop), pos = 2))
+with(ejem1.norm, text(sp1, sp2, labels = row.names(ejem1.norm), col = "red", pos = 4))
+
+ejem1.eu.prop <- hclust(ejem1.eu, method = "complete")
+ejem1.ch.norm <- hclust(ejem1.ch, method = "complete")
+
+op <- par(no.readonly = TRUE)
+par(mfrow = c(1, 2))
+plot(ejem1.eu.prop, hang = -1)
+plot(ejem1.ch.norm, hang = -1)
+par(op)
+```
 
 ```{r}
 # Cálculo de la matriz utilizando la distancia de Chord
@@ -61,27 +90,27 @@ peces.norm <- decostand(peces, "normalize")
 peces.ch <- vegdist(peces.norm, "euc")
 peces.ch.single <- hclust(peces.ch, method="single")
 # Gráfica del dendograma usando las opciones por omisión.
-plot(peces.ch.single,main="Peces - Chord - Enlace simple")
+plot(peces.ch.single,main="Peces - Chord - Enlace simple", hang = -1)
 
 # Cálculo utilizand el enlace completo
 peces.ch.complete <- hclust(peces.ch, method="complete")
-plot(peces.ch.complete,main="Peces - Chord - Enlace completo")
+plot(peces.ch.complete,main="Peces - Chord - Enlace completo", hang = -1)
 
 # Cálculo mediante UPGMA
 peces.ch.UPGMA <- hclust(peces.ch, method="average")
-plot(peces.ch.UPGMA,main="Peces - Chord - Promedio")
+plot(peces.ch.UPGMA,main="Peces - Chord - Promedio", hang = -1)
 
 # Cálculo mediante UPGMC
 peces.ch.centroid <- hclust(peces.ch, method="centroid")
-plot(peces.ch.centroid,main="Peces - Chord - Centroide")
+plot(peces.ch.centroid,main="Peces - Chord - Centroide", hang = -1)
 
 # Utilizando el métod de Ward
 peces.ch.ward <- hclust(peces.ch, method="ward.D")
-plot(peces.ch.ward,main="Peces - Chord - Ward")
+plot(peces.ch.ward,main="Peces - Chord - Ward", hang = -1)
 
 # Transformación raiz cuadrada de la altura
 peces.ch.ward$height <- sqrt(peces.ch.ward$height)
-plot(peces.ch.ward,main="Peces - Chord - sqrt(Ward)")
+plot(peces.ch.ward,main="Peces - Chord - sqrt(Ward)", hang = -1)
 
 ```
 
@@ -175,7 +204,7 @@ par(op)
 
 ```{r}
 
-# Cortar los dendrrograms para comparar la membresía de lso grupos entre si.
+# Cortar los dendrograms para comparar la membresía de lso grupos entre si.
 # Mediante tablas de contingencia.
 
 # Tomemos un mismo número de grupos para todos.

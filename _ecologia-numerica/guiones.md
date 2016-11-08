@@ -64,7 +64,19 @@ Bases de datos
 ## Distancias y disimilitudes
 
   * [Distancias y disimilitudes](./guiones/distancias_disimilitudes_matriz_discrepancia.html)
+  * [Similitudes 7, 8, 9 y 10](./guiones/similitudes_7_8_9_10.html)
 
 ## Cluster 1
 
   * [Análisis aglomerativo I](./guiones/cluster1.html)
+
+## Cluster 2
+
+  * [Análisis aglomerativo II](./guiones/cluster3.html)
+  * [Función auxiliar hcoplot.R](./guiones/hcoplot.R)
+  * [Función auxiliar test.a.R](./guiones/test.a.R)
+  * [Función auxiliar coldiss.R](./guiones/coldiss.R)
+
+## Análisis de correlación canónico
+
+ * [Análisis de correlación canónico](./guiones/cancorr.html)

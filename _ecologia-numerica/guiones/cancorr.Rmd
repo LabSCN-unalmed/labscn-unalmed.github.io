@@ -1,7 +1,7 @@
 ---
 title: "Análisis de correlación canónica"
 author: "Kenneth Roy Cabrera Torres"
-date: "18 de noviembre de 2015"
+date: "Martes, 8 de noviembre de 2016"
 output: 
   html_document: 
     toc: yes
@@ -36,6 +36,7 @@ sumEsp  <- apply(peces,1,sum)
 peces   <- peces[sumEsp!=0,]
 ambient <- ambient[sumEsp!=0,]
 locs    <- locs[sumEsp!=0,]
+ambient <- data.frame(scale(ambient))
 
 ```
 
@@ -50,8 +51,21 @@ peces.hel <- decostand(peces, "hellinger")
 require(CCA)
 CCA1 <- cc(peces.hel, ambient)
 CCA1
+```
+
+```{r}
+temp1 <- data.frame(das = ambient$das, Blbj = peces$Blbj)
+require(ggplot2)
+g1 <- ggplot(temp1, aes(das, Blbj))
+g1 + geom_jitter() + geom_smooth(method = lm)
+
+temp2 <- data.frame(pH = ambient$pH, Chna = peces$Chna)
+require(ggplot2)
+g1 <- ggplot(temp2, aes(pH, Chna))
+g1 + geom_jitter() + geom_smooth(method = lm)
 
 ```
+
 
 ## Graficas del CCA
 
