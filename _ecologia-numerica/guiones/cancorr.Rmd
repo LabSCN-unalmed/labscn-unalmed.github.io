@@ -54,12 +54,12 @@ CCA1
 ```
 
 ```{r}
-temp1 <- data.frame(das = ambient$das, Blbj = peces$Blbj)
+temp1 <- data.frame(das = ambient$das, Legi = peces.hel$Legi)
 require(ggplot2)
-g1 <- ggplot(temp1, aes(das, Blbj))
+g1 <- ggplot(temp1, aes(das, Legi))
 g1 + geom_jitter() + geom_smooth(method = lm)
 
-temp2 <- data.frame(pH = ambient$pH, Chna = peces$Chna)
+temp2 <- data.frame(pH = ambient$pH, Chna = peces.hel$Chna)
 require(ggplot2)
 g1 <- ggplot(temp2, aes(pH, Chna))
 g1 + geom_jitter() + geom_smooth(method = lm)
@@ -71,7 +71,7 @@ g1 + geom_jitter() + geom_smooth(method = lm)
 
 ```{r}
 plot(CCA1$cor, type = "b")
-plt.cc(CCA1, var.label = TRUE)
+plt.cc(CCA1, var.label = TRUE, d1 = 1, d2 = 2, type = "b")
 ```
 
 ## Gráfica de las dos variables canónicas
