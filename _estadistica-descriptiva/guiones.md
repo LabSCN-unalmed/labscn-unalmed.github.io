@@ -51,3 +51,8 @@ order: 2
 * [Potencial Electoral](./basesdedatos/potencialElectoral.xlsx)
 * [Resultados y NBI](./basesdedatos/Departamentos_plebiscito.xlsx)
 * [Análisis exploratorio](./guiones/plebiscito1.html)
+
+## Interpolación espacial (Método del inverso de la distancia)
+
+* [Inverso de la distancia](./guiones/interpol_espacial.html)
+* [Base de datos](./basesdedatos/estonia_air_temperature_2.csv)
