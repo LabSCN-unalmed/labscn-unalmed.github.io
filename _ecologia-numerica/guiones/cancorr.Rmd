@@ -90,3 +90,12 @@ img.matcor(matriz_corr)
 img.matcor(matriz_corr, type = 2)
 ```
 
+
+
+```{r}
+require(vegan)
+cca2 <- CCorA(peces.hel, ambient)
+cca2
+biplot(cca2)
+```
+
