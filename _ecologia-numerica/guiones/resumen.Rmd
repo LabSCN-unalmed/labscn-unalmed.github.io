@@ -1,0 +1,215 @@
+---
+title: "Resumen de métodos multivariados"
+output: 
+  html_notebook: 
+    toc: yes
+---
+
+La clave del uso de los métodos multivariados está en:
+
+ - El tipo de problema para el cuál el método está propuesto.
+ - El objetivo de cada técnica.
+ - La estructura de datos requerida para utilizar cada técnica.
+ - El muestreo realizado para cada técnica.
+ - Entender el concepto subyacentes a cada técnica.
+
+## Clasificación de técnicas
+
+- Modelo:
+  $$
+   y_1 + y_2 + \cdots + y_i
+  $$
+- Técnicas:
+    * Ordenación no restringida.
+    * Análisis aglomerativo (cluter analisis).
+- Modelo:
+  $$
+    y_1 + y_2 + \cdots + y_i = x
+  $$  
+- Técnicas:
+    * Anova multivariado (MANOVA).
+    * Prueba de Mantel.
+    * Análisis discriminante.
+    * Regresión logística.
+    * Árboles de clasifiación.
+      
+- Modelo:
+  $$
+      y_1 + y_2 + \cdots + y_i = x_1 + x_2 + \cdots + x_j
+  $$
+- Técnicas:  
+    * Ordenación con restricción.
+    * Correlación Canónico.
+    * Árboles de regresión multivariados.
+
+## Ordenación sin restricción:
+
+- PCA (Componentes principales)
+- MDS o PCoA (Escalamiento multidimensional métrico)
+- CA (Análsis de correspondencia)
+- DCA (Análisis de correspondencia segmentado o análisis de correspodencia sin tendencia)
+- NMDS (Escalamiento multidimensional no-métrico)
+
+Objetivo:
+Estraer gradientes de máxima variación.
+
+## Análisis aglomerativo (cluster):
+
+- Varias ténicas, jerárquicas, divisivas, etc.
+
+Objetivo:
+Establecer grupos de entes similares.
+
+## Discriminación:
+
+- MANOVA (Anova multivariado)
+- ANOSIM (Análisis de similitud)
+- Mantel (Prueba de Mantel)
+- LR (Regresión logística)
+- DA (Análisis discriminante)
+
+Objetivo:
+Prueba para diferenciar entre grupos de entidades y predecir 
+la pertenencia a un grupo.
+
+## Ordenación con restricción;
+
+- RDA (Análisis de redundancia)
+- CCA (Análisis de correspondencia canónico)
+
+Objetivo:
+Extraer gradientes de variación en variables dependientes explicadas
+por variables independientes.
+
+## Escalamiento multidimensional o Análisis de Coordenadas Principales.
+
+### MDS o PCoA
+```{r}
+peces <- read.csv2("peces.csv", row.names = 1)
+sumEsp  <- apply(peces,1,sum)
+peces   <- peces[sumEsp!=0,]
+require(vegan)
+peces.perfil <- decostand(peces, method = "total")
+mat_dist <- dist(peces.perfil, method = "manhattan")
+print(mat_dist)
+mds <- cmdscale(mat_dist)
+plot(mds, type = "n")
+abline(h = 0, col = "red", lty = 2)
+abline(v = 0, col = "red", lty = 2)
+text(mds[,1], mds[,2], labels = row.names(peces.perfil))
+```
+
+### nMDS
+```{r}
+peces <- read.csv2("peces.csv", row.names = 1)
+sumEsp  <- apply(peces,1,sum)
+peces   <- peces[sumEsp!=0,]
+require(vegan)
+peces.perfil <- decostand(peces, method = "normalize")
+mat_dist <- dist(peces.perfil, method = "minkowski", p = 1/3)
+print(mat_dist)
+require(MASS)
+nMDS <- isoMDS(mat_dist)
+plot(nMDS$points[,1], nMDS$points[,2], type = "n")
+abline(h = 0, col = "red", lty = 2)
+abline(v = 0, col = "red", lty = 2)
+text(nMDS$points[,1], nMDS$points[,2], labels = row.names(peces.perfil))
+```
+
+
+## Análisis de correspondencia (CA).
+
+- MDS: Escalamiento multidmensional.
+- PCoA: Análisis de coordenadas principales,
+- CCA: Análisis de correspondencia canónico.
+- CVA: Análisis de variable canónico.
+- ANOSIM: Análisis de similitud.
+
+```{r}
+t1 <- read.csv2("tablaCont.csv", row.names = 1)
+t1
+margin.table(as.matrix(t1), 1)
+margin.table(as.matrix(t1), 2)
+chi1 <- chisq.test(t1)
+print(chi1)
+print(chi1$observed)
+print(chi1$expected)
+
+require(ca)
+ca_t1 <- ca(t1)
+ca_t1
+plot(ca_t1)
+plot(ca_t1, lines = TRUE)
+plot(ca_t1, arrows = c(TRUE, TRUE))
+```
+
+
+## Análisis de correspondencia sin tendencia DCA.
+
+```{r}
+ejemplo1 <- read.csv2("ejemplo1_sitio.csv", row.names = 1)
+row.names(ejemplo1) <- paste("Sitio", row.names(ejemplo1))
+ejemplo1
+require(ca) 
+ca1 <- ca(ejemplo1)
+ca1
+plot(ca1)
+plot(ca1, lines = c(TRUE, FALSE))
+plot(ca1, arrows = c(TRUE, FALSE))
+require(vegan)
+dca1 <- decorana(ejemplo1)
+dca1
+plot(dca1)
+```
+
+## Análisis de redundancia
+```{r}
+peces   <- read.csv2("peces.csv", row.names = 1)
+ambient <- read.csv2("ambientales.csv",enc="latin1",row.names=1)
+
+sumEsp  <- apply(peces,1,sum)
+peces   <- peces[sumEsp!=0,]
+ambient <- ambient[sumEsp!=0,]
+
+require(vegan)
+peces.hell <- decostand(peces, "hell")
+pca <- rda(peces.hell)
+print(summary(pca))
+plot(pca)
+
+rda1 <- rda(peces.hell ~ das, data = ambient)
+print(summary(rda1))
+plot(rda1)
+
+rda2 <- rda(peces.hell ~ ., data = ambient)
+print(summary(rda2))
+plot(rda2)
+
+```
+
+
+## Análisis de correspondencia canónico
+
+```{r}
+peces   <- read.csv2("peces.csv", row.names = 1)
+ambient <- read.csv2("ambientales.csv",enc="latin1",row.names=1)
+
+sumEsp  <- apply(peces,1,sum)
+peces   <- peces[sumEsp!=0,]
+ambient <- ambient[sumEsp!=0,]
+
+require(vegan)
+
+cca1 <- cca(peces)
+print(summary(cca1))
+
+plot(cca1)
+
+cca2 <- cca(peces, ambient)
+print(summary(cca2))
+
+plot(cca2)
+```
+
+
+

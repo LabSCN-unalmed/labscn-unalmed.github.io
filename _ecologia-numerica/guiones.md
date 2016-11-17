@@ -80,3 +80,9 @@ Bases de datos
 ## Análisis de correlación canónico
 
  * [Análisis de correlación canónico](./guiones/cancorr.html)
+
+## Breve resumen de métodos multivariados
+
+ * [Resumen](./guiones/resumen.nb.html)
+ * [Tabla de uso de métodos multivariados](./bases_datos/tablaCont.csv)
+ * [Ejemplo de efecto de arco](./bases_datos/ejemplo1_sitio.csv)
