@@ -1,0 +1,30 @@
+---
+title: "Projectar una imagen escaneada"
+output: html_notebook
+---
+
+
+
+## Lectura de la imagen escaneada
+
+```{r}
+require(raster)
+Nucl_Rio <- brick("nucleo_rio1.tif")
+image(Nucl_Rio, col = gray(seq(0,1, length = 256)))
+```
+
+## Estableder las coordenadas geográficas de las esquinas
+
+```{r}
+extent(Nucl_Rio) <- c(-75.574981, -75.573114, 2.264731, 2.26779)
+```
+
+## Mostrar el mapa en las nuevas coordenadas
+
+```{r}
+projection(Nucl_Rio) <- CRS("+proj=longlat +datum=WGS84")
+image(Nucl_Rio, asp = 1, col = gray(seq(0,1, length = 256)))
+```
+
+
+

@@ -56,3 +56,8 @@ order: 2
 
 * [Inverso de la distancia](./guiones/interpol_espacial.html)
 * [Base de datos](./basesdedatos/estonia_air_temperature_2.csv)
+
+## Proyección de una imagen escaneada
+
+ * [Proyección](./guiones/ejemplo_proy.nb.html)
+ * [Imagen de ejemplo](./guiones/nucleo_rio1.tif)
