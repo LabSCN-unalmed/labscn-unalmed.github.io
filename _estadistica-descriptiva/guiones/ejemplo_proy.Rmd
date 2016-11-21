@@ -26,5 +26,11 @@ projection(Nucl_Rio) <- CRS("+proj=longlat +datum=WGS84")
 plotRGB(Nucl_Rio)
 ```
 
+```{r}
+require(rgdal)
+CRSdest <- CRS("+init=epsg:3116")
+Nucl_Rio2 <- projectRaster(Nucl_Rio, crs = CRSdest, res = 1)
+plotRGB(Nucl_Rio2)
+```
 
 
