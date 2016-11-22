@@ -57,7 +57,6 @@ interp_akima <- interp.new(x = datos[,1], y = datos[,2], z = datos[,3],
                       yo=seq(min(datos[,2]), max(datos[,2]), length = 400),                      
                       linear = FALSE, extrap = FALSE)
 image(interp_akima, asp = 1)
-contour(interp_akima, add = TRUE)
 points(datos[,c(1,2)], pch = 19)
 ```
 
@@ -65,6 +64,48 @@ points(datos[,c(1,2)], pch = 19)
 interp_akima_rast <- raster(interp_akima)
 plotRGB(Nucl_Rio, addfun = points(datos$long, datos$lat, pch = 19, col = "blue"))
 plot(interp_akima_rast, add = TRUE, alpha = 0.6)
-contour(interp_akima_rast, add = TRUE, levels = seq(35, 55, 1))
 ```
+```{r}
+datos1 <- datos
+long.range <- range(datos1$long) 
+lat.range  <- range(datos1$lat)
+proporcion <- 0.1
+margenes.long <- diff(long.range)*proporcion
+margenes.lat  <- diff(lat.range)*proporcion
+long.range[1] <- long.range[1] - margenes.long
+long.range[2] <- long.range[2] + margenes.long
+lat.range[1]  <- lat.range[1] - margenes.lat
+lat.range[2]  <- lat.range[2] + margenes.lat
+grd <- expand.grid(long = seq(from = long.range[1], to = long.range[2], l = 200 ),
+                   lat = seq(from = lat.range[1], to = lat.range[2], l = 200))  
+require(automap)
+coordinates(datos1) <- ~ long + lat
+coordinates(grd) <- ~ long + lat
+gridded(grd) <- TRUE
+pred_kriging <- autoKrige(z ~ 1, datos1, grd)
+plot(pred_kriging)
+```
+
+```{r}
+krig_raster <- raster(pred_kriging$krige_output)
+projection(krig_raster) <-  CRS("+proj=longlat +datum=WGS84")
+plotRGB(Nucl_Rio, addfun = points(datos$long, datos$lat, pch = 19, col = "black"))
+plot(krig_raster, add = TRUE, alpha = 0.5)
+```
+
+```{r}
+krig_raster <- raster(pred_kriging$krige_output)
+projection(krig_raster) <-  CRS("+proj=longlat +datum=WGS84")
+plotRGB(Nucl_Rio, addfun = points(datos$long, datos$lat, pch = 19, col = "black"))
+plot(krig_raster, add = TRUE, alpha = 0.5, col = rev(heat.colors(100)))
+```
+
+
+```{r}
+krig_raster <- raster(pred_kriging$krige_output)
+projection(krig_raster) <-  CRS("+proj=longlat +datum=WGS84")
+plotRGB(Nucl_Rio, addfun = points(datos$long, datos$lat, pch = 19, col = "black"))
+plot(krig_raster, add = TRUE, alpha = 0.5, col = colorRampPalette(c("blue","green","yellow","red"))(100))
+```
+
 
