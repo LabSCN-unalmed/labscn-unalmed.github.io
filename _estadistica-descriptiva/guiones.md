@@ -61,3 +61,4 @@ order: 2
 
  * [Proyección](./guiones/ejemplo_proy.nb.html)
  * [Imagen de ejemplo](./guiones/nucleo_rio1.tif)
+ * [Datos](./basesdedatos/datos.csv)
