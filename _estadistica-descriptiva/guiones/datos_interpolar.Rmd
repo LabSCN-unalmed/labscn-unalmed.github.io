@@ -1,0 +1,22 @@
+---
+title: "Datos a interpolar"
+output: html_notebook
+---
+
+
+```{r}
+c(-75.574995, -75.573117, 6.262784, 6.264687)
+set.seed(10)
+long <- runif(50, min =-75.574995, max =-75.573117)
+lat  <- runif(50, min = 6.262784, max =6.264687)
+
+longC <- long - mean(long)
+latC  <- lat - mean(lat)
+z <- 50 + 5000*latC + 5000*longC - 6e6*latC^2 - 5e6*longC^2 + rnorm(50, mean=0, sd = 4)
+
+datos <- data.frame(long, lat, z)
+
+require(geoR)
+plot(as.geodata(datos))
+```
+

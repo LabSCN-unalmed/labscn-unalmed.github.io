@@ -16,7 +16,7 @@ plotRGB(Nucl_Rio)
 ## Estableder las coordenadas geográficas de las esquinas
 
 ```{r}
-extent(Nucl_Rio) <- c(-75.574981, -75.573114, 2.264731, 2.26779)
+extent(Nucl_Rio) <- c(-75.574995, -75.573117, 6.262784, 6.264687)
 ```
 
 ## Mostrar el mapa en las nuevas coordenadas
@@ -29,7 +29,7 @@ plotRGB(Nucl_Rio)
 ```{r}
 require(rgdal)
 CRSdest <- CRS("+init=epsg:3116")
-Nucl_Rio2 <- projectRaster(Nucl_Rio, crs = CRSdest, res = 1)
+Nucl_Rio2 <- projectRaster(Nucl_Rio, crs = CRSdest)
 plotRGB(Nucl_Rio2)
 ```
 
