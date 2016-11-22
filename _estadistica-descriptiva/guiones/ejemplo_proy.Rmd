@@ -26,6 +26,8 @@ projection(Nucl_Rio) <- CRS("+proj=longlat +datum=WGS84")
 plotRGB(Nucl_Rio)
 ```
 
+## Proyectar mapa en coordenadas planas (Magnas Sirgas, Bogotá)
+
 ```{r}
 require(rgdal)
 CRSdest <- CRS("+init=epsg:3116")
@@ -33,4 +35,36 @@ Nucl_Rio2 <- projectRaster(Nucl_Rio, crs = CRSdest)
 plotRGB(Nucl_Rio2)
 ```
 
+## Lectura de datos en coordenadas geográficas
+
+```{r}
+datos <- read.csv2("datos.csv")
+
+with(datos, plot(long, lat, asp = 1, pch = 19, col = "blue"))
+```
+
+```{r}
+plotRGB(Nucl_Rio, addfun = points(datos$long, datos$lat, pch = 19, col = "blue"))
+```
+
+
+## Otra forma de interpolar
+
+```{r}
+require(akima)
+interp_akima <- interp.new(x = datos[,1], y = datos[,2], z = datos[,3],
+                      xo= seq(min(datos[,1]), max(datos[,1]), length = 400),
+                      yo=seq(min(datos[,2]), max(datos[,2]), length = 400),                      
+                      linear = FALSE, extrap = FALSE)
+image(interp_akima, asp = 1)
+contour(interp_akima, add = TRUE)
+points(datos[,c(1,2)], pch = 19)
+```
+
+```{r}
+interp_akima_rast <- raster(interp_akima)
+plotRGB(Nucl_Rio, addfun = points(datos$long, datos$lat, pch = 19, col = "blue"))
+plot(interp_akima_rast, add = TRUE, alpha = 0.6)
+contour(interp_akima_rast, add = TRUE, levels = seq(35, 55, 1))
+```
 
