@@ -16,6 +16,7 @@ mejores opciones de lugares y tiempo de estudio que tengan bajo nivel de ruido.
 ## Actividades
 
 En grupos de máximo cinco (9) estudiantes realizar las siguientes actividades:
+
    * Planeación de la toma de datos.
    * Toma de datos.
    * Tabulación o digitación de datos.
@@ -29,6 +30,7 @@ El día 24 de noviembre se presentará en el salón de clase todos los integrant
 de cada grupo para la evaluación final.
 
 Criterios de evaluación:
+
  * Objetivos claros en la presentación.
  * Diagramación del póster (colores, distribución, claridad en conclusiones...)   
  * Coherencia para resolver dudas por parte de los integrantes.
