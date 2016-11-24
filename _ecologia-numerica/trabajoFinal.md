@@ -31,3 +31,16 @@ Jueves 24 de noviembre de 2016 a las 6:00 hora de Colombia al correo
 Cada póster se exhibirá en el bloque 14, segundo piso y se realizarán
 preguntas pertinentes a los resultados obtenidos y la coherencia del uso
 de las herramientas multivariadas.
+
+  + Cada estudiante enviará un ranqueo de los pósters donde el primer número
+corresponde al mejor y así sucesivamente.
+
+  + Incluye el suyo en el ranqueo.
+
+  + No se admiten empates.
+
+  + El ranqueo se enviará el viernes 25 de noviembre de 2016 al correo
+**krcabrer@unal.edu.co** antes de las 23:59 hora de Colombia en asunto enviar **[Econum]**
+
+  + Se penaliza si el ranqueo está diferente con el del profesor en
+    tres posiciones o más de diferencia.
