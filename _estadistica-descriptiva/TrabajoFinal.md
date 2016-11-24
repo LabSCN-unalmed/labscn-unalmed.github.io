@@ -45,8 +45,18 @@ así identificarlos por parte de los profesores evaluadores.
 
 ## Documentos para entregar
 
-* Póster físico.
-* Póster en formato ".pdf"
+* Póster físico pegado en bloque 43, tercer piso.
+* Póster en formato ".pdf".
 * Base de datos utilizada en R para realizar el análisis exploratorio y
   descriptivo.
 * Guión documentado del análisis de R realizado.
+* Fecha de entrega: viernes 26 de noviembre antes de las 23:59 hora
+  de Colombia.
+
+## Evaluación de pósters
+
+Enviar al correo **krcabrer@unal.edu.co** el ranqueo del los pósters,
+desde el mejor hasta el último.
+
+Enviar el ranqueo antes del viernes 26 de noviembre a las 23:59 hora
+de colombia.
