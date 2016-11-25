@@ -1,5 +1,5 @@
 ---
-title: "Tiempos de reacción"
+title: "Tiempos de reacción (trabajo extra individual)"
 output:
   html_document:
     toc: yes
@@ -7,10 +7,12 @@ output:
     toc: yes
 ---
 
+El trabajo extra será entregado de manera **individual**.
+
 ## Selección de las bases a trabajar.
 
 Se utilizará el siguiente código en donde en la función 
-`set.seed()` se cambiará por el número de cédula de cada 
+`set.seed()` se cambiará por el número de cédula de la
 persona y luego al ejecutar la función `sample()` se mostrará
 los números de las cuatro bases de datos para trabajar.
 
