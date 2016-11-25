@@ -1,0 +1,103 @@
+---
+title: "Tiempos de reacción"
+output:
+  html_document:
+    toc: yes
+  html_notebook:
+    toc: yes
+---
+
+## Selección de las bases a trabajar.
+
+Se utilizará el siguiente código en donde en la función 
+`set.seed()` se cambiará por el número de cédula de cada 
+persona y luego al ejecutar la función `sample()` se mostrará
+los números de las cuatro bases de datos para trabajar.
+
+```{r}
+set.seed(1017166472)
+sort(sample(1:20, 4))
+```
+
+
+## Guardar cada base de datos en formato ".csv".
+
+Cada una de las bases de datos que le correspondió se guardan y se leen
+en formato ".csv". En el ejmplo serían las bases grupo03, grupo05, grupo11 y
+grupo14.
+
+## Lecturas de las bases de datos.
+
+A manera de ejemplo se leerá la base datos de los grupos: 01, 03, 06, 07 y 20.
+
+```{r}
+grupo01 <- read.csv2("grupo01.csv")
+grupo02 <- read.csv2("grupo02.csv")
+grupo06 <- read.csv2("grupo06.csv")
+grupo07 <- read.csv2("grupo07.csv")
+grupo20 <- read.csv2("grupo20.csv")
+```
+
+
+## Depuración de las bases de datos.
+
+Se realizará una depuración de la base de datos, de tal manera
+que todas las bases de datos queden con los mismos nombres de variables
+de acuerdo a la [plantilla publicada](https://labscn-unalmed.github.io/estadistica-descriptiva/talleres.html)
+en la página del curso.
+
+Cada base de datos deberá tener el mismo tipo de variable. Por ejemplo
+el grupo01 y el grupo03 tienen los mismos nombres de variables, pero
+hay columnas que no tienene el mismo tipo o los niveles no son consistentes.
+
+Finalmente deberán coincidir para que al realizar la siguiente instrucción se
+puedan unificar las bases de datos.
+
+```{r}
+grupos <- rbind(grupo01, grupo07)
+print(head(grupos))
+print(tail(grupos))
+```
+
+## Unificar las bases de datos
+
+Después de debe unificar las cuatro bases de datos depuradas en una sola 
+base de datos para el análisis exploratorion con el comando `rbind()`.
+
+Las variables extras NO se tendrán en cuenta, se pueden borrar de la
+base de datos.
+
+
+## Análisis exploratorio
+
+Realizar una análisis exploratorio con el fin de mostrar los factores o
+variables que más influyen en los tiempos de reacción.
+
+## Documentos a entregar.
+
+ - Archivo en formato ".pdf" con el análisis descriptivo y 
+   exploratorio realizado, no mayor de 5 páginas.
+ - Guión en R con los comando utilizado para realizar el análisis.
+ - Archivos en formato ".csv" depurados.
+ 
+## Fecha de entrega
+
+Martes 29 de noviembre antes de las 23:00 hora de Colombia al correo
+*krcabrer@unal.edu.co* y con la sigla *[EDAED]* en asunto.
+ 
+## Consideraciones
+
+La nota sustituirá talleres o trabajos no entregados durante el semestre, 
+exceptuando el trabajo final.
+
+Si ha entregado TODOS los trabajos y ha presentado TODOS los talleres,
+podrá mejorar la nota del trabajo final del póster.
+
+El lunes 28 de noviembre habrá horario de atención en el horario
+normal de 10:00 a 12:00 m en el laboratorio 21 -215.
+
+Se contestarán preguntas en el foro hasta el lunes 28 de noviembre antes
+de las 23:59 hora de Colombia.
+
+
+
