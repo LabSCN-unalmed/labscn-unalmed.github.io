@@ -4,6 +4,7 @@ output:
   html_document:
     toc: yes
   html_notebook:
+    number_sections: yes
     toc: yes
 ---
 
@@ -51,6 +52,21 @@ en la página del curso.
 Cada base de datos deberá tener el mismo tipo de variable. Por ejemplo
 el grupo01 y el grupo03 tienen los mismos nombres de variables, pero
 hay columnas que no tienene el mismo tipo o los niveles no son consistentes.
+
+Algunos problemas que deben considerar son por ejemplo:
+
+```{r}
+grupo02$Pantalla
+```
+
+Notamos que no se hicieron dos columnas con el ancho de la pantalla y
+otro con el alto de la pantalla, sino una sola variable y por otro lado
+incluyeron la sarta **"in"** lo que impide hacer cálculos con esa variable.
+
+Se puede suponer que de acuerdo a [esta página](http://www.convertworld.com/es/tamano-de-pantallas/), 
+una pantalla de 14 pulgadas
+es equivalente a un ancho de 11.2 pulgadas y un ancho de 8,4 pulgadas,
+que en centímetros es equivalente a 28.45 cm de ancho y 21.24 cm de alto.
 
 Finalmente deberán coincidir para que al realizar la siguiente instrucción se
 puedan unificar las bases de datos.

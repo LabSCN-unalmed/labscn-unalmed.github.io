@@ -158,6 +158,15 @@ grupo20 &lt;- read.csv2(&quot;grupo20.csv&quot;)</code></pre>
 <h2>Depuración de las bases de datos.</h2>
 <p>Se realizará una depuración de la base de datos, de tal manera que todas las bases de datos queden con los mismos nombres de variables de acuerdo a la <a href="https://labscn-unalmed.github.io/estadistica-descriptiva/talleres.html">plantilla publicada</a> en la página del curso.</p>
 <p>Cada base de datos deberá tener el mismo tipo de variable. Por ejemplo el grupo01 y el grupo03 tienen los mismos nombres de variables, pero hay columnas que no tienene el mismo tipo o los niveles no son consistentes.</p>
+<p>Algunos problemas que deben considerar son por ejemplo:</p>
+<pre class="r"><code>grupo02$Pantalla</code></pre>
+<pre><code>##  [1] 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in
+## [15] 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in
+## [29] 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in 14in
+## [43] 14in 14in 14in 14in 14in 14in 14in 14in
+## Levels: 14in</code></pre>
+<p>Notamos que no se hicieron dos columnas con el ancho de la pantalla y otro con el alto de la pantalla, sino una sola variable y por otro lado incluyeron la sarta <strong>“in”</strong> lo que impide hacer cálculos con esa variable.</p>
+<p>Se puede suponer que de acuerdo a <a href="http://www.convertworld.com/es/tamano-de-pantallas/">esta página</a>, una pantalla de 14 pulgadas es equivalente a un ancho de 11.2 pulgadas y un ancho de 8,4 pulgadas, que en centímetros es equivalente a 28.45 cm de ancho y 21.24 cm de alto.</p>
 <p>Finalmente deberán coincidir para que al realizar la siguiente instrucción se puedan unificar las bases de datos.</p>
 <pre class="r"><code>grupos &lt;- rbind(grupo01, grupo07)
 print(head(grupos))</code></pre>
