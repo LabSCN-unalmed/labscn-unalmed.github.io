@@ -17,6 +17,9 @@ Se utilizará el siguiente código en donde en la función
 persona y luego al ejecutar la función `sample()` se mostrará
 los números de las cuatro bases de datos para trabajar.
 
+Si su identificación es una tarjeta de identidad, utilice los
+últimos nueve (9) dígitos de su número de identidad.
+
 ```{r}
 set.seed(1017166472)
 sort(sample(1:20, 4))
