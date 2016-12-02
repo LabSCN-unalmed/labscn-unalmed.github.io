@@ -23,7 +23,7 @@ order: 00
 2. Bivand, Roger S, Pebesma Edzer y Gómez-Rubio Virgilio.
 Applied Spatial Data Analysis with R. Second Edition. Springer New York.
 2013
-3. Diggle Peter J. y Ribeiro Pablo J. Jr. Model-based Geostatistics. 
+3. Diggle Peter J. y Ribeiro Pablo J. Jr. Model-based Geostatistics.
 Springer Science+Business Media, LLC. 2007.
 
 ### Textos complementarios
@@ -38,7 +38,7 @@ Modern Statistical Methods. 2010.
 4. Cressie Noel y Wikle Christopher K. Statistics for Spation-temporal Data.
 John Wiley & Sons, Inc. 2011
 5. Schabenberger, Oliver y Pierce Francis J. Contemporary Statistical Models:
-for the Plant and Soil Sciencies. 
+for the Plant and Soil Sciencies.
 Capítulo 09:Statistical Models for Spatial Data. CRC Press. 2002
 
 ## Evaluación
@@ -53,20 +53,20 @@ Capítulo 09:Statistical Models for Spatial Data. CRC Press. 2002
 ## Enlaces principales
 
 
-* [Sitio de descarga del Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="_blank"}
-* [Sitio de descarga de la interfaz para el R: RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="_blank"}
+* [Sitio de descarga del Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
+* [Sitio de descarga de la interfaz para el R: RStudio.](http://www.rstudio.com/products/rstudio/download/)
 
-* [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="_blank"}
-* [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="_blank"}
+* [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM)
+* [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc)
 
-* [Descarga del Gimp](http://www.gimp.org/downloads/){:target="_blank"}
-* [Descarga del imageJ](http://fiji.sc/Downloads){:target="_blank"}
+* [Descarga del Gimp](http://www.gimp.org/downloads/)
+* [Descarga del imageJ](http://fiji.sc/Downloads)
 
 ## Libro complementario:
 
 * [Lecturas sobre estadística espacial](https://www.dropbox.com/s/hfqfqtevsu85twy/contemporaryStatisticalModels.pdf?dl=0)
 
-## Procedimiento en R para instalar *todos* los paquetes asociados a manejos de datos espaciales.
+## Procedimiento en R para instalar la mayoría de los paquetes asociados a manejos de datos espaciales.
 
 ~~~
 install.packages("ctv")
@@ -76,14 +76,10 @@ install.views("Spatial")
 
 ## Horario de atención
 
-Hora: Miércoles 8:00 am a 10:00
-
-Lugar: Laboratorio de Sistemas Complejos Naturales, 21-215
-
 
 ## Mapa de las comunas de Medellín
 
-[Comunas de Medellín](/estadistica-espacial/datos/comunas.kmz){:target="_blank"}
+[Comunas de Medellín](/estadistica-espacial/datos/comunas.kmz)
 
 <!--
 Este párrafo será de color verde
@@ -95,4 +91,3 @@ Este tendrá el fondo rojo
 Este será de color amarillo y fondo azul
 {: .text-warning .bg-info}
 -->
-
