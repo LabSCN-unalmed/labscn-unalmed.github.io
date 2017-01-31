@@ -24,9 +24,9 @@ order: 00
 
 | Item               | Porcentaje | Fecha entrega                | Formato                                               |
 |:-------------------|:----------:|:-----------------------------|:------------------------------------------------------|
-| Propuesta inicial  |        10% | Martes 16 de febrero de 2016 | Presentación PDF                                      |
-| Planeación         |        20% | Martes 15 de marzo de 2016   | Presentación y trabajo PDF                            |
-| Presentación Final |        30% | Jueves 26 de mayo de 2016    | Trabajo en PDF y poster en formato PDF y físico       |
+| Propuesta inicial  |        10% | Martes 14 de febrero de 2017 | Presentación en formato PDF                           |
+| Planeación         |        20% | Martes 14 de marzo de 2017   | Presentación y trabajo en formato PDF                 |
+| Presentación Final |        30% | Jueves 23 de mayo de 2017    | Trabajo en PDF y poster en formato PDF y físico       |
 | Seguimiento        |        40% |                              | Talleres y trabajos durante el curso                  |
 {: .table .table-hover}
 
@@ -49,7 +49,7 @@ order: 00
 
 ### Libro de Diseño Experimental
 
-- Kuehl, Robert O. Diseño de Experimentos. Principios estadísticos para el diseño y análisis de investigaciones. 2da Edición. Thomson Learning. 2001. 
+- Kuehl, Robert O. Diseño de Experimentos. Principios estadísticos para el diseño y análisis de investigaciones. 2da Edición. Thomson Learning. 2001.
 
 ### Libro para diseño de mezclas
 
@@ -57,6 +57,6 @@ order: 00
 
 ## Horario de atención
 
-- Miércoles 8:00 am - 10:00 am
+- Miércoles y viernes 8:00 am - 10:00 am
 
 - Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
