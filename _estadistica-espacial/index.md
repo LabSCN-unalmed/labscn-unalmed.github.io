@@ -66,20 +66,10 @@ Capítulo 09:Statistical Models for Spatial Data. CRC Press. 2002
 
 * [Lecturas sobre estadística espacial](https://www.dropbox.com/s/hfqfqtevsu85twy/contemporaryStatisticalModels.pdf?dl=0)
 
-## Procedimiento en R para instalar la mayoría de los paquetes asociados a manejos de datos espaciales.
-
-~~~
-install.packages("ctv")
-require("ctv")
-install.views("Spatial")
-~~~
 
 ## Horario de atención
 
-
-## Mapa de las comunas de Medellín
-
-[Comunas de Medellín](/estadistica-espacial/datos/comunas.kmz)
+Miércoles y viernes 8:00 am - 10:00 am
 
 <!--
 Este párrafo será de color verde
