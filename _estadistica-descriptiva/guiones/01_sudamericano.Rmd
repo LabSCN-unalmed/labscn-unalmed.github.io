@@ -1,0 +1,40 @@
+---
+title: "Sudamericano sub 20 - 2017"
+author: "Kenneth Roy Cabrera Torres"
+date: "2 de febrero de 2017"
+output: 
+  html_document: 
+    fig_width: 8
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de base de datos
+```{r}
+mejorada1 <- read.csv2("mejorada1.csv")
+mejorada2 <- read.csv2("mejorada2.csv")
+```
+
+## Resumen de bases de datos
+```{r}
+summary(mejorada1)
+summary(mejorada2)
+```
+
+## Comparación de estaturas
+```{r}
+library(ggplot2)
+g1 <- ggplot(mejorada2, aes(Equipo, estatura))
+g1 + geom_point()
+```
+
+## Comparación de estaturas por posición
+```{r}
+library(ggplot2)
+g1 <- ggplot(mejorada2, aes(Equipo, estatura, col = posición))
+g1 + geom_point()
+```
+
