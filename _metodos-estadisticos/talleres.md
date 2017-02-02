@@ -11,3 +11,7 @@ order: 04
 
 * ToC
 {: toc}
+
+## Taller individual 1
+
+- [Enunciado](/metodos-estadisticos/talleres/bacterias.html)
