@@ -4,3 +4,5 @@ title: 'Presentaciones'
 curso: 'estadistica-espacial'
 order: 03
 ---
+
+- [Introducción a la geoestadística](./presentaciones/clasegeostat1.pdf)
