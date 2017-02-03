@@ -5,4 +5,4 @@ curso: 'estadistica-espacial'
 order: 03
 ---
 
-- [Introducción a la geoestadística](./presentaciones/clasegeostat1.pdf)
+- [Introducción a la geoestadística](./presentaciones/clasegeoestat1.pdf)
