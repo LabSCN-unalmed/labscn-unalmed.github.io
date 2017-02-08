@@ -18,7 +18,7 @@ order: 00
 
 ## Presentaciones
 
-* [Diapositivas 1](./clase1.pdf){:target="_blank"}
+* [Diapositivas 1](./clase1.pdf)
 
 ## Evaluación
 
@@ -33,13 +33,13 @@ order: 00
 
 ## Enlaces importantes
 
-* [Sitio de descarga del Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="_blank"}
-* [Sitio de descarga de la interfaz para el R: RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="_blank"}
+* [Sitio de descarga del Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
+* [Sitio de descarga de la interfaz para el R: RStudio.](http://www.rstudio.com/products/rstudio/download/)
 
-* [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="_blank"}
-* [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="_blank"}
+* [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM)
+* [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc)
 
-* [Cálculo del tamaño de muestra](http://homepage.stat.uiowa.edu/~rlenth/Power/){:target="_blank"}
+* [Cálculo del tamaño de muestra](http://homepage.stat.uiowa.edu/~rlenth/Power/)
 
 ## Bibliografía
 
@@ -57,6 +57,7 @@ order: 00
 
 ## Horario de atención
 
-- Miércoles y viernes 8:00 am - 10:00 am
+- Lunes 10:00 am a 12:00 m
+- Miércoles 8:00 am - 10:00 am
 
 - Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
