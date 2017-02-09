@@ -471,9 +471,9 @@ Un ejemplo:
 La secuencia de ordenes en GRASS es la siguiente:
 
 ~~~
-g.list rast
-g.copy rast=ituango,ituan
-g.region rast=ituan
+g.list -p type=raster
+g.copy raster=ituango,ituan
+g.region raster=ituan
 r.colors map=ituan raster=porcecito
 ~~~
 
@@ -492,7 +492,7 @@ r.colors map=ituan raster=porcecito
 Se puede eliminar la tabla traída de otro mapa y desplegar la tabla inicial de colores que tenía el mapa.
 
 ~~~
-r.colors -r ituan
+r.colors -r map=ituan
 ~~~
 
 ## Tarea 3
