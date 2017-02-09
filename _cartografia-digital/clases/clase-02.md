@@ -428,7 +428,7 @@ db.*
 - Conocer qué capas raster hay en el sistema para trabajar.
 
 ~~~
-g.list type=rast
+g.list -p type=raster
 ~~~
 
 ~~~
@@ -444,7 +444,7 @@ ituango         porcecito       riogrande_sup
 - Copiar un archivo que se encuentra en el mapset `PERMANENT` para tenerlo disponible en el mapset donde se encuentra el usuario.
 
 ~~~
-g.copy rast=porcecito@PERMANENT,porcecito
+g.copy raster=porcecito@PERMANENT,porcecito
 ~~~
 
 ~~~
@@ -455,7 +455,7 @@ Copy raster <porcecito@PERMANENT> to current mapset as <porcecito>
 - Cambiarle el nombre a un archivo raster (un mapa).
 
 ~~~
-g.rename rast=porcecito,porcecito_copia
+g.rename raster=porcecito,porcecito_copia
 ~~~
 
 ~~~
@@ -469,7 +469,7 @@ ADVERTENCIA: Utilizando <porcecito@CursoGrass>.
 - Borrar un mapa (archivo) del mapset activo.
 
 ~~~
-g.remove rast=porcecito_copia
+g.remove type=raster name=porcecito_copia
 ~~~
 
 ~~~
@@ -503,7 +503,7 @@ cells:      1420848
 - Ajustar la región de cálculo a un mapa raster.
 
 ~~~
-g.region rast=riogrande_sup
+g.region raster=riogrande_sup
 ~~~
 
 - Ajustar la región de cálculo a un mapa raster e imprimirla en consola.
