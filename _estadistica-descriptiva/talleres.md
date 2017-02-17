@@ -55,7 +55,7 @@ hechos que han circulado por las redes sociales.
 El taller consiste en realizar las mismas preguntas a 20
 personas de su entorno familiar y social de la mayor
 diversidad de edades, niveles educativos, uso de medios
-de información a persona iguales o mayores de 15 años.
+de información a persona iguales o mayores de 15 años de edad.
 
 En la [hoja de cálculo de google](https://docs.google.com/a/unal.edu.co/spreadsheets/d/1QXVAgnobXC_MOlAENc7u3VaaYQt9r9WcVwiDLk9i7dQ/edit?usp=sharing) se encuentra la plantilla
 para digitar los datos y las convenciones aceptables
