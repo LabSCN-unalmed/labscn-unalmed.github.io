@@ -46,7 +46,7 @@ La fecha de entrega será el día miércoles
 
 ## Segundo taller individual
 
-En el periódico El Colombiano de día 16 de febrero de 2017,
+En el periódico El Colombiano del día 16 de febrero de 2017,
 en las página 2 y 3 bajo el titular: ["Mentiras e internet,
 mezcla peligrosa para las elecciones"](http://www.elcolombiano.com/redes-sociales/mentiras-e-internet-mezcla-peligrosa-para-las-elecciones-FJ5946986)
 se relacionan nueve (9) preguntas que identifican rumores o
