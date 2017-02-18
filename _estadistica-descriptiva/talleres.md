@@ -74,6 +74,7 @@ en la digitación de la información.
 
 ### Fecha de entrega.
 
-  El formato se cerrará el domingo 19 de febrero de 2017 a las 23:59 hora
-  de Colombia. Por lo tanto los que no hayan realizado el ejercicio a
+  El formato se cerrará el domingo 19 de febrero de 2017 a las 23:59
+  [hora de Colombia](http://horalegal.inm.gov.co/).
+  Por lo tanto los que no hayan realizado el ejercicio a
   esa hora se dará por NO presentado el taller.
