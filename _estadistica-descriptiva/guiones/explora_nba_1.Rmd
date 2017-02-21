@@ -1,0 +1,160 @@
+---
+title: "Análisis exploratorio parcial de tallas, pesos e IMC de jugadores de baloncesto de la NBA"
+author: "Kenneth Roy Cabrera Torres"
+date: "21 de febrero de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+# Lectura de la base de datos de los jugadores de la NBA
+nba <- read.csv2("nba_ht_wt.csv")
+# Conversión de libras a kilos.
+nba$peso2 <- nba$peso * 0.453592
+# Conversión de pulgadas a centímetros.
+nba$estatura2 <- nba$estatura * 2.54
+# Cálculo del índice de masa corporal
+nba$imc <- with(nba, peso2  / (estatura2 / 100) ^ 2)
+# Etiquetar los niveles del factor de "posición".
+nba$posicion2 <- factor(nba$posicion, labels = c("Pívot", "Alero", "Base"))
+```
+
+## Diagrama de dispersión de la estatura con respecto a la posición
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(posicion, estatura2))
+g1 + geom_point()
+```
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(posicion2, estatura2))
+g1 + geom_jitter()
+```
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(posicion, estatura2))
+g1 + geom_jitter(width = 0.1, height = 0)
+```
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(posicion, estatura2))
+g1 + geom_boxplot()
+
+```
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(posicion2, estatura2))
+g1 + geom_boxplot() + 
+  geom_jitter(width = 0.1, height = 0) +
+  stat_summary(fun.y = "mean", colour = "red", size = 2, geom = "point") +
+  labs( title = "Distribución de la estatura por posición en jugadores de la NBA",
+         y = "Estatura (cm)",
+         x = "Posición en el equipo")
+  
+```
+
+## Histograma del índice de masa corporal
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(imc))
+g1 + geom_histogram()
+```
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(imc))
+g1 + geom_histogram(binwidth = 0.1)
+```
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(imc))
+g1 + geom_histogram(binwidth = 2.5)
+```
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(imc))
+g1 + geom_histogram(binwidth = 0.5)
+```
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(imc))
+g1 + geom_histogram(binwidth = 0.5, aes(y = ..density..)) + 
+     geom_density( col = "red", size = 1.5)
+```
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(imc))
+g1 + geom_histogram(binwidth = 0.5, aes(y = ..density..)) + 
+     geom_density( col = "red", size = 1.5) +
+     labs( title = "Distribución del IMC en jugadores de la NBA",
+           y = "Densidad",
+           x = "Índice de Masa Corporal (IMC kg/cm2)")
+```
+
+## Distribución del índice de masa corporal con la posición
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(imc, col = posicion2, fill = posicion2))
+g1 + geom_histogram(aes(y = ..density..), position = "identity", alpha = 0.1,
+                    binwidth = 0.5) +
+     geom_density(aes(col = posicion2), size = 1.5, alpha = 0.2) +
+     labs( title = "Distribución del IMC en jugadores de la NBA",
+           subtitle = "Por posición",
+           y = "Densidad",
+           x = "Índice de Masa Corporal (IMC kg/cm2)")
+```
+```{r}
+library(ggplot2)
+g1 <- ggplot(nba, aes(posicion2, imc, col = posicion2, fill = posicion2))
+g1 + geom_violin(alpha = .2) +
+     labs( title = "Distribución del IMC en jugadores de la NBA",
+           x = "Posición",
+           y = "Índice de Masa Corporal (IMC kg/cm2)")
+```
+
+## Resumen estadístico
+
+```{r}
+summary(nba)
+```
+
+## Resúmenes estadísticos por grupo
+
+```{r}
+nbaPivot <- subset(nba, posicion2 == "Pívot")
+summary(nbaPivot)
+
+nbaPivot <- droplevels(subset(nba, posicion2 == "Pívot"))
+summary(nbaPivot)
+
+```
+
+## Relación de la edad con el IMC en jugadores de posición "Alero"
+
+```{r}
+nbaAlero <- droplevels(subset(nba, posicion2 == "Alero"))
+library(ggplot2)
+g1 <- ggplot(nbaAlero, aes(edad, imc))
+g1 + geom_point() +
+     geom_smooth() +
+     labs(title = "Distribución del IMC de acuerdo a la edad",
+          subtitle = "De los jugadores en la posición 'Alero'",
+          x = "Edad (años cumplidos)",
+          y = "Índice de Masa Corporal (IMC kg/cm2)")
+```
+
