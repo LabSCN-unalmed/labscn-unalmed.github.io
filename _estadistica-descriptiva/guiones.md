@@ -14,5 +14,5 @@ order: 2
 ## Talla y peso de jugadores de la NBA.
 
  - [Análisis exploratorio parcial](./guiones/explora_nba_1.html)
- - [Base de datos](./basededatos/nba_talla_peso.xlsx)
- - [Base de datos en formato (.csv)](./basededatos/nba_ht_wt.csv)
+ - [Base de datos](./basesdedatos/nba_talla_peso.xlsx)
+ - [Base de datos en formato (.csv)](./basesdedatos/nba_ht_wt.csv)
