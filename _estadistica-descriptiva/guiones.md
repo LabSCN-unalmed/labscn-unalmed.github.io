@@ -15,4 +15,4 @@ order: 2
 
  - [Análisis exploratorio parcial](./guiones/explora_nba_1.html)
  - [Base de datos](./basededatos/nba_talla_peso.xlsx)
- - [Base de datos en formato (.csv)](./basededatos/nba_ht_wt_csv)
+ - [Base de datos en formato (.csv)](./basededatos/nba_ht_wt.csv)
