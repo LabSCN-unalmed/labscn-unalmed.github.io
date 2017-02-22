@@ -1,0 +1,10 @@
+Zone A Data, Big Bean Field
+8
+X m                              meters east of origin
+Y m                              meters north of origin
+Thk m                            zone thickness in meters
+Por %                            porosity in percent
+Perm md                          permeability in millidarcies
+LogPerm -                        base 10 log of permeability
+LogPermPrd -                     LogPerm predicted by regression against Por
+LogPermRsd -                     Residual from LogPerm-Por regression

@@ -16,3 +16,9 @@ order: 01
 - [Base de datos luz](./datos/luz.csv)
 - [Base de datos ruido](./datos/ruido.csv)
 - [Uso de datos de Science Journal App](./guiones/datos_sci_jour.html)
+
+## Análisis exploratorio de datos de porosidad
+
+- [Base de datos de porosidad](./datos/ZoneA.dat)
+- [Metadatos de datos de porosidad](./datos/ZoneA_metadata.txt)
+- [Exploratorio y estimación del variograma](./guiones/ZonaA.html)
