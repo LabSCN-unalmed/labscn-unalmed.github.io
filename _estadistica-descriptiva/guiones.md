@@ -16,3 +16,12 @@ order: 2
  - [Análisis exploratorio parcial](./guiones/explora_nba_1.html)
  - [Base de datos](./basesdedatos/nba_talla_peso.xlsx)
  - [Base de datos en formato (.csv)](./basesdedatos/nba_ht_wt.csv)
+
+## Ejemplos de gráficas
+
+- [Gráficas con problemas](./graficas/index.html){:target="blank"}
+
+## Ejemplo de gráfica de "El Colombiano"
+
+- [Evolución de precios sugeridos de combustibles para Antioquia](./guiones/precios_gasolina.html)
+- [Base de datos](./basesdedatos/precios_gasolina.xlsx)

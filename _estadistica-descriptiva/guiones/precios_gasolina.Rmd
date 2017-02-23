@@ -1,0 +1,72 @@
+---
+title: "Evolución de precios sugeridos de combustibles en Antioquia"
+author: "Kenneth Roy Cabrera Torres"
+date: "23 de febrero de 2017"
+output: 
+  html_document: 
+    fig_height: 7
+    fig_width: 10
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Gráfica original
+
+En la página 17 del día 22 de febrero de 2017 del diario EL Colombiano
+bajo el titular "Consumidor pagará más por reversazo en sobretasa" 
+se publica la siguiente gráfica:
+
+![](precios_combustibles.png)
+
+## Lectura y adecuación de la base de datos.
+
+```{r}
+pg <- read.csv2("precios_gasolina.csv")
+pg$fecha <- as.Date(strptime(with(pg, paste("01", mes, año, sep = "/")),
+                     format = "%d/%B/%Y"))
+pg
+
+library(dplyr)
+pg2 <- pg %>% select(fecha, gasolina, acpm) 
+
+library(tidyr)
+pg2 <- pg2 %>% gather(tipo, precio, gasolina:acpm)
+pg2
+```
+
+## Propuesta de gráfica alternativa. 
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(pg2, aes(fecha, precio, col = tipo))
+g1 + geom_point() + 
+     geom_line() +
+     ylim(0, 8200) +
+     scale_x_date(date_breaks = "1 month",
+                  date_labels = "%B %Y") +
+     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+     scale_colour_manual(values = c("#82A5C5","#CE968F")) +
+     labs(title = "Galón de venta al público en Antioquia (en $)",
+          y = "Precio en pesos ($)",
+          x = "Fecha")
+```
+
+## Segunda propuesta de gráfica
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(pg2, aes(fecha, precio, col = tipo))
+g1 + geom_point() + 
+     geom_line() +
+     scale_x_date(date_breaks = "1 month",
+                  date_labels = "%B %Y") +
+     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+     scale_colour_manual(values = c("#82A5C5","#CE968F")) +
+     labs(title = "Galón de venta al público en Antioquia (en $)",
+          y = "Precio en pesos ($)",
+          x = "Fecha")
+```
+
