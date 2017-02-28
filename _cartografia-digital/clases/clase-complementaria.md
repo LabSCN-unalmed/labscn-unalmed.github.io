@@ -6,7 +6,7 @@ clase: 'Complementaria'
 custom_js: 'mathjax'
 ---
 
-Introducción
+Introducción {#introduccion}
 ------------
 
 Un perfil topográfico corresponde a una relación entre distancia y altitud para una región dada. La gráfica de esta relación permite visualizar la distribución de la altitud a lo largo de una linea o transecto. Se pueden construir perfiles de longitud muy variable y con orientaciones muy diversas.
@@ -54,7 +54,7 @@ cd Downloads
 r.in.gdal input=altiplanos.tif output=altiplanos
 ~~~
 
-### Desplegar un mapa raster del altiplano y dibujarle una cuadrícula densa.
+### Desplegar un mapa raster del altiplano y dibujarle una cuadrícula densa {#desplegar-mapa-raster-altiplano-dibujarle-cuadricula-densa}
 
 
 Una vez importado el mapa, verificamos que este se encuentre en la lista de mapas raster disponibles en GRASS, y procedemos a establecer la región de manera apropiada para poderlo desplegar en su totalidad.
@@ -145,7 +145,7 @@ $$
 90° - 36.6° = 53.4°
 $$
 
-### Parámetros para construir los perfiles longitudinales con la estructura a explorar (el basculamiento)
+### Parámetros para construir los perfiles longitudinales con la estructura a explorar {#parametros-construir-perfiles-longitudinales-estructura-explorar}
 
 Se utiliza el comando `r.transect` para construir los perfiles. Este comando requiere el nombre del mapa de donde se extraerá la información. Igualmente se requiere precisar los parámetros de la linea del perfil a construir. Estos parámetros son:
 
@@ -163,7 +163,7 @@ $$
 360° - 36.6° = 323.4°
 $$
 
-### Construcción individual de los perfiles longitudinales.
+### Construcción individual de los perfiles longitudinales {#construccion-individual-perfiles-longitudinales}
 
 Los parámetros son:
 
@@ -213,7 +213,7 @@ Las columnas de cada perfil son:
 - `distancia`
 - `altitud`
 
-Transferir la información vectorizada de los perfiles desde GRASS a R
+Transferir la información vectorizada de los perfiles desde GRASS a R {#transferir-informacion-vectorizada-perfiles-grass-r}
 --------------------------------------------------------------------------
 
 Estando en GRASS desde el mapset donde se tienen los perfiles se entra a R.
@@ -255,7 +255,7 @@ perfil9 <- readVECT6("perfil9")@data
 perfil10 <- readVECT6("perfil10")@data
 ~~~
 
-### Graficar varios perfiles en un solo gráfico
+### Graficar varios perfiles en un solo gráfico {#graficar-varios-perfiles-grafico}
 
 Para graficar los primeros 5 perfiles, empleamos la función `plot` para el primer perfil, y la función `points` para los restantes 4 perfiles. Se utiliza el parámetro `type` para que los puntos sean graficados como una línea, y el parámetro `col` para el color.
 
@@ -269,7 +269,7 @@ with(perfil5, points(distancia, altitud, type="l", col="cyan"))
 
 ![Perfiles altiplano](/cartografia-digital/images/altiplanos_perfiles_R_1_5.png){: .img-responsive}
 
-### Construcción de la matriz de altitudes
+### Construcción de la matriz de altitudes {#construccion-matriz-altitudes}
 
 - Se elaboran los vectores que contienen los valores de altitud.
 
@@ -307,7 +307,7 @@ La matriz obtenida tiene 834 filas y 10 columnas.
 head(MHperfiles)
 ~~~
 
-### Obtener los valores máximo, mínimo y promedio de cada fila de la matriz
+### Obtener los valores máximo, mínimo y promedio de cada fila de la matriz {#obtener-valores-maximo-minimo-promedio-cada-fila-matriz}
 
 #### Altitudes máximas
 

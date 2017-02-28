@@ -14,7 +14,7 @@ Los lineamientos de un relieve resaltan mas en unas combinaciones especificas de
 Un lineamiento resalta cuando la luz incidente proviene de una trayectoria transversal y cuando la altitud de la luz es baja.
 
 ~~~
-r.shaded.relief map=porcecito1 shadedmap=porce1_shaded altitude=45 azimuth=45
+r.relief input=porcecito1 output=porce1_shaded altitude=45 azimuth=45
 ~~~
 
 ~~~
@@ -32,7 +32,7 @@ mapa con el nombre del mapa precedente, utilizar la opción `--o` para
 sobreescribir el mapa ya existente.
 
 ~~~
-r.shaded.relief map=porcecito1 shadedmap=porce1_shaded altitude=30 azimuth=135 --o
+r.relief input=porcecito1 output=porce1_shaded altitude=30 azimuth=135 --o
 ~~~
 
 ~~~

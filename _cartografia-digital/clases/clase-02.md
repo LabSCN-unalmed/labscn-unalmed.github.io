@@ -44,7 +44,7 @@ Este es el aspecto del entorno de trabajo:
 
 ![Entorno de trabajo del GIS GRASS](/cartografia-digital/images/clase-02/grass_workspace.png){: .img-responsive}
 
-La interfaz gráfica
+La interfaz gráfica {#interfaz-grafica}
 -------------------
 
 La interfaz gráfica está compuesta por 2 ventanas:
@@ -368,7 +368,7 @@ Observar como ahora en la terminal aparece el siguiente prompt de GRASS:
 GRASS 6.4.3 (CursoGrass):~ >
 ~~~
 
-### Gramática en GRASS
+### Gramática en GRASS {#gramatica-grass}
 
 Diferenciar entre orden y parámetros del comando:
 
@@ -404,7 +404,7 @@ La terminal de comandos en GRASS funciona con el mismo intérprete que la termin
 
 De manera que `x` indica el tipo de comando que será utilizado.
 
-### La taxonomía de comandos
+### La taxonomía de comandos {#taxonomia-comandos}
 
 Los comandos en GRASS se organizan de acuerdo con la función que realizan:
 
@@ -423,7 +423,7 @@ i.*
 db.*
 : Comandos para el manejo de **bases de datos**.
 
-### ¿Cuáles serían los comandos mas básicos?
+### ¿Cuáles serían los comandos mas básicos? {#comandos-basicos}
 
 - Conocer qué capas raster hay en el sistema para trabajar.
 
@@ -544,7 +544,7 @@ Utilizando el botón ![Renderizar el mapa](/cartografia-digital/images/clase-02/
 
 ![](/cartografia-digital/images/clase-02/clase-02_13.png){: .img-responsive}
 
-### Consultar la documentación de los comandos
+### Consultar la documentación de los comandos {#consultar-documentacion-comandos}
 
 Se puede consultar la documentación de los comandos para saber qué parámetros requieren y cuales son opcionales, así como sus funciones.
 
@@ -671,7 +671,7 @@ Starting browser <xdg-open> for module r.colors...
 ~~~
 {: .output}
 
-### Consultar los estadísticos básicos de un mapa raster
+### Consultar los estadísticos básicos de un mapa raster {#consultar-estadisticos-basicos-mapa-raster}
 
 ~~~
 r.univar map=porcecito

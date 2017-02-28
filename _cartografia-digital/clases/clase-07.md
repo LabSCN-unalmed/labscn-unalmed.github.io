@@ -9,7 +9,7 @@ Un parámetro importante en la descripción cuantitativa del relieve es la pendi
 
 La pendiente y otros parámetros útiles se pueden calcular empleando el comando `r.param.scale` (Extrae parámetros del terreno a partir de un DEM).
 
-Parámetros que se pueden calcular con el comando r.param.scale
+Parámetros que se pueden calcular con el comando `r.param.scale` {#parametros-pueden-calcular-comando-rparamscale}
 --------------------------------------------------------------
 
 **elev**: Las elevaciones vienen con el mapa DEM, este parámetro se utiliza para repetir el muestreo a diferente escala.
@@ -61,7 +61,7 @@ Para Wood, J.D. (1996); las curvaturas del perfil (profc) y la curvatura horizon
 
 ![Los 6 tipos de características morfométricas](/cartografia-digital/images/morphometric.png){: .img-responsive}
 
-Elaboración de un mapa de pendientes
+Elaboración de un mapa de pendientes {#elaboracion-mapa-pendientes}
 ------------------------------------
 
 #### Conceptos importantes:
@@ -81,7 +81,7 @@ La pendiente es la variación de la altitud con respecto a la distancia.
   - ¿Existe alguna relación?
   - ¿Se trata de una relación directa o de una relación indirecta?
 
-### ¿Cómo elaborar el mapa de pendientes de una región con significados importantes respecto a la dinámica e intervención del relieve?
+### ¿Cómo elaborar el mapa de pendientes de una región con significados importantes respecto a la dinámica e intervención del relieve? {#como-elaborar-mapa-pendientes-region-significados-importantes-respecto-dinamica-intervencion-relieve}
 
 Se trata de seleccionar unos rangos de pendiente que guarden relación con fenómenos naturales, fenómenos inducidos por la intervención o con ciertos factores limitantes o favorables a una intervención antrópica pertinente técnica y ambientalmente.
 
@@ -146,7 +146,7 @@ r.univar map=porce1_slope3
 
 ### Construir el histograma de las gradientes del mapa porcecito
 
-Utilizar la herramienta de histograma ![Herramienta de histograma](./images/clase-02/layer-raster-histogram.png) del visualizador de mapas para ver un histograma continuo de los valores:
+Utilizar la herramienta de histograma ![Herramienta de histograma](/cartografia-digital/images/clase-02/layer-raster-histogram.png) del visualizador de mapas para ver un histograma continuo de los valores:
 
 ![Histograma del mapa de pendientes](/cartografia-digital/images/porce1_slope3_hist1.png){: .img-responsive}
 
@@ -267,7 +267,7 @@ r.colors map=porce1_slope3_reclass rules=TC_porce1_slope3
 
 ![3D](/cartografia-digital/images/TC_porce1_slope3_3D.png){: .img-responsive}
 
-### Consultar la información que contiene el mapa reclasificado de la pendiente
+### Consultar la información que contiene el mapa reclasificado de la pendiente {#consultar-informacion-contiene-mapa-reclasificado-pendiente}
 
 Con este comando obtenemos la información de las tres categorías de pendientes en porcentaje `p`, N° de píxeles `c` y en área en km<sup>2</sup> `k`.
 
@@ -288,7 +288,7 @@ r.report -hn map=porce1_slope3_reclass units=p,c,k
 3. ¿Qué diferencias importantes observa entre los dos mapas cuando lo observa en 2D y en 3D?
 4. Realice una amplación de ambos mapas para observar con mas detalle algunos sectores de los mapas y facilitar el análisis comparativo.
 
-Clasificación de las vertientes según su curvatura
+Clasificación de las vertientes según su curvatura {#clasificacion-vertientes-segun-curvatura}
 --------------------------------------------------
 
 ![Fotografía de vertientes con diversas curvaturas](/cartografia-digital/images/fotovert.png){: .img-responsive}
@@ -333,7 +333,7 @@ De acuerdo con la clasificación de Ruhe (1975) se puede inferir fácilmente:
   - La estabilidad de las vertientes.
   - La evolución de los perfiles de meteorización de las rocas.
 
-### Cálculo de la curvatura vertical
+### Cálculo de la curvatura vertical {#calculo-curvatura-vertical}
 
 Utilizamos el parámetro `profc` del comando `r.param.scale`.
 
@@ -498,7 +498,7 @@ El mapa reclasificado obtenido es el siguiente:
 
 El mapa de la curvatura vertical muestra claramente la diferencia entre concavidades pertenecientes a valles y convexidades perteneciente a divisorias de agua ubicadas en cimas de colinas.
 
-### Cálculo de la curvatura horizontal
+### Cálculo de la curvatura horizontal {#calculo-curvatura-horizontal}
 
 Utilizamos el parámetro `planc` del comando `r.param.scale`.
 
@@ -630,7 +630,7 @@ Observar que haciendo zoom en sectores del mapa se pueden observar rasgos espec�
 
 Desplegamos primero todo el mapa y luego una parte para observar con mas detalle.
 
-### Combinación de los mapas de curvaturas vertical y horizontal
+### Combinación de los mapas de curvaturas vertical y horizontal {#combinacion-mapas-curvaturas-vertical-horizontal}
 
 El mapa reclasificado de curvatura vertical (perfil) tiene 3 valores:
 

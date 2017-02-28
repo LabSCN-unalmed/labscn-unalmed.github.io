@@ -21,16 +21,16 @@ Estos principios garantizan que la construcción del software sea realmente acce
 
 El Laboratorio de Sistemas Complejos Naturales apoya esta filosofía en el contexto de la misión de la Universidad Nacional de Colombia, no solamente para sus estudiantes sino para toda la comunidad a la que le debe el conocimiento.
 
-Introducción a GNU/Linux
+Introducción a GNU/Linux {#introduccion-gnu-linux}
 ------------------------
 
 En entornos GNU/Linux existen interfaces gráficas de usuario (GUI) donde se puede hacer click, arrastrar y, con suerte, se puede lograr mucho sin documentarse primero. Sin embargo, el entorno tradicional es una interfaz de línea de comandos (CLI) donde se escriben comandos que le dicen al computador qué hacer. Lo cual es más rápido y poderoso pero requiere aprender qué hacen los comandos. Esta interfaz de línea de comandos, la llamaremos 'la terminal'.
 
-## Comandos esenciales
+## Comandos esenciales {#comandos-esenciales}
 
 La terminal es una herramienta muy sencilla pero sumamente poderosa, permite interactuar con el sistema por medio de comandos, en el siguiente ejercicio vamos a aprender los comandos más básicos para desenvolvernos dentro de la terminal.
 
-### El prompt
+### El prompt {#prompt}
 
 Se conoce como prompt a una línea de texto que se muestra al comienzo de una terminal de comandos. El prompt indica que la terminal se encuentra disponible y a la espera de una órden (comando) que dará el usuario. En los sitemas GNU/Linux, el prompt luce así:
 
@@ -40,7 +40,7 @@ usuario@ubuntu:~ $
 
 Además proporciona información adicional: El usuario `usuario` está en la máquina `ubuntu` y se encuentra en el directorio `~` (el símbolo `~` es una abreviación para la carpeta personal de usuario). El símbolo `$` implica que es un usario regular (sin privilegios de administrador), en el caso del superusuario (con privilegios de administrador) `root` el símbolo sería `#`.
 
-### Sintáxis básica de los comandos en la terminal de GNU/Linux
+### Sintáxis básica de los comandos en la terminal de GNU/Linux {#sintaxis-basica-comandos-terminal-gnu-linux}
 
 En la terminal, los comandos conservan una estructura de cómo deben ser introducidos para ser interpretados correctamente. En términos genéricos, esta es la estructura para la mayoría de los comandos en GNU/Linux:
 
@@ -300,7 +300,7 @@ rm -r respaldo
 **Advertencia:** Este comando elimina permanentemente los archivos o directorios especificados, utilizar con precaución.
 {: .alert .alert-warning}
 
-## Hola mundo
+## Hola mundo {#hola-mundo}
 
 A lo largo del curso se hará uso de archivos de texto con instrucciones que serán ejecutadas una tras otra en el orden en el que se encuentren en el achivo, a estos archivos los llamaremos guiones o "scripts".
 
@@ -328,7 +328,7 @@ A partir de este punto, se pueden hacer modificaciones al guión, guardar los ca
 cowsay -f tux "¡Hola mundo!"
 ~~~
 
-### Comandos de visualización de archivos de texto
+### Comandos de visualización de archivos de texto {#comandos-visualizacion-archivos-texto}
 
 El comando `cat` (concatenate) permite visualizar el contenido de un archivo de texto sin la necesidad de abrirlo en un editor.
 
@@ -377,7 +377,7 @@ Siguiendo una metodología similar al ejercicio anterior, realizar un guión que
        \    |\___/|      /   \//  \\
             /0  0  \__  /    //  | \ \    
            /     /  \/_/    //   |  \  \  
-           @_^_@'/   \/_   //    |   \   \ 
+           @_^_@'/   \/_   //    |   \   \
            //_^_/     \/_ //     |    \    \
         ( //) |        \///      |     \     \
       ( / /) _|_ /   )  //       |      \     _\

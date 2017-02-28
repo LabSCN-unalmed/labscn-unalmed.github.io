@@ -5,7 +5,7 @@ curso: 'cartografia-digital'
 clase: 3
 ---
 
-Fundamentos teóricos
+Fundamentos teóricos {#fundamentos-teoricos}
 --------------------
 
 Los colores se pueden describir con base en la combinación de unos colores primarios.
@@ -74,7 +74,7 @@ red,orange,yellow,green,blue,indigo,violet,white,black,gray,brown,magenta,aqua,g
 ~~~
 {: .output}
 
-Asignación de color por tablas predefinidas
+Asignación de color por tablas predefinidas {#asignacion-color-tablas-predefinidas}
 -------------------------------------------
 
 Existe en GRASS un conjunto de tablas preestablecidas que se pueden aplicar a un mapa dado.
@@ -137,7 +137,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'rainbow'
 
 ![La tabla de colores "rainbow"](/cartografia-digital/images/porcecito_rainbow.png){: .img-responsive}
 
-Asignación de color creando una tabla personalizada
+Asignación de color creando una tabla personalizada {#asignacion-color-creando-tabla-personalizada}
 ---------------------------------------------------
 
 Ahora vamos a avanzar un paso más; no vamos a depender de las paletas de colores preestablecidas por GRASS sino que construimos la tableta a  nuestro gusto y también vamos a decidir a cuales rangos de la altitud la aplicamos.
@@ -155,7 +155,7 @@ La segunda inquietud es mas compleja porque existen diversas maneras de hacerlo:
 - Variación discreta del color.
 - Colores a partir de otro mapa raster.
 
-### Conocer los estadísticos básicos del mapa
+### Conocer los estadísticos básicos del mapa {#consultar-estadisticos-basicos-mapa}
 
 Existe el comando `r.univar` que permite conocer los estadísticos básicos de cualquier tipo de mapa raster. Como tenemos un mapa de altitudes, con el comando podemos conocer:
 
@@ -192,7 +192,7 @@ sum: 2550048192
 ~~~
 {: .output}
 
-### Crear una tabla de colores en gedit con variación gradual del color y asignarle una identificación
+### Crear una tabla de colores en gedit con variación gradual del color y asignarle una identificación {#crear-tabla-colores-gedit-variacion-gradual-color-asignarle-identificacion}
 
 #### ¿Qué significa "con variación gradual del color"?
 
@@ -320,7 +320,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce4'
 
 ![Cuarta versión](/cartografia-digital/images/TC_porce4.png){: .img-responsive}
 
-### Crear tabla de colores en gedit con variación discreta del color
+### Crear tabla de colores en gedit con variación discreta del color {#crear-tabla-colores-gedit-variacion-discreta-color}
 
 En este caso, se trata de definir rangos altitudinales discretos (un comienzo y un final y a los píxeles en el rango se les asigna un mismo color).
 
@@ -481,13 +481,13 @@ r.colors map=ituan raster=porcecito
 
 ![Antes](/cartografia-digital/images/ituan.png){: .img-responsive}
 
-### Después
+### Después {#despues}
 
 ![Después](/cartografia-digital/images/ituan_porce1.png){: .img-responsive}
 
 *¿Por qué aparecen zonas en el mapa `ituan` que no presentan color? ¿Cómo explicarlo?*
 
-### Eliminar la tabla de colores traída de porcecito y aplicada a ituango
+### Eliminar la tabla de colores traída de porcecito y aplicada a ituango {#eliminar-tabla-colores-traida-porcecito-aplicada-ituango}
 
 Se puede eliminar la tabla traída de otro mapa y desplegar la tabla inicial de colores que tenía el mapa.
 

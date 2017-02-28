@@ -55,7 +55,7 @@ v.db.join map=muniantioq column=COD_DANE otable=NBI ocolumn=Cod_MpioCompleto
 **`otable`** Nombre de la otra tabla.  
 **`ocolumn`** Columna a unir en la otra tabla.  
 
-### Consultar cuáles municipios tienen un NBI por encima del 80%
+### Consultar cuáles municipios tienen un NBI por encima del 80% {#consultar-municipios-nbi-encima-80}
 
 ~~~
 db.select sql="select cat,AREA,PERIMETER,MUNICIPIO,NBI from muniantioq where NBI>80"
@@ -63,7 +63,7 @@ db.select sql="select cat,AREA,PERIMETER,MUNICIPIO,NBI from muniantioq where NBI
 
 Se observa que la consulta arrojó un resultado que no cumple con las condiciones impuestas, esto debido al hecho que la columna NBI se encuentra en formato de texto y debe ser convertida a formato numérico.
 
-### Transformar una columna de tipo texto a numérico
+### Transformar una columna de tipo texto a numérico {#transformar-columna-tipo-texto-numerico}
 
 - Se reemplaza la coma por un punto para separar los decimales correctamente.
 
@@ -89,7 +89,7 @@ v.db.update map=muniantioq col=NBI2 qcol="cast(NBI as DOUBLE PRECISION)"
 v.db.select map=muniantioq columns=cat,AREA,PERIMETER,MUNICIPIO,NBI2 where='NBI2>80'
 ~~~
 
-### Consultar los municipios de Antioquia con población mayor a 50.000 habitantes y NBI mayor al 60%
+### Consultar los municipios de Antioquia con población mayor a 50.000 habitantes y NBI mayor al 60% {#consultar-municipios-antioquia-poblacion-mayor-50000-habitantes-nbi-mayor-60}
 
 - Se abre el archivo `poblacion_col.csv` con LibreOffice Calc. En el diálogo que aparece, se debe indicar que el archivo se encuentra separado por *Punto y coma*.
 

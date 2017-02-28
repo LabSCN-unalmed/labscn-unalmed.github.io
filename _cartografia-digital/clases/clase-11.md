@@ -71,7 +71,7 @@ v.in.ogr -f
 v.in.ogr -l dsn=zvidantioq.shp
 ~~~
 
-### Importar a GRASS el archivo de “zonas de vida”
+### Importar a GRASS el archivo de "zonas de vida"
 
 La primera importación indica un error por diferencias en la proyección.
 
@@ -87,7 +87,7 @@ Se añade también la opción `-e` para extender la región de acuerdo al nuevo 
 v.in.ogr -oe dsn=zvidantioq.shp output=zvidantioq
 ~~~
 
-Información general del mapa vectorial
+Información general del mapa vectorial {#informacion-general-mapa-vectorial}
 --------------------------------------
 
 Se utiliza el comando `v.info` para obtener información general de un mapa vectorial.
@@ -220,7 +220,7 @@ d.vect zvidantioq display=attr type=centroid attrcol=COZO lcolor=black lsize=16
 
 ![](/cartografia-digital/images/ituan_zvidantioq.png){: .img-responsive}
 
-Estadísticos de una variable numérica de la base de datos
+Estadísticos de una variable numérica de la base de datos {#estadisticos-variable-numerica-base-datos}
 ---------------------------------------------------------
 
 Para consultar los estadísticos de una variable numérica se utiliza el comando `v.db.univar`.
@@ -240,7 +240,7 @@ db.connect -p
 
 El `driver` es el controlador de la base de datos. La elaboración de mapas vectoriales generan bases de datos que se almacenan en el driver activo. Por lo tanto, se debe tener claro cual es el driver activo al momento de elaborar mapas vectoriales.
 
-### Cambiar conexión a otro manejador de base de datos
+### Cambiar conexión a otro manejador de base de datos {#cambiar-conexion-otro-manejador-base-datos}
 
 Para cambiar el driver hay que tener en cuenta que las tablas de atributos de los mapas generados o creados con el driver actual no serán accesibles con el nuevo driver.
 

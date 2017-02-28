@@ -5,7 +5,7 @@ curso: 'cartografia-digital'
 clase: 4
 ---
 
-Fundamentos teóricos
+Fundamentos teóricos {#fundamentos-teoricos}
 --------------------
 
 ### El concepto de relieve relativo
@@ -15,7 +15,7 @@ Fundamentos teóricos
 - Relación entre tipo de relieve relativo y tamaño del kernel.
 - Álgebra de mapas: operaciones básicas (suma, resta, multiplicación, división).
 
-### El concepto de análisis de vecindad
+### El concepto de análisis de vecindad {#concepto-analisis-vecindad}
 
 - El análisis de vecindad a partir de un mapa raster.
 - Kernel como dimensión de la vecindad.
@@ -53,7 +53,7 @@ La relación entre relieve relativo y la extensión de la zona de referencia.
 
 El valor de relieve relativo depende de las dimensiones de la zona de referencia. Por ejemplo, el valor de relieve relativo para un punto ubicado en el centro de la ciudad de Medellín depende de la zona de referencia para calcularlo: en un circulo de 100 metros de radio se obtiene un valor. Si aumentamos el valor del radio a 1000 metros, a 5.0 km, a 10 km, a 50 km, etc, ¿Cuáles serán los valores de relieve relativo que se obtienen?
 
-### Análisis de vecindad
+### Análisis de vecindad {#analisis-vecindad}
 
 Recordar la estructura de un archivo o mapa raster.
 
@@ -61,7 +61,7 @@ Recordar la estructura de un archivo o mapa raster.
 
 ¿Cuántos píxeles contiene el mapa `porcecito1`?
 
-### El kernel o ventana móvil
+### El kernel o ventana móvil {#kernel-ventana-movil}
 
 Permite definir el tamaño o dimensiones de la vecindad donde se realiza el análisis. Permite definir los píxeles vecinos alrededor de un píxel en los cuales se realiza el análisis de vecindad. Para el análisis de vecindad se selecciona una especie de subretícula de forma cuadrada que contiene un numero impar de píxeles. Seleccionar un cuadrado con un numero impar de píxeles por lado garantiza la existencia de un píxel central único.
 
@@ -194,7 +194,7 @@ r.info map=porcecito1
 Observar que los datos del archivo se transformaron de `CELL` a `DCELL`.
 
 
-### Cálculo de las dimensiones de la zona de vecindad
+### Cálculo de las dimensiones de la zona de vecindad {#calculo-dimensiones-zona-vecindad}
 
 Un píxel en el mapa de entrada (`porcecito1`) tiene unas dimensiones de 30 x 30 metros y una extensión de 900 m<sup>2</sup>.
 
@@ -226,7 +226,7 @@ r.neighbors input=porcecito1 output=porce1_RR_33 method=range size=33
 
 ![Mapa de relieve relativo](/cartografia-digital/images/porce1_RR_33.png){: .img-responsive}
 
-### Visualización 3D del mapa construido
+### Visualización 3D del mapa construido {#visualizacion-3D-mapa-construido}
 
 ![Visualización 3D del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D.png){: .img-responsive}
 
@@ -422,7 +422,7 @@ La comparación de las dos tablas permite establecer los siguientes rangos para 
 |  600 - 1200 | Disección profunda pronunciada                                  |
 {: .table .table-hover}
 
-### Reclasificación del mapa de relieve relativo
+### Reclasificación del mapa de relieve relativo {#reclasificacion-mapa-relieve-relativo}
 
 El comando `r.reclass` crea un nuevo mapa (mapa reclasificado), cuyos valores de categorías están basados en una reclasificación de las categorías de una capa de mapa raster existente.
 
@@ -432,7 +432,7 @@ El script tiene el siguiente contenido:
 
 `RCLS_porce1_RR`
 
-~~~ 
+~~~
  45 thru  82 = 1 Relieves planos y de colinas bajas.
  82 thru 150 = 2 Colinas intermedias.
 150 thru 300 = 3 Colinas altas.
@@ -545,26 +545,24 @@ nviz porcecito1 color=porce1_RR_33_reclass_simplif
 ## Tarea 4
 {: .text-danger}
 
-Elaborar el mapa de relieve relativo del archivo “ituango”. 
-Utilizando la referencia para clasificar el relieve relativo que se presenta en esta clase, 
+Elaborar el mapa de relieve relativo del archivo “ituango”.
+Utilizando la referencia para clasificar el relieve relativo que se presenta en esta clase,
 entregar los siguientes productos:
 
-1. Un mapa 2D de los valores de relieve relativo con variación gradual del color, 
-   empleando tres colores, un color para el valor mas bajo de RR, 
-   un segundo color para el valor de mediana del relieve relativo 
-   y un tercer color para el valor máximo de relieve relativo. 
+1. Un mapa 2D de los valores de relieve relativo con variación gradual del color,
+   empleando tres colores, un color para el valor mas bajo de RR,
+   un segundo color para el valor de mediana del relieve relativo
+   y un tercer color para el valor máximo de relieve relativo.
    El objetivo es seleccionar tres colores que permitan una
    visualización óptima del relieve relativo en el archivo.
 
-2. Reclasificar el mapa de relieve relativo y emplear la variación 
+2. Reclasificar el mapa de relieve relativo y emplear la variación
    gradual del color para diferenciar y contrastar
    los relieves de montaña y los relieves de colinas en el archivo.
 
 3. Entregar una tabla (utilizar LibreOfficeCalc) indicando
    la extensión y el porcentaje de cada uno de los tipos
    de relieve identificados en el archivo “ituango”.
-  
+
 4. Un guión en donde se muestre el procedimiento documentado para obtener
-   la información requerida para desarrollar los puntos anteriores. 
-
-
+   la información requerida para desarrollar los puntos anteriores.

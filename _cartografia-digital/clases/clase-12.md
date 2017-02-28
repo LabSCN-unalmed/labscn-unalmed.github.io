@@ -131,7 +131,7 @@ d.vect carreteras where="TYPE='primary'" col=red
 
 ![](/cartografia-digital/images/carreteras_rast_primary.png){: .img-responsive}
 
-Importar mapa de puntos de localización de Antioquia
+Importar mapa de puntos de localización de Antioquia {#importar-mapa-puntos-localizacion-antioquia}
 ----------------------------------------------------
 
 Este mapa también se encuentra en una proyección diferente, por lo que se importa de la misma manera que se importó el mapa de carreteras en la sección anterior.

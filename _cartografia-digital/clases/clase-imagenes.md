@@ -6,12 +6,11 @@ clase: 'Imágenes 1'
 custom_js: 'mathjax'
 ---
 
-*[DN]: Digital Number
 
-Introducción
+Introducción {#introduccion}
 ------------
 
-Utilizando la [banda Quality Assessment](http://landsat.usgs.gov/L8QualityAssessmentBand.php) incluída en LANDSAT 8
+Utilizando la [banda Quality Assessment](http://landsat.usgs.gov/L8QualityAssessmentBand.php){:target="blank"} incluída en LANDSAT 8
 
 | Bit QA | Descripción                   |
 |:------:|:------------------------------|
@@ -271,3 +270,5 @@ i.landsat.rgb r=banda4stretch g=banda3stretch b=banda2stretch
 ~~~
 
 ![](/cartografia-digital/images/L8_VA_color_natural432.png){: .img-responsive}
+
+*[DN]: Digital Number

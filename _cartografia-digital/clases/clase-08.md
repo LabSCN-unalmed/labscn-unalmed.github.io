@@ -22,7 +22,7 @@ d.rast porce1_accum
 
 ![Mapa accum](/cartografia-digital/images/porce1_accum.png){: .img-responsive}
 
-Análisis detallado del mapa "accum"
+Análisis detallado del mapa "accum" {#analisis-detallado-mapa-accum}
 -----------------------------------
 
 Consultamos la información estadística extendida utilizando la opción `-e`.
@@ -35,7 +35,7 @@ Observar los valores mínimo y máximo pero igualmente los diferentes cuartiles.
 
 *¿Qué le suguiere la información obtenida?*
 
-### Elaboración del histograma
+### Elaboración del histograma {#elaboracion-histograma}
 
 ~~~
 d.histogram porce1_accum
@@ -51,7 +51,7 @@ d.histogram porce1_accum nsteps=20
 
 *¿Por qué los histogramas de la imagen anterior brindan tan poca información?*
 
-### Transformación de los datos lineales del "accum" en valores logarítmicos
+### Transformación de los datos lineales del "accum" en valores logarítmicos {#transformacion-datos-lineales-accum-valores-logaritmicos}
 
 Utilizamos la calculadora de mapas ráster para obtener un mapa del logaritmo en base 10 del mapa accum:
 

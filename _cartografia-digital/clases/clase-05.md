@@ -5,7 +5,7 @@ curso: 'cartografia-digital'
 clase: 5
 ---
 
-## Elementos básicos de un mapa
+## Elementos básicos de un mapa {#elementos-basicos-mapa}
 
 ### Desde el administrador de capas
 
@@ -27,7 +27,7 @@ El botón **Agregar elementos** ![Agregar elementos](/cartografia-digital/images
 ![Agregar texto](/cartografia-digital/images/clase-02/text-add.png) Agregar texto
 :
 
-## Consultas de la información del mapa
+## Consultas de la información del mapa {#consultas-informacion-mapa}
 
 El botón **Consulta de mapas** ![Consulta de mapas](/cartografia-digital/images/clase-02/info.png) de la barra de herramientas del visualizador de mapas, permite identificar la información a nivel de un pixel específico: Coordenadas, valor, y etiquetas en el caso de mapas clasificados. Se debe seleccionar el pixel haciendo click con el mouse, y los resultados aparecerán en la pestaña "Consola" del administrador de capas.
 
@@ -55,7 +55,7 @@ Con el botón **Plot Options** ![](/cartografia-digital/images/clase-02/settings
 
 Al seleccionar la Vista 3D en el visualizador de mapas, se habilita la pestaña de control de "Vista 3D" en el administrador de capas. Esta pestaña permite controlar:
 
-### Visualización
+### Visualización {#visualizacion}
 
 - El punto de vista desde donde se observa el mapa (SE, NW, etc.), ubicando el punto con el mouse, o haciendo click en los botones de control de vista. A medida que el punto de vista se acerca al centro del campo de observación, se consigue una vista vertical (superior) del mapa.
 
@@ -73,7 +73,7 @@ Al seleccionar la Vista 3D en el visualizador de mapas, se habilita la pestaña 
 - La resolución de renderizado
 - Las reglas de color
 
-### Presentación
+### Presentación {#presentacion}
 
 - La iluminación
 - El márgen del mapa

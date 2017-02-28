@@ -5,7 +5,7 @@ curso: 'cartografia-digital'
 clase: 9
 ---
 
-El SIG GRASS cuenta con una serie de <a href="http://grasswiki.osgeo.org/wiki/AddOns/GRASS_6" target="_blank">complementos</a> que no hacen parte oficial del SIG pero pueden ser instalados haciendo uso del módulo `g.extension`:
+El SIG GRASS cuenta con una serie de [complementos](http://grasswiki.osgeo.org/wiki/AddOns/GRASS_7){:target="blank"} que no hacen parte oficial del SIG pero pueden ser instalados haciendo uso del módulo `g.extension`:
 
 ~~~
 g.extension help
@@ -179,7 +179,7 @@ v.db.select map=porce_stream layer=2 | less
 
 Utilizando el layer=2 se tiene una base de datos con 1301 filas y 15 columnas.
 
-## Estadísticos de una variable numérica de la base de datos 
+## Estadísticos de una variable numérica de la base de datos {#estadisticos-variable-numerica-base-datos}
 
 Estadísticos de una columna completa: Con el comando `v.db.univar` se pueden hacer cálculos de estadística univariada para una columna especifica de la base de datos conectada a un mapa vectorial.
 
