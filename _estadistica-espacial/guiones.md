@@ -22,3 +22,7 @@ order: 01
 - [Base de datos de porosidad](./datos/ZoneA.dat)
 - [Metadatos de datos de porosidad](./datos/ZoneA_metadata.txt)
 - [Exploratorio y estimación del variograma](./guiones/ZonaA.html)
+
+## Simulación de campos aleatorios
+
+- [Simulación de modelos exponencial y gaussiano](./guiones/simulacionCamposAleatorios.html)

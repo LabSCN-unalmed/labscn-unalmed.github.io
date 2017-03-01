@@ -1,7 +1,7 @@
 ---
 title: "Simulación de campos aleatorios"
 author: "Kenneth Roy Cabrera Torres"
-date: "26 de febrero de 2016"
+date: "1 de marzo de 2017"
 output: html_document
 ---
 
@@ -26,26 +26,23 @@ require(RandomFields)
 modeloExp <- RMexp(var = 2, scale = rangoPractico/3) + RMtrend(mean = 5)
 
 RFoptions(seed = 7)
-simuExp <- RFsimulate(modeloExp, x=x.seq, y=y.seq)
-png("graph1.png")
-plot(simuExp, asp=1)
-dev.off()
+simuExp <- RFsimulate(modeloExp, x = x.seq, y = y.seq)
+image(simuExp, asp = 1, col = terrain.colors(100))
 ```
 
-![Campo aleatorio exponencial](graph1.png)
+
 
 
 ```{r}
 modeloGau <- RMgauss(var = 2, scale = rangoPractico/sqrt(3)) + RMtrend(mean = 5)
 
 RFoptions(seed = 7)
-simuGau <- RFsimulate(modeloGau, x=x.seq, y=y.seq)
-png("graph2.png")
-plot(simuGau, asp=1)
-dev.off()
+simuGau <- RFsimulate(modeloGau, x = x.seq, y = y.seq)
+image(simuGau, asp = 1, col = terrain.colors(100))
+
 ```
 
-![Campo aleatorio exponencial](graph2.png)
+
 
 
 ```{r}
