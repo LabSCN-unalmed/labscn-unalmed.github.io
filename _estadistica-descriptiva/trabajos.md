@@ -60,7 +60,6 @@ Calificado con una nota máxima de 5.0.
       de la información faltante)
 
 ### Fecha de entrega
-
-Viernes 3 de marzo de 2017 antes de las 23:59
+Lunes 6 de marzo de 2017 antes de las 23:59
 [hora de Colombia](http://horalegal.inm.gov.co/) al
 correo **krcabrer@unal.edu.co**, no olvidar en asunto [EDAED]      
