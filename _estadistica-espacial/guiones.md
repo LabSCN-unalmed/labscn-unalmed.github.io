@@ -26,3 +26,7 @@ order: 01
 ## Simulación de campos aleatorios
 
 - [Simulación de modelos exponencial y gaussiano](./guiones/simulaciones_exp_gauss.html)
+
+## Modelo Matérn
+
+- [Modelo Matérn](./guiones/modeloMatérn.html)
