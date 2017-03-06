@@ -731,21 +731,21 @@ Para asignarle etiquetas a las categorías del nuevo mapa, primero debemos crear
 `CAT_porce1_tipo_vert`
 
 ~~~
--4:VX
--3:RX
--2:XX
--1:VR
-0:RR
-1:XR
-2:VV
-3:RV
-4:XV
+-4|VX
+-3|RX
+-2|XX
+-1|VR
+0|RR
+1|XR
+2|VV
+3|RV
+4|XV
 ~~~
 
 Y lo aplicamos utilizando el comando `r.category`.
 
 ~~~
-r.category map=porce1_tipo_vert rules=CAT_porce1_tipo_vert
+r.category map=porce1_tipo_vert rules=CAT_porce1_tipo_vert separator=pipe
 ~~~
 
 Consultamos la distribución nuevamente:
