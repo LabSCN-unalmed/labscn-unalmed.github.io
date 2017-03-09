@@ -25,3 +25,10 @@ order: 2
 
 - [Evolución de precios sugeridos de combustibles para Antioquia](./guiones/precios_gasolina.html)
 - [Base de datos](./basesdedatos/precios_gasolina.xlsx)
+
+## Lectura y adecuación de datos de la aplicación "Science Journal".
+
+- [Lectura y exploración inicial](./guiones/01_lectura_y_adecuacion.html)
+- [Aceleración en el eje X](./basesdedatos/coordenadaX.csv)
+- [Aceleración en el eje Y](./basesdedatos/coordenadaY.csv)
+- [Aceleración en el eje Z](./basesdedatos/coordenadaZ.csv)
