@@ -16,9 +16,9 @@ r.watershed -a elevation=porcecito1 accumulation=porce1_accum drainage=porce1_dr
 
 La opción `-a` se utiliza para obtener los valores absolutos de `accum`.
 
-~~~
+<!-- ~~~
 d.rast porce1_accum
-~~~
+~~~ -->
 
 ![Mapa accum](/cartografia-digital/images/porce1_accum.png){: .img-responsive}
 
@@ -37,15 +37,19 @@ Observar los valores mínimo y máximo pero igualmente los diferentes cuartiles.
 
 ### Elaboración del histograma {#elaboracion-histograma}
 
-~~~
+<!-- ~~~
 d.histogram porce1_accum
-~~~
+~~~ -->
+
+Utilizando un rango continuo:
 
 ![Rango continuo](/cartografia-digital/images/porce1_accum_hist1.png){: .img-responsive}
 
-~~~
+<!-- ~~~
 d.histogram porce1_accum nsteps=20
-~~~
+~~~ -->
+
+Utilizando rangos discretos:
 
 ![Rango discreto](/cartografia-digital/images/porce1_accum_hist2.png){: .img-responsive}
 
@@ -61,15 +65,19 @@ r.mapcalc "porce1_accum_log = log(porce1_accum, 10)"
 
 Visualizamos nuevamente el histograma
 
-~~~
+<!-- ~~~
 d.histogram porce1_accum_log
-~~~
+~~~ -->
+
+Rango continuo:
 
 ![Rango continuo](/cartografia-digital/images/porce1_accum_log_hist1.png){: .img-responsive}
 
-~~~
+<!-- ~~~
 d.histogram porce1_accum_log nsteps=10
-~~~
+~~~ -->
+
+Rango discreto:
 
 ![Rango discreto](/cartografia-digital/images/porce1_accum_log_hist2.png){: .img-responsive}
 
@@ -86,7 +94,7 @@ r.mapcalc "porce1_accum_log3 = if(porce1_accum_log > 3)"
 r.mapcalc "porce1_accum_log4 = if(porce1_accum_log > 4)"
 ~~~
 
-Desplegamos 4 monitores y comparamos los 4 mapas obtenidos
+Desplegamos 3 monitores y comparamos los 3 mapas obtenidos
 
 ![porce1_accum_log2](/cartografia-digital/images/porce1_accum_log2.png){: .img-responsive}
 
@@ -96,9 +104,8 @@ Desplegamos 4 monitores y comparamos los 4 mapas obtenidos
 
 Finalmente decidimos que los valores de *accum* más apropiados para trabajar la red de drenaje en esta zona son los valores logarítmicos mayores que 3, y sobre ese mapa continuaremos trabajando.
 
-
 Transformar un mapa raster en un mapa vectorial
-----------------------------------------------------------------
+-----------------------------------------------
 
 Lo primero que se debe hacer antes de la transformación es adelgazar el mapa raster.
 
@@ -114,9 +121,9 @@ r.to.vect input=porce1_accum_log3_thin output=porce1_accum_log3
 
 Teniendo el mapa raster de la región de porcecito y un mapa vectorial con la red de drenaje cuyos valores logarítmicos de accum son mayores que 4, podemos desplegar la red de drenaje en formato vectorial sobre la región en formato raster.
 
-~~~
+<!-- ~~~
 d.rast porcecito1
 d.vect porce1_accum_log3 color=blue width=2
-~~~
+~~~ -->
 
 ![](/cartografia-digital/images/porce1_accum_vect.png){: .img-responsive}
