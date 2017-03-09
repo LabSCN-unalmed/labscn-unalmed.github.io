@@ -56,7 +56,7 @@ d.histogram porce1_accum nsteps=20
 Utilizamos la calculadora de mapas ráster para obtener un mapa del logaritmo en base 10 del mapa accum:
 
 ~~~
-r.mapcalc 'porce1_accum_log=log(porce1_accum,10)'
+r.mapcalc "porce1_accum_log = log(porce1_accum, 10)"
 ~~~
 
 Visualizamos nuevamente el histograma
@@ -81,9 +81,9 @@ Luego de llevar los valores de *accum* a valores logarítmicos, seleccionamos lo
 Probamos varios umbrales para decidir cuál es el más apropiado:
 
 ~~~
-r.mapcalc 'porce1_accum_log2 = if(porce1_accum_log > 2)'
-r.mapcalc 'porce1_accum_log3 = if(porce1_accum_log > 3)'
-r.mapcalc 'porce1_accum_log4 = if(porce1_accum_log > 4)'
+r.mapcalc "porce1_accum_log2 = if(porce1_accum_log > 2)"
+r.mapcalc "porce1_accum_log3 = if(porce1_accum_log > 3)"
+r.mapcalc "porce1_accum_log4 = if(porce1_accum_log > 4)"
 ~~~
 
 Desplegamos 4 monitores y comparamos los 4 mapas obtenidos
