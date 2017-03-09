@@ -365,7 +365,7 @@ La terminal de comandos
 Observar como ahora en la terminal aparece el siguiente prompt de GRASS:
 
 ~~~
-GRASS 6.4.3 (CursoGrass):~ >
+GRASS 7.2.0 (CursoGrass):~ >
 ~~~
 
 ### Gramática en GRASS {#gramatica-grass}
