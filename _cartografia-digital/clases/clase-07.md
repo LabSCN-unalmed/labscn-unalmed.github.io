@@ -118,7 +118,7 @@ Procedimiento en GRASS para elaborar el mapa de pendientes
 Construir el mapa de pendientes.
 
 ~~~
-r.param.scale input=porcecito1 output=porce1_slope3 param=slope
+r.param.scale input=porcecito1 output=porce1_slope3 method=slope
 ~~~
 
 Empleamos el kernel por omisión que utiliza el comando (3 x 3). Este hecho lo consignamos en el nombre del mapa construido.
@@ -338,7 +338,7 @@ De acuerdo con la clasificación de Ruhe (1975) se puede inferir fácilmente:
 Utilizamos el parámetro `profc` del comando `r.param.scale`.
 
 ~~~
-r.param.scale input=porcecito1 output=porce1_profc7 size=7 param=profc
+r.param.scale input=porcecito1 output=porce1_profc7 size=7 method=profc
 ~~~
 
 Recordemos el significado de los valores positivos (curvatura convexa) y negativos (curvatura cóncava) para la curvatura vertical de acuerdo a lo definido para este parámetro al inicio de la clase:
@@ -503,7 +503,7 @@ El mapa de la curvatura vertical muestra claramente la diferencia entre concavid
 Utilizamos el parámetro `planc` del comando `r.param.scale`.
 
 ~~~
-r.param.scale input=porcecito1 output=porce1_planc7 size=7 param=planc
+r.param.scale input=porcecito1 output=porce1_planc7 size=7 method=planc
 ~~~
 
 Recordemos el significado de los valores positivos (curvatura cóncava) y negativos (curvatura convexa) para la curvatura horizontal de acuerdo a lo definido para este parámetro al inicio de la clase:
