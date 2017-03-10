@@ -31,8 +31,6 @@ image(simuExp, asp = 1, col = terrain.colors(100))
 ```
 
 
-
-
 ```{r}
 modeloGau <- RMgauss(var = 2, scale = rangoPractico/sqrt(3)) + RMtrend(mean = 5)
 
@@ -43,16 +41,22 @@ image(simuGau, asp = 1, col = terrain.colors(100))
 ```
 
 
-
-
 ```{r}
 # Cálculo del variograma empírico de los datos simulados Exponencial
 varioempE<-RFempiricalvariogram(data=simuExp)
+png("figura1.png", width = 650, height = 480)
 plot(varioempE,model=modeloExp)
+dev.off()
 ```
+
+![](figura1.png)
 
 ```{r}
 # Cálculo del variograma empírico de los datos simulados Gaussianos
 varioempG<-RFempiricalvariogram(data=simuGau)
+png("figura2.png", width = 650, height = 480)
 plot(varioempG,model=modeloGau)
+dev.off()
 ```
+
+![](figura2.png)

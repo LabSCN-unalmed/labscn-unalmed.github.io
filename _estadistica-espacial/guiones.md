@@ -29,4 +29,5 @@ order: 01
 
 ## Modelo Matérn
 
-- [Modelo Matérn](./guiones/modeloMatérn.html)
+- [Modelo Matérn (geoR)](./guiones/modeloMatérn.html)
+- [Simulación con el modelo Matérn (RandomFields)](./guiones/simulaciones_matern.html)

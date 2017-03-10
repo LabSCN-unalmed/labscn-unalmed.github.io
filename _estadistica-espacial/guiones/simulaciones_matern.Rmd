@@ -1,0 +1,76 @@
+---
+title: "Simulación de campos aleatorios (Modelos Matérn)"
+author: "Kenneth Roy Cabrera Torres"
+date: "9 de marzo de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+# Función auxiliar que estima el factor multiplicador para el modelo
+# Matérn dependiendo del paquete de R utilizado
+
+fM <- function(x, kappa, rho = 0.05, phi = 1, opt = 1){
+  if (opt == 1){
+    library(geoR)
+    cov.spatial(x, cov.pars = c(1,phi), kappa=kappa, cov.model = "matern") - rho
+  }else{
+    library(RandomFields)
+    modelo <- RMmatern(var = 1, nu = kappa, scale = phi)
+    RFcov(modelo, x) - rho
+  }
+}  
+```
+
+```{r}
+rangoPractico <- 30
+## Definición de la malla
+desde <- 0
+hasta <- 120
+x.seq <- seq(desde, hasta, length=200)
+y.seq <- seq(desde, hasta, length=200)
+```
+
+
+
+```{r}
+library(RandomFields)
+
+fM(c(2, 100), kappa = 100, opt = 2)
+
+kappa <- 2
+(r1 <- uniroot(fM, c(2, 50), kappa = kappa, opt = 2)$root)
+
+modeloMat <- RMmatern(var = 2, nu = kappa, scale = rangoPractico / r1)  + RMtrend(mean = 5)
+
+```
+
+
+```{r}
+png("figura1.png", width = 600, height = 480)
+plot(modeloMat, xlim = c(0, 120))
+dev.off()
+```
+![](figura1.png)
+
+
+```{r}
+RFoptions(seed = 7)
+simuMat <- RFsimulate(modeloMat, x = x.seq, y = y.seq)
+image(simuMat, asp = 1, col = terrain.colors(100))
+```
+
+
+```{r}
+# Cálculo del variograma empírico de los datos simulados Gaussianos
+varioempM<-RFempiricalvariogram(data=simuMat)
+png("figura2.png", width = 600, height = 480)
+plot(varioempM, model=modeloMat)
+dev.off()
+```
+
+![](figura2.png)
