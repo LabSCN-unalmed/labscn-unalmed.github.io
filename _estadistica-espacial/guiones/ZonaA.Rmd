@@ -63,3 +63,20 @@ v2 <- variog(gzonaA)
 plot(v2)
 ```
 
+```{r}
+v2
+```
+
+```{r}
+library(geoR)
+v3 <- variog(gzonaA, max.dist = 15000, uvec = c(0, seq(2000, 15000, 500)))
+v3
+plot(v3)
+```
+
+```{r}
+library(geoR)
+v4 <- variog(gzonaA, max.dist = 15000, op = "sm", band = 1500)
+plot(v4)
+```
+

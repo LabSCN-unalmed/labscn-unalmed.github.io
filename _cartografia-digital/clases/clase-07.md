@@ -118,7 +118,7 @@ Procedimiento en GRASS para elaborar el mapa de pendientes
 Construir el mapa de pendientes.
 
 ~~~
-r.param.scale input=porcecito1 output=porce1_slope3 param=slope
+r.param.scale input=porcecito1 output=porce1_slope3 method=slope
 ~~~
 
 Empleamos el kernel por omisión que utiliza el comando (3 x 3). Este hecho lo consignamos en el nombre del mapa construido.
@@ -338,7 +338,7 @@ De acuerdo con la clasificación de Ruhe (1975) se puede inferir fácilmente:
 Utilizamos el parámetro `profc` del comando `r.param.scale`.
 
 ~~~
-r.param.scale input=porcecito1 output=porce1_profc7 size=7 param=profc
+r.param.scale input=porcecito1 output=porce1_profc7 size=7 method=profc
 ~~~
 
 Recordemos el significado de los valores positivos (curvatura convexa) y negativos (curvatura cóncava) para la curvatura vertical de acuerdo a lo definido para este parámetro al inicio de la clase:
@@ -390,7 +390,7 @@ median (even number of cells): -0.000179785
 De acuerdo con los datos obtenidos, observamos que los valores de curvatura son extremadamente bajos, de tal modo que el valor promedio (`mean`) es del órden de una diezmilésima. Para poder reclasificar este mapa, necesitamos que los valores de curvatura sean del órden de decenas a centenas, puesto que al especificar los rangos de reclasificación sólo se pueden utilizar valores enteros. Por lo tanto, multiplicamos todo el mapa por 100.000.
 
 ~~~
-r.mapcalc 'porce1_profc7 = porce1_profc7 * 100000'
+r.mapcalc "porce1_profc7 = porce1_profc7 * 100000"
 ~~~
 
 Y volvemos a calcular los estadísticos para definir las reglas de reclasificación.
@@ -503,7 +503,7 @@ El mapa de la curvatura vertical muestra claramente la diferencia entre concavid
 Utilizamos el parámetro `planc` del comando `r.param.scale`.
 
 ~~~
-r.param.scale input=porcecito1 output=porce1_planc7 size=7 param=planc
+r.param.scale input=porcecito1 output=porce1_planc7 size=7 method=planc
 ~~~
 
 Recordemos el significado de los valores positivos (curvatura cóncava) y negativos (curvatura convexa) para la curvatura horizontal de acuerdo a lo definido para este parámetro al inicio de la clase:
@@ -554,7 +554,7 @@ median (even number of cells): -0.000155282
 Multiplicamos por 100.000 porque el valor promedio (`mean`) es muy cercano a cero.
 
 ~~~
-r.mapcalc 'porce1_planc7 = porce1_planc7 * 100000'
+r.mapcalc "porce1_planc7 = porce1_planc7 * 100000"
 ~~~
 
 Y calculamos nuevamente los estadísticos para definir las reglas de reclasificación utilizando los mismos pesos.
@@ -696,7 +696,7 @@ En este segundo caso cada combinación quedará con un valor diferente:
 Para combinar los mapas empleando el álgebra de mapas, utilizamos el comando `r.mapcalc`:
 
 ~~~
-r.mapcalc 'porce1_tipo_vert = porce1_profc7_reclass + porce1_planc7_reclass * 3'
+r.mapcalc "porce1_tipo_vert = porce1_profc7_reclass + porce1_planc7_reclass * 3"
 ~~~
 
 Visualizar la distribución de los tipos de vertientes en el mapa `porce1_tipo_vert`:
