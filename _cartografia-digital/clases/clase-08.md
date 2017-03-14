@@ -102,12 +102,18 @@ Desplegamos 3 monitores y comparamos los 3 mapas obtenidos
 
 ![porce1_accum_log4](/cartografia-digital/images/porce1_accum_log4.png){: .img-responsive}
 
-Finalmente decidimos que los valores de *accum* más apropiados para trabajar la red de drenaje en esta zona son los valores logarítmicos mayores que 3, y sobre ese mapa continuaremos trabajando.
+Finalmente decidimos que los valores de *accum* más apropiados para trabajar la red de drenaje en esta zona son los valores logarítmicos mayores que 3 (accum mayor que 10^3), y sobre ese mapa continuaremos trabajando.
 
 Transformar un mapa raster en un mapa vectorial
 -----------------------------------------------
 
-Lo primero que se debe hacer antes de la transformación es adelgazar el mapa raster.
+Lo primero que se debe hacer antes de la transformación es adelgazar el mapa raster, para lo cual debemos convertir los valores 0 en valores nulos utilizando el comando `r.null`.
+
+~~~
+r.null map=porce1_accum_log3 setnull=0
+~~~
+
+Una vez realizada esta operación, podremos adelgazar las líneas raster.
 
 ~~~
 r.thin input=porce1_accum_log3 output=porce1_accum_log3_thin
