@@ -31,3 +31,7 @@ order: 01
 
 - [Modelo Matérn (geoR)](./guiones/modeloMatérn.html)
 - [Simulación con el modelo Matérn (RandomFields)](./guiones/simulaciones_matern.html)
+
+## Estimación de modelos
+
+- [Estimación de parámetros del variograma](./guiones/ZonaA2.html)
