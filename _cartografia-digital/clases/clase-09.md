@@ -84,7 +84,7 @@ Conversión de los mapas raster ordenados a formato vectorial.
 
 ~~~
 r.thin input=porcecito_shreve output=porcecito_shreve_thin
-r.to.vect -v input=porcecito_shreve_thin output=porcecito_shreve
+r.to.vect -v input=porcecito_shreve_thin output=porcecito_shreve type=line
 v.info -c map=porcecito_shreve
 v.db.select map=porcecito_shreve
 ~~~

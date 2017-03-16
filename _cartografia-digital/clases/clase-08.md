@@ -103,7 +103,7 @@ r.thin input=porce1_accum_log3 output=porce1_accum_log3_thin
 Una vez adelgazado el mapa raster, podemos convertirlo al formato vectorial.
 
 ~~~
-r.to.vect input=porce1_accum_log3_thin output=porce1_accum_log3
+r.to.vect input=porce1_accum_log3_thin output=porce1_accum_log3 type=line
 ~~~
 
 Teniendo el mapa raster de la región de porcecito y un mapa vectorial con la red de drenaje cuyos valores logarítmicos de accum son mayores que 4, podemos desplegar la red de drenaje en formato vectorial sobre la región en formato raster.
