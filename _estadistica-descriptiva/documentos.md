@@ -30,6 +30,11 @@ order: 3
 - [Episodio 06 Temporada 01 (Inglés)](https://www.dropbox.com/s/8fbcok9659unhp0/csi.cyber.106.hdtv-lol.mp4?dl=0)
 - [Subtítulos en español](https://www.dropbox.com/s/bpp44j3y9dzia1r/csi.cyber.106.hdtv-lol.srt?dl=0)
 
+## Black Mirror
+
+- [Episodio 01 Temporada 3 (Inglés)](https://www.dropbox.com/s/fw53d869s8xp3nv/Black.Mirror.S03E01.Nosedive.720p.WEBRip.2CH.x265.HEVC-PSA.mkv?dl=0)
+- [Subtítulos en español](https://www.dropbox.com/s/cdszhozc98s1cwn/Black.Mirror.S03E01.Nosedive.720p.WEBRip.2CH.x265.HEVC-PSA.srt?dl=0)
+
 ## Tablas guías para parámetros gráficos.
 - [Tabla de colores](/estadistica-descriptiva/documentos/ColorChart.pdf)
 - [Tabla de símbolos](/estadistica-descriptiva/documentos/points.png)
