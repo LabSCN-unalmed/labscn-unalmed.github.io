@@ -232,7 +232,7 @@ plot(THSD, las = 1)
    número de horas suprimidas, sin embargo no se observa que la tasa
    incremento en el promedio de número de errores siga un ritmo
    constante, de decir que la relación entre las horas suprimidas y
-   el número de errores sea lineal.
+   el número de errores no es lineal.
  
  - Con respecto a una hora de sueño suprimida hay evidencia estadística que 
    existe diferencia en el promedio de errores con respecto suprimir 
@@ -242,9 +242,13 @@ plot(THSD, las = 1)
  - Sin embargo no es evidente la diferencia entre suprimir dos horas
    de sueño en comparación con tres y cuatro horas de sueño.
    
- - No hay evidencia que suprimir cuatro horas de sueño sea diferente en 
+ - No hay evidencia que suprimir tres horas de sueño sea diferente en 
    relación al promedio de errores cometidos cuando se suprimen cuatro
    horas de sueño. 
+   
+ - No se logró encontrar diferencias en cada comparación debido a la
+   alta variabilidad de los errores cometidos por los participantes 
+   del experimento.
 
 ## Recomendaciones.
 
@@ -262,6 +266,10 @@ plot(THSD, las = 1)
    
  - En futuros experimentos se recomienda registrar el orden de aleatorización
    para verificar el supuesto de independencia del modelo.
+   
+ - Se recomienda seleccionar una población objetivo con menor variación
+   para evidenciar de manera más clara la diferencia en la supresión de
+   las horas de sueño.
    
 
 
