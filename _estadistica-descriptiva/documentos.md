@@ -17,9 +17,23 @@ order: 3
 - [Introducción](/estadistica-descriptiva/documentos/explora1.html)
 
 ## Numb3rs
-- [Episodio 01 Temporada 01 (Español de España)](https://dl.dropboxusercontent.com/u/5532451/numb3rs101/Numb3s_1x01_Piloto_Espanol(Espana).avi).
+
+- [Episodio 01 Temporada 01 (español de España)](https://dl.dropboxusercontent.com/u/5532451/numb3rs101/Numb3s_1x01_Piloto_Espanol(Espana).avi).
 - [Episodio 01 Temporada 01 (Inglés)](https://dl.dropboxusercontent.com/u/5532451/numb3rs101/Numb3rs_1x01_Pilot_English.avi).
-- [Subtítulos en Español](https://dl.dropboxusercontent.com/u/5532451/numb3rs101/Numb3rs_1x01_Pilot_English.srt).
+- [Subtítulos en español](https://dl.dropboxusercontent.com/u/5532451/numb3rs101/Numb3rs_1x01_Pilot_English.srt).
+
+- [Episodio 02 Temporada 01 (Inglés)](https://www.dropbox.com/s/3rraiovov3bx6qe/Numb3rs%20-%20102%20-%20Uncertainty%20Principle.avi?dl=0)
+- [Subtítulos en español](https://www.dropbox.com/s/bfbzsxacsodqkfz/Numb3rs%20-%20102%20-%20Uncertainty%20Principle.srt?dl=0)
+
+## CSI Cyber
+
+- [Episodio 06 Temporada 01 (Inglés)](https://www.dropbox.com/s/8fbcok9659unhp0/csi.cyber.106.hdtv-lol.mp4?dl=0)
+- [Subtítulos en español](https://www.dropbox.com/s/bpp44j3y9dzia1r/csi.cyber.106.hdtv-lol.srt?dl=0)
+
+## Black Mirror
+
+- [Episodio 01 Temporada 3 (Inglés)](https://www.dropbox.com/s/fw53d869s8xp3nv/Black.Mirror.S03E01.Nosedive.720p.WEBRip.2CH.x265.HEVC-PSA.mkv?dl=0)
+- [Subtítulos en español](https://www.dropbox.com/s/cdszhozc98s1cwn/Black.Mirror.S03E01.Nosedive.720p.WEBRip.2CH.x265.HEVC-PSA.srt?dl=0)
 
 ## Tablas guías para parámetros gráficos.
 - [Tabla de colores](/estadistica-descriptiva/documentos/ColorChart.pdf)

@@ -46,3 +46,39 @@ a las distancias respectivas.
 
 Lunes 6 de marzo de 2017 antes de las 23:59 hora de Colombia al
 correo krcabrer@unal.edu.co y no olvidar en asunto escribir [EE].
+
+## Trabajo individual de simulación.
+
+### Objetivo:
+
+Constuir curvas de potencia para el problema propio y determinar
+tamaños de muestra adecuados para detectar estrucutra espacial.
+
+### Actividades:
+
+ - Mediante simulación construir la curva de potencia para
+   su caso de ejemplo y variable propia.
+   Deberá ser un modelo Matérn.
+ - Aumentar el rango del anterior escenario y de nuevo hallar
+   la curva de potencia.
+ - Disminuir el rango del escenario inicial y construir de
+   nuevo la curva de potencia.
+ - Repetir los tres anteriores escenarios pero cambiando
+   significativamente la varianza del modelo.
+
+### Documentos a entregar:
+
+ - Transcribir los resultados a la  [plantilla](.datos/CabreraTorresKennethRoy.xlsx) y
+   cambiar el nombre del archivo ".xlsx", por sus apellidos y
+   nombres completos.   
+ - Documento en formato ".pdf" o formato ".html" en donde
+   se muestre el comportamiento de las seis curvas obtenidas
+   anteriormente y se permita hacer comparaciones.
+   Escribir conclusiones y recomendaciones apropiadas.
+ - Archivo ya sea en formato ".R"  o en ".Rmd" en donde se muestre
+   el código utilizado.
+
+### Fecha de entrega:
+
+Viernes, 24 de marzo de 2017 antes de las 23:59 hora de Colombia al
+correo **krcabrer@unal.edu.co** y no olvidar escribir en asunto **[EE]**   

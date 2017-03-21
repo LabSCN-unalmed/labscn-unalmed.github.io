@@ -1,0 +1,275 @@
+---
+title: "Diseño de una sola vía completamente aleatorizado"
+author: "Kenneth Cabrera"
+date: "Jueves, 16 de marzo de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos.
+
+```{r}
+sueño <- read.csv2("Ejemplo1.csv")
+sueño$Horas_suprim <- factor(sueño$Horas_suprim)
+```
+
+
+## Análisis exploratorio.
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(sueño, aes(Horas_suprim, Errores))
+g1 + geom_point() +
+     stat_summary(fun.data = "mean_cl_boot", 
+                  colour = "blue", size = 0.5) +
+     ylab("Número de errores tipográficos cometidos") +
+     xlab("Número de horas suprimidas de sueño")
+```
+
+En el análisis exploratorio se realizó una estimación mediante bootstrap del
+intervalo de confianza para el promedio de los errores tipográficos obtenidos
+y se observa que es muy probable que exista diferencia estadísticamente
+significativa entre los promedios debido a las horas suprimidas de sueño.
+
+
+
+## Modelo del experimento.
+
+El modelo ajustado para este caso es:
+
+$$
+  y_{ij} = \mu + \alpha_i + \epsilon_{ij}, \qquad i = 1 \cdots 4, \quad j = 1 \cdots 4 \\
+  \epsilon_{ij} \sim \mathcal{N}(0,\sigma^2) \quad i.i.d.
+$$ 
+
+## Hipótesis principal.
+
+$$
+  H_0: \alpha_1 = \alpha_2 = \alpha_3 = \alpha_4 = 0 \\
+  H_A: \textrm{Alguna } \alpha_i \textrm{ diferente de } 0
+$$
+
+## Modelo ajustado de una sola vía.
+
+```{r modelo}
+modelo1 <- aov(Errores ~ Horas_suprim, data = sueño)
+summary(modelo1)
+```
+
+Conclusión: Se rechaza $H_0$.
+
+Existe evidencia estadística para concluir que los promedios de los errores
+cometidos por las personas depende del número de horas de sueño suprimidas.
+
+## Estimación de los parámetros del modelo.
+
+### Estimación de los efectos
+
+```{r}
+model.tables(modelo1, se = TRUE)
+```
+
+Se observa que suprimir una hora de sueño es la que tiene el efecto más alto
+con respecto al promedio general de errores tipográficos cometidos.
+
+Se observa que sobrepasa el doble la error estándar para los efectos, tanto
+una hora de sueño suprimida como para cuatro. En otras palabras los casos
+extremos muestran efectos significativos en comparación con el promedio general.
+
+
+### Estimación de los promedio por nivel del factor.
+
+```{r}
+model.tables(modelo1, type = "mean", se = TRUE)
+```
+
+El error estándar para la diferencia de medias es de 8.67, una aproximación
+rápida es observar que la diferencia entre el promedio al suprimir una hora
+de sueño y cuatro horas de sueño es de aproximadamente 35 errores en promedio y supera
+claramente el doble de 8.67, es decir 17.34 y por lo tanto muy evidente
+la diferencia entre suprimir una hora de sueño en contraste con cuatro horas 
+suprimidas de sueño.
+
+Sin embargo dado los supuestos del modelo, es más preciso realizar el 
+análisis de comparación de medias mediante un procedimiento como el de Tukey.
+
+
+```{r}
+# Estimador de la varianza del error aleatorio
+(varErr <- summary(modelo1)[[1]]$"Mean Sq"[2])
+# Estimación de la desviación estándar del error aleatorio
+(desvErr <- sqrt(varErr))
+```
+
+La estimación de la varianza de los errores es de: `r round(varErr,1)`. Por lo
+tanto la estimación de la desviación estándar de los errores es de: `r round(desvErr,1)`.
+
+Es interesante ver que en general hay una desviación estándar de los errores
+cometidos en una trasncripción de un documento de aproximadamente 12 errores
+tipográficos. Esto puede sugerir una heterogeneidad de los participantes
+del experimento en cuanto a experiencia en la transcripción de documentos,
+independientemente de las horas suprimidas de sueño.
+
+
+
+## Diagnóstico del modelo.
+
+```{r}
+residuales <- residuals(modelo1)
+residualesEstandarizados <- rstandard(modelo1) # Residuales estudentizados internos
+residualesEstudentizado <- rstudent(modelo1)   # Residuales estudentizados externos
+```
+
+
+### Supuesto de normalidad.
+
+Este supuesto se realiza generalment sobre los residuales,
+pero es un poco más estricto si se hace sobre los residuales estandarizados.
+
+Si se realiza sobre los residuales estudentizados es para detectar posibles
+valores influenciales en la estimación del modelo.
+
+```{r}
+shapiro.test(residuales)
+shapiro.test(residualesEstandarizados)
+shapiro.test(residualesEstudentizado)
+```
+
+### Supesto de igualdad de varianzas.
+
+```{r}
+## Para el caso que los errores se distribuyen normales
+bartlett.test(Errores ~ Horas_suprim, data = sueño)
+
+## Prueba para el caso que los errores no se distribuyan normal
+fligner.test(Errores ~ Horas_suprim, data = sueño)
+```
+
+### Prueba de independiencia.
+
+En este experimento no se puede realizar una prueba de independencia, porque
+no existe una variable que indique el orde de ejecución de los experimentos o
+el orden de aleatorización de los mismos.
+
+### Supuestos de linealidad y supuesto de aditividad.
+
+```{r}
+
+par.orig <- par(no.readonly = TRUE)
+par(mfrow = c(2, 2))
+plot(modelo1)
+par(par.orig)
+
+sueño$residuales <- residuales
+sueño$stdresiduales <- residualesEstandarizados
+sueño$studresiduales <- residualesEstudentizado
+sueño$predichos <- predict(modelo1)
+
+library(ggplot2)
+g1 <- ggplot(sueño, aes(Errores, residuales))
+g1 + geom_point() + geom_smooth(method = lm) +
+     geom_hline(yintercept = 0, col = "red")
+
+g1 <- ggplot(sueño, aes(predichos, residuales))
+g1 + geom_point() + geom_smooth(method = lm) +
+     geom_hline(yintercept = 0, col = "red")
+
+
+```
+
+
+Bajo el modelo se indica que los efectos de los errores es aditivo
+con respecto al error promedio general y es aceptable el supuesto de linealidad
+del modelo inicial.
+
+Sin embargo es posible que existan covariables que estén interviniendo
+en la respuesta observada pero no se tienen registros de la causa posible
+de este efecto de covariables.
+
+
+
+## Modelo final.
+
+```{r}
+predichosIC <- data.frame(predict(modelo1, interval = "confidence"))
+sueño$inf <- predichosIC$lwr
+sueño$sup <- predichosIC$upr
+
+library(ggplot2)
+g1 <- ggplot(sueño, aes(Horas_suprim, Errores))
+g1 + geom_point() +
+     geom_point(aes(Horas_suprim, predichos), col = "red") +
+     geom_errorbar(aes(ymax = sup, ymin = inf), col = "red", width = 0.2) +
+     ylab("Número de errores tipográficos cometidos") +
+     xlab("Número de horas suprimidas de sueño") +
+     labs(title = "Desempeño en relación a horas suprimidas de sueño",
+          subtitle = "Errores tipográficos en la transcripción de un documento") +
+     geom_label(aes(Horas_suprim, predichos, label = round(predichos,1)), 
+               nudge_x = 0.2) +
+     scale_y_continuous(breaks = seq(10, 80, 10), limits = c(10, 80))
+```
+
+## Comparación de medias.
+
+```{r}
+(THSD <- TukeyHSD(modelo1))
+
+plot(THSD, las = 1)
+```
+
+## Conclusiones.
+
+ - Existe una clara evidencia que la supresión de horas de sueño inflyen
+   en el promedio de errores tipográficos cometidos en general en las 
+   personas al desarrollar una tarea de transcripción de un documento.
+   
+ - El promedio de los errores tipográficos cometidos aumenta con el
+   número de horas suprimidas, sin embargo no se observa que la tasa
+   incremento en el promedio de número de errores siga un ritmo
+   constante, de decir que la relación entre las horas suprimidas y
+   el número de errores no es lineal.
+ 
+ - Con respecto a una hora de sueño suprimida hay evidencia estadística que 
+   existe diferencia en el promedio de errores con respecto suprimir 
+   tres o cuatro horas de sueño, pero no con respecto a suprimir dos horas de 
+   sueño.
+   
+ - Sin embargo no es evidente la diferencia entre suprimir dos horas
+   de sueño en comparación con tres y cuatro horas de sueño.
+   
+ - No hay evidencia que suprimir tres horas de sueño sea diferente en 
+   relación al promedio de errores cometidos cuando se suprimen cuatro
+   horas de sueño. 
+   
+ - No se logró encontrar diferencias en cada comparación debido a la
+   alta variabilidad de los errores cometidos por los participantes 
+   del experimento.
+
+## Recomendaciones.
+
+ - Este comportamiento hace pensar que existe algún punto crítico cuando
+   se sobrepasan las dos horas suprimidas de sueño y luego se tiende 
+   a estabilizar cuando el número de horas de supresión sean de tres o más.
+   En este caso sería necesario un estudio más completo.
+   
+ - También los resultados hacen sospechar que exista algua o algunas
+   covariables con respecto a características propias de las personas
+   que influencien el efecto en la supresión de horas de sueño en 
+   el desempeño de la trasncripción de un documento. Se recomiendo por 
+   lo tanto en un experimento futuro registrar algunas covariables o
+   realizar algún bloqueo por características de las personas.
+   
+ - En futuros experimentos se recomienda registrar el orden de aleatorización
+   para verificar el supuesto de independencia del modelo.
+   
+ - Se recomienda seleccionar una población objetivo con menor variación
+   para evidenciar de manera más clara la diferencia en la supresión de
+   las horas de sueño.
+   
+
+

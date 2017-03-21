@@ -1,0 +1,165 @@
+---
+title: "Tamaños de muestra en estadística espacial"
+author: "Kenneth Roy Cabrera Torres"
+date: viernes, 17 de marzo de 2017
+output:
+  html_document:
+    toc: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+## Simulación de campos aleatorios
+
+```{r}
+###############################################################################
+# Simulación de campos aleatorios
+###############################################################################
+
+require(RandomFields)
+rango_practico<-300
+
+```
+
+
+```{r}
+# Función auxiliar que estima el factor multiplicador para el modelo
+# Matérn dependiendo del paquete de R utilizado
+
+fM <- function(x, kappa, rho = 0.05, phi = 1, opt = 1){
+  if (opt == 1){
+    library(geoR)
+    cov.spatial(x, cov.pars = c(1,phi), kappa=kappa, cov.model = "matern") - rho
+  }else{
+    library(RandomFields)
+    modelo <- RMmatern(var = 1, nu = kappa, scale = phi)
+    RFcov(modelo, x) - rho
+  }
+}  
+```
+
+
+## Construcción de los modelos espaciales
+
+```{r}
+# En el caso exponencial el rango práctico es scale=1/3*(rango_práctico)
+modeloExp <- RMtrend(mean = 10) + RMexp(var = 1,scale = rango_practico/3)
+# En el caso gaussiano el rango práctico es scale=1/sqrt(3)*(rango_práctico)
+modeloGauss <- RMtrend(mean = 10) + RMgauss(var=1,scale = rango_practico/sqrt(3))
+# Estimación del parámetro phi en el modelo matérn, dado el kappa y el rango práctico.
+kappa <- 0.8
+r1 <- uniroot(fM, c(2, 50), kappa = kappa, opt = 2)$root
+modeloMat <- RMtrend(mean = 10) + RMmatern(var = 1, nu = kappa, scale = rango_practico / r1)
+```
+
+## Definición de la rejilla de los datos.
+
+```{r}
+inicio <- 0
+final <- 1000
+long <- 401
+sec.x <- seq(inicio, final, length=long) 
+sec.y <- seq(inicio, final, length=long)
+```
+
+## Inicio del campo aleatorio simulado Matérn
+```{r}
+RFoptions(seed = 321)
+simuMat <- RFsimulate(modeloMat, x = sec.x, y = sec.y, grid = TRUE)
+png("matern1.png")
+image(simuMat, asp=1, col = grey(0:1000 / 1000), 
+      axes = TRUE)
+dev.off()
+```
+
+![](matern1.png)
+
+
+
+## Semivariogramas para el modelo Matern.
+
+```{r}
+# Cálculo del variograma empírico de los datos simulados Exponencial
+varioemp <- RFempiricalvariogram(data = simuMat)
+plot(varioemp, model = modeloMat)
+```
+
+
+## Convertir los datos simulados a bases de datos
+```{r}
+# Convetir los datos simulado a una base datos 
+datosMat <- data.frame(coordinates(simuMat), simuMat)
+head(datosMat)
+```
+
+## Muestra aleatoria para el caso exponencial
+
+```{r}
+tam_muestras <- 10
+set.seed(39)
+# Posición en la base de datos de las muestras seleccinadas
+idmuestras <- sample(1:nrow(datosMat), tam_muestras)
+# Extraccion y reordenamiento de las columnas de interés.
+datosMatM <- datosMat[idmuestras, ]
+```
+
+## Análisis exploratorio de la muestra tomada
+```{r}
+require(geoR)
+# Tipo de datos "geodata"
+datos1g<-as.geodata(datosMatM)
+# Exploratorio inicial
+plot(datos1g)
+# Resumen de la base de datos
+summary(datos1g)
+# Estimación del semivariograma empírico
+semivariog1 <- variog(datos1g, uvec = seq(25, 750, by =25))
+# 
+plot(semivariog1,type = "b",xlab="Distancia", ylab="Semivarianza",lwd=2)
+abline(h=1,lwd=2,col="red")
+abline(h=var(datos1g$data),lwd=2,col="red",lty=2)
+```
+
+## Detección de estructura espacial
+```{r}
+set.seed(NULL)
+mc1 <- variog.mc.env(datos1g, obj = semivariog1, nsim=1000)
+plot(semivariog1, env = mc1, xlab="Distancia", ylab="Semivarianza", pch=19, lwd=2)
+```
+
+## Esquema de simulación para detectar tamaño de muestra
+
+```{r}
+# Construye una realizaciòn de un campo aleatorio
+rango_practico <- 300
+modeloGauss2<- RMtrend(mean=10) +
+               RMgauss(var=50, scale = rango_practico / sqrt(3)) 
+
+RFoptions(seed = 21684323)
+simuGauss2  <- RFsimulate(modeloGauss2, x=sec.x, y=sec.y, grid=TRUE)
+datosGauss2 <- data.frame(coordinates(simuGauss2), simuGauss2 )
+
+# El campo aletorio se toma como la poblaciòn
+
+nmuestras <- 30
+nsimul <- 100
+RFoptions(seed=NULL)
+set.seed(NULL)
+l1 <- NULL
+for (i in 1:nsimul){
+  idmuestras <- sample(1:nrow(datosGauss2), nmuestras)
+  datosGaussM2<-datosGauss2[idmuestras,]
+  datosGaussGD <- as.geodata(datosGaussM2)
+  semivariog1 <- variog(datosGaussGD, uvec = seq(25, 750, by =25))
+  mc1 <- variog.mc.env(datosGaussGD, obj = semivariog1, nsim = 1000)
+  r1 <- any(mc1$v.lower > semivariog1$v)
+  l1 <- c(l1,r1)
+}
+l1
+table(l1)
+table(l1)/sum(table(l1))
+```
+

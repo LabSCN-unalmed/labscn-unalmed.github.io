@@ -1,0 +1,164 @@
+---
+title: "Porosidad en una zona de estudio (Estimación del modelo)"
+author: "Kenneth Roy Cabrera Torres"
+date: "Miércoles, 15 de marzo de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+zonaA <- read.table("ZoneA.dat", na.strings = "-999.9999", header = TRUE)
+```
+
+## Exploratorio inicial
+
+```{r}
+library(geoR)
+gzonaA <- as.geodata(subset(zonaA, select = c("X", "Y", "Por")))
+summary(gzonaA)
+var(gzonaA$data)
+plot(gzonaA)
+```
+
+## Variograma empírico
+
+```{r}
+library(geoR)
+v3 <- variog(gzonaA, max.dist = 15000, uvec = c(0, seq(2000, 15000, 500)))
+plot(v3)
+```
+
+## Evidencia de estructura espacial
+
+```{r}
+envMC <- variog.mc.env(gzonaA, obj.variog = v3, nsim = 1000)
+plot(v3, envelope.obj = envMC)
+```
+
+## Bajo un modelo específico
+
+```{r}
+envModelo <- variog.model.env(gzonaA, obj.variog = v3,
+                              model.pars = 
+                              list(beta = 14.7,
+                                   cov.model = "gaus",
+                                   cov.pars = c(0.8, 5000/sqrt(3))),
+                              nsim = 1000)
+plot(v3, envelope.obj = envModelo)
+```
+
+
+## Estimación de parámetros
+
+### Mínimos cuadrados ordinarios
+
+```{r}
+library(geoR)
+modelo1_ols <- variofit(v3, ini.cov.pars = c(0.8, 4000/3), 
+                        fix.nugget = TRUE,
+                        cov.model = "exp", weights = "equal")
+modelo1_ols
+```
+
+
+### Mínimos cuadrados ponderados
+
+
+```{r}
+library(geoR)
+modelo1_wls <- variofit(v3, ini.cov.pars = c(0.8, 4000/3), 
+                        fix.nugget = TRUE,
+                        cov.model = "exp", weights = "npairs")
+modelo1_wls
+```
+
+
+### Máxima verosimilitud
+
+
+```{r}
+library(geoR)
+modelo2_lik <- likfit(gzonaA, ini.cov.pars = c(0.8, 4000/3),
+                      fix.nugget = TRUE,
+                      cov.model = "exp")
+modelo2_lik
+```
+
+## Graficación de modelos
+
+
+```{r}
+plot(v3, pch = 19)
+lines(modelo1_ols, lty = 2, col = "blue")
+lines(modelo1_wls, lty = 3, col = "brown")
+lines(modelo2_lik, lty = 4, col = "darkgreen")
+legend("bottomright", legend = c("OLS", "WLS", "MaxLik"), 
+       col = c("blue", "brown", "darkgreen"), 
+       lty = c(2, 3, 4))
+```
+
+
+## Verificación de modelos
+
+```{r}
+envModExpOLS <- variog.model.env(gzonaA, obj.variog = v3,
+                                 model.pars = modelo1_ols, 
+                              nsim = 1000)
+plot(v3, envelope.obj = envModExpOLS)
+```
+
+
+```{r}
+envModExpWLS <- variog.model.env(gzonaA, obj.variog = v3,
+                                 model.pars = modelo1_wls, 
+                              nsim = 1000)
+plot(v3, envelope.obj = envModExpWLS)
+```
+```{r}
+envModLik <- variog.model.env(gzonaA, obj.variog = v3,
+                              model.pars = modelo2_lik, 
+                              nsim = 1000)
+plot(v3, envelope.obj = envModLik)
+```
+
+```{r}
+perfil <- proflik(modelo2_lik, gzonaA, 
+                  sill.values = seq(0.4, 1.8, 0.05),
+                  range.values = seq(1000, 7000, 500),
+                  uni.only = FALSE)
+plot(perfil, nlevels = 40)
+```
+
+## Validación cruzada
+```{r}
+vcLik <- xvalid(gzonaA, model = modelo2_lik)
+summary(vcLik)
+```
+
+```{r, fig.height=10}
+par.ori <- par(no.readonly = TRUE)
+par(mfcol = c(5,2), mar=c(3,3,.5,.5), mgp=c(1.5,.7,0))
+plot(vcLik)
+par(par.ori)
+```
+
+
+```{r, fig.height=10}
+vcWLS <- xvalid(gzonaA, model = modelo1_wls)
+summary(vcWLS)
+```
+
+```{r, fig.height=10}
+par.ori <- par(no.readonly = TRUE)
+par(mfcol = c(5,2), mar=c(3,3,.5,.5), mgp=c(1.5,.7,0))
+plot(vcWLS)
+par(par.ori)
+```
+

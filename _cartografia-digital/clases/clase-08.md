@@ -11,14 +11,11 @@ Extraer la red de drenaje
 Para la extracción de redes de drenaje a partir de un DEM utilizamos el comando `r.watershed`.
 
 ~~~
-r.watershed -a elevation=porcecito1 accumulation=porce1_accum drainage=porce1_drain basin=porce1_basin stream=porce1_stream threshold=200000
+r.watershed -as elevation=porcecito1 accumulation=porce1_accum drainage=porce1_drain basin=porce1_basin stream=porce1_stream threshold=200000
 ~~~
 
-La opción `-a` se utiliza para obtener los valores absolutos de `accum`.
-
-<!-- ~~~
-d.rast porce1_accum
-~~~ -->
+* La opción `-a` se utiliza para obtener los valores absolutos de `accum`.
+* La opción `-s` se utiliza para obtener el flujo en una sóla dirección con el algoritmo D8.
 
 ![Mapa accum](/cartografia-digital/images/porce1_accum.png){: .img-responsive}
 
@@ -37,17 +34,9 @@ Observar los valores mínimo y máximo pero igualmente los diferentes cuartiles.
 
 ### Elaboración del histograma {#elaboracion-histograma}
 
-<!-- ~~~
-d.histogram porce1_accum
-~~~ -->
-
 Utilizando un rango continuo:
 
 ![Rango continuo](/cartografia-digital/images/porce1_accum_hist1.png){: .img-responsive}
-
-<!-- ~~~
-d.histogram porce1_accum nsteps=20
-~~~ -->
 
 Utilizando rangos discretos:
 
@@ -65,17 +54,9 @@ r.mapcalc "porce1_accum_log = log(porce1_accum, 10)"
 
 Visualizamos nuevamente el histograma
 
-<!-- ~~~
-d.histogram porce1_accum_log
-~~~ -->
-
 Rango continuo:
 
 ![Rango continuo](/cartografia-digital/images/porce1_accum_log_hist1.png){: .img-responsive}
-
-<!-- ~~~
-d.histogram porce1_accum_log nsteps=10
-~~~ -->
 
 Rango discreto:
 
@@ -102,12 +83,18 @@ Desplegamos 3 monitores y comparamos los 3 mapas obtenidos
 
 ![porce1_accum_log4](/cartografia-digital/images/porce1_accum_log4.png){: .img-responsive}
 
-Finalmente decidimos que los valores de *accum* más apropiados para trabajar la red de drenaje en esta zona son los valores logarítmicos mayores que 3, y sobre ese mapa continuaremos trabajando.
+Finalmente decidimos que los valores de *accum* más apropiados para trabajar la red de drenaje en esta zona son los valores logarítmicos mayores que 3 (accum mayor que 10^3), y sobre ese mapa continuaremos trabajando.
 
 Transformar un mapa raster en un mapa vectorial
 -----------------------------------------------
 
-Lo primero que se debe hacer antes de la transformación es adelgazar el mapa raster.
+Lo primero que se debe hacer antes de la transformación es adelgazar el mapa raster, para lo cual debemos convertir los valores 0 en valores nulos utilizando el comando `r.null`.
+
+~~~
+r.null map=porce1_accum_log3 setnull=0
+~~~
+
+Una vez realizada esta operación, podremos adelgazar las líneas raster.
 
 ~~~
 r.thin input=porce1_accum_log3 output=porce1_accum_log3_thin
@@ -116,14 +103,9 @@ r.thin input=porce1_accum_log3 output=porce1_accum_log3_thin
 Una vez adelgazado el mapa raster, podemos convertirlo al formato vectorial.
 
 ~~~
-r.to.vect input=porce1_accum_log3_thin output=porce1_accum_log3
+r.to.vect input=porce1_accum_log3_thin output=porce1_accum_log3 type=line
 ~~~
 
 Teniendo el mapa raster de la región de porcecito y un mapa vectorial con la red de drenaje cuyos valores logarítmicos de accum son mayores que 4, podemos desplegar la red de drenaje en formato vectorial sobre la región en formato raster.
-
-<!-- ~~~
-d.rast porcecito1
-d.vect porce1_accum_log3 color=blue width=2
-~~~ -->
 
 ![](/cartografia-digital/images/porce1_accum_vect.png){: .img-responsive}
