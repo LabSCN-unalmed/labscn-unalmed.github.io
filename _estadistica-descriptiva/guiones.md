@@ -32,3 +32,7 @@ order: 2
 - [Aceleración en el eje X](./basesdedatos/coordenadaX.csv)
 - [Aceleración en el eje Y](./basesdedatos/coordenadaY.csv)
 - [Aceleración en el eje Z](./basesdedatos/coordenadaZ.csv)
+
+## Tamaño de muestra
+
+- [Simulación para obtener tamaños de muestra](./guiones/tammuest.html)
