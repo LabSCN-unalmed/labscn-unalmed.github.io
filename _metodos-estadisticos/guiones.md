@@ -16,3 +16,8 @@ custom_js: 'mathjax'
 
 - [Efecto del desempeño en relación a las horas suprimidas de sueño](./guiones/Ejemplo.html)
 - [Base de datos (excel)](./guiones/Ejemplo1.xlsx)
+
+## Modelo de bloques completos, completamente aleatorizado.
+
+- [Efecto de fertilizantes](./guiones/dise_bl_com_aleat.html)
+- [Base de datos](./guiones/fertilidad.xlsx)
