@@ -17,11 +17,19 @@ options(width = 100)
 ## Lectura de la base de datos
 
 Un agrónomo desea determinar
-el efecto de diferentes fuentes de nitrógeno en la pro ducción de una materia
+el efecto de diferentes fuentes de nitrógeno en la producción de una materia
 seca sobre cebada forrajera. Hay cinco fuentes a ser comparadas: $(NH_4)_2 SO_4$ ,
 $NH_4NO_3$, $CO(NH_2)_2$, $Ca(NO_3)_2$, $NaNO_3$ y un tratamiento control 
-sin nitrógeno. Se desea aplicar los resultados sobre un rango b astante amplio 
+sin nitrógeno. Se desea aplicar los resultados sobre un rango bastante amplio 
 de condiciones, se hicieron ensayos sobre cuatro tipos de suelo.
+
+Para el diseño experimental se eligió un diseño en bloques completamente aleatorizado
+con los tipos de suelo como factor de bloqueo, se localizaron seis parcelas
+en cada uno de los cuatro tipos de suelo, y se asignó aleatoriamente los 
+tratamientos a las parcelas dentro de cada tipo de suelo. La variable de interés es la
+producción en (kg/parcela) de cebada bajo varias fuentes de nitrógeno.
+
+Los datos obtenidos de realizar este experimento se presentan en la tabla 7.3.
 
 ![](dbca.png)
 

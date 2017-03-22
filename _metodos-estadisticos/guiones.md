@@ -21,3 +21,8 @@ custom_js: 'mathjax'
 
 - [Efecto de fertilizantes](./guiones/dise_bl_com_aleat.html)
 - [Base de datos](./guiones/fertilidad.xlsx)
+
+## Modelo multifactorial de dos vías
+
+- [Vitamina C en jugo de naranja](./guiones/naranja.html)
+- [Base de datos](./guiones/naranja.xlsx)
