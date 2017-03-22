@@ -68,7 +68,7 @@ tamaños de muestra adecuados para detectar estrucutra espacial.
 
 ### Documentos a entregar:
 
- - Transcribir los resultados a la  [plantilla](.datos/CabreraTorresKennethRoy.xlsx) y
+ - Transcribir los resultados a la  [plantilla](./datos/CabreraTorresKennethRoy.xlsx) y
    cambiar el nombre del archivo ".xlsx", por sus apellidos y
    nombres completos.   
  - Documento en formato ".pdf" o formato ".html" en donde
