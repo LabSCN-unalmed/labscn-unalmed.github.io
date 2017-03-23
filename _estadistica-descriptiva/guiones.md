@@ -36,3 +36,8 @@ order: 2
 ## Tamaño de muestra
 
 - [Simulación para obtener tamaños de muestra](./guiones/tammuest.html)
+
+## Comparación de tipos de gráficas
+
+- [Comparación de barras y círculos](./guiones/comparacion_graficas.html)
+- [Base de datos de estimaciones](./basesdedatos/comparacion_graficas.xlsx)
