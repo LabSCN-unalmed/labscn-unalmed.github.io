@@ -41,3 +41,8 @@ order: 2
 
 - [Comparación de barras y círculos](./guiones/comparacion_graficas.html)
 - [Base de datos de estimaciones](./basesdedatos/comparacion_graficas.xlsx)
+
+## Graficación básica en R.
+
+- [Ejemplos básicos](./guiones/graficacion_basica.html)
+- [Base de datos](./basesdedatos/estrenosCine.xlsx)

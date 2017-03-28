@@ -1,0 +1,130 @@
+---
+title: "Graficación básica en R"
+author: "Kenneth Roy Cabrera Torres"
+date: "Marrtes, 28 de marzo de 2017"
+output: 
+  html_document: 
+    fig_height: 7
+    fig_width: 9
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 100)
+```
+
+## Base de datos de la comparación de percepción de gráficas.
+
+```{r}
+comp_graf <- read.csv2("comparacion_graficas.csv")
+
+convencion <- read.csv2("convención.csv")
+convencion$X <- NULL
+convencion$num2 <- factor(paste("X", convencion$num, sep = ""))
+
+comp_graf <- subset(comp_graf, X1 <= 2600)
+```
+
+
+## Elementos de graficación básica
+
+```{r}
+plot(comp_graf$Tipo, comp_graf$X1, las = 1)
+```
+
+```{r}
+(promedios <- tapply(comp_graf$X1, comp_graf$Tipo, mean, na.rm = TRUE))
+plot(comp_graf$Tipo, comp_graf$X1, las = 1)
+points(c(1, 2), promedios, pch = 19, col = "red")
+
+```
+
+
+
+```{r}
+plot(comp_graf$X1, comp_graf$X2)
+```
+
+```{r}
+plot(comp_graf$X1, comp_graf$X2, col = comp_graf$Tipo, pch = 19, las = 1)
+abline(v = convencion$valor[1])
+abline(h = convencion$valor[2])
+legend(10, 2000, legend = c("Barras", "Círculos"),
+       col = c(1,2), pch = 19, pt.cex = 1.5)
+```
+
+
+
+## Gráfica de histórico de estrenos de acuerdo a El Colombiano.
+
+En el periódico del jueves, 2 de marzo de 2016 se muestra el número
+de estrenos de películas extranjeras y nacionales entre 2011 y 2016.
+
+![](estrenosCine.png)
+
+## Lectura de la base de datos.
+
+```{r}
+estrenCine <- read.csv2("estrenosCine.csv")
+```
+
+
+## Construcción de gràfico utilizando la graficación básica.
+
+```{r}
+library(RColorBrewer)
+colores <- brewer.pal(8, "Dark2")[1:2]
+matEstrenosCine <- t(as.matrix(estrenCine[, c(3,2)]))
+colnames(matEstrenosCine) <- estrenCine$año
+bp1 <- barplot(matEstrenosCine, beside = TRUE, las = 1,
+               ylim = c(0, 350), col = colores, 
+               ylab = "Número de estrenos",
+               xlab = "Año")
+lines(bp1[1, ], matEstrenosCine[1, ] + 5, col = colores[1], lwd = 2)
+lines(bp1[2, ], matEstrenosCine[2, ] + 5, col = colores[2], lwd = 2)
+legend(2, 350, legend = paste("Películas", rownames(matEstrenosCine)), 
+       col = colores, pch = 15, pt.cex = 2)
+title("Histórico de pelìculas estrenadas en Colombia")
+```
+
+## Trasnformación de formato ancho a formato largo.
+
+
+
+```{r}
+library(tidyr)
+estrenCine2 <- estrenCine %>% gather(tipo, numEstr, nacionales:extranjeras, factor_key = TRUE)
+estrenCine2
+```
+
+## Graficación utilizando ggplot2.
+
+```{r}
+library(ggplot2)
+colores <- brewer.pal(8, "Dark2")[2:1]
+g1 <- ggplot(estrenCine2, aes(año, numEstr, fill = tipo))
+g1 + geom_bar(stat = "identity", position = "dodge") +
+     geom_line(aes(col = tipo)) +
+     scale_fill_manual(values = colores) +
+     scale_color_manual(values = colores)
+```
+
+## Transformación de formato largo a formato ancho.
+
+```{r}
+library(tidyr)
+estrenCine3 <- estrenCine2 %>% 
+               spread(tipo, numEstr)
+estrenCine3
+```
+
+```{r}
+
+```
+
+## Enlaces útiles para graficación en R.
+
+- [Notas guías](https://cran.r-project.org/doc/contrib/grafi3.pdf)
+- [Guía práctica](http://rstudio-pubs-static.s3.amazonaws.com/7953_4e3efd5b9415444ca065b1167862c349.html)
+- [Guía por tipos de gráficas](http://www.statmethods.net/graphs/)
