@@ -14,4 +14,8 @@ order: 04
 
 ## Taller individual 1
 
-- [Enunciado](/metodos-estadisticos/talleres/bacterias.html)
+- [Enunciado](./talleres/bacterias.html)
+
+## Taller individual 2
+
+- [Enunciado](./talleres/tallerIndividual2.pdf)
