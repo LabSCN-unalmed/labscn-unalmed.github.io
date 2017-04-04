@@ -63,3 +63,32 @@ Calificado con una nota máxima de 5.0.
 Lunes 6 de marzo de 2017 antes de las 23:59
 [hora de Colombia](http://horalegal.inm.gov.co/) al
 correo **krcabrer@unal.edu.co**, no olvidar en asunto [EDAED]      
+
+## Segundo trabajo individual.
+
+### Objetivo.
+
+Proponer una mejora a un gráfico de un periódico nacional.
+
+
+### Documentos a entregar.
+
+- Documento en formato ".html" que tenga los siguientes elementos:
+   + Gráfica original con su respectiva referencia bibliográfica.
+   + Comentarios sobre los problemas de la gráfica original.
+   + Propuesta a mano alzada de una gráfica alternativa. Puede ser
+     escaneada o fotografiada.
+   + Gráfica realizada en R. El documento html **NO** debe mostrar
+     código en R.
+   + Conclusiones y recomendaciones.
+
+- Archivo en formato ".Rmd" en donde se encuentra el código
+  correspondiente.
+
+- Archivo en formato ".csv" con los datos usados para la construcción
+  de la gráfica.  
+
+### Fecha de entrega.
+
+Jueves 6 de abril de 2017, antes de las 23:59 hora de Colombia, al correo
+**krcabrer@unal.edu.co**, no olvidar escribir **[EDAED]** en asunto.
