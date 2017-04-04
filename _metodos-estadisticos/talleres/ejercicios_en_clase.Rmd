@@ -1,0 +1,73 @@
+---
+title: "Ejercicio de seguimiento"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes, 4 de abril de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Emisión de CO por dispositivos en motores.
+
+Se tiene los regístros de ppm de $CO$ generado por dos 
+dispositivos en cuatro motores.
+
+| Motor | Dispositivo tipo A | Dispositivo tipo B |
+|-------|-------|-------|
+| 1 | 2.7 | 2.6 |
+| 2 | 2.9 | 2.6 |
+| 3 | 3.2 | 2.9 |
+| 4 | 3.5 | 3.3 |
+
+
+Suponga que el supervisor de la fábrica de dispositivos
+le trae estos datos y le dice que un grupo dice
+que no hay una diferencia esencial entre los disopositivos,
+mientras otra parte del grupo dice que no la hay. 
+
+1. ¿Qué preguntas le haría a los experimentadores?
+2. ¿Qué respuestas haría que los datos fueran viables analizarlos estadísticamente
+   y cuáles no?
+3. ¿Qué tipo de análisis haría de acuerdo a las respuestas obtenidas?
+4. Asuma las respuestas a todas sus preguntas de tal manera que sea viable
+   el análisis estadístico y realice el reporte correspondiente de los datos.
+
+## Potencia en páneles solares.
+
+Se tomaron datos de dos diseños de páneles solares y se obtuvieron los
+siguientere resultados de potencia (en watts).
+
+| Diseño   |   |    |   |   |
+|----------|----------|----------|----------|----------|
+| Diseño A | $1.8^{(1)}$ | $1.9^{(2)}$ | $1.1^{(5)}$ |$1.4^{(7)}$ |
+| Diseño B | $1.9^{(3)}$ | $2.1^{(4)}$ | $1.5^{(6)}$ |$1.5^{(8)}$ |
+
+Los datos se tomaron en los mismos peridos del día, en días diferentes,
+durante diez horas. La aleatorización del día correspondiente se indica
+por el superíndice de cada resultado. Cada día del experimento se
+utilizó uno y solo un diseño. 
+
+1. ¿Existe diferencia estadística entre los diseños?
+
+2. Indique claramente los supuestos adecuados para que el experimento
+soporte un análisis estadístico.
+
+3. Realice conclusiones y recomendaciones.
+
+## Materiales a entregar
+
+- Base de datos de cada experimento en formato ".csv".
+- Documento en ".html" con los resultados del análisis (sin código).
+- Documento en formato ".Rmd" con el código utilzado.
+
+## Fecha de entrega
+
+Viernes 7 de abril antes de las 23:59 hora de Colombia al
+correo krcabrer@unal.edu.co y no olvidar en asunto escribir **[MEDE]**
+
+
