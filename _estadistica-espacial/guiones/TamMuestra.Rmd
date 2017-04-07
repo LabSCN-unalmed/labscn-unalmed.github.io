@@ -1,0 +1,96 @@
+---
+title: "Tamaño de muestra en Estadística Espacial"
+author: "Kenneth Roy Cabrera Torres"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+nomVar <- c("nombre_var", "media", "varianza", "modelo", "kappa",
+            "phi", "rango_práctico", "tam_muestra", "potencia", "dist_maxima")
+nomArch <- paste("Hoja",1:8, sep = "")
+total <- NULL
+for (nom1 in nomArch){
+  assign(nom1, read.csv2(paste(nom1, ".csv", sep = "")))
+  assign(nom1, get(nom1)[,1:10])
+  temp <- get(nom1)
+  names(temp) <- nomVar
+  temp$ID <- nom1
+  assign(nom1, temp)
+  total <- rbind(total, get(nom1))
+}
+
+total$media <- as.numeric(total$media)
+total$varianza <- as.numeric(total$varianza)
+total$kappa <- as.numeric(total$kappa)
+total$phi <- as.numeric(total$phi)
+total$potencia <- as.numeric(total$potencia)
+total$ID <- factor(total$ID)
+total <- subset(total, !is.na(potencia))
+total$potencia[total$potencia > 1] <- total$potencia[total$potencia > 1]/100
+total$IDexp <- with(total, factor(paste(ID, rango_práctico, varianza)))
+total$razon_rp <- with(total, rango_práctico/dist_maxima)
+total$clasKappa <- with(total, cut(total$kappa, c(0.6, 0.8, 2, Inf), include.lowest = TRUE))
+```
+
+
+```{r}
+summary(total)
+```
+
+
+
+```{r, fig.width=11, fig.height=11}
+library(ggplot2)
+g1 <- ggplot(total, aes(tam_muestra, potencia, group = IDexp, col = kappa))
+g1 + geom_line() +
+     facet_wrap(~ nombre_var, scales = "free_x") +
+     scale_colour_gradient(limits=c(0, 3), low="red") +
+     geom_hline(yintercept = 0.8, col = "darkgreen") +
+     geom_vline(xintercept = 30, col = "gold")
+```
+
+```{r}
+library(ggplot2)
+g2 <- ggplot(total, aes(tam_muestra, potencia, group = IDexp, col = razon_rp))
+g2 + geom_line(alpha = 0.7) +
+     scale_colour_gradient(limits=c(0.07, 0.78), low="red", high = "darkblue", space = "Lab") +
+     geom_hline(yintercept = 0.8, col = "darkgreen") +
+     geom_vline(xintercept = 30, col = "black")
+```
+
+```{r}
+barplot(table(total$kappa))
+```
+```{r}
+library(ggplot2)
+g2 <- ggplot(total, aes(tam_muestra, potencia, group = IDexp, col = razon_rp))
+g2 + geom_smooth(alpha = 0.7, se = FALSE) +
+     scale_colour_gradient(limits=c(0.07, 0.78), low="red", high = "darkblue", space = "Lab") +
+     geom_hline(yintercept = 0.8, col = "darkgreen") +
+     geom_vline(xintercept = 30, col = "black") +
+     facet_wrap(~ clasKappa, scales = "free_x")
+```
+
+
+```{r}
+library(ggplot2)
+g2 <- ggplot(subset(total, razon_rp > 0.3),
+             aes(tam_muestra, potencia, group = IDexp, col = razon_rp))
+g2 + geom_smooth(alpha = 0.7, se = FALSE) +
+     scale_colour_gradient(limits=c(0.07, 0.78), low="red", high = "darkblue", space = "Lab") +
+     geom_hline(yintercept = 0.8, col = "darkgreen") +
+     geom_vline(xintercept = 30, col = "black") +
+     facet_wrap(~ clasKappa, scales = "free_x")
+```
+
+```{r}
+library(ggplot2)
+g3 <- ggplot(subset(total, potencia < 0.85 & potencia > 0.75),
+             aes(razon_rp, tam_muestra, col = clasKappa))
+g3 + geom_point()
+```

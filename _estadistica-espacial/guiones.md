@@ -43,3 +43,7 @@ order: 01
 ## Predicción de modelos (Kriging)
 
 - [Predicción de modelos](./guiones/ZonaA3.html)
+
+## Estimación de tamaño de muestra (resultados simulación)
+
+- [Tamaños muestrales](./guiones/TamMuestra.html)
