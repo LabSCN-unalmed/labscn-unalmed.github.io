@@ -1,7 +1,7 @@
 Estructuras de control
 ========================================================
 author: Kenneth Cabrera
-date: 02 agosto, 2016
+date: 16 abril, 2017
 transition: rotate
 width: 1440
 height: 900
@@ -179,7 +179,7 @@ Estructura de repetición VI
 ```r
 x0 <- 1; tol <- 1e-6; i <- 0
 repeat {
-     x1 <- 1/(x0+1)
+     x1 <- 1 / (x0+1)
      i <- i + 1
      cat("inter= ",i,"valor= ",x1, "\n")
      if (abs(x1 - x0) < tol) {
@@ -198,7 +198,7 @@ Estructura de repetición VII
 
 ```r
 for (i in 1:100) {
-    if ((i + 1)%%7 != 0){
+    if ((i + 1) %% 7 != 0){
       next
     }
     print (i)

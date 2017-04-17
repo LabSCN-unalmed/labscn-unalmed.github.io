@@ -1,7 +1,7 @@
 Introducción al R (Parte I)
 ========================================================
 author: Kenneth Cabrera
-date: jueves, 13 de abril de 2017
+date: domingo, 16 de abril de 2017
 height: 800
 
 

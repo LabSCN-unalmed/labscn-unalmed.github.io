@@ -7,12 +7,13 @@
 Introducción al R (Parte II)
 ========================================================
 author: Kenneth Cabrera
-date: martes, 02 de agosto de 2016
+date: jueves, 13 de abril de 2017
 
 
 Clases de objetos
 ========================================================
-El R tiene cinco clases de objetos básicos o "atómicos"
+El R tiene como clases de objetos básicos o "atómicos"
+
 - character (alfanumérico).
 - numeric (reales).
 - integer (enteros).
@@ -22,6 +23,7 @@ El R tiene cinco clases de objetos básicos o "atómicos"
 Objetos
 ========================================================
 El objeto más básico es un vector.
+
 - Un vector sólo puede tener objetos de la misma clase.
 - Una lista puede contener objetos de diferentes clases.
 - Un vector vacío se crea con la función `vector()`
@@ -32,6 +34,7 @@ Números
   de doble precisión).
 - Si quieres especificar un entero deberá finalizarlo con `L`.
 - *Números* especiales: `Inf`, representa el infinito.
+- El valor `NA` es un valor faltante ("Not Available")
 - El valor `NaN` es un valor no definido ("Not a Number").
 
 Atributos
@@ -42,6 +45,7 @@ Un objeto en R puede tener atributos como:
 - clase (`class`).
 - longitud (`length`).
 - Otros metadatos y atributos particulares.
+
 Se utiliza la función `attribute()` para inspeccionarlos.
 
 Asignación
@@ -82,7 +86,7 @@ x
  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
 ```
 
-El operador `:` crea secuencias.
+El operador dos puntos (`:`) crea secuencias.
 
 Vectores I
 ========================================================

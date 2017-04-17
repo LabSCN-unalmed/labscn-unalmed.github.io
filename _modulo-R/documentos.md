@@ -13,10 +13,12 @@ order: 2
 
 ## Lectura y escritura de archivos
    [Lectura/Escritura](./slides/02_Lectura_Escritura.html)
+   
    - [url_banrep_trm.txt](./slides/url_banrep_trm.txt)
 
 ## Arreglo de base de datos (Tidy data)
    [Arreglo de bases de datos](./slides/03_Arreglo_Base_Datos.html)
+
    - [Religiones](./slides/religions.csv)
    - [Tuberculosis](./slides/tb.csv)
    - [Paises](./slides/paises.csv)
@@ -38,5 +40,5 @@ order: 2
    [Expresiones regulares](./slides/11_Expresiones_Regulares.html)
 
 ## Manejo de bases de datos
-   [Manejo de base de datos](./slides/12_Manejo_bases_de_datos.html)
-   [ICFES 2015 02](./dbs/20152.xls)
+   - [Manejo de base de datos](./slides/12_Manejo_bases_de_datos.html)
+   - [ICFES 2015 02](./dbs/20152.xls)

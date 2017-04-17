@@ -1,9 +1,15 @@
+<style type="text/css">
+.small-code pre code {
+   font-size: 1.1em;
+}
+</style>
+
 ggplot2
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: miércoles, 03 de agosto de 2016
-width: 1440
-height: 900
+date: domingo, 16 de abril de 2017
+width: 1500
+height: 1000
 
 ¿Qué es ggplot2? I
 ========================================================
@@ -57,7 +63,7 @@ g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-3](10_Graficacion_II-figure/unnamed-chunk-3-1.png)
+<img src="10_Graficacion_II-figure/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
 
 
 Segunda gráfica
@@ -68,7 +74,7 @@ g1 <- ggplot(mpg, aes(displ, hwy, col = drv))
 g1 + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-4](10_Graficacion_II-figure/unnamed-chunk-4-1.png)
+<img src="10_Graficacion_II-figure/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
 
 Adición de una "geom_"
 ========================================================
@@ -78,7 +84,7 @@ g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point() + geom_smooth()
 ```
 
-![plot of chunk unnamed-chunk-5](10_Graficacion_II-figure/unnamed-chunk-5-1.png)
+<img src="10_Graficacion_II-figure/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
 Histograma
 ========================================================
@@ -88,7 +94,7 @@ g1 <- ggplot(mpg, aes(hwy))
 g1 + geom_histogram()
 ```
 
-![plot of chunk unnamed-chunk-6](10_Graficacion_II-figure/unnamed-chunk-6-1.png)
+<img src="10_Graficacion_II-figure/unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
 
 Histogramas
 ========================================================
@@ -98,7 +104,7 @@ g1 <- ggplot(mpg, aes(hwy, fill = drv))
 g1 + geom_histogram()
 ```
 
-![plot of chunk unnamed-chunk-7](10_Graficacion_II-figure/unnamed-chunk-7-1.png)
+<img src="10_Graficacion_II-figure/unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
 
 Facetas (páneles) I
 ========================================================
@@ -108,7 +114,7 @@ g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point() + facet_grid( . ~ drv)
 ```
 
-![plot of chunk unnamed-chunk-8](10_Graficacion_II-figure/unnamed-chunk-8-1.png)
+<img src="10_Graficacion_II-figure/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
 
 Facetas (páneles) II
 ========================================================
@@ -118,7 +124,7 @@ g1 <- ggplot(mpg, aes(displ, hwy))
 g1 + geom_point() + facet_grid( drv ~ .)
 ```
 
-![plot of chunk unnamed-chunk-9](10_Graficacion_II-figure/unnamed-chunk-9-1.png)
+<img src="10_Graficacion_II-figure/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
 
 Facetas (páneles) III
 ========================================================
@@ -128,7 +134,7 @@ g1 <- ggplot(mpg, aes(hwy))
 g1 + geom_histogram() + facet_grid( drv ~ .)
 ```
 
-![plot of chunk unnamed-chunk-10](10_Graficacion_II-figure/unnamed-chunk-10-1.png)
+<img src="10_Graficacion_II-figure/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
 
 Calidad del aire
 ========================================================
@@ -151,6 +157,8 @@ g1 <- ggplot(airquality, aes(Ozone))
 g1 + geom_histogram()
 ```
 
+<img src="10_Graficacion_II-figure/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
+
 Calidad del aire II
 ========================================================
 
@@ -159,6 +167,8 @@ require(ggplot2)
 g1 <- ggplot(airquality, aes(Ozone, fill = factor(Month)))
 g1 + geom_histogram()
 ```
+
+<img src="10_Graficacion_II-figure/unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" style="display: block; margin: auto;" />
 
 Distribución
 ========================================================
@@ -169,6 +179,8 @@ g1 <- ggplot(airquality, aes(Ozone))
 g1 + geom_density()
 ```
 
+<img src="10_Graficacion_II-figure/unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" style="display: block; margin: auto;" />
+
 Distribuciones
 ========================================================
 
@@ -177,6 +189,8 @@ require(ggplot2)
 g1 <- ggplot(airquality, aes(Ozone, col = factor(Month)))
 g1 + geom_density()
 ```
+
+<img src="10_Graficacion_II-figure/unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" style="display: block; margin: auto;" />
 
 Diagrama de dispersión I
 ========================================================
@@ -187,6 +201,8 @@ g1 <- ggplot(airquality, aes(Day, Ozone))
 g1 + geom_point()
 ```
 
+<img src="10_Graficacion_II-figure/unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" style="display: block; margin: auto;" />
+
 Diagrama de dispersión II
 ========================================================
 
@@ -196,6 +212,8 @@ g1 <- ggplot(airquality, aes(Day, Ozone, shape=factor(Month)))
 g1 + geom_point()
 ```
 
+<img src="10_Graficacion_II-figure/unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" style="display: block; margin: auto;" />
+
 Series de tiempo I
 ========================================================
 
@@ -204,6 +222,8 @@ require(ggplot2)
 g1 <- ggplot(airquality, aes(Day, Ozone, col=factor(Month)))
 g1 + geom_line()
 ```
+
+<img src="10_Graficacion_II-figure/unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" style="display: block; margin: auto;" />
 
 Series de tiempo II
 ========================================================
@@ -215,6 +235,8 @@ g1 <- ggplot(subset(airquality, !is.na(Ozone)),
 g1 + geom_line()
 ```
 
+<img src="10_Graficacion_II-figure/unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" style="display: block; margin: auto;" />
+
 Series de tiempo III
 ========================================================
 
@@ -224,6 +246,8 @@ g1 <- ggplot(subset(airquality, !is.na(Ozone)),
              aes(Day, Ozone))
 g1 + geom_line() + facet_grid(. ~ Month)
 ```
+
+<img src="10_Graficacion_II-figure/unnamed-chunk-20-1.png" title="plot of chunk unnamed-chunk-20" alt="plot of chunk unnamed-chunk-20" style="display: block; margin: auto;" />
 
 Series de tiempo IV
 ========================================================
@@ -235,9 +259,12 @@ g1 <- ggplot(subset(airquality, !is.na(Ozone)),
 g1 + geom_smooth() + facet_grid(. ~ Month) + geom_point()
 ```
 
+<img src="10_Graficacion_II-figure/unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" style="display: block; margin: auto;" />
+
 
 Anotaciones I
 ========================================================
+class: small-code
 
 ```r
 require(ggplot2)
@@ -251,8 +278,11 @@ g1 + geom_smooth() +
      ylab("Ozono (ppmm)")
 ```
 
+<img src="10_Graficacion_II-figure/unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" style="display: block; margin: auto;" />
+
 Anotaciones II
 ========================================================
+class: small-code
 
 ```r
 require(ggplot2)
@@ -267,8 +297,11 @@ g1 + geom_smooth() +
      xlab("Día") + ylab(expression(paste(O[3], "(ppmm)")))
 ```
 
+<img src="10_Graficacion_II-figure/unnamed-chunk-23-1.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" style="display: block; margin: auto;" />
+
 Anotaciones III
 ========================================================
+class: small-code
 
 ```r
 require(ggplot2)
@@ -284,6 +317,8 @@ g1 + geom_smooth() +
      xlab("Día") + ylab(expression(paste(O[3], " (ppmm)")))
 ```
 
+<img src="10_Graficacion_II-figure/unnamed-chunk-24-1.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" style="display: block; margin: auto;" />
+
 Estadísticas I
 ========================================================
 
@@ -293,15 +328,29 @@ g1 +  geom_point() +
   stat_summary(fun.y = mean, geom="line", size = 2)
 ```
 
+<img src="10_Graficacion_II-figure/unnamed-chunk-25-1.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" style="display: block; margin: auto;" />
+
 Estadísticas II
 ========================================================
 
 ```r
 g1 <- ggplot(mpg, aes(hwy))
 g1 + stat_bin(aes(ymax = ..count..), geom = "area")
+```
+
+<img src="10_Graficacion_II-figure/unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" style="display: block; margin: auto;" />
+
+Estadísticas III
+========================================================
+
+```r
+g1 <- ggplot(mpg, aes(hwy))
 g1 + stat_bin(aes(size = ..density..), binwidth = 0.1,
               geom = "point", position = "identity")
 ```
+
+<img src="10_Graficacion_II-figure/unnamed-chunk-27-1.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" style="display: block; margin: auto;" />
+
 
 Referencias
 ========================================================

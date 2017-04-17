@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Funciones</h1><p>Kenneth Cabrera<br/>02 agosto, 2016</p>
+<h1>Funciones</h1><p>Kenneth Cabrera<br/>16 abril, 2017</p>
 
 <div class="slideContent" >
 
@@ -859,7 +859,7 @@ sd(na.rm = FALSE, misdatos)
 args(lm)
 
 x &lt;- rnorm(1000, mean = 50, sd = 10)
-y &lt;- 1 + 5*x + rnorm(1000)
+y &lt;- 1 + 5 * x + rnorm(1000)
 
 misdatos &lt;- data.frame(x,y)
 
@@ -968,7 +968,7 @@ extras se pasen a los métodos. (POO).</li>
 
 <pre><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x21f6580&gt;
+&lt;bytecode: 0x1d14480&gt;
 &lt;environment: namespace:base&gt;
 </code></pre>
 
@@ -1026,10 +1026,10 @@ paste(&quot;a&quot;, &quot;b&quot;, se = &quot;:&quot;)
 <h3>Ejemplo I</h3>
 <div class="slideContent" >
 <pre><code class="r">fmala &lt;- function(x, y) {
- z1 &lt;- 2*x + y
- z2 &lt;- x + 2*y
- z3 &lt;- 2*x + 2*y
- z4 &lt;- x/y
+ z1 &lt;- 2 * x + y
+ z2 &lt;- x + 2 * y
+ z3 &lt;- 2 * x + 2 * y
+ z4 &lt;- x / y
 }
 r1 &lt;- fmala(8, 10)
 r1
@@ -1045,10 +1045,10 @@ r1
 <h3>Ejemplo I (corregido)</h3>
 <div class="slideContent" >
 <pre><code class="r">fcorrecta &lt;- function(x, y) {
- z1 &lt;- 2*x + y
- z2 &lt;- x + 2*y
- z3 &lt;- 2*x + 2*y
- z4 &lt;- x/y
+ z1 &lt;- 2 * x + y
+ z2 &lt;- x + 2 * y
+ z3 &lt;- 2 * x + 2 * y
+ z4 &lt;- x / y
  return(c(z1, z2, z3, z4))
 }
 
@@ -1067,7 +1067,7 @@ r1
 <div class="slideContent" >
 <pre><code class="r">f2 &lt;- function(x, y) {
   z1 &lt;- x + y
-  z2 &lt;- x + 2*y
+  z2 &lt;- x + 2 * y
   list(z1, z2)
 }
 
@@ -1086,8 +1086,8 @@ f2(2, 5)$z1
 <div class="slideContent" >
 <pre><code class="r">f3 &lt;- function(x, y) {
   z1 &lt;- x + y
-  z2 &lt;- x + 2*y
-  list(result1=z1, result2=z2)
+  z2 &lt;- x + 2 * y
+  list(result1 = z1, result2 = z2)
 }
 
 f3(2, 5)
@@ -1117,7 +1117,7 @@ f3(m1, m2)
 <h3>Validación de argumentos</h3>
 <div class="slideContent" >
 <pre><code class="r">f4 &lt;- function(a, b, c, d){
-  stopifnot(a &gt;=0, a &lt;=1, b &gt; 1, c &gt; 0)
+  stopifnot(a &gt;= 0, a &lt;= 1, b &gt; 1, c &gt; 0)
   r1 &lt;- c(qnorm(a), log(b-1), sqrt(c))
   return(r1)
 }
