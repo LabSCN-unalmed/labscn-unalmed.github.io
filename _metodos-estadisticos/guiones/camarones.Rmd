@@ -1,0 +1,492 @@
+---
+title: "Experimento de camarones"
+author: "Kenneth Roy Cabrera Torres"
+date: "18 de abril de 2017"
+output:
+  html_document:
+    highlight: textmate
+    theme: cerulean
+    toc: yes
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=9, 
+                      fig.height=5)
+```
+
+Se llevó a cabo un diseño experimental que consistió en tres réplicas
+para cada una de las 12 combinaciones de tres factores. Los factores
+que se evaluaron fueron Temperatura (25 ºC y 35 ºC), 
+Densidad de población (80 indv/m$^3$ y 160 indv/m$^3$) y salinidad del agua (10%, 25% y 40%).
+Se asignaron 36 acuarios al azar en los 36 experimentos que se realizaron
+en total durante cuatro semanas y se anotaron el aumento de peso en miligramos
+por camarón cosechado.
+
+Fuente: Diseño de experimentos, Robert O. Kuehl, Thomsom Editores 2001. 
+Tabla 6.13 página 201
+
+```{r}
+#------------------------------------------------------------------------------#
+# Funciones auxiliares para hallar el error estándar de los resdiuales
+# de un modelo "aov"
+options(width=120)
+errsdred<-function(modelo){
+  aovm<-anova(modelo)
+  return(sqrt(aovm$"Mean Sq"[length(aovm$"Mean Sq")]))
+}
+
+```
+
+
+## Lectura y adecuación de la base de datos
+```{r}
+camarones<-read.csv2("camarones.csv")
+str(camarones)
+# Convertir a factores las variables consideradas factores
+camarones$Salinidad<-factor(camarones$Salinidad,
+                            labels = c("10%","25%","40%"))
+camarones$Densidad.de.población<-factor(camarones$Densidad.de.población,
+                                        levels=c("80","160"),
+                                        labels = c("80 idv/m3","160 idv/m3"))
+camarones$Temperatura<-factor(camarones$Temperatura, 
+                              labels = c("25 °C","35 °C"))
+str(camarones)
+```
+
+## Análisis exploratorio
+
+```{r}
+with(camarones, mean(Aumento.de.peso))
+with(camarones, sd(Aumento.de.peso))
+
+with(camarones, tapply(Aumento.de.peso, 
+                       list(Salinidad, Densidad.de.población, Temperatura),
+                       mean))
+with(camarones, tapply(Aumento.de.peso, 
+                       list(Salinidad, Densidad.de.población, Temperatura),
+                       sd))
+```
+
+
+```{r}
+require(ggplot2)
+colores <- c("blue","red")
+g1 <- ggplot(camarones, aes(Salinidad, Aumento.de.peso, colour = Temperatura))
+g1  +  geom_point()  + 
+     facet_grid(.  ~  Densidad.de.población)  + 
+     stat_summary(fun.y = mean, geom = "line", aes(group = Temperatura))  + 
+     scale_colour_manual(values = colores)  +  
+     ylab("Aumento de peso (mg)")  + 
+     ggtitle("Crecimiento de camarones") 
+
+g2 <- ggplot(camarones, aes(Salinidad, Aumento.de.peso, colour = Densidad.de.población))
+g2  +  geom_point()  + 
+     facet_grid(.  ~  Temperatura)  + 
+     stat_summary(fun.y = mean, geom = "line", aes(group = Densidad.de.población))  + 
+     scale_colour_manual(values = colores)  +  
+     ylab("Aumento de peso (mg)")  + 
+     ggtitle("Crecimiento de camarones") 
+```
+
+## Modelización
+
+El primer modelo propuesto es:
+
+$$
+y_{ijkl} = \mu  +  \alpha_i  +  \beta_j  +  \gamma_k  + 
+            (\alpha \beta)_{ij}  +  (\alpha \gamma)_{ik}  +  (\beta \gamma)_{jk}  + 
+            (\alpha \beta \gamma)_{ijk}  +  \epsilon_{ijkl}
+$$
+
+Donde:
+$$
+\epsilon_{ijkl} \sim \mathcal{N}(0, \sigma^2) \quad i.i.d.
+$$
+
+
+```{r}
+m1<-aov(Aumento.de.peso ~ Temperatura + Salinidad + Densidad.de.población + 
+                         Salinidad:Densidad.de.población + 
+                         Temperatura:Salinidad + 
+                         Temperatura:Densidad.de.población + 
+                         Temperatura:Salinidad:Densidad.de.población,
+        data=camarones)
+summary(m1)
+
+m2<-aov(Aumento.de.peso ~ Temperatura + Salinidad + Densidad.de.población + 
+              Temperatura:Salinidad + 
+              Temperatura:Densidad.de.población + 
+              Temperatura:Salinidad:Densidad.de.población,
+            data=camarones)
+summary(m2)
+
+m3<-aov(Aumento.de.peso ~ Temperatura + Salinidad + Densidad.de.población + 
+          Temperatura:Salinidad + 
+          Temperatura:Densidad.de.población,
+        data=camarones)
+summary(m3)
+
+m4<-aov(Aumento.de.peso ~ Temperatura + Salinidad + Densidad.de.población + 
+          Temperatura:Salinidad,
+        data=camarones)
+summary(m4)
+```
+
+## Modelo final 
+```{r}
+m4<-aov(Aumento.de.peso ~ Temperatura + Salinidad + Densidad.de.población + 
+          Temperatura:Salinidad,
+        data=camarones)
+summary(m4)
+```
+
+
+
+## Gráficas diagnósticas y verificación de supuestos
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(camarones, aes(Salinidad,rstudent(m4)))
+g1  +  geom_point(col = "blue")  + 
+     geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  + 
+     ylab("Residuales estudentizados")
+
+g1 <- ggplot(camarones, aes(Densidad.de.población,rstudent(m4)))
+g1  +  geom_point(col = "blue")  + 
+     geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  + 
+     ylab("Residuales estudentizados")
+
+g1 <- ggplot(camarones, aes(Temperatura,rstudent(m4)))
+g1  +  geom_point(col = "blue")  + 
+     geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  + 
+     ylab("Residuales estudentizados")
+
+g2 <- ggplot(camarones, aes(Salinidad,rstudent(m4)))
+g2  +  geom_point(col = "blue")  + 
+     geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  + 
+     ylab("Residuales estudentizados")  + 
+     facet_grid(.  ~  Temperatura)
+
+g2 <- ggplot(camarones, aes(Salinidad,rstudent(m4)))
+g2  +  geom_point(col = "blue")  + 
+     geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  + 
+     ylab("Residuales estudentizados")  + 
+     facet_grid(Densidad.de.población  ~  Temperatura)
+
+
+g1 <- ggplot(camarones, aes(predict(m4),rstudent(m4)))
+g1  +  geom_point(col = "blue")  + 
+     geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  + 
+     ylab("Residuales estudentizados")  + 
+     xlab("Valores estimados bajo el modelo")
+```
+
+```{r}
+op <- par(no.readonly = TRUE)
+ par(mfrow = c(2, 2))
+ plot(m4)
+par(op)
+```
+
+
+## Verificación de supuestos
+
+```{r}
+# Normalidad de los residuales
+# Generalmente se hace sobre los residuales puros.
+shapiro.test(residuals(m4))
+# Para verificar si existen influencia de datos atípicos sobre la normalidad
+shapiro.test(rstandard(m4))
+
+# Igualdad de varianzas
+bartlett.test(rstandard(m4)  ~  Salinidad, data=camarones)
+bartlett.test(rstandard(m4)  ~  Temperatura, data=camarones)
+bartlett.test(rstandard(m4)  ~  Densidad.de.población, data=camarones)
+bartlett.test(rstandard(m4)  ~  paste(Salinidad,Temperatura), data=camarones)
+
+# Para verificar si existen influencia de datos atípicos sobre la normalidad
+shapiro.test(rstudent(m4))
+
+# Igualdad de varianzas
+bartlett.test(rstudent(m4)  ~  Salinidad, data = camarones)
+bartlett.test(rstudent(m4)  ~  Temperatura, data = camarones)
+bartlett.test(rstudent(m4)  ~  Densidad.de.población, data = camarones)
+bartlett.test(rstudent(m4)  ~  paste(Salinidad, Temperatura), data = camarones)
+```
+
+```{r}
+# Independencia
+# Prueba de independencia de Durbin-Watson
+require(lmtest)
+dwtest(m4, order.by =  ~  Acuario, data = camarones,
+       alternative="two.sided")
+```
+
+
+## Inferencia del modelo
+
+```{r}
+# Adición de la predicción del modelo a la base de datos
+camarones <- cbind(camarones, predict(m4, interval = "confidence"))
+# Gráficas teniendo en cuenta el modelo final
+require(ggplot2)
+colores <- c("blue", "red")
+g1 <- ggplot(camarones, aes(Salinidad, Aumento.de.peso, colour = Temperatura)) 
+g1  +  geom_point()  + 
+     facet_grid(.  ~  Densidad.de.población)  + 
+     geom_line(aes(Salinidad, fit, group = Temperatura))  + 
+     geom_errorbar(aes(ymax = upr, ymin = lwr), width = 0.25, alpha = 0.2)  + 
+     stat_summary(aes(Salinidad, fit, group = Temperatura), fun.y = mean, 
+                  geom = "point", shape = 17, size = 3)  + 
+     scale_colour_manual(values = colores)  + 
+     ylab("Aumento de peso (mg)")
+
+g1 <- ggplot(camarones, aes(Salinidad, Aumento.de.peso, 
+                            colour = Densidad.de.población)) 
+g1  +  geom_point()  + 
+     facet_grid(.  ~  Temperatura)  + 
+     geom_line(aes(Salinidad, fit, group = Densidad.de.población))  + 
+     geom_errorbar(aes(ymax = upr, ymin = lwr), width = 0.25, alpha = 0.2)  + 
+     stat_summary(aes(Salinidad, fit, group = Densidad.de.población),
+                  fun.y = mean, 
+                  geom = "point", shape = 17, size = 3)  + 
+     scale_colour_manual(values = colores)  + 
+     ylab("Aumento de peso (mg)")
+```
+
+## Inferencia numérica
+
+```{r}
+model.tables(m4, se = TRUE)
+model.tables(m4,type="means", se = TRUE)
+
+# Error de los residuales (Estimación de la varianza del error experimental)
+errsdred(m4)
+
+# Comparaciones pareadas mediante Tukey
+tk<-TukeyHSD(m4)
+# Gráfica de comparaciones pareada de Tukey en la interacción
+op <- par(no.readonly = TRUE) 
+par(mar=op$mar + c(0,6,0,0))
+plot(tk,las=1)
+par(op)
+
+```
+
+## Modelo heterocedástico (mínimos cuadrados ponderados)
+
+Suponiendo que cada combinación tiene su propia varianza:
+
+
+$$
+y_{ijkl} = \mu  +  \alpha_i  +  \beta_j  +  \gamma_k  + 
+            (\alpha \beta)_{ij}  +  (\alpha \gamma)_{ik}  +  (\beta \gamma)_{jk}  + 
+            (\alpha \beta \gamma)_{ijk}  +  \epsilon_{ijkl}
+$$
+
+Donde:
+$$
+\epsilon_{ijkl} \sim \mathcal{N}(0, \sigma_{ijk}^2) \quad i.i.d.
+$$
+
+
+
+```{r}
+library(dplyr)
+camarones <- camarones %>%
+  group_by(Salinidad, Densidad.de.población, Temperatura) %>%
+  mutate(w = 1 / var(Aumento.de.peso))
+```
+
+
+
+```{r}
+m1w <- aov(Aumento.de.peso ~ Temperatura + Salinidad + Densidad.de.población + 
+                         Salinidad:Densidad.de.población + 
+                         Temperatura:Salinidad + 
+                         Temperatura:Densidad.de.población + 
+                         Temperatura:Salinidad:Densidad.de.población,
+        data=camarones, weights = w)
+summary(m1w)
+
+m2w <- aov(Aumento.de.peso ~ Temperatura + Salinidad + Densidad.de.población + 
+                         Salinidad:Densidad.de.población + 
+                         Temperatura:Salinidad +  
+                         Temperatura:Salinidad:Densidad.de.población,
+        data=camarones, weights = w)
+summary(m2w)
+```
+
+
+
+## Diagnósticos del modelo mínimos cuadrados ponderados
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(camarones, aes(Salinidad, rstudent(m2w)))
+g1  +  geom_point(col = "blue")  + 
+     geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  +   
+     ylab("Residuales estudentizados")
+
+g1 <- ggplot(camarones, aes(Densidad.de.población, rstudent(m2w)))
+g1  +  geom_point(col = "blue")  + 
+       geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  + 
+     ylab("Residuales estudentizados")
+
+g1 <- ggplot(camarones, aes(Temperatura, rstudent(m2w)))
+g1  +  geom_point(col = "blue")  + 
+       geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  + 
+     ylab("Residuales estudentizados")
+
+g2 <- ggplot(camarones, aes(Salinidad, rstudent(m2w)))
+g2  +  geom_point(col = "blue")  + 
+       geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  + 
+     ylab("Residuales estudentizados")  + 
+     facet_grid(.  ~  Temperatura)
+
+g2 <- ggplot(camarones, aes(Salinidad, rstudent(m2w)))
+g2  +  geom_point(col = "blue")  + 
+       geom_abline(intercept = c(-2, 2), slope = c(0, 0),
+                 col = "blue", linetype = "dashed")  + 
+     ylab("Residuales estudentizados")  + 
+     facet_grid(Densidad.de.población  ~  Temperatura)
+
+
+g1 <- ggplot(camarones, aes(predict(m2w), rstudent(m2w)))
+g1  +  geom_point(col = "blue")  + 
+     ylab("Residuales estudentizados")  + 
+     xlab("Valores estimados bajo el modelo")
+```
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(camarones, aes(Salinidad, residuals(m2w)))
+g1  +  geom_point(col = "blue")  + 
+     ylab("Residuales")
+
+g1 <- ggplot(camarones, aes(Densidad.de.población, residuals(m2w)))
+g1  +  geom_point(col = "blue")  + 
+     ylab("Residuales")
+
+g1 <- ggplot(camarones, aes(Temperatura, residuals(m2w)))
+g1  +  geom_point(col = "blue")  + 
+     ylab("Residuales")
+
+g2 <- ggplot(camarones, aes(Salinidad, residuals(m2w)))
+g2  +  geom_point(col = "blue")  + 
+     ylab("Residuales")  + 
+     facet_grid(.  ~  Temperatura)
+
+g2 <- ggplot(camarones, aes(Salinidad, residuals(m2w)))
+g2  +  geom_point(col = "blue")  + 
+     ylab("Residuales")  + 
+     facet_grid(Densidad.de.población  ~  Temperatura)
+
+
+g1 <- ggplot(camarones, aes(predict(m2w), residuals(m2w)))
+g1  +  geom_point(col = "blue")  + 
+     ylab("Residuales")  + 
+     xlab("Valores estimados bajo el modelo")
+```
+
+```{r}
+op <- par(no.readonly = TRUE)
+ par(mfrow = c(2, 2))
+ plot(m2w)
+par(op)
+```
+
+```{r}
+# Normalidad de los residuales
+# Generalmente se hace sobre los residuales puros.
+shapiro.test(residuals(m2w))
+# Sobre los resuduales estandarizados (no se aplica porque está suponiendo igual varianza)
+shapiro.test(rstandard(m2w))
+
+# Igualdad de varianzas
+bartlett.test(rstandard(m2w)  ~  Salinidad, data=camarones)
+bartlett.test(rstandard(m2w)  ~  Temperatura, data=camarones)
+bartlett.test(rstandard(m2w)  ~  Densidad.de.población, data=camarones)
+bartlett.test(rstandard(m2w)  ~  paste(Salinidad,Temperatura), data=camarones)
+
+# Para verificar si existen influencia de datos atípicos sobre la normalidad
+shapiro.test(rstudent(m2w))
+
+# Igualdad de varianzas
+bartlett.test(rstudent(m2w)  ~  Salinidad, data = camarones)
+bartlett.test(rstudent(m2w)  ~  Temperatura, data = camarones)
+bartlett.test(rstudent(m2w)  ~  Densidad.de.población, data = camarones)
+bartlett.test(rstudent(m2w)  ~  paste(Salinidad, Temperatura), data = camarones)
+```
+
+
+```{r}
+# Comparaciones pareadas mediante Tukey
+tk <- TukeyHSD(m2w)
+# Gráfica de comparaciones pareada de Tukey en la interacción
+op <- par(no.readonly = TRUE) 
+par(mar=op$mar + c(0,6,0,0))
+plot(tk,las=1)
+par(op)
+```
+```{r, fig.height=11}
+tk <- TukeyHSD(m2w, "Temperatura:Salinidad:Densidad.de.población")
+op <- par(no.readonly = TRUE) 
+par(mar=op$mar + c(0,15,0,0))
+plot(tk, las = 1)
+par(op)
+```
+
+
+## Inferencia del modelo
+
+```{r}
+# Adición de la predicción del modelo a la base de datos
+camarones <- data.frame(camarones[, 1:5], predict(m2w, interval = "confidence"))
+# Gráficas teniendo en cuenta el modelo final
+require(ggplot2)
+colores <- c("blue", "red")
+g1 <- ggplot(camarones, aes(Salinidad, Aumento.de.peso, colour = Temperatura)) 
+g1  +  geom_point()  + 
+     facet_grid(.  ~  Densidad.de.población)  + 
+     geom_line(aes(Salinidad, fit, group = Temperatura))  + 
+     geom_errorbar(aes(ymax = upr, ymin = lwr), width = 0.25, alpha = 0.2)  + 
+     stat_summary(aes(Salinidad, fit, group = Temperatura), fun.y = mean, 
+                  geom = "point", shape = 17, size = 3)  + 
+     scale_colour_manual(values = colores)  + 
+     ylab("Aumento de peso (mg)")
+
+g1 <- ggplot(camarones, aes(Salinidad, Aumento.de.peso, 
+                            colour = Densidad.de.población)) 
+g1  +  geom_point()  + 
+     facet_grid(.  ~  Temperatura)  + 
+     geom_line(aes(Salinidad, fit, group = Densidad.de.población))  + 
+     geom_errorbar(aes(ymax = upr, ymin = lwr), width = 0.25, alpha = 0.2)  + 
+     stat_summary(aes(Salinidad, fit, group = Densidad.de.población),
+                  fun.y = mean, 
+                  geom = "point", shape = 17, size = 3)  + 
+     scale_colour_manual(values = colores)  + 
+     ylab("Aumento de peso (mg)")
+```
+
+```{r}
+library(dplyr)
+camarones$residuales <- residuals(m2w)
+camRes <- camarones %>%
+          group_by(Salinidad, Densidad.de.población, Temperatura) %>%
+          summarise(sdRes = sd(residuales))
+camRes
+camRes %>% arrange(sdRes)
+```
+
+
