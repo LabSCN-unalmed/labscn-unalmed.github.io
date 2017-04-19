@@ -47,3 +47,5 @@ order: 01
 ## Estimación de tamaño de muestra (resultados simulación)
 
 - [Tamaños muestrales](./guiones/TamMuestra.html)
+
+## Ejemplo de elevación
