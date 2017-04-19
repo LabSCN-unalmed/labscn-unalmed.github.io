@@ -74,5 +74,7 @@ order: 01
 
 - [Tamaños muestrales](./guiones/TamMuestra.html)
 
-
 ## Ejemplo de elevación
+
+- [Base de datos de elevación](./datos/elevacion2.txt)
+- [Modelación de datos de elevación](./guiones/elevacion.html)
