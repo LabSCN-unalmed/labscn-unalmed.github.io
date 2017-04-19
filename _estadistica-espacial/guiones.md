@@ -11,11 +11,27 @@ order: 01
  - [Base de datos en formato .csv](./datos/datos_taller.csv)
  - [Exploratorio inicial](./guiones/explora1.html)
 
+
 ## Trabajo con datos de "science journal app"
 
-- [Base de datos luz](./datos/luz.csv)
-- [Base de datos ruido](./datos/ruido.csv)
-- [Uso de datos de Science Journal App](./guiones/datos_sci_jour.html)
+
+ - [Modelo Matérn](./guiones/modeloMatérn.html)
+
+## Simulaciones de campos aleatorios exponencial y gaussiano
+
+ - [Simulaciones](./guiones/simulaciones_exp_gauss.html)
+
+## Campos aleatorios reales
+
+ - [Semivariograma empírico de campos aleatorios reales](./guiones/campos_aleatorios_reales.html)
+
+## Construcción de semivariogramas empíricos
+
+ - [Semivariogramas empíricos](./guiones/elevacion2.html)
+ - [Datos de elevación](./guiones/elevacion2.txt)
+ - [Base de datos luz](./datos/luz.csv)
+ - [Base de datos ruido](./datos/ruido.csv)
+ - [Uso de datos de Science Journal App](./guiones/datos_sci_jour.html)
 
 ## Análisis exploratorio de datos de porosidad
 
@@ -25,7 +41,17 @@ order: 01
 
 ## Simulación de campos aleatorios
 
-- [Simulación de modelos exponencial y gaussiano](./guiones/simulaciones_exp_gauss.html)
+
+ - [Simulación de modelos exponencial y gaussiano](./guiones/simulaciones_exp_gauss.html)
+ - [Semivariogramas empíricos](./guiones/simulacionCamposAleatorios.html)
+
+## Estimación y predicción de modelos geoestadísticos
+
+ - [Estimación y predicción](./guiones/elevacion3.html)
+
+## Patrones de puntos
+
+ - [Modelización para patrones de puntos](./guiones/patrones_de_puntos.html)
 
 ## Modelo Matérn
 
@@ -47,5 +73,6 @@ order: 01
 ## Estimación de tamaño de muestra (resultados simulación)
 
 - [Tamaños muestrales](./guiones/TamMuestra.html)
+
 
 ## Ejemplo de elevación
