@@ -1,7 +1,7 @@
 Funciones
 ========================================================
 author: Kenneth Cabrera
-date: 02 agosto, 2016
+date: 16 abril, 2017
 width: 1440
 height: 900
 
@@ -63,7 +63,7 @@ formals(lm)
 args(lm)
 
 x <- rnorm(1000, mean = 50, sd = 10)
-y <- 1 + 5*x + rnorm(1000)
+y <- 1 + 5 * x + rnorm(1000)
 
 misdatos <- data.frame(x,y)
 
@@ -157,7 +157,7 @@ mean
 ```
 function (x, ...) 
 UseMethod("mean")
-<bytecode: 0x21f6580>
+<bytecode: 0x1d14480>
 <environment: namespace:base>
 ```
 
@@ -215,10 +215,10 @@ Ejemplo I
 
 ```r
 fmala <- function(x, y) {
- z1 <- 2*x + y
- z2 <- x + 2*y
- z3 <- 2*x + 2*y
- z4 <- x/y
+ z1 <- 2 * x + y
+ z2 <- x + 2 * y
+ z3 <- 2 * x + 2 * y
+ z4 <- x / y
 }
 r1 <- fmala(8, 10)
 r1
@@ -233,10 +233,10 @@ Ejemplo I (corregido)
 
 ```r
 fcorrecta <- function(x, y) {
- z1 <- 2*x + y
- z2 <- x + 2*y
- z3 <- 2*x + 2*y
- z4 <- x/y
+ z1 <- 2 * x + y
+ z2 <- x + 2 * y
+ z3 <- 2 * x + 2 * y
+ z4 <- x / y
  return(c(z1, z2, z3, z4))
 }
 
@@ -254,7 +254,7 @@ Ejemplo II
 ```r
 f2 <- function(x, y) {
   z1 <- x + y
-  z2 <- x + 2*y
+  z2 <- x + 2 * y
   list(z1, z2)
 }
 
@@ -271,8 +271,8 @@ Ejemplo III
 ```r
 f3 <- function(x, y) {
   z1 <- x + y
-  z2 <- x + 2*y
-  list(result1=z1, result2=z2)
+  z2 <- x + 2 * y
+  list(result1 = z1, result2 = z2)
 }
 
 f3(2, 5)
@@ -298,7 +298,7 @@ Validación de argumentos
 
 ```r
 f4 <- function(a, b, c, d){
-  stopifnot(a >=0, a <=1, b > 1, c > 0)
+  stopifnot(a >= 0, a <= 1, b > 1, c > 0)
   r1 <- c(qnorm(a), log(b-1), sqrt(c))
   return(r1)
 }

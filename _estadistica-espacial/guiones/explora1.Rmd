@@ -1,0 +1,119 @@
+---
+title: "Análisis exploratorio inicial"
+author: "Kenneth Roy Cabrera Torres"
+date: "17 de febrero de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+datos <- read.csv2("datos_taller.csv")
+
+# Seleccionar solo los datos consignados
+datos <- droplevels(subset(datos, !is.na(x)))
+
+datos
+```
+
+## Mapa inicial
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(datos, aes(x,y))
+g1 + geom_point()
+```
+
+## Mapa con coordenadas GPS
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(datos, aes(longitud,latitud))
+g1 + geom_point()
+```
+
+## Relación de la longitud con el eje x
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(datos, aes(x, longitud))
+g1 + geom_point() +
+     geom_smooth(method = "lm")
+ 
+```
+
+## Relación de latitud con el eje y
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(datos, aes(y, latitud))
+g1 + geom_point() +
+     geom_smooth(method = "lm")
+```
+
+## Distribución espacial de la variable s_wifi
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(datos, aes(x, y, col = s_wifi, size = s_wifi))
+g1 + geom_point() 
+
+g1 <- ggplot(datos, aes(x, y, col = s_wifi, size = s_wifi))
+g1 + geom_point() +
+    scale_colour_gradientn(colours = heat.colors(10))
+
+g1 <- ggplot(datos, aes(x, y, col = s_wifi, size = s_wifi))
+g1 + geom_point() +
+    scale_colour_gradientn(colours = rev(heat.colors(10)))
+
+colores1 <- colorRampPalette(c("red","yellow","springgreen","royalblue"))
+
+g1 <- ggplot(datos, aes(x, y, col = s_wifi, size = s_wifi))
+g1 + geom_point() +
+    scale_colour_gradientn(colours = rev(colores1(10)))
+
+
+```
+
+```{r}
+
+```
+
+
+## Análisis exploratorio de los datos espaciales
+
+```{r}
+library(geoR)
+gdatos <- as.geodata(subset(datos, select = c("x", "y", "s_wifi"),
+                            !is.na(s_wifi)))
+summary(gdatos)
+```
+
+```{r}
+library(geoR)
+plot(gdatos)
+```
+
+
+## Relación de la señal de celular con el operarador
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(datos, aes(operador, s_cel))
+g1 + geom_jitter(width = 0.2) 
+```
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(datos, aes(operador, s_cel))
+g1 + geom_jitter(width = 0.2, height = 0) +
+  stat_summary(fun.y = "mean", colour = "red", size = 2, geom = "point")
+```
+
+

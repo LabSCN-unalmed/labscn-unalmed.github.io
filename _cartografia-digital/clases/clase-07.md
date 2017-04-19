@@ -9,7 +9,7 @@ Un parámetro importante en la descripción cuantitativa del relieve es la pendi
 
 La pendiente y otros parámetros útiles se pueden calcular empleando el comando `r.param.scale` (Extrae parámetros del terreno a partir de un DEM).
 
-Parámetros que se pueden calcular con el comando r.param.scale
+Parámetros que se pueden calcular con el comando `r.param.scale` {#parametros-pueden-calcular-comando-rparamscale}
 --------------------------------------------------------------
 
 **elev**: Las elevaciones vienen con el mapa DEM, este parámetro se utiliza para repetir el muestreo a diferente escala.
@@ -61,7 +61,7 @@ Para Wood, J.D. (1996); las curvaturas del perfil (profc) y la curvatura horizon
 
 ![Los 6 tipos de características morfométricas](/cartografia-digital/images/morphometric.png){: .img-responsive}
 
-Elaboración de un mapa de pendientes
+Elaboración de un mapa de pendientes {#elaboracion-mapa-pendientes}
 ------------------------------------
 
 #### Conceptos importantes:
@@ -81,7 +81,7 @@ La pendiente es la variación de la altitud con respecto a la distancia.
   - ¿Existe alguna relación?
   - ¿Se trata de una relación directa o de una relación indirecta?
 
-### ¿Cómo elaborar el mapa de pendientes de una región con significados importantes respecto a la dinámica e intervención del relieve?
+### ¿Cómo elaborar el mapa de pendientes de una región con significados importantes respecto a la dinámica e intervención del relieve? {#como-elaborar-mapa-pendientes-region-significados-importantes-respecto-dinamica-intervencion-relieve}
 
 Se trata de seleccionar unos rangos de pendiente que guarden relación con fenómenos naturales, fenómenos inducidos por la intervención o con ciertos factores limitantes o favorables a una intervención antrópica pertinente técnica y ambientalmente.
 
@@ -118,7 +118,7 @@ Procedimiento en GRASS para elaborar el mapa de pendientes
 Construir el mapa de pendientes.
 
 ~~~
-r.param.scale input=porcecito1 output=porce1_slope3 param=slope
+r.param.scale input=porcecito1 output=porce1_slope3 method=slope
 ~~~
 
 Empleamos el kernel por omisión que utiliza el comando (3 x 3). Este hecho lo consignamos en el nombre del mapa construido.
@@ -146,7 +146,7 @@ r.univar map=porce1_slope3
 
 ### Construir el histograma de las gradientes del mapa porcecito
 
-Utilizar la herramienta de histograma ![Herramienta de histograma](./images/clase-02/layer-raster-histogram.png) del visualizador de mapas para ver un histograma continuo de los valores:
+Utilizar la herramienta de histograma ![Herramienta de histograma](/cartografia-digital/images/clase-02/layer-raster-histogram.png) del visualizador de mapas para ver un histograma continuo de los valores:
 
 ![Histograma del mapa de pendientes](/cartografia-digital/images/porce1_slope3_hist1.png){: .img-responsive}
 
@@ -267,7 +267,7 @@ r.colors map=porce1_slope3_reclass rules=TC_porce1_slope3
 
 ![3D](/cartografia-digital/images/TC_porce1_slope3_3D.png){: .img-responsive}
 
-### Consultar la información que contiene el mapa reclasificado de la pendiente
+### Consultar la información que contiene el mapa reclasificado de la pendiente {#consultar-informacion-contiene-mapa-reclasificado-pendiente}
 
 Con este comando obtenemos la información de las tres categorías de pendientes en porcentaje `p`, N° de píxeles `c` y en área en km<sup>2</sup> `k`.
 
@@ -288,7 +288,7 @@ r.report -hn map=porce1_slope3_reclass units=p,c,k
 3. ¿Qué diferencias importantes observa entre los dos mapas cuando lo observa en 2D y en 3D?
 4. Realice una amplación de ambos mapas para observar con mas detalle algunos sectores de los mapas y facilitar el análisis comparativo.
 
-Clasificación de las vertientes según su curvatura
+Clasificación de las vertientes según su curvatura {#clasificacion-vertientes-segun-curvatura}
 --------------------------------------------------
 
 ![Fotografía de vertientes con diversas curvaturas](/cartografia-digital/images/fotovert.png){: .img-responsive}
@@ -333,12 +333,12 @@ De acuerdo con la clasificación de Ruhe (1975) se puede inferir fácilmente:
   - La estabilidad de las vertientes.
   - La evolución de los perfiles de meteorización de las rocas.
 
-### Cálculo de la curvatura vertical
+### Cálculo de la curvatura vertical {#calculo-curvatura-vertical}
 
 Utilizamos el parámetro `profc` del comando `r.param.scale`.
 
 ~~~
-r.param.scale input=porcecito1 output=porce1_profc7 size=7 param=profc
+r.param.scale input=porcecito1 output=porce1_profc7 size=7 method=profc
 ~~~
 
 Recordemos el significado de los valores positivos (curvatura convexa) y negativos (curvatura cóncava) para la curvatura vertical de acuerdo a lo definido para este parámetro al inicio de la clase:
@@ -390,7 +390,7 @@ median (even number of cells): -0.000179785
 De acuerdo con los datos obtenidos, observamos que los valores de curvatura son extremadamente bajos, de tal modo que el valor promedio (`mean`) es del órden de una diezmilésima. Para poder reclasificar este mapa, necesitamos que los valores de curvatura sean del órden de decenas a centenas, puesto que al especificar los rangos de reclasificación sólo se pueden utilizar valores enteros. Por lo tanto, multiplicamos todo el mapa por 100.000.
 
 ~~~
-r.mapcalc 'porce1_profc7 = porce1_profc7 * 100000'
+r.mapcalc "porce1_profc7 = porce1_profc7 * 100000"
 ~~~
 
 Y volvemos a calcular los estadísticos para definir las reglas de reclasificación.
@@ -498,12 +498,12 @@ El mapa reclasificado obtenido es el siguiente:
 
 El mapa de la curvatura vertical muestra claramente la diferencia entre concavidades pertenecientes a valles y convexidades perteneciente a divisorias de agua ubicadas en cimas de colinas.
 
-### Cálculo de la curvatura horizontal
+### Cálculo de la curvatura horizontal {#calculo-curvatura-horizontal}
 
 Utilizamos el parámetro `planc` del comando `r.param.scale`.
 
 ~~~
-r.param.scale input=porcecito1 output=porce1_planc7 size=7 param=planc
+r.param.scale input=porcecito1 output=porce1_planc7 size=7 method=planc
 ~~~
 
 Recordemos el significado de los valores positivos (curvatura cóncava) y negativos (curvatura convexa) para la curvatura horizontal de acuerdo a lo definido para este parámetro al inicio de la clase:
@@ -554,7 +554,7 @@ median (even number of cells): -0.000155282
 Multiplicamos por 100.000 porque el valor promedio (`mean`) es muy cercano a cero.
 
 ~~~
-r.mapcalc 'porce1_planc7 = porce1_planc7 * 100000'
+r.mapcalc "porce1_planc7 = porce1_planc7 * 100000"
 ~~~
 
 Y calculamos nuevamente los estadísticos para definir las reglas de reclasificación utilizando los mismos pesos.
@@ -630,7 +630,7 @@ Observar que haciendo zoom en sectores del mapa se pueden observar rasgos espec�
 
 Desplegamos primero todo el mapa y luego una parte para observar con mas detalle.
 
-### Combinación de los mapas de curvaturas vertical y horizontal
+### Combinación de los mapas de curvaturas vertical y horizontal {#combinacion-mapas-curvaturas-vertical-horizontal}
 
 El mapa reclasificado de curvatura vertical (perfil) tiene 3 valores:
 
@@ -696,7 +696,7 @@ En este segundo caso cada combinación quedará con un valor diferente:
 Para combinar los mapas empleando el álgebra de mapas, utilizamos el comando `r.mapcalc`:
 
 ~~~
-r.mapcalc 'porce1_tipo_vert = porce1_profc7_reclass + porce1_planc7_reclass * 3'
+r.mapcalc "porce1_tipo_vert = porce1_profc7_reclass + porce1_planc7_reclass * 3"
 ~~~
 
 Visualizar la distribución de los tipos de vertientes en el mapa `porce1_tipo_vert`:
@@ -731,21 +731,21 @@ Para asignarle etiquetas a las categorías del nuevo mapa, primero debemos crear
 `CAT_porce1_tipo_vert`
 
 ~~~
--4:VX
--3:RX
--2:XX
--1:VR
-0:RR
-1:XR
-2:VV
-3:RV
-4:XV
+-4|VX
+-3|RX
+-2|XX
+-1|VR
+0|RR
+1|XR
+2|VV
+3|RV
+4|XV
 ~~~
 
 Y lo aplicamos utilizando el comando `r.category`.
 
 ~~~
-r.category map=porce1_tipo_vert rules=CAT_porce1_tipo_vert
+r.category map=porce1_tipo_vert rules=CAT_porce1_tipo_vert separator=pipe
 ~~~
 
 Consultamos la distribución nuevamente:

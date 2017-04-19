@@ -14,7 +14,8 @@ order: 0
 ## Políticas del curso
   - Los trabajos y talleres se enviarán al correo **krcabrer@unal.edu.co** con
     la sigla **[ModuloR]**.
-  - Los documentos serán enviados en formato **.pdf** o en formato **.html**,
+  - Los documentos serán enviados en formato  **.html** (con los resultados), con su
+    correspondiente archivo **.Rmd** con el código correspondiente,
     de acuerdo a como se indique en el enunciado del ejercicio.
   - Las bases de datos serán enviadas en formato **.csv**, a menos que se indique
     lo contrario.
@@ -27,6 +28,6 @@ order: 0
    Lunes 10 am - 12 m. Laboratorio de Sistemas Complejos Naturales. 21-215.    
 
 ## Evaluación.
-  - Talleres inividuales o en grupo cortos 20% del módulo.
-  - Trabajos individuales o en grupo 30% del módulo.
-  - Trabajo final corresponde al 50% del módulo.  
+  - Taller o talleres individuales o en grupo cortos 15% del módulo.
+  - Trabajo o trabajos individuales o en grupo 25% del módulo.
+  - Trabajo final corresponde al 60% del módulo.  

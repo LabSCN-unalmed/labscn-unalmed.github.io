@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Herramientas de programación</h1><p>Kenneth Roy Cabrera Torres<br/>miércoles, 03 de agosto de 2016</p>
+<h1>Herramientas de programación</h1><p>Kenneth Roy Cabrera Torres<br/>domingo, 16 de abril de 2017</p>
 
 <div class="slideContent" >
 
@@ -831,9 +831,9 @@ split(x, f)
 <pre><code class="r">library(datasets)
 head(airquality)
 s &lt;- split(airquality, airquality$Month)
-lapply(s, function(x) colMeans(x[,c(&quot;Ozone&quot;, &quot;Solar.R&quot;, &quot;Wind&quot;)]))
-sapply(s, function(x) colMeans(x[,c(&quot;Ozone&quot;, &quot;Solar.R&quot;, &quot;Wind&quot;)]))
-sapply(s, function(x) colMeans(x[,c(&quot;Ozone&quot;, &quot;Solar.R&quot;, &quot;Wind&quot;)], na.rm = T))
+lapply(s, function(x) colMeans(x[, c(&quot;Ozone&quot;, &quot;Solar.R&quot;, &quot;Wind&quot;)]))
+sapply(s, function(x) colMeans(x[, c(&quot;Ozone&quot;, &quot;Solar.R&quot;, &quot;Wind&quot;)]))
+sapply(s, function(x) colMeans(x[, c(&quot;Ozone&quot;, &quot;Solar.R&quot;, &quot;Wind&quot;)], na.rm = T))
 </code></pre>
 
 </div>
@@ -863,6 +863,8 @@ str(split(x, list(f1, f2), drop = TRUE))
 <li>Escriba su código con sangrías (&ldquo;indentación&rdquo;).</li>
 <li>Limite el ancho de su código (80 columnas).</li>
 <li>Limite la longitud de las funciones individuales.</li>
+<li><a href="https://google.github.io/styleguide/Rguide.xml">Reglas según Google</a></li>
+<li><a href="https://rpubs.com/fhernanb/RstyleGUIDE">Reglas resumidas por el semillero de R</a></li>
 </ul>
 
 </div>
@@ -1043,7 +1045,7 @@ x3 - x2
 <section data-transition="linear" data-transition-speed="default">
 <h3>Depuración de código</h3>
 <div class="slideContent" >
-<p>Cuando alga salga mal, pregúntese:</p>
+<p>Cuando algo salga mal, pregúntese:</p>
 
 <ul>
 <li>¿Cuál fue la entrada? ¿Cómo se llamó a la función?</li>

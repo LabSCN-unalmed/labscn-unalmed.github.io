@@ -1,0 +1,126 @@
+---
+title: "Lectura de bases de datos de Science Journal"
+author: "Kenneth Roy Cabrera Torres"
+date: "9 de marzo de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+X <- read.csv("coordenadaX.csv")
+X$fecha <- as.POSIXct(X$timestamp/1000, origin = "1970-01-01")
+
+Y <- read.csv("coordenadaY.csv")
+Y$fecha <- as.POSIXct(Y$timestamp/1000, origin = "1970-01-01")
+
+Z <- read.csv("coordenadaZ.csv")
+Z$fecha <- as.POSIXct(Z$timestamp/1000, origin = "1970-01-01")
+
+```
+
+
+```{r}
+options(digits = 12)
+summary(X)
+summary(Y)
+summary(Z)
+```
+
+## Gráfico del eje X
+
+```{r}
+library(ggplot2)
+gx <- ggplot(X, aes(fecha, value))
+gx + geom_line() + geom_point()
+```
+
+## Gráfico del eje Y
+
+```{r}
+library(ggplot2)
+gy <- ggplot(Y, aes(fecha, value))
+gy + geom_line() + geom_point()
+```
+
+## Gráfico del eje Z
+
+```{r}
+library(ggplot2)
+gy <- ggplot(Z, aes(fecha, value))
+gy + geom_line() + geom_point()
+```
+
+## Unificar bases de datos por filas
+
+```{r}
+X$eje <- "X"
+X$eje <- factor(X$eje)
+Y$eje <- "Y"
+Y$eje <- factor(Y$eje)
+Z$eje <- "Z"
+Z$eje <- factor(Z$eje)
+
+total <- rbind(X, Y, Z)
+```
+
+
+## Graficar los tres ejes
+
+```{r}
+library(ggplot2)
+gT <- ggplot(total, aes(fecha, value, col = eje))
+gT + geom_line() + geom_point()
+```
+
+## Unificar base de datos por columna
+
+```{r}
+library(dplyr)
+X1 <- X %>% select(timestamp, value) 
+X1 <- X1 %>% rename(valueX = value)
+
+X1 <- X %>% 
+      select(timestamp, value) %>% 
+      rename(valueX = value)
+
+Y1 <- Y %>% 
+      select(timestamp, value) %>% 
+      rename(valueY = value)
+
+Z1 <- Z %>% 
+      select(timestamp, value) %>% 
+      rename(valueZ = value)
+
+XY <- full_join(X1, Y1)
+XYZ <- full_join(XY, Z1)
+
+head(XYZ)
+
+    
+```
+
+## Calcular aceleración total
+
+```{r}
+library(dplyr)
+XYZ <- XYZ %>% 
+       mutate(valueT = sqrt(valueX ^ 2 + valueY ^ 2 + valueZ ^ 2))
+XYZ <- XYZ %>%
+       mutate(fecha = as.POSIXct(timestamp/1000, origin = "1970-01-01"))
+XYZ <- XYZ %>%
+       filter(!is.na(valueT))
+```
+
+## Gráfica de la aceleración total
+
+```{r}
+library(ggplot2)
+gt <- ggplot(XYZ, aes(fecha, valueT))
+gt + geom_point() + geom_line()
+```
+

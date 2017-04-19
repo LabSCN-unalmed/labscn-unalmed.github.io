@@ -6,62 +6,28 @@ order: 03
 custom_js: 'mathjax'
 ---
 
-## Ejemplo de introducción a R
+## Brillo en papel
 
-- [Ejemplo 1](/metodos-estadisticos/guiones/bacterias.html){:target="_blank"}
-- [Base de datos (excel)](/metodos-estadisticos/guiones/Bacterias_en_carne.xlsx){:target="_blank"}
-- [Base de datos (csv)](/metodos-estadisticos/guiones/Bacterias_en_carne.csv){:target="_blank"}
+- [Brillo en papel](/metodos-estadisticos/guiones/brillo_papel.html)
+- [Base de datos (excel)](/metodos-estadisticos/guiones/brillo_papel.xlsx)
+- [Base de datos (csv)](/metodos-estadisticos/guiones/brillo_papel.csv)
 
-## Diseños de una sola vía completamente aleatorizado
+## Modelo de una sola vía completamente aleatorizado.
 
-- [Ejemplo 2](./guiones/bacterias2.html){:target="_blank"}
+- [Efecto del desempeño en relación a las horas suprimidas de sueño](./guiones/Ejemplo.html)
+- [Base de datos (excel)](./guiones/Ejemplo1.xlsx)
 
-## Diseños de una sola vía completamente aleatorizado (Inferencia)
+## Modelo de bloques completos, completamente aleatorizado.
 
-- [Ejemplo 3](./guiones/bacterias3.html){:target="_blank"}
+- [Efecto de fertilizantes](./guiones/dise_bl_com_aleat.html)
+- [Base de datos](./guiones/fertilidad.xlsx)
 
-## Diseños de una sola vía con dos bloques completos completamente aleatorizado
+## Modelo multifactorial de dos vías
 
-- [Base de datos (excel)](/metodos-estadisticos/guiones/formulasParaNiños.xlsx){:target="_blank"}
-- [Ejemplo 4](./guiones/formulasParaNiños.html){:target="_blank"}
+- [Vitamina C en jugo de naranja](./guiones/naranja.html)
+- [Base de datos](./guiones/naranja.xlsx)
 
-## Diseños de dos factores completos, completamentamente aleatorizados.
+## Modelo multifactorial de tres vías (heterocedástico)
 
-- [Base de datos (excel)](./guiones/menus.xlsx){:target="_blank"}
-- [Ejemplo 5](./guiones/diseño_factorial.html){:target="_blank"}
-
-## Diseños de tres factores completos, completamentamente aleatorizados.
-
-- [Base de datos (excel)](./guiones/camarones.xlsx){:target="_blank"}
-- [Ejemplo 6](./guiones/camarones.html){:target="_blank"}
-- [Ejemplo 7 (Heterocedasticidad)](./guiones/camarones2.html){:target="_blank"}
-
-## Diseños 2^k
-
-- [Base de datos (excel)](./guiones/conversion.xlsx){:target="_blank"}
-- [Ejemplo 8](./guiones/conversion.html){:target="_blank"}
-
-## Diseño 2^k fraccionado
-- [Base de datos (excel) Etapa1](./guiones/tasaFiltracion.xlsx){:target="_blank"}
-- [Base de datos (excel) Etapa2](./guiones/tasaFiltracion2.xlsx){:target="_blank"}
-- [Ejemplo 9](./guiones/tasaFiltracion.html){:target="_blank"}
-
-## Diseño de dos factores y un bloque
-- [Base de datos (excel)](./guiones/factorial_bloque.xlsx){:target="_blank"}
-- [Ejemplo 10](./guiones/factorial_bloque.html){:target="_blank"}
-
-## Diseño con medidas repetidas en el tiempo.
-- [Base de datos (excel)](./guiones/flebitis.xlsx){:target="_blank"}
-- [Ejemplo 11](./guiones/analisisFlebitis.html){:target="_blank"}
-
-## Diseño con superficie de respuesta I
-- [Base de datos (excel)](./guiones/reaccionQuimica.xlsx){:target="_blank"}
-- [Ejemplo 12](./guiones/superficieRtaI.html){:target="_blank"}
-
-## Diseño de mezclas
-
-- [Base de datos incial](./guiones/mezcla1.xlsx){:target="_blank"}
-- [Base de datos para predecir](./guiones/mezcla1p.xlsx){:target="_blank"}
-- [Ejemplo 13](./guiones/mezcla.html){:target="_blank"}
-
-
+- [Cultivo de camarones](./guiones/camarones.html)
+- [Base de datos de camarones](./guiones/camarones.xlsx)

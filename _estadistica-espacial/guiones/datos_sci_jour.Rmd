@@ -1,0 +1,88 @@
+---
+title: "Datos de Science Journal"
+author: "Kenneth Roy Cabrera Torres"
+date: "17 de febrero de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+luz <- read.csv("luz.csv")
+luz$fecha <- as.POSIXct(luz$timestamp/1000, origin = "1970-01-01")
+
+ruido <- read.csv("ruido.csv")
+ruido$fecha <- as.POSIXct(ruido$timestamp/1000, origin = "1970-01-01")
+
+```
+
+## Resumen de las bases de datos
+
+```{r}
+dim(luz)
+summary(luz)
+
+dim(ruido)
+summary(ruido)
+```
+
+## Resumir las bases de datos a una fecha común
+
+```{r}
+library(dplyr)
+luz$fecha2 <-format(luz$fecha, "%d/%m/%Y %H:%M:%S")
+luz2 <- luz %>%
+        group_by(fecha2) %>%
+        summarise(luz = mean(value)) %>%
+        mutate(fecha = as.POSIXct(strptime(fecha2, "%d/%m/%Y %H:%M:%S")))
+
+
+library(dplyr)
+ruido$fecha2 <-format(ruido$fecha, "%d/%m/%Y %H:%M:%S")
+ruido2 <- ruido %>%
+        group_by(fecha2) %>%
+        summarise(ruido = mean(value)) %>%
+        mutate(fecha = as.POSIXct(strptime(fecha2, "%d/%m/%Y %H:%M:%S")))
+```
+
+
+## Comportamiento de la luz
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(luz2, aes(fecha, luz))
+g1 + geom_line()
+```
+
+
+## Comportamiento del ruido
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(ruido2, aes(fecha, ruido))
+g1 + geom_line()
+```
+
+## Correlación entre ruido y luz
+
+```{r}
+library(dplyr)
+total <- luz2 %>% 
+         full_join(ruido2, by = c("fecha2", "fecha")) %>%
+         mutate(fecha2 = as.POSIXct(fecha2))
+```
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(subset(total, luz > 550 & luz < 570), aes(ruido, luz))
+g1 + geom_point() + geom_smooth()
+```
+
+```{r}
+with(subset(total, luz > 550 & luz < 570), cor(ruido,luz))
+```
+

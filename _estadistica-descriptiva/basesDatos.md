@@ -5,13 +5,6 @@ curso: 'estadistica-descriptiva'
 order: 6
 ---
 
-## Homicidios en Colombia
+## Sudamericano sub20 de fútbol 2017
 
-[Homicidios en Colombia (xlsx)](./basesdedatos/HomicidiosColombia2014.xlsx)
-
-## Atletas colombianos en los juegos olímpicos.
-
-[Atletas en los juegos olímpicos (xlsx)](./basesdedatos/colombia_olimpicos.xlsx)
-
-
-## Bases de datos de los tiempos de reacción
+[Base de datos cruda del sudamericano sub20 2017](./basesdedatos/sudamericano.xls)

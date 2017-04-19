@@ -773,7 +773,7 @@ hljs.initHighlightingOnLoad();
    
   
 
-
+<style type="text/css">.small-code pre code {   font-size: 1.1em;}</style>
 
 
 
@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Expresiones Regulares</h1><p>Kenneth Roy Cabrera Torres<br/>miércoles, 03 de agosto de 2016</p>
+<h1>Expresiones Regulares</h1><p>Kenneth Roy Cabrera Torres<br/>domingo, 16 de abril de 2017</p>
 
 <div class="slideContent" >
 
@@ -1001,7 +1001,7 @@ grep(&quot;[U]&quot;,texto)
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Ejemplo 7</h3>
-<div class="slideContent" >
+<div class="slideContent small-code" >
 <pre><code class="r">texto &lt;- c(&quot;Una sarta&quot;,&quot;2da sarta&quot;,&quot;(3ra) sarta&quot;)
 regexpr(&quot;0-9&quot;,texto)
 </code></pre>
@@ -1153,6 +1153,18 @@ gsub(&quot;^ +&quot;,&quot;&quot;,s)
 
 <pre><code>[1] &quot;nada&quot; &quot;Nada&quot; &quot;Nada&quot; &quot;nADA&quot; &quot;NADA&quot;
 </code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Ejemplos adicionales</h3>
+<div class="slideContent" >
+<ul>
+<li><a href="http://stat545.com/block022_regular-expression.html">Ejemplos del uso de expresiones regulares</a></li>
+<li><a href="http://www.endmemo.com/program/R/grep.php">Segundo tutorial de expresiones regulares</a></li>
+<li><a href="https://www.r-bloggers.com/regular-expressions-in-r-vs-rstudio/">Uso de expresiones regulares en RStudio</a></li>
+</ul>
 
 </div>
 

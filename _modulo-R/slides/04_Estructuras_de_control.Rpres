@@ -155,7 +155,7 @@ Estructura de repetición VI
 ```{r, eval=FALSE}
 x0 <- 1; tol <- 1e-6; i <- 0
 repeat {
-     x1 <- 1/(x0+1)
+     x1 <- 1 / (x0+1)
      i <- i + 1
      cat("inter= ",i,"valor= ",x1, "\n")
      if (abs(x1 - x0) < tol) {
@@ -173,7 +173,7 @@ Estructura de repetición VII
 ========================================================
 ```{r, eval=FALSE}
 for (i in 1:100) {
-    if ((i + 1)%%7 != 0){
+    if ((i + 1) %% 7 != 0){
       next
     }
     print (i)

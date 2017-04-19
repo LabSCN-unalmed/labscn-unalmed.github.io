@@ -1,0 +1,264 @@
+---
+title: "Pérdida de vitamina C en jugos de naranja"
+author: "Kenneth Cabrera"
+date: "Jueves, 23 de marzo de 2017"
+output:
+  html_document:
+    highlight: textmate
+    theme: readable
+    toc: yes
+---
+
+## Retención de vitamina C en jugo de naranja congelado restituido
+
+Se realizó un experimento en donde se midió el contenido de
+ácido ascórbico (vitamina C) en miligramos por litro de
+tres marcas de jugo de naranja en tres tiempos diferentes.
+
+Las marcas fueron Rickfood, Sealed-Sweet y Minute Maid y
+se evaluó en los días cero (0), tres (3) y siete (7).
+
+El tiempo se refiere al número de días a partir del momento 
+que se exprimió el producto hasta que se descongeló para usarlo.
+
+Se quiere saber si hay diferencia entre las marcas, el efecto
+del tiempo de congelación y la pérdida de vitamina C y
+si existe alguna interacción entre la marca y los días
+de congelación.
+
+Se realizaron cuatro (4) réplicas para un total de 36 experimentos.
+
+Cada jornada en donde se evaluó la cantidad de vitamina C,
+se tomó al azar el orden de medición de las 12 unidades del respectivo día.
+
+
+
+## Lectura de la base de datos
+
+```{r}
+naranja<-read.csv2("naranja.csv")
+naranja$dias <- factor(naranja$dias)
+```
+
+## Análisis descriptivo
+### Cálculo de estadísticos básicos
+
+```{r}
+sd(naranja$vitamC)
+mean(naranja$vitamC)
+summary(naranja$vitamC)
+```
+
+### Cálculo del coeficiente de variación
+
+```{r}
+cv<-sd(naranja$vitamC)/mean(naranja$vitamC)*100
+cv
+```
+
+### Estadísticos por factores
+
+```{r}
+## Cálculo de los promedio por un factor (dias)
+medias1<-with(naranja,tapply(vitamC,list(dias),mean))
+medias1
+
+## Cálculo de los promedio por otro factor (tipoJugo)
+medias2<-with(naranja,tapply(vitamC,list(tipoJugo),mean))
+medias2
+
+## Cálculo de los promedios de cada combinación de los factores
+medias<-with(naranja,tapply(vitamC,list(dias,tipoJugo),mean))
+medias
+
+## Cálculo de las desviaciones estándar de cada combinación de los factores
+desvEstand<-with(naranja,tapply(vitamC,list(dias,tipoJugo),sd))
+desvEstand
+```
+
+## Análisis exploratorio de datos
+```{r}
+## Gráfica utilizando el paquete de la gramática de gráficas.
+require(ggplot2)
+g1 <- ggplot(naranja, aes(dias, vitamC, col= tipoJugo))
+g1 + geom_point(size = 3) +
+     stat_summary(fun.y=mean, geom="line", size=1.2, aes(group = tipoJugo)) +
+     ylab("Vitamina C (mg/l)") +
+     xlab("Días") +
+     ggtitle("Nivel de vitamina C vs días")
+```
+
+## Modelo
+
+El modelo para este caso es:
+
+$$
+   y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha \beta)_{ij} + \epsilon_{ijk} \\
+   i = 1, 2, 3. \quad j = 1, 2, 3. \quad \textrm{ y } \quad k = 1, 2, 3, 4. \\
+   \epsilon_{ijk} \sim \mathcal{N}(0, \sigma^2) i.i.d.
+$$
+
+### Hipótesis a probar
+
+#### Factor marca de jugo
+$$
+  H_0: \alpha_1 = \alpha_2 = \alpha_3 = 0 \\
+  H_1: \textrm{Alguna } \alpha \textrm{ diferente de 0}
+$$
+
+#### Factor día
+
+$$
+  H_0: \beta_1 = \beta_2 = \beta_3 = 0 \\
+  H_1: \textrm{Algún } \beta \textrm{ diferente de 0}
+$$
+
+#### Interacción marca-días.
+
+$$
+ H_0: (\alpha\beta)_{11} = \cdots = (\alpha\beta)_{33} = 0 \\
+ H_1: \textrm{Algún } (\alpha\beta)_{ij} \textrm{ diferente de 0}
+$$
+
+## Análisis de varianza
+
+```{r}
+
+## Tabla anova para los dos factores y su interacción
+m1A1<-aov(vitamC~ dias + tipoJugo + dias:tipoJugo, data = naranja)
+anova(m1A1)
+
+m1A2<-aov(vitamC~ dias + tipoJugo, data = naranja)
+anova(m1A2)
+
+m1A3<-aov(vitamC~ dias, data = naranja)
+anova(m1A3)
+
+## Promedios individuales por niveles del factor
+model.tables(m1A3,type="mean", se = TRUE)
+## Cálculo de los efectos de cada nivel del factor
+model.tables(m1A3,type="effects", se = TRUE)
+
+anovam2A<-anova(m1A3)
+## Obtener sólo la desviación estándar de los errores
+(dserror <- sqrt(anovam2A$"Mean Sq"[2]))
+```
+
+
+La estimación de la desviación estándar de los errores experimentales ($\sigma$)
+es de $\hat{\sigma}=$ `r round(dserror,2)`.
+
+
+## Diagnóstico del modelo
+
+### Prueba de normalidad
+
+```{r}
+## Prueba de normalidad de los residuales
+shapiro.test(residuals(m1A3))
+```
+
+
+### Prueba de igualdad de varianza
+
+```{r}
+## Prueba de igualdad de varianza
+## u homogeneidad de varianza o prueba de homocedasticidad.
+
+## Prueba que exige normalidad, es la mejor bajo normalidad
+bartlett.test(naranja$vitamC,naranja$dias)
+
+library(lmtest)
+## Prueba más robusta a desviaciones de la normal
+bptest(naranja$vitamC~naranja$dias)
+```
+
+### Pruebas gráficas de aditividad y linealidad
+
+```{r}
+## Pruebas gráficas
+plot(m1A3)
+```
+
+### Prueba de independencia
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(naranja, aes(orden, residuals(m1A3)))
+g1 + geom_point() +
+     geom_smooth() +
+     scale_x_continuous(name="Orden de ejecución", breaks = 1:12)
+
+library(ggplot2)
+g1 <- ggplot(naranja, aes(orden, residuals(m1A3), col = tipoJugo))
+g1 + geom_point() +
+     geom_smooth() +
+     scale_x_continuous(name="Orden de ejecución", breaks = 1:12)
+
+
+
+library(lmtest)
+dwtest(vitamC ~ dias, order.by = ~ orden, data = naranja)
+```
+
+
+## Resultados del modelo
+### Comparación de medias
+```{r}
+compMed <- TukeyHSD(m1A3)
+compMed
+plot(compMed)
+```
+
+### Pronóstico del modelo
+```{r}
+naranja$vitamCp <- predict(m1A3)
+
+conf1 <- data.frame(predict(m1A3, interval="confidence"))
+names(conf1) <- c("predM","infM","supM")
+pred1 <- data.frame(predict(m1A3, interval="prediction"))
+names(pred1) <- c("predP","infP","supP")
+
+naranja <- data.frame(naranja, conf1, pred1)
+
+# Resumen de la predicción
+aggregate(subset(naranja,select=c(vitamC:supP)),
+          list(Días = naranja$dias),mean, na.rm=TRUE)
+
+require(ggplot2)
+g1 <- ggplot(naranja, aes(dias, vitamC, col= tipoJugo))
+g1 + geom_point(size = 3) +
+     geom_line(aes(dias, vitamCp), col= "black", group = 1) +
+     scale_y_continuous(breaks=seq(30,60,2)) +
+     ylab("Vitamina C (mg/l)") +
+     xlab("Días") +
+     ggtitle("Nivel de vitamina C vs días")
+
+
+
+require(ggplot2)
+g1 <- ggplot(naranja, aes(dias, vitamC, col= tipoJugo))
+limitesC <- aes(ymin = infM, ymax = supM)
+g1 + geom_point(size = 3) +
+     geom_line(aes(dias, vitamCp), col= "black", group = 1) +
+     geom_errorbar(limitesC, width = 0.5, col = "black") +
+     scale_y_continuous(breaks=seq(30,60,2)) +
+     ylab("Vitamina C (mg/l)") +
+     xlab("Días") +
+     ggtitle("Nivel de vitamina C vs días")
+
+
+require(ggplot2)
+g1 <- ggplot(naranja, aes(dias, vitamC, col= tipoJugo))
+limitesP <- aes(ymin = infP, ymax = supP)
+g1 + geom_point(size = 3) +
+     geom_line(aes(dias, vitamCp), col= "black", group = 1) +
+     geom_errorbar(limitesP, width = 0.5, col = "black") +
+     scale_y_continuous(breaks=seq(30,60,2))   +
+     ylab("Vitamina C (mg/l)") +
+     xlab("Días") +
+     ggtitle("Nivel de vitamina C vs días") 
+
+
+```
+

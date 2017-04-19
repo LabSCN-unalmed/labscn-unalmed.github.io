@@ -5,72 +5,161 @@ curso: 'estadistica-descriptiva'
 order: 5
 ---
 
-## Trabajos individuales
 
-### Primer trabajo individual.
+## Primer trabajo individual
 
-#### Objetivo
-Constuir una gráfica científica en R que mejore una gráfica publicada
-en algún medio de comunicación colombiana.
+### Objetivo
 
-#### Actividades
+Realizar un análisis exploratorio y descriptivo de la base
+de datos depurada y completada de las tallas y pesos
+de los jugadores de las selecciones
+de fúbol del campeonato sub-20 del 2017.
 
-Buscar en una publicación colombiana no más antigua que tres años
-atrás (desde el año 2013) una gráfica publicada que sea suceptible
-de mejora de acuerdo al objetivo de la gráfica y proponer una
-nueva gráfica constuida en el lenguaje estadístico R.
+### Actividades
+
+- Revisar y depurar la base de datos que se transcribió
+  para tenerla en una estructura que permita el análisis
+  descriptivo y exploratorio de la misma.
+- Agregar datos faltantes respaldando al información con
+  las fuentes utilizadas.
+- Realizar un análisis exploratorio y descriptivo de
+  los pesos, tallas e ICM de los jugadores teniendo
+  en cuenta la posición y el equipo en que juegan.
+
+### Documentos a entregar.
+
+Calificado con una nota máxima de 4.5
+
+1. Base de datos depurada en formato ".csv".
+2. Guión o archivo de comando en R utilizados para el análisis y
+   la creación de gráficas (formato .R).
+3. Archivo en formato ".pdf" con el informe sobre el
+   análisis descriptivo y exploratorio que contenga como mínimo:
+    - Portada.
+    - Introducción (1 página).
+    - Análisis descriptivo y exploratorio (Gráficas comentadas)
+    - Conclusiones y recomendaciones.
+    - Bibliografía y cibergrafía utilizada (Incluye las fuentes
+      de la información faltante)
+
+Alternativamente lo que quieran una mejor calificación se puede entregar.
+
+Calificado con una nota máxima de 5.0.
+
+1. Base de datos depurada en formato ".csv".
+2. Guión o archivo de comando en R utilizados para el análisis y
+   la creación de gráficas (en formato  .Rmd).
+3. Archivo en formato ".html" con el informe, (generado con el
+   archivo ".Rmd", sin el código) el
+   análisis descriptivo y exploratorio que contenga como mínimo:
+    - Presentación.
+    - Introducción (Corta).
+    - Análisis descriptivo y exploratorio (Gráficas comentadas)
+    - Conclusiones y recomendaciones.
+    - Bibliografía y cibergrafía utilizada (Incluye las fuentes
+      de la información faltante)
+
+### Fecha de entrega
+Lunes 6 de marzo de 2017 antes de las 23:59
+[hora de Colombia](http://horalegal.inm.gov.co/) al
+correo **krcabrer@unal.edu.co**, no olvidar en asunto [EDAED]      
+
+## Segundo trabajo individual.
+
+### Objetivo.
+
+Proponer una mejora a un gráfico de un periódico nacional.
 
 
-#### Documentos a entregar
+### Documentos a entregar.
 
-1. Documento en formato *".pdf"* en donde se muestre:
-   * La gráfica original, referenciando la fuente.
-   * Los comentarios y críticas a la gráfica original.
-   * Una nueva gráfica propuesta en donde se mejoren aspectos de
-     la gráfica original.
-   * Cometarios o aclaraciones de la nueva gráfica propuesta.
+- Documento en formato ".html" que tenga los siguientes elementos:
+   + Gráfica original con su respectiva referencia bibliográfica.
+   + Comentarios sobre los problemas de la gráfica original.
+   + Propuesta a mano alzada de una gráfica alternativa. Puede ser
+     escaneada o fotografiada.
+   + Gráfica realizada en R. El documento html **NO** debe mostrar
+     código en R.
+   + Conclusiones y recomendaciones.
 
-2. Archivo en formato *".R"* o *".Rmd"* en donde se muestre
-   el código que se utilizó para realizar la gráfica.
+- Archivo en formato ".Rmd" en donde se encuentra el código
+  correspondiente.
 
-3. Archivo o archivos en formato *".csv"* con la información utilizada
-   para la gráfica propuesta.
+- Archivo en formato ".csv" con los datos usados para la construcción
+  de la gráfica.  
 
-#### Fecha de entrega.
+### Fecha de entrega.
 
-Martes 27 de septiembre al correo **krcabrer@unal.edu.co** antes de
-las 23:59 hora de Colombia y no olvidar en asunto escribir **[EDAED]**.
+Jueves 6 de abril de 2017, antes de las 23:59 hora de Colombia, al correo
+**krcabrer@unal.edu.co**, no olvidar escribir **[EDAED]** en asunto.
+
+## Primer trabajo en grupo.
+
+### Objetivo.
+ Realizar un trabajo exploratorio de datos de la base de datos recolectada
+ sobre las noticias que no son ciertas y las que si lo fueron y la
+ relación con distintos tipos y segmentos de la sociedad.
+
+### Actividades.
+
+- Se organizarán grupos de máximo cinco (5) integrantes.
+
+- [Encuesta](https://docs.google.com/a/unal.edu.co/spreadsheets/d/1QXVAgnobXC_MOlAENc7u3VaaYQt9r9WcVwiDLk9i7dQ/edit?usp=sharing)
+  sobre la percepción de noticias falsas y verdaderas
+  divulgadas por internet y medios de comunicación.
+
+- Las respuestas correctas se encuentra en el [artículo de
+   El Colombiano](http://www.elcolombiano.com/redes-sociales/mentiras-e-internet-mezcla-peligrosa-para-las-elecciones-FJ5946986)
+   publicado el jueves 16 de febrero de 2017.    
+
+- Dado que el objetivo principal es encontrar relaciones entre
+  variables demográficas, como género, edad, nivel de estudios,
+  estrato socioeconómico, fuente principal de noticias y el número
+  de contactos de las redes sociales con la proporción de personas
+  que acertaron, no conocen o no acertaron en identificar
+  las noticias falsas de las verdaderas se debe entonces orientar
+  en análisis exploratorio a encontrar relaciones o patrones
+  de comportamiento entre variables demográficas y las respuestas dadas.
+
+- Inicialmente se debe hacer una consolidación y depuración de las
+  bases de datos digitadas de los estudiantes.
+
+- De acuerdo a criterios claro y específicos se puede excluir del análisis
+  datos que se consideren que no son aceptables. Se debe mostrar una
+  argumentación clara en caso de excluir datos.
+
+- Con criterios razonables y claros se puede hacer imputación de datos
+  faltantes si es claro y evidente que se pueda hacer la imputación.
+
+- Se entregará la base de datos depurada que se utilizará finalmente
+  en el análisis.
+
+- Se calificará con 5.0 el mejor grupo que siga los siguientes criterios:
+    + Muestre pocas gráficas pero que abarquen las principales variables
+      que muestren algún tipo de patrón.
+    + Las gráficas sean creativas (pueden ser con la graficación general o
+      con la graficación *ggplot*).
+    + El texto de análisis no sea demasiado extenso ni demasiado corto sino
+      que sea de estilo de reporte gerencial para la toma de decisiones
+      en cuanto a determinar las características de grupos de ciudadanos con mayor probabilidad
+      de ser engañadas por los medios de comunicación.   
+ - Los siguientes grupos serán ranqueados desde el primero hasta el último.
+   La nota para el mejor será de 5.0 y para el segundo lugar de 4.8 y así sucesivamente
+    de manera descendente.      
 
 
+### Documentos a entregar.
 
-## Trabajos en grupo
+- Documento en formato ".html" con orientación gerencial en donde se resuma
+  el trabajo exploratorio realizado y las relaciones más relevantes encontradas al
+  realizar dicho análisis.
 
-### Primer trabajo en grupo.
+- Archivo en formato ".Rmd" en donde se encuentre el código utilizado.
 
-En las páginas 18 y 19 del informe de
-[la encuesta sobre el plebiscito](./documentos/ENCUESTAPLEBISCITO.pdf)
-realizada por le empresa Invamer Gallup publicada
-el día 17 de agosto de 2016 se muestra unas gráficas como las siguientes:
+- Un solo archivo en formato ".csv" con los datos consolidados y depurados y que fueron
+  utilizados en el análisis exploratorio.
 
-<img src="./documentos/GraficasAMejorar.png" width = "800">
+### Fecha de entrega.
 
-Se sugiere proponer una sola gráfica que muestra la misma información sobre
-los quince (15) personajes que se muestran en la dos páginas del
-informe de Invamer Gallup.
-
-#### Actividades
-1. Conformar grupo de máximo cinco (5) estudiantes.
-2. Dibujar (con cualquier software o un dibujo escaneado) una sola
-   gráfica que muestre la misma información sobre la favorabilidad y
-   el conocimiento que la gente tiene del personaje en cuestión.
-3. Realizar un informe sobre la gráfica propuesta en formato ".pdf".   
-
-#### Documentos a entregar.
-Documento en formato ".pdf" en donde se muestra la gráfica propuesta
-y una breve explicación de la misma así como un análisis de los
-resultados obtenidos.
-
-
-#### Fecha de entrega.
-Viernes 26 de agosto de 2016 antes de las 23:59 hora de Colombia al
-correo **krcabrer@unal.edu.co** y en asunto no olvidar **[EDAED]**.
+Jueves 20 de abril de 2017, antes de las 23:59 hora de Colombia al correo
+**krcabrer@unal.edu.co** y no olvidar escribir en asunto **[EDAED]**.

@@ -273,11 +273,11 @@ crudo <- subset(crudo, year == 2000)
 names(crudo)[1] <- "pais"
 require(stringr)
 names(crudo) <- str_replace(names(crudo), "new_sp_", "")
-crudo$m04 <- NULL
+crudo$m04  <- NULL
 crudo$m514 <- NULL
-crudo$f04 <- NULL
+crudo$f04  <- NULL
 crudo$f514 <- NULL
-head(crudo,20)
+head(crudo, 20)
 ```
 
 ```
@@ -399,13 +399,17 @@ Separación de la información contenida en una columna
 ```r
 limpio$sexo <- str_sub(limpio$columna, 1, 1)
 
-edades <- c("04" = "0-4", "514" = "5-14", "014" = "0-14", "1524" = "15-24", "2534" = "25-34", "3544" = "35-44", "4554" = "45-54", "5564" = "55-64", "65"= "65+", "u" = NA)
+edades <- c("04"   = "0-4",    "514" = "5-14", 
+            "014"  = "0-14",  "1524" = "15-24", 
+            "2534" = "25-34", "3544" = "35-44", 
+            "4554" = "45-54", "5564" = "55-64", 
+            "65"   = "65+",      "u" = NA)
 
 limpio$edad <- factor(edades[str_sub(limpio$columna, 2)], levels = edades)
 
 limpio <- limpio[c("pais", "año", "sexo", "edad", "casos")]
 # Base de datos depurada y puesta a punto.
-head(limpio,20)
+head(limpio, 20)
 ```
 
 ```
@@ -453,13 +457,13 @@ Agregar el nombre del país a la base de datos
 
 
 ```r
-limpio <- merge(limpio, CodPaises, by.x = "pais", by.y= "iso2")
+limpio <- merge(limpio, CodPaises, by.x = "pais", by.y = "iso2")
 ```
 
 
 ```r
-limpio2 <- subset(limpio, casos >500)
-CasosTotales <- sort(with(limpio2,tapply(casos,nombre,sum)),decreasing=TRUE)
+limpio2 <- subset(limpio, casos > 500)
+CasosTotales <- sort(with(limpio2, tapply(casos, nombre, sum)), decreasing=TRUE)
 PaisXCasosTot <- names(CasosTotales)
 limpio2$nombre <- factor(limpio2$nombre, levels = PaisXCasosTot)
 require(ggplot2)
@@ -471,9 +475,9 @@ require(ggplot2)
 
 ```r
 # Gráfica de puntos
-g1 <- ggplot(limpio2, aes(nombre,log10(casos), col = sexo))
+g1 <- ggplot(limpio2, aes(nombre, log10(casos), col = sexo))
 g1 + geom_point() + facet_grid(edad ~ .) +
-  theme(text = element_text(size=8),
+  theme(text = element_text(size = 8),
         axis.text.x = element_text(angle = 45, hjust = 1))+
   ylab("log10 del Número de casos") + xlab("País")
 ```
@@ -482,9 +486,9 @@ g1 + geom_point() + facet_grid(edad ~ .) +
 
 ```r
 # Gráfica de barras
-g2 <- ggplot(limpio2, aes(nombre,log10(casos), fill = sexo))
+g2 <- ggplot(limpio2, aes(nombre, log10(casos), fill = sexo))
 g2 + geom_bar(stat = "identity", position = "dodge") + facet_grid(edad ~ .) +
-  theme(text = element_text(size=8),
+  theme(text = element_text(size = 8),
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   ylab("log10 del Número de casos") + xlab("País")
 ```

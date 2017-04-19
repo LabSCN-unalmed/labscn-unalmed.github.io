@@ -70,7 +70,7 @@ Para Colombia se utiliza una proyección Transversal de Mercator y el modelo Int
 
 A partir del 2002-2003, el IGAC propone el GLS80 que es el mismo WGS84.
 
-Creación de locations en GRASS
+Creación de locations en GRASS {#creacion-locations-grass}
 ------------------------------
 
 Abrir el directorio "01CreacionLocations" ubicado en la carpeta personal, y se da click derecho en un lugar vacío y se abre un terminal, de manera que el prompt aparece así:
@@ -110,7 +110,7 @@ r.in.gdal input=SRTM_ff03_n006w076.tif output=srtmMed location=SRTMmed
 r.in.gdal input=L71009055_05520040206_B10.TIF output=b1 location=LANDSATMed
 ~~~
 
-### Cambiar la proyección de archivos georeferenciados
+### Cambiar la proyección de archivos georeferenciados {#cambiar-proyeccion-archivos-georeferenciados}
 
 Para utilizar estos 2 nuevos mapas en el location `CursoGrass`, es necesario re-proyectarlos desde su proyección original por medio del comando `r.proj`, pero primero es importante definir la región actual de acuerdo a las dimensiones del mapa a re-proyectar, consultando las coordenadas del mapa con la opción `-g` y sin especificar un `output`.
 

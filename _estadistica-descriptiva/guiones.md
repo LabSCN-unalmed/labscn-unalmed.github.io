@@ -5,60 +5,44 @@ curso: 'estadistica-descriptiva'
 order: 2
 ---
 
+## Detección de inconsistencia en la base de datos del sudamericano de fútbol sub-20
 
-## Homicidios en Colombia
+ - [Ejemplo de sudamericano](./guiones/01_sudamericano.html)
+ - [Mejorada 1](./guiones/mejorada1.csv)
+ - [Mejorada 2](./guiones/mejorada2.csv)
 
-- [Homicidios en Colombia](./guiones/HomicidiosColombia2014.html){:target="blank"}
+## Talla y peso de jugadores de la NBA.
 
-## Encuesta (Inicio de Estadística descriptiva)
-
-- [Descriptiva Inicial](./guiones/encuesta201602.html){:target="blank"}
-- [Encuesta 1](./basesdedatos/encuesta201602_1.xlsx){:target="blank"}
-
-## Tamaño de muestra
-
-- [Tamaño de muestra](./guiones/tammuest.html){:target="blank"}
-- [Archivo ".R"](./guiones/tammuest.R){:target="blank"}
-
-## Encuesta (Exploración II)
-
-- [Descipción para distancia recorrida](./guiones/encuesta201602_2.html){:target="blank"}
-- [Encuesta 2](./basesdedatos/encuesta201602_2.xlsx){:target="blank"}
+ - [Análisis exploratorio parcial](./guiones/explora_nba_1.html)
+ - [Base de datos](./basesdedatos/nba_talla_peso.xlsx)
+ - [Base de datos en formato (.csv)](./basesdedatos/nba_ht_wt.csv)
 
 ## Ejemplos de gráficas
 
 - [Gráficas con problemas](./graficas/index.html){:target="blank"}
 
-## Terrorismo en el mundo
+## Ejemplo de gráfica de "El Colombiano"
 
-- [Terrorismo en el mundo](./guiones/terrorismo.html){:target="blank"}
-- [Base de datos de terrorismo](./basesdedatos/terrorismo.xlsx){:target="blank"}
+- [Evolución de precios sugeridos de combustibles para Antioquia](./guiones/precios_gasolina.html)
+- [Base de datos](./basesdedatos/precios_gasolina.xlsx)
 
-## Deforestación en Colombia (2015)
+## Lectura y adecuación de datos de la aplicación "Science Journal".
 
-- [Deforestación en Colombia durante el año 2015](./guiones/deforestacion.html){:target="blank"}
-- [Base de datos de deforestación](./basesdedatos/deforestacion.xlsx){:target="blank"}
-- [Base de datos sobre los departamentos en Colombia](./basesdedatos/departamentos.xlsx){:target="blank"}
+- [Lectura y exploración inicial](./guiones/01_lectura_y_adecuacion.html)
+- [Aceleración en el eje X](./basesdedatos/coordenadaX.csv)
+- [Aceleración en el eje Y](./basesdedatos/coordenadaY.csv)
+- [Aceleración en el eje Z](./basesdedatos/coordenadaZ.csv)
 
-## Comparación de tipos de gráficas.
+## Tamaño de muestra
 
-- [Comparación de gráficas](./guiones/comparagraficas.html){:target="blank"}
-- [Datos tomados del taller](./basesdedatos/compara_graficas.xlsx){:target="blank"}
-- [Datos con los valores reales](./basesdedatos/ingresosReales.xlsx){:target="blank"}
+- [Simulación para obtener tamaños de muestra](./guiones/tammuest.html)
 
-## Análisis exploratorio de resultados del plebiscito
+## Comparación de tipos de gráficas
 
-* [Potencial Electoral](./basesdedatos/potencialElectoral.xlsx)
-* [Resultados y NBI](./basesdedatos/Departamentos_plebiscito.xlsx)
-* [Análisis exploratorio](./guiones/plebiscito1.html)
+- [Comparación de barras y círculos](./guiones/comparacion_graficas.html)
+- [Base de datos de estimaciones](./basesdedatos/comparacion_graficas.xlsx)
 
-## Interpolación espacial (Método del inverso de la distancia)
+## Graficación básica en R.
 
-* [Inverso de la distancia](./guiones/interpol_espacial.html)
-* [Base de datos](./basesdedatos/estonia_air_temperature_2.csv)
-
-## Proyección de una imagen escaneada
-
- * [Proyección](./guiones/ejemplo_proy.nb.html)
- * [Imagen de ejemplo](./guiones/nucleo_rio1.tif)
- * [Datos](./basesdedatos/datos.csv)
+- [Ejemplos básicos](./guiones/graficacion_basica.html)
+- [Base de datos](./basesdedatos/estrenosCine.xlsx)

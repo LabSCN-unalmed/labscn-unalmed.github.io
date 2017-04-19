@@ -1,0 +1,234 @@
+---
+title: "Diseño en bloques completos, completamente aleatorizados"
+author: "Kenneth Roy Cabrera Torres"
+date: "20 de marzo de 2017"
+output: 
+  html_document: 
+    fig_height: 7
+    fig_width: 9
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 100)
+```
+
+## Lectura de la base de datos
+
+Un agrónomo desea determinar
+el efecto de diferentes fuentes de nitrógeno en la producción de una materia
+seca sobre cebada forrajera. Hay cinco fuentes a ser comparadas: $(NH_4)_2 SO_4$ ,
+$NH_4NO_3$, $CO(NH_2)_2$, $Ca(NO_3)_2$, $NaNO_3$ y un tratamiento control 
+sin nitrógeno. Se desea aplicar los resultados sobre un rango bastante amplio 
+de condiciones, se hicieron ensayos sobre cuatro tipos de suelo.
+
+Para el diseño experimental se eligió un diseño en bloques completamente aleatorizado
+con los tipos de suelo como factor de bloqueo, se localizaron seis parcelas
+en cada uno de los cuatro tipos de suelo, y se asignó aleatoriamente los 
+tratamientos a las parcelas dentro de cada tipo de suelo. La variable de interés es la
+producción en (kg/parcela) de cebada bajo varias fuentes de nitrógeno.
+
+Los datos obtenidos de realizar este experimento se presentan en la tabla 7.3.
+
+![](dbca.png)
+
+
+
+```{r}
+ferti1 <- read.csv2("fertilidad.csv")
+ferti1$tratamiento <- factor(ferti1$tratamiento,
+                             levels = c("Control", "CaNO32", "CONH22", 
+                                       "NaNO3", "NH42SO4", "NH4NO3"))
+ferti1$nombre <- factor(ferti1$nombre,
+                        levels = c(  "Sin nitrógeno", "Nitrato de calcio",
+                                     "Urea", "Nitrato de sodio", 
+                                     "Sulfato de amonio", "Nitrato de amonio"))
+```
+
+
+## Gráfica exploratoria
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(ferti1, aes(nombre, produccion, col = tipo_suelo))
+g1 + geom_point() +
+     geom_line(aes(group = tipo_suelo)) +
+     theme(axis.text.x = element_text(angle = 30, hjust = 1))
+```
+
+## Modelo. 
+
+Se propone:
+
+$$
+ y_{ij} = \mu + \alpha_i + \beta_j + \epsilon_{ij}, \qquad i = 1, 2, \cdots, 6, \quad j = 1, 2, \cdots, 4 \\
+  \epsilon_{ij} \sim \mathcal{N}(0,\sigma^2) \quad i.i.d.
+$$
+## Hipótesis.
+
+Como hipótesis principal se propone:
+
+$$
+  H_0: \alpha_1 = \alpha_2 = \alpha_3 = \alpha_4 = \alpha_5 = \alpha_6 = 0 \\
+  H_A: \textrm{Alguna } \alpha_i \textrm{ diferente de } 0
+$$
+También se tiene una hipótesis de verificiación en cuanto al bloque:
+
+$$
+  H_0: \beta_1 = \beta_2 = \beta_3 = \beta_4 = 0 \\
+  H_A: \textrm{Alguna } \alpha_i \textrm{ diferente de } 0
+$$
+
+## Ajuste del modelo.
+
+```{r}
+modelo1 <- aov(produccion ~ nombre + tipo_suelo,
+               data = ferti1)
+summary(modelo1)
+```
+
+## Estimación de los parámetros del modelo
+
+### Efectos
+
+```{r}
+model.tables(modelo1, type = "effects", se = TRUE)
+```
+
+## Promedios
+
+```{r}
+model.tables(modelo1, type = "means", se = TRUE)
+```
+
+## Estimación del error aleatorio $\sigma^2$.
+
+```{r}
+# Estimador de la varianza del error aleatorio
+varErr <- summary(modelo1)[[1]]$"Mean Sq"[3]
+# Estimación de la desviación estándar del error aleatorio
+desvErr <- sqrt(varErr)
+```
+
+La estimación de la varianza de los errores aleatorios es de: `r round(varErr,1)`. 
+Es decir estimación de la desviación estándar de los errores es de: `r round(desvErr,1)`.
+
+
+## Diagnósticos del modelo.
+
+```{r}
+residuales <- residuals(modelo1)
+residualesEstandarizados <- rstandard(modelo1) # Residuales estudentizados internos
+residualesEstudentizado <- rstudent(modelo1)   # Residuales estudentizados externos
+```
+
+### Supuesto de normalidad.
+
+```{r}
+shapiro.test(residuales)
+shapiro.test(residualesEstandarizados)
+shapiro.test(residualesEstudentizado)
+```
+
+### Supesto de igualdad de varianzas.
+
+```{r}
+
+bartlett.test(produccion ~ nombre,
+               data = ferti1)
+
+bartlett.test(produccion ~ tipo_suelo,
+               data = ferti1)
+
+```
+
+### Prueba de independiencia.
+
+
+No se tiene el orden o la secuencia de experimentación, por
+lo tanto no se puede verificar el supuesto de independencia.
+
+
+### Supuestos de linealidad y supuesto de aditividad.
+
+
+```{r}
+
+par.orig <- par(no.readonly = TRUE)
+par(mfrow = c(2, 2))
+plot(modelo1)
+par(par.orig)
+
+ferti1$residuales <- residuales
+ferti1$stdresiduales <- residualesEstandarizados
+ferti1$studresiduales <- residualesEstudentizado
+ferti1$predichos <- predict(modelo1)
+
+library(ggplot2)
+g1 <- ggplot(ferti1, aes(produccion, residuales))
+g1 + geom_point() + geom_smooth(method = lm) +
+     geom_hline(yintercept = 0, col = "red")
+
+g1 <- ggplot(ferti1, aes(predichos, residuales))
+g1 + geom_point() + geom_smooth(method = lm) +
+     geom_hline(yintercept = 0, col = "red")
+
+```
+
+## Modelo final
+
+```{r}
+predichosIC <- data.frame(predict(modelo1, interval = "confidence"))
+ferti1$inf <- predichosIC$lwr
+ferti1$sup <- predichosIC$upr
+
+library(ggplot2)
+g1 <- ggplot(ferti1, aes(nombre, produccion, col = tipo_suelo))
+g1 + geom_point() +
+     geom_point(aes(nombre, predichos), shape = 4, size = 2) +
+     geom_errorbar(aes(ymax = sup, ymin = inf), width = 0.2) +
+     ylab("Producción (Kg/parcela)") +
+     xlab("Fertilizante") +
+     labs(title = "Producción vs fertilizante",
+          subtitle = "Tipo de suelo como bloque") +
+     geom_line(aes(nombre, predichos, group = tipo_suelo)) +
+     theme(axis.text.x = element_text(angle = 30, hjust = 1)) +
+     guides(col = guide_legend(title = "Tipo de suelo"))
+
+```
+
+```{r}
+library(multcomp)
+
+PruebaDunnet <- glht(modelo1, linfct = mcp(nombre = "Dunnett"))
+summary(PruebaDunnet)
+
+```
+
+## Consecuencias de no hacer el bloqueo.
+
+```{r}
+modelo2 <- aov(produccion ~ nombre, data = ferti1)
+summary(modelo2)
+```
+
+
+```{r}
+# Estimador de la varianza del error aleatorio
+(varErr2 <- summary(modelo2)[[1]]$"Mean Sq"[2])
+# Estimación de la desviación estándar del error aleatorio
+(desvErr2 <- sqrt(varErr2))
+```
+
+
+
+```{r}
+PruebaDunnet2 <- glht(modelo2, linfct = mcp(nombre = "Dunnett"))
+summary(PruebaDunnet2)
+```
+
+```{r}
+(pruebaTukey <- TukeyHSD(modelo2))
+```
+

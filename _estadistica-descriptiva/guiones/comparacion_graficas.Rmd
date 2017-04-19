@@ -1,0 +1,141 @@
+---
+title: "Comparación de percepción de gráficas"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves, 23 de marzo de 2017"
+output: 
+  html_document: 
+    fig_height: 8
+    fig_width: 10
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+![](costos_gasolina1.png)
+![](costos_gasolina2.png)
+
+## Lectura de la base de datos
+
+```{r}
+comp_graf <- read.csv2("comparacion_graficas.csv")
+
+convencion <- read.csv2("convención.csv")
+convencion$X <- NULL
+convencion$num2 <- factor(paste("X", convencion$num, sep = ""))
+
+```
+
+```{r}
+head(comp_graf)
+```
+
+```{r}
+convencion
+```
+
+
+## Resumen de la base de datos
+
+```{r}
+summary(comp_graf)
+```
+
+## Cambio de estructura de la base de datos
+
+```{r}
+library(tidyr)
+comp_graf2 <- comp_graf %>% gather(item, valor, X1:X8)
+comp_graf2$item <- factor(comp_graf2$item)
+comp_graf2$Tipo <- factor(comp_graf2$Tipo, labels = c("Barras", "Circulos"))
+head(comp_graf2)
+```
+
+
+```{r}
+library(dplyr)
+comp_graf2 <- comp_graf2 %>% full_join(convencion, by = c("item" = "num2"))
+comp_graf2$descripción <- factor(comp_graf2$descripción,
+                                 levels = c("Impuesto nacional", 
+                                            "Impuesto sobre ventas",
+                                            "Impuesto al carbono",
+                                            "Impuesto sobre ventas mayoristas",
+                                            "Sobretasa ajustada 2017",
+                                            "Total carga tributaria",
+                                            "Con sobretasa a dic 2016",
+                                            "Total carga con sobretasa 2016"))
+head(comp_graf2)
+```
+
+
+## Selección de la base de datos para análisis
+
+```{r}
+library(dplyr)
+comp_graf3 <- comp_graf2 %>% filter(valor.x <= 2600, 
+                                    !(item %in% c("X4", "X8")))
+```
+
+## Gráfica exploratoria de puntos
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(comp_graf2, aes(valor.x, ID))
+g1 + geom_point()
+```
+
+## Gráfica exploratoria de puntos depurada
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(comp_graf3, aes(valor.x, ID))
+g1 + geom_point()
+```
+
+## Descripición numérica de las estimaciones
+
+```{r}
+library(dplyr)
+comp_graf3 %>% 
+  group_by(descripción, Tipo) %>%
+  summarise(m_valor  = mean(valor.x, na.rm = TRUE),
+            med_valor  = median(valor.x, na.rm = TRUE),
+            m_valorV = mean(valor.y, na.rm = TRUE),
+            sd_valor = sd(valor.x, na.rm = TRUE))
+```
+
+## Comportamiento de las estimaciones
+
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(comp_graf3, aes(Tipo, valor.x))
+g1 + geom_violin() + 
+     geom_point(col = "gray40") + 
+     facet_wrap(~ descripción, scales = "free_y") +
+     geom_point(aes(Tipo, valor.y), col = "red", size = 3) +
+     stat_summary(fun.y = "mean", colour = "blue", size = 3, shape = 8, geom = "point") +
+     stat_summary(fun.y = "median", colour = "magenta", size = 3, shape = 4, geom = "point") +
+     ylab("Valor estimado") +
+     xlab("Tipo de gráfica") +
+     ggtitle("Comportamiento de las estimaciones de acuerdo al tipo de gráfica",
+             subtitle = "Estudiantes del curso de Estadística Descriptiva y Análisis Exploratorio de Datos")
+```
+
+## Comportamiento de las estimaciones por persona
+
+```{r}
+library(ggplot2)
+g2 <- ggplot(comp_graf3, aes(descripción, valor.x, group = ID))
+g2 + geom_point() +
+     geom_point(aes(descripción, valor.y), col = "red") +
+     geom_line(alpha = 0.5) +
+     facet_grid(. ~ Tipo) +
+     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+     ylab("Valor estimado") +
+     xlab("") +
+     ggtitle("Estimación por cada persona")
+```
+

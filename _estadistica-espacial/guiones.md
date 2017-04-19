@@ -5,8 +5,9 @@ curso: 'estadistica-espacial'
 order: 01
 ---
 
-## Introducción al manejo de datos espaciales en R
+## Análisis exploratorio de señales de wifi y celular
 
+<<<<<<< HEAD
  - [Ejemplo 1](/estadistica-espacial/guiones/intro_espacial.html)
  - [Puntos de referencia en Colombia](./guiones/ciudades_de_colombia.xlsx)
  - Croquis de Colombia
@@ -16,9 +17,15 @@ order: 01
    * [Croquis de los departamentos de Colombia (sbn)](./guiones/COL_adm1.sbn)
    * [Croquis de los departamentos de Colombia (sbx)](./guiones/COL_adm1.sbx)
    * [Croquis de los departamentos de Colombia (shx)](./guiones/COL_adm1.shx)
+=======
+ - [Base de datos en Excel](./datos/datos_taller.xlsx)
+ - [Base de datos en formato .csv](./datos/datos_taller.csv)
+ - [Exploratorio inicial](./guiones/explora1.html)
+>>>>>>> ea596cba92079d9be2e2020d0ff852ed16c9ab9c
 
-## Modelo de covarianza Matérn
+## Trabajo con datos de "science journal app"
 
+<<<<<<< HEAD
  - [Modelo Matérn](./guiones/modeloMatérn.html)
 
 ## Simulaciones de campos aleatorios exponencial y gaussiano
@@ -33,9 +40,23 @@ order: 01
 
  - [Semivariogramas empíricos](./guiones/elevacion2.html)
  - [Datos de elevación](./guiones/elevacion2.txt)
+=======
+- [Base de datos luz](./datos/luz.csv)
+- [Base de datos ruido](./datos/ruido.csv)
+- [Uso de datos de Science Journal App](./guiones/datos_sci_jour.html)
 
-## Simulaciones para detectar tamaños de muestra
+## Análisis exploratorio de datos de porosidad
 
+- [Base de datos de porosidad](./datos/ZoneA.dat)
+- [Metadatos de datos de porosidad](./datos/ZoneA_metadata.txt)
+- [Exploratorio y estimación del variograma](./guiones/ZonaA.html)
+
+## Simulación de campos aleatorios
+>>>>>>> ea596cba92079d9be2e2020d0ff852ed16c9ab9c
+
+- [Simulación de modelos exponencial y gaussiano](./guiones/simulaciones_exp_gauss.html)
+
+<<<<<<< HEAD
  - [Semivariogramas empíricos](./guiones/simulacionCamposAleatorios.html)
 
 ## Estimación y predicción de modelos geoestadísticos
@@ -64,3 +85,25 @@ order: 01
    * [Municipios de Antioquia (dbf)](./datos/municipiosAntioq.dbf)
    * [Municipios de Antioquia (shx)](./datos/municipiosAntioq.shx)
    * [Municipios de Antioquia (prj)](./datos/municipiosAntioq.prj)
+=======
+## Modelo Matérn
+
+- [Modelo Matérn (geoR)](./guiones/modeloMatérn.html)
+- [Simulación con el modelo Matérn (RandomFields)](./guiones/simulaciones_matern.html)
+
+## Estimación de modelos
+
+- [Estimación de parámetros del variograma](./guiones/ZonaA2.html)
+
+## Estimación de tamaños de muestra
+
+- [Tamaños muestrales](./guiones/Tam_de_muestra.html)
+
+## Predicción de modelos (Kriging)
+
+- [Predicción de modelos](./guiones/ZonaA3.html)
+
+## Estimación de tamaño de muestra (resultados simulación)
+
+- [Tamaños muestrales](./guiones/TamMuestra.html)
+>>>>>>> ea596cba92079d9be2e2020d0ff852ed16c9ab9c

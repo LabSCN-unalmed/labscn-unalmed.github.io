@@ -4,17 +4,17 @@
 ################################################################################
 
 # Número de hombres y mujeres de un grupo en particular
-numhombres <- 58
-nummujeres <- 18
+numhombres <- 58000000
+nummujeres <- 18000000
 
 # Tamaño de muestra de la población
-tammuestra <- 10
+tammuestra <- 1200
 # Número de simulaciones para estimar el tamaño de muestra apropiado
 nsim <- 2000
 
 # Generar la población total
 total <- c(rep("Hombre",numhombres),rep("Mujer",nummujeres))
-total
+#total
 
 # Tabla de frecuencia "real" a partir de la población
 table(total)

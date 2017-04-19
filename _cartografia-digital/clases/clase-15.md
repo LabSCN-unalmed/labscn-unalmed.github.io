@@ -5,7 +5,7 @@ curso: 'cartografia-digital'
 clase: 15
 ---
 
-Las preguntas básicas
+Las preguntas básicas {#preguntas-basicas}
 ---------------------
 
 - Describir las columnas de una base de datos.
@@ -38,7 +38,7 @@ db.select sql='select * from puntos where PLACE is null'
 db.select sql='select count(*) from puntos where PLACE is null'
 ~~~
 
-Incorporar información proveniente de un DEM o de otro mapa vectorial
+Incorporar información proveniente de un DEM o de otro mapa vectorial {#incorporar-informacion-proveniente-dem-otro-mapa-vectorial}
 ---------------------------------------------------------------------
 
 Se puede transladar información de un archivo raster a un archivo vector, si este último es un archivo de puntos.
@@ -104,7 +104,7 @@ db.select sql=“select * from NBI where Nombre_Departamento='ANTIOQUIA'"
 db.select sql="select Nombre_Municipio from NBI where Nombre_Departamento='ANTIOQUIA'"
 ~~~
 
-Aplicación de lo aprendido anteriormente
+Aplicación de lo aprendido anteriormente {#aplicacion-aprendido-anteriormente}
 ----------------------------------------
 
 1. Desplegar el mapa porcecito.

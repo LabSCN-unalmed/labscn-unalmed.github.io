@@ -18,22 +18,18 @@
       return;
     }
     var render = function() { output.html(html); };
-    var get_level = function(ele) { return parseInt(ele.nodeName.replace("H", ""), 10); }
-    var level = get_level(headers[0]),
-      this_level,
-      html = "<h4>Contenido</h4><ul class='lscn-sidenav nav nav-stacked'>";
-    headers.on('click', function() {})
-    .each(function(_, header) {
+    var get_level = function(ele) { return parseInt(ele.nodeName.replace("H", ""), 10); };
+    var level = get_level(headers[0]), this_level, html = "";
+    headers.on('click', function() {}).each(function(_, header) {
       this_level = get_level(header);
-      if (this_level === level) // same level as before; same indenting
+      if (this_level === level) { // same level as before; same indenting
         html += "<li><a href='#" + fixedEncodeURIComponent(header.id) + "'>" + header.innerHTML + "</a>";
-      else if (this_level <= level){ // higher level than before; end parent ol
+      } else if (this_level <= level){ // higher level than before; end parent ol
         for(i = this_level; i < level; i++) {
           html += "</li></ul>"
         }
         html += "<li><a href='#" + fixedEncodeURIComponent(header.id) + "'>" + header.innerHTML + "</a>";
-      }
-      else if (this_level > level) { // lower level than before; expand the previous to contain a ol
+      } else if (this_level > level) { // lower level than before; expand the previous to contain a ol
         for(i = this_level; i > level; i--) {
           html += "<ul class='nav nav-stacked'><li>"
         }
@@ -41,8 +37,6 @@
       }
       level = this_level; // update for the next one
     });
-    html += "</ul>";
-    // html += "<a class='back-to-top' href='#top'>"+"Volver al inicio"+"</a>";
     render();
   };
 })(jQuery);

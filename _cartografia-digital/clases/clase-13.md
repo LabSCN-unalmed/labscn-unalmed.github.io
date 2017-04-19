@@ -7,7 +7,7 @@ clase: 13
 
 Durante esta clase nos dedicaremos a realizar ejercicios en torno al manejo de las tablas de atributos asociadas a los mapas vectoriales.
 
-Consultando información
+Consultando información {#consultando-informacion}
 -----------------------
 
 - Consultar la lista de mapas vectoriales disponibles.
@@ -47,15 +47,15 @@ db.describe -c table=carreteras
 db.describe -c table=puntos
 ~~~
 
-Ejercicios de despliegue y consulta de información en el mapa
+Ejercicios de despliegue y consulta de información en el mapa {#ejercicios-despliegue-consulta-informacion-mapa}
 -------------------------------------------------------------
 
 - Identificar una sola carretera y desplegarla.
 
 ~~~
-g.region vect=muniantioq 
-d.vect map=muniantioq 
-d.vect carreteras color=red 
+g.region vect=muniantioq
+d.vect map=muniantioq
+d.vect carreteras color=red
 d.vect carreteras where="cat=1" color=blue width=3
 ~~~
 
@@ -87,7 +87,7 @@ db.select sql='select TYPE,NAME from carreteras where cat=1'
 db.select sql='select NAME,TYPE from carreteras where cat=1'
 ~~~
 
-### Sintaxis básica del lenguaje SQL
+### Sintaxis básica del lenguaje SQL {#sintaxis-basica-lenguaje-sql}
 
 **select:** Indica las columnas a mostrar, para mostrarlas todas se utiliza \*.
 

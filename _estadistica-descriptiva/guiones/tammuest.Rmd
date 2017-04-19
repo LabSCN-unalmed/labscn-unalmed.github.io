@@ -1,13 +1,20 @@
 ---
 title: "Tamaño de muestra"
 author: "Kenneth Roy Cabrera Torres"
-date: "22 de agosto de 2016"
+date: "Martes, 21 de marzo de 2017"
 output:
   html_document:
     highlight: haddock
     theme: readable
     toc: yes
 ---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 100)
+```
+
 
 ```{r}
 ################################################################################

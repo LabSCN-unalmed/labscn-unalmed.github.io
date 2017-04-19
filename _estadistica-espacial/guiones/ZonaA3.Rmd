@@ -1,0 +1,104 @@
+---
+title: "Porosidad en una zona de estudio (prediccón del modelo)"
+author: "Kenneth Roy Cabrera Torres"
+date: "Miércoles, 22 de marzo de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+zonaA <- read.table("ZoneA.dat", na.strings = "-999.9999", header = TRUE)
+```
+
+## Exploratorio inicial
+
+```{r}
+library(geoR)
+gzonaA <- as.geodata(subset(zonaA, select = c("X", "Y", "Por")))
+summary(gzonaA)
+var(gzonaA$data)
+plot(gzonaA)
+```
+
+## Variograma empírico
+
+```{r}
+library(geoR)
+v3 <- variog(gzonaA, max.dist = 15000, uvec = c(0, seq(2000, 15000, 500)))
+plot(v3)
+```
+
+## Evidencia de estructura espacial
+
+```{r}
+envMC <- variog.mc.env(gzonaA, obj.variog = v3, nsim = 1000)
+plot(v3, envelope.obj = envMC)
+```
+
+
+
+## Estimación de parámetros
+
+### Máxima verosimilitud
+
+
+```{r}
+library(geoR)
+modelo2_lik <- likfit(gzonaA, ini.cov.pars = c(0.8, 4000/3),
+                      fix.nugget = TRUE,
+                      cov.model = "exp")
+modelo2_lik
+```
+
+## Graficación de modelos
+
+
+```{r}
+plot(v3, pch = 19)
+lines(modelo2_lik, lty = 1, col = "black")
+legend("bottomright", legend = c("MaxLik"), 
+       col = c("black"), 
+       lty = c(1))
+```
+
+
+## Verificación de modelos
+
+
+```{r}
+envModLik <- variog.model.env(gzonaA, obj.variog = v3,
+                              model.pars = modelo2_lik, 
+                              nsim = 1000)
+plot(v3, envelope.obj = envModLik)
+```
+
+## Predicción del modelo
+
+```{r}
+puntos_pred <- pred_grid(c(0, 20000), c(0, 16000), by = 100)
+
+KC <- krige.control(type = "sk", obj.mod = modelo2_lik)
+sk <- krige.conv(gzonaA, krige = KC, loc = puntos_pred)
+```
+
+```{r}
+pred.lim <- range(c(sk$pred))
+sd.lim <- range(sqrt(c(sk$kr)))
+
+image(sk, col = gray(seq(1, 0, l = 101)), zlim = pred.lim)
+contour(sk, add = T, levels = seq(12,17, 0.5))
+points(gzonaA, add = TRUE, cex.max = 2)
+```
+```{r}
+image(sk, value = sqrt(sk$krige.var), col = gray(seq(1, 0.3, l = 51)), zlim = sd.lim)
+contour(sk, value = sqrt(sk$krige.var), levels = seq(0, 1, by = 0.1), add = T)
+points(gzonaA$coords, pch = "+")
+```
+

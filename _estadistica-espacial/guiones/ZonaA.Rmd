@@ -1,0 +1,82 @@
+---
+title: "Porosidad en una zona de estudio"
+author: "Kenneth Roy Cabrera Torres"
+date: "22 de febrero de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+zonaA <- read.table("ZoneA.dat", na.strings = "-999.9999", header = TRUE)
+summary(zonaA)
+```
+
+## Análisis exploratorio
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(zonaA, aes(X, Y))
+g1 + geom_point() + coord_fixed()
+```
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(zonaA, aes(X, Y, col = Por))
+g1 + geom_point() + coord_fixed()
+```
+
+```{r}
+library(ggplot2)
+colores1 <- colorRampPalette(c("red","yellow","springgreen","royalblue"))
+
+g1 <- ggplot(zonaA, aes(X, Y, col = Por))
+g1 + geom_point(size = 3) + coord_fixed() +
+    scale_colour_gradientn(colours = rev(colores1(10)))
+
+
+```
+
+## Estimación del semivariograma
+
+```{r}
+library(geoR)
+gzonaA <- as.geodata(subset(zonaA, select = c("X", "Y", "Por")))
+summary(gzonaA)
+var(gzonaA$data)
+plot(gzonaA)
+```
+
+```{r}
+library(geoR)
+v1 <- variog(gzonaA, option = "cloud", max.dist = 15000)
+plot(v1)
+```
+
+```{r}
+library(geoR)
+v2 <- variog(gzonaA)
+plot(v2)
+```
+
+```{r}
+v2
+```
+
+```{r}
+library(geoR)
+v3 <- variog(gzonaA, max.dist = 15000, uvec = c(0, seq(2000, 15000, 500)))
+v3
+plot(v3)
+```
+
+```{r}
+library(geoR)
+v4 <- variog(gzonaA, max.dist = 15000, op = "sm", band = 1500)
+plot(v4)
+```
+
