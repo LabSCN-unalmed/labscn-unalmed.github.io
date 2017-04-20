@@ -1,0 +1,133 @@
+---
+title: "Efecto del Viagra"
+author: "Kenneth Roy Cabrera Torres"
+date: "19 de abril de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Diseño experimental
+
+Se quiere saber la influencia del uso del viagra en relación al
+lìbido que se evalúa en el individuo que la consume.
+
+Se tomaron tres niveles de dosis de viagra (1=efecto placebo,
+2=dosis baja, 3=dosis alta) y también se tomó en cosideración
+el grado de lìbido de la pareja, porque puede influenciar
+la respuesta del individuo que toma la pastilla.
+
+El experimento tomo a 45 parejas y distribuyó al azar, incialmente 
+se propuso 15 parejas para cada nivel del experimento, pero dado
+que cada pareja era voluntaria varios participantes no terminaron
+el experimento y sólo 30 parejas lo completó.
+
+
+## Lectura de la base de datos
+
+```{r}
+viagra <- read.table("ViagraCovariate.dat", header = TRUE)
+viagra$dosis <- factor(viagra$dosis, labels = c("Placebo", "Dosis baja", "Dosis alta"))
+viagra
+```
+
+## Análisis exploratorio
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(viagra, aes(dosis, libido))
+g1 + geom_jitter(width = 0.05) +
+     stat_summary(fun.y = "mean", geom = "point", col = "red", shape = 15, size = 3)
+```
+
+
+## Ajuste de un modelo incial
+
+```{r}
+m1 <- aov(libido ~ dosis, data = viagra)
+anova(m1)
+```
+
+## Exploratorio con la covariable
+
+```{r}
+library(ggplot2)
+g2 <- ggplot(viagra, aes(Libido_pareja, libido,  col = dosis))
+g2 + geom_jitter(width = 0.05, height = 0.05) +
+     geom_smooth(method = "lm", aes(fill = dosis), alpha = 0.1) +
+     scale_color_manual(values = c("blue", "green", "red")) +
+     scale_fill_manual(values = c("blue", "green", "red")) 
+```
+
+## Estimación de modelo con covariable
+
+```{r}
+library(car)
+m2 <- aov(libido ~ dosis + Libido_pareja, data = viagra)
+Anova(m2)
+
+m2l <- lm(libido ~ dosis + Libido_pareja, data = viagra)
+summary(m2l)
+```
+
+## Validación de supuestos
+
+```{r}
+op <- par(no.readonly = TRUE)
+par(mfrow = c(2, 2))
+plot(m2l)
+par(op)
+```
+
+
+```{r}
+shapiro.test(residuals(m2l))
+shapiro.test(rstandard(m2l))
+shapiro.test(rstudent(m2l))
+```
+
+
+```{r}
+library(car)
+library(lmtest)
+
+bartlett.test(libido ~ dosis, data = viagra)
+
+car::ncvTest(m2l)
+
+lmtest::bptest(m2l, studentize = FALSE)
+
+lmtest::bptest(m2l, studentize = TRUE)
+```
+
+```{r, fig.height=8}
+library(car)
+car::influenceIndexPlot(m2l)
+```
+
+```{r}
+library(car)
+car::influencePlot(m2l)
+```
+
+
+## Modelo final
+
+```{r}
+viagra <- data.frame(viagra, predict(m2l, interval = "confidence"))
+```
+
+```{r}
+g3 <- ggplot(viagra, aes(Libido_pareja, libido, col = dosis, label = rownames(viagra)))
+g3 + geom_line(aes(y = fit)) +
+     geom_ribbon(aes(ymin = lwr, ymax = upr, fill = dosis), alpha = 0.1) +
+     scale_color_manual(values = c("blue", "green", "red")) +
+     scale_fill_manual(values = c("blue", "green", "red")) +
+     geom_text(size = 3)
+```
+

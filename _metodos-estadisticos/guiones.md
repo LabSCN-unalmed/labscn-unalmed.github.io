@@ -31,3 +31,8 @@ custom_js: 'mathjax'
 
 - [Cultivo de camarones](./guiones/camarones.html)
 - [Base de datos de camarones](./guiones/camarones.xlsx)
+
+## Modelo con covariable
+
+- [Datos del resultado del experimento con viagra](./guiones/ViagraCovariate.dat)
+- [Experimento con viagra](./guiones/viagra.html)
