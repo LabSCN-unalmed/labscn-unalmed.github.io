@@ -1,7 +1,7 @@
 Introducción al R (Parte I)
 ========================================================
 author: Kenneth Cabrera
-date: domingo, 16 de abril de 2017
+date: martes, 25 de abril de 2017
 height: 800
 
 
@@ -43,6 +43,18 @@ Notas históricas del R
   3.3.3. "Another Canoe". 
 - Se espera la versión 3.4.0 para el viernes 21 de abril de 2017 
   denominada "Your Stupid Darkness".
+
+
+Sobrenombres de versiones del R
+========================================================
+
+"Another Canoe" (R version 3.3.3.)
+
+![](anotherCanoe.jpg)
+
+"You stupid darkness" (R version 3.4.0)
+
+![](you_stupid_darkness.gif)
 
 Descarga del R
 ========================================================
@@ -92,6 +104,7 @@ Paquetes princiales
 - El sistema básico o base el el paquete **base**.
 - El sistema básico incluye paquetes como el **utils**,
   **stats**, **datasets**, **graphics**, **parallel** y otros.
+- Paquete de paquetes de utilidades complementarias **tidyverse**.
 - Paquetes recomendados  **boot**, **class**, **cluster**
   **ggplot2**, **KernSmooth**, **nlme**, **nnet**, y otros.
 
