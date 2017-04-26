@@ -48,3 +48,32 @@ de ruido y luminosidad durante un tiempo de 10 minutos.
 ### Fecha de entrega
 
   Viernes 24 de febrero de 2017 en hora de clase (6:00 am a 8:00 am)
+
+## Taller individual
+
+Se realizaron perforaciones en una mina de carbón en Sudáfrica.
+De las perforaciones se midió el espesor de la capa de carbón (en metros),
+la energía contenida (valor calorífico en Magajulios por tonelada),
+contenido de ceniza (en porcentaje) y contenido de sulfuro (en porcentaje).
+También se midió la altitud del techo de la capa de carbón (en metros).
+
+Las siguientes son las bases de datos
+
+- [Muestra 1](./datos/muestra1.csv)
+- [Muestra 2](./datos/muestra2.csv)
+- [Muestra 3](./datos/muestra3.csv)
+- [Muestra 4](./datos/muestra4.csv)
+- [Muestra 5](./datos/muestra5.csv)
+- [Muestra 6](./datos/muestra6.csv)
+- [Muestra 7](./datos/muestra7.csv)
+- [Muestra 8](./datos/muestra8.csv)
+- [Muestra 9](./datos/muestra9.csv)
+
+Se pretende construir tanto un modelo de señal como me media, para la
+variable asignada teniendo como candidatas las covariables, la altitud
+y el espesor de la capa y las coordenadas.
+
+Seleccionar la azar 40 datos y realizar toda la modelación.
+
+Verificar con los 10 datos restantes el desempeño de los mejores modelos
+obtenidos para la respectiva variable.
