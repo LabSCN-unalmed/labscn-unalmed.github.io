@@ -46,3 +46,8 @@ order: 2
 
 - [Ejemplos básicos](./guiones/graficacion_basica.html)
 - [Base de datos](./basesdedatos/estrenosCine.xlsx)
+
+## Componentes principales y análisis aglomerativo
+
+- [Ejemplo de componentes principales](./guiones/componentesPrincipales.html)
+- [Base de datos de candidatos](./guiones/candidatos.xlsx)

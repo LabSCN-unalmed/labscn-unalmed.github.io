@@ -1,0 +1,152 @@
+---
+title: "Componentes principales y análisis aglomerativo"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves,  27 de abril de 2017"
+output: html_document
+---
+
+```{r set-options}
+options(width  =  120)
+```
+
+```{r}
+# Lectura de la base de datos
+datos2 <- read.csv2("cantidatos.csv", enc = "latin1")
+str(datos2)
+summary(datos2)
+```
+
+```{r,  fig.width  =  10,  fig.height =  10}
+plot(subset(datos2, select = PROMEDIO:PruebaExcel), pch = 19)
+```
+
+```{r,  fig.width  =  10,  fig.height =  10}
+library(GGally)
+ggpairs(subset(datos2, select = PROMEDIO:PruebaExcel), 
+        lower  =  list(continuous  =  "cor"), 
+        upper  =  list(continuous  =  "smooth",  combo  =  "dot"), 
+        diag   =  list(continuous  =  "density"))
+```
+
+```{r,  fig.width  =  10,  fig.height =  10}
+# Gráfica con la escala original
+with(datos2, plot(PROMEDIO, PruebaExcel, pch = 19, asp = 1))
+# Estandariza variables
+datos2std <- data.frame(scale(subset(datos2, select = PROMEDIO:PruebaExcel)))
+# Grafica las variables estandarizadas
+with(datos2std, plot(PROMEDIO, PruebaExcel, pch = 19, asp = 1))
+with(datos2std, text(PROMEDIO, PruebaExcel, rownames(datos2std), pos = 4))
+abline(h = 0, col = "red", lty = 2, lwd = 2)
+abline(v = 0, col = "red", lty = 2, lwd = 2)
+```
+
+```{r,  fig.width  =  10,  fig.height =  10}
+# Cálculo de las componentes principales
+cptemp <- princomp(subset(datos2std, select = c(PROMEDIO, PruebaExcel)))
+biplot(cptemp)
+```
+
+```{r,  fig.width  =  10,  fig.height =  10}
+# Componentes principales sin estandarizar
+cp1 <- princomp(subset(datos2, select = PROMEDIO:PruebaExcel))
+biplot(cp1)
+
+cp2 <- princomp(subset(datos2, select = PROMEDIO:PruebaExcel), cor = T)
+biplot(cp2)
+summary(cp2)
+loadings(cp2)
+cp2$scores
+
+```
+
+```{r,  fig.width  =  10,  fig.height =  10}
+# Adicionar la componente principal 1 y 2 a la base de datos
+datos2 <- data.frame(datos2, cp2$scores[, c(1, 2)])
+```
+
+```{r,  fig.width  =  10,  fig.height =  10}
+# Mostrar la base ordenada de acuerdo al componente principal 1
+datos2[order(cp2$scores[, 1], decreasing = T), ]
+
+```
+
+
+
+```{r,  fig.width  =  10,  fig.height =  10}
+
+# Combinación con análisis aglomerativo (cluster analysis)
+# Análisis aglomerativo estandarizando
+cl2 <- hclust(dist(scale(subset(datos2, select = PROMEDIO:PruebaExcel))))
+plot(cl2)
+# Determinación de grupos
+datos2$grupo <- cutree(cl2, 8)
+```
+
+
+```{r,  fig.width  =  10,  fig.height =  10}
+
+# Mostrar la base ordenada de acuerdo al componente principal 1
+# con los grupos de análisis aglomerativo
+datos2[order(cp2$scores[, 1], decreasing = T), ]
+```
+
+```{r,  fig.width  =  10,  fig.height =  10}
+colMeans(subset(datos2, select = c(SEMESTRE, PROMEDIO, 
+                                    Califica.Ortografía, 
+                                    HojaVida, PruebaExcel)))
+# Caracterización de cada grupo por promedios.
+lapply(split(subset(datos2, select = c(CARRERA, SEMESTRE, PROMEDIO, 
+                                    Califica.Ortografía, 
+                                    HojaVida, PruebaExcel)), datos2$grupo), summary)
+```
+
+```{r,  fig.width  =  10,  fig.height =  10}
+# Valores de "carga" o coeficientes de las componentes principales
+cp2$loadings[, 1:4]
+
+colores <- c("blue", "red", "#7570B3", "#E7298A", "#66A61E", 
+           "orange4", "magenta4", "midnightblue")
+simbolos <- c(15, 16, 15, 16, 17, 15, 18, 17)
+with(datos2, plot(Comp.1, Comp.2, col = colores[grupo], pch = simbolos[grupo], 
+                 xlab = "Componente principal 1", ylab = "Componente principal 2", 
+                 main = "Grupos de candidatos sobre componentes principales", 
+                 cex = 1.7))
+legend("bottomleft", legend = 1:8, pch = simbolos, col = colores, ncol = 2, cex = 1.5)
+abline(h = 0, col = "brown")
+abline(v = 0, col = "brown")
+arrows(0, 0, cp2$loadings[, 1]*2, cp2$loadings[, 2]*2, col = "red", lwd = 2)
+text(cp2$loadings[, 1]*2, cp2$loadings[, 2]*2, row.names(cp2$loadings))
+
+```
+
+```{r,  fig.width  =  10,  fig.height =  10}
+
+# Ponderando las variables según algún criterio de selección
+temp1 <- data.frame(scale(subset(datos2, select = PROMEDIO:PruebaExcel)))
+datos3 <- as.matrix(temp1)
+pondera <- c(0.4, 0.2, 0.2, 0.2)
+datos3 <- t(t(datos3)*pondera)
+cp3 <- princomp(datos3)
+biplot(cp3)
+
+cl3 <- hclust(dist(datos3))
+plot(cl3)
+grupo3 <- cutree(cl3, 6)
+
+datos3 <- data.frame(datos3)
+datos3$grupo <- grupo3
+datos3 <- data.frame(datos3, cp3$scores[, 1:4])
+
+colores <- c("blue", "red", "#7570B3", "#E7298A", "#66A61E", 
+           "orange4", "magenta4", "midnightblue")
+simbolos <- c(15, 16, 15, 16, 17, 15, 18, 17)
+with(datos3, plot(Comp.1, Comp.2, col = colores[grupo], pch = simbolos[grupo], 
+                 xlab = "Componente principal 1", ylab = "Componente principal 2", 
+                 main = "Grupos de candidatos sobre componentes principales", 
+                 cex = 1.5))
+legend("bottomleft", legend = 1:6, pch = simbolos, col = colores, ncol = 2, cex = 1.5)
+abline(h = 0, col = "brown")
+abline(v = 0, col = "brown")
+arrows(0, 0, cp3$loadings[, 1]*0.5, cp3$loadings[, 2]*0.5, col = "red", lwd = 2)
+text(cp3$loadings[, 1]*0.5, cp3$loadings[, 2]*0.5, row.names(cp3$loadings))
+```
