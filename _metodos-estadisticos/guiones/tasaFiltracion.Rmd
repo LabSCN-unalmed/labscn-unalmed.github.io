@@ -1,7 +1,7 @@
 ---
-title: "Experimento de tasa de filtración"
+title: "Experimento de tasa de filtración (Diseño fraccionado)"
 author: "Kenneth Roy Cabrera Torres"
-date: "20 de abril de 2016"
+date: "Jueves, 27 de abril de 2017"
 output: 
   html_document: 
     toc: yes
@@ -11,9 +11,22 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Experimento de la tasa de filtración.
 
-Un producto químico se produce una cámara de presión. 
+```{r}
+# Función auxiliar para hallar el error estándar de los resdiuales
+# de un modelo "aov"
+options(width=120)
+errsdred<-function(modelo){
+  aovm<-anova(modelo)
+  return(sqrt(aovm$"Mean Sq"[length(aovm$"Mean Sq")]))
+}
+```
+
+## Diseño fraccionado (Primera etapa)
+
+### Experimento de la tasa de filtración.
+
+Un producto químico se produce en una cámara de presión. 
 Se llevó a cabo un experimento factorial fraccionado para estudiar
 los factores que influencian en la tasa de filtración del producto obtenido.
 Los cuatro factores son: temperatura (A), presión (B),
@@ -22,54 +35,75 @@ Cada uno de los factores se tomó a dos niveles.
 
 Se realizó un experimento $2^{4-1}_{IV}$.
 
-## Efectos dobles y sus alias
+### Efectos dobles y sus alias
 ```{r}
-require(pid)
+library(pid)
 tradeoff(runs = 8, factors = 4)
 ```
 
 
-## Lectura de la base de datos
+### Lectura de la base de datos
 ```{r}
 tasaFilt <- read.csv2("tasaFiltracion.csv")
 tasaFilt
-tasaFilt$A <- factor(tasaFilt$A, labels = c("B T", "A T"))
-tasaFilt$B <- factor(tasaFilt$B, labels = c("B P", "A P"))
-tasaFilt$C <- factor(tasaFilt$C, labels = c("B H2C=O", "A H2C=O"))
-tasaFilt$D <- factor(tasaFilt$D, labels = c("B V", "A V"))
+tasaFilt$A <- factor(tasaFilt$A, labels = c("b-T", "a-T"))
+tasaFilt$B <- factor(tasaFilt$B, labels = c("b-P", "a-P"))
+tasaFilt$C <- factor(tasaFilt$C, labels = c("b-H2C=O", "a-H2C=O"))
+tasaFilt$D <- factor(tasaFilt$D, labels = c("b-V", "a-V"))
 tasaFilt
 
 ```
 
-## Gráfica exploratoria
+### Gráfica exploratoria
 
 ```{r}
-require(ggplot2)
+library(ggplot2)
 g1 <- ggplot(tasaFilt, aes(A, TF, col = B))
 g1 + geom_point(size = 5) + facet_grid(C ~ D)
 ```
 
-## Modelización
+### Modelización
+
+$$
+ y_{ijklm} = \mu + \alpha_i + \beta_j + \gamma_k + \delta_l + \\
+          (\alpha\beta)_{ij} + (\alpha\gamma)_{ik} + (\alpha\delta)_{il} + \\
+          \epsilon_{ijklm}
+$$
+
+Donde:
+$$
+   \epsilon_{ijklm} \sim \mathcal{N}(0, \sigma^2) \quad i.i.d.
+$$
+
+Además, se hacen los siguientes supuestos con respecto a las interacciones dobles:
+
+$$
+  (\alpha\beta)_{ij} = (\gamma\delta)_{kl} \\
+  (\alpha\gamma)_{ik} = (\beta\delta)_{jl} \\
+  (\alpha\delta)_{il} = (\beta\gamma)_{jk}
+$$
+Todas las demás interacciones de orden superior se suponen no significactivas.
 
 ```{r}
 modelo1 <- aov(TF ~ A + B + C + D + A:B + A:C + A:D, data = tasaFilt)
 summary(modelo1)
 ```
 
-## Determinación de interacciones significativas
+### Determinación de interacciones significativas
 
 ```{r}
-require(pid)
+library(pid)
 paretoPlot(modelo1)
 efectos <- unlist(model.tables(modelo1))
-efectos <- efectos[substring(names(efectos),1,6)=="tables"]
-names(efectos)<-gsub("tables.","",names(efectos))
-qqR<-qqnorm(efectos, xlim = c(-3, 3), ylim = c(-15,15), pch = 19, cex = 0.5)
+efectos <- efectos[substring(names(efectos),1,6) == "tables"]
+names(efectos)<-gsub("tables.", "", names(efectos))
+
+qqR <- qqnorm(efectos, xlim = c(-3, 3), ylim = c(-15,15), pch = 19, cex = 0.5)
 qqline(efectos)
-with(qqR,text(x,y,labels=names(efectos),cex=0.7,pos=3))
+with(qqR,text(x, y, labels = names(efectos), cex = 0.7, pos = 3))
 ```
 
-## Modelización definitiva
+### Modelización definitiva
 
 ```{r}
 modelo2 <- aov(TF ~ A + B + C + D  + A:C + A:D, data = tasaFilt)
@@ -80,12 +114,12 @@ summary(modelo3)
 
 ```
 
-## Diagnósticos
+### Diagnósticos
 
 ```{r}
 # Normalidad
-residualesStud <- rstudent(modelo3)
-shapiro.test(residualesStud)
+residualesEstud <- rstudent(modelo3)
+shapiro.test(residualesEstud)
 # Igualdad de varianza
 bartlett.test(TF ~ A, data = tasaFilt)
 bartlett.test(TF ~ B, data = tasaFilt)
@@ -95,11 +129,11 @@ bartlett.test(TF ~ paste(A,C), data = tasaFilt)
 bartlett.test(TF ~ paste(A,D), data = tasaFilt)
 ```
 
-## Comparaciones de Tukey
+### Comparaciones de Tukey
 ```{r}
-require(multcomp)
-require(multcompView)
-require(sandwich)
+library(multcomp)
+library(multcompView)
+library(sandwich)
 tasaFilt$AC <- with(tasaFilt, interaction(A, C))
 
 modelo3_1 <- aov(TF ~ -1 + AC, data = tasaFilt)
@@ -114,7 +148,7 @@ plot(compMultHetero)
 par(op)
 ```
 
-## Predicción del modelo
+### Comportamiento del modelo
 ```{r}
 tasaFilt$TFp <- predict(modelo3)
 g1 <- ggplot(tasaFilt, aes(A, TF, col = C))
@@ -123,34 +157,56 @@ g1 + geom_point() + facet_grid(. ~ D) +
   geom_point(aes(A, TFp, col = C), shape = 17)
 ```
 
-## Valor de los efectos
+### Valor de los efectos
 ```{r}
 model.tables(modelo3, se = TRUE)
 model.tables(modelo3, se = TRUE, type = "mean")
 ```
 
-## Realización de los datos complementarios
+### Estimación de los errores
+```{r}
+errsdred(modelo3)
+```
+
+## Diseño factorial ($2^k$)
+
+
+
+
+### Realización de los datos complementarios
 ```{r}
 tasaFilt2 <- read.csv2("tasaFiltracion2.csv")
 tasaFilt2
-tasaFilt2$A <- factor(tasaFilt2$A, labels = c("B T", "A T"))
-tasaFilt2$B <- factor(tasaFilt2$B, labels = c("B P", "A P"))
-tasaFilt2$C <- factor(tasaFilt2$C, labels = c("B H2C=O", "A H2C=O"))
-tasaFilt2$D <- factor(tasaFilt2$D, labels = c("B V", "A V"))
-tasaFilt2$Etapa <- factor(tasaFilt2$Etapa, labels = c("E 1", "E 2"))
+tasaFilt2$A <- factor(tasaFilt2$A, labels = c("b-T", "a-T"))
+tasaFilt2$B <- factor(tasaFilt2$B, labels = c("b-P", "a-P"))
+tasaFilt2$C <- factor(tasaFilt2$C, labels = c("b-H2C=O", "a-H2C=O"))
+tasaFilt2$D <- factor(tasaFilt2$D, labels = c("b-V", "a-V"))
+tasaFilt2$Etapa <- factor(tasaFilt2$Etapa, labels = c("e-1", "e-2"))
 tasaFilt2
 ```
 
-## Gráfica exploratoria 2
+### Gráfica exploratoria 2
 
 ```{r}
-require(ggplot2)
+library(ggplot2)
 g1 <- ggplot(tasaFilt2, aes(A, TF, col = B))
 g1 + geom_point(size = 5) + facet_grid(C ~ D)
 ```
 
 
-## Modelización
+### Modelización
+
+
+$$
+ y_{ijklmo} = \mu + \alpha_i + \beta_j + \gamma_k + \delta_l + \kappa_{o}\\
+          (\alpha\beta)_{ij} + (\alpha\gamma)_{ik} + (\alpha\delta)_{il} + \\
+          \epsilon_{ijklmo}
+$$
+
+Donde:
+$$
+   \epsilon_{ijklmo} \sim \mathcal{N}(0, \sigma^2) \quad i.i.d.
+$$
 
 ```{r}
 modelo4 <- aov(TF ~ A + B + C + D + A*B*C*D + Etapa, data = tasaFilt2)
@@ -158,10 +214,10 @@ summary(modelo4)
 ```
 
 
-## Determinación de interacciones significativas
+### Determinación de interacciones significativas
 
 ```{r}
-require(pid)
+library(pid)
 paretoPlot(modelo4)
 efectos <- unlist(model.tables(modelo4))
 efectos <- efectos[substring(names(efectos),1,6)=="tables"]
@@ -171,7 +227,7 @@ qqline(efectos)
 with(qqR,text(x,y,labels=names(efectos),cex=0.7,pos=3))
 ```
 
-## Modelización definitiva 2
+### Modelización definitiva 2
 
 ```{r}
 modelo5 <- aov(TF ~ A + B + C + D  + A*B*C*D + Etapa - A:B:C:D,
@@ -182,15 +238,15 @@ modelo6 <- aov(TF ~ A + B + C + D  + A*B*C*D + Etapa - A:B:C:D - A:C:D,
                data = tasaFilt2)
 summary(modelo6)
 
-modelo6 <- aov(TF ~ A + B + C + D  + A*B*C*D + Etapa 
-               - A:B:C:D - A:C:D - A:B:C -B:C:D - A:B:D
-               - A:B - B:D - C:D - B:C - Etapa - B,
+modelo6 <- aov(TF ~ A + B + C + D  + A*B*C*D + Etapa -
+                A:B:C:D - A:C:D - A:B:C - B:C:D - A:B:D -
+                A:B - B:D - C:D - B:C - Etapa - B,
                data = tasaFilt2)
 summary(modelo6)
 
 ```
 
-## Diagnósticos
+### Diagnósticos
 
 ```{r}
 # Normalidad
@@ -205,11 +261,11 @@ bartlett.test(TF ~ paste(A,C), data = tasaFilt2)
 bartlett.test(TF ~ paste(A,D), data = tasaFilt2)
 ```
 
-## Comparaciones de Tukey
+### Comparaciones de Tukey
 ```{r}
-require(multcomp)
-require(multcompView)
-require(sandwich)
+library(multcomp)
+library(multcompView)
+library(sandwich)
 tasaFilt2$AC <- with(tasaFilt, interaction(A, C))
 
 modelo6_1 <- aov(TF ~ -1 + AC, data = tasaFilt2)
@@ -219,12 +275,12 @@ compMultHetero <- glht(modelo6_1, linfct = mcp(AC = "Tukey"), vcov = sandwich)
 summary(compMultHetero)
 
 op <- par(no.readonly = TRUE) 
-par(mar=op$mar+c(0,12,0,0))
+par(mar = op$mar + c(0, 12, 0, 0))
 plot(compMultHetero)
 par(op)
 ```
 
-## Predicción del modelo
+### Comportamiento del modelo
 ```{r}
 tasaFilt2$TFp <- predict(modelo6)
 g1 <- ggplot(tasaFilt2, aes(A, TF, col = C))
@@ -233,8 +289,15 @@ g1 + geom_point() + facet_grid(. ~ D) +
   geom_point(aes(A, TFp, col = C), shape = 17)
 ```
 
-## Valor de los efectos
+### Valor de los efectos
 ```{r}
 model.tables(modelo6, se = TRUE)
 model.tables(modelo6, se = TRUE, type = "mean")
+```
+
+
+
+### Estimación de los errores
+```{r}
+errsdred(modelo6)
 ```
