@@ -47,3 +47,12 @@ custom_js: 'mathjax'
 - [Experimento de tasa de filtración](./guiones/tasaFiltracion.html)
 - [Datos de tasa de filtración (1ra Etapa)](./guiones/tasaFiltracion.xlsx)
 - [Datos de tasa de filtración (2da Etapa)](./guiones/tasaFiltracion2.xlsx)
+
+## Superficie de respuesta I
+
+- [Reacción Química](./guiones/superficieRtaI.html)
+- [Base de datos de reacción química](./guiones/reaccionQuimica.xlsx)
+
+## Superficie de respuesta II
+
+- [Horneo de tortas](./guiones/horneo.html)

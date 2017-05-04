@@ -1,0 +1,195 @@
+---
+title: "Superficie de respuesta II"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves 4 de mayo de 2017"
+output:
+  html_document:
+    highlight: textmate
+    theme: readable
+    toc: yes
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, 
+                      fig.height=8)
+```
+
+```{r}
+################################################################################
+# Ejemplo del uso del paquete "rsm" para la
+# Metodología de superficie de respuesta
+require(rsm)
+
+################################################################################
+# Generación de la configuración del primer experimento
+cube(~x1+x2,x3~x1*x2,n0=4,
+             coding=c(x1~(harina-1)/0.1,
+                      x2~(azucar-0.5)/0.1,
+                      x3~(mantequilla-0.25)/0.1), randomize=FALSE)
+
+set.seed(0)
+exper1<-cube(~x1+x2,x3~x1*x2,n0=4,
+             coding=c(x1~(harina-1)/0.1,
+                      x2~(azucar-0.5)/0.1,
+                      x3~(mantequilla-0.25)/0.1))
+exper1
+
+# Gráfica de varianza y configuración gráfica
+par(mfrow=c(1,2))
+varfcn(exper1,~FO(x1,x2,x3))
+varfcn(exper1,~FO(x1,x2,x3),contour=TRUE)
+par(mfrow=c(1,1))
+
+# Intento de verificar si podría ajustar un modelo de segundo orden (SO)
+# varfcn(exper1,~SO(x1,x2,x3))
+
+# Adicionar un diseño en estrella "rotable"
+# djoin(exper1,star(n0=2,alpha="rotatable"))
+
+# Generación del diseño en estrella con una longitud de 1.5
+set.seed(1)
+exper2<-djoin(exper1,star(n0=2,alpha=1.5))
+par(mfrow=c(1,2))
+varfcn(exper2,~Block+SO(x1,x2,x3))
+varfcn(exper2,~Block+SO(x1,x2,x3),contour=TRUE)
+par(mfrow=c(1,1))
+
+# Obtener los datos al realizar el experimento
+exper1$puntaje<-c(24.7,28.9,20.2,25.0,24.7,27.1,25.5,21.5)
+
+################################################################################
+# Modelo 1
+m1<-rsm(puntaje~FO(x1,x2,x3),data=exper1)
+summary(m1)
+
+(dir1<-steepest(m1))
+
+set.seed(2)
+exper3<-dupe(dir1[2:9,])
+exper3$puntaje<-c(26.6,24.8,27.8,27.5,25.3,26.0,27.3,24.3)
+exper3
+
+plot(puntaje~dist,data=exper3,pch=19)
+
+################################################################################
+# Modelo 2
+m2<-lm(puntaje~poly(dist,2),data=exper3)
+with(exper3,{
+   ord=order(dist)
+   lines(dist[ord],predict(m2)[ord])
+})
+
+set.seed(4)
+exper4<-dupe(exper1)
+codings(exper4)<-c(x1~(harina-1.25)/0.1,
+                   x2~(azucar-0.45)/0.1,
+                   x3~(mantequilla-0.25)/0.1)
+exper4$puntaje<-c(25.3,26.0,27.3,27.2,26.2,26.6,23.7,27.8)
+exper4
+
+################################################################################
+# Modelo 3
+m3<-rsm(puntaje~FO(x1,x2,x3),data=exper4)
+summary(m3)
+
+set.seed(5)
+exper5<-foldover(exper4,variable="x1")
+exper5$puntaje<-c(34.9,34.0,35.5,35.1,31,33.3,34.6,35.1)
+exper5
+
+union4_5<-djoin(exper4,exper5)
+
+################################################################################
+# Modelo 4
+m4<-rsm(puntaje~Block+FO(x1,x2,x3),data=union4_5)
+summary(m4)
+
+set.seed(6)
+exper6<-star(exper5,n0=2,alpha="orthogonal")
+par(mfrow=c(1,2))
+union4_5_6<-djoin(exper4,exper5,exper6)
+varfcn(union4_5_6,~Block+SO(x1,x2,x3))
+varfcn(union4_5_6,~Block+SO(x1,x2,x3),contour=T)
+par(mfrow=c(1,1))
+
+exper6$puntaje<-c(27.4,29.3,27.6,27.3,26.7,26.0,23.9,26.7)
+exper6
+
+union4_5_6<-djoin(exper4,exper5,exper6)
+
+################################################################################
+# Modelo 5
+m5<-rsm(puntaje~Block+SO(x1,x2,x3),data=union4_5_6)
+summary(m5)
+
+steepest(m5)
+
+set.seed(7)
+exper7<-dupe(steepest(m5,dist=(2:9)/3))
+exper7$puntaje<-c(35.5,33.4,35.0,33.3,33.8,34.7,34.2,34.1)
+exper7
+
+plot(puntaje~dist,data=exper7)
+
+################################################################################
+# Modelo 6
+m6<-lm(puntaje~poly(dist,2),data=exper7)
+with(exper7,{
+  ord <- order(dist)
+  lines(dist[ord],predict(m6)[ord])
+})
+
+set.seed(8)
+exper8<-ccd(~x1+x2+x3,n0=c(0,2),
+            alpha="orthogonal",
+            coding=c(x1~(harina-1.25)/0.1,
+                     x2~(azucar-0.3)/0.1,
+                     x3~(mantequilla-0.3)/0.1))
+exper8$puntaje<-c(27.3,23.5,26.6,25.6,26.2,24.5,26.6,24.7,
+                  25.9,25.2,27.8,29.3,26.0,27.9,26.5,22.0)
+exper8
+
+################################################################################
+# Modelo 7
+m7<-rsm(puntaje~Block + SO(x1,x2,x3),data=exper8)
+summary(m7)
+
+
+par(mfrow=c(1,3))
+contour(m7,~x1+x2+x3,at=xs(m7),image=TRUE)
+par(mfrow=c(1,1))
+
+par(mfrow=c(2,2))
+plot(m7)
+par(mfrow=c(1,1))
+
+
+ajustes<-predict(m7)
+residuales<-resid(m7)
+boot.crudo <-replicate(500,xs(update(m7,ajustes+sample(residuales,replace=TRUE)~.)))
+boot1<-code2val(as.data.frame(t(boot.crudo)),
+                codings=codings(m7))
+
+# Verificación del último modelo mediante boostrap
+par(mfrow=c(1,3))
+plot(azucar~harina,data=boot1,col="gray")
+points(1.215,0.282,col="red",pch=7)
+plot(mantequilla~harina,data=boot1,col="gray")
+points(1.215,0.364,col="red",pch=7)
+plot(mantequilla~azucar,data=boot1,col="gray")
+points(0.282,0.364,col="red",pch=7)
+par(mfrow=c(1,1))
+
+par(mfrow=c(1,3))
+plot(azucar~harina,data=boot1,col="gray", xlim=c(1,1.5), ylim=c(0,0.5), asp=1)
+points(1.215,0.282,col="red",pch=7)
+plot(mantequilla~harina,data=boot1,col="gray", xlim=c(1,1.5), ylim=c(0,0.5), asp=1)
+points(1.215,0.364,col="red",pch=7)
+plot(mantequilla~azucar,data=boot1,col="gray", ylim=c(0,0.5), xlim=c(0,0.5), asp=1)
+points(0.282,0.364,col="red",pch=7)
+par(mfrow=c(1,1))
+
+
+```
+
+
