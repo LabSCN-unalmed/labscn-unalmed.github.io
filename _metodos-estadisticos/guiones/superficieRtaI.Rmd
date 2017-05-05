@@ -1,7 +1,7 @@
 ---
-title: "Superficies de respuesta I"
+title: "Superficie de respuesta I"
 author: "Kenneth Roy Cabrera Torres"
-date: "Martes 10 de mayo de 2016"
+date: "Jueves 4 de mayo de 2017"
 output:
   html_document:
     highlight: textmate
@@ -11,28 +11,28 @@ output:
 
 ## Lectura de la base de datos
 ```{r}
-rqca<-read.csv2("reaccionQuimica.csv",enc="latin1")
+rqca <- read.csv2("reaccionQuimica.csv")
 rqca
 
 # Separación de las bases teniendo en cuenta que
 # se hizo primero el conjunto perteneciente al
 # primer bloque y luego el correspondiente al segundo bloque.
-rqca1<-droplevels(subset(rqca,Bloque=="B1",select=-Bloque))
-rqca2<-droplevels(subset(rqca,Bloque=="B2",select=-Bloque))
+rqca1 <- droplevels(subset(rqca, Bloque == "B1", select = -Bloque))
+rqca2 <- droplevels(subset(rqca, Bloque == "B2", select = -Bloque))
 
 ```
 
 
 ```{r}
 ## Paquete para utilizar superficies de respuesta.
-require(rsm)
+library(rsm)
 ```
 
 ```{r}
 # Codificación de las variables de acuerdo con la
 # metodología de superficie de respuesta.
-rq1C<-coded.data(rqca1,x1~(Tiempo-85)/5,
-                 x2~(Temp-175)/5)
+rq1C <- coded.data(rqca1, x1 ~ (Tiempo-85)/5, 
+                 x2 ~ (Temp-175)/5)
 rq1C
 # Muestra la codificación correspondiente
 as.data.frame(rq1C)
@@ -41,23 +41,23 @@ as.data.frame(rq1C)
 ## Modelación
 
 ```{r}
-# Modelo inicial de primer orden (FO="Fisrt Order")
+# Modelo inicial de primer orden (FO = "Fisrt Order")
 # Otros modelos son:
 # TWI : (two-way interaction). Interacción doble.
 # PQ  : (pure cuadratic). Cuadrático puro.
-# SO  : (second-order). Segundo orden = FO+TWI+PQ
-m1.rq1<-rsm(Rendimiento~FO(x1,x2),data=rq1C)
+# SO  : (second-order). Segundo orden  =  FO + TWI + PQ
+m1.rq1 <- rsm(Rendimiento ~ FO(x1, x2), data = rq1C)
 summary(m1.rq1)
 
 # Dirección de la mayor pendiente
 steepest(m1.rq1)
 
 # Segundo modelo
-m2.rq1<-rsm(Rendimiento~FO(x1,x2)+TWI(x1,x2),data=rq1C)
+m2.rq1 <- rsm(Rendimiento ~ FO(x1, x2) + TWI(x1, x2), data = rq1C)
 summary(m2.rq1)
 
 # Gráfica para el segundo modelo
-contour(m2.rq1,~x1+x2,image=T,at=summary(m2.rq1)$canonical$xs)
+contour(m2.rq1,  ~ x1 + x2, image = T, at = summary(m2.rq1)$canonical$xs)
 
 # Dirección de la mayor pendiente
 steepest(m2.rq1)
@@ -69,19 +69,19 @@ steepest(m2.rq1)
 ```{r}
 # Unión de datos adicionales para mejorar el modelo
 # mediante datos tomado en un segundo bloque
-rq2C<-djoin(rq1C,rqca2)
+rq2C <- djoin(rq1C, rqca2)
 rq2C
 as.data.frame(rq2C)
 
 # Tercer modelo con los bloques y de segundo orden
-m3.rq2<-rsm(Rendimiento~Block+SO(x1,x2),data=rq2C)
+m3.rq2 <- rsm(Rendimiento ~ Block + SO(x1, x2), data = rq2C)
 summary(m3.rq2)
 ```
 
 ## Gráfica del modelo final
 
 ```{r}
-contour(m3.rq2,~x1+x2,image=T,at=summary(m3.rq2)$canonical$xs)
+contour(m3.rq2,  ~ x1 + x2, image = T, at = summary(m3.rq2)$canonical$xs)
 
 # Dirección de la mayor pendiente
 steepest(m3.rq2)

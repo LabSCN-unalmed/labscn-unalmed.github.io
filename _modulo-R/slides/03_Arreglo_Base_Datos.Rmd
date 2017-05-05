@@ -53,17 +53,17 @@ Columnas | Variables
 
 ### Herramientas en R para su solución
 ```{r}
-require(reshape2) 
-?melt
-?dcast
+library(tidyr) 
+?gather
+?spread
 
-require(stringr)
+library(stringr)
 ?str_replace
 ?str_sub
 ?str_match
 ?str_split_fixed
 
-require(plyr) # Opcional, pero bueno
+library(dplyr) 
 ?arrange
 ```
 
@@ -80,13 +80,9 @@ relig
 Ordenar la base de datos.
 
 ```{r}
-require(reshape2)
-relig2 <- melt(relig, "religion")
+library(tidyr)
+relig2 <- gather(relig, key = ingresos, value = frecuencia, -1)
 head(relig2)
-# Nombres de variables adecuadas
-names(relig2) <- c("Religión", "Ingresos", "n")
-head(relig2)
-
 ```
 
 ### Otro caso más elaborado
@@ -120,7 +116,7 @@ y seleccionar sólo un año.
 crudo$new_sp <- NULL
 crudo <- subset(crudo, year == 2000)
 names(crudo)[1] <- "pais"
-require(stringr)
+library(stringr)
 names(crudo) <- str_replace(names(crudo), "new_sp_", "")
 crudo$m04  <- NULL
 crudo$m514 <- NULL
@@ -133,14 +129,12 @@ Adecuación de la base de datos con respecto a las variables
 que se quieren determinar.
 
 ```{r}
-require(reshape2)
-limpio <- melt(crudo, id = c("pais", "year"), na.rm = TRUE)
+library(tidyr)
+limpio <- gather(crudo, key = columna, value = casos, m014:fu)
 names(limpio)[2] <- "año"
-names(limpio)[3] <- "columna"
-names(limpio)[4] <- "casos"
 head(limpio,20)
 # Arreglo de la base de datos.
-require(plyr)
+library(dplyr)
 limpio <- arrange(limpio, pais, columna, año)
 head(limpio,20)
 ```
@@ -180,7 +174,12 @@ limpio2 <- subset(limpio, casos > 500)
 CasosTotales <- sort(with(limpio2, tapply(casos, nombre, sum)), decreasing=TRUE)
 PaisXCasosTot <- names(CasosTotales)
 limpio2$nombre <- factor(limpio2$nombre, levels = PaisXCasosTot)
-require(ggplot2)
+```
+
+
+
+```{r}
+library(ggplot2)
 
 # Gráfica de puntos
 g1 <- ggplot(limpio2, aes(nombre, log10(casos), col = sexo))
@@ -188,7 +187,10 @@ g1 + geom_point() + facet_grid(edad ~ .) +
   theme(text = element_text(size = 8),
         axis.text.x = element_text(angle = 45, hjust = 1))+
   ylab("log10 del Número de casos") + xlab("País")
+```
 
+```{r}
+library(ggplot2)
 # Gráfica de barras
 g2 <- ggplot(limpio2, aes(nombre, log10(casos), fill = sexo))
 g2 + geom_bar(stat = "identity", position = "dodge") + facet_grid(edad ~ .) +
@@ -196,6 +198,7 @@ g2 + geom_bar(stat = "identity", position = "dodge") + facet_grid(edad ~ .) +
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   ylab("log10 del Número de casos") + xlab("País")
 ```
+
 
 
 [id1]: religiones.png "Religiones"
