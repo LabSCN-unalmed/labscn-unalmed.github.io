@@ -1,0 +1,140 @@
+---
+title: "Patrones de puntos"
+author: "Kenneth Roy Cabrera Torres"
+date: Jueves,  5 de mayo de 2017
+output:
+  html_document:
+    highlight: textmate
+    theme: readable
+    toc: yes
+---
+
+
+```{r global_options,  include=FALSE}
+knitr::opts_chunk$set(fig.width=12,  
+                      fig.height=8)
+options(width = 100)
+```
+
+
+
+## Lectura de la base de datos.
+
+Distribución de la especie Hybanthus prunifolius (flor de lluvia) con un DAP mayor de 5 cm.
+
+```{r,  out.width = 200,  fig.retina = NULL,  echo=FALSE}
+knitr::include_graphics("Hp.jpg")
+```
+
+De acuerdo a la descripción hecha en [esta página](http://www.tropicos.org/name/33800563?projectid=7),  se caracteríza por:
+
+Arbustos o árboles,  hasta 7 m de alto; ramas jóvenes pilosas,  estriadas,  gris claras. Hojas alternas,  frecuentemente agrupadas en brotes cortos,  elípticas,  4.5–15 cm de largo,  atenuadas a acuminadas en el ápice,  atenuadas en la base,  irregularmente serradas o serruladas,  lisas,  adaxialmente seríceas a lo largo del nervio principal,  abaxialmente seríceas cuando jóvenes,  tricomas persistentes en el base y a lo largo del nervio principal; pecíolos cortos,  estípulas 3–5 mm de largo,  con una quilla ósea y con márgenes cartáceos,  seríceas a lo largo de la quilla,  persistentes. Flores 1–2 en brotes cortos,  blancas,  pedicelos delgados,  10–20 mm de largo; sépalos lanceolados,  7–11 mm de largo,  seríceos; pétalo más inferior 23–45 mm de largo. Cápsula 18–20 mm de largo; semillas 4–5 mm de diámetro.
+
+
+
+```{r}
+hp1 <- read.csv2("Hp.csv", enc="latin1")
+```
+
+## Uso del paquete **spatstat**
+
+```{r}
+library(spatstat)
+
+## Convertir a un objeto de patrones de puntos
+pdp1 <- ppp(hp1$x, hp1$y, c(0, 1000), c(0, 500), unitname=c("metro", "metros"))
+
+## Gráfica del objeto de patrones de puntos.
+plot(pdp1)
+
+## Resumen del objeto de patrones de puntos.
+summary(pdp1)
+```
+
+## Cálculo de la densidad mediante cuadrantes.
+
+Prueba de hipóteis para saber si los puntos se distribuyen al azar o
+tienen algún patrón.
+
+```{r}
+CC1 <- quadratcount(pdp1, nx=10, ny=5)
+CC1
+
+plot(pdp1, pch=1)
+plot(CC1, add=TRUE, col="red")
+
+quadrat.test(pdp1, nx=10, ny=5)
+quadrat.test(pdp1, alternative="regular", nx=10, ny=5)
+quadrat.test(pdp1, alternative="clustered", nx=10, ny=5)
+
+```
+
+## Gráfica de la estimación usando el K de Ripley.
+$$
+K(r) = \lambda^{-1} E[\textrm{número extra de eventos en una distancia r de un evento aleatorio}]
+$$
+
+Dónde $\lambda$ es la densidad (número de unidades por área) de los eventos.
+
+Para un proceso poisson homogéneo que también se conoce como un CSR
+(Complete Spatial Randomness) la función $K(r)$ se define como:
+
+$$
+K(r) = \pi r^2
+$$
+
+
+```{r}
+KR1  <-  Kest(pdp1)
+KR1
+plot(KR1,  las = 1)
+```
+
+## Estimación de estructura espacial de patrones de puntos.
+
+```{r}
+plot(envelope(pdp1),  las = 1)
+
+plot(envelope(pdp1, correction = "iso"),  las = 1)
+```
+
+## Estimación de la densidad de patrones de puntos.
+
+```{r}
+plot(density(pdp1))
+points(pdp1)
+```
+
+## Modelación de patrones de puntos
+
+```{r}
+
+m1 <- ppm(pdp1, ~ x + y + x:y, Poisson())
+m1
+
+summary(m1)
+
+plot(envelope(m1, Kest),  las = 1)
+```
+
+```{r}
+plot(predict(m1), las = 1)
+points(pdp1)
+
+```
+
+```{r}
+m2 <- kppm(pdp1 ~ x + y + x:y)
+m2
+summary(m2)
+```
+
+```{r}
+plot(envelope(m2, Kest),  las = 1)
+```
+
+```{r}
+plot(predict(m2), las = 1)
+points(pdp1)
+```
+

@@ -83,3 +83,8 @@ order: 01
 
 - [Base de datos de produción de trigo](./datos/alliance.txt)
 - [Modelación con covariable](./guiones/wheat.html)
+
+## Modelo de patrones de puntos.
+
+- [Base de datos de *Hybanthus prunifolius*](./datos/Hp.csv)
+- [Ejemplo de patrones de puntos](./guiones/patrones_de_puntos.html)
