@@ -56,3 +56,8 @@ custom_js: 'mathjax'
 ## Superficie de respuesta II
 
 - [Horneo de tortas](./guiones/horneo.html)
+
+## Medidas repetidas en el tiempo
+
+- [Experimento con conejos](./guiones/analisisFlebitis.html)
+- [Base de datos de conejos](./guiones/flebitis.xlsx)
