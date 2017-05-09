@@ -61,3 +61,9 @@ custom_js: 'mathjax'
 
 - [Experimento con conejos](./guiones/analisisFlebitis.html)
 - [Base de datos de conejos](./guiones/flebitis.xlsx)
+
+## Ejemplo de diseño de mezclas
+
+- [Experimento para diseño de mezclas](./guiones/mezcla.html)
+- [Base de datos para mezclas](./guiones/mezcla1.xlsx)
+- [Base de datos para predecir en ciertas combinaciones](./guiones/mezcla1p.xlsx)
