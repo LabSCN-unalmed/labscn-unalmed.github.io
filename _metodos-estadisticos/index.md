@@ -26,7 +26,7 @@ order: 00
 |:-------------------|:----------:|:-----------------------------|:------------------------------------------------------|
 | Propuesta inicial  |        10% | Martes 14 de febrero de 2017 | Presentación en formato PDF                           |
 | Planeación         |        20% | Martes 14 de marzo de 2017   | Presentación y trabajo en formato PDF                 |
-| Presentación Final |        30% | Jueves 23 de mayo de 2017    | Trabajo en PDF y poster en formato PDF y físico       |
+| Presentación Final |        30% | Jueves 1 de junio de 2017    | Trabajo en PDF y poster en formato PDF y físico       |
 | Seguimiento        |        40% |                              | Talleres y trabajos durante el curso                  |
 {: .table .table-hover}
 
