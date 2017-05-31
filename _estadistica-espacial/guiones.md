@@ -88,3 +88,11 @@ order: 01
 
 - [Base de datos de *Hybanthus prunifolius*](./datos/Hp.csv)
 - [Ejemplo de patrones de puntos](./guiones/patrones_de_puntos.html)
+
+## Modelos para datos areales
+
+- [Municipios de Antiquia (dbf)](./datos/municipiosAntioq.dbf)
+- [Municipios de Antiquia (prj)](./datos/municipiosAntioq.prj)
+- [Municipios de Antiquia (shp)](./datos/municipiosAntioq.shp)
+- [Municipios de Antiquia (shx)](./datos/municipiosAntioq.shx)
+- [Manejo de datos areales](./guiones/datosAreales2.html)
