@@ -26,3 +26,13 @@ frecuencias de la respectiva señal de voz.
 ### Ejemplo de la descompisión de Fourier.
 
 - [Análisis de Fourier](./codigos/fourier1.nb.html)
+
+### Resultados esperados.
+
+ 1. Archivo ".html" con el informe que muestre el
+    análisis y las características que distinguen
+    la voz de un hombre de la voz de una mujer.
+ 2. Archivo ".Rmd" con los códigos correspondientes.
+ 3. Archivos de sonido o de voces utilizadas.
+
+ 
