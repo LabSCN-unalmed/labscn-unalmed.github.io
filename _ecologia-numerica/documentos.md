@@ -13,6 +13,7 @@ custom_js: 'mathjax'
    Methods in Ecology & Evolution. Volumen 1. 2010. Pág. 3-14.
  - Frances C. James y Charles E. McCullock.
     [Multivariate Analysis in Ecology and Systematics: Panacea or Pandora's Box?](/ecologia-numerica/docs/MultivariateAnalysis.pdf){:target="blank"}.
+    Annu. Rev. Ecol. Syst. 1990. 21:129-66.
 
 ## Documentos auxiliares
 
