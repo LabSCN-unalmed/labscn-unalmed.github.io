@@ -1,0 +1,67 @@
+---
+title: "Composición de funciones periódicas"
+author: "Kenneth Roy Cabrera Torres"
+date: "7 de mayo de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Lectura de la base de datos
+
+```{r}
+base_fun <- read.csv2("ejemplo2.csv")
+```
+
+## Definción de la función
+
+Este es el corazón del ejercicio.
+
+Usted deberá escribir el código para que *funcion_ejercicio* 
+haga lo que se pide. Deberá funcionar con cualquier base de datos
+que cumpla con la sintaxis de ejemplo.
+
+A su vez puede escribir funciones adicionales si así lo considera,
+pero finalmente sólo debe ser una función la que llame a las demás.
+
+```
+funcion_ejercicio <- function(basef, datos){
+   -----
+   -----
+   -----
+   -----
+   return(resultado)
+}
+```
+
+A continuación se muestra una solución, en donde cada línea 
+del esquema anterior  ("$\texttt{-------}$") , 
+corresponde a una línea de la solución.
+
+
+
+```{r echo=TRUE}
+
+funcion_ejercicio <- function(basef, datos){
+  basef$funcion <- as.character(basef$funcion)
+  basef$funcion[basef$funcion == "sen"] <- "sin"
+  eval1 <- apply(basef, 1, function(x)  paste(x[2], "*", x[1], "(", x[2], "* x", "+", "(", x[4], "))"))
+  resultado <- apply(sapply(eval1, function(f, x = datos) eval(parse(text = f))), 1, sum)
+  return(resultado)
+}
+
+```
+
+
+## Uso de la función
+
+```{r}
+dat1 <- seq(0, 10*pi, pi/24)
+comp1 <- funcion_ejercicio(base_fun, dat1)
+plot(dat1, comp1, type = "l")
+```
+
+

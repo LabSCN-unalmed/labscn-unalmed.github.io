@@ -139,6 +139,14 @@ $(document).ready(function () {
    -----
    return(resultado)
 }</code></pre>
+<p>A continuación se muestra una solución, en donde cada línea del esquema anterior (“<span class="math inline">\(\texttt{-------}\)</span>”) , corresponde a una línea de la solución.</p>
+<pre class="r"><code>funcion_ejercicio &lt;- function(basef, datos){
+  basef$funcion &lt;- as.character(basef$funcion)
+  basef$funcion[basef$funcion == &quot;sen&quot;] &lt;- &quot;sin&quot;
+  eval1 &lt;- apply(basef, 1, function(x)  paste(x[2], &quot;*&quot;, x[1], &quot;(&quot;, x[2], &quot;* x&quot;, &quot;+&quot;, &quot;(&quot;, x[4], &quot;))&quot;))
+  resultado &lt;- apply(sapply(eval1, function(f, x = datos) eval(parse(text = f))), 1, sum)
+  return(resultado)
+}</code></pre>
 </div>
 <div id="uso-de-la-funcion" class="section level2">
 <h2>Uso de la función</h2>
