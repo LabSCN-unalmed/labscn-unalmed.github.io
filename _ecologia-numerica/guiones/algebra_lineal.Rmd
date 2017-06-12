@@ -1,28 +1,24 @@
 ---
-title: "Algebra Lineal"
+title: "Ecología numérica: algebra Lineal"
 author: "Universidad Nacional de Colombia, Sede Medellín"
-date: "Martes, 2 de agosto de 2016"
+date: "Lunes, 12 de junio de 2017"
 output: 
   html_document: 
     toc: yes
 ---
 
-## Abundancias de dos especies en 7 sitios
+
+## Lectura de base de datos
+
 ```{r}
-sitio1 <- c(10, 15)
-sitio2 <- c(19, 32)
-sitio3 <- c( 5,  3)
-sitio4 <- c(10, 20)
-sitio5 <- c(19,  3)
-sitio6 <- c( 4, 18)
-sitio7 <- c( 7,  7)
+# Lectura de base de datos
+
+baseAbun1 <- read.table("ejemplo1.txt", header = TRUE, row.names = 1)
+baseAbun2 <- read.csv2("ejemplo1.csv", row.names = 1)
+
+matrizAbun <- as.matrix(baseAbun1)
 ```
 
-## Constuir una sola matriz con todas las abundancias
-```{r}
-matrizAbun <- rbind(sitio1,sitio2,sitio3,sitio4,sitio5,sitio6,sitio7)
-matrizAbun
-```
 
 ## Gráfica de dispersión de las abundancias de las dos especies
 ```{r}
@@ -32,9 +28,9 @@ text(matrizAbun, labels = row.names(matrizAbun), pos = 1)
 
 ## Hallar la distancia magnitud de la abundancia por algunos sitios
 ```{r}
-nsitio1 <- sqrt(sum(sitio1 ^ 2))
+nsitio1 <- sqrt(sum(matrizAbun[1, ] ^ 2))
 nsitio1
-nsitio2 <- sqrt(sum(sitio2 ^ 2))
+nsitio2 <- sqrt(sum(matrizAbun[2, ] ^ 2))
 nsitio2
 ```
 
@@ -94,7 +90,7 @@ abline(v = 0, col = "red")
 grid()
 ```
 
-## Matriz de varianza y covarianza de matrices de abundancias y de abundancias centradas
+## Matriz de varianza y covarianza de matrices de abundancias y de abundacias centradas
 ```{r}
 matrizAbun
 var(matrizAbun)
