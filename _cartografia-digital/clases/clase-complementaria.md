@@ -2,9 +2,9 @@
 layout: clase
 title: 'Elaboración de grupos de perfiles topográficos, paralelos y de igual longitud'
 curso: 'cartografia-digital'
-clase: 'Complementaria'
 custom_js: 'mathjax'
 ---
+<!-- clase: 'Complementaria' -->
 
 Introducción {#introduccion}
 ------------

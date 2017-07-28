@@ -2,8 +2,8 @@
 layout: clase
 title: 'Trabajando con las tablas de atributos de un mapa vectorial'
 curso: 'cartografia-digital'
-clase: 13
 ---
+<!-- clase: 13 -->
 
 Durante esta clase nos dedicaremos a realizar ejercicios en torno al manejo de las tablas de atributos asociadas a los mapas vectoriales.
 

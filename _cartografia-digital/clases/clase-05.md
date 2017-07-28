@@ -2,8 +2,8 @@
 layout: clase
 title: 'Visualización de mapas raster'
 curso: 'cartografia-digital'
-clase: 5
 ---
+<!-- clase: 5 -->
 
 ## Elementos básicos de un mapa {#elementos-basicos-mapa}
 

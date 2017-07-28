@@ -2,8 +2,8 @@
 layout: clase
 title: 'Modelo vectorial'
 curso: 'cartografia-digital'
-clase: 11
 ---
+<!-- clase: 11 -->
 
 - Punto (point)
 - Centroide (centroid)

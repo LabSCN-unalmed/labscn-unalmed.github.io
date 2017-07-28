@@ -2,9 +2,9 @@
 layout: clase
 title: 'Manejo del histograma de los números digitales de las bandas LANDSAT 8'
 curso: 'cartografia-digital'
-clase: 'Imágenes 1'
 custom_js: 'mathjax'
 ---
+<!-- clase: 'Imágenes 1' -->
 
 
 Introducción {#introduccion}

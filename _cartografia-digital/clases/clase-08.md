@@ -2,8 +2,8 @@
 layout: clase
 title: 'Análisis de redes de drenaje'
 curso: 'cartografia-digital'
-clase: 8
 ---
+<!-- clase: 8 -->
 
 Extraer la red de drenaje
 -------------------------
