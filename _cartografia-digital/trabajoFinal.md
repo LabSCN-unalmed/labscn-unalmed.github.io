@@ -2,8 +2,8 @@
 layout: curso
 title: 'Trabajo final'
 curso: 'cartografia-digital'
-order: 2
 ---
+<!-- order: 2 -->
 
 ## Objetivo
 
