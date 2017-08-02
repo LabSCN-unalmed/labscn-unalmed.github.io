@@ -16,6 +16,7 @@ order: 0
 
   - Manejar los elementos básicos de lógica de programación mediante seudocódigo.    
   - Constuir algoritmos básicos en C y C++ para interactuar con R.
+  - Integrar R y Python.
   - Comprender las estructuras básicas del lenguaje R.
   - Desarrollar la habilidad de constuir soluciones en el lenguaje R
     para propósitos de graficación, manejo de base de datos y simulación.

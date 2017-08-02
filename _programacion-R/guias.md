@@ -9,7 +9,7 @@ order: 1
 
   - [Lenguaje R](https://cran.r-project.org/bin/windows/base/)
   - [Interfaz RStudio](https://www.rstudio.com/products/rstudio/download/)
-  - [Herramientas básicas de desarrollo en R (Rtools33.exe)](https://cran.r-project.org/bin/windows/Rtools/)
+  - [Herramientas básicas de desarrollo en R (Rtools34.exe)](https://cran.r-project.org/bin/windows/Rtools/)
   - [MiKTeX](http://miktex.org/download)
 
 ## Documentos
