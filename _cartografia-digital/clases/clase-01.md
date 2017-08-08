@@ -401,23 +401,23 @@ Al abrir GRASS GIS, se inicia una terminal de comandos y aparece la siguiente ve
 
 ![Ventana de inicio de GRASS](/cartografia-digital/images/clase-01/grass_start.png){: .img-responsive}
 
-#### ![](/cartografia-digital/images/clase-01/circle_1.png) Seleccionar la base de datos SIG
+#### ![](/cartografia-digital/images/circle_1.png) Seleccionar la base de datos SIG
 
 Los datos de GRASS se almacenan en un directorio al cual se le conoce como una base de datos SIG (GISDBASE). Dentro de esta base de datos SIG, se encuentran organizados los proyectos como subdirectorios llamados LOCATIONs.
 
-#### ![](/cartografia-digital/images/clase-01/circle_2.png) Seleccionar el proyecto (LOCATION)
+#### ![](/cartografia-digital/images/circle_2.png) Seleccionar el proyecto (LOCATION)
 
 Un LOCATION se define por su sistema de coordenadas, proyección y límites geográficos. Los subdirectorios y archivos que definen un LOCATION son creados automáticamente cuando GRASS se inicia la primera vez con un nuevo LOCATION. Es importante comprender que cada proyección permanece en su propio LOCATION.
 
-#### ![](/cartografia-digital/images/clase-01/circle_3.png) Seleccionar el directorio de mapas (MAPSET)
+#### ![](/cartografia-digital/images/circle_3.png) Seleccionar el directorio de mapas (MAPSET)
 
 Cada LOCATION puede tener múltiples MAPSET. Cada MAPSET es un subdirectorio de un LOCATION. Se pueden crear nuevos MAPSET desde la ventana de inicio de GRASS.
 
-#### ![](/cartografia-digital/images/clase-01/circle_4.png) Asistente de localizaciones
+#### ![](/cartografia-digital/images/circle_4.png) Asistente de localizaciones
 
 El asistente de localizaciones permite crear fácilmente un nuevo LOCATION, a partir de un archivo georeferenciado, definiendo los parámetros manualmente, o a partir del código de proyección EPSG.
 
-#### ![](/cartografia-digital/images/clase-01/circle_5.png) Iniciar GRASS
+#### ![](/cartografia-digital/images/circle_5.png) Iniciar GRASS
 
 Una vez se hayan seleccionado el LOCATION y el MAPSET, se puede iniciar GRASS.
 
