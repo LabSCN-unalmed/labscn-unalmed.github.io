@@ -12,6 +12,14 @@ order: 3
 - [Error común de lectura de archivos](/estadistica-descriptiva/documentos/ErrorComun.pdf)
 - [Instalación de un paquete en RStudio](/estadistica-descriptiva/documentos/instalapaquete.pdf)
 
+
+## Ejemplo del uso del RMarkdown.
+
+ - [Archivo en formato ".Rmd"](./codigos/ejemplo1.Rmd).
+ - [Archivo en formato ".html"](./codigos/ejemplo1.html)
+ - [Base de datos de la participación en los olímpicos por parte de Colombia](./codigos/colombia_olimpicos.xlsx).
+
+
 ## Introducción a Estadística Descriptiva y Análisis Exploratorio de Datos.
 
 - [Introducción](/estadistica-descriptiva/documentos/explora1.html)

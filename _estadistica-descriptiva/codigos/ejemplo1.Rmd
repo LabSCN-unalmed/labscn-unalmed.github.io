@@ -1,0 +1,43 @@
+---
+title: "Ejemplo de uso del RMarkdown"
+author: "Kenneth Roy Cabrera Torres"
+
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Objetivo
+
+Mostrar el uso de la herramienta de codificiación y documentación 
+mediante el RMarkdown.
+
+## Procesamiento de datos
+
+```{r}
+# Lectura de la base de datos
+olimpicos <- read.csv2("colombia_olimpicos.csv", fileEncoding = "utf8")
+summary(olimpicos)
+```
+
+## Gráfica de análisis
+
+En la siguiente gráfica se muestra el crecimiento "exponencial" de
+la participación femenina por parte de Colombia en los juegos
+olímpicos.
+
+
+```{r, fig.align='center'}
+with(olimpicos, plot(año, hombres, type = "b", las = 1, lty = 2, lwd = 1.5,
+                     ylab = "Número de atletas", col = "blue", pch = 19,
+                     main = "Crecimiento de atletas por género\n en los juegos olímpicos por Colombia"))
+with(olimpicos, lines(año, mujeres, lty = 3, col = "tomato", lwd = 1.5, 
+                      type = "b", pch = 19))
+grid()
+legend("topleft", legend = c("Hombres", "Mujeres"),
+       col = c("blue", "tomato"), lty = c(2, 3), lwd = 1.5, pch = 19)
+
+```
