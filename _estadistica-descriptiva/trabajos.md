@@ -10,7 +10,7 @@ order: 5
 ### Actividades.
 
 En la página de la alcaldía de Medellín sobre
-[proyección de la población para Medellín](https://www.medellin.gov.co/irj/portal/medellin?NavigationTarget=navurl://06bdb4d911e35cb9d3de717115deedc3)
+[proyección de la población para Medellín](https://www.datos.gov.co/Estad-sticas-Nacionales/Proyecciones-De-Poblaci-n-Medell-n-2016-2020/imj6-7tfq/data)
 realizar las siguientes actividades:
 
 1. Seleccionar una de las 16 comunas de Medellín.
