@@ -7,8 +7,7 @@ clase: 1
 
 <!--
 title: 'Elementos introductorios'
-Software libre
--------------
+## Software libre
 
 "Software libre" es el software que respeta la libertad de los usuarios y la comunidad. A grandes rasgos, significa que los usuarios tienen la libertad de ejecutar, copiar, distribuir, estudiar, modificar y mejorar el software. Es decir, el "software libre" es una cuestión de libertad, no de precio. Para entender el concepto, piense en "libre" como en "libre expresión", no como en "barra libre".
 
@@ -23,8 +22,7 @@ Estos principios garantizan que la construcción del software sea realmente acce
 
 El Laboratorio de Sistemas Complejos Naturales apoya esta filosofía en el contexto de la misión de la Universidad Nacional de Colombia, no solamente para sus estudiantes sino para toda la comunidad a la que le debe el conocimiento.
 
-Introducción a GNU/Linux {#introduccion-gnu-linux}
-------------------------
+## Introducción a GNU/Linux {#introduccion-gnu-linux}
 
 En entornos GNU/Linux existen interfaces gráficas de usuario (GUI) donde se puede hacer click, arrastrar y, con suerte, se puede lograr mucho sin documentarse primero. Sin embargo, el entorno tradicional es una interfaz de línea de comandos (CLI) donde se escriben comandos que le dicen al computador qué hacer. Lo cual es más rápido y poderoso pero requiere aprender qué hacen los comandos. Esta interfaz de línea de comandos, la llamaremos 'la terminal'.
 
@@ -394,8 +392,7 @@ Siguiendo una metodología similar al ejercicio anterior, realizar un guión que
 ~~~
 {: .output} -->
 
-Iniciando GRASS
----------------
+## Iniciando GRASS
 
 Al abrir GRASS GIS, se inicia una terminal de comandos y aparece la siguiente ventana de inicio:
 
@@ -443,8 +440,7 @@ Un LOCATION es simplemente un conjunto de directorios que contienen los datos de
 
 Cuando se crea un LOCATION nuevo, GRASS GIS automáticamente crea un MAPSET especial llamado PERMANENT donde se almacenan los datos centrales del proyecto. Los datos en el MAPSET PERMANENT sólo pueden ser añadidos, modificados o borrados desde el MAPSET PERMANENT; sin embargo, pueden ser visualizados, analizados y copiados a otros MAPSETs. Es útil para proporcionar datos espaciales generales (i.e. el modelo de elevación), que son accesibles pero como sólo lectura. Para manipular o agregar datos al PERMANENT, se debe iniciar GRASS en él. Allí se encuentra el archivo **DEFAULT_WIND**. el cual contiene las coordenadas de los límites de la región del proyecto.
 
-La interfaz gráfica {#interfaz-grafica}
--------------------
+## La interfaz gráfica {#interfaz-grafica}
 
 La interfaz gráfica está compuesta por 2 ventanas:
 
@@ -471,13 +467,36 @@ En la parte inferior de la ventana se encuentra la barra de estado, en ella se p
 
 El nivel de acercamiento o "zoom", no incide sobre la región de cálculo establecida.
 
-## Región de cálculo {#region-calculo}
+## La taxonomía de los módulos o comandos {#taxonomia-comandos}
 
-La **región de cálculo**{: .text-info} corresponde a la región sobre la cual se ejecutarán los comandos de procesamiento **raster**{: .text-warning}. Y es independiente de la extensión de las capas.
+Los comandos en GRASS se organizan de acuerdo con la función que realizan:
+
+g.*
+: Comandos **generales**, con ellos se realizan operaciones generales a los archivos.
+
+d.*
+: Comandos de **despliegue**.
+
+r.*
+: Comandos de procesamiento 2D en archivos de tipo **raster**.
+
+v.*
+: Comandos de procesamiento de archivos de tipo **vectorial**.
+
+i.*
+: Comandos de procesamiento de **imágenes**.
+
+db.*
+: Comandos para el manejo de **bases de datos**.
+
+t.*
+: Comandos de manejo de series **temporales**.
 
 ## Despliegue de mapas
 
-Utilizando el botón ![Agregar capa de mapa raster](/cartografia-digital/images/clase-01/layer-raster-add.png) vamos a agregar una nueva capa: el mapa `porcecito`.
+Utilizando el botón **Agregar capa de mapa raster** ![Agregar capa de mapa raster](/cartografia-digital/images/clase-01/layer-raster-add.png) vamos a agregar una nueva capa: el mapa `porcecito`.
+
+<!-- TODO: Hablar del manual de la ventana del comando. -->
 
 La siguiente es la ventana de selección del mapa a desplegar:
 
@@ -499,15 +518,15 @@ El administrador de capas muestra las 2 capas agregadas:
 
 ![](/cartografia-digital/images/clase-01/clase-01_05.png){: .img-responsive}
 
-Sin embargo, el visualizador de mapas sigue mostrando el mapa `porcecito`. Esto es debido a que ambas capas corresponden a regiones geográficas diferentes, por lo tanto, para visualizar el nuevo mapa `ituango`, en el visualizar de mapas se utiliza el botón ![Acercar al mapa seleccionado](/cartografia-digital/images/clase-01/zoom-extent.png). Ahora si se muestra el mapa correspondiente.
+Sin embargo, el visualizador de mapas sigue mostrando el mapa `porcecito`. Esto es debido a que ambas capas corresponden a regiones geográficas diferentes, por lo tanto, para visualizar el nuevo mapa `ituango`, en el visualizador de mapas se utiliza el botón **Acercar al mapa seleccionado** ![Acercar al mapa seleccionado](/cartografia-digital/images/clase-01/zoom-extent.png). Ahora si se muestra el mapa correspondiente.
 
 ![](/cartografia-digital/images/clase-01/clase-01_06.png){: .img-responsive}
 
-Si se quieren visualizar ambos mapas, se deben seleccionar en el administrador de capas utilizando haciendo click sobre las capas mientras se presiona la tecla `Ctrl`:
+Si se quieren visualizar ambos mapas, se deben seleccionar en el administrador de capas haciendo click sobre las capas mientras se presiona la tecla `Ctrl`:
 
 ![](/cartografia-digital/images/clase-01/clase-01_07.png){: .img-responsive}
 
-Y nuevamente utilizando el botón ![Acercar al mapa seleccionado](/cartografia-digital/images/clase-01/zoom-extent.png) en el visualizador de mapas, obtendremos:
+Y nuevamente utilizando el botón **Acercar al mapa seleccionado** ![Acercar al mapa seleccionado](/cartografia-digital/images/clase-01/zoom-extent.png) en el visualizador de mapas, obtendremos:
 
 ![](/cartografia-digital/images/clase-01/clase-01_08.png){: .img-responsive}
 
@@ -523,13 +542,100 @@ Esta dejará de desplegarse en el visualizador de mapas:
 
 ![](/cartografia-digital/images/clase-01/clase-01_11.png){: .img-responsive}
 
-La activación es diferente de la selección, por lo que al utilizar el botón ![Acercar al mapa seleccionado](/cartografia-digital/images/clase-01/zoom-extent.png), sólo se tendrán en cuenta las capas activas de las seleccionadas, por lo que acercará unicamente a la capa activa.
+La activación es diferente de la selección, por lo que al utilizar el botón **Acercar al mapa seleccionado** ![Acercar al mapa seleccionado](/cartografia-digital/images/clase-01/zoom-extent.png), sólo se tendrán en cuenta las capas activas de las seleccionadas, por lo que acercará unicamente a la capa activa.
 
 De manera similar, intentar acercar a una capa inactiva:
 
 ![](/cartografia-digital/images/clase-01/clase-01_12.png){: .img-responsive}
 
 No tendría ningún efecto en la región desplegada.
+
+## Región de cálculo {#region-calculo}
+
+<!--
+TODO:
+* Detallar más este numeral e incluir ejemplos visuales.
+  + Cambios en la región de cálculo en función de los mapas desplegados.
+* Mover sección después del despliegue de mapas.
+-->
+
+La **región de cálculo**{: .text-info} corresponde a la región sobre la cual se ejecutarán los comandos de procesamiento **raster**{: .text-warning}. Y es independiente de la extensión de las capas.
+
+## Elementos básicos de un mapa {#elementos-basicos-mapa}
+
+### Rejilla o cuadrícula con coordenadas {#grid}
+
+El botón **Agregar cuadrícula o etiquetas vectoriales** ![Agregar cuadrícula o etiquetas vectoriales](/cartografia-digital/images/clase-01/layer-more.png) ubicado en la barra de herramientas del administrador de capas, permite agregar una cuadrícula:
+
+![Agregar cuadrícula](/cartografia-digital/images/clase-01/layer-grid-add.png) Agregar cuadrícula
+: La cuadrícula, de una dimensión seleccionada a voluntad del usuario, facilita la lectura de distancias planimétricas del mapa; igualmente indica las coordenadas del mapa en la proyección en que este se encuentre.
+
+### Convenciones del mapa {#convenciones}
+
+El botón **Agregar elementos** ![Agregar elementos](/cartografia-digital/images/clase-01/overlay-add.png) ubicado en la barra de herramientas del visualizador de mapas, permite agregar elementos básicos al mapa desplegado:
+
+![Agregar leyenda de mapa raster](/cartografia-digital/images/clase-01/legend-add.png) Agregar leyenda de mapa raster
+: Permite agregar una leyenda del mapa raster seleccionado.
+
+![Agregar escala](/cartografia-digital/images/clase-01/scalebar-add.png) Agregar escala
+: Permite agregar una barra de escala planimétrica del mapa. Entre sus opciones están la ubicación de la barra de escala (utilizando coordenadas o el mouse), el formato y colores de la barra, etc.
+
+![Agregar flecha norte](/cartografia-digital/images/clase-01/north-arrow-add.png) Agregar flecha norte
+: Permite agregar una flecha que indica el sentido del Norte. Entre sus opciones están la ubicación de la flecha norte (utilizando coordenadas o el mouse), el estilo y color de la flecha, etc.
+
+![Agregar texto](/cartografia-digital/images/clase-01/text-add.png) Agregar texto
+: Permite agregar una línea de texto. Entre sus opciones están la ubicación del texto (utilizando coordenadas o el mouse), el tamaño, el formato, el color, etc.
+
+## Consultas de la información del mapa {#consultas-informacion-mapa}
+
+El botón **Consulta de mapas** ![Consulta de mapas](/cartografia-digital/images/clase-01/info.png) de la barra de herramientas del visualizador de mapas, permite identificar la información a nivel de un pixel específico: Coordenadas, valor, y etiquetas en el caso de mapas clasificados. Se debe seleccionar el pixel haciendo click con el mouse, y los resultados aparecerán en la pestaña "Consola" del administrador de capas.
+
+El botón **Menú de análisis** ![Menú de análisis](/cartografia-digital/images/clase-01/layer-raster-analyze.png) de la barra de herramientas del visualizador de mapas, permite acceder a las siguientes herramientas:
+
+![Herramienta de medir distancia](/cartografia-digital/images/clase-01/measure-length.png) Herramienta de medir distancia
+: Realiza una medición interactiva de longitudes planimétricas (horizontales) de segmentos definidos con el mouse. Se despliegan en la consola: la longitud de cada segmento, la longitud acumulada de todos los segmentos de una línea quebrada, y el ángulo de cada segmento, respecto al Norte, medido en el sentido de las manecillas del reloj. Las longitudes se miden en la unidades en que se encuentra construido el mapa.
+
+![Herramienta de perfil](/cartografia-digital/images/clase-01/layer-raster-profile.png) Herramienta de perfil
+: Permite crear un perfil topográfico de un mapa raster de altitudes de forma interactiva. Este procedimiento se puede generalizar para construir perfiles de cualquier otra variable (relieve relativo, pendientes, curvaturas, etc.).
+
+Un perfil topográfico es la representación del relieve de una región a partir de las variables de distancia y altitud. En una línea seleccionada sobre el mapa, se definen distancias desde el punto inicial hasta el punto final, y a cada punto se le asigna su respectivo valor de altitud. La gráfica de "distancia vs. altitud" corresponde al perfil topográfico de dicha línea. En una clase posterior aprenderemos a elaborar conjuntos de perfiles paralelos y de igual distancia, como un procedimiento que permite evaluar de manera más profunda la estructura del relieve de una región.
+
+Con el botón **Plot Options** ![](/cartografia-digital/images/clase-01/settings.png) se pueden realizar modificaciones a los parámetros gráficos del perfil, por ejemplo: Color y espesor de la línea del perfil, texto y formato de las etiquetas de los ejes 'X' y 'Y'.
+
+![Herramienta de histograma](/cartografia-digital/images/clase-01/layer-raster-histogram.png) Herramienta de histograma
+: El histograma presenta la relación entre un valor del mapa (por ejemplo un valor de altitud) y el número de píxeles que presentan dicho valor. La herramienta de histograma permite:
+
+- Seleccionar el número de tramos para dividir el rango de datos del mapa.
+- Modificar colores de fondo y texto del histograma.
+- Seleccionar la presentación de los datos (gráfico de barras o gráfico circular).
+- Incluir información de pixeles nulos (sin valor).
+
+## Vista 3D
+
+Al seleccionar la Vista 3D en el visualizador de mapas, se habilita la pestaña de control de "Vista 3D" en el administrador de capas. Esta pestaña permite controlar:
+
+### Visualización {#visualizacion}
+
+- El punto de vista desde donde se observa el mapa (SE, NW, etc.), ubicando el punto con el mouse, o haciendo click en los botones de control de vista. A medida que el punto de vista se acerca al centro del campo de observación, se consigue una vista vertical (superior) del mapa.
+
+**Consejo:** La visualización desde un punto de vista ortogonal no es la más adecuada puesto que no se percibe la perspectiva del mapa de manera adecuada. Por lo tanto, se recomienda una visualización desde un punto de vista diagonal.
+{: .alert .alert-success}
+
+- La altitud desde la cual se observa el mapa...
+- La exageración vertical...
+- La perspectiva...
+- El color de fondo...
+
+### Datos
+
+- El mapa raster de superficie
+- La resolución de renderizado
+- Las reglas de color
+
+### Presentación {#presentacion}
+
+- La iluminación
+- El márgen del mapa
 
 <!-- La terminal de comandos
 -----------------------
@@ -577,25 +683,6 @@ La terminal de comandos en GRASS funciona con el mismo intérprete que la termin
 ~~~
 
 De manera que `x` indica el tipo de comando que será utilizado.
-
-### La taxonomía de comandos {#taxonomia-comandos}
-
-Los comandos en GRASS se organizan de acuerdo con la función que realizan:
-
-g.*
-: Comandos **generales**, con ellos se realizan operaciones generales a los archivos.
-
-r.*
-: Comandos de procesamiento 2D en archivos de tipo **raster**.
-
-v.*
-: Comandos de procesamiento de archivos de tipo **vectorial**.
-
-i.*
-: Comandos de procesamiento de **imágenes**.
-
-db.*
-: Comandos para el manejo de **bases de datos**.
 
 ### ¿Cuáles serían los comandos mas básicos? {#comandos-basicos}
 
@@ -714,7 +801,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'bcyr'
 ~~~
 {: .output}
 
-Utilizando el botón ![Renderizar el mapa](/cartografia-digital/images/clase-01/layer-redraw.png), se refrescan las capas desplegadas y se observa el cambio de color:
+Utilizando el botón **Renderizar el mapa** ![Renderizar el mapa](/cartografia-digital/images/clase-01/layer-redraw.png), se refrescan las capas desplegadas y se observa el cambio de color:
 
 ![](/cartografia-digital/images/clase-01/clase-01_13.png){: .img-responsive}
 
