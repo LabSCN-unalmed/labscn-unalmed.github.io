@@ -621,21 +621,21 @@ Al seleccionar la Vista 3D en el visualizador de mapas, se habilita la pestaña 
 **Consejo:** La visualización desde un punto de vista ortogonal no es la más adecuada puesto que no se percibe la perspectiva del mapa de manera adecuada. Por lo tanto, se recomienda una visualización desde un punto de vista diagonal.
 {: .alert .alert-success}
 
-- La altitud desde la cual se observa el mapa...
-- La exageración vertical...
-- La perspectiva...
-- El color de fondo...
+- La altitud desde la cual se observa el mapa.
+- La exageración vertical.
+- La perspectiva.
+- El color de fondo.
 
 ### Datos
 
-- El mapa raster de superficie
-- La resolución de renderizado
-- Las reglas de color
+- El mapa raster de superficie.
+- La resolución de renderizado.
+- Las reglas de color.
 
 ### Presentación {#presentacion}
 
-- La iluminación
-- El márgen del mapa
+- La iluminación.
+- El márgen del mapa.
 
 <!-- La terminal de comandos
 -----------------------
