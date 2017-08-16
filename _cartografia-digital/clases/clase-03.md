@@ -598,15 +598,15 @@ r.reclass input=porce1_RR_33_reclass output=porce1_RR_33_reclass_simplif rules=R
 
 <!--- d.rast porce1_RR_33_reclass_simplif -->
 
-![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive}
+<!-- ![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive}
 
-En vista 3D se obtiene:
+En vista 3D se obtiene: -->
 
 <!--- ~~~
 nviz porcecito color=porce1_RR_33_reclass_simplif
 ~~~ -->
 
-![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive}
+<!-- ![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive} -->
 
 <!-- ## Tarea 4
 {: .text-danger}
