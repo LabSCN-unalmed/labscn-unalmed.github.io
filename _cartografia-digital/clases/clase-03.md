@@ -94,7 +94,7 @@ Se define una ventana móvil de 3 pixeles, la cual se desplazará por cada pixel
 
 ![](/cartografia-digital/images/clase-03/clase-03_02.png){: .img-responsive}
 
-Para el primer pixel del mapa la ventana móvil se ubica con su centro en el pixel y realiza el cálculo del nuevo valor del pixel central teniendo en cuenta sus 3 vecinos.
+Para el primer pixel del mapa la ventana móvil se ubica con su centro en el pixel y realiza el cálculo del nuevo valor del pixel central teniendo en cuenta el velor del pixel y los de sus 3 vecinos.
 
 ![](/cartografia-digital/images/clase-03/clase-03_03.png){: .img-responsive}
 
@@ -110,9 +110,11 @@ $$
 
 Este valor se ubica en una nueva capa en el pixel ubicado en el centro de la ventana móvil.
 
+![](/cartografia-digital/images/clase-03/clase-03_04.png){: .img-responsive}
+
 Se pasa al siguiente pixel y se repite el cálculo:
 
-![](/cartografia-digital/images/clase-03/clase-03_04.png){: .img-responsive}
+![](/cartografia-digital/images/clase-03/clase-03_05.png){: .img-responsive}
 
 $$
 \begin{align}
@@ -122,7 +124,14 @@ H_{max} - H_{min} &=& 29\\
 \end{align}
 $$
 
-![](/cartografia-digital/images/clase-03/clase-03_05.png){: .img-responsive}
+![](/cartografia-digital/images/clase-03/clase-03_06.png){: .img-responsive}
+
+En estos casos se presenta el denominado _**efecto de borde**_, que consiste en que la ventana móvil tiene menos pixeles para realizar el cálculo que en otros pixeles.
+{: .alert .alert-warning}
+
+Por ejemplo en este pixel no se presenta efecto de borde:
+
+![](/cartografia-digital/images/clase-03/clase-03_07.png){: .img-responsive}
 
 $$
 \begin{align}
@@ -132,18 +141,23 @@ H_{max} - H_{min} &=& 30\\
 \end{align}
 $$
 
+![](/cartografia-digital/images/clase-03/clase-03_08.png){: .img-responsive}
+
+El _**efecto de borde**_ depende del tamaño de la ventana móvil.
+{: .alert .alert-info}
+
 El resultado final luego de recorrer los 100 pixeles es el siguiente:
 
-![](/cartografia-digital/images/clase-03/clase-03_06.png){: .img-responsive}
+![](/cartografia-digital/images/clase-03/clase-03_09.png){: .img-responsive}
 
-<!-- TODO -->
+<!-- TODO
 
-## Parte Operativa
+## Procedimiento en GRASS
 
 Para la elaboración del mapa de relieve relativo de la zona representada en el modelo de elevación digital de `porcecito` se realizan las siguientes actividades:
 
 - Consultar el N° de filas, columnas y píxeles que tiene el mapa de entrada `porcecito`.
-- Definir las dimensiones de la ventana móvil a utilizar como ventana para la zona de vecindad.
+- Definir las dimensiones de la ventana móvil a utilizar para la zona de vecindad.
 - Calcular el rango de altitud en la zona de vecindad (`altura máxima - altura mínima`).
 - Este mapa es el mapa de relieve relativo o relieve local de la región de porcecito.
 
