@@ -3,8 +3,8 @@ layout: clase
 title: 'Análisis del relieve relativo y mapas sombreados de relieve'
 curso: 'cartografia-digital'
 custom_js: 'mathjax'
+clase: 3
 ---
-<!-- clase: 3 -->
 
 <!-- ## Fundamentos teóricos {#fundamentos-teoricos} -->
 
