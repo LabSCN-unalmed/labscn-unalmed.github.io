@@ -224,7 +224,7 @@ sum: 2550048192
 ~~~
 {: .output}
 
-### Crear una tabla de colores con variación gradual del color y asignarle una identificación {#crear-tabla-colores-variacion-gradual-color-asignarle-identificacion}
+### Crear una tabla de colores con variación gradual del color {#crear-tabla-colores-variacion-gradual-color}
 
 Utilizando la opción ![](/cartografia-digital/images/circle_2.png) del menú contextual de la capa obtenemos una venta como esta:
 
@@ -274,7 +274,7 @@ Mirando el mapa y teniendo el módulo de colores abierto, le hacemos las modific
 
 #### Segunda versión
 
-`TC_porce2`
+<!-- `TC_porce2` -->
 
 |Altitud|  R  |  G  |  B  |
 |:-----:|:---:|:---:|:---:|
@@ -301,7 +301,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce2'
 
 #### Tercera versión
 
-`TC_porce3`
+<!-- `TC_porce3` -->
 
 |Altitud|  R  |  G  |  B  |
 |:-----:|:---:|:---:|:---:|
@@ -335,7 +335,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce3'
 
 Utilizando nombres y la nomenclatura RGB.
 
-`TC_porce4`
+<!-- `TC_porce4` -->
 
 |Altitud|  R  |  G  |  B  |
 |:-----:|:---:|:---:|:---:|
@@ -365,7 +365,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce4'
 
 En este caso, se trata de definir rangos altitudinales discretos (un comienzo y un final y a los píxeles en el rango se les asigna un mismo color).
 
-`TC_porce5`
+<!-- `TC_porce5` -->
 
 |Altitud|  R  |  G  |  B  |
 |:-----:|:---:|:---:|:---:|
@@ -400,7 +400,7 @@ En este caso iniciamos con un porcentaje del 0% en la altitud mas baja y asignam
 
 #### Primera versión
 
-`TC_porce6`
+<!-- `TC_porce6` -->
 
 |Altitud|  R  |  G  |  B  |
 |:-----:|:---:|:---:|:---:|
@@ -424,7 +424,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce6'
 
 #### Segunda versión
 
-`TC_porce6a`
+<!-- `TC_porce6a` -->
 
 |Altitud|  R  |  G  |  B  |
 |:-----:|:---:|:---:|:---:|
@@ -451,7 +451,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce6a'
 
 Después de varias modificaciones terminamos con esta combinación:
 
-`TC_porce7`
+<!-- `TC_porce7` -->
 
 |Altitud|  R  |  G  |  B  |
 |:-----:|:---:|:---:|:---:|
@@ -475,7 +475,10 @@ Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce7'
 
 ![Versión Final](/cartografia-digital/images/clase-02/TC_porce7.png){: .img-responsive}
 
-<!-- ### Crear una nueva carpeta para guardar las tablas de colores creadas
+<!--
+TODO: ¿Se justifica emplear la opción del gedit para crear tablas de colores y aplicarlas a un mapa?
+
+### Crear una nueva carpeta para guardar las tablas de colores creadas
 
 Durante las sesiones en GRASS creamos numerosas y diversas tablas de colores. Por omisión, el sistema las guarda en la carpeta personal (usuario). Es recomendable crear una nueva carpeta (directorio) dentro de la carpeta personal de usuario para guardar allí todas las tablas de colores creadas. Al hacer esto, es necesario indicar al comando que toma el "script" que éste se encuentra en una carpeta diferente a la personal.
 
