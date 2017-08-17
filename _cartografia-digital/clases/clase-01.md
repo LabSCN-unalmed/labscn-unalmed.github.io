@@ -595,12 +595,15 @@ El botón **Menú de análisis** ![Menú de análisis](/cartografia-digital/imag
 ![Herramienta de medir distancia](/cartografia-digital/images/clase-01/measure-length.png) Herramienta de medir distancia
 : Realiza una medición interactiva de longitudes planimétricas (horizontales) de segmentos definidos con el mouse. Se despliegan en la consola: la longitud de cada segmento, la longitud acumulada de todos los segmentos de una línea quebrada, y el ángulo de cada segmento, respecto al Norte, medido en el sentido de las manecillas del reloj. Las longitudes se miden en la unidades en que se encuentra construido el mapa.
 
+![Herramienta de medir área](/cartografia-digital/images/clase-01/area-measure.png) Herramienta de medir área
+: Realiza una medición interactiva de áreas definidas con el mouse. El área es medida usando la unidad de medida actual. Con un doble-click se termina la medición.
+
 ![Herramienta de perfil](/cartografia-digital/images/clase-01/layer-raster-profile.png) Herramienta de perfil
 : Permite crear un perfil topográfico de un mapa raster de altitudes de forma interactiva. Este procedimiento se puede generalizar para construir perfiles de cualquier otra variable (relieve relativo, pendientes, curvaturas, etc.).
 
 Un perfil topográfico es la representación del relieve de una región a partir de las variables de distancia y altitud. En una línea seleccionada sobre el mapa, se definen distancias desde el punto inicial hasta el punto final, y a cada punto se le asigna su respectivo valor de altitud. La gráfica de "distancia vs. altitud" corresponde al perfil topográfico de dicha línea. En una clase posterior aprenderemos a elaborar conjuntos de perfiles paralelos y de igual distancia, como un procedimiento que permite evaluar de manera más profunda la estructura del relieve de una región.
 
-Con el botón **Plot Options** ![](/cartografia-digital/images/clase-01/settings.png) se pueden realizar modificaciones a los parámetros gráficos del perfil, por ejemplo: Color y espesor de la línea del perfil, texto y formato de las etiquetas de los ejes 'X' y 'Y'.
+Con el botón **Opciones del gráfico** ![](/cartografia-digital/images/clase-01/settings.png) se pueden realizar modificaciones a los parámetros gráficos del perfil, por ejemplo: Color y espesor de la línea del perfil, texto y formato de las etiquetas de los ejes 'X' y 'Y'.
 
 ![Herramienta de histograma](/cartografia-digital/images/clase-01/layer-raster-histogram.png) Herramienta de histograma
 : El histograma presenta la relación entre un valor del mapa (por ejemplo un valor de altitud) y el número de píxeles que presentan dicho valor. La herramienta de histograma permite:
