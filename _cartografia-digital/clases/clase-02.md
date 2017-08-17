@@ -390,7 +390,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce5'
 
 ![Variación discreta de color por altitud](/cartografia-digital/images/clase-02/TC_porce5.png){: .img-responsive}
 
-En la tabla antes creada (`TC_porce5`) no se cubre todo el rango altitudinal del archivo `porcecito`.
+En la tabla antes creada no se cubre todo el rango altitudinal del archivo `porcecito`.
 
 Luego en el mapa desplegado quedarán en blanco los píxeles para el rango altitudinal que no se involucró.
 
