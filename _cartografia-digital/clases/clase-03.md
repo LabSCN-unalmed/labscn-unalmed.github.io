@@ -637,12 +637,32 @@ _**¿Mejoró?**_
 
 ![Mapa sombreado con altitud 30° y azimuth 135°](/cartografia-digital/images/clase-03/porcecito_shade_30_0.png){: .img-responsive}
 
-<!-- Agregar contenido sobre visualización HIS del mapa de relieve sombreado -->
+### Visualización de mapas sombreados {#visualizacion-mapas-sombreados}
+
+Los mapas sombreados son útiles para visualizarlos con el color de otra capa y generar una sensación de relieve en 2 dimensiones. Para ello vamos a recurrir a la opción **Agregar capa de mapa de relieve sombreado** ![Agregar capa de mapa de relieve sombreado)](/cartografia-digital/images/clase-03/layer-shaded-relief-add.png) que se encuentra dentro del menú **Agregar diversas capas de mapas raster (RGB, HIS, relieve sombreado...)** ![Agregar diversas capas de mapas raster (RGB, HIS, relieve sombreado...)](/cartografia-digital/images/clase-03/layer-raster-more.png).
 
 
+![](/cartografia-digital/images/clase-03/clase-03_38.png){: .img-responsive}
 
+Acá indicamos el mapa sombreado y el mapa al cual se le aplicará este sombreado, en este caso, lo aplicaremos al DEM.
 
+![](/cartografia-digital/images/clase-03/clase-03_39.png){: .img-responsive}
 
+Y el resultado es el siguiente:
+
+![](/cartografia-digital/images/clase-03/porcecito_shaded.png){: .img-responsive}
+
+Sombreando el mapa de relieve relativo obtendríamos lo siguiente:
+
+![](/cartografia-digital/images/clase-03/porcecito_RR_33_shaded.png){: .img-responsive}
+
+## Para reflexionar
+
+* El tamaño de la ventana móvil en distintos contextos de relieve.
+* El uso de ventanas móviles pequeñas o muy grandes.
+* Distribución espacial de los valores de relieve relativo en una cuenca: Posibles significados.
+* Aplicaciones potenciales de los mapas de relieve relativo.
+* Diseño de nuevos mapas haciendo uso de otras operaciones disponibles en la herramienta de análisis de vecindad.
 
 <!--
 ████████  ██████  ██████   ██████
@@ -651,7 +671,7 @@ _**¿Mejoró?**_
    ██    ██    ██ ██   ██ ██    ██
    ██     ██████  ██████   ██████
 
-<!-- ## Tarea 4
+## Tarea 4
 {: .text-danger}
 
 Elaborar el mapa de relieve relativo del archivo "ituango".
@@ -675,11 +695,3 @@ entregar los siguientes productos:
 
 4. Un guión en donde se muestre el procedimiento documentado para obtener
    la información requerida para desarrollar los puntos anteriores. -->
-
-## Para reflexionar
-
-* El tamaño de la ventana móvil en distintos contextos de relieve.
-* El uso de ventanas móviles pequeñas o muy grandes.
-* Distribución espacial de los valores de relieve relativo en una cuenca: Posibles significados.
-* Aplicaciones potenciales de los mapas de relieve relativo.
-* Diseño de nuevos mapas haciendo uso de otras operaciones disponibles en la herramienta de análisis de vecindad.
