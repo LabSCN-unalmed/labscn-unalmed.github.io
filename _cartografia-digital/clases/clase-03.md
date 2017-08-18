@@ -470,62 +470,48 @@ La comparación de esta tabla con el reporte obtenido del mapa de relieve relati
 |  600 - 1200 | Disección profunda pronunciada                                  |
 {: .table .table-hover}
 
+Lo que haremos en GRASS será crear un nuevo mapa discreto que agrupe los valores de relieve relativo en valores categóricos de acuerdo a las reglas que especifiquemos. Para esto utilizamos la herramienta `r.reclass` la cual abrimos desde el menú _Raster -> Change category values and labels -> Reclassify_.
 
+![](/cartografia-digital/images/clase-03/clase-03_28.png){: .img-responsive}
 
-<!--
-████████  ██████  ██████   ██████
-   ██    ██    ██ ██   ██ ██    ██
-   ██    ██    ██ ██   ██ ██    ██
-   ██    ██    ██ ██   ██ ██    ██
-   ██     ██████  ██████   ██████
-El comando `r.reclass` crea un nuevo mapa (mapa reclasificado), cuyos valores de categorías están basados en una reclasificación de las categorías de una capa de mapa raster existente.
+En ella indicamos como entrada el mapa que vamos a reclasificar, como salida el nombre que tendrá el mapa reclasificado, y para especificar las reglas de reclasificación tenemos 2 opciones:
 
-Para aplicar el comando `r.reclass` se requiere elaborar un script en gedit para aplicar, el cual contiene las reglas de la reclasificación a utilizar.
+- Indicar un archivo de texto con las reglas de reclasificación.
+- Ingresar las reglas directamente en el espacio destinado para las reglas.
 
-El script tiene el siguiente contenido:
+![](/cartografia-digital/images/clase-03/clase-03_29.png){: .img-responsive}
 
-`RCLS_porce1_RR`
+Las reglas de reclasificación son las siguientes:
 
 ~~~
- 45 thru  82 = 1 Relieves planos y de colinas bajas.
- 82 thru 150 = 2 Colinas intermedias.
-150 thru 300 = 3 Colinas altas.
-300 thru 350 = 4 Transicion entre relieve colinado y relieve de diseccion profunda.
-350 thru 450 = 5 Diseccion profunda baja.
-450 thru 600 = 6 Diseccion profunda intermedia.
-600 thru 785 = 7 Diseccion profunda pronunciada.
+ 45 thru  82 = 1 Relieves planos y de colinas bajas
+ 82 thru 150 = 2 Colinas intermedias
+150 thru 300 = 3 Colinas altas
+300 thru 350 = 4 Transicion entre relieve colinado y relieve de diseccion profunda
+350 thru 450 = 5 Diseccion profunda baja
+450 thru 600 = 6 Diseccion profunda intermedia
+600 thru 785 = 7 Diseccion profunda pronunciada
 ~~~
 
-- Se inicia con la altitud mínima.
+- Se inicia con el valor mínimo redondeando hacia abajo.
 - Se utilizan los rangos descritos en la tabla anterior.
-- A cada rango de reclasificación de la altitud se le asigna un numero entero consecutivo (1, 2, 3, ...).
-- Luego se hace una descripción corta (3 a 5 palabras) indicando lo que representa cada rango.
-- Finalmente se guarda el "script" asignándole un nombre o etiqueta para su identificación. Por omisión, el programa GRASS guarda el script en la carpeta personal del usuario, de donde la tomará al momento de invocarla.
-- Para identificar el script como unas reglas de reclasificación de un mapa especifico, se puede utilizar la convención: `RCLS_'Nombre del mapa a reclasificar'`. Por ejemplo: `RCLS_porce1_RR`
+- Se le asigna un numero entero consecutivo (1, 2, 3, ...) a cada rango.
+- Se hace una descripción corta (3 a 5 palabras) indicando lo que representa cada rango.
 
-Reclasificar un mapa involucra la acción de construir un nuevo mapa (mapa de salida) a partir de un mapa de entrada.
+Sólo se pueden utilizar valores enteros para definir los rangos, los valores decimales son aproximados a un valor entero.
+{: .alert .alert-warning}
 
-- El mapa de entrada contiene los valores de una variable para cada uno de los píxeles.
-- El mapa `porce1_RR_33` contiene el valor de RR para cada uno de los píxeles.
+El mapa de salida tiene el mismo número entero para todos los píxeles cuyo valor se encuentra dentro de un rango dado. Por ejemplo, en el script creado se ha estipulado que a los píxeles con valor de RR entre 45 - 82 les asigne el número 1, a los píxeles entre 82 - 150 les asigne el número 2, y así sucesivamente.
 
-El mapa de salida asigna un numero entero similar para todos los píxeles cuyo valor se encuentra dentro de un rango dado. Por ejemplo, en el script creado se ha estipulado que a los píxeles con valor de RR entre 45 - 82 les asigne el número 1, a los píxeles entre 82 - 150 les asigne el número 2, y así sucesivamente.
+![](/cartografia-digital/images/clase-03/clase-03_30.png){: .img-responsive}
 
-De este modo obtenemos un mapa reclasificado del relieve relativo que contiene siete (7) categorías.
-
-La orden para elaborar un mapa reclasificado del relieve relativo es la siguiente:
-
-~~~
-r.reclass input=porce1_RR_33 output=porce1_RR_33_reclass rules=RCLS_porce1_RR
-~~~
+De este modo obtenemos un mapa reclasificado del relieve relativo que contiene 7 categorías.
 
 ### Consultar el contenido del mapa reclasificado
 
-~~~
-r.report -h map=porce1_RR_33_reclass units=p,c,k
-~~~
+Realizamos un reporte de la distribución espacial de las categorías del nuevo mapa.
 
 ~~~
- 100%
 +-----------------------------------------------------------------------------+
 |               Category Information                |   %  |   cell|  square  |
 |#|description                                      | cover|  count|kilometers|
@@ -549,28 +535,22 @@ Con el informe obtenido podemos responder preguntas, tales como:
 - ¿Cuál es el tipo de relieve dominante en la zona de estudio y que extensión ocupa?
 - ¿Qué importancia en área tiene en la zona de estudio los relieves mas suaves?
 
-Desplegar en 2D y en 3D el mapa reclasificado de relieve relativo
+Desplegando en 2D y en 3D el mapa reclasificado de relieve relativo:
 
 ![2D](/cartografia-digital/images/porce1_RR_33_reclass.png){: .img-responsive}
 
 ![3D](/cartografia-digital/images/porce1_RR_33_reclass3D.png){: .img-responsive}
 
-Al desplegar el mapa `porce1_RR_33_reclass` el programa GRASS asigna unos colores a cada categoría.
-
-*¿Cómo asignar a voluntad del usuario una tabla de colores al mapa reclasificado de relieve relativo?*
-
 ### Simplificar un mapa reclasificado
 
 Puede ocurrir que el mapa reclasificado en estudio contiene un numero elevado de categorías y sería interesante para algún propósito disminuir el numero de categorías para un análisis mas adecuado de lo que se estudia.
 
-Por ejemplo: el mapa `porce1_RR_33_reclass` posee siete (7) categorías pero nos interesa únicamente diferenciar entre colinas, relieve de transición y relieve de disección profunda. Es decir crear un mapa reclasificado de relieve relativo con tres categorías.
+Por ejemplo: el mapa `porcecito_RR_33_rcls` posee 7 categorías pero nos interesa únicamente diferenciar entre colinas, relieve de transición y relieve de disección profunda. Es decir crear un mapa reclasificado de relieve relativo con tres categorías.
 
 En este caso, se trata de simplificar un mapa reclasificado existente: Elaborar un mapa reclasificado mas simple a partir de otro mapa
 reclasificado.
 
-Se elabora en gedit la nueva tabla de reclasificación y se guarda con un nombre.
-
-`RCLS_porce1_RR_simplif`
+Se elabora una nueva tabla de reclasificación.
 
 ~~~
 1 2 3 = 1
@@ -578,23 +558,32 @@ Se elabora en gedit la nueva tabla de reclasificación y se guarda con un nombre
 5 6 7 = 3
 ~~~
 
-Se aplica el comando de reclasificación.
+Se utiliza la herramienta de reclasificación.
 
-~~~
-r.reclass input=porce1_RR_33_reclass output=porce1_RR_33_reclass_simplif rules=RCLS_porce1_RR-simplif
-~~~
+![](/cartografia-digital/images/clase-03/clase-03_31.png){: .img-responsive}
 
-<!--- d.rast porce1_RR_33_reclass_simplif -->
+![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive}
 
-<!-- ![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive}
+En vista 3D se obtiene:
 
-En vista 3D se obtiene: -->
+![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive}
 
-<!--- ~~~
-nviz porcecito color=porce1_RR_33_reclass_simplif
-~~~ -->
 
-<!-- ![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive} -->
+
+
+
+
+
+
+
+
+
+<!--
+████████  ██████  ██████   ██████
+   ██    ██    ██ ██   ██ ██    ██
+   ██    ██    ██ ██   ██ ██    ██
+   ██    ██    ██ ██   ██ ██    ██
+   ██     ██████  ██████   ██████
 
 <!-- ## Tarea 4
 {: .text-danger}
