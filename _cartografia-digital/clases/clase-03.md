@@ -324,7 +324,7 @@ Al calcular el mapa de relieve relativo, este "hereda" la tabla de colores del m
 
 ### Visualización 3D del mapa construido {#visualizacion-3D-mapa-construido}
 
-![Visualización 3D del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D.png){: .img-responsive}
+![Visualización 3D del mapa de Relieve Relativo](/cartografia-digital/images/clase-03/porcecito_RR_33_3D.png){: .img-responsive}
 
 _**¿Qué se observa en la imagen anterior?**_<br>
 _**¿Se puede visualizar la estructura del relieve?**_<br>
@@ -537,9 +537,9 @@ Con el informe obtenido podemos responder preguntas, tales como:
 
 Desplegando en 2D y en 3D el mapa reclasificado de relieve relativo:
 
-![2D](/cartografia-digital/images/porce1_RR_33_reclass.png){: .img-responsive}
+![2D](/cartografia-digital/images/clase-03/porcecito_RR_33_rcls.png){: .img-responsive}
 
-![3D](/cartografia-digital/images/porce1_RR_33_reclass3D.png){: .img-responsive}
+![3D](/cartografia-digital/images/clase-03/porcecito_RR_33_rcls3D.png){: .img-responsive}
 
 ### Simplificar un mapa reclasificado
 
@@ -553,25 +553,91 @@ reclasificado.
 Se elabora una nueva tabla de reclasificación.
 
 ~~~
-1 2 3 = 1
-  4   = 2
-5 6 7 = 3
+1 2 3 = 1 Relieve colinado
+  4   = 2 Relieve de transición
+5 6 7 = 3 Relieve disectado
 ~~~
 
 Se utiliza la herramienta de reclasificación.
 
 ![](/cartografia-digital/images/clase-03/clase-03_31.png){: .img-responsive}
 
-![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive}
+Y se obtiene el mapa simplificado.
+
+![2D](/cartografia-digital/images/clase-03/porcecito_RR_33_rcls_simple.png){: .img-responsive}
 
 En vista 3D se obtiene:
 
-![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive}
+![3D](/cartografia-digital/images/clase-03/porcecito_RR_33_rcls_simple3D.png){: .img-responsive}
 
+Y el reporte de las categorías quedaría así:
 
+~~~
++-----------------------------------------------------------------------------+
+|               Category Information                |  square  |   cell|   %  |
+|#|description                                      |kilometers|  count| cover|
+|-----------------------------------------------------------------------------|
+|1|Relieve colinado . . . . . . . . . . . . . . . . | 918.62434| 983915| 69.25|
+|2|Relieve de transición  . . . . . . . . . . . . . | 152.41705| 163250| 11.49|
+|3|Relieve disectado. . . . . . . . . . . . . . . . | 255.52194| 273683| 19.26|
+|-----------------------------------------------------------------------------|
+|TOTAL                                              |1326.56333|1420848|100.00|
++-----------------------------------------------------------------------------+
+~~~
+{: .output}
 
+## Construcción de mapas sombreados de relieve {#construccion-mapas-sombreados}
 
+Los mapas sombreados permiten visualizar rasgos lineales en el relieve (lineamientos), estos se obtienen a partir del DEM y una posición hipotética del sol (fuente de luz) tanto en altura (ángulo con respecto al horitzonte) como en azimut (ángulo con respecto al norte). Al mapa resultante se le asigna de forma predeterminada una tabla de colores en tonos de gris.
 
+Modificando los valores de altitud y de azimuth se obtienen sombreados diferentes.
+
+Los lineamientos de un relieve resaltan mas en unas combinaciones especificas de altitud y azimuth mientras en otras combinaciones se difuminan.
+
+Un lineamiento resalta cuando la luz incidente proviene de una trayectoria transversal y cuando la altitud de la luz es baja.
+
+Para calcular el mapa sombreado de relieve se utiliza la herramienta `r.relief` la cual se abre desde el menú _Raster -> Terrain analysis -> Compute shaded relief_.
+
+![](/cartografia-digital/images/clase-03/clase-03_32.png){: .img-responsive}
+
+Acá se indica como mapa de entrada el DEM que es el mapa que contiene los valores de elevación y se asigna un nombre al mapa que se generará.
+
+![](/cartografia-digital/images/clase-03/clase-03_33.png){: .img-responsive}
+
+En la pestaña _Sun position_ se indican los ángulos del sol con respecto a la horizontal (altitud) y con respecto al norte (azimut).
+
+![](/cartografia-digital/images/clase-03/clase-03_34.png){: .img-responsive}
+
+El resultado inicial es el siguiente.
+
+![Mapa sombreado con altitud 45° y azimuth 45°](/cartografia-digital/images/clase-03/porcecito_shade_45_45.png){: .img-responsive}
+
+Para modificar el mapa y sobreescribirlo con unos nuevos valores de altitud y azimut se debe activar la opción de sobreescribir `--o` en la pestaña _Optional_.
+
+![](/cartografia-digital/images/clase-03/clase-03_35.png){: .img-responsive}
+
+Probamos con unos nuevos valores de altitud y azimut.
+
+![](/cartografia-digital/images/clase-03/clase-03_36.png){: .img-responsive}
+
+Y obtenemos el siguiente mapa:
+
+![Mapa sombreado con altitud 30° y azimuth 135°](/cartografia-digital/images/clase-03/porcecito_shade_30_135.png){: .img-responsive}
+
+_**¿Qué se puede concluir de la imagen anterior?**_<br>
+_**¿Si representa adecuadamente el relieve del mapa?**_
+{: .text-danger .text-center}
+
+Probemos con esta otra combinación de altitud y azimut.
+
+![](/cartografia-digital/images/clase-03/clase-03_37.png){: .img-responsive}
+
+_**¿Mejoró?**_
+{: .text-danger .text-center}
+
+![Mapa sombreado con altitud 30° y azimuth 135°](/cartografia-digital/images/clase-03/porcecito_shade_30_0.png){: .img-responsive}
+
+<!-- Agregar contenido sobre visualización HIS del mapa de relieve sombreado -->
 
 
 
@@ -609,3 +675,11 @@ entregar los siguientes productos:
 
 4. Un guión en donde se muestre el procedimiento documentado para obtener
    la información requerida para desarrollar los puntos anteriores. -->
+
+## Para reflexionar
+
+* El tamaño de la ventana móvil en distintos contextos de relieve.
+* El uso de ventanas móviles pequeñas o muy grandes.
+* Distribución espacial de los valores de relieve relativo en una cuenca: Posibles significados.
+* Aplicaciones potenciales de los mapas de relieve relativo.
+* Diseño de nuevos mapas haciendo uso de otras operaciones disponibles en la herramienta de análisis de vecindad.
