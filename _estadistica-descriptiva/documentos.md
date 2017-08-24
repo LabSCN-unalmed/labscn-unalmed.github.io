@@ -43,6 +43,11 @@ order: 3
 - [Episodio 01 Temporada 3 (Inglés)](https://www.dropbox.com/s/fw53d869s8xp3nv/Black.Mirror.S03E01.Nosedive.720p.WEBRip.2CH.x265.HEVC-PSA.mkv?dl=0)
 - [Subtítulos en español](https://www.dropbox.com/s/cdszhozc98s1cwn/Black.Mirror.S03E01.Nosedive.720p.WEBRip.2CH.x265.HEVC-PSA.srt?dl=0)
 
+## Relación del rendimiento académico e internet.
+
+- [Documento de investigación realizada en México](./documentos/universitarios_uso_y_aplicación_internet.pdf)
+- [Documento de investigación realizada en Colombia](./documentos/Influencia_internet_rendimiento_académico.pdf)
+
 ## Tablas guías para parámetros gráficos.
 - [Tabla de colores](/estadistica-descriptiva/documentos/ColorChart.pdf)
 - [Tabla de símbolos](/estadistica-descriptiva/documentos/points.png)
