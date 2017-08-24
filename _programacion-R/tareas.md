@@ -30,15 +30,15 @@ Escriba un algoritmo en seudocódigo que:
      $$ (X_i, Y_j) $$ de una cuadrícula mediante la fórmula:
 
      $$
-     p_{ij} = \sum_{k = 1}^N \left[  \frac{\phi}{|X_i - x_k| + |Y_i - y_k|}  +
-              \frac{1- \phi}{(2B - |X_i - x_k| - |X_i - y_k|)} \right]
+     p_{ij} = \sum_{k = 1}^N \left[  \frac{\phi}{|X_i - x_k| + |Y_j - y_k|}  +
+              \frac{1- \phi}{(2B - |X_i - x_k| - |Y_j - y_k|)} \right]
      $$
 
      Dónde:
 
      $$
        \phi = \begin{cases}
-                  1 & \textrm{ si } (|X_i - x_k| + |Y_i - y_k|) > B  \\
+                  1 & \textrm{ si } (|X_i - x_k| + |Y_j - y_k|) > B  \\
                   0 & \text{ en otro caso, e. o. c.}
               \end{cases}
      $$
