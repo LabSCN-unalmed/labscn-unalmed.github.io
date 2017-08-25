@@ -8,7 +8,7 @@ custom_js: 'mathjax'
 
 ## Diagrama de Objetos
 
-![](Diagrama_de_objetos1.png)
+![](diagrama_de_objetos2.png)
 
 
 ## Esquema ejemplo de POO en C++ (Encapsulamiento y herencia)

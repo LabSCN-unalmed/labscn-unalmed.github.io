@@ -6,6 +6,16 @@ custom_js: 'mathjax'
 order: 3
 ---
 
+
+
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+
+
 ## Primera tarea individual
 
 ### Enunciado
@@ -74,6 +84,51 @@ siguiendo la plantilla dada para el curso.
 ### Fecha de entrega:
 
 Miércoles 23 de agosto de 2017 antes de las 23:59
+[hora de Colombia](http://horalegal.inm.gov.co/)
+al correo krcabrer@unal.edu.co y en asunto no olvidar
+**[CursoR]**
+
+## Segunda tarea individual
+
+### Enunciado
+
+Escriba una función en C++ integrada a R que
+
+1. Dadas las coordenada de los vértices de un polígono convexo,
+   calcular el área del mismo.   
+2. Tenga como entrada un número entero de cualquier número
+   de cifras y que indique si es [capicúa](https://es.wikipedia.org/wiki/Capic%C3%BAa) o no.
+3. Tenga como entrada una matriz de $$ n \times 2 $$ con las coordenadas
+    de una línea. Mostrar la longitud de la línea (suma de longitudes
+      de los segmentos).
+4. Dada las coordenadas de dos puntos pertenecientes a una línea,
+    calcular la distancia de un tercer punto a la línea.
+5. Dada las coordenada de los extremos de un segmento identificar
+    si un tercer punto pertenece o no al segmento.
+
+6. Tenga como entrada las dimensiones de una matriz y que muestre
+   como salida los índices de la matriz en forma de espiral de afuera
+   hacia adentro.
+
+### Archivos para entregar:
+
+Cinco o un archivos con los siguientes nombres:
+
+- Tarea2Punto1.cpp
+- Tarea2Punto2.cpp
+- Tarea2Punto3.cpp
+- Tarea2Punto4.cpp
+- Tarea2Punto5.cpp
+
+o
+
+- Tarea2PuntoExtra.cpp   
+
+**Se entrega o los cinco puntos o el punto extra, ¡no los dos!**
+
+### Fecha de entrega:
+
+Miércoles 6 de agosto de 2017 antes de las 23:59
 [hora de Colombia](http://horalegal.inm.gov.co/)
 al correo krcabrer@unal.edu.co y en asunto no olvidar
 **[CursoR]**
