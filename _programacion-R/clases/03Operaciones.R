@@ -1,8 +1,9 @@
 # -----------------------------------------------------------------------------#
 # Titulo: Operaciones básicas
-# Tipo: Tutorial
-# Nombre: Kenneth Roy Cabrera Torres
-# Fecha: miércoles, 22 de junio de 2016
+# Tipo: Tutorial.
+# Nombre: Kenneth Roy Cabrera Torres.
+# Fecha: miércoles, 22 de junio de 2016.
+# Modificaciones: viernes, 25 de agosto de 2017.
 # Enunciado: Ejemplos de operaciones básica en R.
 # -----------------------------------------------------------------------------#
 
@@ -53,12 +54,12 @@ options(optAnt)
 pi
 
 x <- 10000
-(1 + 1/x)^x
+(1 + 1 / x) ^ x
 
-y <- (1 + 1/x)^x
+y <- (1 + 1 / x)^x
 y
 
-(z <- (1 + 1/x)^x)
+(z <- (1 + 1 / x) ^ x)
 
 # Secuencias y repeticiones
 
@@ -124,7 +125,7 @@ cbind(i, j)
 
 # Ahora en forma de zig-zag
 
-jz <- (i%%2)*j + ((i+1)%%2)*(columnas - j +1)
+jz <- (i %% 2) * j + ((i + 1) %% 2) * (columnas - j + 1)
 
 cbind(i, jz)
 

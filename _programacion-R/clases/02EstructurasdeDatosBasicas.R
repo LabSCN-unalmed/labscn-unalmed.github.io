@@ -1,9 +1,10 @@
 # -----------------------------------------------------------------------------#
-# Titulo: Estructuras de datos básicos
-# Tipo: Tutorial
-# Nombre: Kenneth Roy Cabrera Torres
-# Fecha: martes, 21 de junio de 2016
-# Enunciado: Se presentan las estructuras básica del R
+# Titulo:     Estructuras de datos básicos
+# Tipo:       Tutorial
+# Nombre:     Kenneth Roy Cabrera Torres
+# Fecha:      martes, 21 de junio de 2016
+# Modificado: viernes, 25 de agosto de 2017
+# Enunciado:  Se presentan las estructuras básica del R
 # -----------------------------------------------------------------------------#
 
 # Vectores
