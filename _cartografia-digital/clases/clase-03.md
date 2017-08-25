@@ -160,6 +160,13 @@ Para la elaboración del mapa de relieve relativo de la zona representada en el 
 - Calcular el rango de altitud en la zona de vecindad (`altura máxima - altura mínima`).
 - Este mapa es el mapa de relieve relativo o relieve local de la región de porcecito.
 
+Es importante definir la región de cálculo antes de calcular el mapa de relieve relativo, de lo contrario el mapa resultante podría quedar con errores.
+{: .alert .alert-warning}
+
+Se define la región de acuerdo al mapa.
+
+![](/cartografia-digital/images/clase-03/clase-03_16.png){: .img-responsive}
+
 ### Consultar el contenido del mapa porcecito
 
 Vamos a consultar la información del mapa por medio del menú contextual de la capa, seleccionando la opción de metadatos.
@@ -289,14 +296,7 @@ El tamaño de la ventana móvil es de **33 x 33** pixeles.
 
 ### El mapa de relieve relativo
 
-Es importante definir la región de cálculo antes de calcular el mapa de relieve relativo, de lo contrario el mapa resultante podría quedar con errores.
-{: .alert .alert-warning}
-
-Se define la región de acuerdo al mapa.
-
-![](/cartografia-digital/images/clase-03/clase-03_16.png){: .img-responsive}
-
-Se obtiene el mapa de relieve relativo calculando el rango de altitud en la zona de vecindad por medio del módulo `r.neighbors` el cual abrimos por medio del menú _Raster -> Neighborhood analysis -> Moving window_.
+El mapa de relieve relativo se obtiene calculando el rango de altitud en la zona de vecindad por medio del módulo `r.neighbors` el cual abrimos por medio del menú _Raster -> Neighborhood analysis -> Moving window_.
 
 ![](/cartografia-digital/images/clase-03/clase-03_17.png){: .img-responsive}
 
