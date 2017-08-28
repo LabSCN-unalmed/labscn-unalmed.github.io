@@ -128,7 +128,7 @@ o
 
 ### Fecha de entrega:
 
-Miércoles 6 de septiembre de 2017 antes de las 23:59
+Miércoles, 6 de septiembre de 2017 antes de las 23:59
 [hora de Colombia](http://horalegal.inm.gov.co/)
 al correo krcabrer@unal.edu.co y en asunto no olvidar
 **[CursoR]**
