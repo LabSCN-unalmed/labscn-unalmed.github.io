@@ -159,7 +159,5 @@ int main(){
        cout << "El área de la figura" << i+1 <<
                ", es: " << figuras[i]->Area() << endl;
    }
-
-
 }
 ```
