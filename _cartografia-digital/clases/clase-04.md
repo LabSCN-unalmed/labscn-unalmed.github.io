@@ -637,33 +637,34 @@ El mapa reclasificado obtenido es el siguiente:
 Observar que haciendo zoom en sectores del mapa se pueden observar rasgos específicos del relieve.
 
 <!--
-████████  ██████  ██████   ██████
-   ██    ██    ██ ██   ██ ██    ██
-   ██    ██    ██ ██   ██ ██    ██
-   ██    ██    ██ ██   ██ ██    ██
-   ██     ██████  ██████   ██████
+███████ ███████  ██████  ██    ██ ███████ ██████  ████████
+██      ██      ██       ██    ██ ██      ██   ██    ██
+███████ █████   ██   ███ ██    ██ █████   ██████     ██
+     ██ ██      ██    ██  ██  ██  ██      ██   ██    ██
+███████ ███████  ██████    ████   ███████ ██   ██    ██
+-->
 
-### Combinación de los mapas de curvaturas vertical y horizontal {#combinacion-mapas-curvaturas-vertical-horizontal}
+### Combinación de los mapas de curvaturas plana y de perfil {#combinacion-mapas-curvaturas}
 
-El mapa reclasificado de curvatura vertical (perfil) tiene 3 valores:
+El mapa reclasificado de curvatura de perfil (vertical) tiene 3 valores:
 
-| Valor | Tipo de curvatura |
-|------:|:------------------|
-|    -1 | Concavo (V)       |
-|     0 | Planar (R)        |
-|     1 | Convexo (X)       |
+| Valor | Tipo de curvatura de perfil |
+|------:|:----------------------------|
+|    -1 | Concava (V)                 |
+|     0 | Rectilínea (R)              |
+|     1 | Convexa (X)                 |
 {: .table .table-striped}
 
-El mapa reclasificado de curvatura horizontal (plana) tiene 3 valores:
+El mapa reclasificado de curvatura plana (horizontal) tiene 3 valores:
 
-| Valor | Tipo de curvatura |
-|------:|:------------------|
-|    -1 | Convexo (X)       |
-|     0 | Planar (R)        |
-|     1 | Concavo (V)       |
+| Valor | Tipo de curvatura plana |
+|------:|:------------------------|
+|    -1 | Convexa (X)             |
+|     0 | Rectilínea (R)          |
+|     1 | Concava (V)             |
 {: .table .table-striped}
 
-Es factible combinar estos dos mapas para obtener un mapa resultante en el cual se puedan obtener simultáneamente las curvaturas vertical y planar para cada pixel. Como cada mapa tiene 3 categorías diferentes, el mapa resultante tendrá 9 categorías (3x3). Debemos sí, garantizar que cada categoría del mapa resultante tenga un valor único. La matriz a obtener deberá ser de la siguiente manera:
+Es factible combinar estos dos mapas para obtener un mapa resultante en el cual se puedan obtener simultáneamente las curvaturas plana y de perfil para cada pixel. Como cada mapa tiene 3 categorías diferentes, el mapa resultante tendrá 9 categorías (3x3). Debemos sí, garantizar que cada categoría del mapa resultante tenga un valor único. La matriz a obtener deberá ser de la siguiente manera:
 
 |       | **X** | **R** | **V** |
 | **V** |  VX   |  VR   |  VV   |
@@ -671,7 +672,7 @@ Es factible combinar estos dos mapas para obtener un mapa resultante en el cual 
 | **X** |  XX   |  XR   |  XV   |
 {: .table .table-striped}
 
-En las filas están las categorías de curvatura vertical y en las columnas las categorías de la curvatura horizontal.
+En las filas están las categorías de curvatura de perfil y en las columnas las categorías de la curvatura plana.
 
 Si sumamos los valores de los 2 mapas reclasificados, obtendríamos:
 
@@ -681,9 +682,13 @@ Si sumamos los valores de los 2 mapas reclasificados, obtendríamos:
 |  **1** |    0   |   1   |   2   |
 {: .table .table-striped}
 
-La suma simple de los 2 mapas no permite diferenciar los segmentos RX de VR porque ambos tienen el mismo valor de -1; de igual manera sucede con los segmentos XX - RR - VV, los cuales tienen el mismo valor de 0; y también para los segmentos XR y RV, que tienen el mismo valor de 1.
+**Observemos**
 
-Para evitar la repetición de valores, multiplicamos el mapa de curvatura horizontal por el escalar `3`:
+- La suma simple de los 2 mapas no permite diferenciar los segmentos **RX** de **VR** porque ambos tienen el mismo valor de -1.
+- De igual manera sucede con los segmentos **XX** - **RR** - **VV**, los cuales tienen el mismo valor de 0
+- También para los segmentos **XR** y **RV**, que tienen el mismo valor de 1.
+
+Para evitar la repetición de valores, multiplicamos el mapa de curvatura plana por el escalar `3`:
 
 |        | **-3** | **0** | **3** |
 | **-1** |   -4   |  -1   |   2   |
@@ -706,87 +711,85 @@ En este segundo caso cada combinación quedará con un valor diferente:
 |     4 | XV                |
 {: .table .table-striped}
 
-Para combinar los mapas empleando el álgebra de mapas, utilizamos el comando `r.mapcalc`:
+De modo que utilizando el álgebra de mapas podemos obtener el mapa mediante la operación:
 
 ~~~
-r.mapcalc "porce1_tipo_vert = porce1_profc7_reclass + porce1_planc7_reclass * 3"
+tipo_vert = profc + planc * 3
 ~~~
 
-Visualizar la distribución de los tipos de vertientes en el mapa `porce1_tipo_vert`:
+La cual podemos efectuar utilizando la **Calculadora de mapas raster** ![](/cartografia-digital/images/clase-03/raster-calculator.png).
+
+![](/cartografia-digital/images/clase-04/clase-04_26.png){: .img-responsive}
+
+Visualizamos la distribución de los tipos de vertientes en el mapa `porcecito_tipo_vert`:
 
 ~~~
-r.report -h map=porce1_tipo_vert units=p,c,k
-~~~
-
-~~~
- 100%
 +-----------------------------------------------------------------------------+
-|               Category Information                |   %  |   cell|  square  |
-| #|description                                     | cover|  count|kilometers|
+|               Category Information                |  square  |   cell|   %  |
+| #|description                                     |kilometers|  count| cover|
 |-----------------------------------------------------------------------------|
-|-4| . . . . . . . . . . . . . . . . . . . . . . . .| 11.06| 157132| 146.70503|
-|-3| . . . . . . . . . . . . . . . . . . . . . . . .|  6.93|  98421|  91.88998|
-|-2| . . . . . . . . . . . . . . . . . . . . . . . .| 22.00| 312625| 291.87982|
-|-1| . . . . . . . . . . . . . . . . . . . . . . . .|  8.03| 114071| 106.50147|
-| 0| . . . . . . . . . . . . . . . . . . . . . . . .|  4.98|  70699|  66.00755|
-| 1| . . . . . . . . . . . . . . . . . . . . . . . .|  6.99|  99294|  92.70505|
-| 2| . . . . . . . . . . . . . . . . . . . . . . . .| 20.93| 297401| 277.66606|
-| 3| . . . . . . . . . . . . . . . . . . . . . . . .|  8.07| 114610| 107.00471|
-| 4| . . . . . . . . . . . . . . . . . . . . . . . .| 11.02| 156595| 146.20367|
+|-4| . . . . . . . . . . . . . . . . . . . . . . . .| 143.33645| 153524| 10.91|
+|-3| . . . . . . . . . . . . . . . . . . . . . . . .|  93.60041| 100253|  7.13|
+|-2| . . . . . . . . . . . . . . . . . . . . . . . .| 287.83062| 308288| 21.92|
+|-1| . . . . . . . . . . . . . . . . . . . . . . . .| 108.79263| 116525|  8.28|
+| 0| . . . . . . . . . . . . . . . . . . . . . . . .|  59.16209|  63367|  4.51|
+| 1| . . . . . . . . . . . . . . . . . . . . . . . .|  94.74319| 101477|  7.21|
+| 2| . . . . . . . . . . . . . . . . . . . . . . . .| 273.33396| 292761| 20.81|
+| 3| . . . . . . . . . . . . . . . . . . . . . . . .| 109.20997| 116972|  8.32|
+| 4| . . . . . . . . . . . . . . . . . . . . . . . .| 143.22161| 153401| 10.91|
 |-----------------------------------------------------------------------------|
-|TOTAL                                              |100.00|1420848|1326.56333|
+|TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
 {: .output}
 
-Para asignarle etiquetas a las categorías del nuevo mapa, primero debemos crear un archivo de categorías:
+Para asignarle etiquetas a las categorías del nuevo mapa, utilizamos la  herramienta `r.category` que abrimos desde el menú _Raster -> Change category values and labels -> Manage category information_.
 
-`CAT_porce1_tipo_vert`
+![](/cartografia-digital/images/clase-04/clase-04_27.png){: .img-responsive}
 
-~~~
--4|VX
--3|RX
--2|XX
--1|VR
-0|RR
-1|XR
-2|VV
-3|RV
-4|XV
-~~~
+En la herramienta seleccionamos el mapa de tipos de vertiente.
 
-Y lo aplicamos utilizando el comando `r.category`.
+![](/cartografia-digital/images/clase-04/clase-04_28.png){: .img-responsive}
+
+Y en la pestaña _Define_ especificamos las etiquetas de las categorías indicando el valor de la categoría separando la etiqueta con una tabulación.
+
+![](/cartografia-digital/images/clase-04/clase-04_29.png){: .img-responsive}
 
 ~~~
-r.category map=porce1_tipo_vert rules=CAT_porce1_tipo_vert separator=pipe
+-4	VX
+-3	RX
+-2	XX
+-1	VR
+0	RR
+1	XR
+2	VV
+3	RV
+4	XV
 ~~~
 
 Consultamos la distribución nuevamente:
 
 ~~~
-r.report -h map=porce1_tipo_vert units=p,c,k
-~~~
-
-~~~
- 100%
 +-----------------------------------------------------------------------------+
-|               Category Information                |   %  |   cell|  square  |
-| #|description                                     | cover|  count|kilometers|
+|               Category Information                |  square  |   cell|   %  |
+| #|description                                     |kilometers|  count| cover|
 |-----------------------------------------------------------------------------|
-|-4|VX . . . . . . . . . . . . . . . . . . . . . . .| 11.06| 157132| 146.70503|
-|-3|RX . . . . . . . . . . . . . . . . . . . . . . .|  6.93|  98421|  91.88998|
-|-2|XX . . . . . . . . . . . . . . . . . . . . . . .| 22.00| 312625| 291.87982|
-|-1|VR . . . . . . . . . . . . . . . . . . . . . . .|  8.03| 114071| 106.50147|
-| 0|RR . . . . . . . . . . . . . . . . . . . . . . .|  4.98|  70699|  66.00755|
-| 1|XR . . . . . . . . . . . . . . . . . . . . . . .|  6.99|  99294|  92.70505|
-| 2|VV . . . . . . . . . . . . . . . . . . . . . . .| 20.93| 297401| 277.66606|
-| 3|RV . . . . . . . . . . . . . . . . . . . . . . .|  8.07| 114610| 107.00471|
-| 4|XV . . . . . . . . . . . . . . . . . . . . . . .| 11.02| 156595| 146.20367|
+|-4|VX . . . . . . . . . . . . . . . . . . . . . . .| 143.33645| 153524| 10.91|
+|-3|RX . . . . . . . . . . . . . . . . . . . . . . .|  93.60041| 100253|  7.13|
+|-2|XX . . . . . . . . . . . . . . . . . . . . . . .| 287.83062| 308288| 21.92|
+|-1|VR . . . . . . . . . . . . . . . . . . . . . . .| 108.79263| 116525|  8.28|
+| 0|RR . . . . . . . . . . . . . . . . . . . . . . .|  59.16209|  63367|  4.51|
+| 1|XR . . . . . . . . . . . . . . . . . . . . . . .|  94.74319| 101477|  7.21|
+| 2|VV . . . . . . . . . . . . . . . . . . . . . . .| 273.33396| 292761| 20.81|
+| 3|RV . . . . . . . . . . . . . . . . . . . . . . .| 109.20997| 116972|  8.32|
+| 4|XV . . . . . . . . . . . . . . . . . . . . . . .| 143.22161| 153401| 10.91|
 |-----------------------------------------------------------------------------|
-|TOTAL                                              |100.00|1420848|1326.56333|
+|TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
 {: .output}
+
+Y ya las categorías pueden ser identificadas.
 
 <!--
 ## Tarea 5
