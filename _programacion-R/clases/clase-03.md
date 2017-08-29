@@ -157,7 +157,7 @@ int main(){
        cout << "El perímetro de la figura " << i+1 <<
               ", es: " << figuras[i]->Perimetro() << endl;
        cout << "El área de la figura" << i+1 <<
-               ", es: " << figuras[i]->Perimetro() << endl;
+               ", es: " << figuras[i]->Area() << endl;
    }
 
 
