@@ -22,3 +22,14 @@ order: 2
 
 - [Exploración I](./guiones/explora_encuesta_01.nb.html)
 - [Base de datos I](./basesdedatos/talleres_1_2.xlsx)
+
+## Estimación del tamaño de muestra mediante simulación.
+
+ - [Tamaño de muestra](./guiones/tammuest.R)
+
+## Exploración del Promedio Aritmético Ponderado Acumulado (PAPA)
+
+ - [Exploracion II](./guiones/explora_encuesta_02.nb.html)
+ - [Base de datos actualizada](./basesdedatos/talleres_1_2_corregido.xlsx)
+
+ 

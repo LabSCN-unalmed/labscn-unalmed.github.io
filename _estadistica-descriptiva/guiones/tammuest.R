@@ -1,28 +1,28 @@
 ################################################################################
-# Simulaci贸n y ejemplo de c谩lculo mediante simulaci贸n de un tama帽o
-# de muestras para estimar una proporci贸n
+# Simulaci髇 y ejemplo de c醠culo mediante simulaci髇 de un tama駉
+# de muestras para estimar una proporci髇
 ################################################################################
 
-# N煤mero de hombres y mujeres de un grupo en particular
-numhombres <- 58000000
-nummujeres <- 18000000
+# N鷐ero de hombres y mujeres de un grupo en particular
+numhombres <- 50
+nummujeres <- 17
 
-# Tama帽o de muestra de la poblaci贸n
-tammuestra <- 1200
-# N煤mero de simulaciones para estimar el tama帽o de muestra apropiado
-nsim <- 2000
+# Tama駉 de muestra de la poblaci髇
+tammuestra <- 30
+# N鷐ero de simulaciones para estimar el tama駉 de muestra apropiado
+nsim <- 10000
 
-# Generar la poblaci贸n total
-total <- c(rep("Hombre",numhombres),rep("Mujer",nummujeres))
+# Generar la poblaci髇 total
+total <- c(rep("Hombre", numhombres), rep("Mujer", nummujeres))
 #total
 
-# Tabla de frecuencia "real" a partir de la poblaci贸n
+# Tabla de frecuencia "real" a partir de la poblaci髇
 table(total)
-# Proporci贸n "real" a partir de la poblaci贸n
-table(total)/sum(table(total))
+# Proporci髇 "real" a partir de la poblaci髇
+table(total) / sum(table(total))
 
-# Estraer s贸lo la proporci贸n de hombres
-propHomR <- (table(total)/sum(table(total)))[1]
+# Estraer s髄o la proporci髇 de hombres
+propHomR <- (table(total) / sum(table(total)))[1]
 propHomR
 
 # Generar una muestra aleatoria sin reemplazamiento
@@ -31,40 +31,40 @@ muestra
 
 # Tabla de frecuencia de la muestra
 table(muestra)
-# Proporci贸n de la muestra
+# Proporci髇 de la muestra
 table(muestra)/sum(table(muestra))
 
-# "Error" entre la proporci贸n "real" y la de la "muestra"
-# o diferencia entre la proporci贸n "real" y la muestra
-# Proporci贸n real
+# "Error" entre la proporci髇 "real" y la de la "muestra"
+# o diferencia entre la proporci髇 "real" y la muestra
+# Proporci髇 real
 pR <- table(total)/sum(table(total))
-# Proporci贸n de la muestra
+# Proporci髇 de la muestra
 pM <- table(muestra)/sum(table(muestra))
 # Diferencia de las proporciones en valor absoluto
 pR-pM
 # Diferencia de las proporciones en valor absoluto
 abs(pR-pM)
 
-# Estimaci贸n de la distribuci贸n del la proporci贸n utilizando
-# un tama帽o de muestra espec铆fico de acuerdo a la variable
-# "tammuestra2" y replicado el n煤mero de simulaciones
+# Estimaci髇 de la distribuci髇 del la proporci髇 utilizando
+# un tama駉 de muestra espec韋ico de acuerdo a la variable
+# "tammuestra2" y replicado el n鷐ero de simulaciones
 simula1 <- data.frame(replicate(nsim,sample(total,tammuestra)))
-# C谩lculo de la proporci贸n de hombres para cada muestra generada
+# C醠culo de la proporci髇 de hombres para cada muestra generada
 propHom <- sapply(simula1,function(x) (table(x)/sum(table(x)))[1])
 
 # Histograma de la proporciones de hombres de acuerdo a la muestra.
 hist(propHom, col = "red")
-# Resumen estad铆stico de la proporci贸n simulada.
+# Resumen estad韘tico de la proporci髇 simulada.
 summary(propHom)
-# Estimaci贸n del intervalo de confianza al 95%
+# Estimaci髇 del intervalo de confianza al 95%
 quantile(propHom,c(0.025,0.975))
 
-# Distribuci贸n del error
-# C谩lculo de la diferencia entre el valor "verdadero" y
+# Distribuci髇 del error
+# C醠culo de la diferencia entre el valor "verdadero" y
 # el valor obtenido de las muestras.
 error1 <- propHomR-propHom
 # Histograma de las diferencias, desviaciones o errores.
 hist(error1,col="blue")
-# C谩lculo del intervalo de confianza al 95% de los errores.
+# C醠culo del intervalo de confianza al 95% de los errores.
 quantile(error1,c(0.025,0.975))
 

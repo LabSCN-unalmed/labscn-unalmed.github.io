@@ -1,0 +1,78 @@
+---
+title: "Exploratorio encuestas II"
+author: Kenneth Roy Cabrera Torres
+date: Jueves, 31 de agosto de 2017
+output: 
+  html_notebook: 
+    toc: yes
+---
+
+
+<style>
+pre {
+  overflow-x: auto;
+}
+pre code {
+  word-wrap: normal;
+  white-space: pre;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(RcmdrMisc)
+encuesta <- readXL("talleres_1_2_corregido.xlsx", 
+                   sheet = 1,
+                   stringsAsFactors = TRUE)
+```
+
+
+## Resumen exploratorio
+
+```{r}
+summary(encuesta)
+```
+
+## Variable PAPA
+
+```{r}
+summary(encuesta$PAPA)
+```
+
+### Histograma inicial sencillo
+
+```{r}
+hist(encuesta$PAPA)
+with(encuesta, hist(PAPA))
+```
+### Histograma con curvas de densidad comparativas
+
+```{r}
+promPAPA  <- mean(encuesta$PAPA, na.rm = TRUE)
+sdPAPA    <- sd(encuesta$PAPA, na.rm = TRUE)
+
+promPAPA
+sdPAPA
+
+histograma1 <- with(encuesta, hist(PAPA, nclass = 10, freq = FALSE, 
+                    main = "Histograma de los Promedios Aritméticos Ponderados Acumulados",
+                    ylab = "Densidad",
+                    xlab = "Promedios Aritméticos Ponderados Acumulados (PAPA)",
+                    las = 1,
+                    ylim = c(0, 1.2)))
+lines(density(encuesta$PAPA, na.rm = TRUE), col = "red", lwd = 2)
+lines(seq(2, 5, 0.05), dnorm(seq(2, 5, 0.05), 
+            mean = promPAPA, 
+            sd = sdPAPA),
+      col = "blue")
+legend("topright", 
+       c("Densidad estimada empírica", "Densidad de la distribución normal"), 
+         col = c("red", "blue"),
+         pch = 19,
+         lty = 1)
+```
+
