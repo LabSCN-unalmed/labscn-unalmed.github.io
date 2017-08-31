@@ -48,6 +48,11 @@ order: 3
 - [Documento de investigación realizada en México](./documentos/universitarios_uso_y_aplicación_internet.pdf)
 - [Documento de investigación realizada en Colombia](./documentos/Influencia_internet_rendimiento_académico.pdf)
 
+
+## Documento guía para gráficos en R.
+
+- [Documento guía](./documentos/grafi3.pdf)
+
 ## Ejemplo de problemas en gráficas
 
 - [Problemas en gráficas](./graficas/index.html)
