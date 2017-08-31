@@ -3,6 +3,7 @@ layout: curso
 title: 'Gráficas'
 ---
 
+
 ![alt text](./F01roeder_fig4.jpg "Figura 01"){: .img-responsive}
 
 ![alt text](./F02wittke_thompson_fig1CD.jpg "Figura 02"){: .img-responsive}
@@ -67,8 +68,6 @@ title: 'Gráficas'
 
 ![alt text](./F20_02AlternativaPeor.png "Figura 30"){: .img-responsive }
 
-![alt text](./F21Milland.png "Figura 31"){: .img-responsive }
+![alt text](./F21Milland.jpg "Figura 31"){: .img-responsive }
 
 ![alt text](./F22Religion_Politic.png "Figura 32"){: .img-responsive }
-
-

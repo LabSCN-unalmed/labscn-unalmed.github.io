@@ -48,6 +48,10 @@ order: 3
 - [Documento de investigación realizada en México](./documentos/universitarios_uso_y_aplicación_internet.pdf)
 - [Documento de investigación realizada en Colombia](./documentos/Influencia_internet_rendimiento_académico.pdf)
 
+## Ejemplo de problemas en gráficas
+
+- [Problemas en gráficas](./graficas/index.html)
+
 ## Tablas guías para parámetros gráficos.
 - [Tabla de colores](/estadistica-descriptiva/documentos/ColorChart.pdf)
 - [Tabla de símbolos](/estadistica-descriptiva/documentos/points.png)
