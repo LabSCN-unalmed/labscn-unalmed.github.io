@@ -35,13 +35,13 @@ for (i in 1:10) {
 ```
 
 ```{r eval=FALSE}
-x < -c("a", "b", "c", "d")
+x <- c("a", "b", "c", "d")
 for (i in 1:6) {
   print(x[i])
 }
        
 for (i in seq_along(x)) {
-  print([i])      
+  print(x[i])      
 }
 
 for (letter in x) {
