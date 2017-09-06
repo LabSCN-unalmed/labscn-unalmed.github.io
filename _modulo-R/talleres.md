@@ -5,6 +5,7 @@ curso: 'modulo-R'
 order: 5
 ---
 
+<!---
 ## Taller individual
 
  - [Composición de funciones periódicas](./talleres/funciones_periódicas.html)
@@ -13,3 +14,4 @@ order: 5
  Plantilla del resultado esperado:
  - [Ejemplo del resultado esperado](./talleres/composición_funciones.html)
  - [Segunda base de datos de ejemplo](./talleres/ejemplo2.xlsx)
+ -->
