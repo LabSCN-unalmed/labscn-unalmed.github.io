@@ -42,3 +42,36 @@ realizar las siguientes actividades:
 Martes 22 de agosto de 2017 antes de las 23:59
 [hora oficial de Colombia](http://horalegal.inm.gov.co/)
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
+
+
+## Segundo trabajo individual.
+
+### Objetivo.
+
+construir una gráfica que corrija o mejore una gráfica
+publicada en un  medio impreso en Colombia de los últimos 10 años.
+
+### Actividades.
+
+1. Buscar en una publicación colombiana una gráfica informativa
+que muestre problemas o que se pueda proponer una mejor
+representación.
+2. Construir una base de datos que represente los datos graficados
+   en la publicación.
+3. Construir una nueva gráfica que mejore la publicada.
+4. Realizar un informe en donde se muestre la gráfica original y
+   la propuesta e indicar porqué la nueva gráfica es una mejora
+   con respecto a la anterior.
+
+## Documentos para entregar.
+
+1. Archivo en formato **.xls** o **.xlsx** con la base de datos.
+2. Archivo en formato **.Rmd** que construye el archivo **html**.
+3. Archivo en formato **.html** con el informe y que **no** incluya
+   el código.
+
+### Fecha de entrega.   
+
+Viernes 15 de septiembre de 2017 antes de las 23:59
+[hora oficial de Colombia](http://horalegal.inm.gov.co/)
+al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
