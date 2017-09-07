@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Lectura de la base de datos
@@ -47,6 +47,7 @@ barplot(salariosM/1e6,
 par(op)
 ```
 
+## Gráfica de barras (graficación con ggplot2)
 
 ```{r, fig.height=7, fig.width=8}
 library(tidyr)

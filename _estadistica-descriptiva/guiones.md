@@ -32,4 +32,8 @@ order: 2
  - [Exploracion II](./guiones/explora_encuesta_02.nb.html)
  - [Base de datos actualizada](./basesdedatos/talleres_1_2_corregido.xlsx)
 
- 
+## Gráfica de "El Colombiano"
+
+ - [Salarios en Colombia (archivo .Rmd)](./guiones/salarios.Rmd)
+ - [Salarios en Colombia (archivo .html)](./guiones/salarios.html)
+ - [Base de datos de salarios](./guiones/salarios.xlsx)
