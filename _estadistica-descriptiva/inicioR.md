@@ -121,9 +121,9 @@ No olvidar grabar frecuentemente el código para no perder las acciones realizad
 
 {% highlight r %}
 # Cálculo de estadísticos de tasa de homicidios totales
-with(homCol, summary(TasaT)
+with(homCol, summary(TasaT))
 # Gráfica sencilla con las tasas de homicidios totales por grupo de edad
-with(homCol, barplot(TasaT)
+with(homCol, barplot(TasaT))
 {% endhighlight %}
 
 El resultado final se muestra en la siguiente imagen:

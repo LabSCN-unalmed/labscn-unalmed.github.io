@@ -6,7 +6,7 @@ order: 4
 ---
 
 
-
+<!--
 ## Trabajo final
 
 ### Objetivo
@@ -35,4 +35,4 @@ frecuencias de la respectiva señal de voz.
  2. Archivo ".Rmd" con los códigos correspondientes.
  3. Archivos de sonido o de voces utilizadas.
 
- 
+  -->

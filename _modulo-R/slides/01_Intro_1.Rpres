@@ -40,8 +40,8 @@ Notas históricas del R
   Administra el código fuente del R.
 - 2000: Versión 1.0.0, 2004: Versión 2.0.0., 2013: Versión 3.0.0.
 - 6 de marzo de 2017: Última versión oficial liberada a la fecha
-  3.3.3. "Another Canoe". 
-- Se espera la versión 3.4.0 para el viernes 21 de abril de 2017 
+  3.3.3. "Another Canoe".
+- Se espera la versión 3.4.0 para el viernes 21 de abril de 2017
   denominada "Your Stupid Darkness".
 
 
@@ -52,7 +52,7 @@ Sobrenombres de versiones del R
 
 ![](anotherCanoe.jpg)
 
-"You stupid darkness" (R version 3.4.0)
+"You stupid darkness" y "Single Candle" (R version 3.4.0 y 3.4.1)
 
 ![](you_stupid_darkness.gif)
 
@@ -111,8 +111,9 @@ Paquetes princiales
 Paquetes adicionales
 ========================================================
 * Existen a la fecha más o menos
-  [10070 paquetes en el CRAN](https://cran.r-project.org/web/packages/index.html).
-* Hay proyectos independientes pero basados en R, como el Bioconductor 
+  [11359 paquetes en el CRAN](https://cran.r-project.org/web/packages/index.html) y
+  contanto.
+* Hay proyectos independientes pero basados en R, como el Bioconductor
   (http://bioconductor.org).
 * Algunos tienen desarrollos en su propia página por lo
   tanto es más difícil de seguirles el rastro.
