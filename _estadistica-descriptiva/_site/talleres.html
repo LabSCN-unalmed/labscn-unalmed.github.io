@@ -1,0 +1,52 @@
+<h2 id="talleres-individuales">Talleres individuales</h2>
+
+<h3 id="primer-taller-individual">Primer taller individual</h3>
+
+<p>Objetivo: Recolectar la información solicitada para el primer día de clase.</p>
+
+<p>Entregar llena la encuesta realizada el primer día de clase, martes
+agosto 2 de 2016 en la hora de clase.</p>
+
+<h3 id="segundo-taller-individual">Segundo taller individual</h3>
+
+<h4 id="objetivo">Objetivo:</h4>
+
+<p>Realizar una lectura de la base de datos de homicidios en Colombia
+y mostrar una gráfica de barras que muestre la tasa de homicidios por
+cada cien mil persoas de rangos de edades específicos ya sea de hombres o
+de mujeres.</p>
+
+<p>Si usted es mujer utilice la tasa de homicidios de los hombres y si es hombre
+lo realiza con la tasa de homcidios de las mujeres.</p>
+
+<h4 id="ejemplo-del-guin-homicidioscolombia2014rguioneshomicidioscolombia2014r">Ejemplo del guión (<a href="./guiones/HomicidiosColombia2014.R">homicidiosColombia2014.R</a>)</h4>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1"># Lectura de la base de datos de homicidios en Colombia en el 2014
+</span><span class="n">homCol</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv2</span><span class="p">(</span><span class="s2">"HomicidiosColombia2014.csv"</span><span class="p">)</span><span class="w">
+</span><span class="c1"># Muestra la base de datos de homicidios en Colombia en el 2014
+</span><span class="n">homCol</span><span class="w">
+</span><span class="c1"># Cálculo de estadísticos de tasa de homicidios totales
+</span><span class="n">with</span><span class="p">(</span><span class="n">homCol</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">TasaT</span><span class="p">))</span><span class="w">
+</span><span class="c1"># Gráfica sencilla con las tasas de homicidios totales por grupo de edad
+</span><span class="n">with</span><span class="p">(</span><span class="n">homCol</span><span class="p">,</span><span class="w"> </span><span class="n">barplot</span><span class="p">(</span><span class="n">TasaT</span><span class="p">))</span><span class="w">
+</span><span class="c1"># Gráfica mejorada con las tasas de homicidios totales por grupo de edad
+</span><span class="n">with</span><span class="p">(</span><span class="n">homCol</span><span class="p">,</span><span class="w"> </span><span class="n">barplot</span><span class="p">(</span><span class="n">TasaT</span><span class="p">,</span><span class="w"> </span><span class="n">names.arg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GrupoEdad</span><span class="p">,</span><span class="w"> </span><span class="n">las</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">
+                     </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Tasas de homicidios para cada cien mil habitantes"</span><span class="p">))</span><span class="w">     
+</span></code></pre>
+</div>
+
+<h4 id="materiales-a-entregar">Materiales a entregar:</h4>
+
+<ul>
+  <li>Documento en formato “.pdf” en donde se muestre la gráfica realizada y
+un breve análisis de los resultados obtenidos.</li>
+  <li>Guión en R que muestre la manera como obtuvo la gráfica en formato “.R”
+debidamente documentado.</li>
+</ul>
+
+<h4 id="fecha-de-entrega">Fecha de entrega:</h4>
+
+<p>Miércoles 10 de agosto de 2016 antes de las 23:59 hora de colombia al correo
+<strong><em>krcabrer@unal.edu.co</em></strong> y no olvidar escribir en asunto <strong>[EDAED]</strong>.</p>
+
+<h2 id="talleres-en-grupo">Talleres en grupo</h2>

@@ -1,0 +1,72 @@
+---
+title: "Esto es lo que ganan jefes y operarios en Colombia"
+author: "Kenneth Roy Cabrera Torres"
+date: "7 de septiembre de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+De acuerdo a una publicación de "El Colombiano" del 
+día lunes, 4 de septiembre de 2017 bajo el título
+"Esto es lo que ganan jefes y operarios en Colombia" se
+muestra la siguiente gráfica.
+
+![](distribución_salarios.png)
+
+```{r}
+library(readxl)
+salarios <- read_xlsx("salarios.xlsx")
+```
+
+## Gráfica de barras (graficación básica)
+
+```{r, fig.height=7, fig.width=8}
+
+# Preparación de la base de datos
+salariosM <- as.matrix(salarios[, 2:8])
+dimnames(salariosM) <- list(unlist(salarios[, 1]), names(salarios)[-1])
+
+# Definición de colores
+colores <- rainbow(7)
+
+# Construcción de la gráfica
+op <- par(no.readonly = TRUE)
+par(oma = op$oma + c(5, 0, 0, 0))
+barplot(salariosM/1e6, 
+        beside = TRUE,
+        las = 2,
+        legend.text  = TRUE,
+        ylab = "Promedios de salarios (en millones de pesos)",
+        col = colores,
+        main = "Esto es lo que ganan jefes y operarios en Colombia")
+par(op)
+```
+
+
+```{r, fig.height=7, fig.width=8}
+library(tidyr)
+salarios2 <- salarios %>%
+             gather(value = "Salario",
+                    key = "Cargo",
+                    -c(region))
+salarios2$Cargo <- factor(salarios2$Cargo, 
+                          levels = names(salarios)[-1])
+salarios2$region <- factor(salarios2$region, 
+                          levels = unlist(salarios[, 1]))
+
+library(ggplot2)
+ggplot(salarios2, aes(region, Salario/1e6)) +
+   geom_bar(stat = "identity",
+            position = "dodge",
+            aes(fill = Cargo)) +
+   labs(x = "Región", 
+        y = "Salarios (en millones de pesos)",
+        title = "Esto es lo que ganan jefes y operarios en Colombia")
+
+```
+
