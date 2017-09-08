@@ -132,3 +132,27 @@ Miércoles, 6 de septiembre de 2017 antes de las 23:59
 [hora de Colombia](http://horalegal.inm.gov.co/)
 al correo krcabrer@unal.edu.co y en asunto no olvidar
 **[CursoR]**
+
+
+## Tercera tarea individual
+
+### Enunciado
+
+Realizar una gráfica con la
+[proyección de la población](https://www.datos.gov.co/Estad-sticas-Nacionales/Proyecciones-De-Poblaci-n-Medell-n-2016-2020/imj6-7tfq/data)
+para las comunas y corregimientos de Medellín,
+por rango de edad y género para el año 2017.
+
+### Documentos para entregar
+
+1. Archivo en formato ".html" que no incluya el código y
+   un corto análisis de la distribución de la proyección
+   de la población para Medellín.
+2. Archivo en formato ".Rmd" que genera el archivo ".html"
+4. Archivo de datos en formato ".csv" tomado de la página de los datos.
+
+### Fecha de entrega
+
+Viernes, 15 de septiembre de 2017 antes de las 23:59 hora de
+Colombia al correo **krcabrer@unal.edu.co** en asunto no olvidar
+**[cursoR]**. 
