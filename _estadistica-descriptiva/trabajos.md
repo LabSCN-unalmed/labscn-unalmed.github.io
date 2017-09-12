@@ -48,7 +48,7 @@ al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
 ### Objetivo.
 
-construir una gráfica que corrija o mejore una gráfica
+Construir una gráfica que corrija o mejore una gráfica
 publicada en un  medio impreso en Colombia de los últimos 10 años.
 
 ### Actividades.
