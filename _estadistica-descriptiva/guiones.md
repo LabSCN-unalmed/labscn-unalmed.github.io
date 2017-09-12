@@ -37,3 +37,8 @@ order: 2
  - [Salarios en Colombia (archivo .Rmd)](./guiones/salarios.Rmd)
  - [Salarios en Colombia (archivo .html)](./guiones/salarios.html)
  - [Base de datos de salarios](./guiones/salarios.xlsx)
+
+## Manejo de base de datos.
+
+ - [Estimación de la población para Medellín por rango de edad y división política](./guiones/base_datos.html)
+ - [Base de datos](./basesdedatos/Proyecciones_De_Poblaci_n_Medell_n_2016_2020.csv)

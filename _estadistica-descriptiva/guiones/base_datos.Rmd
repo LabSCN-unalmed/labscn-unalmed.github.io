@@ -1,0 +1,184 @@
+---
+title: "Manejo de base de datos"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes, 12 de septiembre de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+poblaMed <- read.csv2("Proyecciones_De_Poblaci_n_Medell_n_2016_2020.csv")
+```
+
+## Ver los primeros registros de la base de datos.
+
+```{r}
+head(poblaMed)
+```
+
+## Ver los últimos registros de la base de datos
+
+```{r}
+tail(poblaMed)
+```
+
+
+## Uso del paquete **tidyr**
+
+- `gather()` : Convierte de formato ancho a largo.
+- `spread()` : Pasa del formato largo a ancho.
+
+### Uso de **gather()**
+
+```{r}
+library(tidyr)
+poblaMedLargo <- poblaMed %>%
+             gather(key = division,
+                    value = poblacion,
+                    -c(Código.DANE.Municipio:Grupo.Edad))
+
+head(poblaMedLargo)
+```
+
+    
+
+### Uso de **spread()**
+
+```{r}
+library(tidyr)
+poblaMedAncho <- poblaMedLargo %>%
+                 spread(key = division, value = poblacion)
+
+head(poblaMedAncho)
+```
+
+
+## Verbos útilies de la biblioteca **dpyr**
+
+-  `select()`    : Selecciona columnas.
+-  `filter()`    : Selecciona filas.
+-  `arrange()`   : Reordena filas.
+-  `mutate()`    : Crea nuevas columnas o modifica columnas.
+-  `summarise()` : Resume valores.
+-  `group_by()`  : Permite operaciones por grupo.
+
+
+
+### Cambios en variables con `mutate()`
+
+
+```{r}
+library(dplyr)
+poblaMedLargo <- poblaMedLargo %>%
+                 mutate(poblacion = as.numeric(gsub("[.]", "", as.character(poblacion))))
+
+```
+
+### Creación de nuevas variables con `mutate()`
+
+```{r}
+listaDiv <- strsplit(poblaMedLargo$division, "[._]")
+
+poblaMedLargo <- poblaMedLargo %>%
+                 mutate(tipo = factor(sapply(listaDiv, function(x) x[1])),
+                        año  = as.integer(sapply(listaDiv, function(x) x[2])))
+```
+
+
+### Uso de la función `filter()`
+
+```{r}
+library(dplyr)
+poblaMedLargo <- poblaMedLargo %>%
+               filter(tipo != "Total")
+```
+
+
+### Uso de la función `summarise()`
+
+```{r}
+library(dplyr)
+poblaMedLargo %>%
+  summarise(total = sum(poblacion))
+```
+### Uso de la función `group_by()`
+
+```{r}
+library(dplyr)
+poblaMedLargo %>%
+  group_by(año) %>%
+  summarise(total = sum(poblacion))
+```
+
+```{r}
+library(dplyr)
+poblaMedLargo %>%
+  group_by(año, Tipo.División.Geográfica) %>%
+  summarise(total = sum(poblacion))
+```
+
+
+```{r}
+poblaMedLargo %>%
+  group_by(Tipo.División.Geográfica, Grupo.Edad, año) %>%
+  summarise(total = sum(poblacion))
+```
+
+### Uso de la función `arrange()`
+
+```{r}
+library(dplyr)
+poblaMedAñoXDiv <- poblaMedLargo %>%
+                   group_by(Nombre.División.Geográfica, año) %>%
+                   summarise(poblacionTotal = sum(poblacion))
+
+head(poblaMedAñoXDiv)
+
+poblaMedAñoXDiv %>%
+  arrange(poblacionTotal)
+
+poblaMedAñoXDiv %>%
+  arrange(desc(poblacionTotal))
+```
+
+## Combinación de funciones.
+
+Se quiere saber en el 2016 la población de las comunas
+ordenadas de menor a mayor.
+
+### Primera intento
+
+```{r}
+poblaMedLargo %>% 
+  group_by(Nombre.División.Geográfica, año) %>%
+  summarise(poblacionTotal = sum(poblacion)) %>%
+  arrange(poblacionTotal)
+```
+
+### Segundo intento
+
+```{r}
+poblaMedLargo %>% 
+  filter(Tipo.División.Geográfica == "Comuna") %>% 
+  group_by(Nombre.División.Geográfica, año) %>%
+  summarise(poblacionTotal = sum(poblacion)) %>%
+  arrange(poblacionTotal)
+```
+
+### Intento definitivo
+
+```{r}
+poblaMedLargo %>% 
+  filter(Tipo.División.Geográfica == "Comuna" & año == 2016) %>% 
+  group_by(Nombre.División.Geográfica) %>%
+  summarise(poblacionTotal = sum(poblacion)) %>%
+  arrange(poblacionTotal)
+```
+
