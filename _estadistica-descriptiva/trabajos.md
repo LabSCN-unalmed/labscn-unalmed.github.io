@@ -72,7 +72,7 @@ representación.
    la propuesta e indicar porqué la nueva gráfica es una mejora
    con respecto a la anterior.
 
-## Documentos para entregar.
+### Documentos para entregar.
 
 1. Archivo en formato **.xls** o **.xlsx** con la base de datos.
 2. Archivo en formato **.Rmd** que construye el archivo **html**.
