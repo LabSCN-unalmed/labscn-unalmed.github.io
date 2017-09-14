@@ -5,6 +5,15 @@ curso: 'estadistica-descriptiva'
 order: 5
 ---
 
+
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+
+
 ## Primer trabajo individual
 
 ### Actividades.
@@ -75,3 +84,45 @@ representación.
 Viernes 15 de septiembre de 2017 antes de las 23:59
 [hora oficial de Colombia](http://horalegal.inm.gov.co/)
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
+
+
+## Primer trabajo grupal.
+
+### Objetivo.
+
+Realizar una descripción y un análisis exploratorio de datos de la encuesta
+realizada en clase para determinar relaciones entre el uso
+del tiempo y el desempeño académico y también entre el uso
+del tiempo y el puntaje en obtenido en conocimientos
+culturales.
+
+### Actividades.
+
+1. Crear grupo de máximo cinco (5) estudiantes, preferiblemente
+   que se incluyan tanto estudiantes de Ingeniería de Sistemas como
+   de Estadística.
+2. Realizar una análisis descriptivo y exploratorio guiados
+   por el objetivo anteriormente expuesto.
+3. Constuir un trabajo (sin código) que muestre el análisis
+   realizado y las tablas y gráficas obtenidas de acuerdo al
+   objetivo del trabajo.
+
+### Consideraciones
+
+El trabajo escrito deberá contener como mínimo:
+
+1. Listado de los integrantes del grupo, nombre e identificación.
+2. Breve introducción (no más de dos párrafos) sobre el trabajo
+   elaborado.
+3. Desarrollo del trabajo. Gráficas exploratorias y análisis de
+    los resultados obtenidos.
+4. Conclusiones y recomendaciones.
+5. Bibliografia y cibergrafía.       
+
+
+### Fecha de entrega
+
+Viernes, 29 de septiembre de 2017 antes de las 23:59 hora de Colombia,
+al correo **krcabrer@unal.edu.co** y no olvidar incluir en el texto
+del correo los nombres e identificaciones de los miembros del grupo tal
+como aparecen en el trabajo y en asunto **[EDAED]**.
