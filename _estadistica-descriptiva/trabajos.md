@@ -117,8 +117,14 @@ El trabajo escrito deberá contener como mínimo:
 3. Desarrollo del trabajo. Gráficas exploratorias y análisis de
     los resultados obtenidos.
 4. Conclusiones y recomendaciones.
-5. Bibliografia y cibergrafía.       
+5. Bibliografia y cibergrafía.     
 
+### Documentos para entregar.
+
+1. Archivo en formato **.xls** o **.xlsx** con la base de datos.
+2. Archivo en formato **.Rmd** que construye el archivo **html**.
+3. Archivo en formato del informe final del trabajo en formato
+    **.html** con el informe y que **no** incluy el código.
 
 ### Fecha de entrega
 
