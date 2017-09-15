@@ -54,6 +54,9 @@ order: 5
      anova(modelo)
      summary(modelo)
     ```
+    
+    En el caso anterior deberá mostrar el valor de 0.0003053.
+
 
 5. Suponga que tiene dos vectores de números,
         escriba las instrucciones para que muestre
@@ -68,7 +71,6 @@ order: 5
          [1]  9 4 2 10   
         ```    
 
-En el caso anterior deberá mostrar el valor de 0.0003053.
 
 ### Entrega.
 
