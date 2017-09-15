@@ -17,7 +17,7 @@ order: 5
    de las cuales  dos columnas sean numéricas y una tercera
    que sea categórica,
    un segundo elemento de la lista que
-   sea una matriz de 3x2 de sartas o `strings` y
+   sea una matriz de 3x2 de cadenas, sartas o `strings` y
    un tercer elemento de la lista que sea un
    vector de 10 elementos de números complejos.
 
