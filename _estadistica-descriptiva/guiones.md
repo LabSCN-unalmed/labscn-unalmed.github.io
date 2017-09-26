@@ -47,3 +47,10 @@ order: 2
 
   - [Relación entre conocimiento en cultura y visita a ferias](./guiones/explora_encuesta_03.nb.html)
   - [Base de datos actualizada](./basesdedatos/talleres_1_2_corregido.xlsx)
+
+## Componentes principales y análisis aglomerativo.
+
+ - [Análisis sobre candidatos a monitoría](./guiones/componentesPrincipales.html)
+ - [Base de datos de candidatos](./basesdedatos/candidatos.xlsx)
+
+ 

@@ -1,7 +1,7 @@
 ---
 title: "Componentes principales y análisis aglomerativo"
 author: "Kenneth Roy Cabrera Torres"
-date: "Jueves,  27 de abril de 2017"
+date: "Martes, 26 de septiembre de 2017"
 output: html_document
 ---
 
@@ -11,7 +11,7 @@ options(width  =  120)
 
 ```{r}
 # Lectura de la base de datos
-datos2 <- read.csv2("cantidatos.csv", enc = "latin1")
+datos2 <- read.csv2("candidatos.csv", enc = "latin1")
 str(datos2)
 summary(datos2)
 ```
