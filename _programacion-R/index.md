@@ -59,3 +59,7 @@ order: 0
   | Trabajo final                           | 25%        |
   | Seguimiento (Tareas y talleres)         | 40%        |
 {: .table .table-hover}
+
+## Enlaces:
+
+[Base de datos sobre comercios en Boyacá](https://www.datos.gov.co/dataset/Establecimientos-de-Comercio-Inscritos-en-Sorac-Bo/xn3i-ha8f)
