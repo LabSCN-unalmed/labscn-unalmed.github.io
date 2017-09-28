@@ -17,7 +17,7 @@ order: 4
 
 ### Taller individual 1
 
-- Responder la encuesta del primer día de clase.
+- Responder la [encuesta](./documentos/Encuesta201702.pdf) del primer día de clase.
 
 ### Taller individual 2
 
