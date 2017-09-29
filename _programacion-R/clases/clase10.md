@@ -174,3 +174,5 @@ gsub("^ +","",s)
 gsub(" +$","",s)
 gsub("^ +| +$","",s)
 ```
+
+[Página con ejemplos](https://cran.r-project.org/web/packages/stringr/vignettes/regular-expressions.html) usando el paquete `stringr`.
