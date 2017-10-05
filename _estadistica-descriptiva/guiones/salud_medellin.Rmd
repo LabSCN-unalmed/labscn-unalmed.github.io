@@ -1,0 +1,22 @@
+---
+title: "Atencion en entidades de salud"
+author: "Kenneth Roy Cabrera Torres"
+date: "5 de octubre de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+load("salud.RData")
+```
+
+
+```{r}
+summary(salud)
+```
+
+
