@@ -15,6 +15,7 @@ de tiempo con las siguientes columnas:
 - Fecha
 - Valor
 - Variable
+- Comentario
 - Codigo_Estacion
 - Estacion
 
