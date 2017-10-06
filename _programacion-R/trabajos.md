@@ -5,9 +5,9 @@ curso: 'programacion-R'
 order: 4
 ---
 
-## Primer trabajo individual
+## Primer trabajo individual.
 
-### Objetivo
+### Objetivo.
 
 Obtener una base de datos de la serie
 de tiempo de las [estaciones
@@ -21,7 +21,7 @@ que tengan los datos en las siguientes columnas:
 - Codigo_Estacion: Alfanumérico con el código de la estación.
 - Estacion: Nombre de la estación.
 
-### Archivos entregables
+### Archivos para entregar.
 
 - Archivo en formato ".Rmd" con el código correspondiente.
 - Archivo en formato ".csv" con el formato de salida correspondiente.
@@ -29,8 +29,10 @@ que tengan los datos en las siguientes columnas:
   series de tiempo para cada variable y para cada estación
   (sin código).
 
-### Fecha de entrega
+### Fecha de entrega.
 
-Vienres, 20 de octubre de 2017, antes de las 23:59 hora de Colombia.
+Viernes, 20 de octubre de 2017, antes de las 23:59 hora de Colombia.
 Enviar al correo **krcabrer@unal.edu.co**.
 No olvidar escribir en asunto: **[CursoR]**.
+
+### Tips de ayuda.
