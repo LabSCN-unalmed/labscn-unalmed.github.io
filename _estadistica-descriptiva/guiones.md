@@ -53,4 +53,9 @@ order: 2
  - [Análisis sobre candidatos a monitoría](./guiones/componentesPrincipales.html)
  - [Base de datos de candidatos](./basesdedatos/candidatos.xlsx)
 
+## Atenciones en consulta externa de salud. Medellin 2016.
+ - [Enlace para descargar la base de datos](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Atenciones-en-Consulta-Externa-Municipio-de-Medell/huya-zzzg).
+ - [Lectura y conversión](./guiones/lectura_y_conversion_salud_medellin.html).
+ - [Inicio exploracion](./guiones/salud_medellin.html).
+
  
