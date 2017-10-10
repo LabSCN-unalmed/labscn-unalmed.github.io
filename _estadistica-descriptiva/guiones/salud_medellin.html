@@ -124,6 +124,72 @@ $(document).ready(function () {
 
 
 <pre class="r"><code>load(&quot;salud.RData&quot;)</code></pre>
+<div id="forma-basica-de-asignacion-de-niveles." class="section level2">
+<h2>Forma básica de asignación de niveles.</h2>
+<pre class="r"><code>salud$Tipo_Usuario &lt;- factor(salud$Tipo_Usuario,
+                             labels = c(&quot;Contributivo&quot;, 
+                                        &quot;Subsidiado&quot;,
+                                        &quot;Vinculados&quot;,
+                                        &quot;Particular&quot;,
+                                        &quot;Otro&quot;,
+                                        &quot;Desplazado con Afiliación al Régimen Contributivo&quot;, 
+                                        &quot;Desplazado con afiliación al Régimen Subsidiado&quot;,
+                                        &quot;Desplazado no Asegurado (vinculado)&quot;))</code></pre>
+</div>
+<div id="asignacion-de-niveles-utilizando-dplyr." class="section level2">
+<h2>Asignación de niveles utilizando ‘dplyr’.</h2>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: 'dplyr'</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>salud &lt;- salud %&gt;%
+         mutate(Sexo = factor(Sexo, labels = c(&quot;Hombre&quot;, &quot;Mujer&quot;)))</code></pre>
+</div>
+<div id="asignacion-de-niveles-a-las-variables-alfanumericas." class="section level2">
+<h2>Asignación de niveles a las variables alfanuméricas.</h2>
+<pre class="r"><code>library(dplyr)
+salud &lt;- salud %&gt;%
+         mutate(Zona = factor(Zona, labels = c(&quot;Rural&quot;, &quot;Urbana&quot;)),
+                Finalidad_Consulta = factor(Finalidad_Consulta,
+                                            labels = c(&quot;Atención del parto&quot;,
+                                              &quot;Atención del recién nacido&quot;,
+                                              &quot;Atención en planificación familiar&quot;,
+                                              &quot;Detección de alteraciones de crecimiento y desarrollo del menor de diez años&quot;,
+                                              &quot;Detección de alteración del desarrollo joven&quot;,
+                                              &quot;Detección de alteraciones del embarazo&quot;,
+                                              &quot;Detección de alteraciones del adulto&quot;,
+                                              &quot;Detección de alteraciones de agudeza visual&quot;,
+                                              &quot;Detección de enfermedad profesional&quot;,
+                                              &quot;No aplica&quot;)),
+                Causa_Externa = factor(Causa_Externa,
+                                       labels = c(&quot;Accidente de trabajo&quot;,
+                                                &quot;Accidente de tránsito&quot;,
+                                                &quot;Accidente rábico&quot;,
+                                                &quot;Accidente ofídico&quot;,
+                                                &quot;Otro tipo de accidente&quot;,
+                                                &quot;Evento catastrófico&quot;,
+                                                &quot;Lesión por agresión&quot;,
+                                                &quot;Lesión auto inflingida&quot;,
+                                                &quot;Sospecha de maltrato físico&quot;,
+                                                &quot;Sospecha de abuso sexual&quot;,
+                                                &quot;Sospecha de violencia sexual&quot;,
+                                                &quot;Sospecha de maltrato emocional&quot;,
+                                                &quot;Enfermedad general&quot;,
+                                                &quot;Enfermedad profesional&quot;,
+                                                &quot;Otra&quot;)),
+                Edad2 = Edad*(Tipo_Edad == 1) + 
+                        Edad*(Tipo_Edad == 2)/12 +
+                        Edad*(Tipo_Edad == 3)/365.5,
+                Cod_IPS = factor(Cod_IPS),
+                Tipo_Dx_Principal = factor(Tipo_Dx_Principal,
+                                           labels = c(&quot;Impresión diagnóstica&quot;,
+                                                      &quot;Confirmado nuevo&quot;,
+                                                      &quot;Confirmado repetido&quot;)))</code></pre>
 <pre class="r"><code>summary(salud)</code></pre>
 <pre><code>##       Año          Cod_EAS      
 ##  Min.   :2016   EPS003 :360832  
@@ -133,30 +199,38 @@ $(document).ready(function () {
 ##  3rd Qu.:2016   EAS006 : 31854  
 ##  Max.   :2016   EMP023 : 28702  
 ##                 (Other):250910  
-##                                  Nombre_EAS      Tipo_Usuario  
-##  EPS CAFESALUD S.A                    :360832   Min.   :1.000  
-##  SIN ADMINISTRADORA                   :263110   1st Qu.:1.000  
-##  EMP SALUD COOMEVA  MEDICINA PREPAGADA: 67468   Median :2.000  
-##  EPS SALUD TOTAL S.A.                 : 45699   Mean   :2.681  
-##  EAS C. DE PREV. UNIVERSIDAD DEL CAUCA: 31854   3rd Qu.:4.000  
-##  EMP COLSANITAS S. A.                 : 28725   Max.   :8.000  
-##  (Other)                              :250887                  
-##       Edad          Tipo_Edad     Sexo       Cod_departamento
-##  Min.   :  1.00   Min.   :1.000   H:456133   Min.   :5       
-##  1st Qu.: 22.00   1st Qu.:1.000   M:592442   1st Qu.:5       
-##  Median : 39.00   Median :1.000              Median :5       
-##  Mean   : 40.99   Mean   :1.026              Mean   :5       
-##  3rd Qu.: 59.00   3rd Qu.:1.000              3rd Qu.:5       
-##  Max.   :227.00   Max.   :3.000              Max.   :5       
-##                                                              
-##  Cod_municipio Zona           Cod_IPS         
-##  Min.   :1     R:  19210   Min.   :5.001e+10  
-##  1st Qu.:1     U:1029365   1st Qu.:5.001e+10  
-##  Median :1                 Median :5.001e+10  
-##  Mean   :1                 Mean   :5.001e+10  
-##  3rd Qu.:1                 3rd Qu.:5.001e+10  
-##  Max.   :1                 Max.   :5.001e+10  
-##                                               
+##                                  Nombre_EAS    
+##  EPS CAFESALUD S.A                    :360832  
+##  SIN ADMINISTRADORA                   :263110  
+##  EMP SALUD COOMEVA  MEDICINA PREPAGADA: 67468  
+##  EPS SALUD TOTAL S.A.                 : 45699  
+##  EAS C. DE PREV. UNIVERSIDAD DEL CAUCA: 31854  
+##  EMP COLSANITAS S. A.                 : 28725  
+##  (Other)                              :250887  
+##                               Tipo_Usuario         Edad       
+##  Contributivo                       :502456   Min.   :  1.00  
+##  Particular                         :278904   1st Qu.: 22.00  
+##  Otro                               :207618   Median : 39.00  
+##  Vinculados                         : 35264   Mean   : 40.99  
+##  Subsidiado                         : 24211   3rd Qu.: 59.00  
+##  Desplazado no Asegurado (vinculado):   101   Max.   :227.00  
+##  (Other)                            :    21                   
+##    Tipo_Edad         Sexo        Cod_departamento Cod_municipio
+##  Min.   :1.000   Hombre:456133   Min.   :5        Min.   :1    
+##  1st Qu.:1.000   Mujer :592442   1st Qu.:5        1st Qu.:1    
+##  Median :1.000                   Median :5        Median :1    
+##  Mean   :1.026                   Mean   :5        Mean   :1    
+##  3rd Qu.:1.000                   3rd Qu.:5        3rd Qu.:1    
+##  Max.   :3.000                   Max.   :5        Max.   :1    
+##                                                                
+##      Zona                Cod_IPS      
+##  Rural :  19210   50010030201: 70770  
+##  Urbana:1029365   50010802802: 66532  
+##                   50010802803: 50124  
+##                   50010996309: 47111  
+##                   50010217801: 46477  
+##                   50010590901: 39486  
+##                   (Other)    :728075  
 ##                                                                     Nombre_Institucion
 ##  EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201): 70770  
 ##  CORPORACION 0 SALUDCOOP ANTIOQUIA - (050010802802)                          : 66532  
@@ -165,14 +239,30 @@ $(document).ready(function () {
 ##  EMPRESA SOCIAL DEL ESTADO METROSALUD - (050010217801)                       : 46477  
 ##  IPS UNIVERSIDAD DE ANTIOQUIA IPS UNIVERSITARIA -(050010590901)              : 39486  
 ##  (Other)                                                                     :728075  
-##   Cod_Consulta    Finalidad_Consulta Causa_Externa   Cod_Dx_Principal
-##  890201 :285850   Min.   : 1.000     Min.   : 1.00   I10X   : 17749  
-##  890202 :198025   1st Qu.:10.000     1st Qu.:13.00   K021   : 13703  
-##  890701 :150756   Median :10.000     Median :13.00   M545   : 12307  
-##  890101 : 87979   Mean   : 9.613     Mean   :12.19   K051   : 12149  
-##  890302 : 66407   3rd Qu.:10.000     3rd Qu.:13.00   A09X   : 10530  
-##  890301 : 42764   Max.   :10.000     Max.   :15.00   R104   : 10401  
-##  (Other):216794                                      (Other):971736  
+##   Cod_Consulta   
+##  890201 :285850  
+##  890202 :198025  
+##  890701 :150756  
+##  890101 : 87979  
+##  890302 : 66407  
+##  890301 : 42764  
+##  (Other):216794  
+##                                                                     Finalidad_Consulta
+##  No aplica                                                                   :954462  
+##  Detección de alteraciones del adulto                                        : 48407  
+##  Detección de alteración del desarrollo joven                                :  9992  
+##  Detección de alteraciones de crecimiento y desarrollo del menor de diez años:  8013  
+##  Atención del parto                                                          :  6736  
+##  Atención en planificación familiar                                          :  5650  
+##  (Other)                                                                     : 15315  
+##                 Causa_Externa    Cod_Dx_Principal
+##  Enfermedad general    :847841   I10X   : 17749  
+##  Otra                  : 99975   K021   : 13703  
+##  Accidente de tránsito : 57145   M545   : 12307  
+##  Accidente de trabajo  : 23040   K051   : 12149  
+##  Otro tipo de accidente: 12726   A09X   : 10530  
+##  Lesión por agresión   :  2077   R104   : 10401  
+##  (Other)               :  5771   (Other):971736  
 ##                                                    Nombre_Dx     
 ##  HIPERTENSION ESENCIAL (PRIMARIA)                       : 17753  
 ##  CARIES DE LA DENTINA                                   : 13705  
@@ -181,14 +271,207 @@ $(document).ready(function () {
 ##  DIARREA Y GASTROENTERITIS DE PRESUNTO ORIGEN INFECCIOSO: 10530  
 ##  OTROS DOLORES ABDOMINALES Y LOS NO ESPECIFICADOS       : 10401  
 ##  (Other)                                                :971728  
-##  Tipo_Dx_Principal      Servicio       Total_atenciones  
-##  Min.   :1.000     CONSULTAS:1048575   Min.   :   1.000  
-##  1st Qu.:1.000                         1st Qu.:   1.000  
-##  Median :1.000                         Median :   1.000  
-##  Mean   :1.602                         Mean   :   2.151  
-##  3rd Qu.:2.000                         3rd Qu.:   2.000  
-##  Max.   :3.000                         Max.   :1455.000  
+##              Tipo_Dx_Principal       Servicio       Total_atenciones  
+##  Impresión diagnóstica:596684   CONSULTAS:1048575   Min.   :   1.000  
+##  Confirmado nuevo     :273041                       1st Qu.:   1.000  
+##  Confirmado repetido  :178850                       Median :   1.000  
+##                                                     Mean   :   2.151  
+##                                                     3rd Qu.:   2.000  
+##                                                     Max.   :1455.000  
+##                                                                       
+##      Edad2          
+##  Min.   :  0.00274  
+##  1st Qu.: 22.00000  
+##  Median : 39.00000  
+##  Mean   : 40.84200  
+##  3rd Qu.: 59.00000  
+##  Max.   :227.00000  
 ## </code></pre>
+</div>
+<div id="finalidades-de-atenciones-mas-frecuentes." class="section level2">
+<h2>Finalidades de atenciones mas frecuentes.</h2>
+<pre class="r"><code>library(dplyr)
+salud &lt;- salud %&gt;%
+         arrange(desc(Total_atenciones))
+
+salud %&gt;% 
+   select(Nombre_EAS, Tipo_Usuario, Edad2,
+          Sexo, Zona, Nombre_Institucion,
+          Causa_Externa, Nombre_Dx,
+          Tipo_Dx_Principal, Total_atenciones) %&gt;%
+head(20)</code></pre>
+<pre><code>##            Nombre_EAS Tipo_Usuario       Edad2   Sexo   Zona
+## 1  SIN ADMINISTRADORA   Particular  1.00000000 Hombre Urbana
+## 2  SIN ADMINISTRADORA   Particular  1.00000000  Mujer Urbana
+## 3  SIN ADMINISTRADORA   Particular  2.00000000  Mujer Urbana
+## 4  SIN ADMINISTRADORA   Particular  2.00000000 Hombre Urbana
+## 5  SIN ADMINISTRADORA   Particular  3.00000000 Hombre Urbana
+## 6  SIN ADMINISTRADORA   Particular  3.00000000  Mujer Urbana
+## 7  SIN ADMINISTRADORA   Particular  1.00000000 Hombre Urbana
+## 8  SIN ADMINISTRADORA   Particular  4.00000000 Hombre Urbana
+## 9  SIN ADMINISTRADORA   Particular 18.00000000  Mujer Urbana
+## 10 SIN ADMINISTRADORA   Particular  4.00000000  Mujer Urbana
+## 11 SIN ADMINISTRADORA   Particular  1.00000000 Hombre Urbana
+## 12 SIN ADMINISTRADORA   Particular  2.00000000 Hombre Urbana
+## 13 SIN ADMINISTRADORA   Particular  1.00000000  Mujer Urbana
+## 14 SIN ADMINISTRADORA   Particular  2.00000000  Mujer Urbana
+## 15 SIN ADMINISTRADORA   Particular  5.00000000 Hombre Urbana
+## 16 SIN ADMINISTRADORA   Particular  0.08333333  Mujer Urbana
+## 17 SIN ADMINISTRADORA   Particular  1.00000000 Hombre Urbana
+## 18 SIN ADMINISTRADORA   Particular  2.00000000  Mujer Urbana
+## 19 SIN ADMINISTRADORA   Particular  2.00000000 Hombre Urbana
+## 20    DLS DE MEDELLIN   Vinculados  1.00000000  Mujer Urbana
+##                                                              Nombre_Institucion
+## 1  EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 2  EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 3  EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 4  EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 5  EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 6  EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 7  EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 8  EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 9                         CENTRO MEDICO Y ODONTOLOGICO ORALSER - (050010165101)
+## 10 EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 11 EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 12 EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 13 EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 14 EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 15 EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 16 EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 17 EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 18 EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 19 EMPRESA DE MEDICINA INTEGRAL EMI SA SERV AMBULANCIA PREPAGA - (050010030201)
+## 20                        EMPRESA SOCIAL DEL ESTADO METROSALUD - (050010217801)
+##            Causa_Externa
+## 1     Enfermedad general
+## 2     Enfermedad general
+## 3     Enfermedad general
+## 4     Enfermedad general
+## 5     Enfermedad general
+## 6     Enfermedad general
+## 7     Enfermedad general
+## 8     Enfermedad general
+## 9  Accidente de tránsito
+## 10    Enfermedad general
+## 11    Enfermedad general
+## 12    Enfermedad general
+## 13    Enfermedad general
+## 14    Enfermedad general
+## 15    Enfermedad general
+## 16    Enfermedad general
+## 17    Enfermedad general
+## 18    Enfermedad general
+## 19    Enfermedad general
+## 20                  Otra
+##                                                  Nombre_Dx
+## 1                   RINOFARINGITIS AGUDA (RESFRIADO COMUN)
+## 2                   RINOFARINGITIS AGUDA (RESFRIADO COMUN)
+## 3                   RINOFARINGITIS AGUDA (RESFRIADO COMUN)
+## 4                   RINOFARINGITIS AGUDA (RESFRIADO COMUN)
+## 5                   RINOFARINGITIS AGUDA (RESFRIADO COMUN)
+## 6                   RINOFARINGITIS AGUDA (RESFRIADO COMUN)
+## 7  DIARREA Y GASTROENTERITIS DE PRESUNTO ORIGEN INFECCIOSO
+## 8                   RINOFARINGITIS AGUDA (RESFRIADO COMUN)
+## 9               PRUEBA Y AJUSTE DE DISPOSITIVO ORTODONCICO
+## 10                  RINOFARINGITIS AGUDA (RESFRIADO COMUN)
+## 11                      AMIGDALITIS AGUDA  NO ESPECIFICADA
+## 12                      AMIGDALITIS AGUDA  NO ESPECIFICADA
+## 13 DIARREA Y GASTROENTERITIS DE PRESUNTO ORIGEN INFECCIOSO
+## 14                      AMIGDALITIS AGUDA  NO ESPECIFICADA
+## 15                  RINOFARINGITIS AGUDA (RESFRIADO COMUN)
+## 16                  RINOFARINGITIS AGUDA (RESFRIADO COMUN)
+## 17                       FARINGITIS AGUDA  NO ESPECIFICADA
+## 18                       FARINGITIS AGUDA  NO ESPECIFICADA
+## 19                       FARINGITIS AGUDA  NO ESPECIFICADA
+## 20                     CONTROL DE SALUD DE RUTINA DEL NI¥O
+##        Tipo_Dx_Principal Total_atenciones
+## 1  Impresión diagnóstica             1455
+## 2  Impresión diagnóstica             1386
+## 3  Impresión diagnóstica             1220
+## 4  Impresión diagnóstica             1051
+## 5  Impresión diagnóstica              818
+## 6  Impresión diagnóstica              791
+## 7  Impresión diagnóstica              614
+## 8  Impresión diagnóstica              577
+## 9       Confirmado nuevo              540
+## 10 Impresión diagnóstica              518
+## 11 Impresión diagnóstica              498
+## 12 Impresión diagnóstica              483
+## 13 Impresión diagnóstica              467
+## 14 Impresión diagnóstica              448
+## 15 Impresión diagnóstica              427
+## 16 Impresión diagnóstica              417
+## 17 Impresión diagnóstica              401
+## 18 Impresión diagnóstica              400
+## 19 Impresión diagnóstica              400
+## 20   Confirmado repetido              394</code></pre>
+</div>
+<div id="distribucion-de-consultas-por-tipo-de-usuario" class="section level2">
+<h2>Distribución de consultas por tipo de usuario</h2>
+<div id="incorrecto" class="section level3">
+<h3>Incorrecto</h3>
+<pre class="r"><code>library(dplyr)
+salud %&gt;%
+  group_by(Tipo_Usuario) %&gt;%
+  summarise(frecuencia = n())</code></pre>
+<pre><code>## # A tibble: 8 x 2
+##                                        Tipo_Usuario frecuencia
+##                                              &lt;fctr&gt;      &lt;int&gt;
+## 1                                      Contributivo     502456
+## 2                                        Subsidiado      24211
+## 3                                        Vinculados      35264
+## 4                                        Particular     278904
+## 5                                              Otro     207618
+## 6 Desplazado con Afiliación al Régimen Contributivo          2
+## 7   Desplazado con afiliación al Régimen Subsidiado         19
+## 8               Desplazado no Asegurado (vinculado)        101</code></pre>
+</div>
+<div id="correcto-teniendo-en-cuenta-el-total_atenciones" class="section level3">
+<h3>Correcto (Teniendo en cuenta el Total_atenciones)</h3>
+<pre class="r"><code>library(dplyr)
+salud %&gt;%
+  group_by(Tipo_Usuario) %&gt;%
+  summarise(frecuencia = sum(Total_atenciones))</code></pre>
+<pre><code>## # A tibble: 8 x 2
+##                                        Tipo_Usuario frecuencia
+##                                              &lt;fctr&gt;      &lt;int&gt;
+## 1                                      Contributivo    1124603
+## 2                                        Subsidiado      41787
+## 3                                        Vinculados      61905
+## 4                                        Particular     704612
+## 5                                              Otro     321769
+## 6 Desplazado con Afiliación al Régimen Contributivo          3
+## 7   Desplazado con afiliación al Régimen Subsidiado         51
+## 8               Desplazado no Asegurado (vinculado)        288</code></pre>
+</div>
+</div>
+<div id="tipo-de-consulta-externa-mas-frecuente" class="section level2">
+<h2>Tipo de consulta externa más frecuente</h2>
+<pre class="r"><code>library(dplyr)
+salud_freq_cosulta_Ext &lt;- salud %&gt;%
+  group_by(Causa_Externa) %&gt;%
+  summarise(frecuencia = sum(Total_atenciones)) %&gt;%
+  arrange(desc(frecuencia))
+salud_freq_cosulta_Ext</code></pre>
+<pre><code>## # A tibble: 15 x 2
+##                     Causa_Externa frecuencia
+##                            &lt;fctr&gt;      &lt;int&gt;
+##  1             Enfermedad general    1890547
+##  2                           Otra     226207
+##  3          Accidente de tránsito      78803
+##  4           Accidente de trabajo      30547
+##  5         Otro tipo de accidente      15968
+##  6            Evento catastrófico       3939
+##  7         Enfermedad profesional       3064
+##  8            Lesión por agresión       2561
+##  9               Accidente rábico       1402
+## 10              Accidente ofídico        687
+## 11         Lesión auto inflingida        399
+## 12       Sospecha de abuso sexual        388
+## 13 Sospecha de maltrato emocional        387
+## 14    Sospecha de maltrato físico         65
+## 15   Sospecha de violencia sexual         54</code></pre>
+</div>
 
 
 

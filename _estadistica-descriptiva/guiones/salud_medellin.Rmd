@@ -14,9 +14,120 @@ knitr::opts_chunk$set(echo = TRUE)
 load("salud.RData")
 ```
 
+## Forma básica de asignación de niveles.
+
+```{r}
+salud$Tipo_Usuario <- factor(salud$Tipo_Usuario,
+                             labels = c("Contributivo", 
+                                        "Subsidiado",
+                                        "Vinculados",
+                                        "Particular",
+                                        "Otro",
+                                        "Desplazado con Afiliación al Régimen Contributivo", 
+                                        "Desplazado con afiliación al Régimen Subsidiado",
+                                        "Desplazado no Asegurado (vinculado)"))
+```
+
+## Asignación de niveles utilizando 'dplyr'.
+
+```{r}
+library(dplyr)
+salud <- salud %>%
+         mutate(Sexo = factor(Sexo, labels = c("Hombre", "Mujer")))
+```
+
+## Asignación de niveles a las variables alfanuméricas.
+
+```{r}
+library(dplyr)
+salud <- salud %>%
+         mutate(Zona = factor(Zona, labels = c("Rural", "Urbana")),
+                Finalidad_Consulta = factor(Finalidad_Consulta,
+                                            labels = c("Atención del parto",
+                                              "Atención del recién nacido",
+                                              "Atención en planificación familiar",
+                                              "Detección de alteraciones de crecimiento y desarrollo del menor de diez años",
+                                              "Detección de alteración del desarrollo joven",
+                                              "Detección de alteraciones del embarazo",
+                                              "Detección de alteraciones del adulto",
+                                              "Detección de alteraciones de agudeza visual",
+                                              "Detección de enfermedad profesional",
+                                              "No aplica")),
+                Causa_Externa = factor(Causa_Externa,
+                                       labels = c("Accidente de trabajo",
+                                                "Accidente de tránsito",
+                                                "Accidente rábico",
+                                                "Accidente ofídico",
+                                                "Otro tipo de accidente",
+                                                "Evento catastrófico",
+                                                "Lesión por agresión",
+                                                "Lesión auto inflingida",
+                                                "Sospecha de maltrato físico",
+                                                "Sospecha de abuso sexual",
+                                                "Sospecha de violencia sexual",
+                                                "Sospecha de maltrato emocional",
+                                                "Enfermedad general",
+                                                "Enfermedad profesional",
+                                                "Otra")),
+                Edad2 = Edad*(Tipo_Edad == 1) + 
+                        Edad*(Tipo_Edad == 2)/12 +
+                        Edad*(Tipo_Edad == 3)/365.5,
+                Cod_IPS = factor(Cod_IPS),
+                Tipo_Dx_Principal = factor(Tipo_Dx_Principal,
+                                           labels = c("Impresión diagnóstica",
+                                                      "Confirmado nuevo",
+                                                      "Confirmado repetido")))
+
+```
+
+
 
 ```{r}
 summary(salud)
 ```
 
+## Finalidades de atenciones mas frecuentes.
+
+```{r}
+library(dplyr)
+salud <- salud %>%
+         arrange(desc(Total_atenciones))
+
+salud %>% 
+   select(Nombre_EAS, Tipo_Usuario, Edad2,
+          Sexo, Zona, Nombre_Institucion,
+          Causa_Externa, Nombre_Dx,
+          Tipo_Dx_Principal, Total_atenciones) %>%
+head(20)
+```
+
+## Distribución de consultas por tipo de usuario
+
+### Incorrecto
+```{r}
+library(dplyr)
+salud %>%
+  group_by(Tipo_Usuario) %>%
+  summarise(frecuencia = n())
+```
+
+### Correcto (Teniendo en cuenta el Total_atenciones)
+
+```{r}
+library(dplyr)
+salud %>%
+  group_by(Tipo_Usuario) %>%
+  summarise(frecuencia = sum(Total_atenciones))
+```
+
+## Tipo de consulta externa más frecuente
+
+```{r}
+library(dplyr)
+salud_freq_cosulta_Ext <- salud %>%
+  group_by(Causa_Externa) %>%
+  summarise(frecuencia = sum(Total_atenciones)) %>%
+  arrange(desc(frecuencia))
+salud_freq_cosulta_Ext
+```
 
