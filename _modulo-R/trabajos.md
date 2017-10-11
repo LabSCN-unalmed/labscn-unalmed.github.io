@@ -6,6 +6,32 @@ order: 4
 ---
 
 
+## Trabajo final.
+
+### Objetivo.
+
+Realizar una simulación del juego del dominó.
+
+### Consideraciones.
+
+- Se organizarán en grupos de máximo tres (3) personas.
+- Se plantearán las reglas del juego.
+    - Inicio del juego.
+    - Desarrollo del juego.
+    - Finalización del juego.
+- Se constuirá un código en R para simular
+  el juego de dominó con animación gráfica.
+
+### Archivos para entregar.
+
+- Máximo dos archivos de código:
+   - Archivo con código del programa principal.
+   - Archivo con funciones auxiliares.
+
+### Fecha de entrega.
+
+Viernes 20 de octubre de 2017 en hora de clase.         
+
 <!--
 ## Trabajo final
 
