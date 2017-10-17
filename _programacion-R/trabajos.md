@@ -33,6 +33,6 @@ que tengan los datos en las siguientes columnas:
 
 ### Fecha de entrega
 
-Vienres, 20 de octubre de 2017, antes de las 23:59 hora de Colombia.
+Viernes, 20 de octubre de 2017, antes de las 23:59 hora de Colombia.
 Enviar al correo **krcabrer@unal.edu.co**.
 No olvidar escribir en asunto: **[CursoR]**.
