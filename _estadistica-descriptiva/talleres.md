@@ -25,4 +25,14 @@ order: 4
   Estadística Descriptiva y Análisis Exploratorio de Datos.
 - Proponer un rango de "confianza" para la estimación del promedio de edad.  
 
+
+
+
+
+
+
+
+
+
+
 ## Talleres en grupo

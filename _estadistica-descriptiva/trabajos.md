@@ -132,3 +132,35 @@ Viernes, 29 de septiembre de 2017 antes de las 23:59 hora de Colombia,
 al correo **krcabrer@unal.edu.co** y no olvidar incluir en el texto
 del correo los nombres e identificaciones de los miembros del grupo tal
 como aparecen en el trabajo y en asunto **[EDAED]**.
+
+## Segundo trabajo grupal.
+
+### Objetivo.
+
+Realizar un análisis exploratorio en donde se
+contesten diez (10) preguntas hechas a una base
+de datos sobre las atenciones en [salud en Medellín
+durante el año 2016](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Atenciones-en-Consulta-Externa-Municipio-de-Medell/huya-zzzg).
+
+### Consideraciones.
+
+En grupos de máximo cinco (5) personas que construyan
+diez (10) preguntas que le permitan al secretario
+de salud tomar decisiones en cuanto políticas
+de salud en Medellín.
+
+### Documentos para entregar.
+
+ - Archivo en formato ".html" en donde
+   estén tanto las preguntas como las respuestas
+   ya sean esta en tablas o en gráficas sin el
+   código de R.
+ - Archivo o archivos en formato ".Rmd" en donde esté
+   el código utilizado para procesar la información.   
+
+### Fecha de entrega.
+
+   Martes, 24 de octubre de 2107 antes de las 23:59 hora
+   de Colombia, al correo **krcabrer@unal.edu.co**
+   y no olvidar en el correo mencionar los miembros
+   del grupo y en asunto escribir **[EDAED]**.
