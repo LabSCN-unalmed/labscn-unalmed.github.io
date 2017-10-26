@@ -1,0 +1,143 @@
+---
+title: "Lectura y procesamiento de datos de aceleración"
+author: "Kenneth Roy Cabrera Torres"
+date: "25 de octubre de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+acelera <- read.csv( "Camino a la oficina Grabaci_n 1.csv")
+```
+
+### Tranformación de la variable tiempo
+
+```{r}
+library(dplyr)
+acelera <- acelera %>%
+        mutate(fecha= as.POSIXct(timestamp/1000, origin = "1970-01-01"))
+```
+
+### Aceleración en X
+
+![](ejeX.png)
+
+```{r}
+library(ggplot2)
+ggplot(acelera, aes(fecha, AccX)) +
+  geom_line()
+```
+
+
+### Aceleración en Y
+
+![](ejeY.png)
+
+
+
+
+```{r}
+library(ggplot2)
+ggplot(acelera, aes(fecha, AccY)) +
+  geom_line()
+```
+
+
+### Aceleración en Z
+
+![](ejeZ.png)
+
+```{r}
+library(ggplot2)
+ggplot(acelera, aes(fecha, AccZ)) +
+  geom_line()
+```
+
+
+```{r}
+summary(acelera)
+```
+
+### Cálculo de la aceleración promedio por décimas de segundo
+
+```{r}
+library(dplyr)
+acelera2 <- acelera %>%
+  mutate(tiempo = timestamp %/% 100) %>%
+  group_by(tiempo) %>%
+  summarise(AccX = mean(AccX, na.rm = TRUE),
+            AccY = mean(AccY, na.rm = TRUE),
+            AccZ = mean(AccZ, na.rm = TRUE))
+```
+
+### Gráfica conjunta por décimas de segundo
+
+```{r}
+matplot(acelera2$tiempo, acelera2[, 2:4], type = "l")
+```
+
+### Cálculo de la aceleración total
+
+```{r}
+library(dplyr)
+acelera2 <- acelera2 %>%
+            mutate(accT = sqrt(AccX ^ 2 + AccY ^ 2 + AccZ ^ 2))
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(acelera2, aes(tiempo, accT)) + geom_line()
+```
+
+### Verificación de cambios en periodos de tiempo
+
+```{r}
+diff(acelera2$tiempo)
+
+cambios <- which(diff(acelera2$tiempo) != 1)
+
+cambios
+```
+
+### Selección de un segmento "completo"
+
+```{r}
+acelera3 <- acelera2[1:cambios[1], ]
+```
+
+### Gráfica de la aceleración total en un segmento de tiempo.
+
+```{r}
+ggplot(acelera3, aes(tiempo, accT)) + geom_line()
+```
+
+### Periodograma
+
+```{r}
+r1 <- spec.pgram(acelera3$accT, las = 1)
+```
+
+### Selección de la frecuencia con el valor máximo del espectro.
+
+```{r}
+maxFrec <- r1$freq[which(r1$spec == max(r1$spec))]
+maxFrec
+```
+
+### Cálculo del tiempo total y números de periodos.
+
+```{r}
+tiempoT <- diff(range(acelera3$tiempo))
+numPeriodos <- tiempoT * maxFrec 
+
+tiempoT
+numPeriodos
+```
+

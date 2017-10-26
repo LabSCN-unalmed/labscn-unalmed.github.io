@@ -58,4 +58,8 @@ order: 2
  - [Lectura y conversión](./guiones/lectura_y_conversion_salud_medellin.html).
  - [Inicio exploracion](./guiones/salud_medellin.html).
 
- 
+
+## Lectura de datos del acelerómetro del celular
+
+ - [Lectura de datos](./guiones/aceleracion.html)
+ - [base de datos](./basesdedatos/Camino a la oficina Grabaci_n 1.csv)
