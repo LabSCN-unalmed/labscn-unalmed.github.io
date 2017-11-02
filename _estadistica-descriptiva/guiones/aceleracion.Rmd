@@ -253,9 +253,13 @@ longPaso1_s3
 ```
 
 ## Lecturas de las bases de datos
-## Camino 2 y Camino 3
+
+## Mapa del camino 2
 
 ![](camino_univ2.png)
+
+
+## Mapa del camino 3
 
 ![](camino_univ3.png)
 
@@ -295,7 +299,7 @@ camino3_1 <- camino3_1 %>%
             mutate(accT = sqrt(AccX ^ 2 + AccY ^ 2 + AccZ ^ 2))
 ```
 
-## Camino 2
+## Procesamiento del camino 2
 
 ```{r}
 library(ggplot2)
@@ -318,7 +322,7 @@ as.vector(tiempoTotal_camino2) * 600 * maxFrec2
 (longPaso2 <- distancia2/(as.vector(tiempoTotal_camino2) * 600 * maxFrec2))
 ```
 
-## Camino 3
+## Procesamiento del camino 3
 
 ```{r}
 library(ggplot2)

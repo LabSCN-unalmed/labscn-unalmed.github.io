@@ -61,9 +61,7 @@ order: 2
 
 ## Lectura de datos del acelerómetro del celular
 
- - [Lectura de datos](./guiones/aceleracion.html)
+ - [Exploratorio inicial](./guiones/aceleracion.html)
  - [Camino 1](./basesdedatos/Camino a la oficina Grabaci_n 1.csv)
  - [Camino 2](./basesdedatos/Camino a la oficina 2 Grabaci_n 1.csv)
  - [Camino 3](./basesdedatos/Salida de la un_versidad Grabaci_n 1.csv)
-
- 
