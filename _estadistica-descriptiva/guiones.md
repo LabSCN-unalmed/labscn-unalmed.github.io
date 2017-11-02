@@ -65,3 +65,7 @@ order: 2
  - [Camino 1](./basesdedatos/Camino a la oficina Grabaci_n 1.csv)
  - [Camino 2](./basesdedatos/Camino a la oficina 2 Grabaci_n 1.csv)
  - [Camino 3](./basesdedatos/Salida de la un_versidad Grabaci_n 1.csv)
+
+## Procesamiento de varios archivos de aceleración
+
+ - [Manejo de varios archivos de aceleración](./guiones/aceleracion2.html)
