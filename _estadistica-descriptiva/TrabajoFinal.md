@@ -101,6 +101,9 @@ en asunto la sigla **[EDAED]**, el día jueves, 23 de noviembre 2017 antes de la
 - Se debe incluir bibliografía o cibergrafía pertinente a la estimación
   realizada en otras investigaciones entre la longitud del paso y la estatura
   por género.
+- Directrices del [uso de logo institucional](http://identidad.unal.edu.co/guia-de-identidad-visual/b-directrices-y-especificaciones/b1-elementos-de-identidad-visual/)
+  de la Universidad Nacional
+  de Colombia.
 
 ### Evaluación del póster.
 
