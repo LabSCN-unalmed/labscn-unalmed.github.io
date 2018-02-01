@@ -6,6 +6,9 @@ order: 03
 custom_js: 'mathjax'
 ---
 
+
+
+<!---
 ## Brillo en papel
 
 - [Brillo en papel](/metodos-estadisticos/guiones/brillo_papel.html)
@@ -67,3 +70,4 @@ custom_js: 'mathjax'
 - [Experimento para diseño de mezclas](./guiones/mezcla.html)
 - [Base de datos para mezclas](./guiones/mezcla1.xlsx)
 - [Base de datos para predecir en ciertas combinaciones](./guiones/mezcla1p.xlsx)
+-->

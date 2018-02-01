@@ -6,6 +6,7 @@ order: 04
 ---
 
 
+<!---
 ## Contenido
 {: .no_toc}
 
@@ -23,3 +24,4 @@ order: 04
 ## Taller individual 3
 
 - [Enunciado](./talleres/ejercicios_en_clase.html)
+-->
