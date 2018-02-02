@@ -1,0 +1,375 @@
+---
+title: "Lectura y procesamiento de datos de aceleración"
+author: "Kenneth Roy Cabrera Torres"
+date: "25 de octubre de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+![](camino_univ1.png)
+
+```{r}
+acelera1 <- read.csv( "Camino a la oficina Grabaci_n 1.csv")
+```
+
+### Tranformación de la variable tiempo
+
+```{r}
+library(dplyr)
+acelera1 <- acelera1 %>%
+        mutate(fecha= as.POSIXct(timestamp/1000, origin = "1970-01-01"))
+```
+
+### Aceleración en X
+
+![](ejeX.png)
+
+```{r}
+library(ggplot2)
+ggplot(acelera1, aes(fecha, AccX)) +
+  geom_line()
+```
+
+
+### Aceleración en Y
+
+![](ejeY.png)
+
+
+
+
+```{r}
+library(ggplot2)
+ggplot(acelera1, aes(fecha, AccY)) +
+  geom_line()
+```
+
+
+### Aceleración en Z
+
+![](ejeZ.png)
+
+```{r}
+library(ggplot2)
+ggplot(acelera1, aes(fecha, AccZ)) +
+  geom_line()
+```
+
+
+```{r}
+summary(acelera1)
+```
+
+### Cálculo de la aceleración promedio por décimas de segundo
+
+```{r}
+library(dplyr)
+acelera1_2 <- acelera1 %>%
+  mutate(tiempo = timestamp %/% 100) %>%
+  group_by(tiempo) %>%
+  summarise(AccX = mean(AccX, na.rm = TRUE),
+            AccY = mean(AccY, na.rm = TRUE),
+            AccZ = mean(AccZ, na.rm = TRUE))
+```
+
+### Gráfica conjunta por décimas de segundo
+
+```{r}
+matplot(acelera1_2$tiempo, acelera1_2[, 2:4], type = "l")
+```
+
+### Cálculo de la aceleración total
+
+```{r}
+library(dplyr)
+acelera1_2 <- acelera1_2 %>%
+            mutate(accT = sqrt(AccX ^ 2 + AccY ^ 2 + AccZ ^ 2))
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(acelera1_2, aes(tiempo, accT)) + geom_line()
+```
+
+### Verificación de cambios en periodos de tiempo
+
+```{r}
+diff(acelera1_2$tiempo)
+
+cambios <- which(diff(acelera1_2$tiempo) != 1)
+
+cambios
+```
+
+### Selección de un segmento "completo"
+
+```{r}
+acelera1_s1 <- acelera1_2[1:cambios[1], ]
+```
+
+### Gráfica de la aceleración total en un segmento de tiempo.
+
+```{r}
+ggplot(acelera1_s1, aes(tiempo, accT)) + geom_line()
+```
+
+### Periodograma
+
+```{r}
+spec1_s1 <- spec.pgram(acelera1_s1$accT, las = 1)
+```
+
+### Selección de la frecuencia con el valor máximo del espectro.
+
+```{r}
+maxFrec1_s1 <- spec1_s1$freq[which(spec1_s1$spec == max(spec1_s1$spec))]
+maxFrec1_s1
+```
+
+### Cálculo del tiempo total y números de periodos.
+
+```{r}
+tiempoS1 <- diff(range(acelera1_s1$tiempo))
+numPeriodos <- tiempoS1 * maxFrec1_s1 
+
+tiempoS1
+numPeriodos
+```
+```{r}
+tiempoT <- diff(range(acelera1_2$tiempo))
+numPeriodos <- tiempoT * maxFrec1_s1 
+
+tiempoT
+numPeriodos
+```
+
+
+
+### Cálculo de la longitud del paso
+
+```{r}
+distancia1 <- 301.20
+longPaso1_s1 <- 301.20/numPeriodos
+longPaso1_s1
+```
+
+## Análisis del segundo segmento
+
+```{r}
+acelera1_s2 <- acelera1_2[cambios[13]:cambios[14], ]
+```
+
+
+```{r}
+ggplot(acelera1_s2, aes(tiempo, accT)) + geom_line()
+```
+
+
+```{r}
+spec1_s2 <- spec.pgram(acelera1_s2$accT, las = 1)
+```
+
+
+```{r}
+maxFrec1_s2 <- spec1_s2$freq[which(spec1_s2$spec == max(spec1_s2$spec))]
+maxFrec1_s2
+```
+
+
+```{r}
+tiempoS2 <- diff(range(acelera1_s2$tiempo))
+numPeriodos <- tiempoS2 * maxFrec1_s2
+
+tiempoS2
+numPeriodos
+```
+```{r}
+tiempoT <- diff(range(acelera1_2$tiempo))
+numPeriodos <- tiempoT * maxFrec1_s2
+
+tiempoT
+numPeriodos
+```
+
+```{r}
+distancia1 <- 301.20
+longPaso1_s2 <- 301.20/numPeriodos
+longPaso1_s2
+```
+
+## Análisis del tercer segmento
+
+```{r}
+acelera1_s3 <- acelera1_2[cambios[22]:cambios[23], ]
+(pos <- which(is.na(acelera1_s3$accT)))
+acelera1_s3 <- acelera1_s3[3:nrow(acelera1_s3), ]
+
+ggplot(acelera1_s3, aes(tiempo, accT)) + geom_line()
+spec1_s3 <- spec.pgram(acelera1_s3$accT, las = 1)
+maxFrec1_s3 <- spec1_s3$freq[which(spec1_s3$spec == max(spec1_s3$spec))]
+maxFrec1_s3
+```
+
+```{r}
+tiempoS3 <- diff(range(acelera1_s3$tiempo))
+numPeriodos <- tiempoS3 * maxFrec1_s2
+
+tiempoS3
+numPeriodos
+```
+```{r}
+tiempoT <- diff(range(acelera1_2$tiempo))
+numPeriodos <- tiempoT * maxFrec1_s2
+
+tiempoT
+numPeriodos
+```
+
+```{r}
+distancia1 <- 301.20
+longPaso1_s3 <- 301.20/numPeriodos
+longPaso1_s3
+```
+
+
+### Análisis conjunto del primer segemento
+
+```{r}
+(prom_maxFrec1 <- mean(c(maxFrec1_s1, maxFrec1_s2, maxFrec1_s3)))
+(ds_maxFrec1 <-   sd(c(maxFrec1_s1, maxFrec1_s2, maxFrec1_s3)))
+
+(tiempoTotal <- acelera1$fecha[nrow(acelera1)] - acelera1$fecha[1])
+(numPeriodosT <- as.vector(tiempoTotal)*60*10 * prom_maxFrec1)
+
+(longPasoP1 <- distancia1/as.vector(numPeriodosT))
+
+```
+
+## Lecturas de las bases de datos
+
+## Mapa del camino 2
+
+![](camino_univ2.png)
+
+
+## Mapa del camino 3
+
+![](camino_univ3.png)
+
+```{r}
+camino2 <- read.csv("Camino a la oficina 2 Grabaci_n 1.csv")
+camino3 <- read.csv("Salida de la un_versidad Grabaci_n 1.csv")
+distancia2 <- 90.85
+distancia3 <- 234.08
+```
+
+```{r}
+library(dplyr)
+camino2 <- camino2 %>%
+        mutate(fecha= as.POSIXct(timestamp/1000, origin = "1970-01-01"))
+camino2_1 <- camino2 %>%
+  mutate(tiempo = timestamp %/% 100) %>%
+  group_by(tiempo) %>%
+  summarise(AccX = mean(AccX, na.rm = TRUE),
+            AccY = mean(AccY, na.rm = TRUE),
+            AccZ = mean(AccZ, na.rm = TRUE))
+camino2_1 <- camino2_1 %>%
+            mutate(accT = sqrt(AccX ^ 2 + AccY ^ 2 + AccZ ^ 2))
+```
+
+
+```{r}
+library(dplyr)
+camino3 <- camino3 %>%
+        mutate(fecha= as.POSIXct(timestamp/1000, origin = "1970-01-01"))
+camino3_1 <- camino3 %>%
+  mutate(tiempo = timestamp %/% 100) %>%
+  group_by(tiempo) %>%
+  summarise(AccX = mean(AccX, na.rm = TRUE),
+            AccY = mean(AccY, na.rm = TRUE),
+            AccZ = mean(AccZ, na.rm = TRUE))
+camino3_1 <- camino3_1 %>%
+            mutate(accT = sqrt(AccX ^ 2 + AccY ^ 2 + AccZ ^ 2))
+```
+
+## Procesamiento del camino 2
+
+```{r}
+library(ggplot2)
+ggplot(camino2_1, aes(tiempo, accT)) + geom_line()
+```
+
+```{r}
+spec2 <- spec.pgram(camino2_1$accT, las = 1)
+```
+
+```{r}
+maxFrec2 <- spec2$freq[which(spec2$spec == max(spec2$spec))]
+maxFrec2
+```
+
+```{r}
+tiempoTotal_camino2 <- camino2$fecha[nrow(camino2)] - camino2$fecha[1]
+as.vector(tiempoTotal_camino2) * 600
+as.vector(tiempoTotal_camino2) * 600 * maxFrec2
+(longPaso2 <- distancia2/(as.vector(tiempoTotal_camino2) * 600 * maxFrec2))
+```
+
+## Procesamiento del camino 3
+
+```{r}
+library(ggplot2)
+ggplot(camino3_1, aes(tiempo, accT)) + geom_line()
+```
+
+```{r}
+spec3 <- spec.pgram(camino3_1$accT, las = 1)
+```
+
+```{r}
+maxFrec3 <- spec3$freq[which(spec3$spec == max(spec3$spec))]
+maxFrec3
+```
+
+```{r}
+tiempoTotal_camino3 <- camino3$fecha[nrow(camino3)] - camino3$fecha[1]
+as.vector(tiempoTotal_camino3) * 600
+as.vector(tiempoTotal_camino3) * 600 * maxFrec3
+(longPaso3 <- distancia3/(as.vector(tiempoTotal_camino3) * 600 * maxFrec3))
+```
+
+## Cálculo del tamaño de muestra
+
+```{r}
+(mediaLongPasos <- mean(c(longPaso1_s1, longPaso1_s2, 
+                          longPaso1_s3, longPaso2, longPaso3)))
+(desvestPasos <- sd(c(longPasoP1, longPaso2, longPaso3)))
+```
+
+
+## Tamaños de la muestra
+
+```{r}
+library(pwr)
+diferencia <- 0.05
+d <- diferencia/desvestPasos
+potencia1 <- pwr.t.test(d = d, power = 0.8)
+potencia1$n
+```
+
+
+```{r}
+library(pwr)
+potencia2 <- pwr.t.test(n = 50, power = 0.8)
+d <- potencia2$d
+(diferencia <- desvestPasos * d)
+
+```
+

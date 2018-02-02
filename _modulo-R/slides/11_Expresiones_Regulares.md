@@ -1,7 +1,14 @@
+<style type="text/css">
+.small-code pre code {
+   font-size: 1.1em;
+}
+</style>
+
+
 Expresiones Regulares
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: miércoles, 03 de agosto de 2016
+date: domingo, 16 de abril de 2017
 width: 1440
 height: 900
 
@@ -211,6 +218,7 @@ grep("[U]",texto)
 
 Ejemplo 7
 ========================================================
+class: small-code
 
 ```r
 texto <- c("Una sarta","2da sarta","(3ra) sarta")
@@ -382,3 +390,10 @@ gsub("^ +| +$","",s)
 ```
 [1] "nada" "Nada" "Nada" "nADA" "NADA"
 ```
+
+Ejemplos adicionales
+========================================================
+
+- [Ejemplos del uso de expresiones regulares](http://stat545.com/block022_regular-expression.html)
+- [Segundo tutorial de expresiones regulares](http://www.endmemo.com/program/R/grep.php)
+- [Uso de expresiones regulares en RStudio](https://www.r-bloggers.com/regular-expressions-in-r-vs-rstudio/)

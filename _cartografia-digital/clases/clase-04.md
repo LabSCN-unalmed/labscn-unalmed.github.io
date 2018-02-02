@@ -1,568 +1,825 @@
 ---
 layout: clase
-title: 'Análisis del relieve relativo con base en un análisis de vecindad'
+title: 'Parámetros morfométricos del relieve'
 curso: 'cartografia-digital'
 clase: 4
 ---
 
-Fundamentos teóricos {#fundamentos-teoricos}
---------------------
+Un parámetro importante en la descripción cuantitativa del relieve es la pendiente. Con base en un mapa raster de altitudes (DSM o DTM) se puede calcular un mapa raster de pendiente; en este caso, se asigna un valor de pendiente a cada píxel.
 
-### El concepto de relieve relativo
+La pendiente y otros parámetros útiles se pueden calcular haciendo uso de la herramienta `r.param.scale`, que abrimos desde el menú _Raster -> Terrain analysis -> Terrain parameters_.
 
-- Tipos de relieve relativo (montañoso, colinado, plano).
-- ¿Cómo construiría usted un mapa de relieve relativo a partir de un DEM?
-- Relación entre tipo de relieve relativo y tamaño del kernel.
-- Álgebra de mapas: operaciones básicas (suma, resta, multiplicación, división).
+![](/cartografia-digital/images/clase-04/clase-04_01.png){: .img-responsive}
 
-### El concepto de análisis de vecindad {#concepto-analisis-vecindad}
+Se abre la ventana de la herramienta de parámetros morfométrios en la cual podemos extraer parámetros del terreno a partir de un DEM, es decir que como mapa de entrada tendremos nuevamente a `porcecito`.
 
-- El análisis de vecindad a partir de un mapa raster.
-- Kernel como dimensión de la vecindad.
-- La relación entre kernel y mapa.
-- Efecto de borde.
-- Operaciones de vecindad. ¿Cuáles son las posibles operaciones?
+![](/cartografia-digital/images/clase-04/clase-04_02.png){: .img-responsive}
 
-### Diferencias entre un mapa de una variable determinada y un mapa reclasificado de dicha variable
+## Parámetros que se pueden calcular a partir del DEM {#parametros-descripcion}
 
-- La naturaleza del valor del píxel.
-- Reducción en la cantidad y calidad de la información.
-- Simplificación del mapa original.
-- Se pueden obtener múltiples mapas reclasificados a partir del mapa original.
+**elev**: Las elevaciones vienen con el mapa DEM, este parámetro se utiliza para repetir el muestreo a diferente escala.
 
-Desarrollo
-----------
+**slope**: Calcula la magnitud de la gradiente máxima (el angulo de mayor inclinación de la vertiente, en un punto o píxel. La pendiente en un archivo raster se calcula como la mayor gradiente que se obtiene interpolando el píxel central con los ocho (8) píxeles adyacentes cuando se utiliza una ventana móvil de 3 x 3 píxeles.
 
-### Relieve relativo o relieve local
+**aspect**: Corresponde a la dirección o azimuth de la gradiente máxima. Se proyecta el vector de la gradiente máxima en el plano horizontal y el valor del azimuth de esta proyección constituye el valor del "aspect".
 
-El relieve relativo o relieve local se define como la diferencia vertical en elevación entre los puntos mas altos y los puntos mas bajos dentro de una región dada o a lo largo de un perfil o linea en el terreno.
+- El valor del aspect varia de 0° a +180° cuando se va del Oeste al Norte y al Este.
+- El valor del aspect varia de 0° a -180° cuando se va del Oeste al Sur y al Este.
 
-Los puntos mas altos en el relieve de una región se ubican en las divisorias de agua.
+**profc**: Curvatura del perfil (curvatura que intersecta con el plano definido por el eje Z y la dirección de la gradiente máxima). Corresponde a la curvatura vertical del perfil en el sentido de la pendiente. El "profc" corresponde a la linea de interceptación entre:
 
-Los puntos mas bajos en el relieve se ubican en las vaguadas y en los canales de las corrientes de agua.
+1. Un plano vertical que contiene a los vectores "slope" y "aspect".
+2. La superficie curva del píxel.
+    - Los valores positivos de profc hacen referencia a una curvatura convexa.
+    - Los valores negativos de profc hacen referencia a una curvatura cóncava.
+    - Los valores de cero (0) para profc hacen referencia a una superficie planar.
 
-El relieve relativo de una zona se obtiene con mas precisión si la diferencia de altitud es aquella que se obtiene de la diferencia entre altittudes de divisoria y altitudes de canales fluviales.
+**planc**: Curvatura plana (curvatura horizontal, que intersecta con el plano XY). Corresponde a la curvatura horizontal. La curvatura planc es la linea de interceptación entre:
 
-Los valores de relieve relativo en una región dada permiten establecer diferencias entre tipos de relieve: relieve plano, relieve ondulado, relieve colinado y relieve montañoso. Adicionalmente, permite diferenciar entre relieve montañosos bajo, medio y alto ; situación similar se puede establecer para los relieves colinados.
+1. Un plano horizontal que pasa por el píxel i
+2. La superficie curva del píxel.
+3. El signo de esta curvatura tiene significados contrarios a los de profc, es decir:
+    - Los valores positivos de planc hacen referencia a una curvatura cóncava.
+    - Los valores negativos de planc hacen referencia a una curvatura convexa.
+    - Los valores de cero (0) para planc hacen referencia a una superficie planar.
 
-El relieve relativo de una región es una resultante del balance entre los ritmos de levantamiento tectónico y las tasas de incisión fluvial de las redes de drenaje.
+Para Wood, J.D. (1996); las curvaturas del perfil (profc) y la curvatura horizontal (planc) "son útiles en tanto ellas separan la curvatura en dos componentes ortogonales donde los efectos de del proceso gravitacional se maximizan en un caso (profc) o se minimizan en el otro (planc)".
 
-El relieve relativo se puede emplear como un índice de referencia de la velocidad relativa de los movimientos tectónicos verticales en un cinturón cordillerano.
+**longc**: Curvatura longitudinal (curvatura de perfil que intersecta con el plano definido por la superficie normal y la dirección de la gradiente máxima).
 
-La relación entre relieve relativo y la extensión de la zona de referencia.
+**crosc**: Curvatura transversal (curvatura tangencial que intersecta con el plano definido por la superficie normal y una tangente al contorno - perpendicular a la dirección de la gradiente máxima).
 
-El valor de relieve relativo depende de las dimensiones de la zona de referencia. Por ejemplo, el valor de relieve relativo para un punto ubicado en el centro de la ciudad de Medellín depende de la zona de referencia para calcularlo: en un circulo de 100 metros de radio se obtiene un valor. Si aumentamos el valor del radio a 1000 metros, a 5.0 km, a 10 km, a 50 km, etc, ¿Cuáles serán los valores de relieve relativo que se obtienen?
+**maxic**: Curvatura máxima (en cualquier dirección).
 
-### Análisis de vecindad {#analisis-vecindad}
+**minic**: Curvatura mínima (en dirección perpendicular a la dirección de la curvatura máxima).
 
-Recordar la estructura de un archivo o mapa raster.
+**feature**: Características morfométricas:
 
-¿Cuántas filas y cuantas columnas tiene el mapa `porcecito1`?
+- Peak: Punto en una convexidad local en todas las direcciones.
+- Ridge: Punto en una convexidad local ortogonal a una línea sin convexidad o concavidad.
+- Pass: Punto en una convexidad local ortogonal a una concavidad local.
+- Plane: Puntos que se encuentran en una superficie sin convexidad o concavidad.
+- Channel: Punto en una concavidad local ortogonal a una línea sin convexidad o concavidad.
+- Pit: Punto en una concavidad local en todas las direcciones.
 
-¿Cuántos píxeles contiene el mapa `porcecito1`?
+![Los 6 tipos de características morfométricas](/cartografia-digital/images/clase-04/morphometric.png){: .img-responsive}
 
-### El kernel o ventana móvil {#kernel-ventana-movil}
+## Elaboración de un mapa de pendientes {#elaboracion-mapa-pendientes}
 
-Permite definir el tamaño o dimensiones de la vecindad donde se realiza el análisis. Permite definir los píxeles vecinos alrededor de un píxel en los cuales se realiza el análisis de vecindad. Para el análisis de vecindad se selecciona una especie de subretícula de forma cuadrada que contiene un numero impar de píxeles. Seleccionar un cuadrado con un numero impar de píxeles por lado garantiza la existencia de un píxel central único.
+### Conceptos importantes:
 
-Por ejemplo: Supongamos que un terreno tiene tipos de relieve diversos (plano, colinado y montañoso) con una densidad de drenaje moderadamente alta.
+La pendiente es la variación de la altitud con respecto a la distancia.
 
-Si se selecciona un kernel de 100 x 100 metros como zona de vecindad, es decir, 0.01 km<sup>2</sup> podría suceder que la zona no incluya simultáneamente píxeles en posición de divisoria de aguas y píxeles ubicados en los canales de corrientes de agua. Por lo tanto, mientras el kernel sea muy pequeño, es posible que no se tenga un valor representativo del relieve local.
+1. ¿Qué es una vertiente?
+2. ¿Cuáles son los limites de las vertientes?
+3. Relación de la vertiente con otros atributos de estructura y dinámica del relieve.
+  - Con la litología.
+  - Con la erosión.
+  - Con los movimientos en masa (caídas, volcamientos, deslizamientos, flujos).
+4. Relación de la pendiente de la vertiente con las intervenciones y su aprovechamiento:
+  - Viviendas y edificaciones.
+  - Construcción de redes viales.
+5. Relación de la pendiente de la vertiente con la distribución de la cobertura vegetal natural y cultivada.
+  - ¿Existe alguna relación?
+  - ¿Se trata de una relación directa o de una relación indirecta?
 
-Existe un valor óptimo de tamaño de kernel para obtener una representación pertinente del relieve relativo de una región.
+#### ¿Cómo elaborar el mapa de pendientes de una región con significados importantes respecto a la dinámica e intervención del relieve?
 
-El análisis de vecindad en un mapa raster consiste en realizar una operación especifica con los píxeles que abarca el kernel y el resultado llevarlo al píxel equivalente de un nuevo mapa de salida.
+Se trata de seleccionar unos rangos de pendiente que guarden relación con fenómenos naturales, fenómenos inducidos por la intervención o con ciertos factores limitantes o favorables a una intervención antrópica pertinente técnica y ambientalmente.
 
-Los pasos del análisis de vecindad se pueden esquematizar así:
+Por ejemplo, supongamos que se va intervenir en una región amplia con diversas actividades agropecuarias, forestales y de conservación; para hacerlo será necesario igualmente desarrollar algunas obras de infraestructura tales como vías, viviendad y otras construcciones. *¿Qué servicio puede brindar la elaboración de un mapa de pendientes a este programa?*
 
-- Se define las dimensiones del kernel.
-- Se recorre el mapa de entrada con el kernel por cada uno de sus píxeles.
-- En cada píxel del mapa de entrada, el kernel identifica los píxeles vecinos.
-- Con los píxeles vecinos realiza una operación matemática (promedio, mediana, moda, valor máximo, valor mínimo, etc).
-- El valor obtenido lo lleva al píxel equivalente de un mapa de salida.
-- En este sentido, el mapa de entrada y el mapa de salida tienen el mismo numero de filas, columnas y píxeles.
-- El análisis de vecindad consiste en recorrer, uno a uno, todos los píxeles del mapa de entrada y los resultados de la operación trasladarlos a los respectivos píxeles del mapa de salida.
+Las tierras con pendientes muy suaves (< 1°-2°) podrían ser susceptibles a inundación permanente o temporal si se ubican en áreas adyacentes a corrientes de agua (en las llanuras aluviales de los ríos). Estos mismos terrenos podrían albergar un recurso suelo óptimo para actividad agropecuaria.
 
-El análisis de vecindad, como se esquematiza en los pasos anteriores indica que se presentan problemas de borde. Cuando el centro del kernel se ubica en los píxeles de borde, las operaciones a realizar no incorporan la totalidad de píxeles de vecindad porque muchos de ellos quedan por fuera del mapa de entrada.
+Un reconocimiento general de la región de interés podría indicar que las manifestaciones de deslizamientos activos y deslizamientos pasados ocurren en vertientes con un umbral mínimo de pendiente. A modo de ejemplo, que se pueda firmar: los deslizamientos se presentan en vertientes con valores de pendiente por encima de los 25°.
 
-Parte Operativa
----------------
+Que exista una norma ambiental que afirme por ejemplo: queda prohibido construir viviendas en vertientes con pendientes por encima de los 21°.
 
-Para la elaboración del mapa de relieve relativo de la zona representada en el modelo de elevación digital de `porcecito1` se realizan las siguientes actividades:
+Que los ganaderos y las instituciones de este sector consideren inadecuado establecer sistemas de rotación de potreros en vertientes con pendientes por encima de los 13°.
 
-- Consultar el N° de filas, columnas y píxeles que tiene el mapa de entrada `porcecito1`.
-- Definir las dimensiones del kernel a utilizar como ventana para la zona de vecindad.
-- Calcular el rango de altitud en la zona de vecindad (`altura máxima - altura mínima`).
-- Este mapa es el mapa de relieve relativo o relieve local de la región de porcecito.
+Que los ingenieros afirmen que resulta demasiado costos construir la red vial en vertientes con inclinaciones superiores a 30°.
 
-### Consultar el contenido del mapa porcecito1
+Con toda esta información se pueden establecer unos posibles rangos, cuya validez es solamente para la región del proyecto:
 
-Vamos a consultar cual es la información del mapa (metadatos).
+| Pendiente | Descripción                                                                                        |
+|:---------:|:---------------------------------------------------------------------------------------------------|
+|  0° -  1° | Terrenos susceptibles a inundación                                                                 |
+|  1° -  2° | Terrenos susceptibles a inundación temporal (drenan fácilmente una vez desciende el nivel del río) |
+|  2° - 13° | ???                                                                                                |
+| 13° - 21° | ???                                                                                                |
+| 21° - 25° | ???                                                                                                |
+| 25° - 30° | ???                                                                                                |
+|       >30 | ???                                                                                                |
+{: .table .table-hover}
 
-~~~
-r.info map=porcecito1
-~~~
+*¿Qué se puede afirmar acerca de los últimos cinco (5) rangos de pendiente en la tabla anterior?*
 
-~~~
- +----------------------------------------------------------------------------+
- | Layer:    porcecito1                     Date: Mon Mar 26 14:56:39 2012    |
- | Mapset:   CursoGrass                     Login of Creator: admin-lsc       |
- | Location: CursoGrass                                                       |
- | DataBase: /home/usuario/Grass                                              |
- | Title:     ( porcecito )                                                   |
- | Timestamp: none                                                            |
- |----------------------------------------------------------------------------|
- |                                                                            |
- |   Type of Map:  raster               Number of Categories: 2873            |
- |   Data Type:    CELL                                                       |
- |   Rows:         1242                                                       |
- |   Columns:      1144                                                       |
- |   Total Cells:  1420848                                                    |
- |        Projection: Transverse Mercator                                     |
- |            N: 1231633.33333336    S: 1193683.33333335   Res: 30.55555556   |
- |            E: 889777.77777778    W: 854822.22222223   Res: 30.55555556     |
- |   Range of data:    min = 958  max = 2873                                  |
- |                                                                            |
- |   Data Description:                                                        |
- |    generated by r.in.gdal                                                  |
- |                                                                            |
- |   Comments:                                                                |
- |    r.in.gdal -o -e input="porcecito.tiff" output="porcecito"               |
- |                                                                            |
- +----------------------------------------------------------------------------+
-~~~
-{: .output}
+<!--
+███████ ██       ██████  ██████  ███████
+██      ██      ██    ██ ██   ██ ██
+███████ ██      ██    ██ ██████  █████
+     ██ ██      ██    ██ ██      ██
+███████ ███████  ██████  ██      ███████
+-->
 
-Resaltamos de la información del mapa:
+### Procedimiento en GRASS
 
-- 1242 filas.
-- 1144 columnas.
-- 1’420.848 píxeles.
-- 30.5 metros de resolución por píxel.
-- La altitud mínima es de 958 msnm.
-- La altitud máxima es de 2873 msnm.
-- El tipo de datos del mapa es `CELL`.
+Haciendo uso de la herramienta `r.param.scale` vamos a indicar un nombre descriptivo para el mapa que obtendremos, haciendo referencia al parámetro y al tamaño de la ventana móvil de procesamiento.
 
-La información recibida indica que el tipo de dato es `CELL` que en otros términos quiere decir que los valores de altitud del mapa `porcecito` se encuentran en números enteros. Para trabajar adecuadamente necesitamos transformar estos datos a números decimales para realizar operaciones.
+![](/cartografia-digital/images/clase-04/clase-04_03.png){: .img-responsive}
 
-#### Transformar los datos de números enteros a números decimales sin alterar los valores del archivo
+En la pestaña _Optional_ indicamos el parámetro a extraer y el tamaño de la ventana móvil a utilizar. Empleamos el tamaño por omisión que utiliza el comando (3 x 3).
 
-Se utiliza el comando `r.mapcalc`, que permite realizar operaciones matemáticas sobre los valores de los mapas raster
+![](/cartografia-digital/images/clase-04/clase-04_04.png){: .img-responsive}
 
-~~~
-r.mapcalc "porcecito1 = double(porcecito@PERMANENT)"
-~~~
+Y construimos el mapa de pendientes.
 
-Utilizamos la función `double()`, que convierte los valores numéricos al tipo "double precision", que es un tipo de datos decimal.
+![](/cartografia-digital/images/clase-04/clase-04_05.png){: .img-responsive}
 
-Consultar nuevamente la información del mapa:
+Visualizamos el mapa de pendientes en 2 y 3 dimensiones:
 
-~~~
-r.info map=porcecito1
-~~~
+![2D](/cartografia-digital/images/clase-04/porcecito_slope_3.png){: .img-responsive}
 
-~~~
- +----------------------------------------------------------------------------+
- | Layer:    porcecito1                     Date: Tue Ago  4 11:39:42 2015    |
- | Mapset:   CursoGrass                     Login of Creator: usuario         |
- | Location: CursoGrass                                                       |
- | DataBase: /home/usuario/Grass                                              |
- | Title:     ( porcecito1 )                                                  |
- | Timestamp: none                                                            |
- |----------------------------------------------------------------------------|
- |                                                                            |
- |   Type of Map:  raster               Number of Categories: 255             |
- |   Data Type:    DCELL                                                      |
- |   Rows:         1242                                                       |
- |   Columns:      1144                                                       |
- |   Total Cells:  1420848                                                    |
- |        Projection: Transverse Mercator                                     |
- |            N: 1231633.33333336    S: 1193683.33333335   Res: 30.55555556   |
- |            E: 889777.77777778    W: 854822.22222223   Res: 30.55555556     |
- |   Range of data:    min = 958  max = 2873                                  |
- |                                                                            |
- |   Data Description:                                                        |
- |    generated by r.mapcalc                                                  |
- |                                                                            |
- |   Comments:                                                                |
- |    double(porcecito@PERMANENT)                                             |
- |                                                                            |
- +----------------------------------------------------------------------------+
-~~~
-{: .output}
+![3D](/cartografia-digital/images/clase-04/porcecito_slope_3_3D.png){: .img-responsive}
 
-Observar que los datos del archivo se transformaron de `CELL` a `DCELL`.
-
-
-### Cálculo de las dimensiones de la zona de vecindad {#calculo-dimensiones-zona-vecindad}
-
-Un píxel en el mapa de entrada (`porcecito1`) tiene unas dimensiones de 30 x 30 metros y una extensión de 900 m<sup>2</sup>.
-
-Definamos para empezar como zona de vecindad una zona de 1.0 km<sup>2</sup> con centro en el píxel donde se realiza la operación. Con esta definición se establece una disyunción para los píxeles del mapa de entrada: para cualquier píxel del mapa de entrada se le puede interrogar así: **¿Pertenece o no pertenece a la vecindad?**
-
-#### ¿Cuáles son las dimensiones del kernel para una zona de vecindad de 1.0 km<sup>2</sup>?
-
-- Área de un píxel = 900 m<sup>2</sup>
-- 1.0 km<sup>2</sup> = 1000000 m<sup>2</sup>
-- N° de píxeles en 1.0 km<sup>2</sup> = 1111 píxeles aprox.
-- Raíz cuadrada (N° de píxeles en 1.0 km<sup>2</sup>) = 33.333333
-- Lado de la zona de vecindad / Lado del pixel (1000 m / 30 m = 33.33333)
-
-La zona de vecindad corresponde a un cuadrado cuyo lado es equivalente a la longitud que se obtiene de sumar el lado de 33 píxeles.
-
-### El mapa de relieve relativo
-
-**Advertencia:** Es importante definir la región de cálculo antes de calcular el mapa de relieve relativo, de lo contrario el mapa resultante podría quedar con errores.
-{: .alert .alert-warning}
-
-Se obtiene el mapa de relieve relativo calculando el rango de altitud en la zona de vecindad.
-
-~~~
-r.neighbors input=porcecito1 output=porce1_RR_33 method=range size=33
-~~~
-
-**Nota:** Al calcular el mapa de relieve relativo, este "hereda" la tabla de colores del mapa de entrada `porcecito1`, es necesario asignarle una tabla nueva al mapa recién crado para visualizarlo correctamente.
+**Nota:** [Recordar el procedimiento para la correcta visualización en 3D de un mapa que no contenga valores de altitud.](/cartografia-digital/clases/clase-03.html#el-mapa-de-relieve-relativo)
 {: .alert .alert-info}
 
-![Mapa de relieve relativo](/cartografia-digital/images/porce1_RR_33.png){: .img-responsive}
+Contestar los siguientes interrogantes:
 
-### Visualización 3D del mapa construido {#visualizacion-3D-mapa-construido}
+- *¿En qué parte del relieve se ubican las pendientes mas fuertes y que valores despliegan?*
+- *¿En qué parte del relieve se ubican las pendientes mas suaves y que valores despliegan?*
+- *¿Cuáles son las pendientes predominantes en la región de porcecito?*
 
-![Visualización 3D del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D.png){: .img-responsive}
+Estadísticos básicos del mapa de pendientes:
 
-_**¿Qué se observa en la imagen anterior?**_<br>
-_**¿Se puede visualizar la estructura del relieve?**_<br>
-_**¿En qué parte del relieve se presentan los desniveles altitudinales más pronunciados?**_
+~~~
+total null and non-null cells: 1420848
+total null cells: 4768
+Of the non-null cells:
+----------------------
+n: 1416080
+minimum: 0
+maximum: 71.7685
+range: 71.7685
+mean: 17.2661
+mean of absolute values: 17.2661
+standard deviation: 8.03757
+variance: 64.6026
+variation coefficient: 46.5511 %
+sum: 24450217.7022213
+~~~
+{: .output}
+
+### Construir el histograma de las gradientes
+
+Utilizar la herramienta de histograma ![Herramienta de histograma](/cartografia-digital/images/clase-01/layer-raster-histogram.png) del visualizador de mapas para ver un histograma continuo de los valores:
+
+![Histograma del mapa de pendientes](/cartografia-digital/images/clase-04/porcecito_slope_3_hist.png){: .img-responsive}
+
+_**¿Cómo interpretar el histograma?**_
 {: .text-danger .text-center}
 
-#### Explorar esta otra opción y contestar los interrogantes precedentes
+### Reclasificar el mapa de pendientes
 
-1. Visualizar el mapa `porcecito1` en 3D.
-2. Ir a la pestaña "Datos" del controlador de Vista 3D en la ventana de administración de capas.
-3. En la sección "Atributos de superficie", seleccionar el nuevo mapa `porce1_RR_33` como "Reglas de color".
+Utilizando el mismo procedimiento que utilizamos para [reclasificar el mapa de relieve relativo](/cartografia-digital/clases/clase-03.html#reclasificacion-mapa-relieve-relativo), elaboramos una tabla de reclasificación de la pendiente y la iremos modificando para obtener una representación categórica que nos satisfaga.
 
-![Visualización 3D del mapa porcecito1 con los colores del mapa de Relieve Relativo](/cartografia-digital/images/porce1_RR_33_3D2.png){: .img-responsive}
-
-### El contenido del mapa de relieve relativo
+#### Con seis categorías: Mapa 1
 
 ~~~
-r.info map=porce1_RR_33
+ 0 thru  3 = 1 Pendientes muy suaves
+ 3 thru  7 = 2 Pendientes suaves
+ 7 thru 15 = 3 Pendientes moderadas
+15 thru 25 = 4 Pendientes moderadamente inclinadas
+25 thru 35 = 5 Pendientes muy inclinadas
+35 thru 72 = 6 Pendientes escarpadas
 ~~~
 
+![2D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3.png){: .img-responsive}
+
+![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3D.png){: .img-responsive}
+
+La reclasificación de la pendiente en 6 rangos con los límites antes anotados genera un mapa de "sal y pimienta".
+
+Vamos a hacer una reclasificación más simple solo con tres categorías.
+
+#### Con tres categorías: Mapa 2
+
 ~~~
- +----------------------------------------------------------------------------+
- | Layer:    porce1_RR_33                   Date: Tue Ago  4 11:42:54 2015    |
- | Mapset:   CursoGrass                     Login of Creator: usuario         |
- | Location: CursoGrass                                                       |
- | DataBase: /home/usuario/Grass                                              |
- | Title:    33x33 neighborhood: range of porcecito1 ( porce1_RR_33 )         |
- | Timestamp: none                                                            |
- |----------------------------------------------------------------------------|
- |                                                                            |
- |   Type of Map:  raster               Number of Categories: 783             |
- |   Data Type:    DCELL                                                      |
- |   Rows:         1242                                                       |
- |   Columns:      1144                                                       |
- |   Total Cells:  1420848                                                    |
- |        Projection: Transverse Mercator                                     |
- |            N: 1231633.33333336    S: 1193683.33333335   Res: 30.55555556   |
- |            E: 889777.77777778    W: 854822.22222223   Res: 30.55555556     |
- |   Range of data:    min = 45  max = 783                                    |
- |                                                                            |
- |   Data Description:                                                        |
- |    generated by r.neighbors                                                |
- |                                                                            |
- |   Comments:                                                                |
- |    r.neighbors input="porcecito1" output="porce1_RR_33" method="range" \   |
- |    size=33                                                                 |
- |                                                                            |
- +----------------------------------------------------------------------------+
+ 0 thru  7 = 1 Pendientes muy suaves y suaves
+ 7 thru 25 = 2 Pendientes suaves y moderadas
+25 thru 72 = 3 Pendientes inclinadas y escarpadas
+~~~
+
+![2D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_2.png){: .img-responsive}
+
+![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_2_3D.png){: .img-responsive}
+
+El mapa con 3 categorías se torna más claro que el mapa con 6 categorías. Es frecuente que el excesivo detalle en la reclasificación de mapas no permite ver los patrones más frecuentes porque pasan desapercibidos debido a una excesiva reclasificación.
+
+#### Con tres categorías pero modificando sus límites: Mapa 3
+
+~~~
+ 0 thru 10 = 1 Pendientes muy suaves y suaves
+10 thru 29 = 2 Pendientes suaves y moderadas
+29 thru 72 = 3 Pendientes inclinadas y escarpadas
+~~~
+
+![2D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3.png){: .img-responsive}
+
+![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3_3D.png){: .img-responsive}
+
+_**¿Cuáles son las diferencias mas importantes entre los tres mapas?**_<br>
+_**¿Qué características del terreno resaltan en un mapa que aparecen poco evidentes claras en otro?**_
+{: .text-danger .text-center}
+
+### Consultar la información del mapa reclasificado de la pendiente {#consultar-informacion-mapa-reclasificado-pendiente}
+
+Si obtenemos un reporte del mapa reclasificado de pendientes obtendremos la siguiente tabla.
+
+~~~
++-----------------------------------------------------------------------------+
+|               Category Information                |  square  |   cell|   %  |
+|#|description                                      |kilometers|  count| cover|
+|-----------------------------------------------------------------------------|
+|1|Pendientes muy suaves y suaves . . . . . . . . . | 234.27038| 250921| 17.66|
+|2|Pendientes suaves y moderadas. . . . . . . . . . | 972.56924|1041694| 73.31|
+|3|Pendientes inclinadas y escarpadas . . . . . . . | 115.27211| 123465|  8.69|
+|*|no data. . . . . . . . . . . . . . . . . . . . . |   4.45160|   4768|  0.34|
+|-----------------------------------------------------------------------------|
+|TOTAL                                              |1326.56333|1420848|100.00|
++-----------------------------------------------------------------------------+
 ~~~
 {: .output}
 
-Este comando nos permite saber que el valor mínimo de RR es 45 metros y el valor máximo de RR es 783 metros.
+Observemos que aparece una categoría para los valores `no data`. Esto se debe al efecto de borde, pues en los pixeles del borde del mapa no habrá un valor de pendiente.
+
+![](/cartografia-digital/images/clase-04/clase-04_06.png){: .img-responsive}
+
+Para omitir los pixeles nulos del reporte utilizamos la opción de no reportar los valores sin datos (nulos) de la pestaña _No data_ de la herramienta `r.report`.
 
 ~~~
-r.report -h map=porce1_RR_33 units=p,c,k nsteps=20
++-----------------------------------------------------------------------------+
+|               Category Information                |  square  |   cell|   %  |
+|#|description                                      |kilometers|  count| cover|
+|-----------------------------------------------------------------------------|
+|1|Pendientes muy suaves y suaves . . . . . . . . . | 234.27038| 250921| 17.72|
+|2|Pendientes suaves y moderadas. . . . . . . . . . | 972.56924|1041694| 73.56|
+|3|Pendientes inclinadas y escarpadas . . . . . . . | 115.27211| 123465|  8.72|
+|-----------------------------------------------------------------------------|
+|TOTAL                                              |1322.11173|1416080|100.00|
++-----------------------------------------------------------------------------+
+~~~
+{: .output}
+
+### Actividad extra-curso
+
+1. Colocarle variación gradual del color al mapa de pendientes de porcecito.
+2. Emplear tabla gradacional de los colores que empleó para asignar colores al mapa reclasificado de pendientes.
+3. ¿Qué diferencias importantes observa entre los dos mapas cuando lo observa en 2D y en 3D?
+4. Realice una amplación de ambos mapas para observar con mas detalle algunos sectores de los mapas y facilitar el análisis comparativo.
+
+## Clasificación de las vertientes según su curvatura {#clasificacion-vertientes-segun-curvatura}
+
+![Fotografía de vertientes con diversas curvaturas](/cartografia-digital/images/clase-04/fotovert.png){: .img-responsive}
+
+### Conceptos importantes:
+
+Digamos que un atributo necesario pero no suficiente de una vertiente es el de poseer extensión.
+
+Las vertientes son superficies modeladas por procesos de remoción.
+
+- A las vertientes como superficies se les puede calcular perfiles.
+- Los perfiles son lineas.
+- Los perfiles se obtienen de graficar “distancia vs altitud”.
+- Los perfiles de los terrenos son lineas muy irregulares que resultan de unas combinaciones complejas de tres tipos de segmentos básicos: convexo (X), cóncavo (V) y rectilíneo (R).
+- La gradiente es la variación de la altitud con respecto a la distancia.
+- La variación de la gradiente con respecto a la distancia define el carácter convexo, cóncavo o rectilíneo de un segmento del perfil.
+
+Recordar del mapa de pendientes que se estableció que la pendiente es la variación de la altitud con respecto a la distancia.
+
+Ahora, la curvatura es la variación de la pendiente con respecto a la distancia.
+
+Un incremento sostenido de la pendiente con respecto a la distancia genera una curvatura convexa.
+
+Una disminución sostenida de la pendiente con respecto a la distancia genera una curvatura cóncava.
+
+Para definir la forma de una superficie se emplean dos perfiles ortogonales: uno en el sentido de la dirección de la superficie y otro en el sentido de la inclinación máxima de la superficie.
+
+#### Clasificación de las vertientes según Ruhe, R.V. (1975)
+
+- Perfil en el sentido de la inclinación de la vertiente.
+- Perfil en el sentido de la dirección de la vertiente.
+
+![Esquema de vertientes](/cartografia-digital/images/clase-04/vertientes.png){: .img-responsive}
+
+De acuerdo con la clasificación de Ruhe (1975) se puede inferir fácilmente:
+
+* El flujo superficial y subsuperficial de agua sigue trayectorias diferentes según el tipo de vertiente. En unos casos los flujos son divergentes, en otros casos los flujos son convergentes, y en otros casos el flujo es paralelo, es decir, ni divergente, ni convergente.
+* El flujo de agua en una vertiente tiene implicaciones importantes en:
+  - El desarrollo fisiológico de la vegetación.
+  - La respuesta diferencial frente a períodos húmedos o secos prolongados.
+  - El desarrollo de los perfiles de suelo.
+  - La estabilidad de las vertientes.
+  - La evolución de los perfiles de meteorización de las rocas.
+
+<!--
+██████  ██████   ██████  ███████  ██████
+██   ██ ██   ██ ██    ██ ██      ██
+██████  ██████  ██    ██ █████   ██
+██      ██   ██ ██    ██ ██      ██
+██      ██   ██  ██████  ██       ██████
+-->
+
+### Cálculo de la curvatura de perfil (vertical) {#calculo-curvatura-perfil}
+
+Utilizando la herramienta `r.param.scale` indicamos que vamos a extraer el parámetro `profc` con una ventana móvil de procesamiento de tamaño de 7x7 pixeles.
+
+![](/cartografia-digital/images/clase-04/clase-04_07.png){: .img-responsive}
+
+Definimos el nombre del mapa de salida para que refleje el parámetro y el tamaño de la ventana móvil de procesamiento.
+
+![](/cartografia-digital/images/clase-04/clase-04_08.png){: .img-responsive}
+
+Recordemos el significado de los valores positivos (curvatura convexa) y negativos (curvatura cóncava) para la curvatura vertical de acuerdo a lo definido para este parámetro al inicio de la clase:
+
+1. Los valores positivos de curvatura hacen referencia a perfiles convexos; mientras mayor sea el valor de la curvatura (más positivo), más cerrada es la convexidad.
+2. Los valores negativos de curvatura hacen referencia a perfiles cóncavos; mientras menor sea el valor de la curvatura (más negativo), más cerrada es la concavidad.
+3. Los valores cercanos a 0 hacen referencia a curvaturas muy abiertas que se aproximan a un plano; convexidades muy abiertas para valores positivos y concavidades muy abiertas para valores negativos.
+
+El mapa de curvatura de perfil debe reclasificarse al menos en 3 categorías principales:
+
+- Las curvaturas convexas.
+- Las curvaturas planares.
+- Las curvaturas cóncavas.
+
+También se pueden emplear más rangos si se desean diferenciar las curvaturas convexas y cóncavas, entre aquellas que son muy abiertas y aquellas que son muy cerradas.
+
+Lo primero que debemos hacer para poder llevar a cabo esta reclasificación, es consultar la información estadística del mapa obtenido.
+
+Pero no es suficiente la estadística univariada que se obtiene de manera regular por el menú contextual de la capa, es necesario invocar la herramienta de estadística `r.univar` para indicar que deseamos una estadística extendida, que incluye los cuartiles y el valor correspondiente al percentil 90% de los datos.
+
+![](/cartografia-digital/images/clase-04/clase-04_09.png){: .img-responsive}
+
+En ella indicamos el nombre de la capa raster a la cual le deseamos obtener la estadística.
+
+![](/cartografia-digital/images/clase-04/clase-04_10.png){: .img-responsive}
+
+Y en la pestaña _Extended_ activamos la opción para estadística extendida, opcionalmente acá podemos indicar cual o cuales percentiles queremos reportar.
+
+![](/cartografia-digital/images/clase-04/clase-04_11.png){: .img-responsive}
+
+Al ejecutar la orden, obtenemos el resultado.
+
+![](/cartografia-digital/images/clase-04/clase-04_12.png){: .img-responsive}
+
+~~~
+total null and non-null cells: 1420848
+total null cells: 14280
+Of the non-null cells:
+----------------------
+n: 1406568
+minimum: -0.0178222
+maximum: 0.0191937
+range: 0.037016
+mean: -0.000111333
+mean of absolute values: 0.00124119
+standard deviation: 0.00166422
+variance: 2.76962e-06
+variation coefficient: -1494.81 %
+sum: -156.597745915322
+1st quartile: -0.0010781
+median (even number of cells): -0.000191911
+3rd quartile: 0.00074942
+90th percentile: 0.00192106
+~~~
+{: .output}
+
+De acuerdo con los datos obtenidos, observamos que los valores de curvatura son extremadamente bajos, de tal modo que el valor promedio (`mean`) es del órden de una diezmilésima.
+
+Para poder reclasificar este mapa, necesitamos que los valores de curvatura sean del órden de decenas a centenas, puesto que al especificar los rangos de reclasificación sólo se pueden utilizar valores enteros. Por lo que debemos escalar los valores del mapa original.
+{: .alert .alert-warning}
+
+### Reclasificación del mapa de curvatura de perfil {#reclasificacion-mapa-curvatura-perfil}
+
+Para escalar el mapa, debemos de multiplicarlo por un factor de manera que el valor promedio sea del órden de las décimas para poder utilizar rangos enteros en la tabla de reclasificación.
+
+Esto lo haremos por medio de la **Calculadora de mapas raster** ![](/cartografia-digital/images/clase-03/raster-calculator.png) multiplicando el mapa original por 10^5.
+
+![](/cartografia-digital/images/clase-04/clase-04_13.png){: .img-responsive}
+
+Y volvemos a calcular los estadísticos de la nueva capa para definir las reglas de reclasificación.
+
+![](/cartografia-digital/images/clase-04/clase-04_14.png){: .img-responsive}
+
+Observemos que el mapa no se está modificando drásticamente, pues sólo cambiamos la escala de sus valores, que ahora son más manejables para hacer la reclasificación. En los nuevos valores de curvatura, el promedio (`mean`) ya se encuentra en el órden de las decenas y podemos especificar los rangos de reclasificación.
+
+![](/cartografia-digital/images/clase-04/clase-04_15.png){: .img-responsive}
+
+~~~
+total null and non-null cells: 1420848
+total null cells: 14280
+Of the non-null cells:
+----------------------
+n: 1406568
+minimum: -1782.22
+maximum: 1919.37
+range: 3701.6
+mean: -11.1333
+mean of absolute values: 124.119
+standard deviation: 166.422
+variance: 27696.2
+variation coefficient: -1494.81 %
+sum: -15659774.591532
+1st quartile: -107.81
+median (even number of cells): -19.1911
+3rd quartile: 74.942
+90th percentile: 192.106
+~~~
+{: .output}
+
+La clasificación de las curvaturas de perfil `profc` y plana `planc` presuponen como condición necesaria un conocimiento del relieve de la región representado en el mapa. Es el conocimiento de campo el que nos permite estimar o seleccionar adecuadamente el peso de los distintos tipos de curvatura. En este sentido, el computador brinda la opción de seleccionar cualquier rango y por lo tanto, obtener un número elevado de mapas distintos. Es la experiencia de campo la que permite tener un criterio adecuado para seleccionar los pesos de los diferentes tipos de curvatura.
+{: .alert .alert-success}
+
+Para la región de Porcecito en el departamento de Antioquia, vamos a considerar que las curvaturas de perfil cóncavas tienen pesos del órden del 40%, las curvaturas rectilíneas un peso del 20% y las curvaturas convexas un peso del 40%. Esta información es la que proviene de la experiencia de campo para incorporar al análisis computacional.
+
+![](/cartografia-digital/images/clase-04/clase-04_16.png){: .img-responsive}
+
+Utilizando el parámetro `percentile` de la herramienta `r.univar` podemos calcular los valores correspondientes a los percentiles 40% y 60% del mapa de curvatura vertical que dividen el rango de valores en 40% - 20% - 40%.
+
+![](/cartografia-digital/images/clase-04/clase-04_17.png){: .img-responsive}
+
+~~~
+total null and non-null cells: 1420848
+total null cells: 14280
+Of the non-null cells:
+----------------------
+n: 1406568
+minimum: -1782.22
+maximum: 1919.37
+range: 3701.6
+mean: -11.1333
+mean of absolute values: 124.119
+standard deviation: 166.422
+variance: 27696.2
+variation coefficient: -1494.81 %
+sum: -15659774.591532
+1st quartile: -107.81
+median (even number of cells): -19.1911
+3rd quartile: 74.942
+40th percentile: -51.5463
+60th percentile: 13.6386
+~~~
+{: .output}
+
+Las reglas de reclasificación propuestas se indican a continuación, redondeando los valores calculados a un valor entero.
+
+![](/cartografia-digital/images/clase-04/clase-04_18.png){: .img-responsive}
+
+~~~
+-1783 thru  -51 = -1 Concavo
+  -51 thru   14 =  0 Planar
+   14 thru 1920 =  1 Convexo
 ~~~
 
-**Nota:** Al ejecutar este comando aparecen ciertas advertencias debido a errores de traducción del GRASS, en este caso pueden ser ignoradas.
+El reporte de las categorías sería el siguiente:
+
+~~~
++-----------------------------------------------------------------------------+
+|               Category Information                |  square  |   cell|   %  |
+| #|description                                     |kilometers|  count| cover|
+|-----------------------------------------------------------------------------|
+|-1|Concavo. . . . . . . . . . . . . . . . . . . . .| 525.46304| 562810| 40.01|
+| 0|Planar . . . . . . . . . . . . . . . . . . . . .| 261.97247| 280592| 19.95|
+| 1|Convexo. . . . . . . . . . . . . . . . . . . . .| 525.79542| 563166| 40.04|
+|-----------------------------------------------------------------------------|
+|TOTAL                                              |1313.23093|1406568|100.00|
++-----------------------------------------------------------------------------+
+~~~
+{: .output}
+
+El mapa reclasificado obtenido es el siguiente:
+
+![2D](/cartografia-digital/images/clase-04/porcecito_profc_7.png){: .img-responsive}
+
+![3D](/cartografia-digital/images/clase-04/porcecito_profc_7_3D.png){: .img-responsive}
+
+El mapa de la curvatura vertical muestra claramente la diferencia entre concavidades pertenecientes a valles y convexidades perteneciente a divisorias de agua ubicadas en cimas de colinas.
+
+<!--
+██████  ██       █████  ███    ██  ██████
+██   ██ ██      ██   ██ ████   ██ ██
+██████  ██      ███████ ██ ██  ██ ██
+██      ██      ██   ██ ██  ██ ██ ██
+██      ███████ ██   ██ ██   ████  ██████
+-->
+
+### Cálculo de la curvatura plana (horizontal) {#calculo-curvatura-plana}
+
+Utilizando la herramienta `r.param.scale` indicamos que vamos a extraer el parámetro `planc` con una ventana móvil de procesamiento de tamaño de 7x7 pixeles.
+
+![](/cartografia-digital/images/clase-04/clase-04_19.png){: .img-responsive}
+
+Definimos el nombre del mapa de salida para que refleje el parámetro y el tamaño de la ventana móvil de procesamiento.
+
+![](/cartografia-digital/images/clase-04/clase-04_20.png){: .img-responsive}
+
+Recordemos el significado de los valores positivos (curvatura cóncava) y negativos (curvatura convexa) para la curvatura horizontal de acuerdo a lo definido para este parámetro al inicio de la clase:
+
+1. Los valores positivos de curvatura hacen referencia a planos cóncavos; mientras mayor sea el valor de la curvatura (más positivo), más cerrada es la concavidad.
+2. Los valores negativos de curvatura hacen referencia a planos convexos; mientras menor sea el valor de la curvatura (más negativo), más cerrada es la convexidad.
+3. Los valores cercanos a 0 hacen referencia a curvaturas muy abiertas que se aproximan a un plano; concavidades muy abiertas para valores positivos y convexidades muy abiertas para valores negativos.
+
+Nótese que los signos positivo y negativo tienen significado opuesto en las curvaturas plana y de perfil.
 {: .alert .alert-info}
 
+Vamos a emplear las mismas 3 categorías de curvatura para el caso de la curvatura plana:
+
+- Las curvaturas convexas.
+- Las curvaturas planares.
+- Las curvaturas cóncavas.
+
+Consultamos la estadística extendida del mapa obtenido.
+
+![](/cartografia-digital/images/clase-04/clase-04_21.png){: .img-responsive}
+
+Y obtenemos:
+
+![](/cartografia-digital/images/clase-04/clase-04_22.png){: .img-responsive}
+
 ~~~
- 100%
+total null and non-null cells: 1420848
+total null cells: 14280
+Of the non-null cells:
+----------------------
+n: 1406568
+minimum: -19.2
+maximum: 12.8727
+range: 32.0727
+mean: -0.000110073
+mean of absolute values: 0.0101302
+standard deviation: 0.0325693
+variance: 0.00106076
+variation coefficient: -29588.7 %
+sum: -154.825710731604
+1st quartile: -0.00591049
+median (even number of cells): -0.000227176
+3rd quartile: 0.00547276
+90th percentile: 0.0133584
+~~~
+{: .output}
+
+### Reclasificación del mapa de curvatura plana {#reclasificacion-mapa-curvatura-plana}
+
+De igual manera que hicimos con el mapa de curvatura de perfil debemos escalar los valores del mapa de curvatura plana porque el valor promedio (`mean`) es muy cercano a cero.
+
+![](/cartografia-digital/images/clase-04/clase-04_23.png){: .img-responsive}
+
+Y calculamos nuevamente los estadísticos para definir las reglas de reclasificación utilizando los mismos pesos (40% - 20% - 40%).
+
+![](/cartografia-digital/images/clase-04/clase-04_24.png){: .img-responsive}
+
+~~~
+total null and non-null cells: 1420848
+total null cells: 14280
+Of the non-null cells:
+----------------------
+n: 1406568
+minimum: -1.92e+06
+maximum: 1.28727e+06
+range: 3.20727e+06
+mean: -11.0073
+mean of absolute values: 1013.02
+standard deviation: 3256.93
+variance: 1.06076e+07
+variation coefficient: -29588.7 %
+sum: -15482571.0731596
+1st quartile: -591.049
+median (even number of cells): -22.7176
+3rd quartile: 547.276
+40th percentile: -218.711
+60th percentile: 173.238
+~~~
+{: .output}
+
+Las reglas de reclasificación se indican a continuación.
+
+![](/cartografia-digital/images/clase-04/clase-04_25.png){: .img-responsive}
+
+~~~
+-1920000 thru    -219 = -1 Convexo
+    -219 thru     173 =  0 Planar
+     173 thru 1287280 =  1 Concavo
+~~~
+
+Se reclasifica el mapa de acuerdo a las reglas definidas, y se obtiene un reporte de la distribución de las categorías.
+
+~~~
 +-----------------------------------------------------------------------------+
-|               Category Information                |   %  |   cell|  square  |
-|          #|description                            | cover|  count|kilometers|
+|               Category Information                |  square  |   cell|   %  |
+| #|description                                     |kilometers|  count| cover|
 |-----------------------------------------------------------------------------|
-|    45-81.9|from  to . . . . . . . . . . . . . . . |  2.01|  28556|  26.66108|
-| 81.9-118.8|from  to . . . . . . . . . . . . . . . |  8.68| 123314| 115.13113|
-|118.8-155.7|from  to . . . . . . . . . . . . . . . | 12.94| 183796| 171.59966|
-|155.7-192.6|from  to . . . . . . . . . . . . . . . | 12.74| 181073| 169.05735|
-|192.6-229.5|from  to . . . . . . . . . . . . . . . | 12.26| 174259| 162.69552|
-|229.5-266.4|from  to . . . . . . . . . . . . . . . | 11.48| 163078| 152.25647|
-|266.4-303.3|from  to . . . . . . . . . . . . . . . | 10.18| 144617| 135.02050|
-|303.3-340.2|from  to . . . . . . . . . . . . . . . |  8.64| 122812| 114.66244|
-|340.2-377.1|from  to . . . . . . . . . . . . . . . |  7.03|  99815|  93.19147|
-|  377.1-414|from  to . . . . . . . . . . . . . . . |  5.31|  75509|  70.49837|
-|  414-450.9|from  to . . . . . . . . . . . . . . . |  3.97|  56381|  52.63967|
-|450.9-487.8|from  to . . . . . . . . . . . . . . . |  2.46|  34884|  32.56917|
-|487.8-524.7|from  to . . . . . . . . . . . . . . . |  1.26|  17952|  16.76074|
-|524.7-561.6|from  to . . . . . . . . . . . . . . . |  0.52|   7445|   6.95096|
-|561.6-598.5|from  to . . . . . . . . . . . . . . . |  0.23|   3312|   3.09222|
-|598.5-635.4|from  to . . . . . . . . . . . . . . . |  0.12|   1703|   1.58999|
-|635.4-672.3|from  to . . . . . . . . . . . . . . . |  0.09|   1217|   1.13624|
-|672.3-709.2|from  to . . . . . . . . . . . . . . . |  0.05|    679|   0.63394|
-|709.2-746.1|from  to . . . . . . . . . . . . . . . |  0.03|    412|   0.38466|
-|  746.1-783|from  to . . . . . . . . . . . . . . . |  0.00|     34|   0.03174|
+|-1|Convexo. . . . . . . . . . . . . . . . . . . . .| 524.76748| 562065| 39.96|
+| 0|Planar . . . . . . . . . . . . . . . . . . . . .| 262.69791| 281369| 20.00|
+| 1|Concavo. . . . . . . . . . . . . . . . . . . . .| 525.76554| 563134| 40.04|
 |-----------------------------------------------------------------------------|
-|TOTAL                                              |100.00|1420848|1326.56333|
+|TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
 {: .output}
 
-Con el comando `r.report` se obtiene información sobre la distribución de los valores de relieve relativo en la zona del mapa de `porce1_RR_33`.
+El mapa reclasificado obtenido es el siguiente:
 
-La tabla obtenida puede ser llevada a LibreOffice para ser incluída en un informe posterior, para ello se utiliza el parámetro `output` para guardar el contenido en un archivo `.csv`:
+![2D](/cartografia-digital/images/clase-04/porcecito_planc_7.png){: .img-responsive}
 
-~~~
-r.report -h map=porce1_RR_33 units=p,c,k nsteps=20 output=reporte_porce1_RR_33.csv
-~~~
+![3D](/cartografia-digital/images/clase-04/porcecito_planc_7_3D.png){: .img-responsive}
 
-El archivo debe ser editado en gedit antes de poderse abrir con LibreOffice:
+Observar que haciendo zoom en sectores del mapa se pueden observar rasgos específicos del relieve.
 
-~~~
-gedit reporte_porce1_RR_33.csv
-~~~
+<!--
+███████ ███████  ██████  ██    ██ ███████ ██████  ████████
+██      ██      ██       ██    ██ ██      ██   ██    ██
+███████ █████   ██   ███ ██    ██ █████   ██████     ██
+     ██ ██      ██    ██  ██  ██  ██      ██   ██    ██
+███████ ███████  ██████    ████   ███████ ██   ██    ██
+-->
 
-Se eliminan las líneas que contienen guiones y se incluyen barras (`|`) para completar la primer columna en la primer y última fila, de manera que el contenido queda así:
+### Combinación de los mapas de curvaturas plana y de perfil {#combinacion-mapas-curvaturas}
 
-~~~
-|           |   Category Information                |   %  |   cell|  square  |
-|          #|description                            | cover|  count|kilometers|
-|    45-81.9|from  to . . . . . . . . . . . . . . . |  2.01|  28556|  26.66108|
-| 81.9-118.8|from  to . . . . . . . . . . . . . . . |  8.68| 123314| 115.13113|
-|118.8-155.7|from  to . . . . . . . . . . . . . . . | 12.94| 183796| 171.59966|
-|155.7-192.6|from  to . . . . . . . . . . . . . . . | 12.74| 181073| 169.05735|
-|192.6-229.5|from  to . . . . . . . . . . . . . . . | 12.26| 174259| 162.69552|
-|229.5-266.4|from  to . . . . . . . . . . . . . . . | 11.48| 163078| 152.25647|
-|266.4-303.3|from  to . . . . . . . . . . . . . . . | 10.18| 144617| 135.02050|
-|303.3-340.2|from  to . . . . . . . . . . . . . . . |  8.64| 122812| 114.66244|
-|340.2-377.1|from  to . . . . . . . . . . . . . . . |  7.03|  99815|  93.19147|
-|  377.1-414|from  to . . . . . . . . . . . . . . . |  5.31|  75509|  70.49837|
-|  414-450.9|from  to . . . . . . . . . . . . . . . |  3.97|  56381|  52.63967|
-|450.9-487.8|from  to . . . . . . . . . . . . . . . |  2.46|  34884|  32.56917|
-|487.8-524.7|from  to . . . . . . . . . . . . . . . |  1.26|  17952|  16.76074|
-|524.7-561.6|from  to . . . . . . . . . . . . . . . |  0.52|   7445|   6.95096|
-|561.6-598.5|from  to . . . . . . . . . . . . . . . |  0.23|   3312|   3.09222|
-|598.5-635.4|from  to . . . . . . . . . . . . . . . |  0.12|   1703|   1.58999|
-|635.4-672.3|from  to . . . . . . . . . . . . . . . |  0.09|   1217|   1.13624|
-|672.3-709.2|from  to . . . . . . . . . . . . . . . |  0.05|    679|   0.63394|
-|709.2-746.1|from  to . . . . . . . . . . . . . . . |  0.03|    412|   0.38466|
-|  746.1-783|from  to . . . . . . . . . . . . . . . |  0.00|     34|   0.03174|
-|TOTAL      |                                       |100.00|1420848|1326.56333|
-~~~
-{: .output}
+El mapa reclasificado de curvatura de perfil (vertical) tiene 3 valores:
 
-Una vez realizadas estas modificaciones, el archivo `reporte_porce1_RR_33.csv` puede abrirse en LibreOffice, en donde se debe especificar que el separador es "Otro" y corresponde a la barra vertical `|`. Allí se le puede dar formato a la tabla y presentarse de una manera similar a la siguiente:
+| Valor | Tipo de curvatura de perfil |
+|------:|:----------------------------|
+|    -1 | Concava (V)                 |
+|     0 | Rectilínea (R)              |
+|     1 | Convexa (X)                 |
+{: .table .table-striped}
 
-| Relieve Relativo | Porcentaje | No. Píxeles | Área (km<sup>2</sup>) |
-|:----------------:|:----------:|:-----------:|:---------------------:|
-|     45   -  81.9 |       2.01 |       28556 |              26.66108 |
-|     81.9 - 118.8 |       8.68 |      123314 |             115.13113 |
-|    118.8 - 155.7 |      12.94 |      183796 |             171.59966 |
-|    155.7 - 192.6 |      12.74 |      181073 |             169.05735 |
-|    192.6 - 229.5 |      12.26 |      174259 |             162.69552 |
-|    229.5 - 266.4 |      11.48 |      163078 |             152.25647 |
-|    266.4 - 303.3 |      10.18 |      144617 |             135.02050 |
-|    303.3 - 340.2 |       8.64 |      122812 |             114.66244 |
-|    340.2 - 377.1 |       7.03 |       99815 |              93.19147 |
-|    377.1 - 414   |       5.31 |       75509 |              70.49837 |
-|    414   - 450.9 |       3.97 |       56381 |              52.63967 |
-|    450.9 - 487.8 |       2.46 |       34884 |              32.56917 |
-|    487.8 - 524.7 |       1.26 |       17952 |              16.76074 |
-|    524.7 - 561.6 |       0.52 |        7445 |               6.95096 |
-|    561.6 - 598.5 |       0.23 |        3312 |               3.09222 |
-|    598.5 - 635.4 |       0.12 |        1703 |               1.58999 |
-|    635.4 - 672.3 |       0.09 |        1217 |               1.13624 |
-|    672.3 - 709.2 |       0.05 |         679 |               0.63394 |
-|    709.2 - 746.1 |       0.03 |         412 |               0.38466 |
-|    746.1 - 783   |       0.00 |          34 |               0.03174 |
-|==================|============|=============|=======================|
-|        **TOTAL** | **100.00** | **1420848** |        **1326.56333** |
-{: .table .table-hover}
+El mapa reclasificado de curvatura plana (horizontal) tiene 3 valores:
 
-**Nota:** Los datos del mapa deben ser del tipo `DCELL` para poder ser resumidos en rangos por el parámetro `nsteps` del comando `r.report`.
-{: .alert .alert-info}
+| Valor | Tipo de curvatura plana |
+|------:|:------------------------|
+|    -1 | Convexa (X)             |
+|     0 | Rectilínea (R)          |
+|     1 | Concava (V)             |
+{: .table .table-striped}
 
-En un trabajo acerca del relieve de Antioquia hemos empleado la clasificación que se observa en la siguiente tabla  para la definición de tipos de relieve de acuerdo al valor del Relieve Relativo.
+Es factible combinar estos dos mapas para obtener un mapa resultante en el cual se puedan obtener simultáneamente las curvaturas plana y de perfil para cada pixel. Como cada mapa tiene 3 categorías diferentes, el mapa resultante tendrá 9 categorías (3x3). Debemos sí, garantizar que cada categoría del mapa resultante tenga un valor único. La matriz a obtener deberá ser de la siguiente manera:
 
-| Valor de RR | Descripción morfológica                                               |
-|:-----------:|:----------------------------------------------------------------------|
-|    0 -   10 | Zonas de relieve muy suave                                            |
-|   10 -   75 | Colinas bajas                                                         |
-|   75 -  150 | Colinas intermedias                                                   |
-|  150 -  300 | Colinas altas                                                         |
-|  300 -  350 | Transición entre relieves colinados y relieves con disección profunda |
-|  350 -  450 | Disección profunda baja                                               |
-|  450 -  600 | Disección profunda intermedia                                         |
-|  600 - 1200 | Disección profunda pronunciada                                        |
-{: .table .table-hover}
+|       | **X** | **R** | **V** |
+| **V** |  VX   |  VR   |  VV   |
+| **R** |  RX   |  RR   |  RV   |
+| **X** |  XX   |  XR   |  XV   |
+{: .table .table-striped}
 
-La comparación de las dos tablas permite establecer los siguientes rangos para reclasificar el mapa de relieve relativo.
+En las filas están las categorías de curvatura de perfil y en las columnas las categorías de la curvatura plana.
 
-| Valor de RR | Descripción morfológica                                           |
-|:-----------:|:------------------------------------------------------------------|
-|   45 -   82 | Relieves planos y de colinas bajas                                |
-|   82 -  150 | Colinas intermedias                                               |
-|  150 -  300 | Colinas altas                                                     |
-|  300 -  350 | Transición entre relieve colinado y relieve de disección profunda |
-|  350 -  450 | Disección profunda baja                                           |
-|  450 -  600 | Disección profunda intermedia                                     |
-|  600 - 1200 | Disección profunda pronunciada                                  |
-{: .table .table-hover}
+Si sumamos los valores de los 2 mapas reclasificados, obtendríamos:
 
-### Reclasificación del mapa de relieve relativo {#reclasificacion-mapa-relieve-relativo}
+|        | **-1** | **0** | **1** |
+| **-1** |   -2   |  -1   |   0   |
+|  **0** |   -1   |   0   |   1   |
+|  **1** |    0   |   1   |   2   |
+{: .table .table-striped}
 
-El comando `r.reclass` crea un nuevo mapa (mapa reclasificado), cuyos valores de categorías están basados en una reclasificación de las categorías de una capa de mapa raster existente.
+**Observemos**
 
-Para aplicar el comando `r.reclass` se requiere elaborar un script en gedit para aplicar, el cual contiene las reglas de la reclasificación a utilizar.
+- La suma simple de los 2 mapas no permite diferenciar los segmentos **RX** de **VR** porque ambos tienen el mismo valor de -1.
+- De igual manera sucede con los segmentos **XX** - **RR** - **VV**, los cuales tienen el mismo valor de 0
+- También para los segmentos **XR** y **RV**, que tienen el mismo valor de 1.
 
-El script tiene el siguiente contenido:
+Para evitar la repetición de valores, multiplicamos el mapa de curvatura plana por el escalar `3`:
 
-`RCLS_porce1_RR`
+|        | **-3** | **0** | **3** |
+| **-1** |   -4   |  -1   |   2   |
+|  **0** |   -3   |   0   |   3   |
+|  **1** |   -2   |   1   |   4   |
+{: .table .table-striped}
+
+En este segundo caso cada combinación quedará con un valor diferente:
+
+| Valor | Tipo de vertiente |
+|------:|:------------------|
+|    -4 | VX                |
+|    -3 | RX                |
+|    -2 | XX                |
+|    -1 | VR                |
+|     0 | RR                |
+|     1 | XR                |
+|     2 | VV                |
+|     3 | RV                |
+|     4 | XV                |
+{: .table .table-striped}
+
+De modo que utilizando el álgebra de mapas podemos obtener el mapa mediante la operación:
 
 ~~~
- 45 thru  82 = 1 Relieves planos y de colinas bajas.
- 82 thru 150 = 2 Colinas intermedias.
-150 thru 300 = 3 Colinas altas.
-300 thru 350 = 4 Transicion entre relieve colinado y relieve de diseccion profunda.
-350 thru 450 = 5 Diseccion profunda baja.
-450 thru 600 = 6 Diseccion profunda intermedia.
-600 thru 785 = 7 Diseccion profunda pronunciada.
+tipo_vert = profc + planc * 3
 ~~~
 
-- Se inicia con la altitud mínima.
-- Se utilizan los rangos descritos en la tabla anterior.
-- A cada rango de reclasificación de la altitud se le asigna un numero entero consecutivo (1, 2, 3, ...).
-- Luego se hace una descripción corta (3 a 5 palabras) indicando lo que representa cada rango.
-- Finalmente se guarda el "script" asignándole un nombre o etiqueta para su identificación. Por omisión, el programa GRASS guarda el script en la carpeta personal del usuario, de donde la tomará al momento de invocarla.
-- Para identificar el script como unas reglas de reclasificación de un mapa especifico, se puede utilizar la convención: `RCLS_'Nombre del mapa a reclasificar'`. Por ejemplo: `RCLS_porce1_RR`
+La cual podemos efectuar utilizando la **Calculadora de mapas raster** ![](/cartografia-digital/images/clase-03/raster-calculator.png).
 
-Reclasificar un mapa involucra la acción de construir un nuevo mapa (mapa de salida) a partir de un mapa de entrada.
+![](/cartografia-digital/images/clase-04/clase-04_26.png){: .img-responsive}
 
-- El mapa de entrada contiene los valores de una variable para cada uno de los píxeles.
-- El mapa `porce1_RR_33` contiene el valor de RR para cada uno de los píxeles.
-
-El mapa de salida asigna un numero entero similar para todos los píxeles cuyo valor se encuentra dentro de un rango dado. Por ejemplo, en el script creado se ha estipulado que a los píxeles con valor de RR entre 45 - 82 les asigne el número 1, a los píxeles entre 82 - 150 les asigne el número 2, y así sucesivamente.
-
-De este modo obtenemos un mapa reclasificado del relieve relativo que contiene siete (7) categorías.
-
-La orden para elaborar un mapa reclasificado del relieve relativo es la siguiente:
+Visualizamos la distribución de los tipos de vertientes en el mapa `porcecito_tipo_vert`:
 
 ~~~
-r.reclass input=porce1_RR_33 output=porce1_RR_33_reclass rules=RCLS_porce1_RR
-~~~
-
-### Consultar el contenido del mapa reclasificado
-
-~~~
-r.report -h map=porce1_RR_33_reclass units=p,c,k
-~~~
-
-~~~
- 100%
 +-----------------------------------------------------------------------------+
-|               Category Information                |   %  |   cell|  square  |
-|#|description                                      | cover|  count|kilometers|
+|               Category Information                |  square  |   cell|   %  |
+| #|description                                     |kilometers|  count| cover|
 |-----------------------------------------------------------------------------|
-|1|Relieves planos y de colinas bajas.. . . . . . . |  2.01|  28556|  26.66108|
-|2|Colinas intermedias. . . . . . . . . . . . . . . | 19.44| 276185| 257.85791|
-|3|Colinas altas. . . . . . . . . . . . . . . . . . | 47.80| 679174| 634.10535|
-|4|Transicion entre relieve colinado y relieve de . | 11.49| 163250| 152.41705|
-| |diseccion profunda.                              |      |       |          |
-|5|Diseccion profunda baja. . . . . . . . . . . . . | 14.42| 204826| 191.23415|
-|6|Diseccion profunda intermedia. . . . . . . . . . |  4.57|  64903|  60.59617|
-|7|Diseccion profunda pronunciada.. . . . . . . . . |  0.28|   3954|   3.69162|
+|-4| . . . . . . . . . . . . . . . . . . . . . . . .| 143.33645| 153524| 10.91|
+|-3| . . . . . . . . . . . . . . . . . . . . . . . .|  93.60041| 100253|  7.13|
+|-2| . . . . . . . . . . . . . . . . . . . . . . . .| 287.83062| 308288| 21.92|
+|-1| . . . . . . . . . . . . . . . . . . . . . . . .| 108.79263| 116525|  8.28|
+| 0| . . . . . . . . . . . . . . . . . . . . . . . .|  59.16209|  63367|  4.51|
+| 1| . . . . . . . . . . . . . . . . . . . . . . . .|  94.74319| 101477|  7.21|
+| 2| . . . . . . . . . . . . . . . . . . . . . . . .| 273.33396| 292761| 20.81|
+| 3| . . . . . . . . . . . . . . . . . . . . . . . .| 109.20997| 116972|  8.32|
+| 4| . . . . . . . . . . . . . . . . . . . . . . . .| 143.22161| 153401| 10.91|
 |-----------------------------------------------------------------------------|
-|TOTAL                                              |100.00|1420848|1326.56333|
+|TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
 {: .output}
 
-Con el informe obtenido podemos responder preguntas, tales como:
+Para asignarle etiquetas a las categorías del nuevo mapa, utilizamos la  herramienta `r.category` que abrimos desde el menú _Raster -> Change category values and labels -> Manage category information_.
 
-- ¿Cuál es el tipo de relieve dominante en la zona de estudio y que extensión ocupa?
-- ¿Qué importancia en área tiene en la zona de estudio los relieves mas suaves?
+![](/cartografia-digital/images/clase-04/clase-04_27.png){: .img-responsive}
 
-Desplegar en 2D y en 3D el mapa reclasificado de relieve relativo
+En la herramienta seleccionamos el mapa de tipos de vertiente.
 
-![2D](/cartografia-digital/images/porce1_RR_33_reclass.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_28.png){: .img-responsive}
 
-![3D](/cartografia-digital/images/porce1_RR_33_reclass3D.png){: .img-responsive}
+Y en la pestaña _Define_ especificamos las etiquetas de las categorías indicando el valor de la categoría separando la etiqueta con una tabulación.
 
-Al desplegar el mapa `porce1_RR_33_reclass` el programa GRASS asigna unos colores a cada categoría.
-
-*¿Cómo asignar a voluntad del usuario una tabla de colores al mapa reclasificado de relieve relativo?*
-
-### Simplificar un mapa reclasificado
-
-Puede ocurrir que el mapa reclasificado en estudio contiene un numero elevado de categorías y sería interesante para algún propósito disminuir el numero de categorías para un análisis mas adecuado de lo que se estudia.
-
-Por ejemplo: el mapa `porce1_RR_33_reclass` posee siete (7) categorías pero nos interesa únicamente diferenciar entre colinas, relieve de transición y relieve de disección profunda. Es decir crear un mapa reclasificado de relieve relativo con tres categorías.
-
-En este caso, se trata de simplificar un mapa reclasificado existente: Elaborar un mapa reclasificado mas simple a partir de otro mapa
-reclasificado.
-
-Se elabora en gedit la nueva tabla de reclasificación y se guarda con un nombre.
-
-`RCLS_porce1_RR_simplif`
+![](/cartografia-digital/images/clase-04/clase-04_29.png){: .img-responsive}
 
 ~~~
-1 2 3 = 1
-  4   = 2
-5 6 7 = 3
+-4	VX
+-3	RX
+-2	XX
+-1	VR
+0	RR
+1	XR
+2	VV
+3	RV
+4	XV
 ~~~
 
-Se aplica el comando de reclasificación.
+Consultamos la distribución nuevamente:
 
 ~~~
-r.reclass input=porce1_RR_33_reclass output=porce1_RR_33_reclass_simplif rules=RCLS_porce1_RR-simplif
++-----------------------------------------------------------------------------+
+|               Category Information                |  square  |   cell|   %  |
+| #|description                                     |kilometers|  count| cover|
+|-----------------------------------------------------------------------------|
+|-4|VX . . . . . . . . . . . . . . . . . . . . . . .| 143.33645| 153524| 10.91|
+|-3|RX . . . . . . . . . . . . . . . . . . . . . . .|  93.60041| 100253|  7.13|
+|-2|XX . . . . . . . . . . . . . . . . . . . . . . .| 287.83062| 308288| 21.92|
+|-1|VR . . . . . . . . . . . . . . . . . . . . . . .| 108.79263| 116525|  8.28|
+| 0|RR . . . . . . . . . . . . . . . . . . . . . . .|  59.16209|  63367|  4.51|
+| 1|XR . . . . . . . . . . . . . . . . . . . . . . .|  94.74319| 101477|  7.21|
+| 2|VV . . . . . . . . . . . . . . . . . . . . . . .| 273.33396| 292761| 20.81|
+| 3|RV . . . . . . . . . . . . . . . . . . . . . . .| 109.20997| 116972|  8.32|
+| 4|XV . . . . . . . . . . . . . . . . . . . . . . .| 143.22161| 153401| 10.91|
+|-----------------------------------------------------------------------------|
+|TOTAL                                              |1313.23093|1406568|100.00|
++-----------------------------------------------------------------------------+
 ~~~
+{: .output}
 
-<!--- d.rast porce1_RR_33_reclass_simplif -->
+Y ya las categorías pueden ser identificadas.
 
-![2D](/cartografia-digital/images/porce1_RR_33_reclass_simplif.png){: .img-responsive}
-
-En vista 3D se obtiene:
-
-<!--- ~~~
-nviz porcecito1 color=porce1_RR_33_reclass_simplif
-~~~ -->
-
-![3D](/cartografia-digital/images/porce1_RR_33_reclass_simplif3D.png){: .img-responsive}
-
-## Tarea 4
+<!--
+## Tarea 5
 {: .text-danger}
 
-Elaborar el mapa de relieve relativo del archivo “ituango”.
-Utilizando la referencia para clasificar el relieve relativo que se presenta en esta clase,
-entregar los siguientes productos:
+Para esta tarea es necesario descargar el siguiente archivo [vergel.zip](/cartografia-digital/vergel.zip) y guardarlo en la carpeta personal de la máquina virtual y descomprimirlo utilizando el siguiente comando desde la terminal:
 
-1. Un mapa 2D de los valores de relieve relativo con variación gradual del color,
-   empleando tres colores, un color para el valor mas bajo de RR,
-   un segundo color para el valor de mediana del relieve relativo
-   y un tercer color para el valor máximo de relieve relativo.
-   El objetivo es seleccionar tres colores que permitan una
-   visualización óptima del relieve relativo en el archivo.
+~~~
+unzip ~/vergel.zip -d ~/Grass
+~~~
 
-2. Reclasificar el mapa de relieve relativo y emplear la variación
-   gradual del color para diferenciar y contrastar
-   los relieves de montaña y los relieves de colinas en el archivo.
+Iniciar GRASS nuevamente e ingresar al mapset `vergel` de la localización `Vergel`.
 
-3. Entregar una tabla (utilizar LibreOfficeCalc) indicando
-   la extensión y el porcentaje de cada uno de los tipos
-   de relieve identificados en el archivo “ituango”.
+Utilizando el álgebra de mapas diferenciar en el mapa `vergel1`, con colores diferentes, las pendientes suaves (menores de 3 grados) localizadas en los fondos de los valles y en las cimas de las colinas.
 
-4. Un guión en donde se muestre el procedimiento documentado para obtener
-   la información requerida para desarrollar los puntos anteriores.
+Entregables:
+
+* El guión con los comandos utilizados, debidamente documentado (archivo de texto con extensión `.sh`).
+* El mapa obtenido en formato `.png`.
+* Los archivos auxiliares utilizados (tablas de color, tablas de reclasificación, tablas de categorías).
+
+## Tarea 6
+{: .text-danger}
+
+En el mapa `ituango` definir 3 cultivos distintos para 3 rangos altitudinales diferentes, los cuales se pueden implementar en pendientes con un umbral mínimo y un umbral máximo. En cada rango altitudinal, las pendientes por encima del umbral máximo se dedicarán a conservación natural, y por debajo del umbral mínimo se dedicarán a ganadería. Elaborar este mapa y entregar:
+
+* El guión con los comandos utilizados, debidamente documentado (archivo de texto con extensión `.sh`).
+* Un mapa coloreado con los diferentes usos del suelo (en formato `.png`).
+* Los archivos auxiliares utilizados (tablas de color, tablas de reclasificación, tablas de categorías).
+* Un documento en formato `.pdf` que contenga:
+  - La justificación de los rangos utilizados en la elaboración de los mapas.
+  - Una tabla con las extensiones de cada uso y el porcentaje ocupado respecto al mapa `ituango`.
+  - Conclusiones y recomendaciones. -->

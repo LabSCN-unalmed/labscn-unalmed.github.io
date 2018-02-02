@@ -1,0 +1,146 @@
+<h2 class="no_toc" id="contenido">Contenido</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#preparar-una-base-de-datos-para-leer-en-el-r" id="markdown-toc-preparar-una-base-de-datos-para-leer-en-el-r">Preparar una base de datos para leer en el R.</a>    <ul>
+      <li><a href="#base-de-datos" id="markdown-toc-base-de-datos">Base de datos.</a></li>
+      <li><a href="#crear-una-carpeta-para-la-base-de-datos" id="markdown-toc-crear-una-carpeta-para-la-base-de-datos">Crear una carpeta para la base de datos.</a></li>
+      <li><a href="#guardarla-en-formato-csv" id="markdown-toc-guardarla-en-formato-csv">Guardarla en formato .csv</a></li>
+      <li><a href="#verificacin-del-formato" id="markdown-toc-verificacin-del-formato">Verificación del formato</a></li>
+    </ul>
+  </li>
+  <li><a href="#inicio-de-r" id="markdown-toc-inicio-de-r">Inicio de R</a>    <ul>
+      <li><a href="#abrir-el-programa-rstudio" id="markdown-toc-abrir-el-programa-rstudio">Abrir el programa RStudio</a></li>
+      <li><a href="#crear-un-guin-en-r" id="markdown-toc-crear-un-guin-en-r">Crear un guión en R.</a></li>
+      <li><a href="#guardar-un-guin-de-r" id="markdown-toc-guardar-un-guin-de-r">Guardar un guión de R.</a></li>
+      <li><a href="#verificar-la-ruta-el-rstudio" id="markdown-toc-verificar-la-ruta-el-rstudio">Verificar la ruta el RStudio.</a></li>
+      <li><a href="#cambiar-la-ruta-del-rstudio" id="markdown-toc-cambiar-la-ruta-del-rstudio">Cambiar la ruta del RStudio.</a></li>
+      <li><a href="#verificar-la-ruta-correcta-en-el-rstudio" id="markdown-toc-verificar-la-ruta-correcta-en-el-rstudio">Verificar la ruta correcta en el RStudio.</a></li>
+      <li><a href="#lectura-de-la-base-de-datos-en-r" id="markdown-toc-lectura-de-la-base-de-datos-en-r">Lectura de la base de datos en R.</a></li>
+      <li><a href="#cdigo-en-el-script-del-r" id="markdown-toc-cdigo-en-el-script-del-r">Código en el script del R.</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="preparar-una-base-de-datos-para-leer-en-el-r">Preparar una base de datos para leer en el R.</h2>
+
+<p>Se realizará el ejemplo del uso del R, utilizando una base de datos externa. En esta caso una base de datos en donde se registra por grupo de edad y género el número de homicidios en Colombia durante el 2014.</p>
+
+<p>Inicialmente se toma el archivo en formato .xlsx o .xls y se ubica en una carpeta nueva. La premisa es que se debe ubicar la base de datos en el mismo lugar en donde se grabará el guión o código de R.</p>
+
+<h3 id="base-de-datos">Base de datos.</h3>
+
+<ul>
+  <li><a href="./basesdedatos/HomicidiosColombia2014.xlsx">Homicidios en Colombia (xlsx)</a></li>
+</ul>
+
+<h3 id="crear-una-carpeta-para-la-base-de-datos">Crear una carpeta para la base de datos.</h3>
+<p>En este caso se creó una carpeta con el nombre de <code class="highlighter-rouge">practica1</code>. Y
+en ese lugar se ubicó el archivo <code class="highlighter-rouge">HomicidiosColombia.xlsx</code>, como se muestra a continuación:</p>
+
+<p><img src="./iniR/iniR03.png" alt="Inicio R 03" width="700" /></p>
+
+<p>Seguidamente se abre en Excel como se muestra en la siguiente imagen:</p>
+
+<p><img src="./iniR/iniR04.png" alt="Inicio R 04" width="700" /></p>
+
+<h3 id="guardarla-en-formato-csv">Guardarla en formato .csv</h3>
+<p>Se debe guardar con el formato <code class="highlighter-rouge">.csv</code> siguiendo la ruta de <code class="highlighter-rouge">guardar como ...</code> en la misma carpeta en donde está el archivo <code class="highlighter-rouge">.xlsx</code> y seleccionando la opción de <code class="highlighter-rouge">CSV (delimitado por comas) </code>, como se muestra a continuación:</p>
+
+<p><img src="./iniR/iniR05.png" alt="Inicio R 05" width="700" /></p>
+
+<p>En la carpeta deberán entonces mostrarse dos archivos, uno con formato <code class="highlighter-rouge">.xlsx</code>y otra con formato <code class="highlighter-rouge">.csv</code> como se muestra en la siguiente imagen. Note que ahora existe dos archivos con el mismo nombre pero tienen diferente icono (el uno representa el formato <code class="highlighter-rouge">.xlsx</code> y el otro <code class="highlighter-rouge">.csv</code>).</p>
+
+<p><img src="./iniR/iniR06.png" alt="Inicio R 06" width="700" /></p>
+
+<h3 id="verificacin-del-formato">Verificación del formato</h3>
+<p>Para verificar el formato en el cual está codificado el archivo <code class="highlighter-rouge">.csv</code> se abre con el programa <code class="highlighter-rouge">bloc de notas</code> y se debe mostrar como la siguiente imagen:</p>
+
+<p><img src="./iniR/iniR07.png" alt="Inicio R 07" width="700" /></p>
+
+<p>Note que los campos están separado por un punto y coma <code class="highlighter-rouge">(;)</code> y los puntos decimales se identifican por coma <code class="highlighter-rouge">(,)</code> (Este formato es el usual para la configuración <em>latinoamericana</em>). Si el archivo tiene un formato diferente, es decir los campos están separados por coma <code class="highlighter-rouge">(,)</code> y los puntos decimales se identifican por punto <code class="highlighter-rouge">(.)</code> entonces se deberá tener en cuenta a la hora de leer en R la base de datos (este formato se configura como un formato <em>aglosajón</em>), debido a que se requiere un cambio en el comando de lectura.</p>
+
+<h2 id="inicio-de-r">Inicio de R</h2>
+
+<h3 id="abrir-el-programa-rstudio">Abrir el programa RStudio</h3>
+
+<p>Ya se por un enlace directo en el escritorio o por el menú de programas se puede iniciar el programa RStudio.</p>
+
+<p><img src="./iniR/iniR01.png" alt="Inicio R 01" width="700" /></p>
+
+<p>Aparece la pantalla del R studio.</p>
+
+<p><img src="./iniR/iniR02.png" alt="Inicio R 02" width="700" /></p>
+
+<h3 id="crear-un-guin-en-r">Crear un guión en R.</h3>
+
+<p>Para crear un nuevo guión o script se sigue la ruta <code class="highlighter-rouge">File &gt; New File &gt; R Script</code></p>
+
+<p>Y ahora la apariencia es la siguiente:</p>
+
+<p><img src="./iniR/iniR08.png" alt="Inicio R 08" width="700" /></p>
+
+<h3 id="guardar-un-guin-de-r">Guardar un guión de R.</h3>
+<p>A continuación se sigue la ruta <code class="highlighter-rouge">File &gt; Save as</code> y se graba con un nombre como <code class="highlighter-rouge">guion_homicidios_Colombia</code> en el mismo lugar en donde se encuentran ubicadas las bases de datos. Así como se muestra a continuación:</p>
+
+<p><img src="./iniR/iniR09.png" alt="Inicio R 09" width="700" /></p>
+
+<p>Entonces ahora la interfaz RStudio deberá quedar de la siguiente manera:</p>
+
+<p><img src="./iniR/iniR10.png" alt="Inicio R 10" width="700" /></p>
+
+<h3 id="verificar-la-ruta-el-rstudio">Verificar la ruta el RStudio.</h3>
+
+<p>En la ventana de <code class="highlighter-rouge">console</code> de digita el siguiente comando <code class="highlighter-rouge">dir()</code> y luego la tecla <code class="highlighter-rouge">enter</code> y se mostrarán algunos nombres de archivos. En este caso <strong>no</strong> aparecen los nombres de los archivos de las bases de datos que se quieren leer.</p>
+
+<p><img src="./iniR/iniR11.png" alt="Inicio R 11" width="700" /></p>
+
+<h3 id="cambiar-la-ruta-del-rstudio">Cambiar la ruta del RStudio.</h3>
+<p>Se sigue la siguiente ruta para cambiar de carpeta o directorio de trabajo: <code class="highlighter-rouge">Session &gt; Set Working Directory &gt; To Source File Location</code> y se deberá mostar algo similar a la siguiente imagen:</p>
+
+<p><img src="./iniR/iniR12.png" alt="Inicio R 12" width="700" /></p>
+
+<h3 id="verificar-la-ruta-correcta-en-el-rstudio">Verificar la ruta correcta en el RStudio.</h3>
+
+<p>De nuevo se digita en la consola el comando o instrucción <code class="highlighter-rouge">dir()</code> y ahora aparecerán los nombres de los archivos de las bases de datos, junto con el nombre del script como se muestra a continuación:</p>
+
+<p><img src="./iniR/iniR13.png" alt="Inicio R 13" width="700" /></p>
+
+<h3 id="lectura-de-la-base-de-datos-en-r">Lectura de la base de datos en R.</h3>
+
+<p>En la ventana del guión o script se escribe el siguiente código:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Lectura de la base de datos de homicidios en Colombia en el 2014
+</span><span class="n">homCol</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv2</span><span class="p">(</span><span class="s2">"HomicidiosColombia2014.csv"</span><span class="p">)</span><span class="w">
+</span><span class="c1"># Muestra la base de datos de homicidios en Colombia en el 2014
+</span><span class="n">homCol</span></code></pre></figure>
+
+<p><strong>Nota:</strong> En el caso de que el formato sea el <em>anglosajón</em> en lugar de <code class="highlighter-rouge">read.csv2()</code> se utiliza la función <code class="highlighter-rouge">read.csv()</code>.</p>
+
+<p>Para ejecutar el código se ubica en cada renglón y se presiona <code class="highlighter-rouge">Ctrl-Enter</code> y así cada línea se ejecutará una a una repitiendo la teclas <code class="highlighter-rouge">Ctrl-Enter</code>.</p>
+
+<p>Para ejecutar <strong>todo</strong> el código se presiona las tecla <code class="highlighter-rouge">Ctrl-Alt-R</code>.</p>
+
+<p>El resultado de la ejecución del código es:</p>
+
+<p><img src="./iniR/iniR14.png" alt="Inicio R 14" width="700" /></p>
+
+<h3 id="cdigo-en-el-script-del-r">Código en el script del R.</h3>
+
+<p>Para realizar otras actividades, ya sean de cálcuo o gráficas se añade el código correspondiente como se muestra a continuación:</p>
+
+<p>No olvidar grabar frecuentemente el código para no perder las acciones realizadas.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Cálculo de estadísticos de tasa de homicidios totales
+</span><span class="n">with</span><span class="p">(</span><span class="n">homCol</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">TasaT</span><span class="p">)</span><span class="w">
+</span><span class="c1"># Gráfica sencilla con las tasas de homicidios totales por grupo de edad
+</span><span class="n">with</span><span class="p">(</span><span class="n">homCol</span><span class="p">,</span><span class="w"> </span><span class="n">barplot</span><span class="p">(</span><span class="n">TasaT</span><span class="p">)</span></code></pre></figure>
+
+<p>El resultado final se muestra en la siguiente imagen:</p>
+
+<p><img src="./iniR/iniR15.png" alt="Inicio R 15" width="700" /></p>
+
+<p>Si se desea terminar la sesión se procede a cerrar el programa el cual mostrará una pantalla como la siguiente:</p>
+
+<p><img src="./iniR/iniR16.png" alt="Inicio R 16" width="400" /></p>
+
+<p>En este caso se elige la opción <code class="highlighter-rouge">Save</code> para guardar el espacio de trabajo o <code class="highlighter-rouge">workspace</code>.</p>

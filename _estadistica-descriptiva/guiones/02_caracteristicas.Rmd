@@ -1,0 +1,168 @@
+---
+title: "Tamaño de muestra"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves 4 de mayo de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+X <- read.csv("coordenadaX.csv")
+X$fecha <- as.POSIXct(X$timestamp/1000, origin = "1970-01-01")
+
+Y <- read.csv("coordenadaY.csv")
+Y$fecha <- as.POSIXct(Y$timestamp/1000, origin = "1970-01-01")
+
+Z <- read.csv("coordenadaZ.csv")
+Z$fecha <- as.POSIXct(Z$timestamp/1000, origin = "1970-01-01")
+
+```
+
+
+## Unificar base de datos por columna
+
+```{r}
+library(dplyr)
+
+X1 <- X %>% 
+      select(timestamp, value) %>% 
+      rename(valorX = value)
+
+Y1 <- Y %>% 
+      select(timestamp, value) %>% 
+      rename(valorY = value)
+
+Z1 <- Z %>% 
+      select(timestamp, value) %>% 
+      rename(valorZ = value)
+
+XY <- full_join(X1, Y1)
+XYZ <- full_join(XY, Z1)
+
+head(XYZ)
+
+```
+
+## Calcular aceleración total
+
+```{r}
+library(dplyr)
+XYZ <- XYZ %>% 
+       mutate(valorT = sqrt(valorX ^ 2 + valorY ^ 2 + valorZ ^ 2),
+       fecha = as.POSIXct(timestamp/1000, origin = "1970-01-01")) %>%
+       dplyr::filter(!is.na(valorT))
+```
+
+## Gráfica de la aceleración total
+
+```{r}
+library(ggplot2)
+gt <- ggplot(XYZ, aes(fecha, valorT))
+gt + geom_point() + geom_line()
+```
+```{r}
+XYZ$minuto <- format(XYZ$fecha, "%M")
+```
+
+Procedimiento para calcular el tamaño de muestra
+
+Insumos:
+ - Datos de cinco (5) minutos de caminata por duplicado (2 veces)
+ - Datos de viaje en bus por diez minutos por duplicado (2 veces)
+
+En total se tiene dos series para caminatas y dos series para viaje en bus.
+
+Dividir los datos de los 5 minutos de caminata por minuto, se obtienen 
+así 10 tramos o divisiones, a cada división se calcula 
+el promedio de la aceleración total de tal manera que se tienen 10 datos 
+de promedio.
+
+```{r}
+library(dplyr)
+XYZ$minuto <- factor(format(XYZ$fecha, "%M"))
+promMin <- XYZ %>%
+           select(valorT, minuto) %>%
+           group_by(minuto) %>%
+           summarise(promT = mean(valorT))
+promMin
+```
+
+
+Se calcula de desviación estándar de los 10 datos
+
+```{r}
+sd(promMin$promT)
+```
+
+
+Se calcula el tamaño de muestra de la siguiente manera:
+
+```{r}
+library(pwr)
+delta <- 0.17
+sigma <- sd(promMin$promT)
+d <- delta/sigma
+result1 <- pwr.t.test(d = d, sig.level = 0.05, power = 0.80, type = 'two.sample')
+result1
+```
+
+En el ejemplo anterior se estima que la diferencia detectable es mayor
+que la desviación estándar en aproximadamente un `r round((delta-sigma)/sigma * 100, 1)`
+% aproximadamente.
+
+```{r}
+(delta-sigma)/sigma * 100
+```
+
+Por decisión del grupo se determina el nivel de porcentaje de error con
+respecto a la desviación estándar para relizar el experimento.
+
+El procedimiento se repite para los datos del viaje en bus, pero
+esta vez se cada dos (2) minutos y de nuevo se tienen 10 (diez) datos en total.
+
+Se debe examinar si la diferencia entre el promedio de los promedios 
+de caminata y bus es mayor que el nivel de "d" propuesto en 
+el tamaño de muestra.
+
+## Tamaño de muestra final
+
+Para el ejemplo se tiene que el número de persona por cada nivel
+es de `r ceiling(result1$n)`
+
+Las actividades son:
+
+ - Caminar.
+ - Correr o trotar.
+ - Viajar en bus.
+ - Viajar en metro.
+ - Un nivel propuesto por el grupo.
+ - Otro nivel propuesto por el grupo.
+ 
+ Se tienen seis niveles, por lo tanto el número de personas es de
+ `r ceiling(result1$n)` x 6 = `r ceiling(result1$n)*6` personas diferentes, 
+ a cada persona se le toma como mínimo 5 minutos en la actividad respectiva.
+ 
+ Recordar registrar las siguientes variables por persona:
+ 
+  - Género.
+  - Estatura
+  - Peso.
+  - Edad (La población está determinada a edades entre [15 y 30] años)
+  
+Registar la posición en la que estaba cuando estaba en los medios de transporte.
+
+  - Posición: parado, sentado.
+  - Hora del día.
+  - Día de la semana.
+  - Clima: lluvia, no lluvia.
+  
+  
+  
+  
+
+

@@ -1,0 +1,175 @@
+---
+title: "Datos areales"
+author: "Universidad Nacional de Colombia, Sede Medellín"
+date: 31 de mayo de 2017
+output:
+  html_document:
+    highlight: textmate
+    theme: readable
+    toc: yes
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, 
+                      fig.height=8)
+```
+
+## Lectura del mapa de municipios de Antioquia.
+
+```{r}
+# Paquetes requeridos
+library(spdep)
+library(maps)
+library(maptools)
+library(classInt)
+library(RColorBrewer)
+library(data.table)
+library(rgdal)
+```
+
+```{r}
+ogrDrivers()
+dsn <- "."
+ogrListLayers(dsn)
+
+muniantioq <- readOGR(dsn =".",layer = "municipiosAntioq", encoding = "latin1")
+```
+
+## Despliegue del mapa de municipios de Antioquia
+```{r}
+plot(muniantioq)
+```
+
+## Manejo de la estructura SpatialPolygonsDataFrame
+```{r}
+summary(muniantioq)
+class(muniantioq)
+str(muniantioq, max.level=2)
+bbox(muniantioq)
+proj4string(muniantioq)
+slotNames(muniantioq)
+class(muniantioq@data)
+class(muniantioq@polygons)
+slotNames(muniantioq@polygons[[1]])
+datos_muniantioq <- data.table(muniantioq@data)
+datos_muniantioq$MUNICIPI
+```
+
+
+
+
+
+## Despligue de colores de acuerdo a la variable NBI
+```{r}
+l2 <- list("SpatialPolygonsRescale",
+           layout.north.arrow(),
+           offset = c(1000000,1120000), 
+           scale = 50000)
+spplot(muniantioq,  c("NBI"), sp.layout=list(l2))
+
+```
+
+
+## Más manipulación del objeto SpatialPolygonsDataFrame
+```{r}
+plot(muniantioq)
+plot(muniantioq[muniantioq$NBI > 60,], add=TRUE, col="gray")
+
+plot(muniantioq)
+plot(muniantioq[muniantioq$MUNICIPI == "SALGAR",], add=TRUE, col="black")
+
+```
+
+
+## Creación de la matriz de adjacencia
+
+```{r}
+vecinosAnt <- poly2nb(muniantioq,muniantioq@data$MUNICIPI)
+vecinosAnt
+summary(vecinosAnt)
+str(vecinosAnt)
+matrizAdjAnt <- nb2mat(vecinosAnt, style = "B")
+
+```
+
+## Identificación del municipio con más vecinos
+
+```{r}
+summary(vecinosAnt)
+str(vecinosAnt)
+(IDRegion <- attr(vecinosAnt, "region.id"))
+muniantioq@data[IDRegion=="MEDELLIN",]
+vecinosAnt[IDRegion=="MEDELLIN"]
+(vecinosV <- vecinosAnt[IDRegion=="MEDELLIN"][[1]])
+```
+
+```{r}
+plot(muniantioq)
+plot(muniantioq[IDRegion=="MEDELLIN",], add=TRUE, col="black")
+plot(muniantioq[vecinosV,],add=TRUE, col="gray")
+```
+
+
+## Pruebas de autocorrelación espacial en datos areales
+
+```{r}
+lista_pesos <- nb2listw(vecinosAnt, style = "B")
+
+moran.test(muniantioq@data$NBI, lista_pesos)
+
+geary.test(muniantioq@data$NBI, lista_pesos)
+```
+
+```{r}
+plot(muniantioq)
+plot(lista_pesos, coordinates(muniantioq), add = TRUE, col = "blue")
+```
+
+## Estimación de modelos SAR 
+
+```{r}
+mSAR <- spautolm(NBI~1, data = muniantioq, listw = lista_pesos)
+mSAR
+summary(mSAR)
+```
+
+## Estimación de modelos CAR 
+
+```{r}
+mCAR <- spautolm(NBI~1, data = muniantioq, listw = lista_pesos, family = "CAR" )
+mCAR
+summary(mCAR)
+```
+
+## Interpretación informal de los modelos SAR y CAR.
+
+ - Sin modelo espacial:
+   El precio de mi casa depende de la inversión que lo le haga a mi casa.
+   (No hay modelo espacial areal)
+ - Modelo SAR (Más general, segundo orden de dependencia):
+   El precio de mi casa depende del precio de la casa de mis vecinos.
+ - Modelo CAR (Más local, primer orden de dependencia):
+   El precio de mi casa depende del valor de las mejoras que los vecinos
+   hagan de sus casa.
+
+
+## Criterio de selección de modelos
+
+Verosimilitud relativa:
+
+Se interpreta como la proporción de probabiliad que el modelo candidato
+minimiza la estimación de la pérdida de información.
+
+```{r}
+exp((AIC(mSAR) - AIC(mCAR))/2)
+```
+
+## Ajuste de los valores predichos y los reales
+```{r}
+plot(muniantioq$NBI, fitted(mSAR), pch = 19, col = "blue")
+text(muniantioq$NBI, fitted(mSAR), labels = muniantioq$Nmbr_Mn, cex = 0.7,
+     pos = 3)
+abline(c(0,1), col = "red")
+```
+

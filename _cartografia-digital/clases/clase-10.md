@@ -2,8 +2,8 @@
 layout: clase
 title: 'Manejo de proyecciones y creación de locations'
 curso: 'cartografia-digital'
-clase: 10
 ---
+<!-- clase: 10 -->
 
 Las proyecciones
 ----------------

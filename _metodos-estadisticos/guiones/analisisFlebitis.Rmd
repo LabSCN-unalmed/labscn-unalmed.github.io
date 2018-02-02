@@ -1,0 +1,98 @@
+---
+title: "Medidas respetidas en el tiempo"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes,  9 de mayo de 2017"
+output:
+  html_document:
+    toc: yes
+---
+
+Quince (15) conejos blancos de aproximadamente 3 kg cada uno se dividieron al azar
+en tres grupos. Cada grupo recibió un tratamiento 
+distinto para evaluar el efecto de un fármaco en el incremento de la 
+temperatura promedio de cada conejo. El placebo consistió en una
+soluciòn salina, el segundo tratamiento se administró solo un excipiente
+en el cual se utilizará el principio activo y el tercer tratamiento
+consistió en una solución con amiodarone al 10%. 
+
+A cada conejo se le inyectó la soluciòn en una oreja y se midió la diferencia
+en temperatura entre las dos orejas al inicio del experimento,  a los 30, 
+60 y 90 minutos,  para detectar una inflamación temprana mediante la diferencia
+de temperatura entre las orejas de los conejos. 
+La diferencia de temperatura se midió en grados centígrados. 
+
+
+## Lectura de la base de datos.
+
+```{r}
+flb1 <- read.csv2("flebitis.csv", enc = "latin1")
+flb1$IdConejo <- with(flb1, as.integer(factor(paste(tratamiento, conejo))))
+flb1$IdConejo <- factor(flb1$IdConejo)
+flb1$conejo <- factor(flb1$conejo)
+flb1$tratamiento  <-  factor(flb1$tratamiento,  levels = c("Salina",  
+                                                      "Excipiente", 
+                                                      "Amiodarone")) 
+```
+
+## Análisis exploratorio.
+
+```{r}
+require(ggplot2)
+g1  <-  ggplot(flb1,  aes(tiempo,  Dif_temp,  col  =  tratamiento,  group  =  IdConejo))
+g1 + geom_point() +
+     geom_line(aes(linetype  =  tratamiento)) +
+     geom_smooth(aes(fill  =  tratamiento,  group  =  tratamiento),  span  =  1.2, 
+                  alpha  =  0.2)
+```
+
+## Modelación.
+
+```{r}
+require(nlme)
+
+gflb1 <- groupedData(Dif_temp ~ tiempo | IdConejo,  data  =  flb1)
+plot(gflb1)
+
+m1 <- lme(Dif_temp ~ tiempo + tratamiento + tiempo:tratamiento +
+          I(tiempo^2) + I(tiempo^2):tratamiento +
+          I(tiempo^3) + I(tiempo^3):tratamiento,  data = gflb1, 
+        random  =  ~ 1)
+anova(m1)
+
+m2 <- lme(Dif_temp ~ tiempo + tratamiento + tiempo:tratamiento,  data = gflb1, 
+        random  =  ~ 1)
+anova(m2)
+
+summary(m2)
+```
+
+## Diagnósticos del modelo
+
+```{r}
+shapiro.test(residuals(m2))
+```
+
+
+## Predicción del modelo
+
+```{r}
+flb1$Dif_tempp <- predict(m2, level = 0)
+
+g1  <-  ggplot(flb1,  aes(tiempo,  Dif_temp,  col  =  tratamiento,  group  =  IdConejo))
+g1 + geom_point() +
+     geom_line(aes(tiempo,  Dif_tempp,  linetype  =  tratamiento),  size  =  0.7) +
+     geom_line(aes(tiempo,  Dif_temp,  group  =  IdConejo),  size  =  0.2)
+```
+
+## Si se hubiera asumido independencia
+
+```{r}
+m0 <- lm(Dif_temp~tiempo + tratamiento + tiempo:tratamiento +
+          I(tiempo^2) + I(tiempo^2):tratamiento +
+          I(tiempo^3) + I(tiempo^3):tratamiento,  data = flb1)
+anova(m0)
+
+m00 <- lm(Dif_temp~tiempo + tratamiento + tiempo:tratamiento,  data = flb1)
+anova(m00)
+
+```

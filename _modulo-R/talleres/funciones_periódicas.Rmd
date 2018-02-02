@@ -1,0 +1,94 @@
+---
+title: "Funciones perdiódicas"
+author: "Kenneth Roy Cabrera Torres"
+date: "Viernes, 5 de mayo de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Funciones periódicas
+
+### Función seno()
+```{r}
+x <- seq(0, 16*pi, pi/24)
+senox <- sin(x)
+```
+```{r}
+plot(x, senox, type = "l")
+```
+
+### Función coseno()
+
+```{r}
+cosx <- cos(x)
+plot(x, cosx, type = "l")
+```
+
+## Función periódica con amplitud y frecuencia diferente
+
+```{r}
+fper <- 2*sin(x/5)
+plot(x, fper, type = "l")
+```
+
+
+## Composición de funciones periódicas
+
+```{r}
+comp1 <- senox + cosx + fper + 3* sin(2*x + pi)
+plot(x, comp1, type = "l")
+```
+
+## Ejercicio individual
+
+Dada una base de datos en donde se especifice por filas cuatro parámetros,
+funcion: sen o cos, A: amplitud, factor_frec: factor de frecuencia y despl: desplazamiento.
+
+Constuir una función que tenga como entrada los valores de los ángulos ($x$), 
+la base de datos anteriormente
+definida y como salida el resultado de la composición de todas las definiciones
+de la base de datos.
+
+Por ejemplo en el caso presentado la base de datos sería la siguiente:
+
+```{r}
+base1 <- read.csv2("taller1.csv")
+base1
+```
+La función deberá generar los valores de $y$ (comp1) de la función compuesta:
+
+```
+comp1 <- funcion_taller(x, base1)
+```
+
+```{r}
+comp1
+```
+
+```{r}
+plot(x, comp1, type = "l")
+```
+
+
+## Fecha de entrega
+
+Miércoles, 10 de mayo de 2017 antes de las 23:59 hora de Colombia al 
+correo krcabrer@unal.edu.co 
+no olvidar escribir en asunto [ModuloR]. 
+
+NO se admitiran FUNCIONES iguales (ni maquilladas).
+
+Nota: La mejor función será la que tenga menos "if" y menos "for" posibles,
+y de ahí hacia atrás se calificará desde 5.0.
+
+Documento de entrega:
+
+ - Archivo "html" sin códigos, en donde se explique el uso y ejemplos de
+   la función construida.
+ - Archivo "Rmd" con el código de la función construida.
+
+
+

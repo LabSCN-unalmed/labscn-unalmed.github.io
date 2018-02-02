@@ -6,123 +6,153 @@ custom_js: 'mathjax'
 order: 3
 ---
 
-## Tarea 1
 
-Fecha de entrega: miércoles 15 de junio de 2016 antes de las 23:59
-  [hora de Colombia](http://horalegal.inm.gov.co/).
 
-Escriba un algoritmo que:
+## Contenido
+{: .no_toc}
 
- - Lea dos números y los muestre en las variables intercambiadas (sin utilizar
-   una tercera variable auxiliar).
+* ToC
+{: toc}
 
- - Lea un número entero cualquiera y determine si es
-   [capicúa](https://es.wikipedia.org/wiki/Capic%C3%BAa).
 
- - Lea una oración y determine el número de palabras, suponiendo que cada
-   palabra está separada de otra por mínimo un espacio en blanco. Suponga
-   también que no se tienen signos de puntuación.
 
- - Lea las coordenadas de los vértices de un tríangulo y
-   determine si es rectángulo.
+## Primera tarea individual
 
- - Lea la longitud de tres segmentos y determine si con ellos se puede
-   constuir un triángulo.
+### Enunciado
 
- - **Punto extra** (Vale por los cinco anteriores) Lea las coordenadas
-   de dos puntos de una recta y determine las coordenadas
-   del punto de intersección con otra recta dada las coordenadas de dos puntos
-   que pertenecen a la otra recta.
+Escriba un algoritmo en seudocódigo que:
 
-Archivos para entrega:
+ 1.  Lea las lados de un rectángulo y como resultado muestre su área.
+ 2.  Lea las coordenadas de dos puntos y muestre la distancia de
+    [Manhattan o City o distancia del taxista](https://es.wikipedia.org/wiki/Geometr%C3%ADa_del_taxista).
+ 3.  Lea las coordenadas de los vétices de un triángulo y determine si es un
+     triángulo rectángulo.
+ 4.  Lea la longitud de tres segmentos y determine si con
+     ellos se puede construir un triángulo.
+ 5.  Dadas las coordenadas de dos puntos de una recta,
+     determinar si dicha recta es paralela a otra recta dada
+     las coordenadas de dos puntos de la segunda recta.
+
+ 6.  **Punto extra** (Vale por los cinco puntos) Se tiene $$ N $$ posiciones de ciertos eventos,
+     $$ (x_1, y_1), (x_2, y_2), \cdots , (x_n, y_n) $$
+     se tiene además un radio $$ B $$ denominado zona de confort, se pretende
+     calcular la posibilidad del origen de los eventos para cada coordenada
+     $$ (X_i, Y_j) $$ de una cuadrícula mediante la fórmula:
+
+     $$
+     p_{ij} = \sum_{k = 1}^N \left[  \frac{\phi}{|X_i - x_k| + |Y_j - y_k|}  +
+              \frac{1- \phi}{(2B - |X_i - x_k| - |Y_j - y_k|)} \right]
+     $$
+
+     Dónde:
+
+     $$
+       \phi = \begin{cases}
+                  1 & \textrm{ si } (|X_i - x_k| + |Y_j - y_k|) > B  \\
+                  0 & \text{ en otro caso, e. o. c.}
+              \end{cases}
+     $$
+
+     Calcule para una matriz de $$ 10 \times 10 $$, para cada posición
+     $$ i, j $$ los valores de $$ p_{ij} $$.
+
+     Para entender el uso del punto extra conviene verse el
+     episodio 1 de la temporada 1 de la serie Numb3rs.
+
+       - [Episodio 01 Temporada 01 (español de España)](https://dl.dropboxusercontent.com/u/5532451/numb3rs101/Numb3s_1x01_Piloto_Espanol(Espana).avi).
+       - [Episodio 01 Temporada 01 (Inglés)](https://dl.dropboxusercontent.com/u/5532451/numb3rs101/Numb3rs_1x01_Pilot_English.avi).
+       - [Subtítulos en español](https://dl.dropboxusercontent.com/u/5532451/numb3rs101/Numb3rs_1x01_Pilot_English.srt).
+
+### Archivos para entregar:
 
 Cinco o un archivos con los siguientes nombres:
 
- - Tarea1Punto1.txt
- - Tarea1Punto2.txt
- - Tarea1Punto3.txt
- - Tarea1Punto4.txt
- - Tarea1Punto5.txt
+- Tarea1Punto1.txt
+- Tarea1Punto2.txt
+- Tarea1Punto3.txt
+- Tarea1Punto4.txt
+- Tarea1Punto5.txt
 
 o
 
- - Tarea1PuntoExtra.txt   
+- Tarea1PuntoExtra.txt   
 
 siguiendo la plantilla dada para el curso.
 
-## Tarea 2
-Fecha de entrega: martes 21 de junio de 2016 antes de las 23:59
-  [hora de Colombia](http://horalegal.inm.gov.co/).
+**Se entrega o los cinco puntos o el punto extra, ¡no los dos!**
 
-Escriba una función en C++ integrada a R que:
+### Fecha de entrega:
 
-1. dado un vector de valores numéricos de una serie de tiempo, calcule
-   el valor pronosticado utilizando el
-   [suavizamiento exponencial](https://mx.answers.yahoo.com/question/index?qid=20110405160019AAxnVlI)
-   simple  dado el valor de $$\alpha$$. Utilice como pronóstico inicial el
-   promedio de los dos primeros valores.
+Miércoles 23 de agosto de 2017 antes de las 23:59
+[hora de Colombia](http://horalegal.inm.gov.co/)
+al correo krcabrer@unal.edu.co y en asunto no olvidar
+**[CursoR]**
 
-2. dado un vector de enteros y un booleano que indique que se quieren
-   los pares o los enteros impares, devuelva en un vector de enteros
-   los números que indique la variable booleana.
-3. dadas las coodenadas de un punto indique si está a la izquierda (-1),
-   o a la derecha (1) o sobre la recta (0) dados dos puntos pertenecientes
-   esa recta, si esta recta no es horizontal.
-   Si la recta es horizontal indique si está abajo (-1) o arriba(1) o en la recta (0).   
-4. dada las dimensiones de una matriz cualquiera en un vector numérico,
-   donde la primer componente son las filas y la segunda son las columnas,
-   devuelva los indices de la matriz en forma de espiral en una matriz de
-   orden $$(n\times m)\times 2$$.
-5. dada una matriz de orden $$n \times 2$$ donde cada renglón representa
-   las coordenadas de un punto perteneciente a una polilínea devuelva la
-   longitud de la polilínea.
+## Segunda tarea individual
 
-6. **Punto extra** Dada una matriz de orden $$n\times 2$$ donde cada renglón
-   representa las coordenadas de un punto perteneciente a una polilínea devuelva
-   las coordenadas de las intersecciones de los segmentos de la polilínea que cortan
-   con una recta dada por una matriz de orden $$2\times 2$$ donde cada renglón
-   representa las coodenadas de un punto que pertenecen a la recta.
+### Enunciado
 
+Escriba una función en C++ integrada a R que
 
-Archivos para entrega:
+1. Dadas las coordenada de los vértices de un polígono convexo,
+   calcular el área del mismo.   
+2. Tenga como entrada un número entero de cualquier número
+   de cifras y que indique si es [capicúa](https://es.wikipedia.org/wiki/Capic%C3%BAa) o no.
+3. Tenga como entrada una matriz de $$ n \times 2 $$ con las coordenadas
+    de una línea. Mostrar la longitud de la línea (suma de longitudes
+      de los segmentos).
+4. Dada las coordenadas de dos puntos pertenecientes a una línea,
+    calcular la distancia de un tercer punto a la línea.
+5. Dada las coordenada de los extremos de un segmento identificar
+    si un tercer punto pertenece o no al segmento.
 
-  - Tarea2Punto1.cpp
-  - Tarea2Punto2.cpp
-  - Tarea2Punto3.cpp
-  - Tarea2Punto4.cpp
-  - Tarea2Punto5.cpp
+6. Tenga como entrada las dimensiones de una matriz y que muestre
+   como salida los índices de la matriz en forma de espiral de afuera
+   hacia adentro.
 
-o
+### Archivos para entregar:
 
- - Tarea2PuntoExtra.cpp
+Cinco o un archivos con los siguientes nombres:
 
-## Tarea 3
-
-Fecha de entrega: viernes 24 de junio de 2016 antes de las 23:59
-  [hora de Colombia](http://horalegal.inm.gov.co/).
-
-Se pide resolver los algoritmos y las funciones de C++, pero todo en
-código R y simplificar donde sea posible en forma matricial el código
-respectivo.
-
-Archivos para entregar:
-
-  - Tarea3Punto1seudo.R
-  - Tarea3Punto2seudo.R
-  - Tarea3Punto3seudo.R
-  - Tarea3Punto4seudo.R
-  - Tarea3Punto5seudo.R    
-  - Tarea3Punto1cpp.R
-  - Tarea3Punto2cpp.R    
-  - Tarea3Punto3cpp.R    
-  - Tarea3Punto4cpp.R    
-  - Tarea3Punto5cpp.R    
+- Tarea2Punto1.cpp
+- Tarea2Punto2.cpp
+- Tarea2Punto3.cpp
+- Tarea2Punto4.cpp
+- Tarea2Punto5.cpp
 
 o
 
-  - Tarea3PuntoExtraseudo.R
-  - Tarea3PuntoExtracpp.R
+- Tarea2PuntoExtra.cpp   
 
-## Tarea extra
+**Se entrega o los cinco puntos o el punto extra, ¡no los dos!**
 
-  [Tarea extra](tareaExtra.html)
+### Fecha de entrega:
+
+Miércoles, 6 de septiembre de 2017 antes de las 23:59
+[hora de Colombia](http://horalegal.inm.gov.co/)
+al correo krcabrer@unal.edu.co y en asunto no olvidar
+**[CursoR]**
+
+
+## Tercera tarea individual
+
+### Enunciado
+
+Realizar una gráfica con la
+[proyección de la población](https://www.datos.gov.co/Estad-sticas-Nacionales/Proyecciones-De-Poblaci-n-Medell-n-2016-2020/imj6-7tfq/data)
+para las comunas y corregimientos de Medellín,
+por rango de edad y género para el año 2017.
+
+### Documentos para entregar
+
+1. Archivo en formato ".html" que no incluya el código y
+   un corto análisis de la distribución de la proyección
+   de la población para Medellín.
+2. Archivo en formato ".Rmd" que genera el archivo ".html"
+4. Archivo de datos en formato ".csv" tomado de la página de los datos.
+
+### Fecha de entrega
+
+Viernes, 15 de septiembre de 2017 antes de las 23:59 hora de
+Colombia al correo **krcabrer@unal.edu.co** en asunto no olvidar
+**[cursoR]**. 

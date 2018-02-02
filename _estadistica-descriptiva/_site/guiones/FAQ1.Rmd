@@ -1,0 +1,22 @@
+Lectura de tres meses de la base de datos de EMA.
+```{r}
+abr2014 <- read.csv2("Abr_2014.csv")
+abr2015 <- read.csv2("Abr_2015.csv")
+ago2013 <- read.csv2("Ago_2013.csv")
+```
+
+## Unir bases de datos por fila
+Unir por columnas las tres bases de datos aún cuando el 
+número de columnas no es el mismo
+```{r}
+require(plyr)
+totalEMA <- rbind.fill(abr2014,abr2015, ago2013)
+```
+
+## Resultado
+```{r}
+dim(totalEMA)
+head(totalEMA)
+tail(totalEMA)
+```
+

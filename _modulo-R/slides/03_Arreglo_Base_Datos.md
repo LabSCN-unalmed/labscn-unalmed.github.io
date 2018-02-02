@@ -48,35 +48,34 @@ Columnas | Variables
 ### Herramientas en R para su solución
 
 ```r
-require(reshape2) 
-```
+library(tidyr) 
+?gather
+?spread
 
-```
-## Loading required package: reshape2
-```
-
-```r
-?melt
-?dcast
-
-require(stringr)
-```
-
-```
-## Loading required package: stringr
-```
-
-```r
+library(stringr)
 ?str_replace
 ?str_sub
 ?str_match
 ?str_split_fixed
 
-require(plyr) # Opcional, pero bueno
+library(dplyr) 
 ```
 
 ```
-## Loading required package: plyr
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
 ```
 
 ```r
@@ -120,35 +119,19 @@ Ordenar la base de datos.
 
 
 ```r
-require(reshape2)
-relig2 <- melt(relig, "religion")
+library(tidyr)
+relig2 <- gather(relig, key = ingresos, value = frecuencia, -1)
 head(relig2)
 ```
 
 ```
-##             religion variable value
-## 1           Agnostic    <$10k    27
-## 2            Atheist    <$10k    12
-## 3           Buddhist    <$10k    27
-## 4           Catholic    <$10k   418
-## 5 Don’t know/refused    <$10k    15
-## 6   Evangelical Prot    <$10k   575
-```
-
-```r
-# Nombres de variables adecuadas
-names(relig2) <- c("Religión", "Ingresos", "n")
-head(relig2)
-```
-
-```
-##             Religión Ingresos   n
-## 1           Agnostic    <$10k  27
-## 2            Atheist    <$10k  12
-## 3           Buddhist    <$10k  27
-## 4           Catholic    <$10k 418
-## 5 Don’t know/refused    <$10k  15
-## 6   Evangelical Prot    <$10k 575
+##             religion ingresos frecuencia
+## 1           Agnostic    <$10k         27
+## 2            Atheist    <$10k         12
+## 3           Buddhist    <$10k         27
+## 4           Catholic    <$10k        418
+## 5 Don’t know/refused    <$10k         15
+## 6   Evangelical Prot    <$10k        575
 ```
 
 ### Otro caso más elaborado
@@ -271,13 +254,13 @@ y seleccionar sólo un año.
 crudo$new_sp <- NULL
 crudo <- subset(crudo, year == 2000)
 names(crudo)[1] <- "pais"
-require(stringr)
+library(stringr)
 names(crudo) <- str_replace(names(crudo), "new_sp_", "")
-crudo$m04 <- NULL
+crudo$m04  <- NULL
 crudo$m514 <- NULL
-crudo$f04 <- NULL
+crudo$f04  <- NULL
 crudo$f514 <- NULL
-head(crudo,20)
+head(crudo, 20)
 ```
 
 ```
@@ -330,11 +313,9 @@ que se quieren determinar.
 
 
 ```r
-require(reshape2)
-limpio <- melt(crudo, id = c("pais", "year"), na.rm = TRUE)
+library(tidyr)
+limpio <- gather(crudo, key = columna, value = casos, m014:fu)
 names(limpio)[2] <- "año"
-names(limpio)[3] <- "columna"
-names(limpio)[4] <- "casos"
 head(limpio,20)
 ```
 
@@ -349,6 +330,7 @@ head(limpio,20)
 ## 7    AN 2000    m014     0
 ## 8    AO 2000    m014   186
 ## 9    AR 2000    m014    97
+## 10   AS 2000    m014    NA
 ## 11   AT 2000    m014     1
 ## 12   AU 2000    m014     3
 ## 13   AZ 2000    m014     0
@@ -359,38 +341,37 @@ head(limpio,20)
 ## 18   BF 2000    m014    12
 ## 19   BG 2000    m014     0
 ## 20   BH 2000    m014     0
-## 22   BJ 2000    m014    19
 ```
 
 ```r
 # Arreglo de la base de datos.
-require(plyr)
+library(dplyr)
 limpio <- arrange(limpio, pais, columna, año)
 head(limpio,20)
 ```
 
 ```
 ##    pais  año columna casos
-## 1    AD 2000    m014     0
-## 2    AD 2000   m1524     0
-## 3    AD 2000   m2534     1
-## 4    AD 2000   m3544     0
-## 5    AD 2000   m4554     0
-## 6    AD 2000   m5564     0
-## 7    AD 2000     m65     0
-## 8    AE 2000    m014     2
-## 9    AE 2000   m1524     4
-## 10   AE 2000   m2534     4
-## 11   AE 2000   m3544     6
-## 12   AE 2000   m4554     5
-## 13   AE 2000   m5564    12
-## 14   AE 2000     m65    10
-## 15   AE 2000    f014     3
-## 16   AE 2000   f1524    16
-## 17   AE 2000   f2534     1
-## 18   AE 2000   f3544     3
-## 19   AE 2000   f4554     0
-## 20   AE 2000   f5564     0
+## 1    AD 2000    f014    NA
+## 2    AD 2000   f1524    NA
+## 3    AD 2000   f2534    NA
+## 4    AD 2000   f3544    NA
+## 5    AD 2000   f4554    NA
+## 6    AD 2000   f5564    NA
+## 7    AD 2000     f65    NA
+## 8    AD 2000      fu    NA
+## 9    AD 2000    m014     0
+## 10   AD 2000   m1524     0
+## 11   AD 2000   m2534     1
+## 12   AD 2000   m3544     0
+## 13   AD 2000   m4554     0
+## 14   AD 2000   m5564     0
+## 15   AD 2000     m65     0
+## 16   AD 2000      mu    NA
+## 17   AE 2000    f014     3
+## 18   AE 2000   f1524    16
+## 19   AE 2000   f2534     1
+## 20   AE 2000   f3544     3
 ```
 
 Separación de la información contenida en una columna
@@ -399,37 +380,41 @@ Separación de la información contenida en una columna
 ```r
 limpio$sexo <- str_sub(limpio$columna, 1, 1)
 
-edades <- c("04" = "0-4", "514" = "5-14", "014" = "0-14", "1524" = "15-24", "2534" = "25-34", "3544" = "35-44", "4554" = "45-54", "5564" = "55-64", "65"= "65+", "u" = NA)
+edades <- c("04"   = "0-4",    "514" = "5-14", 
+            "014"  = "0-14",  "1524" = "15-24", 
+            "2534" = "25-34", "3544" = "35-44", 
+            "4554" = "45-54", "5564" = "55-64", 
+            "65"   = "65+",      "u" = NA)
 
 limpio$edad <- factor(edades[str_sub(limpio$columna, 2)], levels = edades)
 
 limpio <- limpio[c("pais", "año", "sexo", "edad", "casos")]
 # Base de datos depurada y puesta a punto.
-head(limpio,20)
+head(limpio, 20)
 ```
 
 ```
 ##    pais  año sexo  edad casos
-## 1    AD 2000    m  0-14     0
-## 2    AD 2000    m 15-24     0
-## 3    AD 2000    m 25-34     1
-## 4    AD 2000    m 35-44     0
-## 5    AD 2000    m 45-54     0
-## 6    AD 2000    m 55-64     0
-## 7    AD 2000    m   65+     0
-## 8    AE 2000    m  0-14     2
-## 9    AE 2000    m 15-24     4
-## 10   AE 2000    m 25-34     4
-## 11   AE 2000    m 35-44     6
-## 12   AE 2000    m 45-54     5
-## 13   AE 2000    m 55-64    12
-## 14   AE 2000    m   65+    10
-## 15   AE 2000    f  0-14     3
-## 16   AE 2000    f 15-24    16
-## 17   AE 2000    f 25-34     1
-## 18   AE 2000    f 35-44     3
-## 19   AE 2000    f 45-54     0
-## 20   AE 2000    f 55-64     0
+## 1    AD 2000    f  0-14    NA
+## 2    AD 2000    f 15-24    NA
+## 3    AD 2000    f 25-34    NA
+## 4    AD 2000    f 35-44    NA
+## 5    AD 2000    f 45-54    NA
+## 6    AD 2000    f 55-64    NA
+## 7    AD 2000    f   65+    NA
+## 8    AD 2000    f  <NA>    NA
+## 9    AD 2000    m  0-14     0
+## 10   AD 2000    m 15-24     0
+## 11   AD 2000    m 25-34     1
+## 12   AD 2000    m 35-44     0
+## 13   AD 2000    m 45-54     0
+## 14   AD 2000    m 55-64     0
+## 15   AD 2000    m   65+     0
+## 16   AD 2000    m  <NA>    NA
+## 17   AE 2000    f  0-14     3
+## 18   AE 2000    f 15-24    16
+## 19   AE 2000    f 25-34     1
+## 20   AE 2000    f 35-44     3
 ```
 
 Lectura de la base de datos con los códigos de los paises.
@@ -453,43 +438,46 @@ Agregar el nombre del país a la base de datos
 
 
 ```r
-limpio <- merge(limpio, CodPaises, by.x = "pais", by.y= "iso2")
+limpio <- merge(limpio, CodPaises, by.x = "pais", by.y = "iso2")
 ```
 
 
 ```r
-limpio2 <- subset(limpio, casos >500)
-CasosTotales <- sort(with(limpio2,tapply(casos,nombre,sum)),decreasing=TRUE)
+limpio2 <- subset(limpio, casos > 500)
+CasosTotales <- sort(with(limpio2, tapply(casos, nombre, sum)), decreasing=TRUE)
 PaisXCasosTot <- names(CasosTotales)
 limpio2$nombre <- factor(limpio2$nombre, levels = PaisXCasosTot)
-require(ggplot2)
 ```
 
-```
-## Loading required package: ggplot2
-```
+
+
 
 ```r
+library(ggplot2)
+
 # Gráfica de puntos
-g1 <- ggplot(limpio2, aes(nombre,log10(casos), col = sexo))
+g1 <- ggplot(limpio2, aes(nombre, log10(casos), col = sexo))
 g1 + geom_point() + facet_grid(edad ~ .) +
-  theme(text = element_text(size=8),
+  theme(text = element_text(size = 8),
         axis.text.x = element_text(angle = 45, hjust = 1))+
   ylab("log10 del Número de casos") + xlab("País")
 ```
 
-![](03_Arreglo_Base_Datos_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](03_Arreglo_Base_Datos_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+
 
 ```r
+library(ggplot2)
 # Gráfica de barras
-g2 <- ggplot(limpio2, aes(nombre,log10(casos), fill = sexo))
+g2 <- ggplot(limpio2, aes(nombre, log10(casos), fill = sexo))
 g2 + geom_bar(stat = "identity", position = "dodge") + facet_grid(edad ~ .) +
-  theme(text = element_text(size=8),
+  theme(text = element_text(size = 8),
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   ylab("log10 del Número de casos") + xlab("País")
 ```
 
-![](03_Arreglo_Base_Datos_files/figure-html/unnamed-chunk-10-2.png)<!-- -->
+![](03_Arreglo_Base_Datos_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+
 
 
 [id1]: religiones.png "Religiones"

@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="default" data-transition-speed="default">
-<h1>Estructuras de control</h1><p>Kenneth Cabrera<br/>02 agosto, 2016</p>
+<h1>Estructuras de control</h1><p>Kenneth Cabrera<br/>16 abril, 2017</p>
 
 <div class="slideContent" >
 
@@ -985,7 +985,7 @@ system.time(vect &lt;- (1:n)* 2)
 <div class="slideContent" >
 <pre><code class="r">x0 &lt;- 1; tol &lt;- 1e-6; i &lt;- 0
 repeat {
-     x1 &lt;- 1/(x0+1)
+     x1 &lt;- 1 / (x0+1)
      i &lt;- i + 1
      cat(&quot;inter= &quot;,i,&quot;valor= &quot;,x1, &quot;\n&quot;)
      if (abs(x1 - x0) &lt; tol) {
@@ -1007,7 +1007,7 @@ repeat {
 <h3>Estructura de repetición VII</h3>
 <div class="slideContent" >
 <pre><code class="r">for (i in 1:100) {
-    if ((i + 1)%%7 != 0){
+    if ((i + 1) %% 7 != 0){
       next
     }
     print (i)

@@ -5,39 +5,67 @@ curso: 'estadistica-descriptiva'
 order: 2
 ---
 
-## Detección de inconsistencia en la base de datos del sudamericano de fútbol sub-20
 
- - [Ejemplo de sudamericano](./guiones/01_sudamericano.html)
- - [Mejorada 1](./guiones/mejorada1.csv)
- - [Mejorada 2](./guiones/mejorada2.csv)
 
-## Talla y peso de jugadores de la NBA.
+## Contenido
+{: .no_toc}
 
- - [Análisis exploratorio parcial](./guiones/explora_nba_1.html)
- - [Base de datos](./basesdedatos/nba_talla_peso.xlsx)
- - [Base de datos en formato (.csv)](./basesdedatos/nba_ht_wt.csv)
+* ToC
+{: toc}
 
-## Ejemplos de gráficas
+## Presupuesto de la nación 2017-2018
 
-- [Gráficas con problemas](./graficas/index.html){:target="blank"}
+- [Presupuesto 2017-2018](./guiones/presupuesto_2018_nb.nb.html)
+- [Base de datos](./basesdedatos/presupuesto_nacion_2018.xlsx)
 
-## Ejemplo de gráfica de "El Colombiano"
+## Exploración y estimación del promedio de edad en la encuesta (I).
 
-- [Evolución de precios sugeridos de combustibles para Antioquia](./guiones/precios_gasolina.html)
-- [Base de datos](./basesdedatos/precios_gasolina.xlsx)
+- [Exploración I](./guiones/explora_encuesta_01.nb.html)
+- [Base de datos I](./basesdedatos/talleres_1_2.xlsx)
 
-## Lectura y adecuación de datos de la aplicación "Science Journal".
+## Estimación del tamaño de muestra mediante simulación.
 
-- [Lectura y exploración inicial](./guiones/01_lectura_y_adecuacion.html)
-- [Aceleración en el eje X](./basesdedatos/coordenadaX.csv)
-- [Aceleración en el eje Y](./basesdedatos/coordenadaY.csv)
-- [Aceleración en el eje Z](./basesdedatos/coordenadaZ.csv)
+ - [Tamaño de muestra](./guiones/tammuest.R)
 
-## Tamaño de muestra
+## Exploración del Promedio Aritmético Ponderado Acumulado (PAPA)
 
-- [Simulación para obtener tamaños de muestra](./guiones/tammuest.html)
+ - [Exploracion II](./guiones/explora_encuesta_02.nb.html)
+ - [Base de datos actualizada](./basesdedatos/talleres_1_2_corregido.xlsx)
 
-## Comparación de tipos de gráficas
+## Gráfica de "El Colombiano"
 
-- [Comparación de barras y círculos](./guiones/comparacion_graficas.html)
-- [Base de datos de estimaciones](./basesdedatos/comparacion_graficas.xlsx)
+ - [Salarios en Colombia (archivo .Rmd)](./guiones/salarios.Rmd)
+ - [Salarios en Colombia (archivo .html)](./guiones/salarios.html)
+ - [Base de datos de salarios](./guiones/salarios.xlsx)
+
+## Manejo de base de datos.
+
+ - [Estimación de la población para Medellín por rango de edad y división política](./guiones/base_datos.html)
+ - [Base de datos](./basesdedatos/Proyecciones_De_Poblaci_n_Medell_n_2016_2020.csv)
+
+## Exploración de algunas variables de la encuesta de cultura
+
+  - [Relación entre conocimiento en cultura y visita a ferias](./guiones/explora_encuesta_03.nb.html)
+  - [Base de datos actualizada](./basesdedatos/talleres_1_2_corregido.xlsx)
+
+## Componentes principales y análisis aglomerativo.
+
+ - [Análisis sobre candidatos a monitoría](./guiones/componentesPrincipales.html)
+ - [Base de datos de candidatos](./basesdedatos/candidatos.xlsx)
+
+## Atenciones en consulta externa de salud. Medellin 2016.
+ - [Enlace para descargar la base de datos](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Atenciones-en-Consulta-Externa-Municipio-de-Medell/huya-zzzg).
+ - [Lectura y conversión](./guiones/lectura_y_conversion_salud_medellin.html).
+ - [Inicio exploracion](./guiones/salud_medellin.html).
+
+
+## Lectura de datos del acelerómetro del celular
+
+ - [Exploratorio inicial](./guiones/aceleracion.html)
+ - [Camino 1](./basesdedatos/Camino a la oficina Grabaci_n 1.csv)
+ - [Camino 2](./basesdedatos/Camino a la oficina 2 Grabaci_n 1.csv)
+ - [Camino 3](./basesdedatos/Salida de la un_versidad Grabaci_n 1.csv)
+
+## Procesamiento de varios archivos de aceleración
+
+ - [Manejo de varios archivos de aceleración](./guiones/aceleracion2.html)

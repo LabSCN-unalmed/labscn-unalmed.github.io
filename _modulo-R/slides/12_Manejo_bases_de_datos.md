@@ -136,7 +136,7 @@ icfes201502
 ```
 
 ```
-## # A tibble: 12,162 x 24
+## # A tibble: 12,162 × 24
 ##    CODINST                                                                 NOMBREINSTITUCION CODIGOMUNICIPIO
 ##      <int>                                                                            <fctr>           <int>
 ## 1   142133                         I.E. INTERNADO SAN RAFAEL DEL CARAPARANA - SEDE PRINCIPAL           91263
@@ -164,7 +164,7 @@ filter(icfes201502, DEPARTAMENTO == "ANTIOQUIA", NOMBREMUNICIPIO == "MEDELLIN")
 ```
 
 ```
-## # A tibble: 419 x 24
+## # A tibble: 419 × 24
 ##    CODINST                  NOMBREINSTITUCION CODIGOMUNICIPIO NOMBREMUNICIPIO DEPARTAMENTO CALENDARIO
 ##      <int>                             <fctr>           <int>          <fctr>       <fctr>     <fctr>
 ## 1       18              COL ATENEO HORIZONTES            5001        MEDELLIN    ANTIOQUIA          A
@@ -192,7 +192,7 @@ slice(icfes201502, 1000:1050)
 ```
 
 ```
-## # A tibble: 51 x 24
+## # A tibble: 51 × 24
 ##    CODINST                                                    NOMBREINSTITUCION CODIGOMUNICIPIO
 ##      <int>                                                               <fctr>           <int>
 ## 1   162834                      I.E. CIUDADELA NUEVO OCCIDENTE - SEDE PRINCIPAL            5001
@@ -220,7 +220,7 @@ arrange(icfes201502, DEPARTAMENTO)
 ```
 
 ```
-## # A tibble: 12,162 x 24
+## # A tibble: 12,162 × 24
 ##    CODINST                                                                 NOMBREINSTITUCION CODIGOMUNICIPIO
 ##      <int>                                                                            <fctr>           <int>
 ## 1   142133                         I.E. INTERNADO SAN RAFAEL DEL CARAPARANA - SEDE PRINCIPAL           91263
@@ -246,7 +246,7 @@ arrange(icfes201502, DEPARTAMENTO, NOMBREINSTITUCION)
 ```
 
 ```
-## # A tibble: 12,162 x 24
+## # A tibble: 12,162 × 24
 ##    CODINST                                                                 NOMBREINSTITUCION CODIGOMUNICIPIO
 ##      <int>                                                                            <fctr>           <int>
 ## 1    87429                                                                    COL CRISTO REY           91001
@@ -272,7 +272,7 @@ arrange(icfes201502, PROMLECTURACRITICA)
 ```
 
 ```
-## # A tibble: 12,162 x 24
+## # A tibble: 12,162 × 24
 ##    CODINST                                  NOMBREINSTITUCION CODIGOMUNICIPIO         NOMBREMUNICIPIO
 ##      <int>                                             <fctr>           <int>                  <fctr>
 ## 1    77834                        CENT EDUC CAJASAN (ADULTOS)           68001             BUCARAMANGA
@@ -298,7 +298,7 @@ arrange(icfes201502, desc(PROMLECTURACRITICA))
 ```
 
 ```
-## # A tibble: 12,162 x 24
+## # A tibble: 12,162 × 24
 ##    CODINST                           NOMBREINSTITUCION CODIGOMUNICIPIO NOMBREMUNICIPIO    DEPARTAMENTO
 ##      <int>                                      <fctr>           <int>          <fctr>          <fctr>
 ## 1   180372                       COL LEONARDO DA VINCI           15690     SANTA MARIA          BOYACA
@@ -326,7 +326,7 @@ select(icfes201502, NOMBREMUNICIPIO, DEPARTAMENTO, PROMLECTURACRITICA)
 ```
 
 ```
-## # A tibble: 12,162 x 3
+## # A tibble: 12,162 × 3
 ##    NOMBREMUNICIPIO DEPARTAMENTO PROMLECTURACRITICA
 ##             <fctr>       <fctr>              <dbl>
 ## 1       EL ENCANTO     AMAZONAS              42.52
@@ -349,7 +349,7 @@ distinct(select(icfes201502, DEPARTAMENTO))
 ```
 
 ```
-## # A tibble: 33 x 1
+## # A tibble: 33 × 1
 ##    DEPARTAMENTO
 ##          <fctr>
 ## 1      AMAZONAS
@@ -372,7 +372,7 @@ mutate(icfes201502, promTotal = (PROMLECTURACRITICA + PROMMATEMATICA + PROMINGLE
 ```
 
 ```
-## # A tibble: 12,162 x 25
+## # A tibble: 12,162 × 25
 ##    CODINST                                                                 NOMBREINSTITUCION CODIGOMUNICIPIO
 ##      <int>                                                                            <fctr>           <int>
 ## 1   142133                         I.E. INTERNADO SAN RAFAEL DEL CARAPARANA - SEDE PRINCIPAL           91263
@@ -398,7 +398,7 @@ transmute(icfes201502, promTotal = (PROMLECTURACRITICA + PROMMATEMATICA + PROMIN
 ```
 
 ```
-## # A tibble: 12,162 x 1
+## # A tibble: 12,162 × 1
 ##    promTotal
 ##        <dbl>
 ## 1   43.50667
@@ -421,10 +421,10 @@ summarise(icfes201502, mean(PROMMATEMATICA))
 ```
 
 ```
-## # A tibble: 1 x 1
-##   mean(PROMMATEMATICA)
-##                  <dbl>
-## 1             48.79921
+## # A tibble: 1 × 1
+##   `mean(PROMMATEMATICA)`
+##                    <dbl>
+## 1               48.79921
 ```
 
 ## Agrupación
@@ -466,19 +466,19 @@ promedio_depto
 ```
 
 ```
-## # A tibble: 33 x 2
-##    DEPARTAMENTO mean(PROMMATEMATICA)
-##          <fctr>                <dbl>
-## 1      AMAZONAS             42.07526
-## 2     ANTIOQUIA             48.65945
-## 3        ARAUCA             49.21113
-## 4     ATLANTICO             47.67890
-## 5        BOGOTA             53.92517
-## 6       BOLIVAR             45.52955
-## 7        BOYACA             51.54512
-## 8        CALDAS             48.10144
-## 9       CAQUETA             46.38431
-## 10     CASANARE             48.17440
+## # A tibble: 33 × 2
+##    DEPARTAMENTO `mean(PROMMATEMATICA)`
+##          <fctr>                  <dbl>
+## 1      AMAZONAS               42.07526
+## 2     ANTIOQUIA               48.65945
+## 3        ARAUCA               49.21113
+## 4     ATLANTICO               47.67890
+## 5        BOGOTA               53.92517
+## 6       BOLIVAR               45.52955
+## 7        BOYACA               51.54512
+## 8        CALDAS               48.10144
+## 9       CAQUETA               46.38431
+## 10     CASANARE               48.17440
 ## # ... with 23 more rows
 ```
 
@@ -489,19 +489,19 @@ icfes201502 %>% group_by(DEPARTAMENTO) %>% summarise(mean(PROMMATEMATICA))
 ```
 
 ```
-## # A tibble: 33 x 2
-##    DEPARTAMENTO mean(PROMMATEMATICA)
-##          <fctr>                <dbl>
-## 1      AMAZONAS             42.07526
-## 2     ANTIOQUIA             48.65945
-## 3        ARAUCA             49.21113
-## 4     ATLANTICO             47.67890
-## 5        BOGOTA             53.92517
-## 6       BOLIVAR             45.52955
-## 7        BOYACA             51.54512
-## 8        CALDAS             48.10144
-## 9       CAQUETA             46.38431
-## 10     CASANARE             48.17440
+## # A tibble: 33 × 2
+##    DEPARTAMENTO `mean(PROMMATEMATICA)`
+##          <fctr>                  <dbl>
+## 1      AMAZONAS               42.07526
+## 2     ANTIOQUIA               48.65945
+## 3        ARAUCA               49.21113
+## 4     ATLANTICO               47.67890
+## 5        BOGOTA               53.92517
+## 6       BOLIVAR               45.52955
+## 7        BOYACA               51.54512
+## 8        CALDAS               48.10144
+## 9       CAQUETA               46.38431
+## 10     CASANARE               48.17440
 ## # ... with 23 more rows
 ```
 

@@ -1,0 +1,117 @@
+---
+title: "Exploratorio encuestas III"
+author: Kenneth Roy Cabrera Torres
+date: Martes, 14 de septiembre de 2017
+output: 
+  html_document: 
+    toc: yes
+  html_notebook: 
+    toc: yes
+---
+
+
+<style>
+pre {
+  overflow-x: auto;
+}
+pre code {
+  word-wrap: normal;
+  white-space: pre;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 120)
+```
+
+## Lectura de la base de datos.
+
+```{r}
+library(RcmdrMisc)
+encuesta <- readXL("talleres_1_2_corregido.xlsx", 
+                   sheet = 1,
+                   stringsAsFactors = TRUE)
+```
+
+## Verificación y corrección de casos extremos puntuales
+
+```{r}
+library(dplyr)
+# Verifica casos extremos
+encuesta %>%
+  select(NÚMERO, GÉNERO, CARRERA, SEMESTRE, HORAS_SUEÑO) %>%
+  filter(HORAS_SUEÑO > 7*12)
+
+# Modifica mediante una corrección razonable.
+
+encuesta[encuesta$NÚMERO == 21, ]$HORAS_SUEÑO <- 60
+```
+
+
+## Cálculo de nuevas variables
+
+```{r}
+library(dplyr)
+encuesta <- encuesta %>%
+  mutate(EDAD = as.numeric(as.Date("2017-08-1")- as.Date(encuesta$NACIMIENTO))/365.25,
+         HORAS_TOTAL = ASIGN_INSCRITAS*4 + 
+                       HORAS_ESTUDIO + 
+                       (MIN_TRANSP * 2 * 5)/60 +
+                       HORAS_SUEÑO +
+                       HORAS_TRABAJO)
+
+```
+
+
+## Distribución de las horas de estudio, transporte, sueño y trabajo en la semana.
+
+```{r}
+with(encuesta, hist(HORAS_TOTAL, las = 1, freq = FALSE, nclass = 20))
+lines(density(encuesta$HORAS_TOTAL, na.rm = TRUE), col = "blue", lwd = 2)
+abline(v = 7*24, col = "red")
+```
+
+## Cálculo del puntaje en preguntas sobre cultura popular en Colombia.
+
+```{r}
+respuesta_correctas <- c("A", "C", "C", "A", "B")
+names(respuesta_correctas) <- c("CARNAVAL", "DICIEMBRE", "MÚSICA", "SAN_PACHO", "NOVENA")
+
+library(dplyr)
+encuesta <-  encuesta %>%
+             mutate(puntaje = apply(apply(select(encuesta, names(respuesta_correctas)), 1, 
+                                function(x) (x == respuesta_correctas)*1), 
+                   2, sum, na.rm = TRUE))
+```
+
+
+## Relación del puntaje obtenido con ir a ferias.
+
+```{r}
+library(ggplot2)
+ggplot(encuesta, aes(VECES_A_FERIAS, puntaje)) +
+  geom_jitter(width = 0.2, height = 0.2) + geom_smooth()
+```
+
+```{r}
+library(ggplot2)
+filter(encuesta, !is.na(GÉNERO) & !is.na(CARRERA)) %>%
+ggplot(aes(VECES_A_FERIAS, puntaje)) +
+  geom_jitter(width = 0.2, height = 0.2) + geom_smooth() +
+  facet_grid(GÉNERO ~ CARRERA)
+```
+
+```{r}
+
+library(ggplot2)
+filter(encuesta, !is.na(GÉNERO) & !is.na(CARRERA)) %>%
+ggplot(aes(VECES_A_FERIAS, puntaje)) +
+  geom_jitter(width = 0.1, height = 0.15) + 
+  geom_smooth(method = lm) +
+  facet_grid(GÉNERO ~ CARRERA) +
+  labs(x = "Número de veces que ha ido a ferias o eventos \nen los últimos seis meses",
+      y = "Puntaje obtenido en respuestas \nsobre cultura en Colombia",
+      title = "Relación entre visitas a ferias y conocimiento en cultura")
+```

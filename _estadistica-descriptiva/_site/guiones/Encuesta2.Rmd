@@ -1,0 +1,85 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+encuesta <- read.csv2("Encuesta1.csv", skip = 4)
+encuesta <- droplevels(encuesta[-1,])
+```
+
+## Análisis exploratorio de las variables de conspiraciones
+
+```{r}
+# Resumen de cada variable binaria.
+with(encuesta, summary(Luna))
+with(encuesta, summary(FBI))
+with(encuesta, summary(Clima))
+with(encuesta, summary(Vacunas))
+with(encuesta, summary(Cancer))
+with(encuesta, summary(NSA))
+with(encuesta, summary(Sífilis))
+
+# Obtenera sólo la media de cada variable
+with(encuesta, mean(Luna))
+with(encuesta, mean(FBI))
+with(encuesta, mean(Clima))
+with(encuesta, mean(Vacunas))
+with(encuesta, mean(Cancer))
+with(encuesta, mean(NSA))
+with(encuesta, mean(Sífilis))
+
+# Obtenera la media de varias columnas
+# Seleccionar las columnas de interés
+consp <- subset(encuesta, select = Luna:Sífilis)
+# Primeros 6 registros
+head(consp)
+# Cálculo de varias medias simultáneamente
+medias <- apply(consp,2,mean)
+# Resultado de las medias
+medias
+```
+
+## Gráfica de los resultados de la proporciones de las conspiraciones
+
+```{r}
+plot(medias, axes = FALSE, xlab = "", ylim = c(0,1), type = "h",
+    main = "Proporciones de conspiraciones de acuerdo a criterio de estudiantes",
+    ylab = "Proporción")
+points(medias, pch = 19)
+axis(1, at = 1:length(medias), lab = names(medias), las = 2)
+axis(2, at = seq(0,1,.1))
+box()
+```
+
+```{r}
+colores <- c("blue","red","blue","blue","blue","red","red")
+barplot(medias, las = 2, main = "Proporciones de conspiraciones",
+        ylim = c(0,0.8), col = colores)
+```
+
+
+##  Coincidencia de las conspiraciones
+```{r}
+correctas <- c(0,1,0,0,0,1,1)
+encuesta$correctas <- apply(t(consp)==correctas,2,sum)
+
+# Diagrama de barras del número de personas que acertaron las conspiraciones
+
+with(encuesta, barplot(table(correctas),
+                       ylim = c(0,20),
+                       main = "Número de estudiantes por respuestas correctas"))
+grid()
+
+
+promediosPAPA <- with(encuesta[encuesta$PAPA <= 5,], tapply(PAPA, correctas, mean))
+
+with(encuesta[encuesta$PAPA <= 5, ], 
+     boxplot(PAPA ~ correctas, notch = TRUE,
+             main = "Promedio Académico vs número de correctas"))
+points(1:6,promediosPAPA, col = "red", pch = 19)
+```
+
+
+

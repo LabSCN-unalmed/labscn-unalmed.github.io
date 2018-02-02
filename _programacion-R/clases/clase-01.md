@@ -29,7 +29,7 @@ Un algoritmo tiene las siguientes características:
 
 1. Tipos de variables.
    - Booleano:
-      * Sólo toma los valores de V o F (Verdadero o Falso)
+      * Sólo toma los valores de F o V (Falso o Verdadero)
    - Numéricos:
       * Entero.
       * Real.
@@ -39,12 +39,13 @@ Un algoritmo tiene las siguientes características:
 
 2. Operaciones básicas.
    - Numéricos:
-    * Enteros: +, -, * , div, mod, ^.
-    * Reales: +, -, * , /, ^.      
+     * Enteros: +, -, * , div, mod, ^.
+     * Reales: +, -, * , /, ^.
+
    - Alfanuméricos
-    * \+ : concatenar
-    * subsarta(s,ini,fin)
-    * indice(s,c)
+     * \+ : concatenar
+     * subsarta(s,ini,fin)
+     * indice(s,c)
 
 3. Relaciones de comparación:
     - \>  : mayor que
@@ -217,8 +218,8 @@ Algoritmo suma_enteros2
 
 Escriba un algoritmo que:
 
- - Lea dos números enteros y que muestre la multiplicación de ellos.
- - Lea dos números y que muestre la multiplicación de ellos.
+ - Lea dos números enteros y que muestre el producto de ellos.
+ - Lea dos números y que muestre el producto de ellos.
  - Lea el radio de un círculo y que muestre como respuesta su área.
  - Lea el nombre de una persona y le responda con un saludo.
  - Lea un número real y muestre el valor absoluto de mismo.
@@ -237,26 +238,30 @@ Escriba un algoritmo que:
  - Lea un número entero y que muestre un uno (1) si el número es par y
    un cero (0) sin el número es impar, (Sin utilizar ni la estructura de
    decisión o la de repetición).   
- - Lea un número entero de tres cifras y muestre el mísmo número de pero con
+ - Lea un número entero de tres cifras y muestre el mísmo número pero con
    los dígitos invertidos (sin utilizar el tipo sarta).   
  - Calcule la suma de los números impares por un lado y los números
    pares por otro entre dos números enteros dados (suponga que el primero
-   es menor que el segundo)
+   es menor que el segundo, e inclya los número extremos en la suma).
  - Calcule la [corona circular](https://es.wikipedia.org/wiki/Corona_circular)
    dados los radios de dos círculos concéntricos. (No importa
    la manera como se lea el orden de los radios).
  - Dados dos punto de una recta determine si es paralela a otra recta de donde
    se dan dos puntos que pertenecen a la otra recta.
- - Construya una algoritmo que halle la aproximación a la raiz de un número de
+ - Construya una algoritmo que halle la aproximación a la raíz de un número de
    la siguiente manera: Lea un número al cual se le hallará la raíz, y luego
    lea un número cualquiera como primera aproximación a la
-   raíz del número. Mejore el resultado hallando el promedio entre el número
-   aproximado y la división del número inicial y el número aproximado. Este promedio
+   raíz del número (se supone ser positivo mayor de cero).
+   Halle la división del número inicial entre el número aproximado.
+   Luego halle el promedio entre el número aproximado y el número obtenido
+   de la división anterior. Este promedio
    es de nuevo un valor aproximado a la raíz. Continuar el proceso hasta que
    la aproximación sea correcta en el orden de las millonésimas. (No utilizar
-   la operación ^)
+   el operador exponente (^).
+ - Repita el anterior algoritmo pero que esta vez también muestre cuántas
+   iteraciones realizó para hallar el resultado.
  - Dado las dimensiones de una matriz (n filas, m columnas), mostrar los índices
-   de la matriz en forma de zig-zag (horizontal),
+   de la matriz en forma de zig-zag (vertical),
    comenzando por la posición [1][1].   
  - Dado la dimensión de una matriz cuadrada muestre los índices de las diagonales
-   secundarias comenzando por la posición [1][1].   
+   secundarias comenzando por la posición [1][1] en forma de zig-zag.   

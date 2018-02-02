@@ -1,0 +1,86 @@
+---
+title: "Procesamiento de bases de datos"
+author: "Kenneth Roy Cabrera Torres"
+date: "2 de noviembre de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Lectura de multiples archivos
+
+```{r}
+nombres_archivos <- c("Camino a la oficina Grabaci_n 1.csv",
+                      "Camino a la oficina 2 Grabaci_n 1.csv",
+                      "Salida de la un_versidad Grabaci_n 1.csv")
+
+## Base de datos vacía.
+archivos <- data.frame()
+
+## Ciclo para leer uno a uno los archivos.
+for (i in 1:length(nombres_archivos)){
+  ## Lee el i-ésimo archivo en una variable temporal.
+  temp1 <- read.csv(nombres_archivos[i])
+  ## Adiciona un identificador del archivo.
+  temp1$IDArchivo <- i
+  ## Adiciona a la cola el nuevo archivo leído.
+  archivos <- rbind(archivos, temp1)
+  ## Borra el archivo temporal
+  rm(temp1)
+}
+```
+
+## Reduce la base de datos a décimas de segundo.
+
+```{r}
+library(dplyr)
+datos <- archivos %>%
+  mutate(tiempo = timestamp %/% 100,
+         fecha = as.POSIXct(timestamp/1000, 
+                    origin = "1970-01-01")) %>%
+  group_by(tiempo, IDArchivo) %>%
+  summarise(AccX = mean(AccX, na.rm = TRUE),
+            AccY = mean(AccY, na.rm = TRUE),
+            AccZ = mean(AccZ, na.rm = TRUE),
+            fecha = mean(fecha, na.rm = TRUE)) %>%
+  mutate(AccT = sqrt(AccX ^ 2 + AccY ^ 2 + AccZ ^ 2)) %>%
+  filter(!is.na(AccT))
+```
+
+
+## Identifica segmentos con cambios y lugares de valores faltantes.
+
+```{r}
+library(dplyr)
+datos <- datos %>% 
+  ungroup() %>%
+  mutate(cambios = (c(1, diff(tiempo)) != 1) * 1,
+         IDsegmento = cumsum(cambios) + 1)
+```
+
+## Identifica segmentos completos con más de 50 datos (5 segundos)
+
+```{r}
+library(dplyr)
+datos <- datos %>%
+         group_by(IDsegmento) %>%
+         mutate(numdatos = n()) %>%
+         filter(numdatos >= 50)
+```
+
+## Gráfica de periodograma para cada segmento completo
+
+```{r}
+library(dplyr)
+for (i in unique(datos$IDsegmento)) {
+  temp1 <- filter(datos, IDsegmento == i) 
+  periodograma <- spec.pgram(temp1$AccT)
+  periodograma
+  maxFreq <- periodograma$freq[which(periodograma$spec == max(periodograma$spec))]
+  print(maxFreq)
+}
+```
+

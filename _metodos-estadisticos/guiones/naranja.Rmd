@@ -189,6 +189,14 @@ g1 + geom_point() +
      geom_smooth() +
      scale_x_continuous(name="Orden de ejecución", breaks = 1:12)
 
+library(ggplot2)
+g1 <- ggplot(naranja, aes(orden, residuals(m1A3), col = tipoJugo))
+g1 + geom_point() +
+     geom_smooth() +
+     scale_x_continuous(name="Orden de ejecución", breaks = 1:12)
+
+
+
 library(lmtest)
 dwtest(vitamC ~ dias, order.by = ~ orden, data = naranja)
 ```

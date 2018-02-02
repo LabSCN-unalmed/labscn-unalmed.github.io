@@ -1,0 +1,278 @@
+---
+title: "Atencion en entidades de salud"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves, 12 de octubre de 2017"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 100)
+```
+
+
+```{r}
+load("salud.RData")
+```
+
+## Forma básica de asignación de niveles.
+
+```{r}
+salud$Tipo_Usuario <- factor(salud$Tipo_Usuario,
+                             labels = c("Contributivo", 
+                                        "Subsidiado",
+                                        "Vinculados",
+                                        "Particular",
+                                        "Otro",
+                                        "Desplazado con Afiliación al Régimen Contributivo", 
+                                        "Desplazado con afiliación al Régimen Subsidiado",
+                                        "Desplazado no Asegurado (vinculado)"))
+```
+
+## Asignación de niveles utilizando 'dplyr'.
+
+```{r}
+library(dplyr)
+salud <- salud %>%
+         mutate(Sexo = factor(Sexo, labels = c("Hombre", "Mujer")))
+```
+
+## Asignación de niveles a las variables alfanuméricas.
+
+```{r}
+library(dplyr)
+salud <- salud %>%
+         mutate(Zona = factor(Zona, labels = c("Rural", "Urbana")),
+                Finalidad_Consulta = factor(Finalidad_Consulta,
+                                            labels = c("Atención del parto",
+                                              "Atención del recién nacido",
+                                              "Atención en planificación familiar",
+                                              "Detección de alteraciones de crecimiento y desarrollo del menor de diez años",
+                                              "Detección de alteración del desarrollo joven",
+                                              "Detección de alteraciones del embarazo",
+                                              "Detección de alteraciones del adulto",
+                                              "Detección de alteraciones de agudeza visual",
+                                              "Detección de enfermedad profesional",
+                                              "No aplica")),
+                Causa_Externa = factor(Causa_Externa,
+                                       labels = c("Accidente de trabajo",
+                                                "Accidente de tránsito",
+                                                "Accidente rábico",
+                                                "Accidente ofídico",
+                                                "Otro tipo de accidente",
+                                                "Evento catastrófico",
+                                                "Lesión por agresión",
+                                                "Lesión auto inflingida",
+                                                "Sospecha de maltrato físico",
+                                                "Sospecha de abuso sexual",
+                                                "Sospecha de violencia sexual",
+                                                "Sospecha de maltrato emocional",
+                                                "Enfermedad general",
+                                                "Enfermedad profesional",
+                                                "Otra")),
+                Edad2 = Edad*(Tipo_Edad == 1) + 
+                        Edad*(Tipo_Edad == 2)/12 +
+                        Edad*(Tipo_Edad == 3)/365.5,
+                Cod_IPS = factor(Cod_IPS),
+                Tipo_Dx_Principal = factor(Tipo_Dx_Principal,
+                                           labels = c("Impresión diagnóstica",
+                                                      "Confirmado nuevo",
+                                                      "Confirmado repetido")))
+
+```
+
+
+
+```{r}
+summary(salud)
+```
+
+## Depuración
+
+```{r}
+boxplot(salud$Edad2)
+hist(salud$Edad2, nclass = 100)
+
+filter(salud, Edad2 >= 120)
+
+salud <- salud %>%
+         filter(Edad2 < 120) 
+
+boxplot(salud$Edad2)
+hist(salud$Edad2, nclass = 100)
+```
+
+## Construcción de nuevas variables
+
+```{r}
+library(dplyr)
+salud <- salud %>%
+        mutate(grupoEdad = cut(Edad2, 
+                               c(0, 1, 15, 26, 60, Inf),
+                               labels = c("Neonatos",
+                                          "Infantes",
+                                          "Jóvenes",
+                                          "Adultos",
+                                          "Mayores")))
+```
+
+## Distribución de atenciones por edad
+
+### Incorrecto
+
+```{r}
+t1 <- table(salud$grupoEdad)
+t1
+barplot(t1, las = 1)
+pt1 <- t1/sum(t1) * 100
+pt1
+barplot(pt1, las = 1)
+```
+
+### Correcto
+
+```{r}
+t2 <- xtabs(Total_atenciones ~ grupoEdad, 
+            data = salud)
+t2
+barplot(t2, las = 1)
+pt2 <- t2/sum(t2) * 100
+pt2
+barplot(pt2, las = 1)
+```
+
+```{r}
+library(ggplot2)
+ggplot(salud, aes(grupoEdad)) +
+  geom_bar()
+```
+
+```{r}
+library(dplyr)
+aten_grupo_edad <- salud %>%
+     group_by(grupoEdad) %>%
+     summarise(total_edad = sum(Total_atenciones)) %>%
+     mutate(porcGrupoEdad = total_edad/sum(total_edad) * 100)
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(aten_grupo_edad, aes(grupoEdad, total_edad)) +
+  geom_bar(stat = "identity")
+
+ggplot(aten_grupo_edad, aes(grupoEdad, porcGrupoEdad)) +
+  geom_bar(stat = "identity")
+```
+
+
+## Finalidades de atenciones mas frecuentes.
+
+```{r}
+library(dplyr)
+salud <- salud %>%
+         arrange(desc(Total_atenciones))
+
+salud %>% 
+   select(Nombre_EAS, Tipo_Usuario, Edad2,
+          Sexo, Zona, Nombre_Institucion,
+          Causa_Externa, Nombre_Dx,
+          Tipo_Dx_Principal, Total_atenciones) %>%
+head(20)
+```
+
+## Distribución de consultas por tipo de usuario
+
+### Incorrecto
+```{r}
+library(dplyr)
+salud %>%
+  group_by(Tipo_Usuario) %>%
+  summarise(frecuencia = n())
+```
+
+### Correcto (Teniendo en cuenta el Total_atenciones)
+
+```{r}
+library(dplyr)
+salud %>%
+  group_by(Tipo_Usuario) %>%
+  summarise(frecuencia = sum(Total_atenciones))
+```
+
+## Causa de consulta más frecuente
+
+```{r}
+library(dplyr)
+salud_freq_cosulta_Ext <- salud %>%
+  group_by(Causa_Externa) %>%
+  summarise(frecuencia = sum(Total_atenciones)) %>%
+  arrange(desc(frecuencia))
+salud_freq_cosulta_Ext
+```
+
+## Causa de consulta más frecuente por sexo
+
+```{r}
+library(dplyr)
+salud_freq_cosulta_Ext2 <- salud %>%
+  group_by(Causa_Externa, Sexo) %>%
+  summarise(frecuencia = sum(Total_atenciones)) %>%
+  arrange(desc(frecuencia))
+salud_freq_cosulta_Ext2
+```
+
+```{r}
+with(salud, table(Causa_Externa, Sexo))
+
+xtabs(~ Causa_Externa + Sexo, data = salud)
+
+xtabs(Total_atenciones ~ Causa_Externa + Sexo, data = salud)
+```
+
+## Distribución porcentual de atenciones por causa externa dado el sexo.
+
+```{r}
+library(dplyr)
+salud_freq_cosulta_Ext2 <- salud_freq_cosulta_Ext2 %>%
+  ungroup() %>%
+  mutate(total = sum(frecuencia),
+         porc = frecuencia/total * 100)
+salud_freq_cosulta_Ext2
+
+salud_freq_cosulta_Ext2 <- salud_freq_cosulta_Ext2 %>%
+  group_by(Causa_Externa) %>%
+  mutate(total_Causa_externa = sum(frecuencia),
+         porc_Causa_externa = frecuencia/total_Causa_externa * 100)
+salud_freq_cosulta_Ext2
+
+salud_freq_cosulta_Ext2 <- salud_freq_cosulta_Ext2 %>%
+  group_by(Sexo) %>%
+  mutate(total_Sexo = sum(frecuencia),
+         porc_Sexo = frecuencia/total_Sexo * 100)
+salud_freq_cosulta_Ext2
+```
+
+```{r}
+library(ggplot2)
+ggplot(salud_freq_cosulta_Ext2, aes(Causa_Externa, porc_Causa_externa, fill = Sexo)) +
+  geom_bar(stat = "identity") +
+  theme(axis.text.x=element_text(angle=90, hjust=1))
+```
+
+
+```{r}
+tabla1 <- xtabs(Total_atenciones ~ Causa_Externa + Sexo, data = salud)
+round(prop.table(tabla1)*100, 2)
+
+prop.table(tabla1, margin = 1)*100
+
+prop.table(tabla1, margin = 2)*100
+```
+
+
+
+
+

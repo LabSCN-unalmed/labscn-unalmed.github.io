@@ -1,0 +1,116 @@
+---
+title: "Modelo geoestadístico con covariable(s)"
+author: "Kenneth Roy Cabrera Torres"
+date: "20 de abril de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+wheat <- read.table("alliance.txt", header = TRUE, 
+                    sep = ",", na.strings = c("", "   .    "))
+wheat <- subset(wheat, !is.na(I))
+wheat$I <- factor(wheat$I)
+indic <- data.frame(model.matrix( ~ wheat[, 6]))
+names(indic) <- c("Intercept", "I2", "I3", "I4")
+wheat <- data.frame(wheat, indic)
+```
+
+
+```{r}
+library(ggplot2)
+g1 <- ggplot(wheat, aes(I, Yield))
+g1 + geom_point() +
+     stat_summary(fun.y = "mean", geom = "point", col = "red", size = 3)
+```
+
+
+
+```{r}
+library(ggplot2)
+map1 <- ggplot(wheat, aes(LNG, LAT, col = I, size = Yield)) 
+map1 + geom_point(aes()) + 
+  coord_fixed(ratio = 1)
+```
+
+```{r}
+library(geoR)
+wheatg <- as.geodata(wheat, coords.col = c(10, 9),
+                     data.col = 8,
+                     covar.col = c(6),
+                     covar.names = "I")
+
+plot(wheatg)
+```
+
+```{r}
+library(geoR)
+variograma1 <- variog(wheatg, max.dist = 17)
+variograma2 <- variog(wheatg, trend = ~ I, max.dist = 17)
+variograma3 <- variog(wheatg, trend = "1st", add.trend = ~ I, max.dist = 17)
+variograma4 <- variog(wheatg, trend = "2nd", add.trend = ~ I, max.dist = 17)
+plot(variograma1, type = "l")
+lines(variograma2, type = "l", lty = 2)
+lines(variograma3, type = "l", lty = 3)
+lines(variograma4, type = "l", lty = 4)
+legend("topleft", legend = c("Sin covariable", "Con covariable", "Con covariable + tend lineal en coord",
+                            "Con covariable + tend cuadratica en coord" ),
+       lty = c(1, 2, 3, 4))
+abline(h = var(wheatg$data), col = "red", lty = 3)
+```
+
+```{r}
+env.mc <- variog.mc.env(wheatg, obj.var = variograma1)
+plot(variograma1, envelope.obj = env.mc)
+```
+
+```{r}
+env.mc2 <- variog.mc.env(wheatg, obj.var = variograma2)
+plot(variograma2, envelope.obj = env.mc2)
+```
+
+
+```{r}
+modelo1 <- likfit(wheatg, cov.model = "matern" , ini.cov.pars = c(60, 1), kappa = 2,
+                  nugget = 20, fix.kappa = FALSE, fix.nugget = FALSE)
+summary(modelo1)
+```
+
+```{r}
+modelo2 <- likfit(wheatg, cov.model = "matern" , ini.cov.pars = c(60, 1), kappa = 2,
+                  nugget = 20, trend = ~ I, , fix.kappa = FALSE, fix.nugget = FALSE)
+summary(modelo2)
+```
+
+```{r}
+plot(variograma1)
+lines(modelo1)
+```
+
+```{r}
+plot(variograma2)
+lines(modelo2)
+```
+
+```{r}
+puntos_pred <- pred_grid(c(1, 22), c(1, 11), by = 0.2)
+```
+
+
+```{r}
+KC <- krige.control(type = "sk", obj.mod = modelo1)
+sk <- krige.conv(wheatg, krige = KC, loc = puntos_pred)
+```
+
+```{r}
+pred.lim <- range(c(sk$pred))
+sd.lim <- range(sqrt(c(sk$kr)))
+
+image(sk, col = gray(seq(1, 0, l = 101)), zlim = pred.lim)
+contour(sk, add = T, levels = seq(0,40, 1))
+points(wheatg, add = TRUE, cex.max = 1.5)
+```
+

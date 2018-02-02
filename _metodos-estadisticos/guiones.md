@@ -6,6 +6,9 @@ order: 03
 custom_js: 'mathjax'
 ---
 
+
+
+<!---
 ## Brillo en papel
 
 - [Brillo en papel](/metodos-estadisticos/guiones/brillo_papel.html)
@@ -26,3 +29,45 @@ custom_js: 'mathjax'
 
 - [Vitamina C en jugo de naranja](./guiones/naranja.html)
 - [Base de datos](./guiones/naranja.xlsx)
+
+## Modelo multifactorial de tres vías (heterocedástico)
+
+- [Cultivo de camarones](./guiones/camarones.html)
+- [Base de datos de camarones](./guiones/camarones.xlsx)
+
+## Modelo con covariable
+
+- [Datos del resultado del experimento con viagra](./guiones/ViagraCovariate.dat)
+- [Experimento con viagra](./guiones/viagra.html)
+
+## Modelo con diseños $$2^k$$
+
+- [Experimento $$2^k$$ sobre conversiones](./guiones/conversion.html)
+- [Datos sobre conversiones](./guiones/conversion.xlsx)
+
+## Modelo con diseño fraccionado
+
+- [Experimento de tasa de filtración](./guiones/tasaFiltracion.html)
+- [Datos de tasa de filtración (1ra Etapa)](./guiones/tasaFiltracion.xlsx)
+- [Datos de tasa de filtración (2da Etapa)](./guiones/tasaFiltracion2.xlsx)
+
+## Superficie de respuesta I
+
+- [Reacción Química](./guiones/superficieRtaI.html)
+- [Base de datos de reacción química](./guiones/reaccionQuimica.xlsx)
+
+## Superficie de respuesta II
+
+- [Horneo de tortas](./guiones/horneo.html)
+
+## Medidas repetidas en el tiempo
+
+- [Experimento con conejos](./guiones/analisisFlebitis.html)
+- [Base de datos de conejos](./guiones/flebitis.xlsx)
+
+## Ejemplo de diseño de mezclas
+
+- [Experimento para diseño de mezclas](./guiones/mezcla.html)
+- [Base de datos para mezclas](./guiones/mezcla1.xlsx)
+- [Base de datos para predecir en ciertas combinaciones](./guiones/mezcla1p.xlsx)
+-->

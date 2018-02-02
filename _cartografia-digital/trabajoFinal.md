@@ -2,13 +2,13 @@
 layout: curso
 title: 'Trabajo final'
 curso: 'cartografia-digital'
-order: 2
 ---
+<!-- order: 2 -->
 
 ## Objetivo
 
 Realizar un trabajo en un contexto georreferenciado un análisis
-utilizando la herramienta GRASS como vehículo para un análisis 
+utilizando la herramienta GRASS como vehículo para un análisis
 pertinente de un problema específico.
 
 ## Entregables
@@ -21,7 +21,7 @@ pertinente de un problema específico.
       incluir lo siguiente:
        + Enumeración y descripción de los insumos.
        + Metodología de desarrollo en forma de diagrama de flujo.
-         (incluye el nombre de los comando en GRASS necesarios, 
+         (incluye el nombre de los comando en GRASS necesarios,
          solo el nombre del comando o instrucción)
        + Resultados finales (mapas, tablas, etc).
     - Análisis de los resultados obtenidos.
@@ -37,8 +37,6 @@ pertinente de un problema específico.
 
 ## Fecha de entrega.
 - Se enviará solo el documento ".pdf" a la dirección **krcabrer@unal.edu.co** y
-  al correo **aarias@unal.edu.co**, el día martes 9 de junio antes de 23:59 hora de Colombia.
-- El mismo día 9 de junio deberán estar grabados en el laboratorio en la carpeta de
+  al correo **aarias@unal.edu.co**, el día martes 6 de junio de 2017 antes de 23:59 hora de Colombia.
+- El mismo día 6 de junio de 2017 deberán estar grabados en el laboratorio en la carpeta de
   cada estudiante los archivos adicionales (insumos y código en GRASS).
-
-

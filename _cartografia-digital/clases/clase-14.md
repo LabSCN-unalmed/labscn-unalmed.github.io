@@ -2,8 +2,8 @@
 layout: clase
 title: 'Manejo de distintos mapas vectoriales'
 curso: 'cartografia-digital'
-clase: 14
 ---
+<!-- clase: 14 -->
 
 Obtener un listado de las tablas disponibles.
 

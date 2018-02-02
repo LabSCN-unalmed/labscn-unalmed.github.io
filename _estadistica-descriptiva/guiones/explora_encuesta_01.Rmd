@@ -1,0 +1,129 @@
+---
+title: "Exploratorio encuestas I"
+author: Kenneth Roy Cabrera Torres
+date: Martes, 15 de agosto de 2017
+output: 
+  html_notebook: 
+    toc: yes
+---
+
+
+<style>
+pre {
+  overflow-x: auto;
+}
+pre code {
+  word-wrap: normal;
+  white-space: pre;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(RcmdrMisc)
+encuesta <- readXL("talleres_1_2.xlsx", 
+                   sheet = 1,
+                   stringsAsFactors = TRUE)
+```
+
+
+## Resumen exploratorio
+
+```{r}
+summary(encuesta)
+```
+
+```{r}
+library(lubridate)
+encuesta$edad <- as.numeric(as.Date("2017-08-1")- as.Date(encuesta$NACIMIENTO))/365.25
+summary(encuesta$edad)
+```
+
+```{r}
+library(dplyr)
+encuesta %>%
+  filter(edad < 16)
+```
+
+```{r}
+encuesta <- encuesta %>%
+  mutate(edad = ifelse(edad < 1, NA, edad))
+
+summary(encuesta$edad)
+```
+
+```{r}
+encuesta %>%
+  filter(edad > 25)
+```
+
+## Cálculo de edad promedio
+
+```{r}
+promedio_edad <- mean(encuesta$edad, na.rm = TRUE)
+print(promedio_edad)
+```
+
+## Mejor estimación del promedio
+
+```{r}
+library(RcmdrMisc)
+estimacion <- readXL("talleres_1_2.xlsx", 
+                    sheet = 2,
+                    stringsAsFactors = TRUE)
+```
+
+
+```{r}
+estimacion
+```
+
+```{r}
+library(dplyr)
+estimacion <- estimacion %>%
+              mutate(difEdad = abs(EDAD.PROM - promedio_edad))
+estimacion <- estimacion %>% 
+              dplyr::arrange(difEdad) %>%
+              mutate(puesto = 1:nrow(estimacion))
+estimacion
+```
+
+```{r}
+estimacion <-  estimacion %>% 
+               dplyr::arrange(difEdad, inf, sup) %>%
+               mutate(puesto = 1:nrow(estimacion))
+estimacion               
+```
+
+```{r}
+estimacion <-  estimacion %>% 
+               mutate(longInter = inf+sup,
+                      No_acerto = (EDAD.PROM - inf) > promedio_edad |
+                                  (EDAD.PROM + sup) < promedio_edad)
+estimacion <- estimacion  %>%
+              arrange(No_acerto, longInter, difEdad) %>%
+              mutate(puesto = 1:nrow(estimacion))
+
+estimacion
+```
+
+
+
+```{r}
+library(ggplot2)
+ggplot(estimacion, aes(puesto, EDAD.PROM)) +
+   geom_point() +
+   geom_linerange(aes(ymin = EDAD.PROM - inf, ymax = EDAD.PROM + sup)) +
+   geom_hline(yintercept = promedio_edad, col = "red") +
+   annotate("text", 60, promedio_edad - 1, label = "Promedio de edad real", col = "red") +
+   labs(title = "Desempeño de la estimación del promedio de edad",
+        subtitle = "Grupo de Estadística Descriptiva y Análisis Exploratorio de Datos 2017",
+        x = "Puesto en nivel de respuesta acertada",
+        y = "Edad estimada")
+```
+
+

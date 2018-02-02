@@ -6,6 +6,7 @@ order: 04
 ---
 
 
+<!---
 ## Contenido
 {: .no_toc}
 
@@ -14,4 +15,13 @@ order: 04
 
 ## Taller individual 1
 
-- [Enunciado](/metodos-estadisticos/talleres/bacterias.html)
+- [Enunciado](./talleres/bacterias.html)
+
+## Taller individual 2
+
+- [Enunciado](./talleres/tallerIndividual2.pdf)
+
+## Taller individual 3
+
+- [Enunciado](./talleres/ejercicios_en_clase.html)
+-->

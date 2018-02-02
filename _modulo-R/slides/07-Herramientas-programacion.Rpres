@@ -39,9 +39,9 @@ En una base de datos.
 library(datasets)
 head(airquality)
 s <- split(airquality, airquality$Month)
-lapply(s, function(x) colMeans(x[,c("Ozone", "Solar.R", "Wind")]))
-sapply(s, function(x) colMeans(x[,c("Ozone", "Solar.R", "Wind")]))
-sapply(s, function(x) colMeans(x[,c("Ozone", "Solar.R", "Wind")], na.rm = T))
+lapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")]))
+sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")]))
+sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")], na.rm = T))
 ```
 
 Ejemplo split III
@@ -63,6 +63,8 @@ Estándares de codificación en R
 - Escriba su código con sangrías ("indentación").
 - Limite el ancho de su código (80 columnas).
 - Limite la longitud de las funciones individuales.
+- [Reglas según Google](https://google.github.io/styleguide/Rguide.xml)
+- [Reglas resumidas por el semillero de R](https://rpubs.com/fhernanb/RstyleGUIDE)
 
 
 Fechas y tiempo en R
@@ -206,7 +208,7 @@ x3 - x2
 
 Depuración de código
 ========================================================
-Cuando alga salga mal, pregúntese:
+Cuando algo salga mal, pregúntese:
 
 - ¿Cuál fue la entrada? ¿Cómo se llamó a la función?
 - ¿Qué estaba usted esperando? ¿Salidas, mensajes u otros mensajes?

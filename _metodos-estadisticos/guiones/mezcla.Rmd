@@ -1,0 +1,138 @@
+---
+title: "Diseños de mezclas"
+author: "Kenneth Roy Cabrera Torres"
+date: 'Jueves,  11 de mayo de 2017'
+output:
+  html_document:
+    toc: yes
+---
+
+```{r global_options,  include = FALSE}
+knitr::opts_chunk$set(fig.width = 12,  
+                      fig.height = 8)
+```
+
+## Lectura de la base de datos
+
+```{r}
+mezcla1 <- read.csv2("mezcla1.csv", enc = "latin1")
+mezcla1
+```
+
+C?lculo de coordenadas cartesianas dadas las coordenadas triangulares
+
+```{r}
+mezcla1$x <- with(mezcla1, 1/2*(2*x2+x3)/(x1+x2+x3))
+mezcla1$y <- with(mezcla1, sqrt(3)/2*(x3)/(x1+x2+x3))
+mezcla1
+```
+
+## Gráficas exploratorias
+
+```{r}
+require(lattice)
+conf1 <- simpleTheme(pch = 19, cex = 1.2, col = "blue")
+xyplot(elongación ~ x1|x3, data = mezcla1, layout = c(1, 3), 
+       par.settings = conf1)
+
+conf1 <- simpleTheme(pch = 19, cex = 1.2, col = "blue")
+xyplot(elongación ~ x|x3, data = mezcla1, layout = c(1, 3), 
+       par.settings = conf1)
+
+```
+
+## Gráfica en 3D (interactiva)
+
+```{r}
+require(rgl)
+with(mezcla1, plot3d(x, y, elongación, size = 10))
+```
+
+## Modelación
+
+```{r}
+m1 <- lm(elongación ~ x1+x2+x3+x1:x2+x1:x3+x2:x3-1, data = mezcla1)
+anova(m1)
+summary(m1)
+```
+
+## Puntos de interés para predicción
+
+```{r}
+mezcla1p <- read.csv2("mezcla1p.csv", enc = "latin1")
+mezcla1p
+
+pred1 <- predict(m1, newdata = mezcla1p, interval = "confidence", se.fit = TRUE)
+pred1 <- data.frame(pred1$fit, pred1$se.fit)
+pred1
+
+pred2 <- predict(m1, newdata = mezcla1p, interval = "prediction")
+pred2
+```
+
+## Diagnósticos gráficos del modelo
+```{r}
+plot(m1)
+```
+
+## Diagnósticos numéricos del modelo
+```{r}
+shapiro.test(residuals(m1))
+
+with(mezcla1, fligner.test(residuals(m1) ~ Punto))
+
+require(lmtest)
+dwtest(m1, order.by = mezcla1$corrida, alternative = "two.sided")
+
+require(car)
+# Prueba de valores at?picos
+mezcla1$residuales <- resid(m1)
+mezcla1$elongaciónp <- predict(m1)
+outlierTest(m1)
+puntos <- qqPlot(m1, id.n = nrow(mezcla1))
+mezcla1[as.integer(names(puntos)), ]
+
+
+# Observaciones influenciales
+avPlots(m1)
+
+influencePlot(m1)
+
+# Modelo lineal o planar
+m2 <- lm(elongación ~ x1+x2+x3-1, data = mezcla1)
+anova(m2)
+summary(m2)
+
+# Comparación de modelos (Prueba de "falta de ajuste")
+anova(m2, m1)
+
+
+
+```
+
+## Predicción del modelo
+```{r}
+# Resolución 
+n = 501
+x <- seq(0, 1, l = n)
+mezcla2p <- expand.grid(x = x, y = x)
+mezcla2p$x1 <- with(mezcla2p, 
+        (-sqrt(3)/2 * (x - 0.5) - 0.5 * (y - sqrt(3)/2)) /  (sqrt(3)/2))
+mezcla2p$x2 <- with(mezcla2p, 
+        (sqrt(3)/2 * (x - 0.5) - 0.5 * (y - sqrt(3)/2)) /   (sqrt(3)/2))
+mezcla2p$x3 <- with(mezcla2p, 1 -x1 - x2)
+mezcla2p$elongación <- predict(m1, newdata = mezcla2p)
+mezcla2p$elongación[mezcla2p$x1 < 0 | mezcla2p$x2 < 0 | mezcla2p$x3 < 0]  <-  NA
+mezcla2p$elongación[mezcla2p$x1 > 1 | mezcla2p$x2 > 1 | mezcla2p$x3 > 1]  <-  NA
+
+image(x, x, matrix(mezcla2p$elongación, n, n), asp = 1, axes = F, col = terrain.colors(100))
+contour(x, x, matrix(mezcla2p$elongación, n, n), add = T, nlevels = 10)
+
+```
+
+## Superficie en 3D (interactiva)
+```{r}
+library(rgl)
+rgl.surface(20 * x, 20 * x, matrix(mezcla2p$elongación, n, n))
+```
+

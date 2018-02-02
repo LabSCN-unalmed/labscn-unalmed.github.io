@@ -1,0 +1,21 @@
+---
+title: "Atencion en entidades de salud"
+author: "Kenneth Roy Cabrera Torres"
+date: "5 de octubre de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+salud <- read.csv("Atenciones_en_Consulta_Externa_-_Municipio_de_Medell_n_2016.csv")
+```
+
+
+```{r}
+save(salud, file = "salud.RData")
+```
+

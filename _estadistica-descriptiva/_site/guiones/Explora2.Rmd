@@ -1,0 +1,77 @@
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=11, 
+                      fig.height=8)
+```
+
+
+## Lectura de la base de datos
+```{r}
+# Lee la base de datos.
+encuesta <- read.csv2("Encuesta2.csv", encoding = "utf-8")
+# Nombra algunas codificaciones en la base de datos.
+# Género
+encuesta$Género <- factor(encuesta$Género, labels = c("Femenino","Masculino"))
+# Carrera
+encuesta$Carrera <- factor(encuesta$Carrera, 
+       labels = c("Estadística","Ingeniería Forestal", "Ingeniería de Sistemas"))
+```
+
+## Arreglo de la base de datos para analizar los métodos de estudio
+```{r}
+require(reshape2)
+encuesta2 <- melt(encuesta, id.vars = names(encuesta)[1:12],
+     measure.vars = names(encuesta)[13:30],
+     variable.name = "tecnica_estudio",
+     value.name = "usa")
+encuesta2$usa <- factor(encuesta2$usa, labels = c("No","Si"))
+```
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(encuesta2, aes(tecnica_estudio, PAPA, fill= usa))
+g1 + geom_boxplot() +
+  xlab("Técnica de estudio") +
+  ylab("Promedio Aritmético\nPonderado Acumulado") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1, size = 18),
+        axis.title.y = element_text(size=18),
+        axis.title.x = element_text(size=18))
+```
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(encuesta2, aes(tecnica_estudio, PAPA, fill= usa))
+g1 + geom_boxplot() +
+  facet_grid(Carrera ~ .) +
+  xlab("Técnica de estudio") +
+  ylab("Promedio Aritmético\nPonderado Acumulado") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1, size = 18),
+        axis.title.y = element_text(size=18),
+        axis.title.x = element_text(size=18))
+```
+
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(subset(encuesta2, Carrera !="Ingeniería Forestal"), 
+             aes(tecnica_estudio, PAPA, fill= usa))
+g1 + geom_boxplot() +
+  facet_grid(Carrera ~ .) +
+  xlab("Técnica de estudio") +
+  ylab("Promedio Aritmético\nPonderado Acumulado") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1, size = 18),
+        axis.title.y = element_text(size=18),
+        axis.title.x = element_text(size=18))
+```
+
+```{r}
+require(ggplot2)
+g1 <- ggplot(subset(encuesta2, Carrera !="Ingeniería Forestal"), 
+             aes(tecnica_estudio, PAPA, fill= usa))
+g1 + geom_boxplot() +
+  facet_grid(Carrera ~ Género) +
+  xlab("Técnica de estudio") +
+  ylab("Promedio Aritmético\nPonderado Acumulado") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1, size = 18),
+        axis.title.y = element_text(size=18),
+        axis.title.x = element_text(size=18))
+```

@@ -1,0 +1,45 @@
+Lectura una de las base de datos de EMA e intervenida de enero de 2015
+```{r}
+ene2015ema <- read.csv2("Ene_2015EMA.csv")
+ene2015interv <- read.csv2("Ene_2015Inter.csv")
+```
+
+Derretir la base de datos de suelos para que queden una sola variable
+de humedad diferenciado por las profundidades.
+```{r}
+require(reshape2)
+ene2015interv2 <- melt(ene2015interv, id.vars = c("Fecha","Hora"),
+                       variable.name = "Profundidad",
+                       value.name = "Humedad")
+```
+
+La variable hora (Time) de la base de datos de EMA, debera ser igual al
+formato de la base de datos de suelo intervenido (Hora)
+
+```{r}
+summary(ene2015ema$Time)
+summary(ene2015interv2$Hora)
+
+head(ene2015interv2$Hora)
+require(stringr)
+horaTemp <- substring(ene2015interv2$Hora, 1, 5)
+horaTemp <- substring(ene2015interv2$Hora, 1, 5)
+am_pm <- substring(ene2015interv2$Hora, 10, 11)
+ene2015interv2$Hora <- paste(horaTemp,am_pm)
+
+ene2015ema$FechaT <- with(ene2015ema, paste(Date, Time))
+ene2015interv2$FechaT <- with(ene2015interv2, paste(Fecha, Hora))
+
+summary(ene2015ema$FechaT)
+summary(ene2015interv2$FechaT)
+```
+
+
+Combinar los dos base de datos.
+```{r}
+ene2015 <- merge(ene2015ema, ene2015interv2,
+                 by.x = c("FechaT"),
+                 by.y = c("FechaT"))
+head(ene2015)
+```
+

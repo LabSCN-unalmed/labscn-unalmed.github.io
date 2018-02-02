@@ -1,9 +1,9 @@
 Graficación
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: miércoles, 03 de agosto de 2016
+date: domingo, 16 de abril de 2017
 width: 1440
-height: 900
+height: 1000
 
 
 Sistema de graficación básico
@@ -67,7 +67,7 @@ require(datasets)
 hist(airquality$Ozone)
 ```
 
-![plot of chunk unnamed-chunk-1](09_Graficacion_I-figure/unnamed-chunk-1-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
 
 Ejemplo II
 ========================================================
@@ -77,7 +77,7 @@ require(datasets)
 with(airquality, plot(Wind, Ozone))
 ```
 
-![plot of chunk unnamed-chunk-2](09_Graficacion_I-figure/unnamed-chunk-2-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
 Ejemplo III
 ========================================================
@@ -88,7 +88,7 @@ airquality <- transform(airquality, Month2 = factor(Month))
 boxplot(Ozone ~ Month2, airquality, xlab = "Mes", ylab = "Ozono (ppmm)")
 ```
 
-![plot of chunk unnamed-chunk-3](09_Graficacion_I-figure/unnamed-chunk-3-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
 
 Parámetros importantes I
 ========================================================
@@ -189,7 +189,7 @@ with(airquality, plot(Wind, Ozone))
 title(main = "Ozono y viento en la ciudad de Nueva York")
 ```
 
-![plot of chunk unnamed-chunk-6](09_Graficacion_I-figure/unnamed-chunk-6-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
 
 
 Gráfica con "anotación" II
@@ -201,7 +201,7 @@ with(airquality, plot(Wind, Ozone, main = "Ozono y viento en la ciudad de Nueva 
 with(subset(airquality, Month == 5), points(Wind, Ozone, col = "blue"))
 ```
 
-![plot of chunk unnamed-chunk-7](09_Graficacion_I-figure/unnamed-chunk-7-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
 
 Gráfica con "anotación" III
 ========================================================
@@ -217,6 +217,8 @@ legend("topright", pch = 1, col = c("blue", "red"), legend =
  c("Mayo", "Demás meses"))
 ```
 
+<img src="09_Graficacion_I-figure/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
+
 Con una recta de regresión
 ========================================================
 
@@ -227,7 +229,7 @@ modelo <- lm(Ozone ~ Wind, airquality)
 abline(modelo, lwd = 2)
 ```
 
-![plot of chunk unnamed-chunk-9](09_Graficacion_I-figure/unnamed-chunk-9-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
 
 Múltiples gráficas I
 ========================================================
@@ -241,7 +243,7 @@ plot(Solar.R, Ozone, main = "Ozone y radiación solar")
 })
 ```
 
-![plot of chunk unnamed-chunk-10](09_Graficacion_I-figure/unnamed-chunk-10-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
 
 ```r
 par(op)
@@ -259,6 +261,11 @@ plot(Solar.R, Ozone, main = "Ozone y radiación solar")
 plot(Temp, Ozone, main = "Ozone y temperatura")
 mtext("Ozono y clima en la ciudad de Nueva York", outer = TRUE)
 })
+```
+
+<img src="09_Graficacion_I-figure/unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
+
+```r
 par(op)
 ```
 
@@ -306,7 +313,7 @@ require(datasets)
 xyplot(Ozone ~ Wind, data = airquality)
 ```
 
-![plot of chunk unnamed-chunk-13](09_Graficacion_I-figure/unnamed-chunk-13-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" style="display: block; margin: auto;" />
 
 Ejemplo "lattice" II
 ========================================================
@@ -318,7 +325,7 @@ airquality <- transform(airquality, Month2 = factor(Month))
 xyplot(Ozone ~ Wind | Month2, data = airquality, layout = c(5, 1))
 ```
 
-![plot of chunk unnamed-chunk-14](09_Graficacion_I-figure/unnamed-chunk-14-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" style="display: block; margin: auto;" />
 
 Comportamiento de "lattice" I
 ========================================================
@@ -339,12 +346,15 @@ p <- xyplot(Ozone ~ Wind, data = airquality)
 print(p) ## Se muestra la gráfica.
 ```
 
-![plot of chunk unnamed-chunk-15](09_Graficacion_I-figure/unnamed-chunk-15-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" style="display: block; margin: auto;" />
 
+========================================================
 
 ```r
 xyplot(Ozone ~ Wind, data = airquality) ## Se autoimprime
 ```
+
+<img src="09_Graficacion_I-figure/unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" style="display: block; margin: auto;" />
 
 Funciones de panel de "lattice" I
 ========================================================
@@ -367,7 +377,7 @@ f <- factor(f, labels = c("Groupo 1", "Groupo 2"))
 xyplot(y ~ x | f, layout = c(2, 1)) ## Gráfica con dos páneles
 ```
 
-![plot of chunk unnamed-chunk-17](09_Graficacion_I-figure/unnamed-chunk-17-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" style="display: block; margin: auto;" />
 
 Funciones de panel de "lattice" III
 ========================================================
@@ -380,6 +390,8 @@ panel.abline(h = median(y), lty = 2) ## Adcionar una línea horizontal para la m
 })
 ```
 
+<img src="09_Graficacion_I-figure/unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" style="display: block; margin: auto;" />
+
 Funciones de panel de "lattice" IV
 ========================================================
 
@@ -390,5 +402,5 @@ panel.lmline(x, y, col = 2) ## Una línea de regresión
 })
 ```
 
-![plot of chunk unnamed-chunk-19](09_Graficacion_I-figure/unnamed-chunk-19-1.png)
+<img src="09_Graficacion_I-figure/unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" style="display: block; margin: auto;" />
 

@@ -1,7 +1,9 @@
 Introducción al R (Parte I)
 ========================================================
 author: Kenneth Cabrera
-date: martes, 02 de agosto de 2016
+date: miércoles, 06 de septiembre de 2017
+height: 800
+
 
 Breve historia
 ========================================================
@@ -37,8 +39,22 @@ Notas históricas del R
 - 1997: Se formó el grupo núcleo del R (The R Core Group).
   Administra el código fuente del R.
 - 2000: Versión 1.0.0, 2004: Versión 2.0.0., 2013: Versión 3.0.0.
-- 21 de junio de 2016: Última versión oficial liberada a la fecha
-  3.3.1. "Bug in Your Hair".
+- 6 de marzo de 2017: Última versión oficial liberada a la fecha
+  3.3.3. "Another Canoe".
+- Se espera la versión 3.4.0 para el viernes 21 de abril de 2017
+  denominada "Your Stupid Darkness".
+
+
+Sobrenombres de versiones del R
+========================================================
+
+"Another Canoe" (R version 3.3.3.)
+
+![](anotherCanoe.jpg)
+
+"You stupid darkness" y "Single Candle" (R version 3.4.0 y 3.4.1)
+
+![](you_stupid_darkness.gif)
 
 Descarga del R
 ========================================================
@@ -88,14 +104,17 @@ Paquetes princiales
 - El sistema básico o base el el paquete **base**.
 - El sistema básico incluye paquetes como el **utils**,
   **stats**, **datasets**, **graphics**, **parallel** y otros.
+- Paquete de paquetes de utilidades complementarias **tidyverse**.
 - Paquetes recomendados  **boot**, **class**, **cluster**
-  **lattice**, **KernSmooth**, **nlme**, **nnet**, y otros.
+  **ggplot2**, **KernSmooth**, **nlme**, **nnet**, y otros.
 
 Paquetes adicionales
 ========================================================
 * Existen a la fecha más o menos
-  [8885 paquetes en el CRAN](https://cran.r-project.org/web/packages/index.html).
-* Hay proyectos asociados como el Bioconductor (http://bioconductor.org).
+  [11359 paquetes en el CRAN](https://cran.r-project.org/web/packages/index.html) y
+  contanto.
+* Hay proyectos independientes pero basados en R, como el Bioconductor
+  (http://bioconductor.org).
 * Algunos tienen desarrollos en su propia página por lo
   tanto es más difícil de seguirles el rastro.
 

@@ -54,7 +54,7 @@ Sys.Date()
 ```
 
 ```
-## [1] "2016-06-29"
+## [1] "2017-09-29"
 ```
 
 
@@ -74,7 +74,7 @@ Ver `help(strptime)`.
 
 
 ```r
-as.Date('1/15/2001',format='%m/%d/%Y')
+as.Date('1/15/2001', format = '%m/%d/%Y')
 ```
 
 ```
@@ -82,7 +82,7 @@ as.Date('1/15/2001',format='%m/%d/%Y')
 ```
 
 ```r
-as.Date('Abril 26, 2001',format='%B %d, %Y')
+as.Date('Abril 26, 2001', format = '%B %d, %Y')
 ```
 
 ```
@@ -90,7 +90,7 @@ as.Date('Abril 26, 2001',format='%B %d, %Y')
 ```
 
 ```r
-as.Date('22JUN01',format='%d%b%y')  
+as.Date('22JUN01', format = '%d%b%y')  
 ```
 
 ```
@@ -130,7 +130,7 @@ fechas <- c("2005-10-21 18:47:22",
 
 
 ```r
-fecha1 <- strptime('16/Oct/2005:07:51:00',format='%d/%b/%Y:%H:%M:%S')
+fecha1 <- strptime('16/Oct/2005:07:51:00', format = '%d/%b/%Y:%H:%M:%S')
 fecha1
 ```
 
@@ -139,7 +139,7 @@ fecha1
 ```
 
 ```r
-fecha2 <- strptime('16/Oct/2005:07:51:00',format='%d/%b/%Y:%H:%M:%S', tz = "GMT")
+fecha2 <- strptime('16/Oct/2005:07:51:00', format = '%d/%b/%Y:%H:%M:%S', tz = "GMT")
 fecha2
 ```
 
@@ -148,7 +148,7 @@ fecha2
 ```
 
 ```r
-fecha3 <- ISOdate(2005,10,21,18,47,22,tz="VEN")
+fecha3 <- ISOdate(2005, 10, 21, 18, 47, 22, tz = "VEN")
 fecha3
 ```
 

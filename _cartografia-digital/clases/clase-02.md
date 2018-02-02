@@ -1,698 +1,211 @@
 ---
 layout: clase
-title: 'Sesión introductoria a GRASS GIS'
+title: 'El uso del color para visualización de capas ráster'
 curso: 'cartografia-digital'
 clase: 2
 ---
 
-Iniciando GRASS
----------------
+<!-- Fundamentos teóricos {#fundamentos-teoricos}
+--------------------
 
-Al abrir GRASS GIS, se inicia una terminal de comandos y aparece la siguiente ventana de inicio:
+Los colores se pueden describir con base en la combinación de unos colores primarios.
 
-![Ventana de inicio de GRASS](/cartografia-digital/images/clase-02/grass_start.png){: .img-responsive}
+En GRASS se emplea la combinación RGB (Red, Green, Blue) para describir cualquier tonalidad.
 
-#### ![](/cartografia-digital/images/clase-02/circle_1.png) Seleccionar el directorio de datos SIG
+Cada uno de estos colores base presenta 255 valores diferentes.
 
-Los datos de GRASS se almacenan en un directorio al cual se le conoce como una base de datos SIG (GISDBASE). Dentro de esta base de datos SIG, se encuentran organizados los proyectos como subdirectorios llamados LOCATIONs.
+Un color por lo tanto se obtiene como una combinación de valores para *rojo*, *verde*, y *azul*.
 
-#### ![](/cartografia-digital/images/clase-02/circle_2.png) Seleccionar la locación del proyecto (LOCATION)
+Evaluar distintas combinaciones empleando el programa **gcolor2**: Aplicaciones &rarr; Gráficos &rarr; Gcolor2
 
-Un LOCATION se define por su sistema de coordenadas, proyección y límites geográficos. Los subdirectorios y archivos que definen un LOCATION son creados automáticamente cuando GRASS se inicia la primera vez con un nuevo LOCATION. Es importante comprender que cada proyección permanece en su propio LOCATION.
+![Selector de color gcolor2](/cartografia-digital/images/gcolor2.png){: .img-responsive}
 
-#### ![](/cartografia-digital/images/clase-02/circle_3.png) Seleccionar el directorio de mapas (MAPSET)
+*¿Qué pasa si mantenemos constante el valor de R y G y se disminuye gradualmente el valor de B?*
 
-Cada LOCATION puede tener múltiples MAPSET. Cada MAPSET es un subdirectorio de un LOCATION. Se pueden crear nuevos MAPSET desde la ventana de inicio de GRASS.
+| R | G |  B  |    Color   |
+|:-:|:-:|:---:|:-----------|
+| 0 | 0 | 255 |Azul intenso|
+| 0 | 0 | 190 |Azul marino |
+| 0 | 0 | 128 |Azul rey    |
+| 0 | 0 |  65 |Azul oscuro |
+| 0 | 0 |   0 |Negro       |
+{: .table .table-striped}
 
-#### ![](/cartografia-digital/images/clase-02/circle_4.png) Asistente de localizaciones
+En la combinación `0:0:255` se tiene un color azul intenso. A medida que se disminuye el valor de B, el color azul se va tornando mas oscuro. La combinación final `0:0:0` corresponde al color negro.
 
-El asistente de localizaciones permite crear fácilmente un nuevo LOCATION, a partir de un archivo georeferenciado, definiendo los parámetros manualmente, o a partir del código de proyección EPSG.
+Las combinación `0:0:255` ubica el punto de los colores en el centro de la franja del circulo de colores correspondiente a los azules. La combinación `0:255:0` ubica el punto en el centro de la franja correspondiente a los "verdes" y la combinación `255.0:0` ubica el punto en el centro de la franja correspondiente a los rojos.
 
-#### ![](/cartografia-digital/images/clase-02/circle_5.png) Iniciar GRASS
+La combinación de dos colores manteniendo el otro valor en cero (0) hace variar la posición del punto del color a lo largo de la circunferencia externa de los colores.
 
-Una vez se hayan seleccionado el LOCATION y el MAPSET, se puede iniciar GRASS.
+Cuando se emplean valores entre 0 y 255 para R, G y B se obtienen diveros colores, predominando el color con mayor valor sobre los demás:
 
-Para el caso del presente curso será necesario crear un MAPSET con el nombre del estudiante e iniciar GRASS en el LOCATION CursoGrass y el MAPSET recién creado.
+`49:100:200`: El valor mayor corresponde al azul.
 
-Al iniciar GRASS se abrirán 2 ventanas adicionales a la terminal de comandos: una ventana de administración de capas y una ventana para la visualización de mapas.
+`49:200:100`: El valor mayor corresponde al verde.
 
-Adicionalmente se recomienda abrir el gedit para registrar los comandos utilizados en la terminal, a manera de guión o script.
+Cuando los tres valores son iguales pero diferentes de `0:0:0` (negro) y `255:255:255` (blanco) se obtienen colores en tonalidades de gris desde un gris muy oscuro, como en la combinación `100:100:100`, hasta tonalidades de un gris muy claro como en la combinación `200:200:200`
 
-Durante el desarrollo de los ejercicios del curso, se utilizará la terminal para realizar todo el trabajo de procesamiento, y la interfaz gráfica se utilizará para la visualización.
+#### Un ejercicio:
 
-Este es el aspecto del entorno de trabajo:
+Construir dos tablas de colores personales para emplear en el despliegue de los mapas a construir:
 
-![Entorno de trabajo del GIS GRASS](/cartografia-digital/images/clase-02/grass_workspace.png){: .img-responsive}
+- Una primera tabla con colores de verde que vayan desde el verde claro con algo de amarillo y termine con un color verde algo oscuro.
+- Una segunda tabla que combine colores pastel contrastados (verdes y morados, por ejemplo).
 
-La interfaz gráfica {#interfaz-grafica}
--------------------
+### Recomendaciones en el manejo del color de los mapas
 
-La interfaz gráfica está compuesta por 2 ventanas:
+El uso de una paleta de colores especifica tiene una gran influencia sobre la visualización de los mapas.
 
-* El **Administrador de Capas**
-* El **Visualizador de Mapas**
+Los colores muy oscuros aplicados a una zona muy extensa no permiten visualizar la diversidad mórfica de un territorio. Sin embargo, un color oscuro aplicado a un rasgo muy sutil donde la zona circundante se encuentra en un color muy claro permite resaltar dicho rasgo.
 
-### Administrador de Capas
+Un uso adecuado de colores contrastantes permite visualizar adecuadamente la estructura del relieve.
 
-El administrador de capas constituye una herramienta para crear y administrar monitores (displays). Contiene una barra de herramientas para controlar las capas desplegadas, y un marco de capas en donde se organizan las capas a desplegar, utilizando pestañas para cada monitor.
+Los colores disponibles en GRASS
+--------------------------------
 
-![Administrador de Capas](/cartografia-digital/images/clase-02/grass_layer_manager.png){: .img-responsive}
+Para conocer los nombres disponibles mas inmediatos:
 
-### Visualizador de Mapas
+~~~
+d.colorlist
+~~~
 
-La ventana de visualización de mapas incluye una barra de herramientas, un espacio en donde se despliegan los mapas, y una barra de estado con información de la región geográfica de los mapas desplegados.
+~~~
+red,orange,yellow,green,blue,indigo,violet,white,black,gray,brown,magenta,aqua,grey,cyan,purple
+~~~
+{: .output} -->
 
-![Visualizador de Mapas](/cartografia-digital/images/clase-02/grass_map_display.png){: .img-responsive}
+Mediante el administrador de capas de GRASS se pueden asignar colores mediante tablas predefinidas o de manera personalizada a capas de mapas raster.
 
-Cada ventana de visualización de mapas tiene una lista de capas independiente en el administrador de capas.
-
-En la parte superior de la ventana se encuentra una barra de herramientas con botones para manipular el mapa desplegado (ampliación, vista panorámica), consulta y análisis (medir distancia, creación de perfiles e histogramas, agregar elementos al mapa (escala, flecha de norte, leyenda y etiquetas de texto personalizadas), y para exportar o imprimir el monitor.
-
-En la parte inferior de la ventana se encuentra la barra de estado, en ella se puede elegir si presentar las coordenadas bajo el cursor, la extensión de la región actual, la región de cálculo (incluyendo visualización gráfica), la geometría del mapa desplegado (número de fílas, columnas y resolución), y la escala. Marcar la opción de **renderizar** hace que la ventana se actualice automáticamente cada que se añade un mapa, se borra, o se cambia en la lista de capas.
-
-El nivel de acercamiento o "zoom", no incide sobre la región de cálculo establecida mediante `g.region`.
-
-#### Región de cálculo
-
-El comando `g.region` define lo que se denominará **región de cálculo**{: .text-info}, la cual corresponde a la región sobre la cual se ejecutarán los comandos de procesamiento **raster**{: .text-warning}. Y es independiente de la visualización de las capas.
-
-### Barras de herramientas
-
-#### Barra de herramientas del administrador de capas
-
-![Abrir nuevo monitor](/cartografia-digital/images/clase-02/monitor-create.png) Abrir nuevo monitor
-: Abre una ventana de visualización de mapas adicional y crea una pestaña vacía en la ventana de administración de capas.
-
-![Crear un nuevo espacio de trabajo](/cartografia-digital/images/clase-02/create.png) Crear un nuevo espacio de trabajo
-: Quita todas las capas del árbol de capas.
-
-![Abrir espacio de trabajo](/cartografia-digital/images/clase-02/open.png) Abrir espacio de trabajo
-: Abre un archivo de espacio de trabajo, que contiene un conjunto de capas con sus respectivas opciones.
-
-![Guardar espacio de trabajo](/cartografia-digital/images/clase-02/save.png) Guardar espacio de trabajo
-: Guarda el conjunto actual de capas y sus respectivas opciones en un archivo.
-
-![Cargar mapas al espacio de trabajo](/cartografia-digital/images/clase-02/layer-open.png) Cargar mapas al espacio de trabajo
-: Carga mapas raster o vectoriales seleccionados a la actual lista de capas.
-
-![Agregar capa de mapa raster](/cartografia-digital/images/clase-02/layer-raster-add.png) Agregar capa de mapa raster
-: Agrega un mapa raster a la lista de capas.
-
-![Agregar varias capas de mapas raster](/cartografia-digital/images/clase-02/layer-raster-more.png) Agregar varias capas de mapas raster (RGB, HIS, relieve sombreado...)
-: Abre un menu desplegable que permite:
-
-![Agregar una capa de mapa raster 3D](/cartografia-digital/images/clase-02/layer-raster3d-add.png) Agregar una capa de mapa raster 3D
-: Agrega un mapa raster 3D a la lista de capas.
-
-![Agregar una capa raster RGB](/cartografia-digital/images/clase-02/layer-rgb-add.png) Agregar una capa raster RGB
-: Combina y despliega tres mapas raster definidos como canales rojo (Red), verde (Green) y azul (Blue) para crear un mapa de color RGB.
-
-![Agregar una capa raster HIS](/cartografia-digital/images/clase-02/layer-his-add.png) Agregar una capa raster HIS
-: Combina y despliega dos o tres mapas raster definidos como canales de matiz (Hue), intensidad (Intensity), y opcionalmente saturación (Saturation) para crear un mapa de color.
-
-![Agregar una capa de mapa raster de relieve sombreado](/cartografia-digital/images/clase-02/layer-shaded-relief-add.png) Agregar una capa raster de relieve sombreado
-: Agrega una capa de mapa raster de relieve sombreado.
-
-![Agregar una capa raster de flechas](/cartografia-digital/images/clase-02/layer-aspect-arrow-add.png) Agregar una capa raster de flechas
-: Agrega un mapa de pixeles raster con flechas de dirección dibujadas. Las flechas de dirección y su longitud se determinan por mapas separados de aspecto/dirección, y opcionalmente pendiente/intensidad.
-
-![Agregar una capa raster de números](/cartografia-digital/images/clase-02/layer-cell-cats-add.png) Agregar una capa raster de números
-: Agrega un mapa de pixeles raster con números que representan los valores de los pixeles.
-
-![Agregar una capa de mapa vector](/cartografia-digital/images/clase-02/layer-vector-add.png) Agregar una capa de mapa vector
-: Agregar una capa de mapa vector.
-
-![Agregar varias capas de mapas vector](/cartografia-digital/images/clase-02/layer-vector-more.png) Agregar varias capas de mapas vector (temática, gráfica...)
-: Abre un menu desplegable que permite:
-
-![Agregar una capa de mapa de área temática](/cartografia-digital/images/clase-02/layer-vector-thematic-add.png) Agregar una capa de mapa de área temática (para todos los tipos de mapa vector)
-: Agrega una capa para despliegue temático de los valores de un atributo asociado a un mapa vectorial. Las opciones incluyen: Tipo de despliegue temático (colores en gradiente o tamaños de puntos), métodos para crear intervalos de despliegue, consultas SQL para seleccionar y limitar los atributos a desplegar, control de los tipos de íconos y tamaños, control de los esquemas de color, y creación de leyenda para el mapa temático.
-
-![Agregar una capa de gráfica temática](/cartografia-digital/images/clase-02/layer-vector-chart-add.png) Agregar una capa de gráfica temática (para mapas vector de puntos)
-: Agrega una capa en la cual se pueden crear gráficos de barra o circulares en las ubicaciones de puntos vectoriales. Los gráficos despliegan los valores de columnas seleccionadas en la tabla de atributos asociada. Las opciones incluyen: Tipo de gráfico, capa y atributos a graficar, colores del gráfico, tamaño del gráfico (fijo o basado en un atributo).
-
-![Agregar grupo](/cartografia-digital/images/clase-02/layer-group-add.png) Agregar grupo
-: Agrega un grupo vacío al cual se pueden agregar capas.
-
-![Agregar cuadrícula o etiquetas vectoriales](/cartografia-digital/images/clase-02/layer-more.png) Agregar cuadrícula o etiquetas vectoriales
-: Abre un menu desplegable que permite:
-
-![Agregar cuadrícula](/cartografia-digital/images/clase-02/layer-grid-add.png) Agregar cuadrícula
-: Agrega una capa para desplegar una cuadrícula de coordenadas.
-
-![Agregar una capa de etiquetas para objetos vectoriales](/cartografia-digital/images/clase-02/layer-label-add.png) Agregar una capa de etiquetas para objetos vectoriales (a partir de un archivo de etiquetas existente)
-: Agrega una capa de texto a partir de un archivo de etiquetas para objetos vectoriales creado con el módulo `v.label`.
-
-![Agregar una capa de líneas geodésicas](/cartografia-digital/images/clase-02/shortest-distance.png) Agregar una capa de líneas geodésicas
-: Agrega una capa para desplegar líneas geodésicas.
-
-![Agregar una capa de líneas de rumbo](/cartografia-digital/images/clase-02/shortest-distance.png) Agregar una capa de líneas de rumbo
-: Agrega una capa para desplegar líneas de rumbo.
-
-![Agregar una capa de comandos](/cartografia-digital/images/clase-02/layer-command-add.png) Agregar una capa de comandos
-: Agrega una capa en la cual se pueden ingresar comandos para realizar el despliegue.
-
-![Eliminar capa seleccionada](/cartografia-digital/images/clase-02/layer-remove.png) Eliminar capa seleccionada
-: Remueve la capa seleccionada (o el grupo) de la lista de capas.
-
-![Mostrar tabla de atributos](/cartografia-digital/images/clase-02/table.png) Mostrar tabla de atributos
-: Abre el administrador de tablas de atributos para el mapa vectorial seleccionado.
-
-![Importar datos raster o vector](/cartografia-digital/images/clase-02/layer-open.png) Importar datos raster o vector
-: Permite importar datos raster o vector.
-
-![Importar datos raster](/cartografia-digital/images/clase-02/layer-import.png) Importar datos raster
-: Importa datos raster a GRASS usando el módulo `r.in.gdal` y los carga a la lista de capas.
-
-![Importar datos vector](/cartografia-digital/images/clase-02/layer-import.png) Importar datos vector
-: Importa datos vector a GRASS usando el módulo `v.in.ogr` y carga a la lista de capas.
-
-![Calculadora de mapas raster](/cartografia-digital/images/clase-02/calculator.png) Calculadora de mapas raster
-: Abre la interfaz gráfica de la calculadora de mapas raster `r.mapcalc`.
-
-![Modelador gráfico](/cartografia-digital/images/clase-02/modeler-main.png) Modelador gráfico
-: Abre el modelador gráfico para crear modelos y ejecutarlos.
-
-![Herramienta de georectificación](/cartografia-digital/images/clase-02/georectify.png) Herramienta de georectificación
-: Abre el administrador de puntos de control terrestre para crear, editar y administrar puntos de amarre.
-
-![Compositor cartográfico](/cartografia-digital/images/clase-02/print-compose.png) Compositor cartográfico
-: Abre el compositor cartográfico para crear mapas imprimibles de forma interactiva.
-
-![Configuración](/cartografia-digital/images/clase-02/settings.png) Configuración
-: Abre un diálogo para modificar la configuración de la interfaz gráfica.
-
-![Ayuda](/cartografia-digital/images/clase-02/help.png) Ayuda
-: Abre la documentación de GRASS en un navegador web.
-
-#### Atajos de teclado claves
-
-`Ctrl+Q`
-: Salir de la interfaz gráfica.
-
-`Ctrl+N`
-: Crear un nuevo espacio de trabajo.
-
-`Ctrl+O`
-: Cargar un espacio de trabajo de un archivo.
-
-`Ctrl+S`
-: Guardar el espacio de trabajo actual a un archivo.
-
-`Ctrl+Shift+L`
-: Agregar múltiples capas de mapas raster o vector al monitor actual.
-
-`Ctrl+Shift+R`
-: Agrega una capa de mapa raster al monitor actual.
-
-`Ctrl+Shift+V`
-: Agrega una capa de mapa vector al monitor actual.
-
-`Ctrl+W`
-: Cierra el monitor actual.
-
-`Tab`
-: Muestra una guía rápida del comando.
-
-`Esc`
-: Esconde la guía rápida del comando.
-
-`Ctrl+Space`
-: Permite autocompletar los nombres de los comandos, los parámetros y los mapas.
-
-`Arriba/Abajo`
-: Navega por el historial de comandos.
-
-`Enter`
-: Ejecuta el comando.
-
-#### Barra de herramientas del visualizador de mapas
-
-![Desplegar mapa](/cartografia-digital/images/clase-02/show.png) Desplegar mapa
-: Despliega todas las capas activas de la lista de capas y renderiza las capas que hayan cambiado, agregado o eliminado.
-
-![Renderizar el mapa](/cartografia-digital/images/clase-02/layer-redraw.png) Renderizar el mapa
-: Renderiza nuevamente todas las capas activas.
-
-![Borrar monitor](/cartografia-digital/images/clase-02/erase.png) Borrar monitor
-: Borra el contenido del monitor, dejando el fondo blanco.
-
-![Puntero](/cartografia-digital/images/clase-02/pointer.png) Puntero
-: Selecciona el puntero como cursor para el monitor.
-
-![Consulta de mapas](/cartografia-digital/images/clase-02/info.png) Consulta de mapas
-: Consulta la capa seleccionada usando el ratón. El mapa a consultar se debe seleccionar previamente en la lista de capas. Los mapas vectoriales temáticos y de gráficas no pueden ser consultados. Los resultados de la consulta se mostrarán en la consola.
-
-![Vista panorámica](/cartografia-digital/images/clase-02/pan.png) Vista panorámica
-: Permite seleccionar el centro de la vista en el monitor de forma interactiva usando el ratón, arrastrándo el cursor haciendo click con el botón izquierdo. Cambia la ubicación de la región desplegada pero no el tamaño del área o la resolución. _**NO**_ afecta la región de cálculo para los procesamientos.
-
-![Acercar](/cartografia-digital/images/clase-02/zoom-in.png) Acercar
-: Permite acercar la vista de manera interactiva usando el mouse, dibujando un recuadro para que el área seleccionada ocupe completamente el monitor. Hacer click con el cursor de acercar hace que el monitor se acerque 30%, centrándose en el punto donde se hizo click. La resolución del mapa no cambia al acercar pero si se restablece la extensión de la región desplegada. _**NO**_ afecta la región de cálculo para los procesamientos.
-
-![Alejar](/cartografia-digital/images/clase-02/zoom-out.png) Alejar
-: Permite alejar la vista de manera interactiva usando el mouse, dibujando un recuadro para que el área desplegada se reduzca hasta ocupar el recuadro dibujado. Hacer click con el cursor de alejar hace que el monitor se aleje 30%, centrándose en el punto donde se hizo click.  La resolución del mapa no cambia pero si se restablece la extensión de la región desplegada. _**NO**_ afecta la región de cálculo para los procesamientos.
-
-![Acercar al mapa seleccionado](/cartografia-digital/images/clase-02/zoom-extent.png) Acercar al mapa seleccionado
-: Establece la extensión del monitor basándose en el mapa seleccionado. La resolución del mapa no cambia pero si se restablece la extensión de la región desplegada. _**NO**_ afecta la región de cálculo para los procesamientos.
-
-![Volver al acercamiento anterior](/cartografia-digital/images/clase-02/zoom-last.png) Volver al acercamiento anterior
-: Vuelve a la extensión de acercamiento anterior. Se mantienen hasta 10 niveles anteriores de acercamiento.
-
-![Opciones de acercamiento](/cartografia-digital/images/clase-02/zoom-more.png) Opciones de acercamiento
-: Abre un menú desplegable que permite elegir una opción:
-
-* Acercamiento que coincida con la extensión de un mapa seleccionado.
-* Acercamiento a la región de cálculo (establecida con `g.region`.
-* Acercamiento a la región de cálculo predeterminada.
-* Acercamiento a una región guardada.
-* Establecer región de cálculo a la extensión de la vista actual (sin cambiar la resolución).
-* Guardar la geometría de la vista actual a una región.
-
-![Menú de análisis](/cartografia-digital/images/clase-02/layer-raster-analyze.png) Menú de análisis
-: Abre un menú desplegable con las siguientes herramientas:
-
-![Herramienta de medir distancia](/cartografia-digital/images/clase-02/measure-length.png) Herramienta de medir distancia
-: Medición interactiva de longitudes definidas con el mouse. La longitud de cada segmento y la longitud acumulada se despliega en la consola. Las longitudes se miden en la unidad de medida actual.
-
-![Herramienta de perfil](/cartografia-digital/images/clase-02/layer-raster-profile.png) Herramienta de perfil
-: Creación de perfil de un mapa raster de forma interactiva. El transecto del perfil se dibuja con el mouse en el monitor. El perfil puede ser del mapa desplegado o de un mapa diferente. Se pueden perfilar hasta tres mapas de manera simultánea.
-
-![Herramienta de histograma](/cartografia-digital/images/clase-02/layer-raster-histogram.png) Herramienta de histograma
-: Despliega un histograma del mapa raster seleccionado en una nueva ventana.
-
-![Agregar elementos](/cartografia-digital/images/clase-02/overlay-add.png) Agregar elementos
-: Abre un menú desplegable que permite:
-
-![Agregar escala y flecha norte](/cartografia-digital/images/clase-02/scalebar-add.png) Agregar escala y flecha norte
-: Agrega una capa para desplegar una escala y una flecha norte. Las opciones incluyen la ubicación (usando coordenadas o el mouse), el formato y los colores de la escala.
-
-![Agregar leyenda de mapa raster](/cartografia-digital/images/clase-02/legend-add.png) Agregar leyenda de mapa raster
-: Agrega una capa para desplegar una leyenda del mapa raster seleccionado.
-
-![Agregar texto](/cartografia-digital/images/clase-02/text-add.png) Agregar texto
-: Agrega una capa para desplegar una línea de texto utilizando el tipo de letra predeterminado de GRASS. Las opciones incluyen la ubicación (coordenadas), el tamaño, el formato y el color del texto.
-
-![Guardar el monitor a un archivo](/cartografia-digital/images/clase-02/map-export.png) Guardar el monitor a un archivo
-: Guarda la imágen visible en el monitor a diferentes formatos de gráficos raster.
-
-![Imprimir mapa](/cartografia-digital/images/clase-02/print.png) Imprimir mapa
-: Imprime el mapa en la impresora nativa del sistema, o en un dispositivo PostScript; guarda el mapa visible (incluyendo texto y etiquetas) en archivos PDF o EPS.
-
-Modo de despliegue de mapas
-: Menú desplegable donde se elige si se quieren visualizar los mapas en 2D o 3D. También da la opción de digitalizar mapas vectoriales agregando una barra de herramientas para la digitalización. Permite digitalizar un nuevo mapa o editar uno existente.
-
-## Despliegue de mapas
-
-Utilizando el botón ![Agregar capa de mapa raster](/cartografia-digital/images/clase-02/layer-raster-add.png) vamos a agregar una nueva capa: el mapa `porcecito`.
-
-La siguiente es la ventana de selección del mapa a desplegar:
+Para esto se utiliza el menú contextual de la capa en cuestión, el cual tiene (entre otras) las siguientes 2 opciones:
 
 ![](/cartografia-digital/images/clase-02/clase-02_01.png){: .img-responsive}
 
-El administrador de capas ahora tendrá la capa del mapa `porcecito`, así:
+## Asignación de color por tablas predefinidas {#asignacion-color-tablas-predefinidas}
+
+Por medio de la opción ![](/cartografia-digital/images/circle_1.png) se pueden asignar tablas de colores que existen preestablecidas en GRASS.
+
+Esta opción abre el módulo `r.colors` que permite manejar los colores de capas ráster:
 
 ![](/cartografia-digital/images/clase-02/clase-02_02.png){: .img-responsive}
 
-Y este será desplegado en el visualizador de mapas, así:
+Como se observa, la capa seleccionada en el administrador de capas corresponde con el mapa raster del diálogo del módulo.
 
 ![](/cartografia-digital/images/clase-02/clase-02_03.png){: .img-responsive}
 
-Agregando una segunda capa, en este caso del mapa `ituango`:
+Por medio de la pestaña _**Define**_{: .text-info} podemos desplegar un listado de las tablas de colores con una pequeña muestra de los colores que la componen.
 
 ![](/cartografia-digital/images/clase-02/clase-02_04.png){: .img-responsive}
 
-El administrador de capas muestra las 2 capas agregadas:
+Si necesitásemos eliminar la tabla de colores y dejar la capa ráster con los colores por omisión de GRASS, utilizaríamos la opción de la pestaña _**Remove**_{: .text-info}.
 
 ![](/cartografia-digital/images/clase-02/clase-02_05.png){: .img-responsive}
 
-Sin embargo, el visualizador de mapas sigue mostrando el mapa `porcecito`. Esto es debido a que ambas capas corresponden a regiones geográficas diferentes, por lo tanto, para visualizar el nuevo mapa `ituango`, en el visualizar de mapas se utiliza el botón ![Acercar al mapa seleccionado](/cartografia-digital/images/clase-02/zoom-extent.png). Ahora si se muestra el mapa correspondiente.
+
+### La tabla de colores "srtm"
+
+Para establecer la tabla de colores **srtm** al mapa `porcecito`, la seleccionamos en la pestaña _**Define**_{: .text-info}.
 
 ![](/cartografia-digital/images/clase-02/clase-02_06.png){: .img-responsive}
 
-Si se quieren visualizar ambos mapas, se deben seleccionar en el administrador de capas utilizando haciendo click sobre las capas mientras se presiona la tecla `Ctrl`:
+Y ejecutamos el módulo `r.colors`.
 
 ![](/cartografia-digital/images/clase-02/clase-02_07.png){: .img-responsive}
 
-Y nuevamente utilizando el botón ![Acercar al mapa seleccionado](/cartografia-digital/images/clase-02/zoom-extent.png) en el visualizador de mapas, obtendremos:
+![La tabla de colores "srtm"](/cartografia-digital/images/clase-02/porcecito_srtm.png){: .img-responsive}
 
-![](/cartografia-digital/images/clase-02/clase-02_08.png){: .img-responsive}
+### La tabla de colores "aspect"
 
-Observemos que en el administrador de capas, cada una de las capas agregadas, tiene una casilla de verificación, la cual permite activar o desactivar la capa respectiva:
-
-![](/cartografia-digital/images/clase-02/clase-02_09.png){: .img-responsive}
-
-Y al desactivar una de las capas:
-
-![](/cartografia-digital/images/clase-02/clase-02_10.png){: .img-responsive}
-
-Esta dejará de desplegarse en el visualizador de mapas:
-
-![](/cartografia-digital/images/clase-02/clase-02_11.png){: .img-responsive}
-
-La activación es diferente de la selección, por lo que al utilizar el botón ![Acercar al mapa seleccionado](/cartografia-digital/images/clase-02/zoom-extent.png), sólo se tendrán en cuenta las capas activas de las seleccionadas, por lo que acercará unicamente a la capa activa.
-
-De manera similar, intentar acercar a una capa inactiva:
-
-![](/cartografia-digital/images/clase-02/clase-02_12.png){: .img-responsive}
-
-No tendría ningún efecto en la región desplegada.
-
-La terminal de comandos
------------------------
-
-![La terminal de comandos de GRASS](/cartografia-digital/images/clase-02/grass_terminal.png){: .img-responsive}
-
-Observar como ahora en la terminal aparece el siguiente prompt de GRASS:
-
-~~~
-GRASS 7.2.0 (CursoGrass):~ >
-~~~
-
-### Gramática en GRASS {#gramatica-grass}
-
-Diferenciar entre orden y parámetros del comando:
-
-~~~
-hacer el amor
+<!-- ~~~
+r.colors map=porcecito color=aspect
 ~~~
 
 ~~~
-hacer: no se encontró la orden
+Tabla de colores para mapa raster <porcecito> establecida a 'aspect'
 ~~~
-{: .output}
+{: .output} -->
 
-Quiere decir que el sistema no reconoce la orden `hacer`.
+![La tabla de colores "aspect"](/cartografia-digital/images/clase-02/porcecito_aspect.png){: .img-responsive}
 
-Ahora probemos en inglés:
+*¿Qué rasgos de la región resaltan con esta tabla de colores?*
 
-~~~
-make love
-~~~
+### La tabla de colores "bcyr"
 
-~~~
-make: *** No hay ninguna regla para construir el objetivo «love».  Alto.
-~~~
-{: .output}
-
-En este caso el sistema si reconoce la orden `make`, pero no reconoce el parámetro `love` como un objetivo válido de la orden `make`.
-
-La terminal de comandos en GRASS funciona con el mismo intérprete que la terminal de GNU/Linux, por lo que todos los comandos de GNU/Linux (como por ejemplo los vistos en la clase anterior) funcionan dentro de GRASS, y además, los comandos propios de GRASS conservan una [sintaxis muy similar a la de los comandos GNU/Linux](../clase-01/#sintxis-bsica-de-los-comandos-en-la-terminal-de-gnulinux):
-
-~~~
-> x.comando -opciones parametro1=mapa1 parametro2=mapa2 ...
-~~~
-
-De manera que `x` indica el tipo de comando que será utilizado.
-
-### La taxonomía de comandos {#taxonomia-comandos}
-
-Los comandos en GRASS se organizan de acuerdo con la función que realizan:
-
-g.*
-: Comandos **generales**, con ellos se realizan operaciones generales a los archivos.
-
-r.*
-: Comandos de procesamiento 2D en archivos de tipo **raster**.
-
-v.*
-: Comandos de procesamiento de archivos de tipo **vectorial**.
-
-i.*
-: Comandos de procesamiento de **imágenes**.
-
-db.*
-: Comandos para el manejo de **bases de datos**.
-
-### ¿Cuáles serían los comandos mas básicos? {#comandos-basicos}
-
-- Conocer qué capas raster hay en el sistema para trabajar.
-
-~~~
-g.list -p type=raster
-~~~
-
-~~~
-----------------------------------------------
-
-Archivos raster disponibles en el directorio de mapas de usuario (Mapset)<PERMANENT>:
-ituango         porcecito       riogrande_sup
-
-----------------------------------------------
-~~~
-{: .output}
-
-- Copiar un archivo que se encuentra en el mapset `PERMANENT` para tenerlo disponible en el mapset donde se encuentra el usuario.
-
-~~~
-g.copy raster=porcecito@PERMANENT,porcecito
-~~~
-
-~~~
-Copy raster <porcecito@PERMANENT> to current mapset as <porcecito>
-~~~
-{: .output}
-
-- Cambiarle el nombre a un archivo raster (un mapa).
-
-~~~
-g.rename raster=porcecito,porcecito_copia
-~~~
-
-~~~
-Rename raster <porcecito> to <porcecito_copia>
-ADVERTENCIA: 'cell / porcecito' fue encontrado en mas directorios de mapas
-             (mapsets) (también fue hallado en <PERMANENT>).
-ADVERTENCIA: Utilizando <porcecito@CursoGrass>.
-~~~
-{: .output}
-
-- Borrar un mapa (archivo) del mapset activo.
-
-~~~
-g.remove type=raster name=porcecito_copia
-~~~
-
-~~~
-Removing raster <porcecito_copia>
-~~~
-{: .output}
-
-- Imprimir la región de cálculo
-
-~~~
-g.region -p
-~~~
-
-~~~
-projection: 99 (Transverse Mercator)
-zone:       0
-datum:      ** unknown (default: WGS84) **
-ellipsoid:  international
-north:      1231633.33333336
-south:      1193683.33333335
-west:       854822.22222223
-east:       889777.77777778
-nsres:      30.55555556
-ewres:      30.55555556
-rows:       1242
-cols:       1144
-cells:      1420848
-~~~
-{: .output}
-
-- Ajustar la región de cálculo a un mapa raster.
-
-~~~
-g.region raster=riogrande_sup
-~~~
-
-- Ajustar la región de cálculo a un mapa raster e imprimirla en consola.
-
-~~~
-g.region -p rast=ituango
-~~~
-
-~~~
-projection: 99 (Transverse Mercator)
-zone:       0
-datum:      ** unknown (default: WGS84) **
-ellipsoid:  international
-north:      1312911.11111149
-south:      1271905.55555592
-west:       788822.22222209
-east:       829949.99999986
-nsres:      30.55555556
-ewres:      30.55555556
-rows:       1342
-cols:       1346
-cells:      1806332
-~~~
-{: .output}
-
-- Cambiar la tabla de colores de un mapa raster:
-
-~~~
+<!-- ~~~
 r.colors map=porcecito color=bcyr
 ~~~
 
 ~~~
 Tabla de colores para mapa raster <porcecito> establecida a 'bcyr'
 ~~~
-{: .output}
+{: .output} -->
 
-Utilizando el botón ![Renderizar el mapa](/cartografia-digital/images/clase-02/layer-redraw.png), se refrescan las capas desplegadas y se observa el cambio de color:
+![La tabla de colores "bcyr"](/cartografia-digital/images/clase-02/porcecito_bcyr.png){: .img-responsive}
 
-![](/cartografia-digital/images/clase-02/clase-02_13.png){: .img-responsive}
+### La tabla de colores "elevation"
 
-### Consultar la documentación de los comandos {#consultar-documentacion-comandos}
-
-Se puede consultar la documentación de los comandos para saber qué parámetros requieren y cuales son opcionales, así como sus funciones.
-
-~~~
-r.colors help
+<!-- ~~~
+r.colors map=porcecito color=elevation
 ~~~
 
 ~~~
-Descripción:
- Crea/modifica la tabla de colores asociada a una capa de mapa ráster.
-
-Palabras clave:
- raster, tabla
-
-Uso:
- r.colors [-rwlngaeiq] [map=name] [color=style] [raster=string]
-   [rules=name] [--verbose] [--quiet]
-
-Identificadores:
-  -r   Eliminar la tabla de colores existente
-  -w   Sólo escribir nueva tabla de colores si no existe ya una
-  -l   Listar reglas disponibles y salir
-  -n   Invertir colores
-  -g   Escalado logarítmico
-  -a   Escalado logarítmico-absoluto
-  -e   Ecualización de histograma
-  -i   Introducir reglas de forma interactiva
-  -q   Ejecutar en modo silencioso
- --v   Salida detallada del módulo.
- --q   Salida "silenciosa" del módulo.
-
-Parámetros:
-     map   Nombre del mapa raster de entrada.
-   color   Tipo de tabla de colores
-           opciones: aspect,aspectcolr,bcyr,bgyr,byg,byr,celsius,corine,
-                    curvature,differences,elevation,etopo2,evi,gdd,grey,
-                    grey.eq,grey.log,grey1.0,grey255,gyr,haxby,ndvi,
-                    population,population_dens,precipitation,
-                    precipitation_monthly,rainbow,ramp,random,rstcurv,rules,
-                    ryb,ryg,sepia,slope,srtm,terrain,wave
-            aspect: aspect oriented grey colors
-            aspectcolr: aspect oriented rainbow colors
-            bcyr: blue through cyan through yellow to red
-            bgyr: blue through green through yellow to red
-            byg: blue through yellow to green
-            byr: blue through yellow to red
-            celsius: blue to red for degree Celsius temperature
-            corine: EU Corine land cover colors
-            curvature: for terrain curvatures (from v.surf.rst and r.slope.aspect)
-            differences: differences oriented colors
-            elevation: maps relative ranges of raster values to elevation color ramp
-            etopo2: colors for ETOPO2 worldwide bathymetry/topography
-            evi: enhanced vegetative index colors
-            gdd: accumulated growing degree days
-            grey: grey scale
-            grey.eq: histogram-equalized grey scale
-            grey.log: histogram logarithmic transformed grey scale
-            grey1.0: grey scale for raster values between 0.0-1.0
-            grey255: grey scale for raster values between 0-255
-            gyr: green through yellow to red
-            haxby: relative colors for bathymetry or topography
-            ndvi: Normalized Difference Vegetation Index colors
-            population: color table covering human population classification breaks
-            population_dens: color table covering human population density classification breaks
-            precipitation: precipitation color table (0..2000mm)
-            precipitation_monthly: precipitation color table (0..1000mm)
-            rainbow: rainbow color table
-            ramp: color ramp
-            random: random color table
-            rstcurv: terrain curvature (from r.resamp.rst)
-            rules: create new color table based on user-specified rules read from stdin
-            ryb: red through yellow to blue
-            ryg: red through yellow to green
-            sepia: yellowish-brown through to white
-            slope: r.slope.aspect-type slope colors for raster values 0-90
-            srtm: color palette for Shuttle Radar Topography Mission elevation
-            terrain: global elevation color table covering -11000 to +8850m
-            wave: color wave
-  raster   Nombre del mapa ráster del que copiar la tabla de colores
-   rules   Path to rules file ("-" to read rules from stdin)
+Tabla de colores para mapa raster <porcecito> establecida a 'elevation'
 ~~~
-{: .output}
+{: .output} -->
 
-Colocando al final de cada comando de GRASS el parámetro `help`, obtenemos información acerca de lo que puede realizar cada comando.
+![La tabla de colores "elevation"](/cartografia-digital/images/clase-02/porcecito_elevation.png){: .img-responsive}
 
-La ayuda incluye:
+### La tabla de colores "rainbow"
 
-Descripción
-: En pocas palabras dice lo que se puede hacer con el comando.
-
-Palabras claves
-: Palabras indicadoras de la operación que realiza el comando.
-
-Uso
-: Indica la manera como se debe escribir la orden para que el computador la comprenda y la pueda llevar a cabo. El uso es por lo tanto la sintaxis del comando: La manera como deben ir las letras, las palabras, los signos y los espacios para que el mensaje pueda entenderse por el sistema GRASS.
-
-Opciones (Identificadores)
-: El SIG GRASS emplea el signo `-` acompañado de letras como opciones para el usuario si desea que se despliegue el resultado de una acción o que no se despliegue.
-
-Parámetros
-: Hace referencia a una acción o a un objeto (archivo) que se desea hacer o desplegar respectivamente.
-
-De igual manera se puede abrir una documentación más completa en el navegador web con el comando `g.manual`:
-
-~~~
-g.manual -i
+<!-- ~~~
+r.colors map=porcecito color=rainbow
 ~~~
 
 ~~~
-Starting browser <xdg-open> for module index...
+Tabla de colores para mapa raster <porcecito> establecida a 'rainbow'
 ~~~
-{: .output}
+{: .output} -->
 
-Esto abre el índice (parámetro `-i`) de la documentación.
+![La tabla de colores "rainbow"](/cartografia-digital/images/clase-02/porcecito_rainbow.png){: .img-responsive}
 
-También se pueden abrir directamente los manuales de comandos específicos:
+## Asignación de color creando una tabla personalizada {#asignacion-color-creando-tabla-personalizada}
+
+Ahora vamos a avanzar un paso más; no vamos a depender de las paletas de colores preestablecidas por GRASS sino que construimos la tabla a  nuestro gusto y también vamos a decidir a cuales rangos de la altitud la aplicamos.
+
+Para llevarlo a cabo necesitamos conocer:
+
+- Cual es la altitud máxima y la altitud mínima del mapa.
+- Como queremos desplegar el color en el mapa.
+
+Para conocer los valores máximo y minimo de altitud utilizamos un módulo de estadísticos de capa raster.
+
+La segunda inquietud es mas compleja porque existen diversas maneras de hacerlo:
+
+- Variación gradual del color.
+- Variación discreta del color.
+- Colores a partir de otro mapa raster.
+
+### Conocer los estadísticos básicos del mapa {#consultar-estadisticos-basicos-mapa}
+
+Por medio del menú contextual de la capa se puede seleccionar la opción de estadística univariada raster.
+
+![](/cartografia-digital/images/clase-02/clase-02_08.png){: .img-responsive}
+
+Esta opción invoca el módulo `r.univar` que permite conocer los estadísticos básicos de cualquier tipo de mapa raster.
+
+![](/cartografia-digital/images/clase-02/clase-02_09.png){: .img-responsive}
+
+Como tenemos un mapa de altitudes, con el comando podemos conocer:
+
+- El N° total de píxeles.
+- El N° de píxeles nulos (aquellos píxeles que carecen de valor).
+- El N° de píxeles no-nulos.
+- El valor mínimo de los píxeles.
+- El valor máximo.
+- El rango de variación de los píxeles.
+- El valor promedio.
+- Otros parámetros.
 
 ~~~
-g.manual entry=r.colors
-~~~
-
-~~~
-Starting browser <xdg-open> for module r.colors...
-~~~
-{: .output}
-
-### Consultar los estadísticos básicos de un mapa raster {#consultar-estadisticos-basicos-mapa-raster}
-
-~~~
-r.univar map=porcecito
-~~~
-
-~~~
- 100%
-~~~
-{: .output}
-
-El cálculo de los estadísticos básicos de un mapa se realiza sobre la región de cálculo, es decir, si la región de cálculo no corresponde con el mapa a consultar, la salida será nula.
-
-Para obtener el resultado correcto, primero debemos asegurarnos de tener la región de cálculo bien definida al mapa que será consultado:
-
-~~~
-g.region rast=porcecito
-r.univar map=porcecito
-~~~
-
-~~~
- 100%
 total null and non-null cells: 1420848
 total null cells: 0
 
@@ -711,32 +224,342 @@ sum: 2550048192
 ~~~
 {: .output}
 
-### Consulta del historial de los comandos usados
+### Crear una tabla de colores con variación gradual del color {#crear-tabla-colores-variacion-gradual-color}
 
-El historial no se conserva cuando se trabaja con la interfaz gráfica. Desde la terminal se puede consultar con el siguiente comando:
+Utilizando la opción ![](/cartografia-digital/images/circle_2.png) del menú contextual de la capa obtenemos una venta como esta:
+
+![](/cartografia-digital/images/clase-02/clase-02_10.png){: .img-responsive}
+
+#### ¿Qué significa "con variación gradual del color"?
+
+Si a la altitud 1000 msnm le asignamos el color *rojo* y a la altitud 2000 msnm le asignamos el color *amarillo*, la variación gradual del color significa que a los píxeles en el rango 1000-2000 les asigna colores intermedios entre rojo y amarillo dependiendo de la cercanía altitudinal los dos extremos conocidos. Por lo tanto muchos píxeles tendrán colores en la tonalidad del *naranja* que es el color correspondiente a la recombinación variable de *rojo* y *amarillo*.
+
+A continuación se plantean algunas tablas personalizadas a ingresar en el módulo de colores interactivos.
+
+#### Primera versión
+
+Se ingresan los valores del raster (en este caso altitud) en el cuadro de texto, y se elige el color por medio del diálogo de selección de colores.
+
+![](/cartografia-digital/images/clase-02/clase-02_11.png){: .img-responsive}
+
+A continuación se indican los colores con su código RGB (Red:Green:Blue)
+
+|Altitud|  R  |  G  |  B  |
+|:-----:|:---:|:---:|:---:|
+|   958 |   0 |   0 | 255 |
+|   975 |   0 | 255 | 255 |
+|  1100 |   0 | 255 |   0 |
+|  1300 | 255 | 255 |   0 |
+|  2000 | 255 |   0 |   0 |
+|  2500 | 191 | 127 |  63 |
+|  2873 |   0 | 191 | 191 |
+{: .table .table-striped}
+
+![](/cartografia-digital/images/clase-02/clase-02_12.png){: .img-responsive}
+
+<!-- ~~~
+r.colors map=porcecito rules=TC_porce1
+~~~
 
 ~~~
-history
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce1'
+~~~
+{: .output} -->
+
+![Primera versión](/cartografia-digital/images/clase-02/TC_porce1.png){: .img-responsive}
+
+Lo mas seguro es que la primera definición de la tabla de colores no nos satisface.
+
+Mirando el mapa y teniendo el módulo de colores abierto, le hacemos las modificaciones que se requieran y luego volvemos a repetirlo. Hacemos esta operación varias veces hasta conseguir un mapa que nos agrade.
+
+#### Segunda versión
+
+<!-- `TC_porce2` -->
+
+|Altitud|  R  |  G  |  B  |
+|:-----:|:---:|:---:|:---:|
+|   958 |   0 | 255 | 255 |
+|  1000 |   0 |   0 | 255 |
+|  1300 |   0 | 255 |   0 |
+|  1600 | 255 | 255 |   0 |
+|  2000 | 255 |   0 |   0 |
+|  2300 | 191 | 127 |  63 |
+|  2500 |   0 |   0 |   0 |
+|  2873 |   0 | 191 | 191 |
+{: .table .table-striped}
+
+<!-- ~~~
+r.colors map=porcecito rules=TC_porce2
 ~~~
 
-Y si se quiere almacenar en un archivo de texto para su posterior consulta:
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce2'
+~~~
+{: .output} -->
+
+![Segunda versión](/cartografia-digital/images/clase-02/TC_porce2.png){: .img-responsive}
+
+#### Tercera versión
+
+<!-- `TC_porce3` -->
+
+|Altitud|  R  |  G  |  B  |
+|:-----:|:---:|:---:|:---:|
+|   958 |   0 | 255 | 255 |
+|  1000 |   0 |   0 | 255 |
+|  1300 |   0 | 255 |   0 |
+|  1800 | 255 | 255 |   0 |
+|  2000 | 255 |   0 |   0 |
+|  2200 | 191 | 127 |  63 |
+|  2400 |   0 |   0 |   0 |
+|  2873 |   0 | 191 | 191 |
+{: .table .table-striped}
+
+<!-- ~~~
+r.colors map=porcecito rules=TC_porce3
+~~~
 
 ~~~
-history > clase1.txt
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce3'
+~~~
+{: .output} -->
+
+![Tercera versión](/cartografia-digital/images/clase-02/TC_porce3.png){: .img-responsive}
+
+**Un primer descreste:** Utilizar la _Vista 3D_ del visualizador de mapas para diferenciar entre una observación 2D y 3D del relieve.
+{: .alert .alert-info}
+
+![Visualización del relieve en 3D](/cartografia-digital/images/clase-02/porcecito3D.png){: .img-responsive}
+
+#### Cuarta versión:
+
+Utilizando nombres y la nomenclatura RGB.
+
+<!-- `TC_porce4` -->
+
+|Altitud|  R  |  G  |  B  |
+|:-----:|:---:|:---:|:---:|
+|   958 |   0 |   0 | 255 |
+|   980 |   0 | 255 | 255 |
+|  1100 | 255 | 127 |   0 |
+|  1200 |  14 |  92 |   4 |
+|  2000 | 156 | 235 | 173 |
+|  2100 | 145 |  11 |  21 |
+|  2500 | 247 | 151 | 158 |
+|  2750 | 160 |  61 |  12 |
+|  2873 |   0 | 191 | 191 |
+{: .table .table-striped}
+
+<!-- ~~~
+r.colors map=porcecito rules=TC_porce4
 ~~~
 
-**Advertencia:** El nombre del archivo destino no debe contener espacios.
-{: .alert .alert-warning}
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce4'
+~~~
+{: .output} -->
 
-## Tarea 2
+![Cuarta versión](/cartografia-digital/images/clase-02/TC_porce4.png){: .img-responsive}
+
+### Crear tabla de colores con variación discreta del color {#crear-tabla-colores-variacion-discreta-color}
+
+En este caso, se trata de definir rangos altitudinales discretos (un comienzo y un final y a los píxeles en el rango se les asigna un mismo color).
+
+<!-- `TC_porce5` -->
+
+|Altitud|  R  |  G  |  B  |
+|:-----:|:---:|:---:|:---:|
+|   958 | 237 | 210 | 164 |
+|  1049 | 237 | 210 | 164 |
+|  1050 | 172 | 133 |  67 |
+|  1799 | 172 | 133 |  67 |
+|  1800 |   0 | 255 |   0 |
+|  2349 |   0 | 255 |   0 |
+|  2350 |   0 |   0 | 255 |
+|  2499 |   0 |   0 | 255 |
+{: .table .table-striped}
+
+<!-- ~~~
+r.colors map=porcecito rules=TC_porce5
+~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce5'
+~~~
+{: .output} -->
+
+![Variación discreta de color por altitud](/cartografia-digital/images/clase-02/TC_porce5.png){: .img-responsive}
+
+En la tabla antes creada no se cubre todo el rango altitudinal del archivo `porcecito`.
+
+Luego en el mapa desplegado quedarán en blanco los píxeles para el rango altitudinal que no se involucró.
+
+### Utilizar porcentajes de la altitud para distribuir los colores
+
+En este caso iniciamos con un porcentaje del 0% en la altitud mas baja y asignamos el verde. Luego le decimos que al 25% de la altitud llegue con un color verde oscuro (0 160 0) y así se sigue hasta completar el 100%.
+
+#### Primera versión
+
+<!-- `TC_porce6` -->
+
+|Altitud|  R  |  G  |  B  |
+|:-----:|:---:|:---:|:---:|
+|    0% |   0 | 230 |   0 |
+|   25% |   0 | 160 |   0 |
+|   55% | 120 | 100 |  30 |
+|   75% | 120 | 130 |  40 |
+|  100% | 255 | 255 | 100 |
+{: .table .table-striped}
+
+<!-- ~~~
+r.colors map=porcecito rules=TC_porce6
+~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce6'
+~~~
+{: .output} -->
+
+![Primera versión](/cartografia-digital/images/clase-02/TC_porce6.png){: .img-responsive}
+
+#### Segunda versión
+
+<!-- `TC_porce6a` -->
+
+|Altitud|  R  |  G  |  B  |
+|:-----:|:---:|:---:|:---:|
+|    0% |  99 | 158 | 245 |
+|   20% |   8 |  52 | 116 |
+|   40% | 235 | 231 |  47 |
+|   60% |  14 |  92 |   4 |
+|   80% | 247 | 151 | 158 |
+|  100% | 145 |  11 |  21 |
+{: .table .table-striped}
+
+<!-- ~~~
+r.colors map=porcecito rules=TC_porce6a
+~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce6a'
+~~~
+{: .output} -->
+
+![Segunda versión](/cartografia-digital/images/clase-02/TC_porce6a.png){: .img-responsive}
+
+#### Versión Final
+
+Después de varias modificaciones terminamos con esta combinación:
+
+<!-- `TC_porce7` -->
+
+|Altitud|  R  |  G  |  B  |
+|:-----:|:---:|:---:|:---:|
+|    0% |  99 | 158 | 245 |
+|    3% |   8 |  52 | 116 |
+|   15% | 235 | 231 |  47 |
+|   30% |  14 |  92 |   4 |
+|   75% | 247 | 151 | 158 |
+|   90% | 145 |  11 |  21 |
+|  100% |   0 |   0 |   0 |
+{: .table .table-striped}
+
+<!-- ~~~
+r.colors map=porcecito rules=TC_porce7
+~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce7'
+~~~
+{: .output} -->
+
+![Versión Final](/cartografia-digital/images/clase-02/TC_porce7.png){: .img-responsive}
+
+<!--
+TODO: ¿Se justifica emplear la opción del gedit para crear tablas de colores y aplicarlas a un mapa?
+
+### Crear una nueva carpeta para guardar las tablas de colores creadas
+
+Durante las sesiones en GRASS creamos numerosas y diversas tablas de colores. Por omisión, el sistema las guarda en la carpeta personal (usuario). Es recomendable crear una nueva carpeta (directorio) dentro de la carpeta personal de usuario para guardar allí todas las tablas de colores creadas. Al hacer esto, es necesario indicar al comando que toma el "script" que éste se encuentra en una carpeta diferente a la personal.
+
+Si no señalamos donde se encuentra el script, al aplicar el comando sale el error:
+
+~~~
+r.colors map=porcecito rules=TC_porce7
+~~~
+
+~~~
+ERROR: No se puede cargar el archivo de reglas <TC_porce7>
+~~~
+{: .output}
+
+El archivo sí existe pero se encuentra en otro directorio. Debemos indicar en qué carpeta se encuentra el archivo.
+
+~~~
+r.colors map=porcecito rules=TablasColores/TC_porce7
+~~~
+
+~~~
+Tabla de colores para mapa raster <porcecito> establecida a 'TablasColores/TC_porce7'
+~~~
+{: .output}
+
+## Asignar a un mapa la tabla de colores de otro mapa
+
+La tabla de colores de un mapa dado que nos parece acertada se puede asignar a otro mapa. Los resultados obtenidos no necesariamente son similares en calidad a lo desplegado en el mapa inicial.
+
+Un ejemplo:
+
+- Hacer copia del mapa `ituango` que está en el mapset `PERMANENT` en el mapset `CursoGrass`.
+- Colocar la región de despliegue al mapa ituango.
+- Desplegar la copia creada para ver sus colores.
+- Cambiar la tabla de colores del mapa ituango copiándola del mapa `porcecito`.
+
+La secuencia de ordenes en GRASS es la siguiente:
+
+~~~
+g.list -p type=raster
+g.copy raster=ituango,ituan
+g.region raster=ituan
+r.colors map=ituan raster=porcecito
+~~~
+
+### Antes
+
+![Antes](/cartografia-digital/images/clase-02/ituan.png){: .img-responsive}
+
+### Después {#despues}
+
+![Después](/cartografia-digital/images/clase-02/ituan_porce1.png){: .img-responsive}
+
+*¿Por qué aparecen zonas en el mapa `ituan` que no presentan color? ¿Cómo explicarlo?*
+
+### Eliminar la tabla de colores traída de porcecito y aplicada a ituango {#eliminar-tabla-colores-traida-porcecito-aplicada-ituango}
+
+Se puede eliminar la tabla traída de otro mapa y desplegar la tabla inicial de colores que tenía el mapa.
+
+~~~
+r.colors -r map=ituan
+~~~
+
+## Tarea 3
 {: .text-danger}
 
-Elaborar un guión que:
+Problema: Se tiene el mapa topográfico de `ituango` y se requiere que se coloree de tal manera que se reflejen las características topográficos lo más cercano al aspecto natural del mismo y a su vez se resalte la red de drenaje.
 
-- Defina la región de cálculo al mapa `ituango`.
+Consideremos que la región presenta clima húmedo en todos sus pisos, por lo tanto utilizar simbolismos de color pertinentes a cada una de las zonas de vida de diferentes franjas altitudinales. Tratar de que los colores seleccionados constituyan una representación de la condición natural.
 
-- Consulte los estadísticos básicos del mismo mapa.
+Enviar los siguiente elementos:
 
-- Cambie la tabla de colores del mapa `ituango` por una que pueda destacar mejor algunos rasgos del relieve.
+- Guión con extensión `.sh` y con la documentación pertinente para resolver el problema.
+- Enviar el archivo de tipo `TC` con la tabla de colores utilizada.
+- Enviar un archivo `png` con el resultado del mapa coloreado.
+- Enviar un archivo `pdf` con una corta discusión de los resultados obtenidos y la justificación de los colores utilizados y su interpretación.
 
-*[GRASS GIS]: Geographic Resources Analysis Support System
+Actividad extracurso
+--------------------
+
+1. Pasar los mapas `ituango` y `riogrande_sup` de integer a double precision. (Los mapas en double precision, son los que se van a seguir empleando en las próximas sesiones).
+2. Crear una copia del mapa ituango y asignarles a cada uno tablas de colores diferentes, con los mismos rangos altitudinales y colores diferentes. Evaluar la calidad de la visualización.
+3. Calcular la extensión en km<sup>2</sup> y número píxeles en el mapa ituango para los terrenos localizados por encima de los 3.000 msnm y por debajo de los 500 msnm, de la manera más aproximada posible.
+-->

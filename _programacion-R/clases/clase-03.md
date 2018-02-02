@@ -8,7 +8,7 @@ custom_js: 'mathjax'
 
 ## Diagrama de Objetos
 
-![](Diagrama_de_objetos1.png)
+![](diagrama_de_objetos2.png)
 
 
 ## Esquema ejemplo de POO en C++ (Encapsulamiento y herencia)
@@ -157,9 +157,7 @@ int main(){
        cout << "El perímetro de la figura " << i+1 <<
               ", es: " << figuras[i]->Perimetro() << endl;
        cout << "El área de la figura" << i+1 <<
-               ", es: " << figuras[i]->Perimetro() << endl;
+               ", es: " << figuras[i]->Area() << endl;
    }
-
-
 }
 ```

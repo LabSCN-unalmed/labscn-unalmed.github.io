@@ -22,10 +22,6 @@ leer los artículos de investigación donde hace uso de estas herramientas.
  - Análisis canónico.
  - Interpretación de estructuras ecológicas multidimensionales.
 
-## Horario de atención
-
- Lunes 10 am - 12 m. Laboratorio de sistemas complejos naturales 21-215.
-
 ## Bibliografía
  - Legendre, Pierre y Legendre, Louis. Numerical Ecology. Third Edition, Elsevier, 2012.
  - Borcard, Daniel, Gillet François, Gillet y Legendre, Pierre. Numerical Ecology with R. 2011.
@@ -41,9 +37,9 @@ leer los artículos de investigación donde hace uso de estas herramientas.
 
 | Item                   | Porcentaje |
 |:-----------------------|:----------:|
-| Seguimiento - Talleres |        20% |
-| Seguimiento - Trabajos |        30% |
-| Proyecto final         |        50% |
+| Seguimiento - Talleres |        25% |
+| Seguimiento - Trabajos |        35% |
+| Proyecto final         |        40% |
 {: .table .table-hover}
 
 ## Enlaces principales
