@@ -53,7 +53,7 @@ habilidades en el análisis exploratorio de bases de datos.
 
 ## Horario de atención:
 
-- Lunes 8:00 am a 10:00 m
+- Lunes 8:00 am a 10:00 am.
 
 ## Lugar
 

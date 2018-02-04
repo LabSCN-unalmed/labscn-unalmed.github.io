@@ -60,6 +60,6 @@ Todas las horas y fechas son en el [horario legal para Colombia](http://horalega
 
 ## Horario de atención
 
-- Lunes 8:00 am a 10:00 m
+- Lunes 8:00 am a 10:00 am.
 
 - Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
