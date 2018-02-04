@@ -12,7 +12,7 @@ order: 00
 3. Diseño completamente aleatorizado de una vía.
 4. Diseños factoriales.
 5. Diseños fraccionados.
-6. Superficie de respuesta.
+6. Superficie de respuesta. sdf
 7. Diseños de mezclas.
 8. Medidas repetidas.
 
@@ -22,12 +22,12 @@ order: 00
 
 ## Evaluación
 
-| Item               | Porcentaje | Fecha entrega                | Formato                                               |
-|:-------------------|:----------:|:-----------------------------|:------------------------------------------------------|
-| Propuesta inicial  |        10% | Martes 20 de febrero de 2018 | Presentación en formato PDF                           |
-| Planeación         |        20% | Martes 13 de marzo de 2018   | Presentación y trabajo en formato PDF                 |
-| Presentación Final |        30% | Martes 29 de mayo de 2018    | Trabajo en PDF y poster en formato PDF y físico       |
-| Seguimiento        |        40% |                              | Talleres y trabajos durante el curso                  |
+| Item               | Porcentaje | Fecha entrega                | Formato                                        |
+|:-------------------|:----------:|:-----------------------------|:-----------------------------------------------|
+| Propuesta inicial  |        10% | Martes 20 de febrero de 2018 | Presentación en formato PDF                    |
+| Planeación         |        20% | Martes 13 de marzo de 2018   | Presentación y trabajo en formato PDF          |
+| Presentación Final |        30% | Martes 29 de mayo de 2018    | Trabajo en PDF y poster en formato PDF y físico|
+| Seguimiento        |        40% |                              | Talleres y trabajos durante el curso           |
 {: .table .table-hover}
 
 Todas las horas y fechas son en el [horario legal para Colombia](http://horalegal.inm.gov.co/)
@@ -60,7 +60,6 @@ Todas las horas y fechas son en el [horario legal para Colombia](http://horalega
 
 ## Horario de atención
 
-- Jueves 8:00 am a 10:00 m
-- Miércoles 8:00 am - 10:00 am
+- Lunes 8:00 am a 10:00 m
 
 - Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)

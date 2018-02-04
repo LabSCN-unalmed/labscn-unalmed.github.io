@@ -53,7 +53,7 @@ habilidades en el análisis exploratorio de bases de datos.
 
 ## Horario de atención:
 
-- Lunes 10:00 am a 12:00 m
+- Lunes 8:00 am a 10:00 m
 
 ## Lugar
 
@@ -64,4 +64,3 @@ habilidades en el análisis exploratorio de bases de datos.
 - Toda entrega se realizará al correo **krcabrer@unal.edu.co**
 - Siempre deberá anotarse en asunto la sigla **[EDAED]**, separada de cualquier otro texto adicional.
 - Los grupos de trabajo serán de máximo 5 personas.
-  
