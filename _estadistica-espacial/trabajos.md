@@ -6,7 +6,7 @@ custom_js: 'mathjax'
 order: 05
 ---
 
-
+<!---
 ## Contenido
 {: .no_toc}
 
@@ -82,3 +82,5 @@ tamaños de muestra adecuados para detectar estrucutra espacial.
 
 Viernes, 24 de marzo de 2017 antes de las 23:59 hora de Colombia al
 correo **krcabrer@unal.edu.co** y no olvidar escribir en asunto **[EE]**   
+
+--->

@@ -7,6 +7,8 @@ custom_js: 'mathjax'
 ---
 
 
+<!---
+
 ## Contenido
 {: .no_toc}
 
@@ -77,3 +79,5 @@ Seleccionar la azar 40 datos y realizar toda la modelación.
 
 Verificar con los 10 datos restantes el desempeño de los mejores modelos
 obtenidos para la respectiva variable.
+
+-->
