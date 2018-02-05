@@ -1,9 +1,11 @@
+<!--
 ---
 layout: curso
 title: 'Trabajo Extra'
 curso: 'estadistica-descriptiva'
 order: 9
 ---
+
 
 ## Trabajo Extra
 
@@ -52,3 +54,4 @@ su relación con zonas productivas de café.
 Lunes 27 de noviembre de 2017 antes de las 23:59 hora de Colombia,
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto
 la sigla **[EDAED]**.
+-->

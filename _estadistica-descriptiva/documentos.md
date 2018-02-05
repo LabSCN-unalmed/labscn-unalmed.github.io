@@ -5,11 +5,13 @@ curso: 'estadistica-descriptiva'
 order: 3
 ---
 
+
+<!---
 ## Inicio con el R
 - [Sesión de inicio con el lenguaje R](inicioR.html)
 
 ## Guías para casos particulares con RStudio.
-- [Error común de lectura de archivos](/estadistica-descriptiva/documentos/ErrorComun.pdf)
+
 - [Instalación de un paquete en RStudio](/estadistica-descriptiva/documentos/instalapaquete.pdf)
 
 
@@ -19,11 +21,13 @@ order: 3
  - [Archivo en formato ".html"](./codigos/ejemplo1.html)
  - [Base de datos de la participación en los olímpicos por parte de Colombia](./codigos/colombia_olimpicos.xlsx).
 
+-->
 
 ## Introducción a Estadística Descriptiva y Análisis Exploratorio de Datos.
 
 - [Introducción](/estadistica-descriptiva/documentos/explora1.html)
 
+<!---
 ## Numb3rs
 
 - [Episodio 01 Temporada 01 (español de España)](https://www.dropbox.com/s/ww5cmblz861opxn/Numb3s_1x01_Piloto_Espanol%28Espana%29.avi?dl=0).
@@ -47,15 +51,18 @@ order: 3
 
 - [Documento de investigación realizada en México](./documentos/universitarios_uso_y_aplicación_internet.pdf)
 - [Documento de investigación realizada en Colombia](./documentos/Influencia_internet_rendimiento_académico.pdf)
+-->
 
-
+<!---
 ## Documento guía para gráficos en R.
 
 - [Documento guía](./documentos/grafi3.pdf)
 
+
 ## Ejemplo de problemas en gráficas
 
 - [Problemas en gráficas](./graficas/index.html)
+-->
 
 ## Tablas guías para parámetros gráficos.
 - [Tabla de colores](/estadistica-descriptiva/documentos/ColorChart.pdf)

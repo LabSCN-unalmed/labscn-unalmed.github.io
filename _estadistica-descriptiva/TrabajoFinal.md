@@ -6,6 +6,8 @@ order: 7
 ---
 
 
+<!---
+
 ## Estimación de la estatura mediante el celular
 
 
@@ -123,3 +125,5 @@ Por ejemplo:
 Significa que el póster del grupo número 12 ocupó el primer lugar,
 el grupo número 2 el segundo, y así sucesivamente hasta el póster
 del grupo 11 que ocupó el último lugar.
+
+-->
