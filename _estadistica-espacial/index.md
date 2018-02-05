@@ -69,8 +69,8 @@ Capítulo 09:Statistical Models for Spatial Data. CRC Press. 2002
 
 ## Horario de atención
 
-Lunes 10:00 am a 12:00 m
-Miércoles 8:00 am - 10:00 am
+Lunes 8:00 am a 10:00 am.
+
 
 Lugar: Laboratorio de Sistemas Complejos Naturales 21-215
 

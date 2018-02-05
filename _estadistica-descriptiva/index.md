@@ -36,8 +36,8 @@ habilidades en el análisis exploratorio de bases de datos.
 
 | Item                                           | Porcentaje |
 |:-----------------------------------------------|:----------:|
-| Talleres individuales y en grupo (seguimiento) |        30% |
-| Trabajos individuales                          |        20% |
+| Talleres individuales y en grupo (seguimiento) |        20% |
+| Trabajos individuales                          |        30% |
 | Trabajos en grupo                              |        20% |
 | Final                                          |        30% |
 {: .table .table-hover}
@@ -53,7 +53,7 @@ habilidades en el análisis exploratorio de bases de datos.
 
 ## Horario de atención:
 
-- Lunes 10:00 am a 12:00 m
+- Lunes 8:00 am a 10:00 am.
 
 ## Lugar
 
@@ -64,4 +64,3 @@ habilidades en el análisis exploratorio de bases de datos.
 - Toda entrega se realizará al correo **krcabrer@unal.edu.co**
 - Siempre deberá anotarse en asunto la sigla **[EDAED]**, separada de cualquier otro texto adicional.
 - Los grupos de trabajo serán de máximo 5 personas.
-  

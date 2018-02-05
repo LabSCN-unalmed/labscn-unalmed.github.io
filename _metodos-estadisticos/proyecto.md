@@ -5,6 +5,13 @@ curso: 'metodos-estadisticos'
 order: 05
 ---
 
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+
 ## Primera entrega (Propuesta inicial)
 
 ### Objetivo
@@ -18,7 +25,8 @@ pero que tenga consecuencias prácticas y cuyo resultado no sea obvio.
 
 ### Material a entregar
 
-Presentación en formato **.pdf** que tenga los siguientes elementos:
+Presentación en formato **.pdf** (**no** se acepta en formato de PowerPoint,
+  ppt, pptx, pptm) que tenga los siguientes elementos:
 
 - Título.
 - Objetivo del experimento.
@@ -54,7 +62,7 @@ Presentación en formato **.pdf** que tenga los siguientes elementos:
 
 ### Fecha de entrega
 
-Martes 14 de Febrero de 2017 al correo **krcabrer@unal.edu.co**
+Martes 20 de Febrero de 2018 al correo **krcabrer@unal.edu.co**
 
 En asunto no olvidar **[MEDE]**, enviar antes de las 23:59 hora colombiana.
 
@@ -101,16 +109,16 @@ Entrega de la planeación completa del experimento, tanto como ajustes e indicac
 
   Todos los elementos de un trabajo escrito que contenga los elementos de la hoja maestra de manera detallada.
   Importante enfatizar la propuesta de posibles gráficas para mostrar los resultados obtenidos.
-  Las gráficas pueden ser a "mano alzada".
+  Las gráficas pueden ser a "mano alzada" y/o escaneada.
 
 ### Fecha de entrega
 
-Martes 14 de marzo de 2017 al correo **krcabrer@unal.edu.co**
+Martes 13 de marzo de 2018 al correo **krcabrer@unal.edu.co**
 
 En asunto no olvidar **[MEDE]**, enviar los archivos antes de las 23:59 hora colombiana del día de la presentación.
 
-En el momento de clase se seleccionará al azar los grupos que
-realizarán la presentación el día 15 de marzo.
+En el momento de clase se determinará aleatoriamente el orden en que los grupos
+realizarán la presentación.
 
 Cada grupo tendrá diez (10) minutos para presentar su propuesta y 10 minutos de discusión.
 
@@ -150,9 +158,9 @@ del grupo deberá tener la capacidad de contestar las preguntas.
 
 #### Fecha de entrega
 
-Martes 23 de mayo de 2017 en horas de clase 6:00 am hora de Colombia formato físico.
+Martes 29 de mayo de 2018 en horas de clase 6:00 am hora de Colombia formato físico.
 
-Martes 23 de mayo de 2017 antes de las 23:59 hora de Colombia formato electrónico (pdf).
+Martes 29 de mayo de 2018 antes de las 23:59 hora de Colombia formato electrónico (pdf).
 
 Enviar el formato .pdf a  **krcabrer@unal.edu.co** y
 en asunto no olvidar **[MEDE]**.
@@ -165,10 +173,10 @@ Presentar de manera escrita los resultados obtenidos del diseño experimental.
 
 #### Materiales a entregar
 
-- Trabajo escrito con los siguientes elementos como mínimo
+- Trabajo escrito con los siguientes elementos como mínimo:
 
-  * Portada
-  * Introducción
+  * Portada.
+  * Introducción.
   * Resumen del marco teórico.
   * Planeación del experimento: Mencionar los cambios debidos al premuestreo realizado.
     Incluir la estimación del tamaño de muestra.
@@ -186,7 +194,7 @@ Presentar de manera escrita los resultados obtenidos del diseño experimental.
 
 #### Fecha de entrega
 
-Martes 23 de mayo de 2017 antes de las 23:59 hora de Colombia formato electrónico (pdf).
+Martes 29 de mayo de 2018 antes de las 23:59 hora de Colombia formato electrónico (pdf o html).
 
-Enviar el formato .pdf, el archivo .csv y el script o guión en R a **krcabrer@unal.edu.co** y
-en asunto no olvidar **[MEDE]**.
+Enviar el formato .pdf o .html, el archivo .csv y el script o guión (.Rmd) en R
+  a **krcabrer@unal.edu.co** y en asunto no olvidar **[MEDE]**.
