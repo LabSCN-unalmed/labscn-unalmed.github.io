@@ -1,0 +1,64 @@
+---
+title: "Crecimiento de pan"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes, 6 de febrero de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Crecimiento de pan.
+
+En el libro _Design and Analysis of Experiments with R_ de John Lawson
+se encuentra un ejemplo de un experimento que se realizó para
+determinar si el tiempo de reposo influía en el crecimiento 
+de masas de panes.
+
+A continuación se presentan los resultados de dicho experimento:
+
+![](crecimiento_pan.png)
+
+## Lectura de la base de datos.
+
+```{r}
+library(readxl)
+pan <- read_excel("crecim_pan.xlsx")
+```
+
+
+## Despligue de la base de datos
+
+```{r}
+pan
+```
+
+
+## Gráfica inicial de los datos del experimento.
+
+```{r}
+library(ggplot2)
+ggplot(pan, aes(Tiempo, Altura)) +
+  geom_point()
+```
+
+## Gráfica mejorada
+
+```{r}
+library(ggplot2)
+ggplot(pan, aes(Tiempo, Altura)) +
+  geom_jitter(width = 0.2, height = 0) +
+  labs(title = "Relación del tiempo de reposo con la altura alcanzada por el pan",
+       x = "Tiempo (minutos)",
+       y = "Altura (cm)") +
+       scale_x_continuous(breaks = c(35,40,45), limits = c(30, 50)) +
+       scale_y_continuous(breaks = seq(3,12)) +
+       stat_summary(fun.y = "mean", geom = "point", col = "red", 
+                    shape = 21, stroke = 2) +
+       stat_summary(fun.y = "mean", geom = "line", col = "red",
+                    linetype = 2) 
+```
+

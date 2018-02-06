@@ -6,7 +6,14 @@ order: 04
 ---
 
 
+
+## Taller individual 1
+
+- [Enunciado](./talleres/polvo_de_hornear.html)
+
+
 <!---
+
 ## Contenido
 {: .no_toc}
 

@@ -6,7 +6,10 @@ order: 03
 custom_js: 'mathjax'
 ---
 
+## Crecimiento del pan.
 
+ - [Experimento del crecimiento del pan vs el tiempo de reposo](./guiones/crecim_pan.html).
+ - [Base de datos](./guiones/crecim_pan.xlsx). 
 
 <!---
 ## Brillo en papel

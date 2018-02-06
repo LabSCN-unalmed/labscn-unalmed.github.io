@@ -1,0 +1,49 @@
+---
+title: "Experimento con polvo de hornear"
+author: "Kenneth Roy Cabrera Torres"
+date: "6 de febrero de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Primer taller individual.
+
+Se realizó un experimento para estudiar el efecto de la dosis
+de polvo de hornear (en fracciones de cucharadita) 
+en el crecimiento de biscochos (medida en milímetros). 
+Se probaron cuatro niveles de dosis de polvo de honear y
+se asignaron aleatoriamente el orden de los biscochos
+a las dosis de polvo de hornear.
+
+Los resultados fueron los siguiente:
+
+![](polvo_de_hornear.png)
+
+
+## Actividades
+
+ 1. Crea un archivo en excel con los datos obtenidos del experimento.
+ 2. Lea la base de datos en R.
+ 3. Muestre los datos cargados en R.
+ 4. Grafique los resultados del experimento.
+ 5. Comente sobre la gráfica obtenida con respecto al
+    objetivo del experimento.
+ 
+## Documentos para entregar.
+
+ 1. Archivo en formato ".Rmd" con el código utilizado en R para realizar
+    el taller.
+ 2. Archivo en formato ".html" con la gráfica obtenida en R y 
+    los comentarios sobre la gráfica.
+ 
+## Fecha de entrega.
+
+ Jueves, 15 de febrero de 2018 antes de las 23:59 hora de Colombia al
+ correo krcabrer@unal.edu.co y no olvidar la sigla **[MEDE]** en asunto.
+ 
+ 
+
