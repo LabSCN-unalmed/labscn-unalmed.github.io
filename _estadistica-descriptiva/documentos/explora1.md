@@ -1,7 +1,7 @@
 Estadistica descriptiva y exploratoria
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: 3 de agosto de 2017
+date: Martes 6 de febrero de 2018.
 transition: rotate
 
 Estadística Exploratoria vs Confirmatoria
