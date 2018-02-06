@@ -6,6 +6,8 @@ order: 5
 ---
 
 
+<!---
+
 ## Contenido
 {: .no_toc}
 
@@ -164,3 +166,5 @@ de salud en Medellín.
    de Colombia, al correo **krcabrer@unal.edu.co**
    y no olvidar en el correo mencionar los miembros
    del grupo y en asunto escribir **[EDAED]**.
+
+-->

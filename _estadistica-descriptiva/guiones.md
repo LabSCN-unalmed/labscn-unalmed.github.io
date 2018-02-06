@@ -6,7 +6,7 @@ order: 2
 ---
 
 
-
+<!---
 ## Contenido
 {: .no_toc}
 
@@ -69,3 +69,5 @@ order: 2
 ## Procesamiento de varios archivos de aceleración
 
  - [Manejo de varios archivos de aceleración](./guiones/aceleracion2.html)
+
+-->

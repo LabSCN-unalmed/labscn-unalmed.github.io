@@ -18,13 +18,14 @@ order: 00
 
 ### Textos principales
 
-1. LLoyd, Christopher D. Local Models for Spatial Analysis.
- Second Edition. CRC Press. 2011.
-2. Bivand, Roger S, Pebesma Edzer y Gómez-Rubio Virgilio.
+1. Bivand, Roger S, Pebesma Edzer y Gómez-Rubio Virgilio.
 Applied Spatial Data Analysis with R. Second Edition. Springer New York.
 2013
-3. Diggle Peter J. y Ribeiro Pablo J. Jr. Model-based Geostatistics.
+2. Diggle Peter J. y Ribeiro Pablo J. Jr. Model-based Geostatistics.
 Springer Science+Business Media, LLC. 2007.
+3. LLoyd, Christopher D. Local Models for Spatial Analysis.
+ Second Edition. CRC Press. 2011.
+
 
 ### Textos complementarios
 
@@ -69,8 +70,8 @@ Capítulo 09:Statistical Models for Spatial Data. CRC Press. 2002
 
 ## Horario de atención
 
-Lunes 10:00 am a 12:00 m
-Miércoles 8:00 am - 10:00 am
+Lunes 8:00 am a 10:00 am.
+
 
 Lugar: Laboratorio de Sistemas Complejos Naturales 21-215
 

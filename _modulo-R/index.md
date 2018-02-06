@@ -25,7 +25,9 @@ order: 0
 
 ## Horario de atención
 
-   Lunes 10 am - 12 m. Laboratorio de Sistemas Complejos Naturales. 21-215.    
+   Lunes 8:00 am - 10 am.
+
+   Laboratorio de Sistemas Complejos Naturales. 21-215.    
 
 ## Evaluación.
   - Taller o talleres individuales o en grupo cortos 15% del módulo.
