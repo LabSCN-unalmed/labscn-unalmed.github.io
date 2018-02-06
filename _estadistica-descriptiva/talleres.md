@@ -5,6 +5,20 @@ curso: 'estadistica-descriptiva'
 order: 4
 ---
 
+## Talleres individuales
+
+### Taller individual 1
+
+ - Entrar al foro y realizar la primera actividad descrita en el mismo.
+
+ - Recuerde utilizar el correo de la universidad para entrar al foro.
+
+
+ - Cualquier dificultad para entrar al foro,
+   por favor enviar el comentario al correo **krcabrer@unal.edu.co**
+   y no olvidar escribir
+   en asunto la sigla (incluido los corchetes) **[EDAED]**.
+
 
 <!---
 
