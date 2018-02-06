@@ -5,6 +5,8 @@ curso: 'estadistica-espacial'
 order: 01
 ---
 
+
+<!---
 ## Análisis exploratorio de señales de wifi y celular
 
  - [Base de datos en Excel](./datos/datos_taller.xlsx)
@@ -96,3 +98,5 @@ order: 01
 - [Municipios de Antiquia (shp)](./datos/municipiosAntioq.shp)
 - [Municipios de Antiquia (shx)](./datos/municipiosAntioq.shx)
 - [Manejo de datos areales](./guiones/datosAreales2.html)
+
+-->
