@@ -62,7 +62,7 @@ Presentación en formato **.pdf** (**no** se acepta en formato de PowerPoint,
 
 ### Fecha de entrega
 
-Martes 20 de Febrero de 2018 al correo **krcabrer@unal.edu.co**
+Jueves 22 de Febrero de 2018 al correo **krcabrer@unal.edu.co**
 
 En asunto no olvidar **[MEDE]**, enviar antes de las 23:59 hora colombiana.
 

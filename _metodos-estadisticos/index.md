@@ -24,7 +24,7 @@ order: 00
 
 | Item               | Porcentaje | Fecha entrega                | Formato                                        |
 |:-------------------|:----------:|:-----------------------------|:-----------------------------------------------|
-| Propuesta inicial  |        10% | Martes 20 de febrero de 2018 | Presentación en formato PDF                    |
+| Propuesta inicial  |        10% | Jueves 22 de febrero de 2018 | Presentación en formato PDF                    |
 | Planeación         |        20% | Martes 13 de marzo de 2018   | Presentación y trabajo en formato PDF          |
 | Presentación Final |        30% | Martes 29 de mayo de 2018    | Trabajo en PDF y poster en formato PDF y físico|
 | Seguimiento        |        40% |                              | Talleres y trabajos durante el curso           |
