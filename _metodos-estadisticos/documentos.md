@@ -16,7 +16,9 @@ Technometrics, February 1993, Vol. 35. Nro 1.
 
 ## Guías para casos particulares con RStudio
 
-- [Instalación de un paquete en RStudio](/metodos-estadisticos/docs/instalapaquete.pdf)
+
+- [Creación de un proyecto en RStudio](/metodos-estadisticos/docs/proyecto.html)
+- [Instalación de un paquete o conjunto de paquetes en RStudio](./docs/instala.html)
 
 ## Tablas guías para parámetros gráficos
 

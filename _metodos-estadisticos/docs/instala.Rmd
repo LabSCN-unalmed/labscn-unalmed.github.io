@@ -1,0 +1,53 @@
+---
+title: "Instalación de paquetes en RStudio"
+author: "Kenneth Roy Cabrera Torres"
+date: "8 de febrero de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Proceso de instalación de paquetes en RStudio
+
+### Inicio del RStudio
+
+![](01_instala.PNG)
+
+### Tools > Install Packages
+
+![](02_instala.PNG)
+
+### Ventana de selección
+
+![](03_instala.PNG)
+
+### Nombra el paqueta a instalar
+
+![](04_instala.PNG)
+
+### Instalar con las dependencias
+
+![](05_instala.PNG)
+
+### Paquete "ctv" instalado
+
+![](06_instala.PNG)
+
+## Proceso para instalar conjunto de paquetes completo
+
+### Cargar el paquete "ctv"
+![](07_instala.PNG)
+
+### Comando para instlar cunjunto de paquetes
+
+Advertencia: Cuando se instla un conjunto de paquetes puede tomar
+mucho tiempo. Por ejemplo el conjunto "ExperimentalDesign" toma
+alrededor de 30 minutos con una velocidad de internet de 20Mb.
+
+![](08_instala.PNG)
+
+

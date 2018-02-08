@@ -1,0 +1,109 @@
+---
+title: "Creación de proyectos"
+author: "Kenneth Roy Cabrera Torres"
+date: "8 de febrero de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Crear una nueva carpeta (directorio)
+
+![](01_proyecto.PNG)
+
+## Creación de un nuevo proyecto.
+
+![](02_proyecto.PNG)
+
+![](03_proyecto.PNG)
+
+## Localizar la carpeta ya creada
+
+![](04_proyecto.PNG)
+
+![](05_proyecto.PNG)
+
+![](06_proyecto.PNG)
+
+## Nuevo proyecto creado
+
+![](07_proyecto.PNG)
+
+## Crear un archivo ".Rmd" (rmarkdown)
+
+![](08_proyecto.PNG)
+
+![](02_markdown.PNG)
+
+![](03_markdown.PNG)
+
+![](04_markdown.PNG)
+
+## Título y autor del archivo Rmarkdown
+
+![](09_proyecto.PNG)
+
+## Quitar la plantilla del Rmarkdown
+
+Note que la sección:
+
+
+```{}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+no se borra, porque son opciones de configuración del Rmarkdown.
+
+![](10_proyecto.PNG)
+
+## Inicio del Rmarkdown
+
+![](11_proyecto.PNG)
+
+## Instalación del paquete "readxl" para leer archivos de excel.
+
+![](12_proyecto.PNG)
+
+![](13_proyecto.PNG)
+
+![](14_proyecto.PNG)
+
+## Escritura del código para la lectura de la base de datos.
+
+Note que en la consola se puede escribir el comando **"dir()"**,
+con el fin de obtener el nombre correcto del archivo que
+se va a leer.
+
+![](15_proyecto.PNG)
+
+![](16_proyecto.PNG)
+
+## Grabar el archivo ".Rmd"
+
+![](17_proyecto.PNG)
+
+## Ejecución del código del ".Rmd"
+
+
+![](18_proyecto.PNG)
+
+## Generación del archivo ".html"
+
+![](19_proyecto.PNG)
+
+## Ejecución del código dentro del RStudio
+
+![](20_proyecto.PNG)
+
+![](21_proyecto.PNG)
+
+## Cerrar un proyecto en el RStudio
+
+![](22_proyecto.PNG)
+
+
