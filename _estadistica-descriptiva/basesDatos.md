@@ -5,6 +5,8 @@ curso: 'estadistica-descriptiva'
 order: 6
 ---
 
+- [Base de datos de la encuesta realizada en clase](./basesdedatos/encuesta1.xlsx)
+  * [Preguntas de la encuesta](./basesdedatos/preguntas.jpg)
 
 <!---
 - [Homicidios en Colombia 2014](./basesdedatos/HomicidiosColombia2014.xlsx).

@@ -5,6 +5,16 @@ curso: 'estadistica-descriptiva'
 order: 4
 ---
 
+
+
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+
+
 ## Talleres individuales
 
 ### Taller individual 1
@@ -18,6 +28,11 @@ order: 4
    por favor enviar el comentario al correo **krcabrer@unal.edu.co**
    y no olvidar escribir
    en asunto la sigla (incluido los corchetes) **[EDAED]**.
+
+### Taller individual 2
+
+  - Entrar, inscribirse al foro y realizar la actividad allí
+    mencionada.
 
 
 <!---
