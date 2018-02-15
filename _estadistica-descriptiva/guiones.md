@@ -15,7 +15,7 @@ order: 2
 ## Exploratorio inicial de la encuesta de clase
 
 - [Relación entre posición real y estimada](./guiones/encuesta1.html)
-
+- [Código en .Rmd](./guiones/encuesta1.Rmd)
 
 
 <!---
