@@ -1,0 +1,34 @@
+---
+title: "Encuesta a estudiantes de EDAED"
+author: "Kenneth Roy Cabrera Torres"
+date: "8 de febrero de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readxl)
+encuesta <- read_excel("encuesta1.xlsx")
+```
+
+```{r}
+plot(encuesta$papa, encuesta$porcentaje)
+```
+
+```{r}
+encuesta$papa
+rank(encuesta$papa)
+(1 - rank(encuesta$papa)/length(encuesta$papa))*100
+encuesta$vporcentaje <- (1 - rank(encuesta$papa)/length(encuesta$papa))*100
+```
+
+
+```{r}
+with(encuesta, plot(vporcentaje, porcentaje, pch = 19))
+abline(c(0, 1), col = "red")
+abline(lm(encuesta$porcentaje ~ encuesta$vporcentaje), col = "blue")
+```
+

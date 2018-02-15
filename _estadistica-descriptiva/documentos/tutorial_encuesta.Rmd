@@ -1,0 +1,88 @@
+---
+title: "Tutorial"
+author: "Kenneth Roy Cabrera Torres"
+date: "15 de febrero de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Grabar el archivo de base de datos en una carpeta aparte.
+
+![](01_encuesta.png)
+
+## Lectura de una base de datos en Excel.
+
+
+### Incio de RStudio
+![](02_encuesta.png)
+### Creación de un proyecto 
+![](03_encuesta.png)
+![](04_encuesta.png)
+![](05_encuesta.png)
+![](06_encuesta.png)
+
+### Creación de un archivo rmarkdown (".Rmd")
+![](07_encuesta.png)
+
+Mensaje inicial al crear un archivo ".Rmd"
+
+![](08_encuesta.png)
+
+Instalación de paquetes para el rmarkdown.
+
+![](09_encuesta.png)
+
+Ventana inicial para crear un archivo ".Rmd"
+
+![](10_encuesta.png)
+
+Plantilla inicial
+
+![](11_encuesta.png)
+
+### Código para cargar el paquete y leer un archivo Excel.
+
+![](12_encuesta.png)
+
+
+![](13_encuesta.png)
+
+Ejemplo de archivo en Excel leìdo.
+
+![](14_encuesta.png)
+
+Ejemplo de código con lectura y construcción de un histograma.
+
+![](15_encuesta.png)
+
+## Construción de un archivo ".html"
+
+"Tejer" un archivo a HTML
+
+![](16_encuesta.png)
+
+
+
+Resultado de "tejer" un archivo a HTML.
+
+
+![](17_encuesta.png)
+
+## Cerrar un proyecto
+
+![](18_encuesta.png)
+
+## Guargar un proyecto
+
+![](19_encuesta.png)
+
+## Resultado final de archivos creado en un proyecto de R.
+
+![](20_encuesta.png)
+
+

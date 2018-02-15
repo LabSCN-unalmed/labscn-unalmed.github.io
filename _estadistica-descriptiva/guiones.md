@@ -6,6 +6,18 @@ order: 2
 ---
 
 
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Exploratorio inicial de la encuesta de clase
+
+- [Relación entre posición real y estimada](./guiones/encuesta1.html)
+
+
+
 <!---
 ## Contenido
 {: .no_toc}

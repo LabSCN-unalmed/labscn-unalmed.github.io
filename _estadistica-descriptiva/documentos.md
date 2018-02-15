@@ -27,6 +27,10 @@ order: 3
 
 - [Introducción](/estadistica-descriptiva/documentos/explora1.html)
 
+## Tutorial de inicio para crear archivo ".Rmd" y ".html".
+
+- [Tutorial Encuesta](./documentos/tutorial_encuesta.html)
+
 <!---
 ## Numb3rs
 
