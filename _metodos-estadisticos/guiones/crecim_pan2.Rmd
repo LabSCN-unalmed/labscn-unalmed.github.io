@@ -1,0 +1,115 @@
+---
+title: "Crecimiento de pan. Análisis estadístico I."
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes, 20 de febrero de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Crecimiento de pan.
+
+En el libro _Design and Analysis of Experiments with R_ de John Lawson
+se encuentra un ejemplo de un experimento que se realizó para
+determinar si el tiempo de reposo influía en el crecimiento 
+de masas de panes.
+
+A continuación se presentan los resultados de dicho experimento:
+
+![](crecimiento_pan.png)
+
+## Lectura de la base de datos.
+
+```{r}
+library(readxl)
+pan <- read_excel("crecim_pan.xlsx")
+```
+
+
+## Convertir a tipo "factor" la variable explicativa
+
+```{r}
+pan$Tiempo <- factor(pan$Tiempo)
+str(pan)
+```
+
+
+## Gráfica mejorada
+
+```{r}
+library(ggplot2)
+ggplot(pan, aes(Tiempo, Altura)) +
+  geom_jitter(width = 0.1, height = 0) +
+  labs(title = "Relación del tiempo de reposo con la altura alcanzada por el pan",
+       x = "Tiempo (minutos)",
+       y = "Altura (cm)") +
+       scale_x_discrete(breaks = c("35","40","45")) +
+       scale_y_continuous(breaks = seq(3,12)) +
+       stat_summary(fun.y = "mean", geom = "point", col = "red", 
+                    shape = 21, stroke = 2) +
+       stat_summary(fun.y = "mean", geom = "line", col = "red",
+                    linetype = 2, aes(group = 1)) 
+```
+
+
+## Cálculo de estadísticos básicos
+
+```{r}
+library(dplyr)
+
+pan %>%
+  summarise(mediaA = mean(Altura), dsA = sd(Altura))
+```
+
+```{r}
+pan %>% 
+  group_by(Tiempo) %>% 
+  summarise(mediaA = mean(Altura), dsA = sd(Altura))
+```
+
+## Modelo
+
+### Primera forma
+
+$$
+y_{ij} = \mu_i  + \epsilon_{ij}
+$$
+Donde:
+$$
+\epsilon_{ij} \sim \mathcal{N}(0, \sigma^2)
+$$
+
+### Segunda forma
+
+$$
+\begin{eqnarray*}
+y_{ij}  & = & \mu + \alpha_i + \epsilon_{ij} \\
+\textrm{Dónde:} && \\
+\epsilon_{ij} & \sim & \mathcal{N}(0, \sigma^2)
+\end{eqnarray*}
+$$
+
+
+
+```{r}
+modelo1aov <- aov(Altura ~ Tiempo, data = pan)
+summary(modelo1aov)
+```
+
+```{r}
+modelo1lm <- lm(Altura ~ Tiempo, data = pan)
+summary(modelo1lm)
+                
+```
+
+## Diagnósiticos gráficos
+
+```{r}
+plot(modelo1aov)
+```
+
+

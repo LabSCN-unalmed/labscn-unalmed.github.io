@@ -9,7 +9,12 @@ custom_js: 'mathjax'
 ## Crecimiento del pan.
 
  - [Experimento del crecimiento del pan vs el tiempo de reposo](./guiones/crecim_pan.html).
- - [Base de datos](./guiones/crecim_pan.xlsx). 
+ - [Base de datos](./guiones/crecim_pan.xlsx).
+
+## Análisis estadístico I (Crecimiento del pan)
+
+- [Experimento del crecimiento del pan vs el tiempo de reposo. (Análisis estadístico I)](./guiones/crecim_pan2.html).
+
 
 <!---
 ## Brillo en papel
