@@ -76,7 +76,7 @@ pan %>%
 ### Primera forma
 
 $$
-y_{ij} = \mu_i  + \epsilon_{ij}
+y_{ij} = \mu_i  + \epsilon_{ij} \quad i.i.d.
 $$
 Donde:
 $$
@@ -89,7 +89,7 @@ $$
 \begin{eqnarray*}
 y_{ij}  & = & \mu + \alpha_i + \epsilon_{ij} \\
 \textrm{Dónde:} && \\
-\epsilon_{ij} & \sim & \mathcal{N}(0, \sigma^2)
+\epsilon_{ij} & \sim & \mathcal{N}(0, \sigma^2) \quad i.i.d.
 \end{eqnarray*}
 $$
 
