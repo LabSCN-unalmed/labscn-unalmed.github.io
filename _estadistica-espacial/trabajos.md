@@ -15,7 +15,7 @@ semivariograma empírico con los datos del ruido.
 
 ### Material guía.
 
-- [Comprimido de bases de datos](https://www.dropbox.com/s/8m3u6kv65cmqpqh/trabajo_grupal_1.zip?dl=0)
+- [Comprimido de bases de datos](https://www.dropbox.com/s/8ywui8x3ns9zn1c/trabajo_grupal_1.zip?dl=0)
 - [Archivo en formato ".Rmd"](./guiones/Trabajo1.Rmd)
 - [Guión de elementos inciales](./guiones/Trabajo1.html)
 - [Archivo de calibraciones](./datos/calibracion.xlsx)

@@ -1,12 +1,15 @@
 ---
 title: "Sonido en la mesa del salón"
 author: "Kenneth Roy Cabrera Torres"
-date: "16 de febrero de 2018"
-output: html_document
+date: "Miércoles, 21 de febrero de 2018"
+output: 
+  html_document: 
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+options(width = 200)
 ```
 
 ## Lectura de la base de datos
@@ -14,12 +17,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 cel_0 <- read.csv("Experimento sin t_tulo Grabaci_n 1_0.csv")
 cel_120 <- read.csv("Experimento sin t_tulo Grabaci_n 1_120.csv")
+cel_180 <- read.csv("Experimento sin t_tulo Grabaci_n 1_180.csv")
+cel_240 <- read.csv("Experimento sin t_tulo Grabaci_n 1_240.csv")
 ```
 
 ```{r}
-segundos <- 15
+segundos <- 6
 ```
-
 
 
 ```{r}
@@ -41,6 +45,7 @@ cel_0_r <- cel_0 %>%
            summarise(MDecibelSource = mean(DecibelSource))
 ```
 
+## Comportamiento del sonido en el tiempo en la coordenada cero (0)
 
 ```{r}
 library(ggplot2)
@@ -57,6 +62,7 @@ cel_120_r <- cel_120 %>%
            summarise(MDecibelSource = mean(DecibelSource))
 ```
 
+## Comportamiento del sonido en el tiempo en la coordenada 120.
 
 ```{r}
 library(ggplot2)
@@ -65,19 +71,95 @@ ggplot(cel_120_r, aes(tiempo, MDecibelSource-16)) +
 ```
 
 
+
+
 ```{r}
-cel_t <- inner_join(cel_0_r, cel_120_r, by = "tiempo")
+library(dplyr)
+cel_180_r <- cel_180 %>%
+           group_by(tiempo = round(timestamp/(segundos * 1000), 0)) %>%
+           summarise(MDecibelSource = mean(DecibelSource))
 ```
 
+
+```{r}
+library(dplyr)
+cel_240_r <- cel_240 %>%
+           group_by(tiempo = round(timestamp/(segundos * 1000), 0)) %>%
+           summarise(MDecibelSource = mean(DecibelSource))
+```
+
+
+
+```{r}
+cel_t <- inner_join(cel_0_r, cel_120_r, by = "tiempo")
+names(cel_t)[2:3] <- c("t0", "t120")
+cel_t <- inner_join(cel_t, cel_180_r, by = "tiempo")
+names(cel_t)[4] <- c("t180")
+cel_t <- inner_join(cel_t, cel_240_r, by = "tiempo")
+names(cel_t)[5] <- c("t240")
+```
+
+## Relación entre los valores en la coordenada cero y 120.
 
 ```{r}
 library(ggplot2)
-ggplot(cel_t, aes(MDecibelSource.x, MDecibelSource.y)) +
+ggplot(cel_t, aes(t0, t120)) +
   geom_point()
 ```
 
+## Correlación entre los valores en la coordenada cero y la de 120
 
 ```{r}
-with(cel_t, cor(MDecibelSource.x, MDecibelSource.y))
+with(cel_t, cor(t0, t120))
+```
+
+
+
+```{r}
+library(tidyr)
+cel_long <- cel_t %>%
+         gather(key = distancia, value = decibeles,  -tiempo)
+
+library(dplyr)
+cel_long <- cel_long %>%
+    mutate(distancia = as.numeric(substring(distancia, 2)))
+```
+
+## Conjunto de realizaciones desde la coordenada cero hasta 240.
+
+```{r}
+library(ggplot2)
+ggplot(cel_long, aes(distancia, decibeles, group = tiempo)) +
+  geom_line(alpha = 0.05)
+```
+
+## Diagramas de violín para cada coordenada desde las cero a las 240.
+
+```{r}
+library(ggplot2)
+ggplot(cel_long, aes(factor(distancia), decibeles)) +
+         geom_violin()
+```
+
+## Diagramas de caja y bigotes de cada coordenada desde la cero a la 240.
+
+```{r}
+library(ggplot2)
+ggplot(cel_long, aes(factor(distancia), decibeles)) +
+         geom_boxplot() +
+  stat_summary(fun.y = mean, geom = "point", col = "red")
+```
+
+## Promedios y desviaciones estándar por cada coordenada
+
+```{r}
+library(dplyr)
+resumen1 <- cel_long %>%
+  group_by(distancia) %>%
+  summarise(mediaDecibeles = mean(decibeles),
+            medianaDecibeles = median(decibeles),
+            desvEstDecibeles = sd(decibeles),
+            rangoIntercuartil = quantile(decibeles, 0.75) - quantile(decibeles, 0.25))
+data.frame(resumen1)
 ```
 
