@@ -22,20 +22,22 @@ semivariograma empírico con los datos del ruido.
 
 ### Actividades
 
-- Grupo de tres (3) personas.
+- Conformar grupos de máximo tres (3) personas.
 
 - Llevar todas la bases de datos a un horizonte común de tiempos
-  entre 1 y 20 segundos. (Cada grupo elije nivel).
+  entre 1 y 20 segundos. (Cada grupo elige nivel).
 
-- Graficar el conjunto de realizaciones dado el nivel de segundos tomados.
+- Graficar el conjunto de realizaciones dado el nivel de segundos elegidos.
+  Utilizando un difuminado o una transparencia para facilitar
+  la visualización.
 
 - Mostrar la distribución en cada punto del sonido,
     con los valores originales y otro con los valores corregidos
-    por el calibre. (Verificar comportamiento de valores centrales y
-      de dispersión.)
+    por la calibración realizada previamente. (Verificar comportamiento de valores centrales y de dispersión.)
 
-- Hallar la correlación  de cada punto con todos los demás. (Matriz de correlación
-  de los datos tomados.) Tanto corregido como si corregir y comparar.
+- Hallar la correlación  de cada punto de coordenada con todos los demás.
+  (Matriz de correlación
+  de los datos tomados) Tanto corregido como si corregir y comparar.
 
 - Graficar la función de autocorrelación.
 
