@@ -35,7 +35,7 @@ semivariograma empírico con los datos del ruido.
       de dispersión.)
 
 - Hallar la correlación  de cada punto con todos los demás. (Matriz de correlación
-  de los datos tomados.)
+  de los datos tomados.) Tanto corregido como si corregir y comparar.
 
 - Graficar la función de autocorrelación.
 
