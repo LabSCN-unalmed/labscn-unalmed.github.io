@@ -1,0 +1,83 @@
+---
+title: "Sonido en la mesa del salón"
+author: "Kenneth Roy Cabrera Torres"
+date: "16 de febrero de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos
+
+```{r}
+cel_0 <- read.csv("Experimento sin t_tulo Grabaci_n 1_0.csv")
+cel_120 <- read.csv("Experimento sin t_tulo Grabaci_n 1_120.csv")
+```
+
+```{r}
+segundos <- 15
+```
+
+
+
+```{r}
+library(dplyr)
+
+cel_0 <- cel_0 %>%
+         mutate(fecha = as.POSIXct(timestamp/1000, origin="1970-01-01"))
+
+cel_120 <- cel_120 %>%
+         mutate(fecha = as.POSIXct(timestamp/1000, origin="1970-01-01"))
+
+```
+
+
+```{r}
+library(dplyr)
+cel_0_r <- cel_0 %>%
+           group_by(tiempo = round(timestamp/(segundos * 1000), 0)) %>%
+           summarise(MDecibelSource = mean(DecibelSource))
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(cel_0_r, aes(tiempo, MDecibelSource)) +
+  geom_line()
+```
+
+
+
+```{r}
+library(dplyr)
+cel_120_r <- cel_120 %>%
+           group_by(tiempo = round(timestamp/(segundos * 1000), 0)) %>%
+           summarise(MDecibelSource = mean(DecibelSource))
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(cel_120_r, aes(tiempo, MDecibelSource-16)) +
+  geom_line()
+```
+
+
+```{r}
+cel_t <- inner_join(cel_0_r, cel_120_r, by = "tiempo")
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(cel_t, aes(MDecibelSource.x, MDecibelSource.y)) +
+  geom_point()
+```
+
+
+```{r}
+with(cel_t, cor(MDecibelSource.x, MDecibelSource.y))
+```
+
