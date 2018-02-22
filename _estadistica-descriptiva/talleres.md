@@ -23,7 +23,6 @@ order: 4
 
  - Recuerde utilizar el correo de la universidad para entrar al foro.
 
-
  - Cualquier dificultad para entrar al foro,
    por favor enviar el comentario al correo **krcabrer@unal.edu.co**
    y no olvidar escribir
@@ -31,8 +30,13 @@ order: 4
 
 ### Taller individual 2
 
-  - Entrar, inscribirse al foro y realizar la actividad allí
-    mencionada.
+  - Contestar la [encuesta realizada](./basesdedatos/preguntas.jpg)
+   el primer día de clase.
+
+### Taller individual 4
+   - Llevar a clase en un papel el perímetro en metros hasta
+     precisión de centímetros de la Universidad
+      Nacional de Colombia, Núcleo el Volador.    
 
 
 <!---
