@@ -1,0 +1,149 @@
+---
+title: "Encuesta a estudiantes de Estadística Descriptiva y Análisis Exploratorio de Datos"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes, 20 de febrero de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+```{r}
+## Lectura de la base de base de datos.
+library(readxl)
+encuesta <- read_excel("encuesta1.xlsx")
+```
+
+## ¿Cómo se perciben los estudiantes del curso de Estadśtica Descriptiva?
+
+A los estudiantes de la asignatura de Estadística Descriptiva y
+Análisis Exploratorio de Datos se les preguntó por su 
+Promedio Aritmético Ponderado Acumulado (PAPA) y también se les
+preguntó ¿Qué porcentaje de sus compañeros de la asignatura 
+considera que está por encima de su PAPA?
+
+### Análisis de la distribución del PAPA.
+
+```{r}
+histogramaPAPA <- hist(encuesta$papa, freq = FALSE,
+     main = "Hisograma del PAPA",
+     xlab = "Promedio Aritmético Ponderado Acumulado (PAPA)",
+     ylab = "Densidad", las  = 1,
+     col = "cyan4",
+     xlim = c(2.6, 4.6),
+     ylim = c(0, 1.2),
+     axes = FALSE)
+axis(1, at = seq(2.6, 4.6, 0.2))
+axis(2, at = seq(0, 1.2, 0.2), las = 1)
+lines(density(encuesta$papa), col = "tomato", lwd = 3)
+```
+
+La distribución porcentual de cáda intervalo es:
+
+```{r}
+porcentajes <- round(histogramaPAPA$density * diff(histogramaPAPA$breaks) * 100, 1)
+
+datos <- data.frame(limiteInf = histogramaPAPA$breaks[-length(histogramaPAPA$breaks)], 
+                    limiteSup = histogramaPAPA$breaks[-1], 
+                    n = histogramaPAPA$counts, 
+                    densidad = round(histogramaPAPA$density, 3),
+                    porcentaje = porcentajes)
+
+print(datos)
+```
+
+El promedio del PAPA de los encuestados fue de: 
+`r round(mean(encuesta$papa), 2)` y la mediana fue de:
+`r round(median(encuesta$papa), 2)`.
+
+
+De acuerdo una página wiki de 
+["Yo también soy unal"](http://es.tambinsoyunal.wikia.com/wiki/PAPA)
+se muestra  la siguiente clasificación del PAPA:
+
+![](clasificacionPAPA.png)
+
+### Observaciones de la distribución del PAPA.
+
+- La distribución del PAPA de los estudiantes de la asignatura
+  Estadística Descriptiva y Análisis Exploratorio de datos del
+  semestre 01 de 2018 muestra un comportamiento bimodal.
+- De acuerdo a la clasifición el intervalo modal se encuentra
+  en un desempeño por debajo del promedio general de la universidad.
+- Un 17% se considera, de acuerdo a la clasificación 
+  se considera buen estudiante  o destacado.
+  
+
+
+### Cálculos para establecer el verdadero porcentaje
+
+Para comparar el porcentaje descrito por el estudiante en comparación
+con el porcentaje "verdadero", se procedió a calcular el 
+"verdadero porcentaje" mediante la siguiente fórmula.
+
+$$
+Vporcentaje = \left[\frac{1-rango(x)}{n}\right] \times 100
+$$
+
+```{r}
+encuesta$vporcentaje <- (1 - rank(encuesta$papa)/length(encuesta$papa))*100
+```
+
+### Gráfica porcentaje verdadero vs porcentaje estimado.
+
+La siguiente gráfica muestra la relación entre el porcentaje verdadero
+y el porcentaje estimado por los estudiantes en la encuesta.
+
+```{r}
+with(encuesta, plot(vporcentaje, porcentaje, pch = 19,
+                    main = "Porcentaje verdadero vs porcentaje estimado",
+     xlab = "Porcentaje verdadero",
+     ylab = "Porcentaje estimado", 
+     las = 1))
+abline(c(0, 1), col = "red")
+abline(lm(encuesta$porcentaje ~ encuesta$vporcentaje), col = "blue")
+legend("bottomright", legend = c("Tendencia lineal",
+                              "Linea y=x"),
+       lty = 1, col = c("blue", "red"))
+grid()
+```
+
+Se observa que en los niveles altos de PAPA se tiende a
+subestimar el porcentaje considerado con respecto al verdadero.
+
+Para los niveles bajos de PAPA se hace una estimación acertada de
+su porcentaje con respecto al verdadero.
+
+## Comportamiento del PAPA de acuerdo al semestre
+
+```{r}
+with(encuesta, boxplot(papa ~semestre, col = "grey80",
+                       axes = FALSE,
+                       ylim = c(2.6, 4.6)))
+with(encuesta, boxplot(papa ~ semestre, col = "lightblue", pch = 19,
+                       axes = FALSE,
+                       main = "Boxplot de PAPA de acuerdo al semestre",
+                       ylab = "Promedio Aritmético Ponderado Acumulado",
+                       xlab = "Semestre",
+                       notch = TRUE, add = TRUE))
+with(encuesta, points(semestre, papa, pch = 1))
+axis(1, at =  1:8)
+axis(2, at = seq(2.6, 4.6, 0.2), las = 1)
+abline(h = seq(2.6, 4.6, 0.2), col = "lightgrey", lty = "dotted")
+box()
+```
+
+Se observa que en los primeros semestre el PAPA puede ser relativamente bajo,
+pero en la medida que avanan los semestres el PAPA va aumentando,
+exceptuando el quinto semestre.
+
+Es posible que el comportamiento bimodal del PAPA sea debido a
+la diferencia entre los niveles de semestre.
+
+Falta observar si hay relación con la carrera.
+

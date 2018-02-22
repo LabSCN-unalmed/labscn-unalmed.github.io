@@ -14,8 +14,13 @@ order: 2
 
 ## Exploratorio inicial de la encuesta de clase
 
-- [Relación entre posición real y estimada](./codigos/encuesta1.html)
-- [Código en .Rmd](./codigos/encuesta1.Rmd)
+ - [Relación entre posición real y estimada](./codigos/encuesta1.html)
+ - [Código en formato ".Rmd"](./codigos/encuesta1.Rmd)
+
+## Exploratorio del porcentaje y del PAPA
+
+ - [Análisis exploratorio del PAPA y los porcentajes estimados y verdaderos](./codigos/encuesta2.html)
+ - [Código en ".Rmd"](./codigos/encuesta2.Rmd)
 
 
 <!---
