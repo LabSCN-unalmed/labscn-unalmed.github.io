@@ -33,7 +33,7 @@ order: 4
   - Contestar la [encuesta realizada](./basesdedatos/preguntas.jpg)
    el primer día de clase.
 
-### Taller individual 4
+### Taller individual 3
    - Llevar a clase en un papel el perímetro en metros hasta
      precisión de centímetros de la Universidad
       Nacional de Colombia, Núcleo el Volador.    
