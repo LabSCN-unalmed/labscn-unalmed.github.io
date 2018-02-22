@@ -5,7 +5,7 @@ curso: 'estadistica-descriptiva'
 order: 6
 ---
 
-- [Base de datos de la encuesta realizada en clase](./basesdedatos/encuesta1.xlsx)
+- [Base de datos de la encuesta realizada en clase](https://www.dropbox.com/s/gxhievfnbom6oyj/encuesta1.xlsx?dl=0)
   * [Preguntas de la encuesta](./basesdedatos/preguntas.jpg)
 
 <!---
