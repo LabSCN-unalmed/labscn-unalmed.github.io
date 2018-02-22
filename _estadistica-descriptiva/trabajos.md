@@ -6,6 +6,61 @@ order: 5
 ---
 
 
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+
+
+## Primer trabajo individual.
+
+### Objetivo.
+
+ Realizar un análisis exploratorio de la edad y
+ el número de materias matriculadas de los encuestados
+ de la asignatura Estadística Descriptiva y Análisis exploratorio de datos.
+
+ Realizar una exploración para saber cuál variable estaría
+ más relacionada con el PAPA.
+
+### Actividades.
+
+
+- Calcular la edad de cada encuestado (hasta dos décimas de año).
+  Al día que se hizo la encuesta (6 de febrero de 2018).
+- Considerar estos ejemplos sencillos para
+  construir [gráficas en R](https://www.harding.edu/fmccown/r/).  
+- Mostrar y analizar la distribución de la edad.
+- Mostrar y analizar la distribución del número de materias matriculadas.
+  (Utilizar diagrama de barras `barplot()`).
+- Relacionar la edad con el género, semestre, carrera,
+   y PAPA.
+- Relacionar el número de materias matriculadas por el género, semestre, carrera,
+   y PAPA.  
+- Redactar conclusiones y recomendaciones.
+
+### Documentos a entregar.
+
+- Informe en formato ".html" sin código.
+- Archivo en formato ".Rmd" con el código.
+- El informe debe contener como mínimo:
+   + Nombre e identificación del estudiante.
+   + Breve introducción.
+   + Análisis univariado de la variable edad.
+   + Gráficas y análisis de las relaciones entre las variables pedidas.
+   + Conclusiones.
+   + Recomendaciones.
+   + Bibliografía (Si se hizo uso de información adicional).
+
+
+
+### Fecha de entrega
+
+Jueves, 1 de marzo de 2018, antes de las 23:59 hora de Colombia al correo
+**krcabrer@unal.edu.co** y no olvidar la sigla **[EDAED]** en asunto.
+
 <!---
 
 ## Contenido

@@ -20,7 +20,7 @@ order: 2
 ## Exploratorio del porcentaje y del PAPA
 
  - [Análisis exploratorio del PAPA y los porcentajes estimados y verdaderos](./codigos/encuesta2.html)
- - [Código en ".Rmd"](./codigos/encuesta2.Rmd)
+ - [Código en ".Rmd"](codigos/encuesta2.Rmd)
 
 
 <!---
