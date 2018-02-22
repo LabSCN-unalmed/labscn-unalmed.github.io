@@ -22,6 +22,11 @@ order: 2
  - [Análisis exploratorio del PAPA y los porcentajes estimados y verdaderos](./codigos/encuesta2.html)
  - [Código en ".Rmd"](codigos/encuesta2.Rmd)
 
+## Cálculo de la edad y uso de barras
+
+ - [Ejemplo de cálculo de edad y uso de barras](./codigos/encuesta3.html)
+
+
 
 <!---
 ## Contenido

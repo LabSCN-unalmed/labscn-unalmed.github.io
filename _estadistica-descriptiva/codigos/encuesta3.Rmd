@@ -1,0 +1,70 @@
+
+---
+title: "Encuesta a estudiantes de Estadística Descriptiva y Análisis Exploratorio de Datos"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes, 20 de febrero de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+## Lectura de la base de base de datos.
+library(readxl)
+encuesta <- read_excel("encuesta1.xlsx")
+```
+
+
+## Cálculo de la edad
+
+```{r}
+encuesta$edad <- as.numeric(difftime(as.Date("2018-02-06"), 
+                          encuesta$fechaNac, 
+                          units = "days"))/365.25
+```
+
+## Estadísticos de la edad
+
+Incluyendo todos los datos:
+
+```{r}
+summary(encuesta$edad)
+```
+
+Excluyendo un dato atípico.
+
+```{r}
+summary(encuesta$edad[encuesta$edad > 2])
+```
+
+Desviaciones estándar.
+
+```{r}
+sd(encuesta$edad)
+sd(encuesta$edad[encuesta$edad > 2])
+```
+
+
+## Diagrama de barras para el semestre
+
+```{r}
+tablaSem <- table(encuesta$semestre)
+tablaSem
+barplot(tablaSem)
+```
+
+## Diagrama de barras para la carrera
+
+```{r}
+op <- par(no.readonly = TRUE) 
+par(mar = op$mar + c(5, 0, 0, 0))
+barplot(table(encuesta$carrera), las = 2)
+par(op)
+```
+
