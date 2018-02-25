@@ -31,6 +31,10 @@ order: 3
 
 - [Tutorial Encuesta](./documentos/tutorial_encuesta.html)
 
+## Tutorial de la instalación de un paquete en R.
+
+- [Tutorial de instalación de un paquete](./documentos/instala_paquete.html)
+
 <!---
 ## Numb3rs
 

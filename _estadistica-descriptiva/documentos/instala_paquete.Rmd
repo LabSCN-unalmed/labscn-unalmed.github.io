@@ -1,0 +1,35 @@
+---
+title: "Instalación de un paquete"
+author: "Kenneth Roy Cabrera Torres"
+date: "24 de febrero de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Procedimiento para instalar un paquete.
+
+### Inicio del RStudio
+
+![](01_instala_paquete.png)
+
+### Selección de la instalación de un paquete.
+
+![](02_instala_paquete.png)
+
+### Ventana para instalar un paquete.
+
+![](03_instala_paquete.png)
+
+
+### Escritura del nombre del paquete 
+
+![](04_instala_paquete.png)
+
+### Resultado final de la instalación del paquete
+
+![](05_instala_paquete.png)
