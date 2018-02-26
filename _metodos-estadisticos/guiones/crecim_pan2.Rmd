@@ -26,11 +26,11 @@ A continuación se presentan los resultados de dicho experimento:
 
 ```{r}
 library(readxl)
-pan <- read_excel("crecim_pan.xlsx")
+pan <- read_excel("crecim_pan2.xlsx")
 ```
 
 
-## Convertir a tipo "factor" la variable explicativa
+## Convertir a tipo "factor" la variable explicativa.
 
 ```{r}
 pan$Tiempo <- factor(pan$Tiempo)
@@ -38,7 +38,7 @@ str(pan)
 ```
 
 
-## Gráfica mejorada
+## Gráfica exploratoria
 
 ```{r}
 library(ggplot2)
@@ -62,18 +62,18 @@ ggplot(pan, aes(Tiempo, Altura)) +
 library(dplyr)
 
 pan %>%
-  summarise(mediaA = mean(Altura), dsA = sd(Altura))
+  summarise(mediaA = mean(Altura), dsA = sd(Altura), numExp = n())
 ```
 
 ```{r}
 pan %>% 
   group_by(Tiempo) %>% 
-  summarise(mediaA = mean(Altura), dsA = sd(Altura))
+  summarise(mediaA = mean(Altura), dsA = sd(Altura),  numExp = n())
 ```
 
-## Modelo
+## Modelo.
 
-### Primera forma
+### Primera forma.
 
 $$
 y_{ij} = \mu_i  + \epsilon_{ij} \quad i.i.d.
@@ -83,7 +83,7 @@ $$
 \epsilon_{ij} \sim \mathcal{N}(0, \sigma^2)
 $$
 
-### Segunda forma
+### Segunda forma.
 
 $$
 \begin{eqnarray*}
@@ -93,7 +93,7 @@ y_{ij}  & = & \mu + \alpha_i + \epsilon_{ij} \\
 \end{eqnarray*}
 $$
 
-
+## Modelización.
 
 ```{r}
 modelo1aov <- aov(Altura ~ Tiempo, data = pan)
@@ -106,10 +106,159 @@ summary(modelo1lm)
                 
 ```
 
-## Diagnósiticos gráficos
+## Resultados de estimación de parámetros.
+
+### Promedios
+```{r}
+model.tables(modelo1aov, type = "mean", se = TRUE)
+```
+
+### Efectos
+```{r}
+model.tables(modelo1aov, type = "effects", se = TRUE)
+```
+
+
+## Disgnósticos del modelo.
+
+### Diagnósticos gráficos preliminares.
 
 ```{r}
-plot(modelo1aov)
+plot(modelo1lm)
 ```
+
+
+### Normalidad de los residuales.
+
+```{r}
+library(car)
+id <- qqPlot(modelo1lm, id.n = 12, reps = 10000)
+```
+
+
+```{r}
+shapiro.test(rstudent(modelo1lm))
+```
+
+### Prueba de igualdad de varianza
+
+#### Si los residuales son normales.
+
+```{r}
+bartlett.test(Altura ~ Tiempo, data = pan)
+```
+
+#### Si los residuales no son normales.
+
+
+
+```{r}
+library(car)
+leveneTest(modelo1lm)
+```
+
+
+```{r}
+fligner.test(Altura ~ Tiempo, data = pan)
+```
+
+
+
+```{r}
+library(HH)
+hov(Altura ~ Tiempo, data = pan)
+```
+
+
+### Prueba de independencia
+
+```{r}
+with(pan, plot(rstudent(modelo1lm) ~ orden, pch = 19,
+               main = "Gráfica del orden de corrida",
+               xlab = "Orden de corrida",
+               ylab = "Residuales estandarizados",
+               xlim = c(-1, 12),
+               ylim = c(-2.1, 2.1)))
+with(pan, text(orden, rstudent(modelo1lm), 
+               labels  = paste(Idmasa, "t=", Tiempo), adj = 1,
+               pos = 3, cex = 0.7))
+abline(h = 0, col = "red", lty = 2)
+```
+
+
+```{r}
+library(lmtest)
+dwtest(modelo1lm, order.by = ~orden, data = pan, alternative = "two.sided")
+```
+
+
+
+
+
+## Comparaciones pareadas
+
+Las compraraciones pareadas se dividen en dos clases:
+
+ - Control de la tasa de error de experimento jucio en inglés 
+   Family-wise Error Rate (FWER) y se define como la probabilidad de al 
+   menos un falso positivo.
+   
+ - Proporción esperada de falsos positivos entre las prueba que
+   fueron significativs o en inglés False Discovery Rate (FDR).
+   
+Los métodos de Holm, Hochberg, Hommel y Bonferroni pertenecen a FWER. 
+Intentan limitar la probabilidad de un falso positivo (cometer el error tipo I,
+rechazar Ho cuando en realidad es correcta), por lo tanto son conservadoras
+o muy estrictas.
+
+Los métodos que pertenecen a FDR controlan el valor esperado de la 
+proporción de falsos descubrimientos.
+
+La mayoría de los métodos solo utilizan las probabilidades, sin embargo
+las pruebas de Tukey y Dunnet también utilizan la variabilidad de 
+los datos. Las pruebas de Tukey y Dunnet se consideran métodos FWER.
+
+No existe un consejo definitivo para determinar el ajuste a utilizar.
+En general se deberá escojer un método que le sea familiar a su audiencia
+de su campo de estudio. También se puede tener un poco de lógica a la hora
+de escoger algún tipo prueba, por ejemplo si es un estudio inicial, 
+novedoso y preliminar se preferirían métodos que muestren significancia
+potencial para futuros estudios, si por el otro lado se tratan de estudios
+que exigen un algo grado de evidencia y que involucren vidas humanas
+como en caso médico se prefieren pruebas muy extrictas y conservadoras. 
+
+La prueba más liberal o más laxa es la que no hace ningún tipo de 
+corrección y puede rechazar la hipótesis nula donde en realidad es cierta. 
+
+Por el otro lado la prueba más conservadora es la corrección de Bomferroni.
+
+Entre estos dos extremos se encuentran diversas pruebas de
+comparación de medias. 
+
+La prueba de Tukey se considera dentro de las pruebas conservadoras.
+
+#### Sin ajuste.
+```{r}
+pairwise.t.test(x = pan$Altura, g = pan$Tiempo, p.adjust.method =  "none")
+```
+
+#### Con ajuste.
+
+```{r}
+pairwise.t.test(x = pan$Altura, g = pan$Tiempo, p.adjust.method =  "bonferroni")
+```
+
+
+```{r}
+pairwise.t.test(x = pan$Altura, g = pan$Tiempo, p.adjust.method =  "hommel")
+```
+
+
+
+```{r}
+TukeyHSD(modelo1aov)
+```
+
+
 
 
