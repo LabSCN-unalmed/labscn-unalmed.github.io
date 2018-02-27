@@ -38,6 +38,26 @@ order: 4
      precisión de centímetros de la Universidad
       Nacional de Colombia, Núcleo el Volador.    
 
+## Talleres en grupo.
+
+### Taller en grupo 1.
+
+#### Objetivo:
+
+ - Redactar cuatro preguntas a la base de datos contraloría de Antioquia
+   que se respondan ya sea con una tabla o un gráfica o
+   ambas y mostrar un esquema del resultado esperado pensando en
+   mostrar los resultados a la opinón pública sobre el desempeño
+   de las contrataciones del departamento de Antioquia.
+
+#### Documentos esperados:
+
+Durante la clase el grupo de máximo cinco personas (sólo los que están presentes)
+realizarán la propuestas en un papel y las entregarán al finalizar la clase el
+día martes, 27 de febrero de 2018 a las 11:30 am al profesor junto con
+la identificación de los integrantes.
+
+
 
 <!---
 
