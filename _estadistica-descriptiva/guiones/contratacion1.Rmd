@@ -1,0 +1,47 @@
+---
+title: "Contratación en Antioquia durante diciembre de 2017"
+author: "Kenneth Roy Cabrera Torres"
+date: "27 de febrero de 2018"
+output: 
+  html_document: 
+    highlight: tango
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Adecuación de la base de datos.
+
+```{r}
+# Lee la base de datos.
+contrata <- read.csv("Contratacion_Diciembre_2017.csv")
+
+# Convierte a formato fecha los datos de fecha.
+contrata$FECHA.INICIO <- as.POSIXct(strptime(contrata$FECHA.INICIO,
+                                             format = "%m/%d/%Y %H:%M:%S"))
+contrata$FECHA.SUSCRIPCIÓN <- as.POSIXct(strptime(contrata$FECHA.SUSCRIPCIÓN,
+                                             format = "%m/%d/%Y %H:%M:%S"))
+```
+
+
+## Resumen inicial de la base de datos.
+
+### Estructura
+
+```{r}
+# Muestra la estructura de la base de datos.
+str(contrata)
+```
+
+
+### Resumen estadístico
+
+```{r}
+# Resumen de la base de datos.
+summary(contrata)
+```
+
+

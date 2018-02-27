@@ -27,7 +27,19 @@ order: 2
 
  - [Ejemplo de cálculo de edad y uso de barras](./codigos/encuesta3.html)
 
+## Incio exploración de la base de datos de contratación en Antioquia.
 
+En la página [Datos Abiertos](https://www.datos.gov.co/) del gobierno de
+colombia bajo el título de
+[Contratación Diciembre 2017](https://www.datos.gov.co/Organismos-de-Control/Contratacion-Diciembre-2017/4hcq-jric)
+del departamento de Antioquia se tienen 7313 regístros de contratos
+auditados por el departamento de Antioquia a diciembre de 2017.
+
+Básicamente corresponde a:
+"Reporte Consolidado de Contratación del mes de diciembre de 2017 de las entidades públicas que audita la Contraloria General de Antioquia".
+
+ - [Contratación Diciembre 2017](./basesdedatos/Contratacion_Diciembre_2017.csv)
+ - [Exploración y descripción general de la base de datos](./guiones/contratacion1.html)
 
 <!---
 ## Contenido
