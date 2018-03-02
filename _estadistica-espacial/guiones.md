@@ -6,6 +6,14 @@ order: 01
 ---
 
 
+## Ejemplo simple de construcción de semivariogramas.
+
+
+ - [Base de datos en Excel](./datos/ejemplo_practico.xlsx)
+ - [Exploratorio inicial](./guiones/ejemplo_practico.html)
+
+
+
 <!---
 ## Análisis exploratorio de señales de wifi y celular
 

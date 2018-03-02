@@ -1,0 +1,65 @@
+---
+title: "Ejemplos de semivariogramas empíricos"
+author: "Kenneth Roy Cabrera Torres"
+date: "1 de marzo de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Lectura de la base de datos
+
+```{r}
+library(readxl)
+ejemplo1 <- read_excel("ejemplo_practico.xlsx")
+```
+
+
+
+```{r}
+library(geoR)
+ejemplo1g <- as.geodata(ejemplo1)
+summary(ejemplo1g)
+```
+
+
+```{r}
+semivariog1 <- variog(ejemplo1g, option = "cloud")
+plot(semivariog1)
+```
+
+
+
+```{r}
+ejemplo2 <- ejemplo1
+ejemplo2$Z[nrow(ejemplo2)] <- 5
+library(geoR)
+ejemplo2g <- as.geodata(ejemplo2)
+summary(ejemplo2g)
+```
+
+
+
+```{r}
+semivariog2 <- variog(ejemplo2g, option = "cloud")
+plot(semivariog2)
+```
+
+
+```{r}
+semig1 <- data.frame(h = semivariog1$u, gamma_h = semivariog1$v, caso = 1)
+semig2 <- data.frame(h = semivariog2$u, gamma_h = semivariog2$v, caso = 2)
+semigT <- rbind(semig1, semig2)
+semigT$caso <- factor(semigT$caso)
+
+library(ggplot2)
+ggplot(semigT, aes(h, gamma_h)) +
+  geom_point() +
+  facet_wrap( ~ caso, scales = "free") +
+  stat_summary(fun.y = mean, geom = "line")
+
+```
+
