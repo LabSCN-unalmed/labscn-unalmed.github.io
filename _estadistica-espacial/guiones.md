@@ -13,6 +13,9 @@ order: 01
  - [Exploratorio inicial](./guiones/ejemplo_practico.html)
 
 
+## Simulación de campos aleatorios
+
+ - [Simulación de modelos espaciales](./guiones/campos_aleatorios.html)
 
 <!---
 ## Análisis exploratorio de señales de wifi y celular

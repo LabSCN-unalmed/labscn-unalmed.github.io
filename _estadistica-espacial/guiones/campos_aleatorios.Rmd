@@ -1,0 +1,97 @@
+---
+title: "Campos aleatorios"
+author: "Kenneth Roy Cabrera Torres"
+date: "1 de marzo de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Modelo exponencial
+
+
+```{r}
+require(RandomFields)
+rangoPractico <- 10
+
+modeloExp <- RMexp(var = 2, scale = rangoPractico / 3) + RMtrend(mean = 5)
+
+png("expo.png", width = 750, height = 500)
+plot(modeloExp, fct.type = "Variogram", xlim = c(0, 30))
+abline(v = 10)
+dev.off()
+```
+![](expo.png)
+
+## Modelo gausiano
+
+```{r}
+require(RandomFields)
+rangoPractico <- 10
+
+modeloGauss <- RMgauss(var = 2, scale = rangoPractico/sqrt(3)) + RMtrend(mean = 5)
+
+png("gauss.png", width = 750, height = 500)
+plot(modeloGauss, fct.type = "Variogram", xlim = c(0, 30))
+abline(v = 10)
+dev.off()
+```
+
+![](gauss.png)
+
+
+## Malla de simulación
+
+```{r}
+## Definición de la malla
+desde <- 0
+hasta <- 30
+x.seq <- seq(desde, hasta, length = 200)
+y.seq <- seq(desde, hasta, length = 200)
+```
+
+
+## Simulación del modelo exponencial.
+
+```{r}
+RFoptions(seed = 716)
+simuExp <- RFsimulate(modeloExp, x = x.seq, y = y.seq)
+image(simuExp, asp = 1, col = grey(0:100/100))
+```
+
+## Simulación del modelo exponencial
+
+```{r}
+RFoptions(seed = 716)
+simuGauss <- RFsimulate(modeloGauss, x = x.seq, y = y.seq)
+image(simuGauss, asp = 1, col = grey(0:100/100))
+```
+
+
+## Semivariogramas empíricos
+
+### Modelo exponencial 
+
+```{r}
+varioempE<-RFempiricalvariogram(data=simuExp)
+png("figura1.png", width = 750, height = 500)
+plot(varioempE,model=modeloExp)
+dev.off()
+```
+
+![](figura1.png)
+
+### Modelo gaussiano
+
+```{r}
+varioempE<-RFempiricalvariogram(data=simuGauss)
+png("figura2.png", width = 750, height = 500)
+plot(varioempE, model = modeloGauss)
+dev.off()
+```
+
+
+![](figura2.png)
