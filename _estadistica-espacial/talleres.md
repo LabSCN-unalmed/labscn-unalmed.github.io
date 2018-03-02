@@ -55,8 +55,8 @@ dada la escala de la foto.
 
 ### Fecha de entrega.
 
-Miércoles 7 de marzo de 2018, al correo krcabrer@unal.edu.co con
-la sigla [EE] en asunto antes de las 23:59 hora de Colombia.
+Miércoles 7 de marzo de 2018, al correo **krcabrer@unal.edu.co** con
+la sigla **[EE]** en asunto antes de las 23:59 hora de Colombia.
 
 
 
