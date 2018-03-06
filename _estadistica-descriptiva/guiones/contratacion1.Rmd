@@ -19,20 +19,19 @@ knitr::opts_chunk$set(echo = TRUE)
 # Lee la base de datos.
 contrata <- read.csv("Contratacion_Diciembre_2017.csv")
 
-# Convierte a formato fecha los datos de fecha.
-contrata$FECHA.INICIO <- as.POSIXct(strptime(contrata$FECHA.INICIO,
-                                             format = "%m/%d/%Y %H:%M:%S"))
-contrata$FECHA.SUSCRIPCIÓN <- as.POSIXct(strptime(contrata$FECHA.SUSCRIPCIÓN,
-                                             format = "%m/%d/%Y %H:%M:%S"))
-
+# Modifica y crea nuevas variable para adecuar la base de datos.
 library(dplyr)
 contrata <- contrata %>% 
-            mutate(VALOR.CONTRATO = 
-                as.numeric(as.character(
-                    recode(VALOR.CONTRATO, `#############` = ""))),
-                lapso    = as.numeric(FECHA.INICIO - FECHA.SUSCRIPCIÓN)/(3600*24),
-                difPresup = DISPONIBILIDADES.PRESUPUESTALES -
-                            REGISTROS.PRESUPUESTALES)
+            mutate(FECHA.SUSCRIPCIÓN = as.POSIXct(strptime(FECHA.SUSCRIPCIÓN, ## Convierte a fecha.
+                                             format = "%m/%d/%Y %H:%M:%S")), 
+                   FECHA.INICIO = as.POSIXct(strptime(FECHA.INICIO,   ## Convierte a fecha.
+                                             format = "%m/%d/%Y %H:%M:%S")),
+                   VALOR.CONTRATO = 
+                   as.numeric(as.character(
+                               recode(VALOR.CONTRATO, `#############` = ""))), ## Convierte a numérico
+                   lapso     = as.numeric(FECHA.INICIO - FECHA.SUSCRIPCIÓN)/(3600*24), ## Calcula lapso de tiempo.
+                   difPresup = DISPONIBILIDADES.PRESUPUESTALES -
+                               REGISTROS.PRESUPUESTALES) ## Calcula diferencia de presupuesto.
 
 ```
 
@@ -59,8 +58,9 @@ summary(contrata)
 El paquete `dplry` tiene los siguientes "verbos"
 
  - `select()` Seleccionar columnas (también permite reordenar).
- - `filtrar()` filtrar por filas.
- - `arrange()` ordenar o reordenar las filas.
+ - `filtrar()` Filtrar por filas.
+ - `slice()` Seleccionar filas por posición.
+ - `arrange()` Ordenar o reordenar las filas.
  - `mutate()` Crear o modificar columnas.
  - `summarise()` Resumir valores.
  - `group_by` Permite agrupaciones en la estrategia de dividir y aplicar a cada grupo.
@@ -76,7 +76,8 @@ select(contrata, CÓDIGO.CONTRATO, PLAZO.ESTIMADO, VALOR.CONTRATO)
 ```{r}
 library(dplyr)
 contrata1 <- select(contrata, CÓDIGO.CONTRATO, PLAZO.ESTIMADO, VALOR.CONTRATO)
-head(contrata1)
+head(contrata1) ## Primero seis (6) registros.
+tail(contrata1) ## Últimos seis (6) resitros.
 ```
 
 ```{r}
@@ -99,7 +100,7 @@ rm(contrata1, contrata2, contrata3)
 ```
 
 
-### Filtar
+### Filtrar
 
 ```{r}
 library(dplyr)
@@ -115,29 +116,70 @@ contrata2 <- contrata %>%
 head(contrata2)
 ```
 
+```{r}
+rm(contrata1, contrata2)
+```
+
+
+
+### Selección por posición.
+
+```{r}
+library(dplyr)
+contrata1 <- contrata %>%
+             slice(20:30)
+head(contrata1)
+tail(contrata1)
+```
+
+```{r}
+library(dplyr)
+contrata2 <- contrata %>%
+             slice(-3001:-n())
+head(contrata2)
+```
+
+```{r}
+rm(contrata1, contrata2)
+```
+
+
 ### Ordenar
 
 ```{r}
 library(dplyr)
-contrata3 <- contrata %>%
+contrata1 <- contrata %>%
              arrange(desc(VALOR.CONTRATO))
-head(contrata3)
+head(contrata1)
 ```
 
+
+```{r}
+library(dplyr)
+contrata2 <- contrata %>%
+             arrange(SECTOR.DEL.PROYECTO, VALOR.CONTRATO, desc(VALOR.DEL.PROYECTO))
+head(contrata2)
+```
+
+
+```{r}
+rm(contrata1, contrata2)
+```
 
 ### Modificar
 
 ```{r}
 library(dplyr)
-contrata4 <- contrata %>%
-             arrange(SECTOR.DEL.PROYECTO, VALOR.CONTRATO, desc(VALOR.DEL.PROYECTO))
-head(contrata4)
+contrata1 <- contrata %>%
+             mutate(porc_proy = (VALOR.CONTRATO / VALOR.DEL.PROYECTO) * 100)
+head(contrata1)
 ```
 
 
 ```{r}
-rm(contrata1, contrata2, contrata3, contrata4)
+rm(contrata1)
 ```
+
 
 
 ### Resumir
@@ -179,14 +221,31 @@ library(dplyr)
 contrata2 <- contrata %>%
              group_by(SECTOR.DEL.PROYECTO) %>%
              summarise(mediaValorContrato = mean(VALOR.CONTRATO, na.rm = TRUE))
-head(contrata2)
+contrata2
+```
+
+```{r}
+rm(contrata1, contrata2)
 ```
 
 
-
-
-
 ## Algunas preguntas a la base de datos.
+
+
+### Los registros con los 3 primeros valores de contratos más altos por cada sector.
+
+¿Cuales son los codigos de los 3 contratos de más alto valor
+por sector del proyecto?
+
+```{r}
+contrata1 <- contrata %>%
+             group_by(SECTOR.DEL.PROYECTO) %>%
+             arrange(desc(VALOR.CONTRATO)) %>%
+             slice(1:3) %>%
+             select(SECTOR.DEL.PROYECTO, CÓDIGO.CONTRATO, VALOR.CONTRATO)
+data.frame(contrata1)
+```
+
 
 ### ¿Cómo están distribuido los contratos en los 26 sectores?
 

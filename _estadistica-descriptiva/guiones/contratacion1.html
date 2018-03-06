@@ -159,13 +159,15 @@ $(document).ready(function () {
 </ul></li>
 <li><a href="#manejo-basico-de-base-de-datos.">Manejo básico de base de datos.</a><ul>
 <li><a href="#seleccionar">Seleccionar</a></li>
-<li><a href="#filtar">Filtar</a></li>
+<li><a href="#filtrar">Filtrar</a></li>
+<li><a href="#seleccion-por-posicion.">Selección por posición.</a></li>
 <li><a href="#ordenar">Ordenar</a></li>
 <li><a href="#modificar">Modificar</a></li>
 <li><a href="#resumir">Resumir</a></li>
 <li><a href="#agrupar">Agrupar</a></li>
 </ul></li>
 <li><a href="#algunas-preguntas-a-la-base-de-datos.">Algunas preguntas a la base de datos.</a><ul>
+<li><a href="#los-registros-con-los-3-primeros-valores-de-contratos-mas-altos-por-cada-sector.">Los registros con los 3 primeros valores de contratos más altos por cada sector.</a></li>
 <li><a href="#como-estan-distribuido-los-contratos-en-los-26-sectores">¿Cómo están distribuido los contratos en los 26 sectores?</a></li>
 <li><a href="#que-relacion-hay-entre-el-sector-del-proyecto-con-el-presupuesto-del-proyecto">¿Qué relación hay entre el sector del proyecto con el presupuesto del proyecto?</a></li>
 <li><a href="#cuales-fueron-los-7-contratistas-con-mayor-numero-de-contratos">¿Cuáles fueron los 7 contratistas con mayor número de contratos?</a></li>
@@ -178,12 +180,7 @@ $(document).ready(function () {
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lee la base de datos.</span>
 contrata &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Contratacion_Diciembre_2017.csv&quot;</span>)
 
-<span class="co"># Convierte a formato fecha los datos de fecha.</span>
-contrata<span class="op">$</span>FECHA.INICIO &lt;-<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="kw">strptime</span>(contrata<span class="op">$</span>FECHA.INICIO,
-                                             <span class="dt">format =</span> <span class="st">&quot;%m/%d/%Y %H:%M:%S&quot;</span>))
-contrata<span class="op">$</span>FECHA.SUSCRIPCIÓN &lt;-<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="kw">strptime</span>(contrata<span class="op">$</span>FECHA.SUSCRIPCIÓN,
-                                             <span class="dt">format =</span> <span class="st">&quot;%m/%d/%Y %H:%M:%S&quot;</span>))
-
+<span class="co"># Modifica y crea nuevas variable para adecuar la base de datos.</span>
 <span class="kw">library</span>(dplyr)</code></pre></div>
 <pre><code>## 
 ## Attaching package: 'dplyr'</code></pre>
@@ -194,12 +191,16 @@ contrata<span class="op">$</span>FECHA.SUSCRIPCIÓN &lt;-<span class="st"> </spa
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">contrata &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">            </span><span class="kw">mutate</span>(<span class="dt">VALOR.CONTRATO =</span> 
-                <span class="kw">as.numeric</span>(<span class="kw">as.character</span>(
-                    <span class="kw">recode</span>(VALOR.CONTRATO, <span class="st">`</span><span class="dt">#############</span><span class="st">`</span> =<span class="st"> &quot;&quot;</span>))),
-                <span class="dt">lapso    =</span> <span class="kw">as.numeric</span>(FECHA.INICIO <span class="op">-</span><span class="st"> </span>FECHA.SUSCRIPCIÓN)<span class="op">/</span>(<span class="dv">3600</span><span class="op">*</span><span class="dv">24</span>),
-                <span class="dt">difPresup =</span> DISPONIBILIDADES.PRESUPUESTALES <span class="op">-</span>
-<span class="st">                            </span>REGISTROS.PRESUPUESTALES)</code></pre></div>
+<span class="st">            </span><span class="kw">mutate</span>(FECHA.SUSCRIPCIÓ<span class="dt">N =</span> <span class="kw">as.POSIXct</span>(<span class="kw">strptime</span>(FECHA.SUSCRIPCIÓN, ## Convierte a fecha.
+                                             <span class="dt">format =</span> <span class="st">&quot;%m/%d/%Y %H:%M:%S&quot;</span>)), 
+                   <span class="dt">FECHA.INICIO =</span> <span class="kw">as.POSIXct</span>(<span class="kw">strptime</span>(FECHA.INICIO,   ## Convierte a fecha.
+                                             <span class="dt">format =</span> <span class="st">&quot;%m/%d/%Y %H:%M:%S&quot;</span>)),
+                   <span class="dt">VALOR.CONTRATO =</span> 
+                   <span class="kw">as.numeric</span>(<span class="kw">as.character</span>(
+                               <span class="kw">recode</span>(VALOR.CONTRATO, <span class="st">`</span><span class="dt">#############</span><span class="st">`</span> =<span class="st"> &quot;&quot;</span>))), ## Convierte a numérico
+                   <span class="dt">lapso     =</span> <span class="kw">as.numeric</span>(FECHA.INICIO <span class="op">-</span><span class="st"> </span>FECHA.SUSCRIPCIÓN)<span class="op">/</span>(<span class="dv">3600</span><span class="op">*</span><span class="dv">24</span>), ## Calcula lapso de tiempo.
+                   <span class="dt">difPresup =</span> DISPONIBILIDADES.PRESUPUESTALES <span class="op">-</span>
+<span class="st">                               </span>REGISTROS.PRESUPUESTALES) ## Calcula diferencia de presupuesto.</code></pre></div>
 </div>
 <div id="resumen-inicial-de-la-base-de-datos." class="section level2">
 <h2>Resumen inicial de la base de datos.</h2>
@@ -382,8 +383,9 @@ contrata<span class="op">$</span>FECHA.SUSCRIPCIÓN &lt;-<span class="st"> </spa
 <p>El paquete <code>dplry</code> tiene los siguientes “verbos”</p>
 <ul>
 <li><code>select()</code> Seleccionar columnas (también permite reordenar).</li>
-<li><code>filtrar()</code> filtrar por filas.</li>
-<li><code>arrange()</code> ordenar o reordenar las filas.</li>
+<li><code>filtrar()</code> Filtrar por filas.</li>
+<li><code>slice()</code> Seleccionar filas por posición.</li>
+<li><code>arrange()</code> Ordenar o reordenar las filas.</li>
 <li><code>mutate()</code> Crear o modificar columnas.</li>
 <li><code>summarise()</code> Resumir valores.</li>
 <li><code>group_by</code> Permite agrupaciones en la estrategia de dividir y aplicar a cada grupo.</li>
@@ -7708,7 +7710,7 @@ contrata<span class="op">$</span>FECHA.SUSCRIPCIÓN &lt;-<span class="st"> </spa
 ## 7313           4500057431              5         430542</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 contrata1 &lt;-<span class="st"> </span><span class="kw">select</span>(contrata, CÓDIGO.CONTRATO, PLAZO.ESTIMADO, VALOR.CONTRATO)
-<span class="kw">head</span>(contrata1)</code></pre></div>
+<span class="kw">head</span>(contrata1) ## Primero seis (6) registros.</code></pre></div>
 <pre><code>##   CÓDIGO.CONTRATO PLAZO.ESTIMADO VALOR.CONTRATO
 ## 1      186-2017CD             23         931575
 ## 2      194-2017CD             23         931575
@@ -7716,6 +7718,14 @@ contrata1 &lt;-<span class="st"> </span><span class="kw">select</span>(contrata,
 ## 4      064-2017MC              6        1663400
 ## 5      185-2017CD             23         931575
 ## 6      188-2017CD             23         931575</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(contrata1) ## Últimos seis (6) resitros.</code></pre></div>
+<pre><code>##      CÓDIGO.CONTRATO PLAZO.ESTIMADO VALOR.CONTRATO
+## 7308      4500057842              3         748391
+## 7309      4500057847              3          25051
+## 7310      4500057879             15         991270
+## 7311      4500057906             30       18118343
+## 7312      4500057944             30      106752460
+## 7313      4500057431              5         430542</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 contrata2 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">select</span>(CÓDIGO.CONTRATO, PLAZO.ESTIMADO, VALOR.CONTRATO)
@@ -7761,8 +7771,8 @@ contrata3 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
 ## 6                   1272569027</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(contrata1, contrata2, contrata3)</code></pre></div>
 </div>
-<div id="filtar" class="section level3">
-<h3>Filtar</h3>
+<div id="filtrar" class="section level3">
+<h3>Filtrar</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 contrata1 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
 <span class="st">            </span><span class="kw">filter</span>(VALOR.CONTRATO <span class="op">&gt;</span><span class="st"> </span><span class="dv">50000000</span>)
@@ -7932,13 +7942,87 @@ contrata2 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
 ## 4                        99853257                 99853257    11         0
 ## 5                       492814748                478947937     0  13866811
 ## 6                       200000000                199132622     0    867378</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(contrata1, contrata2)</code></pre></div>
+</div>
+<div id="seleccion-por-posicion." class="section level3">
+<h3>Selección por posición.</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+contrata1 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
+<span class="st">             </span><span class="kw">slice</span>(<span class="dv">20</span><span class="op">:</span><span class="dv">30</span>)
+<span class="kw">head</span>(contrata1)</code></pre></div>
+<pre><code>## # A tibble: 6 x 26
+##   SUJETO.DE.CONTROL EVENTO      TIPO.DE.REGISTRO CÓDIGO.CONTRATO
+##   &lt;fct&gt;             &lt;fct&gt;       &lt;fct&gt;            &lt;fct&gt;          
+## 1 Admon Abejorral   1-Principal Contrato         190-2017CD     
+## 2 Admon Abejorral   1-Principal Contrato         199-2017CD     
+## 3 Admon Abejorral   1-Principal Contrato         210-2017CD     
+## 4 Admon Abejorral   1-Principal Contrato         067-2017MC     
+## 5 Admon Abejorral   1-Principal Contrato         211-2017CD     
+## 6 Admon Abejorral   1-Principal Contrato         208-2017CD     
+## # ... with 22 more variables: IDENTIFICACIÓN.CONTRATISTA &lt;fct&gt;,
+## #   NOMBRE.CONTRATISTA &lt;fct&gt;, CÓDIGO.DEL.PROYECTO &lt;fct&gt;,
+## #   NOMBRE.DEL.PROYECTO &lt;fct&gt;, SECTOR.DEL.PROYECTO &lt;fct&gt;,
+## #   VALOR.DEL.PROYECTO &lt;dbl&gt;, VALOR.EJECUTADO.DEL.PROYECTO &lt;dbl&gt;,
+## #   OBJETO.DEL.CONTRATO &lt;fct&gt;, FECHA.SUSCRIPCIÓN &lt;dttm&gt;,
+## #   FECHA.INICIO &lt;dttm&gt;, PLAZO.ESTIMADO &lt;int&gt;, VALOR.CONTRATO &lt;dbl&gt;,
+## #   PROCESO.DE.CONTRATACIÓN &lt;fct&gt;, TIPOLOGÍA &lt;fct&gt;,
+## #   IDENTIFICACIÓN.INTERVENTOR &lt;fct&gt;, NOMBRE.DEL.INTERVENTOR &lt;fct&gt;,
+## #   TIPO.INTERVENTOR &lt;fct&gt;, No.CONTRATO.INTERVENTOR &lt;fct&gt;,
+## #   DISPONIBILIDADES.PRESUPUESTALES &lt;dbl&gt;, REGISTROS.PRESUPUESTALES &lt;dbl&gt;,
+## #   lapso &lt;dbl&gt;, difPresup &lt;dbl&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(contrata1)</code></pre></div>
+<pre><code>## # A tibble: 6 x 26
+##   SUJETO.DE.CONTROL EVENTO         TIPO.DE.REGISTRO CÓDIGO.CONTRATO
+##   &lt;fct&gt;             &lt;fct&gt;          &lt;fct&gt;            &lt;fct&gt;          
+## 1 Admon Abejorral   1-Principal    Contrato         208-2017CD     
+## 2 Admon Abejorral   11-Terminacion Contrato         007-2017SA     
+## 3 Admon Abejorral   1-Principal    Contrato         061-2017MC     
+## 4 Admon Abejorral   1-Principal    Contrato         062-2017MC     
+## 5 Admon Abejorral   1-Principal    Contrato         182-2017CD     
+## 6 Admon Abejorral   1-Principal    Contrato         191-2017CD     
+## # ... with 22 more variables: IDENTIFICACIÓN.CONTRATISTA &lt;fct&gt;,
+## #   NOMBRE.CONTRATISTA &lt;fct&gt;, CÓDIGO.DEL.PROYECTO &lt;fct&gt;,
+## #   NOMBRE.DEL.PROYECTO &lt;fct&gt;, SECTOR.DEL.PROYECTO &lt;fct&gt;,
+## #   VALOR.DEL.PROYECTO &lt;dbl&gt;, VALOR.EJECUTADO.DEL.PROYECTO &lt;dbl&gt;,
+## #   OBJETO.DEL.CONTRATO &lt;fct&gt;, FECHA.SUSCRIPCIÓN &lt;dttm&gt;,
+## #   FECHA.INICIO &lt;dttm&gt;, PLAZO.ESTIMADO &lt;int&gt;, VALOR.CONTRATO &lt;dbl&gt;,
+## #   PROCESO.DE.CONTRATACIÓN &lt;fct&gt;, TIPOLOGÍA &lt;fct&gt;,
+## #   IDENTIFICACIÓN.INTERVENTOR &lt;fct&gt;, NOMBRE.DEL.INTERVENTOR &lt;fct&gt;,
+## #   TIPO.INTERVENTOR &lt;fct&gt;, No.CONTRATO.INTERVENTOR &lt;fct&gt;,
+## #   DISPONIBILIDADES.PRESUPUESTALES &lt;dbl&gt;, REGISTROS.PRESUPUESTALES &lt;dbl&gt;,
+## #   lapso &lt;dbl&gt;, difPresup &lt;dbl&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+contrata2 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
+<span class="st">             </span><span class="kw">slice</span>(<span class="op">-</span><span class="dv">3001</span><span class="op">:-</span><span class="kw">n</span>())
+<span class="kw">head</span>(contrata2)</code></pre></div>
+<pre><code>## # A tibble: 6 x 26
+##   SUJETO.DE.CONTROL EVENTO      TIPO.DE.REGISTRO CÓDIGO.CONTRATO
+##   &lt;fct&gt;             &lt;fct&gt;       &lt;fct&gt;            &lt;fct&gt;          
+## 1 Admon Abejorral   1-Principal Contrato         186-2017CD     
+## 2 Admon Abejorral   1-Principal Contrato         194-2017CD     
+## 3 Admon Abejorral   1-Principal Contrato         207-2017CD     
+## 4 Admon Abejorral   1-Principal Contrato         064-2017MC     
+## 5 Admon Abejorral   1-Principal Contrato         185-2017CD     
+## 6 Admon Abejorral   1-Principal Contrato         188-2017CD     
+## # ... with 22 more variables: IDENTIFICACIÓN.CONTRATISTA &lt;fct&gt;,
+## #   NOMBRE.CONTRATISTA &lt;fct&gt;, CÓDIGO.DEL.PROYECTO &lt;fct&gt;,
+## #   NOMBRE.DEL.PROYECTO &lt;fct&gt;, SECTOR.DEL.PROYECTO &lt;fct&gt;,
+## #   VALOR.DEL.PROYECTO &lt;dbl&gt;, VALOR.EJECUTADO.DEL.PROYECTO &lt;dbl&gt;,
+## #   OBJETO.DEL.CONTRATO &lt;fct&gt;, FECHA.SUSCRIPCIÓN &lt;dttm&gt;,
+## #   FECHA.INICIO &lt;dttm&gt;, PLAZO.ESTIMADO &lt;int&gt;, VALOR.CONTRATO &lt;dbl&gt;,
+## #   PROCESO.DE.CONTRATACIÓN &lt;fct&gt;, TIPOLOGÍA &lt;fct&gt;,
+## #   IDENTIFICACIÓN.INTERVENTOR &lt;fct&gt;, NOMBRE.DEL.INTERVENTOR &lt;fct&gt;,
+## #   TIPO.INTERVENTOR &lt;fct&gt;, No.CONTRATO.INTERVENTOR &lt;fct&gt;,
+## #   DISPONIBILIDADES.PRESUPUESTALES &lt;dbl&gt;, REGISTROS.PRESUPUESTALES &lt;dbl&gt;,
+## #   lapso &lt;dbl&gt;, difPresup &lt;dbl&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(contrata1, contrata2)</code></pre></div>
 </div>
 <div id="ordenar" class="section level3">
 <h3>Ordenar</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-contrata3 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
+contrata1 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
 <span class="st">             </span><span class="kw">arrange</span>(<span class="kw">desc</span>(VALOR.CONTRATO))
-<span class="kw">head</span>(contrata3)</code></pre></div>
+<span class="kw">head</span>(contrata1)</code></pre></div>
 <pre><code>##                  SUJETO.DE.CONTROL      EVENTO TIPO.DE.REGISTRO
 ## 1 Fabrica De Licores De Antioquia  1-Principal         Contrato
 ## 2                   Admon Sabaneta 1-Principal         Contrato
@@ -8023,13 +8107,10 @@ contrata3 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
 ## 4                 84402258     2  23087742
 ## 5                822318750     2    681250
 ## 6                796555080   338         0</code></pre>
-</div>
-<div id="modificar" class="section level3">
-<h3>Modificar</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-contrata4 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
+contrata2 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
 <span class="st">             </span><span class="kw">arrange</span>(SECTOR.DEL.PROYECTO, VALOR.CONTRATO, <span class="kw">desc</span>(VALOR.DEL.PROYECTO))
-<span class="kw">head</span>(contrata4)</code></pre></div>
+<span class="kw">head</span>(contrata2)</code></pre></div>
 <pre><code>##   SUJETO.DE.CONTROL         EVENTO TIPO.DE.REGISTRO    CÓDIGO.CONTRATO
 ## 1     Admon Yarumal 11-Terminacion         Contrato       CMC-048-2017
 ## 2     Admon Yarumal 12-Liquidacion         Contrato       CMC-048-2017
@@ -8107,7 +8188,99 @@ contrata4 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
 ## 4                        0     0         0
 ## 5                        0     0         0
 ## 6                        0     0         0</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(contrata1, contrata2, contrata3, contrata4)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(contrata1, contrata2)</code></pre></div>
+</div>
+<div id="modificar" class="section level3">
+<h3>Modificar</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+contrata1 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
+<span class="st">             </span><span class="kw">mutate</span>(<span class="dt">porc_proy =</span> (VALOR.CONTRATO <span class="op">/</span><span class="st"> </span>VALOR.DEL.PROYECTO) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>)
+<span class="kw">head</span>(contrata1)</code></pre></div>
+<pre><code>##   SUJETO.DE.CONTROL      EVENTO TIPO.DE.REGISTRO CÓDIGO.CONTRATO
+## 1   Admon Abejorral 1-Principal         Contrato      186-2017CD
+## 2   Admon Abejorral 1-Principal         Contrato      194-2017CD
+## 3   Admon Abejorral 1-Principal         Contrato      207-2017CD
+## 4   Admon Abejorral 1-Principal         Contrato      064-2017MC
+## 5   Admon Abejorral 1-Principal         Contrato      185-2017CD
+## 6   Admon Abejorral 1-Principal         Contrato      188-2017CD
+##   IDENTIFICACIÓN.CONTRATISTA            NOMBRE.CONTRATISTA
+## 1                 1022036066   ENIT GEOVANA DUQUE GRISALES
+## 2                   43764886      SILVIA MARY PEREZ BOTERO
+## 3                 1022035213 LUISA FERNANDA GONZALEZ MEJIA
+## 4                811016454-2                     PRECOOABE
+## 5                 1022035163       JENIFER TATIANA CORREA 
+## 6                 1022036408 MARIA ALEJANDRA LONDONO LOPEZ
+##   CÓDIGO.DEL.PROYECTO
+## 1           S006-2017
+## 2           S006-2017
+## 3           S006-2017
+## 4           S006-2017
+## 5           S006-2017
+## 6           S006-2017
+##                                                                                                                                                                                                           NOMBRE.DEL.PROYECTO
+## 1  ATENCION INTEGRAL A LA PRIMERA INFANCIA DESDE LOS COMPONENTES DE FAMILIA. COMUNIDAD Y REDES. SALUD Y NUTRICION. PEDAGÓGICO. ADMINISTRATIVO Y DE GESTIÓN Y AMBIENTES EDUCATIVOS Y PROTECTORES EN EL MUNICIPIO DE ABEJORRAL 
+## 2  ATENCION INTEGRAL A LA PRIMERA INFANCIA DESDE LOS COMPONENTES DE FAMILIA. COMUNIDAD Y REDES. SALUD Y NUTRICION. PEDAGÓGICO. ADMINISTRATIVO Y DE GESTIÓN Y AMBIENTES EDUCATIVOS Y PROTECTORES EN EL MUNICIPIO DE ABEJORRAL 
+## 3  ATENCION INTEGRAL A LA PRIMERA INFANCIA DESDE LOS COMPONENTES DE FAMILIA. COMUNIDAD Y REDES. SALUD Y NUTRICION. PEDAGÓGICO. ADMINISTRATIVO Y DE GESTIÓN Y AMBIENTES EDUCATIVOS Y PROTECTORES EN EL MUNICIPIO DE ABEJORRAL 
+## 4  ATENCION INTEGRAL A LA PRIMERA INFANCIA DESDE LOS COMPONENTES DE FAMILIA. COMUNIDAD Y REDES. SALUD Y NUTRICION. PEDAGÓGICO. ADMINISTRATIVO Y DE GESTIÓN Y AMBIENTES EDUCATIVOS Y PROTECTORES EN EL MUNICIPIO DE ABEJORRAL 
+## 5  ATENCION INTEGRAL A LA PRIMERA INFANCIA DESDE LOS COMPONENTES DE FAMILIA. COMUNIDAD Y REDES. SALUD Y NUTRICION. PEDAGÓGICO. ADMINISTRATIVO Y DE GESTIÓN Y AMBIENTES EDUCATIVOS Y PROTECTORES EN EL MUNICIPIO DE ABEJORRAL 
+## 6  ATENCION INTEGRAL A LA PRIMERA INFANCIA DESDE LOS COMPONENTES DE FAMILIA. COMUNIDAD Y REDES. SALUD Y NUTRICION. PEDAGÓGICO. ADMINISTRATIVO Y DE GESTIÓN Y AMBIENTES EDUCATIVOS Y PROTECTORES EN EL MUNICIPIO DE ABEJORRAL 
+##           SECTOR.DEL.PROYECTO VALOR.DEL.PROYECTO
+## 1 ATENCIÓN GRUPOS VULNERABLES          1.494e+09
+## 2 ATENCIÓN GRUPOS VULNERABLES          1.494e+09
+## 3 ATENCIÓN GRUPOS VULNERABLES          1.494e+09
+## 4 ATENCIÓN GRUPOS VULNERABLES          1.494e+09
+## 5 ATENCIÓN GRUPOS VULNERABLES          1.494e+09
+## 6 ATENCIÓN GRUPOS VULNERABLES          1.494e+09
+##   VALOR.EJECUTADO.DEL.PROYECTO
+## 1                   1272569027
+## 2                   1272569027
+## 3                   1272569027
+## 4                   1272569027
+## 5                   1272569027
+## 6                   1272569027
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              OBJETO.DEL.CONTRATO
+## 1 PRESTACION DE SERVICIOS DE APOYO Y ACOMPAÑAMIENTO PEDAGOGICO EN EL MARCO DEL CONVENIO 1039 CELEBRADO ENTRE EL ICBF- INSTITUTO COLOMBIANO DE BIENESTAR FAMILIAR CECILIA DE LA FUENTE DE LLERAS Y EL MUNICIPIO DE ABEJORRAL PARA ATENDER INTEGRALMENTE A NINOS Y NINAS EN PRIMERA INFANCIA. QUE PERTENEZCAN A LA POBLAClON EN CONDICIONES DE VULNERABILIDAD. PRESTAR EL SERVICIO DE ATENCION. EDUCACION INICIAL Y CUIDADO A NINOS Y NINAS MENORES DE 5 AÑOS O HASTA SU INGRESO AL GRADO DE TRANSICION. EN EL MARCO DE LA POLITICA DE ESTADO  DE CERO A SIEMPRE .
+## 2 PRESTACION DE SERVICIOS DE APOYO Y ACOMPAÑAMIENTO PEDAGOGICO EN EL MARCO DEL CONVENIO 1039 CELEBRADO ENTRE EL ICBF- INSTITUTO COLOMBIANO DE BIENESTAR FAMILIAR CECILIA DE LA FUENTE DE LLERAS Y EL MUNICIPIO DE ABEJORRAL PARA ATENDER INTEGRALMENTE A NINOS Y NINAS EN PRIMERA INFANCIA. QUE PERTENEZCAN A LA POBLAClON EN CONDICIONES DE VULNERABILIDAD. PRESTAR EL SERVICIO DE ATENCION. EDUCACION INICIAL Y CUIDADO A NINOS Y NINAS MENORES DE 5 AÑOS O HASTA SU INGRESO AL GRADO DE TRANSICION. EN EL MARCO DE LA POLITICA DE ESTADO  DE CERO A SIEMPRE .
+## 3                PRESTACION DE SERVICIOS COMO AGENTE EDUCATIVO EN EL MARCO DEL CONVENIO 1039 CELEBRADO ENTRE EL ICBF- INSTITUTO COLOMBIANO DE BIENESTAR FAMILIAR CECILIA DE LA FUENTE DE LLERAS Y EL MUNICIPIO DE ABEJORRAL PARA ATENDER INTEGRALMENTE A NINOS Y NINAS EN PRIMERA INFANCIA. QUE PERTENEZCAN A LA POBLAClON EN CONDICIONES DE VULNERABILIDAD. PRESTAR EL SERVICIO DE ATENCION. EDUCACION INICIAL Y CUIDADO A NINOS Y NINAS MENORES DE 5 AÑOS O HASTA SU INGRESO AL GRADO DE TRANSICION. EN EL MARCO DE LA POLITICA DE ESTADO  DE CERO A SIEMPRE .
+## 4                                                                                                                                                                                            PRESTACION DE SERVICIOS DE TRANSPORTE PARA EL PERSONAL DE PRIMERA INFANCIA FACILITANDO EL DESPLAZAMIENTO A LAS DIFERENTES VEREDAS DONDE SE LLEVAN A CABO LOS ENCUENTROS EDUCATIVOS. PSICOSOCIALES Y VISITAS FAMILIARES ENMARCADAS DENTRO DE LA MODALIDAD DE ATENCION DE DESARROLLO INFANTIL EN MEDIO FAMILIAR DENTRO DEL CONVENIO 1039 ICBF- MUNICIPIO DE ABEJORRAL
+## 5 PRESTACION DE SERVICIOS DE APOYO Y ACOMPAÑAMIENTO PEDAGOGICO EN EL MARCO DEL CONVENIO 1039 CELEBRADO ENTRE EL ICBF- INSTITUTO COLOMBIANO DE BIENESTAR FAMILIAR CECILIA DE LA FUENTE DE LLERAS Y EL MUNICIPIO DE ABEJORRAL PARA ATENDER INTEGRALMENTE A NINOS Y NINAS EN PRIMERA INFANCIA. QUE PERTENEZCAN A LA POBLAClON EN CONDICIONES DE VULNERABILIDAD. PRESTAR EL SERVICIO DE ATENCION. EDUCACION INICIAL Y CUIDADO A NINOS Y NINAS MENORES DE 5 AÑOS O HASTA SU INGRESO AL GRADO DE TRANSICION. EN EL MARCO DE LA POLITICA DE ESTADO  DE CERO A SIEMPRE .
+## 6 PRESTACION DE SERVICIOS DE APOYO Y ACOMPAÑAMIENTO PEDAGOGICO EN EL MARCO DEL CONVENIO 1039 CELEBRADO ENTRE EL ICBF- INSTITUTO COLOMBIANO DE BIENESTAR FAMILIAR CECILIA DE LA FUENTE DE LLERAS Y EL MUNICIPIO DE ABEJORRAL PARA ATENDER INTEGRALMENTE A NINOS Y NINAS EN PRIMERA INFANCIA. QUE PERTENEZCAN A LA POBLAClON EN CONDICIONES DE VULNERABILIDAD. PRESTAR EL SERVICIO DE ATENCION. EDUCACION INICIAL Y CUIDADO A NINOS Y NINAS MENORES DE 5 AÑOS O HASTA SU INGRESO AL GRADO DE TRANSICION. EN EL MARCO DE LA POLITICA DE ESTADO  DE CERO A SIEMPRE .
+##     FECHA.SUSCRIPCIÓN        FECHA.INICIO PLAZO.ESTIMADO VALOR.CONTRATO
+## 1 2017-12-01 12:00:00 2017-12-01 12:00:00             23         931575
+## 2 2017-12-01 12:00:00 2017-12-01 12:00:00             23         931575
+## 3 2017-12-01 12:00:00 2017-12-01 12:00:00             23        1068671
+## 4 2017-12-18 12:00:00 2017-12-19 12:00:00              6        1663400
+## 5 2017-12-01 12:00:00 2017-12-01 12:00:00             23         931575
+## 6 2017-12-01 12:00:00 2017-12-01 12:00:00             23         931575
+##   PROCESO.DE.CONTRATACIÓN                                    TIPOLOGÍA
+## 1    Contratación Directa Prestación De Servicios Contratación Directa
+## 2    Contratación Directa Prestación De Servicios Contratación Directa
+## 3    Contratación Directa Prestación De Servicios Contratación Directa
+## 4          Mínima Cuantía                      Prestación De Servicios
+## 5    Contratación Directa Prestación De Servicios Contratación Directa
+## 6    Contratación Directa Prestación De Servicios Contratación Directa
+##   IDENTIFICACIÓN.INTERVENTOR       NOMBRE.DEL.INTERVENTOR TIPO.INTERVENTOR
+## 1                   43621073 LINA  MARCELA GONZÁLEZ CASAS          Interno
+## 2                   43621073 LINA  MARCELA GONZÁLEZ CASAS          Interno
+## 3                   43621073 LINA  MARCELA GONZÁLEZ CASAS          Interno
+## 4                   43621073 LINA  MARCELA GONZÁLEZ CASAS          Interno
+## 5                   43621073 LINA  MARCELA GONZÁLEZ CASAS          Interno
+## 6                   43621073 LINA  MARCELA GONZÁLEZ CASAS          Interno
+##   No.CONTRATO.INTERVENTOR DISPONIBILIDADES.PRESUPUESTALES
+## 1                                                43745031
+## 2                                                43745031
+## 3                                                43745031
+## 4                                                 1663500
+## 5                                                43745031
+## 6                                                43745031
+##   REGISTROS.PRESUPUESTALES lapso difPresup  porc_proy
+## 1                   931575     0  42813456 0.06235442
+## 2                   931575     0  42813456 0.06235442
+## 3                  1068671     0  42676360 0.07153086
+## 4                  1663400     1       100 0.11133869
+## 5                   931575     0  42813456 0.06235442
+## 6                   931575     0  42813456 0.06235442</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(contrata1)</code></pre></div>
 </div>
 <div id="resumir" class="section level3">
 <h3>Resumir</h3>
@@ -8158,20 +8331,113 @@ contrata1 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
 contrata2 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
 <span class="st">             </span><span class="kw">group_by</span>(SECTOR.DEL.PROYECTO) <span class="op">%&gt;%</span>
 <span class="st">             </span><span class="kw">summarise</span>(<span class="dt">mediaValorContrato =</span> <span class="kw">mean</span>(VALOR.CONTRATO, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))
-<span class="kw">head</span>(contrata2)</code></pre></div>
-<pre><code>## # A tibble: 6 x 2
-##   SECTOR.DEL.PROYECTO               mediaValorContrato
-##   &lt;fct&gt;                                          &lt;dbl&gt;
-## 1 AGROPECUARIO                               14717195.
-## 2 AGUA POTABLE Y SANEAMIENTO BÁSICO          16952859.
-## 3 ALIMENTACIÓN ESCOLAR                      495974334.
-## 4 APOYO A LA GESTIÓN ADMINISTRATIVA           6735215.
-## 5 ATENCIÓN GRUPOS VULNERABLES                10604649.
-## 6 CENTROS DE RECLUSIÓN                        7537378.</code></pre>
+contrata2</code></pre></div>
+<pre><code>## # A tibble: 26 x 2
+##    SECTOR.DEL.PROYECTO               mediaValorContrato
+##    &lt;fct&gt;                                          &lt;dbl&gt;
+##  1 AGROPECUARIO                               14717195.
+##  2 AGUA POTABLE Y SANEAMIENTO BÁSICO          16952859.
+##  3 ALIMENTACIÓN ESCOLAR                      495974334.
+##  4 APOYO A LA GESTIÓN ADMINISTRATIVA           6735215.
+##  5 ATENCIÓN GRUPOS VULNERABLES                10604649.
+##  6 CENTROS DE RECLUSIÓN                        7537378.
+##  7 CULTURA                                    20294052.
+##  8 DESARROLLO COMUNITARIO                     12225648.
+##  9 EDUCACIÓN                                  14262125.
+## 10 EMPLEO                                    192519359.
+## # ... with 16 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(contrata1, contrata2)</code></pre></div>
 </div>
 </div>
 <div id="algunas-preguntas-a-la-base-de-datos." class="section level2">
 <h2>Algunas preguntas a la base de datos.</h2>
+<div id="los-registros-con-los-3-primeros-valores-de-contratos-mas-altos-por-cada-sector." class="section level3">
+<h3>Los registros con los 3 primeros valores de contratos más altos por cada sector.</h3>
+<p>¿Cuales son los codigos de los 3 contratos de más alto valor por sector del proyecto?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">contrata1 &lt;-<span class="st"> </span>contrata <span class="op">%&gt;%</span>
+<span class="st">             </span><span class="kw">group_by</span>(SECTOR.DEL.PROYECTO) <span class="op">%&gt;%</span>
+<span class="st">             </span><span class="kw">arrange</span>(<span class="kw">desc</span>(VALOR.CONTRATO)) <span class="op">%&gt;%</span>
+<span class="st">             </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>) <span class="op">%&gt;%</span>
+<span class="st">             </span><span class="kw">select</span>(SECTOR.DEL.PROYECTO, CÓDIGO.CONTRATO, VALOR.CONTRATO)
+<span class="kw">data.frame</span>(contrata1)</code></pre></div>
+<pre><code>##                   SECTOR.DEL.PROYECTO    CÓDIGO.CONTRATO VALOR.CONTRATO
+## 1                        AGROPECUARIO               2702      796555080
+## 2                        AGROPECUARIO       SAA-120-2017       88161000
+## 3                        AGROPECUARIO        CM-016-2017       71500000
+## 4   AGUA POTABLE Y SANEAMIENTO BÁSICO         LIC1402017      764224284
+## 5   AGUA POTABLE Y SANEAMIENTO BÁSICO         COP06-2017      658904766
+## 6   AGUA POTABLE Y SANEAMIENTO BÁSICO        CI-004-2017      338099230
+## 7                ALIMENTACIÓN ESCOLAR          C339-2017      495974334
+## 8   APOYO A LA GESTIÓN ADMINISTRATIVA      SPDT-SAMC-081      188360440
+## 9   APOYO A LA GESTIÓN ADMINISTRATIVA       SAMC161-2017      119432231
+## 10  APOYO A LA GESTIÓN ADMINISTRATIVA        CPS094-2017       60000000
+## 11        ATENCIÓN GRUPOS VULNERABLES           181-2017      204600000
+## 12        ATENCIÓN GRUPOS VULNERABLES        CS-021-2017      150005000
+## 13        ATENCIÓN GRUPOS VULNERABLES          676DE2017      134800000
+## 14               CENTROS DE RECLUSIÓN         153-2017SG       15000000
+## 15               CENTROS DE RECLUSIÓN           312-2017       10000000
+## 16               CENTROS DE RECLUSIÓN        CMC142-2017        3499510
+## 17                            CULTURA 221-2017-CPS-ADMON      630000000
+## 18                            CULTURA          333SC2017      327000000
+## 19                            CULTURA           285-2017      226100000
+## 20             DESARROLLO COMUNITARIO          C338-2017       75000000
+## 21             DESARROLLO COMUNITARIO          C332-2017       69414611
+## 22             DESARROLLO COMUNITARIO        180-12-2017       60419741
+## 23                          EDUCACIÓN         4500057997      842402258
+## 24                          EDUCACIÓN      RCPS_124_2017      703888968
+## 25                          EDUCACIÓN           348-2017      330000000
+## 26                             EMPLEO  CONTRATO-337-2017      569999360
+## 27                             EMPLEO           20171490        6900000
+## 28                             EMPLEO         4500056796         658716
+## 29             EQUIPAMIENTO MUNICIPAL  CONTRATO-318-2017      329430935
+## 30             EQUIPAMIENTO MUNICIPAL          677DE2017      144380357
+## 31             EQUIPAMIENTO MUNICIPAL         SA005-2017      134750000
+## 32      FORTALECIMIENTO INSTITUCIONAL         4600007943      520313287
+## 33      FORTALECIMIENTO INSTITUCIONAL         4600007945      371042000
+## 34      FORTALECIMIENTO INSTITUCIONAL         4600007962      343406424
+## 35           GASTOS DE FUNCIONAMIENTO         4600007988      941760000
+## 36           GASTOS DE FUNCIONAMIENTO   ESPD-PS-045-2017      429811732
+## 37           GASTOS DE FUNCIONAMIENTO           93DE2017      399880524
+## 38                GASTOS DE INVERSIÓN             420-17      922944155
+## 39                GASTOS DE INVERSIÓN      06-060-2017ST      787685919
+## 40                GASTOS DE INVERSIÓN     SP-LP-003-2017      543091724
+## 41                GASTOS DE OPERACIÓN           20171525      930000000
+## 42                GASTOS DE OPERACIÓN           237-2017      822318750
+## 43                GASTOS DE OPERACIÓN           242-2017      667239160
+## 44                           JUSTICIA    2017-BB-13-0031      590285881
+## 45                           JUSTICIA         4600007939      321300000
+## 46                           JUSTICIA    2017-BB-13-0032      111063873
+## 47                  MATERIA AMBIENTAL           20171530      499230085
+## 48                  MATERIA AMBIENTAL           863-2017      396016363
+## 49                  MATERIA AMBIENTAL     SP-LP-002-2017      373107410
+## 50 PREVENCIÓN Y ATENCIÓN DE DESASTRES   SAMC-SP-007-2017      125921087
+## 51 PREVENCIÓN Y ATENCIÓN DE DESASTRES      SPDT-475-2017       94074925
+## 52 PREVENCIÓN Y ATENCIÓN DE DESASTRES       CONV174-2017       91000000
+## 53           PROMOCIÓN DEL DESARROLLO   CONTRATO129-2017      796000000
+## 54           PROMOCIÓN DEL DESARROLLO         4600007976      586322520
+## 55           PROMOCIÓN DEL DESARROLLO           311-2017      108132342
+## 56               RECREACIÓN Y DEPORTE      CONVAS0092017      377000000
+## 57               RECREACIÓN Y DEPORTE           429-2017      255000000
+## 58               RECREACIÓN Y DEPORTE     LP001-PLA-2017      229034392
+## 59             RESTAURANTES ESCOLARES       SBS-134-2017      100000000
+## 60             RESTAURANTES ESCOLARES          CS82-2017       43807059
+## 61             RESTAURANTES ESCOLARES     MC077-EDU-2017       20600000
+## 62                              SALUD           065-2017      356869626
+## 63                              SALUD           C17-0040      293299348
+## 64                              SALUD           C17-0037      258012294
+## 65                  SERVICIOS BÁSICOS       SUM-082-2017      176000000
+## 66                  SERVICIOS BÁSICOS       COP-013-2017      139779315
+## 67                  SERVICIOS BÁSICOS           204-2017       17128176
+## 68                 SERVICIOS PÚBLICOS           190-2017      459237660
+## 69                 SERVICIOS PÚBLICOS        LP-001-2017      250190952
+## 70                 SERVICIOS PÚBLICOS         CI004-2017      114779070
+## 71                         TRANSPORTE           296-2017      773611085
+## 72                         TRANSPORTE          C329-2017      688542956
+## 73                         TRANSPORTE          C333-2017      555510278
+## 74                           VIVIENDA      2017SPO-001LP      589571445
+## 75                           VIVIENDA        SP-330-2017      478947937
+## 76                           VIVIENDA    201701007029264      333607638</code></pre>
+</div>
 <div id="como-estan-distribuido-los-contratos-en-los-26-sectores" class="section level3">
 <h3>¿Cómo están distribuido los contratos en los 26 sectores?</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
