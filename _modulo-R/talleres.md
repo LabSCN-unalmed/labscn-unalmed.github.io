@@ -5,6 +5,11 @@ curso: 'modulo-R'
 order: 5
 ---
 
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
 
 <!-- ## Primer taller individual (Quiz 1)
 
