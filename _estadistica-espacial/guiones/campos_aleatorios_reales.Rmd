@@ -1,7 +1,7 @@
 ---
 title: "Campos Aleatorios Reales"
 author: "Kenneth Roy Cabrera Torres"
-date: "2 de marzo de 2016"
+date: "Miércoles, 7 de marzo de 2018"
 output: html_document
 ---
 
@@ -14,30 +14,91 @@ require(RandomFields)
 require(rgdal)
 ```
 
+
 ```{r}
-img1 <- readGDAL("hojas1.png")
+img1 <- readGDAL("sombras3.png")
 image(img1, col = gray(seq(0,1, length = 256)))
-variog1 <- RFempiricalvariogram(data = sp2RF(img1), bin = seq(0, 20, 0.7))
-plot(variog1)
 ```
+
+
+
+```{r}
+semivariog1 <- RFempiricalvariogram(data = sp2RF(img1), 
+                                bin = seq(0, 60, 2))
+
+png("semivariog_sombras.png", type = "cairo")
+plot(semivariog1)
+dev.off()
+```
+
+![](semivariog_sombras.png)
+
+```{r}
+ mean(img1$band1)
+ var(img1$band1)
+```
+
+```{r}
+hist(img1$band1, freq = FALSE, col = "pink", nclass = 100,
+     main = "Histograma del campo aleatorio de sombras",
+     ylab = "Densidad",
+     xlab = "Valor de intensidad digital (Nivel de gris)",
+     las = 1)
+lines(density(img1$band1), col = "blue", lwd = 2)
+```
+
+
+
+```{r}
+modeloGaus <- RMgauss(var = 2645, scale = 45/sqrt(3)) + RMtrend(mean = 108.025)
+png("semivariog_sombras2.png", type = "cairo")
+plot(semivariog1, model=modeloGaus)
+dev.off()
+```
+
+
+![](semivariog_sombras2.png)
+
+
+
 
 ```{r}
 img2 <- readGDAL("pasto1.png")
 image(img2, col = gray(seq(0,1, length = 256)))
+```
+
+
+```{r}
 variog2 <- RFempiricalvariogram(data = sp2RF(img2), bin = seq(0, 30, 2))
+png("semivariog_pasto1.png", type = "cairo")
 plot(variog2)
+dev.off()
+```
 
-mean(img2$band1)
-var(img2$band1)
+![](semivariog_pasto1.png)
 
+```{r}
+ mean(img2$band1)
+ var(img2$band1)
+```
+
+
+```{r}
 hist(img2$band1, freq = FALSE, col = "pink", nclass = 100,
      main = "Histograma del campo aleatorio de pasto",
      ylab = "Densidad",
-     xlab = "Valor de intensidad digital (Nivel de gris)")
+     xlab = "Valor de intensidad digital (Nivel de gris)",
+     las = 1)
 lines(density(img2$band1), col = "blue", lwd = 2)
-
-modeloExpo <- RMexp(var = 570, scale = 15/3) + RMtrend(mean = 132)
-plot(variog2, model=modeloExpo)
 ```
 
+
+```{r}
+modeloExpo <- RMexp(var = 525, scale = 10/3) + RMtrend(mean = 132)
+png("semivariog_pasto12.png", type = "cairo")
+plot(variog2, model=modeloExpo)
+dev.off()
+```
+
+![](semivariog_pasto12.png)
 

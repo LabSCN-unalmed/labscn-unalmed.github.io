@@ -17,6 +17,12 @@ order: 01
 
  - [Simulación de modelos espaciales](./guiones/campos_aleatorios.html)
 
+## Campos aleatorios reales
+
+  - [Semivariograma empírico de campos aleatorios reales](./guiones/campos_aleatorios_reales.html)
+  - [Imagen de sombras](./datos/sombras3.png)
+  - [Imagen de pasto](./datos/pasto1.png)
+
 <!---
 ## Análisis exploratorio de señales de wifi y celular
 
