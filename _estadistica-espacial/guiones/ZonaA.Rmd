@@ -1,7 +1,7 @@
 ---
 title: "Porosidad en una zona de estudio"
 author: "Kenneth Roy Cabrera Torres"
-date: "22 de febrero de 2017"
+date: "Miércoles, 7  de marzo de 2018"
 output: html_document
 ---
 
@@ -15,6 +15,11 @@ knitr::opts_chunk$set(echo = TRUE)
 zonaA <- read.table("ZoneA.dat", na.strings = "-999.9999", header = TRUE)
 summary(zonaA)
 ```
+
+## Metadatos de la base de datos.
+
+![](meta_datos.png)
+
 
 ## Análisis exploratorio
 
@@ -54,13 +59,13 @@ plot(gzonaA)
 ```{r}
 library(geoR)
 v1 <- variog(gzonaA, option = "cloud", max.dist = 15000)
-plot(v1)
+plot(v1, las = 1)
 ```
 
 ```{r}
 library(geoR)
 v2 <- variog(gzonaA)
-plot(v2)
+plot(v2, las = 1)
 ```
 
 ```{r}
@@ -71,12 +76,12 @@ v2
 library(geoR)
 v3 <- variog(gzonaA, max.dist = 15000, uvec = c(0, seq(2000, 15000, 500)))
 v3
-plot(v3)
+plot(v3, las = 1)
 ```
 
 ```{r}
 library(geoR)
 v4 <- variog(gzonaA, max.dist = 15000, op = "sm", band = 1500)
-plot(v4)
+plot(v4, las = 1)
 ```
 
