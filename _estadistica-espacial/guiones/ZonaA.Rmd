@@ -21,7 +21,9 @@ summary(zonaA)
 ![](meta_datos.png)
 
 
-## Análisis exploratorio
+## Análisis exploratorio de porosidad
+
+![](porosidad.png)
 
 ```{r}
 library(ggplot2)
