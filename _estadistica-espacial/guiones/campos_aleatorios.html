@@ -145,7 +145,7 @@ $(document).ready(function () {
 
 modeloExp &lt;- RMexp(var = 2, scale = rangoPractico / 3) + RMtrend(mean = 5)
 
-png(&quot;expo.png&quot;, width = 750, height = 500)
+png(&quot;expo.png&quot;, width = 750, height = 500, type = &quot;cairo&quot;)
 plot(modeloExp, fct.type = &quot;Variogram&quot;, xlim = c(0, 30))</code></pre>
 <pre><code>## NULL</code></pre>
 <pre class="r"><code>abline(v = 10)
@@ -164,7 +164,7 @@ rangoPractico &lt;- 10
 
 modeloGauss &lt;- RMgauss(var = 2, scale = rangoPractico/sqrt(3)) + RMtrend(mean = 5)
 
-png(&quot;gauss.png&quot;, width = 750, height = 500)
+png(&quot;gauss.png&quot;, width = 750, height = 500, type = &quot;cairo&quot;)
 plot(modeloGauss, fct.type = &quot;Variogram&quot;, xlim = c(0, 30))</code></pre>
 <pre><code>## NULL</code></pre>
 <pre class="r"><code>abline(v = 10)
