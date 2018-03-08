@@ -19,7 +19,7 @@ rangoPractico <- 10
 
 modeloExp <- RMexp(var = 2, scale = rangoPractico / 3) + RMtrend(mean = 5)
 
-png("expo.png", width = 750, height = 500)
+png("expo.png", width = 750, height = 500, type = "cairo")
 plot(modeloExp, fct.type = "Variogram", xlim = c(0, 30))
 abline(v = 10)
 dev.off()
@@ -34,7 +34,7 @@ rangoPractico <- 10
 
 modeloGauss <- RMgauss(var = 2, scale = rangoPractico/sqrt(3)) + RMtrend(mean = 5)
 
-png("gauss.png", width = 750, height = 500)
+png("gauss.png", width = 750, height = 500, type = "cairo")
 plot(modeloGauss, fct.type = "Variogram", xlim = c(0, 30))
 abline(v = 10)
 dev.off()

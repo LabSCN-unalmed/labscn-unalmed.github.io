@@ -5,8 +5,13 @@ curso: 'modulo-R'
 order: 5
 ---
 
+## Contenido
+{: .no_toc}
 
-## Primer taller individual (Quiz 1)
+* ToC
+{: toc}
+
+<!-- ## Primer taller individual (Quiz 1)
 
 
 ### Enunciado
@@ -54,7 +59,7 @@ order: 5
      anova(modelo)
      summary(modelo)
     ```
-    
+
     En el caso anterior deberá mostrar el valor de 0.0003053.
 
 
@@ -81,7 +86,7 @@ de las 12:00 hora de Colombia, del día 15 de septiembre de 2017 al correo **krc
 
 
 
-
+ -->
 
 
 <!---

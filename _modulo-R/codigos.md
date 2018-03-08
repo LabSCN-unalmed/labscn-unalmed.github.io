@@ -4,7 +4,7 @@ title: 'Códigos'
 curso: 'modulo-R'
 order: 3
 ---
-
+<!--
 ## Ejemplo del uso del RMarkdown.
 
  - [Archivo en formato ".Rmd"](./codigos/ejemplo1.Rmd).
@@ -17,4 +17,4 @@ order: 3
 
 ## Indicación de la batalla naval.
  - [Tablero simple](./codigos/interactua.R)
- - [Archivo de intercambio](./codigos/jugada.txt)
+ - [Archivo de intercambio](./codigos/jugada.txt) -->
