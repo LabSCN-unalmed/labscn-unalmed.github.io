@@ -1,0 +1,285 @@
+---
+title: "Contratación en Antioquia durante diciembre de 2017"
+author: "Kenneth Roy Cabrera Torres"
+date: "Jueves, 8 de marzo de 2018"
+output: 
+  html_document: 
+    highlight: tango
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Adecuación de la base de datos.
+
+```{r}
+# Lee la base de datos.
+contrata <- read.csv("Contratacion_Diciembre_2017.csv")
+
+# Modifica y crea nuevas variable para adecuar la base de datos.
+library(dplyr)
+contrata <- contrata %>% 
+            mutate(FECHA.SUSCRIPCIÓN = as.POSIXct(strptime(FECHA.SUSCRIPCIÓN, ## Convierte a fecha.
+                                             format = "%m/%d/%Y %H:%M:%S")), 
+                   FECHA.INICIO = as.POSIXct(strptime(FECHA.INICIO,   ## Convierte a fecha.
+                                             format = "%m/%d/%Y %H:%M:%S")),
+                   VALOR.CONTRATO = 
+                   as.numeric(as.character(
+                               recode(VALOR.CONTRATO, `#############` = ""))), ## Convierte a numérico
+                   lapso     = as.numeric(FECHA.INICIO - FECHA.SUSCRIPCIÓN)/(3600*24), ## Calcula lapso de tiempo.
+                   difPresup = DISPONIBILIDADES.PRESUPUESTALES -
+                               REGISTROS.PRESUPUESTALES) ## Calcula diferencia de presupuesto.
+
+```
+
+
+## Resumen inicial de la base de datos.
+
+### Estructura
+
+```{r}
+# Muestra la estructura de la base de datos.
+str(contrata)
+```
+
+
+### Resumen estadístico
+
+```{r}
+# Resumen de la base de datos.
+summary(contrata)
+```
+
+
+## Identificación de la unidad básica.
+
+```{r}
+nrow(contrata)
+
+length(unique(paste(contrata$CÓDIGO.CONTRATO)))
+
+length(unique(with(contrata, 
+                   paste(CÓDIGO.CONTRATO,
+                         EVENTO))))
+
+length(unique(with(contrata, 
+                   paste(CÓDIGO.CONTRATO,
+                         EVENTO, 
+                         TIPO.DE.REGISTRO))))
+
+length(unique(with(contrata, 
+                   paste(CÓDIGO.CONTRATO,
+                         EVENTO, 
+                         TIPO.DE.REGISTRO,
+                         OBJETO.DEL.CONTRATO))))
+
+length(unique(with(contrata, 
+                   paste(CÓDIGO.CONTRATO,
+                         EVENTO, 
+                         TIPO.DE.REGISTRO,
+                         OBJETO.DEL.CONTRATO,
+                         CÓDIGO.DEL.PROYECTO))))
+
+
+
+idx1 <- with(contrata, 
+                   paste(CÓDIGO.CONTRATO,
+                         EVENTO, 
+                         TIPO.DE.REGISTRO,
+                         OBJETO.DEL.CONTRATO
+                         ))
+
+
+i1 <- duplicated(idx1)
+i2 <- duplicated(idx1, fromLast = TRUE)
+
+library(dplyr)
+duplicados <- contrata %>%
+  filter(i1 | i2) %>%
+  arrange(CÓDIGO.CONTRATO, EVENTO, TIPO.DE.REGISTRO, OBJETO.DEL.CONTRATO)
+  data.frame()
+  
+data.frame(duplicados)
+```
+
+Se selecciona una base datos para trabajar en donde cada registro se identifique 
+de manera única por la combinación de las variables:
+
+1. CÓDIGO.CONTRATO
+2. EVENTO
+3. TIPO.DE.REGISTRO
+4. OBJETO.DEL.CONTRATO
+
+
+```{r}
+# Se selecciona una bas de datos en donde
+contrataN <- contrata %>%
+             filter(!(i1 | i2))
+```
+
+
+```{r}
+rm(i1, i2, idx1)
+```
+
+
+
+## Algunas preguntas a la base de datos.
+
+
+### Los registros con los 3 primeros valores de contratos más altos por cada sector.
+
+¿Cuales son los codigos de los 3 contratos de más alto valor
+por sector del proyecto?
+
+```{r}
+contrataN1 <- contrataN %>%
+             group_by(SECTOR.DEL.PROYECTO) %>%
+             arrange(desc(VALOR.CONTRATO)) %>%
+             slice(1:3) %>%
+             select(SECTOR.DEL.PROYECTO, CÓDIGO.CONTRATO, VALOR.CONTRATO)
+data.frame(contrataN1)
+```
+
+
+### ¿Cómo están distribuido los contratos en los 26 sectores?
+
+```{r}
+library(ggplot2)
+ggplot(contrataN, aes(SECTOR.DEL.PROYECTO)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```{r}
+tabla1 <- sort(table(contrataN$SECTOR.DEL.PROYECTO), decreasing = TRUE)
+contrataN$SECTOR.DEL.PROYECTO <- factor(contrataN$SECTOR.DEL.PROYECTO,
+                                       levels = names(tabla1))
+library(ggplot2)
+ggplot(contrataN, aes(SECTOR.DEL.PROYECTO)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
+```
+
+### ¿Qué relación hay entre el sector del proyecto con el presupuesto del proyecto?
+
+```{r}
+library(dplyr)
+proy_sect <- contrataN %>%
+           group_by(SECTOR.DEL.PROYECTO) %>%
+           summarize(VALOR.DEL.PROYECTO.TOTAL = sum(VALOR.DEL.PROYECTO)) %>%
+           dplyr::arrange(desc(VALOR.DEL.PROYECTO.TOTAL)) %>%
+           mutate(SECTOR.DEL.PROYECTO = 
+                    factor(SECTOR.DEL.PROYECTO, levels = SECTOR.DEL.PROYECTO))
+
+proy_sect
+```
+
+```{r}
+library(ggplot2)
+ggplot(proy_sect, aes(SECTOR.DEL.PROYECTO, VALOR.DEL.PROYECTO.TOTAL)) +
+     geom_bar(stat = "identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(proy_sect, aes(SECTOR.DEL.PROYECTO, VALOR.DEL.PROYECTO.TOTAL)) +
+     geom_bar(stat = "identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  scale_y_log10()
+```
+
+### ¿Cuáles fueron los 7 contratistas con mayor número de contratos?
+
+
+```{r}
+library(dplyr)
+numcontra <- contrataN %>%
+             group_by(IDENTIFICACIÓN.CONTRATISTA, NOMBRE.CONTRATISTA) %>%
+             summarise(num_contratos = n()) %>%
+             arrange(desc(num_contratos))
+
+numcontra %>%
+  ungroup() %>%
+  select(NOMBRE.CONTRATISTA, num_contratos) %>%
+  slice(1:7)
+```
+
+
+### Seleccionar sólo la base de datos de contratos cuyo evento es 1-principal y el tipo de registro sea contrato.
+
+```{r}
+library(dplyr)
+contrataN1 <- contrataN %>%
+              filter(EVENTO == "1-Principal" & TIPO.DE.REGISTRO == "Contrato")
+              
+```
+
+
+```{r}
+levels(contrataN1$EVENTO)
+```
+
+```{r}
+sort(table(contrataN1$EVENTO), decreasing = TRUE)
+```
+
+
+
+```{r}
+library(dplyr)
+contrataN1 <- contrataN %>%
+              filter(EVENTO == "1-Principal" & TIPO.DE.REGISTRO == "Contrato") %>%
+              droplevels()
+```
+
+
+```{r}
+levels(contrataN1$EVENTO)
+```
+
+
+```{r, fig.height=7, fig.width=6}
+op <- par(no.readonly = TRUE)
+par(mar = op$mar + c(10, 0, 0, 0))
+barplot(sort(table(contrataN1$SECTOR.DEL.PROYECTO), decreasing = TRUE),
+        las = 2, 
+        cex.names  = 0.7,
+        main = "Número de contratos principales")
+par(op)
+```
+### Valor total de los contratos
+
+```{r}
+library(dplyr)
+contrata1 <- contrataN1 %>%
+             summarise(Total_valor_contratos = sum(VALOR.CONTRATO, na.rm = TRUE))
+contrata1
+```
+
+### Cuantos contratos tiene un valor de cero
+
+```{r}
+library(dplyr)
+contrataN1 %>%
+  filter(VALOR.CONTRATO == 0) %>%
+  summarise(n())
+```
+
+### Cuáles son los contratos que tienen un valor de cero.
+
+
+
+```{r}
+library(dplyr)
+contrata2 <- contrataN1 %>%
+  filter(VALOR.CONTRATO == 0) 
+head(contrata2)  
+tail(contrata2)
+```
+
