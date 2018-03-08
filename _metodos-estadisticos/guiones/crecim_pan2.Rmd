@@ -76,11 +76,11 @@ pan %>%
 ### Primera forma.
 
 $$
-y_{ij} = \mu_i  + \epsilon_{ij} \quad i.i.d.
+y_{ij} = \mu_i  + \epsilon_{ij} 
 $$
 Donde:
 $$
-\epsilon_{ij} \sim \mathcal{N}(0, \sigma^2)
+\epsilon_{ij} \sim \mathcal{N}(0, \sigma^2) \quad i.i.d.
 $$
 
 ### Segunda forma.
