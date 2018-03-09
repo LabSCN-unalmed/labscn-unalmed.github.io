@@ -44,6 +44,7 @@ order: 01
   - [Base de datos de porosidad](./datos/ZoneA.dat)
   - [Metadatos de datos de porosidad](./datos/ZoneA_metadata.txt)
   - [Exploratorio y estimación del variograma](./guiones/ZonaA.html)
+  - [Ajuste de modelos para porosidad](./guiones/ZonaA2.html)
 
 
 <!---
