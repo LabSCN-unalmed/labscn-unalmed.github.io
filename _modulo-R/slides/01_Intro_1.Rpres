@@ -39,22 +39,26 @@ Notas históricas del R
 - 1997: Se formó el grupo núcleo del R (The R Core Group).
   Administra el código fuente del R.
 - 2000: Versión 1.0.0, 2004: Versión 2.0.0., 2013: Versión 3.0.0.
-- 6 de marzo de 2017: Última versión oficial liberada a la fecha
-  3.3.3. "Another Canoe".
-- Se espera la versión 3.4.0 para el viernes 21 de abril de 2017
-  denominada "Your Stupid Darkness".
+- 30 de noviembre de 2017: Última versión oficial liberada a la fecha
+  3.4.3. "Kite-Eating Tree".
+- Se espera la versión 3.4.4 para el jueves 15 de marzo de 2018.
+  denominada "Someone to Lean On".
 
 
-Sobrenombres de versiones del R
+Sobrenombres de versiones del R (3.4.3)
 ========================================================
 
-"Another Canoe" (R version 3.3.3.)
+"Kite-Eating Tree" (R version 3.4.3.)
 
-![](anotherCanoe.jpg)
+![](kite_eating_tree.jpg)
 
-"You stupid darkness" y "Single Candle" (R version 3.4.0 y 3.4.1)
+Sobrenombres de versiones del R (3.4.4)
+========================================================
+"Someone to Lean On" (R version 3.4.4)
 
-![](you_stupid_darkness.gif)
+![](someone_to_lean_on.jpg)
+
+
 
 Descarga del R
 ========================================================
@@ -79,7 +83,7 @@ Desventajas
 ========================================================
 - Basado en tecnología de hace 40 años.
 - No soporta muy bien gráficas 3D. (Aunque tiene paquetes que
-  manejas de manera aceptable gráficas 3D)
+  maneja de manera aceptable gráficas 3D)
 - La funcionalidad se base en la demanda del consumidor.
   Usted necesita hacer lo que otros no hacen.
 - Los objetos de almacenan en memoria.
@@ -110,9 +114,14 @@ Paquetes princiales
 
 Paquetes adicionales
 ========================================================
-* Existen a la fecha más o menos
-  [11359 paquetes en el CRAN](https://cran.r-project.org/web/packages/index.html) y
-  contanto.
+* Existen a la fecha más o menos 12252
+  [paquetes](https://cran.r-project.org/web/packages/index.html)
+  en el CRAN y contanto.
+  
+```
+  nrow(available.packages())
+```
+  
 * Hay proyectos independientes pero basados en R, como el Bioconductor
   (http://bioconductor.org).
 * Algunos tienen desarrollos en su propia página por lo
