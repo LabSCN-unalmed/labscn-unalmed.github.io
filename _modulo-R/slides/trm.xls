@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html dir="ltr" lang="es">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Content-Language" content="es"><noscript>Para utilizar Oracle BIEE, active javascript en su explorador.</noscript><script type="text/javascript" src="/analytics/res/v-1AZObxSuqLI/b_mozilla/browserdom.js"></script><script type="text/javascript">try{saw.doFrameBust(0);function sawC2U(s){return "/analytics/saw.dll?__xyz__".replace("__xyz__",s);}function sawP2U(s){return "/analytics/saw.dll/__xyz__".replace("__xyz__",s);}var sawEmptyHtm="/analytics/res/v-1AZObxSuqLI/empty.htm";var obips_fmapId="ZvyD5Q";var obips_scid="dW6*S9wOhwGN0HSGrz6K";var obips_maxStylesheets=100;var g_LocaleInfo={sDateSeparator:"/",sTimeSeparator:":",sDecimalPoint:".",sThousandsSeparator:",",sAM:"AM",sPM:"PM",b24:false,sDateOrder:"mdy",nFDOW:6,nYearPadding:4,nMonthPadding:2,nDayPadding:2,nHourPadding:2,sListSeparator:",",sNegativeNumberTemplate:"-#",sCurrencySymbol:""};var obips_seeded_res = [{p:"master/styleproperties.res",v:{exprs:{"activeDataColor":"Dark","dialogHelpPosition":"header","dialogRoundCornerImgsRequired":"false","shuttleButtonSpace":"true","shuttleButtonLabel":"false","shuttleTableCellSpace":"6","shuttleDropdownWidth":"7px","shuttleDropdownHeight":"4px","renderPageTitleAsTab":"false","menubarSeparator":"false","pageShadowBackground":"false","headerRightBorder":"true","headerHelpDropDownImgSrc":"masterDropDownButtonDarkThemeEnabled","headerBrandingGradientImgIsRequired":"false","pageBorderBottomRequired":"false","pageContentOuterDivHeightOffset":"12","tabBarStartCellWidth":"5px","tabBarStartImgRequired":"false","tabBarTabStartImgRequired":"false","tabBarTabEndImgRequired":"false","tabBarBottomBorderBlockerRequired":"true","bihRoundCorner":"false","adminBannerBackground":"false","breadCrumbHeight":"15","accordionRoundCornerImgsRequired":"false","tableSupportsNonOverlappingHorizontalScrollbar":"true"}}}];}catch(e){if (window.console && console.error) console.error('Header script error:' + e.message);}</script><link href="/analyticsRes/res/s_Custom/master/custom.css" type="text/css" rel="stylesheet"><link href="/analyticsRes/res/sk_Custom/b_mozilla_4/htmlglobals.css" type="text/css" rel="stylesheet"><noscript><link href="/analytics/res/v-1AZObxSuqLI/sk_blafp/b_mozilla_4/noscript.css" type="text/css" rel="stylesheet"></noscript>
+<title>Banco de la República</title>
+
+<link href="/analytics/res/v-1AZObxSuqLI/s_Skyros/b_mozilla_4/common.css" type="text/css" rel="stylesheet">
+
+<style type="text/css">
+.UANSBody
+{
+   background-color: white;
+   font-family: Tahoma, sans-serif;
+   font-size: 11px;
+   margin: 0px;
+   overflow: hidden;
+   padding-left: 5px;
+}
+</style>
+</head>
+<body  class="UANSBody">
+   <div>
+      <table cellspacing="0" cellpadding="0" border="0" class="HeaderTopBar">
+         <tbody>
+            <tr>
+               <td class="HeaderLogo">
+                  <img border="0" src="Missing_oracle_logo.png" alt="Oracle Logo"></td>
+               <td>
+                  <span class="HeaderBrandName">
+                     Banco de la República</span></td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <div>Su explorador no es soportado por Oracle BI Presentation Services.</div>
+</body>
+</html>
