@@ -7,7 +7,7 @@
 Introducción al R (Parte II)
 ========================================================
 author: Kenneth Cabrera
-date: sábado, 10 de marzo de 2018
+date: domingo, 11 de marzo de 2018
 
 
 Clases de objetos

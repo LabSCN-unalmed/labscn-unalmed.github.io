@@ -1,7 +1,7 @@
 Introducción al R (Parte I)
 ========================================================
 author: Kenneth Cabrera
-date: sábado, 10 de marzo de 2018
+date: domingo, 11 de marzo de 2018
 height: 800
 
 
@@ -24,10 +24,11 @@ Notas históricas del S
   la empresa se llama Insightful Corp.) una licencia para desarrollar
   y vender el S.
 * En el 2004 Insightful le compró el lenguaje S a Lucent por
-  dos millones de dólares y es el dueño actual.
+  dos millones de dólares.
 * Insightful construyó una plataforma GUI y actualmente el producto
   se denomina S-PLUS, y el "PLUS" es por esta plataforma.
-* En el 2009 Insightful fue comprada por TIBCO por 25 millones de dólares.
+* En el 2008 Insightful fue comprada por TIBCO por 25 millones de dólares.
+* El el 2018 TIBCO lanza TERR, un intérprete de R.
 
 Notas históricas del R
 ========================================================
