@@ -16,5 +16,6 @@ Modos de texto I
 
 
 ```
-Error in file(file, "rt") : no se puede abrir la conexión
+Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  : 
+  la linea 1 no tiene 3 elementos
 ```

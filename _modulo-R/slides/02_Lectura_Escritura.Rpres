@@ -13,7 +13,7 @@ Modos de texto I
 
 
 ```{r}
-base_ej1 <- read.table("tabla1.txt")
+base_ej1 <- read.table("https://github.com/LabSCN-unalmed/labscn-unalmed.github.io/blob/master/_modulo-R/dbs/tabla1.txt")
 base_ej1
 ```
 
