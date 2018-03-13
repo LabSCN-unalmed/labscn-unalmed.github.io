@@ -5,6 +5,13 @@ curso: 'modulo-R'
 order: 2
 ---
 
+
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
 ## Origen e historia
    [Introducción a R (Origen e historia)](./slides/01_Intro_1.html)
 
@@ -13,7 +20,7 @@ order: 2
 
 ## Lectura y escritura de archivos
    [Lectura/Escritura](./slides/02_Lectura_Escritura.html)
-   
+
    - [url_banrep_trm.txt](./slides/url_banrep_trm.txt)
 
 ## Arreglo de base de datos (Tidy data)

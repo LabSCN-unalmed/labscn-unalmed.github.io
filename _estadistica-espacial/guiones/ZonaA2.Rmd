@@ -1,7 +1,7 @@
 ---
 title: "Porosidad en una zona de estudio (Estimación del modelo)"
 author: "Kenneth Roy Cabrera Torres"
-date: "Miércoles, 15 de marzo de 2017"
+date: "Viernes, 8 de marzo de 2018"
 output: 
   html_document: 
     toc: yes
@@ -102,6 +102,14 @@ lines(modelo2_lik, lty = 4, col = "darkgreen")
 legend("bottomright", legend = c("OLS", "WLS", "MaxLik"), 
        col = c("blue", "brown", "darkgreen"), 
        lty = c(2, 3, 4))
+abline(h = c(modelo1_ols$cov.pars[1],
+             modelo1_wls$cov.pars[1],
+             modelo2_lik$cov.pars[1]), lty = c(2, 3, 4), 
+       col = c("blue", "brown", "darkgreen"))
+abline(v = c(modelo1_ols$cov.pars[2]*3,
+             modelo1_wls$cov.pars[2]*3,
+             modelo2_lik$cov.pars[2]*3), lty = c(2, 3, 4), 
+       col = c("blue", "brown", "darkgreen"))
 ```
 
 
@@ -143,10 +151,10 @@ summary(vcLik)
 ```
 
 ```{r, fig.height=10}
-par.ori <- par(no.readonly = TRUE)
+parametros.originales <- par(no.readonly = TRUE)
 par(mfcol = c(5,2), mar=c(3,3,.5,.5), mgp=c(1.5,.7,0))
 plot(vcLik)
-par(par.ori)
+par(parametros.originales)
 ```
 
 
@@ -160,5 +168,15 @@ par.ori <- par(no.readonly = TRUE)
 par(mfcol = c(5,2), mar=c(3,3,.5,.5), mgp=c(1.5,.7,0))
 plot(vcWLS)
 par(par.ori)
+```
+
+## Comparación de modelos
+
+```{r, fig.width=7, fig.height=7}
+plot(vcLik$std.error, vcWLS$std.error, pch = 19, las = 1)
+abline(c(0, 1), col = "tomato", lwd = 2)
+abline(lm(formula = vcWLS$std.error ~ vcLik$std.error), col = "darkgreen")
+abline(h = 0, col = "blue", lty = 2)
+abline(v = 0, col = "blue", lty = 2)
 ```
 

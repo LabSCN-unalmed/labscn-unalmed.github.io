@@ -1,0 +1,153 @@
+---
+title: "Trabajo inividual 1"
+author: "Kenneth Roy Cabrera Torres"
+date: "Viernes, 9 de marzo de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+
+
+## Primer trabajo individual
+
+### Objetivo
+
+Estimar un modelo de estructura espacial para el campo aleatorio
+del pasto, de las sombras y para las dos imágenes seleccionadas 
+del primer taller individual.
+
+### Procedimiento
+
+Para cada una de las cuatro fotos realizar:
+
+1. Estimar el modelo teórico más ajustado a "ojo".
+2. Tomar una muestra aleatoria de puntos de la imángen original usando
+   como semilla el número de la cédula.
+3. Mediante el procedimiento de detección de estructura espacial,
+   determinar el tamaño de muestra adecuado para detectar la estructura
+   espacial de la imagen.
+4. Ajustar un modelo, ya sea gausiano, exponencial o matérn, mediante los procedimientos
+   de mínimos cuadrados ponderados (wls) y máxima verosimilitud.
+5. Determinar cuál de los dos modelos candidatos se comporta mejor utilizando
+   la validación cruzada.
+6. Realizar la predición de todo el campo aleatorio mediante kriging utilzando
+   el mejor modelo antes seleccionado.
+7. Comparara el resultados de la predicción con la imagen original obtenida.
+
+El trabajo deberá comprender:
+
+1. Corta introducción con respecto a las fotos que se tomaron para 
+   el ejercidio además de determinar el valor en medidas métricas para
+   cada pixel de la imagen.
+2. Una vez obtenida la predicción mediante kriging realizar observaciones,
+   conclusiones y recomendaciones de los resultados obtenidos.
+3. De acuerdo a los resultados obtenidos mediante la estimación de los
+   modelos de las imágenes realizar conclusiones en cuanto a su
+   propia variable planteada en el taller 1 recomendaciones como: el 
+   tamaño de muestra apropiado dada el área elegida y el modelo propuesto. 
+   
+### Material entregable:
+1. Imágenes utilizadas ya sea en formato png o jpg.
+2. Guión con el código utilizado en formato ".Rmd".
+3. Trabajo escrito en formato ".html" sin incluir el código.
+
+### Fecha de entrega:
+
+Viernes 23 de marzo de 2018, antes de las 23:59 hora de Colombia al
+correo **krcabrer@une.net.co** y no olvidar en asunto la
+sigla **[EE]**
+
+
+   
+
+## Código inicial
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+require(RandomFields)
+require(rgdal)
+```
+
+
+```{r}
+img2 <- readGDAL("pasto1_contrastado.png")
+image(img2, col = gray(seq(0,1, length = 256)))
+```
+
+
+```{r}
+# Valores de distancia está dado en pixeles.
+variog2 <- RFempiricalvariogram(data = sp2RF(img2), bin = seq(0, 30, 2))
+png("semivariog_pasto1.png", type = "cairo")
+plot(variog2)
+dev.off()
+```
+
+![](semivariog_pasto1.png)
+
+
+```{r}
+ mean(img2$band1)
+ var(img2$band1)
+```
+
+
+```{r}
+hist(img2$band1, freq = FALSE, col = "pink", nclass = 50,
+     main = "Histograma del campo aleatorio de pasto",
+     ylab = "Densidad",
+     xlab = "Valor de intensidad digital (Nivel de gris)",
+     las = 1)
+lines(density(img2$band1, bw = 5), col = "blue", lwd = 2)
+```
+
+
+```{r}
+
+# El rango práctico está dado en pixeles.
+modeloExpo <- RMexp(var = 1000, scale = 10/3) + RMtrend(mean = 88)
+png("semivariog_pasto12.png", type = "cairo")
+plot(variog2, model=modeloExpo)
+dev.off()
+```
+
+![](semivariog_pasto12.png)
+
+```{r}
+# Uso de la escala de la imágen
+# Esacla de la imágen 240 pixeles son 600 milímetros.
+# Luego cada pixel mide 2.5 milímetros.
+
+tamaño_pixel <- 2.5 # Milímetros
+datosImg <- as.data.frame(img2)
+datosImg <- datosImg[, c("x", "y", "band1")]
+datosImg$x <- datosImg$x*tamaño_pixel
+datosImg$y <- datosImg$y*tamaño_pixel
+```
+
+
+```{r}
+# Nùmero de cédula como valor de la semilla
+semilla <- 71682310
+set.seed(semilla)
+muestra <- datosImg[sample(1:nrow(datosImg), 100), ]
+```
+
+
+```{r}
+library(geoR)
+geo_muestra <- as.geodata(muestra)
+summary(geo_muestra)
+```
+
+```{r, fig.width=7, fig.height=7}
+plot(geo_muestra)
+```

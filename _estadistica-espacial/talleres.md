@@ -6,6 +6,61 @@ order: 02
 custom_js: 'mathjax'
 ---
 
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Primer taller individual.
+
+### Objetivo.
+
+Simular una realización de un campo aleatorio de
+una variable concreta.
+
+Tomar dos fotos de un
+campo natural (llevarlas a escala de grises)
+que se pueda considerar un modelo exponencial y
+la otra de un modelo gaussiano.
+
+Especular sobre el rango práctico de las dos fotos,
+dada la escala de la foto.
+
+
+
+### Elementos a considerar.
+  + Simulación.
+    - Nombre de la variable (unidades).
+    - Escala espacial de trabajo. (Área y resolución de la zona de estudio).
+    - Rango práctico propuesto. (Estimación especulativa del rango práctico).
+    - Modelo apropiado (exponencial o gaussiano.)
+
+  + Fotos
+    - Que sea una realización de un proceso estacionario.
+    - Que se muestre en la foto una manera de determinar la escala.
+
+### Documentos a entregar.
+
+  Documento en formato ".html" que contenga:
+
+  - Corta introducción a la variable considerada (contexto, tipo de variable,
+    unidades, importancia, etc)      
+  - Imágen de la realización campo aleatorio simulado.   
+  - Fotos en blanco y negro con los casos propuestos
+    para un campo aleatorio exponencial y
+    gausiano con la respectiva discusión sobre el tipo de modelo y
+    el posible rango práctico.
+  - Código utilizado.  
+
+### Fecha de entrega.
+
+Miércoles 7 de marzo de 2018, al correo **krcabrer@unal.edu.co** con
+la sigla **[EE]** en asunto antes de las 23:59 hora de Colombia.
+
+
+
+
 
 <!---
 

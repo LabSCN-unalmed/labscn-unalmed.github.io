@@ -6,6 +6,14 @@ custom_js: 'mathjax'
 order: 05
 ---
 
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+
+
 ## Primer trabajo en grupo
 
 ### Objetivo
@@ -57,7 +65,9 @@ Miércoles, 28 de febrero de 2018 al correo **krcabrer@unal.edu.co** y
 no olvidar escibir en asunto **[EE]**.
 
 
+## Primer trabajo individual
 
+[Enunciado del primer trabajo individual](./guiones/trabajo_individual1.html)
 
 
 <!---

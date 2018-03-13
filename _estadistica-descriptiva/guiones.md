@@ -40,6 +40,7 @@ Básicamente corresponde a:
 
  - [Contratación Diciembre 2017](./basesdedatos/Contratacion_Diciembre_2017.csv)
  - [Exploración y descripción general de la base de datos](./guiones/contratacion1.html)
+ - [Manejo de base de datos](./guiones/contratacion2.html)
 
 <!---
 ## Contenido

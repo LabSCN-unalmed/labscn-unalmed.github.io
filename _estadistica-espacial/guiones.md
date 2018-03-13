@@ -6,6 +6,47 @@ order: 01
 ---
 
 
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Ejemplo simple de construcción de semivariogramas.
+
+
+ - [Base de datos en Excel](./datos/ejemplo_practico.xlsx)
+ - [Exploratorio inicial](./guiones/ejemplo_practico.html)
+
+
+## Simulación de campos aleatorios
+
+ - [Simulación de modelos espaciales](./guiones/campos_aleatorios.html)
+
+## Campos aleatorios reales
+
+  - [Semivariograma empírico de campos aleatorios reales](./guiones/campos_aleatorios_reales.html)
+
+### Imagen de sombras sobre el pavimento.
+
+  ![](./datos/sombras3.png)
+
+  - [Imagen de sombras](./datos/sombras3.png)
+
+### Imagen de pasto  
+
+  ![](./datos/pasto1.png)
+
+  - [Imagen de pasto](./datos/pasto1.png)
+
+## Análisis exploratorio de datos de porosidad
+
+  - [Base de datos de porosidad](./datos/ZoneA.dat)
+  - [Metadatos de datos de porosidad](./datos/ZoneA_metadata.txt)
+  - [Exploratorio y estimación del variograma](./guiones/ZonaA.html)
+  - [Ajuste de modelos para porosidad](./guiones/ZonaA2.html)
+
+
 <!---
 ## Análisis exploratorio de señales de wifi y celular
 
