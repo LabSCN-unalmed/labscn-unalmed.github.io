@@ -1,7 +1,7 @@
 ---
 title: "Tamaño de muestra"
 author: "Kenneth Roy Cabrera Torres"
-date: "Martes, 21 de marzo de 2017"
+date: "Martes, 13 de marzo de 2018"
 output:
   html_document:
     highlight: haddock
@@ -16,6 +16,7 @@ options(width = 100)
 ```
 
 
+
 ```{r}
 ################################################################################
 # Simulación y ejemplo de cálculo mediante simulación de un tamaño
@@ -23,8 +24,8 @@ options(width = 100)
 ################################################################################
 
 # Número de hombres y mujeres de un grupo en particular
-numhombres <- 58
-nummujeres <- 18
+numhombres <- 43
+nummujeres <- 16
 
 # Tamaño de muestra de la población
 tammuestra <- 10
@@ -34,7 +35,10 @@ nsim <- 10000
 # Generar la población total
 total <- c(rep("Hombre",numhombres),rep("Mujer",nummujeres))
 total
+```
 
+
+```{r}
 # Tabla de frecuencia "real" a partir de la población
 table(total)
 # Proporción "real" a partir de la población
@@ -70,20 +74,34 @@ abs(pR-pM)
 simula1 <- data.frame(replicate(nsim,sample(total,tammuestra)))
 # Cálculo de la proporción de hombres para cada muestra generada
 propHom <- sapply(simula1,function(x) (table(x)/sum(table(x)))[1])
+```
 
+
+```{r}
 # Histograma de la proporciones de hombres de acuerdo a la muestra.
 hist(propHom, col = "red")
+```
+
+
+```{r}
 # Resumen estadístico de la proporción simulada.
 summary(propHom)
 # Estimación del intervalo de confianza al 95%
 quantile(propHom,c(0.025,0.975))
+```
 
+
+```{r}
 # Distribución del error
 # Cálculo de la diferencia entre el valor "verdadero" y
 # el valor obtenido de las muestras.
 error1 <- propHomR-propHom
 # Histograma de las diferencias, desviaciones o errores.
 hist(error1,col="blue")
+```
+
+
+```{r}
 # Cálculo del intervalo de confianza al 95% de los errores.
 quantile(error1,c(0.025,0.975))
 ```

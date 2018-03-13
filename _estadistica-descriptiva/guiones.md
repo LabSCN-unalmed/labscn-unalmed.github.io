@@ -42,6 +42,15 @@ Básicamente corresponde a:
  - [Exploración y descripción general de la base de datos](./guiones/contratacion1.html)
  - [Manejo de base de datos](./guiones/contratacion2.html)
 
+
+## Tamaño de muestra
+
+  - Relación de las encuestas electorales para presidente en Colombia 2018 en
+  [wikipedia](https://es.wikipedia.org/wiki/Elecciones_presidenciales_de_Colombia_de_2018)
+  - [Guión para tamaño de muestra](./guiones/tammuest.html).
+  - [Código para estimar tamaño de muestra](./guiones/tammuest.R).
+
+  
 <!---
 ## Contenido
 {: .no_toc}
