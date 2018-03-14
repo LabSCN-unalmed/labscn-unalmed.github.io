@@ -1,7 +1,7 @@
 ---
 title: "Modelo Matérn"
 author: "Kenneth Cabrera"
-date: 'Viernes 3 de marzo de 2017'
+date: 'Miércoles, 14 de marzo de 2018'
 output:
   html_document:
     highlight: textmate
@@ -42,14 +42,25 @@ abline(v=6.42*(12),col="magenta",lty=5)
 ```
 
 ## Hallar los valores de phi y de kappa, para un rango práctico fijo
+
 ```{r}
-
-# Función de Matérn para igualar a 0
+#
+# Función auxliar de Matérn para igualar a 0
 # Nivel de rango práctico rho = 0.05
+# Depende del paquete utilizado, por omisión utiliza el paquete geoR,
+# la otra alternavia es RandomFields
 
-require(geoR)
-fM <- function(x,kappa, rho = 0.05, phi = 1) 
-  cov.spatial(x,cov.pars=c(1,phi),kappa=kappa,cov.model="matern")-rho
+fM <- function(x, kappa, rho = 0.05, phi = 1, opt = 1){
+  if (opt == 1){
+    library(geoR)
+    cov.spatial(x, cov.pars = c(1,phi), kappa=kappa, cov.model = "matern") - rho
+  }else{
+    library(RandomFields)
+    modelo <- RMmatern(var = 1, nu = kappa, scale = phi)
+    RFcov(modelo, x) - rho
+  }
+}
+
 ```
 
 
@@ -87,4 +98,65 @@ RangoP <- 75
 ```
 
 
+## Ejemplo del uso del código.
+
+Se tiene un valor de rango práctico de 50 metros y
+se tiene un $\kappa$ de 1.2.
+
+¿Cuál será el valor de $\phi$ para usar en la definición
+del modelo?
+
+
+
+```{r}
+library(geoR)
+RangoP <- 50
+kappax <- 1.2
+(rx <- uniroot(fM, c(1, 120), kappa = kappax, opt = 1)$root)
+(phix <- RangoP/rx)
+```
+
+
+```{r}
+library(geoR)
+x <- seq(0, 100, l = 1001)
+plot(x, cov.spatial(x, cov.model = "matern", kappa = kappax,
+    cov.pars = c(1, phix)), type = "l", xlab= "h", lwd=2,
+    ylab = expression(rho(h)), ylim = c(0, 1))
+abline(v = RangoP, col = "red", lty = 2)
+lines(x, cov.spatial(x, cov.model = "exp", 
+                     cov.pars = c(1, RangoP/3)),
+      type = "l", lty = 3, col = "blue")
+lines(x, cov.spatial(x, cov.model = "gaus", 
+                     cov.pars = c(1, RangoP/sqrt(3))),
+      type = "l", lty = 3, col = "blue")
+```
+
+
+```{r}
+library(RandomFields)
+RangoP <- 50
+kappax <- 1.2
+(rx <- uniroot(fM, c(1, 120), kappa = kappax, opt = 2)$root)
+(phix <- RangoP/rx)
+```
+
+
+```{r}
+library(RandomFields)
+
+modeloMatern <- RMmatern(nu = kappax, var = 1, scale = RangoP/rx) + RMtrend(mean = 1)
+
+png("RFmatern.png", type = "cairo", width = 600, height = 400)
+plot(modeloMatern, xlim = c(0, 100))
+abline(v = RangoP, col = "red", lty = 2)
+ModeloExp <- RMexp(var =1, scale = RangoP/3) + RMtrend(mean = 1)
+lines(ModeloExp, xlim = c(0, 100), col = "blue", lty = 2)
+ModeloGaus<- RMgauss(var =1, scale = RangoP/sqrt(3)) + RMtrend(mean = 1)
+lines(ModeloGaus, xlim = c(0, 100), col = "blue", lty = 2)
+dev.off()
+
+```
+
+![](RFmatern.png)
 

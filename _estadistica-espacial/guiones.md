@@ -33,18 +33,23 @@ order: 01
 
   - [Imagen de sombras](./datos/sombras3.png)
 
-### Imagen de pasto  
+### Imagen de pasto.  
 
   ![](./datos/pasto1.png)
 
   - [Imagen de pasto](./datos/pasto1.png)
 
-## Análisis exploratorio de datos de porosidad
+## Análisis geoestadístico de los datos de porosidad.
 
   - [Base de datos de porosidad](./datos/ZoneA.dat)
   - [Metadatos de datos de porosidad](./datos/ZoneA_metadata.txt)
   - [Exploratorio y estimación del variograma](./guiones/ZonaA.html)
   - [Ajuste de modelos para porosidad](./guiones/ZonaA2.html)
+  - [Predición del modelo](./guiones/ZonaA3.html)
+
+## Modelo Matérn.
+
+  - [Definición del modelo Matérn](.guiones/modeloMatern.html)
 
 
 <!---

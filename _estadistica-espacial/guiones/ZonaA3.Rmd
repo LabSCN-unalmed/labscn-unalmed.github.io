@@ -1,7 +1,7 @@
 ---
 title: "Porosidad en una zona de estudio (prediccón del modelo)"
 author: "Kenneth Roy Cabrera Torres"
-date: "Miércoles, 22 de marzo de 2017"
+date: "Miércoles, 14 de marzo de 2018"
 output: 
   html_document: 
     toc: yes
@@ -35,14 +35,6 @@ v3 <- variog(gzonaA, max.dist = 15000, uvec = c(0, seq(2000, 15000, 500)))
 plot(v3)
 ```
 
-## Evidencia de estructura espacial
-
-```{r}
-envMC <- variog.mc.env(gzonaA, obj.variog = v3, nsim = 1000)
-plot(v3, envelope.obj = envMC)
-```
-
-
 
 ## Estimación de parámetros
 
@@ -69,22 +61,14 @@ legend("bottomright", legend = c("MaxLik"),
 ```
 
 
-## Verificación de modelos
 
-
-```{r}
-envModLik <- variog.model.env(gzonaA, obj.variog = v3,
-                              model.pars = modelo2_lik, 
-                              nsim = 1000)
-plot(v3, envelope.obj = envModLik)
-```
 
 ## Predicción del modelo
 
 ```{r}
 puntos_pred <- pred_grid(c(0, 20000), c(0, 16000), by = 100)
 
-KC <- krige.control(type = "sk", obj.mod = modelo2_lik)
+KC <- krige.control(type = "OK", obj.mod = modelo2_lik)
 sk <- krige.conv(gzonaA, krige = KC, loc = puntos_pred)
 ```
 
