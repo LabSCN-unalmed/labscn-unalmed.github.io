@@ -49,7 +49,7 @@ order: 01
 
 ## Modelo Matérn.
 
-  - [Definición del modelo Matérn](.guiones/modeloMatern.html)
+  - [Definición del modelo Matérn](./guiones/modeloMatern.html)
 
 
 <!---
