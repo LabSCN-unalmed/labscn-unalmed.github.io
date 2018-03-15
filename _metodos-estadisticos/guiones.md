@@ -18,6 +18,12 @@ custom_js: 'mathjax'
 
 
 
+## Modelo de bloques completos, completamente aleatorizado.
+
+- [Efecto de fertilizantes](./guiones/dise_bl_com_aleat.html)
+- [Base de datos](./guiones/fertilidad.xlsx)
+
+
 
 <!---
 ## Brillo en papel

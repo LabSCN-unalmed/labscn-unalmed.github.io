@@ -1,7 +1,7 @@
 ---
 title: "Diseño en bloques completos, completamente aleatorizados"
 author: "Kenneth Roy Cabrera Torres"
-date: "20 de marzo de 2017"
+date: "Jueves, 15 de marzo de 2018"
 output: 
   html_document: 
     fig_height: 7
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 options(width = 100)
 ```
 
-## Lectura de la base de datos
+## Fuentes de nitrógeno para producción.
 
 Un agrónomo desea determinar
 el efecto de diferentes fuentes de nitrógeno en la producción de una materia
@@ -36,7 +36,9 @@ Los datos obtenidos de realizar este experimento se presentan en la tabla 7.3.
 
 
 ```{r}
-ferti1 <- read.csv2("fertilidad.csv")
+
+library(readxl)
+ferti1 <- read_excel("fertilidad.xlsx")
 ferti1$tratamiento <- factor(ferti1$tratamiento,
                              levels = c("Control", "CaNO32", "CONH22", 
                                        "NaNO3", "NH42SO4", "NH4NO3"))
@@ -44,6 +46,9 @@ ferti1$nombre <- factor(ferti1$nombre,
                         levels = c(  "Sin nitrógeno", "Nitrato de calcio",
                                      "Urea", "Nitrato de sodio", 
                                      "Sulfato de amonio", "Nitrato de amonio"))
+
+ferti1$tipo_suelo <- factor(ferti1$tipo_suelo,
+                            levels = c("I", "II", "III", "IV"))
 ```
 
 
@@ -111,8 +116,8 @@ varErr <- summary(modelo1)[[1]]$"Mean Sq"[3]
 desvErr <- sqrt(varErr)
 ```
 
-La estimación de la varianza de los errores aleatorios es de: `r round(varErr,1)`. 
-Es decir estimación de la desviación estándar de los errores es de: `r round(desvErr,1)`.
+La estimación de la varianza de los errores aleatorios es de: `r round(varErr,2)`. 
+Es decir estimación de la desviación estándar de los errores es de: `r round(desvErr,2)`.
 
 
 ## Diagnósticos del modelo.
@@ -159,7 +164,9 @@ par.orig <- par(no.readonly = TRUE)
 par(mfrow = c(2, 2))
 plot(modelo1)
 par(par.orig)
+```
 
+```{r}
 ferti1$residuales <- residuales
 ferti1$stdresiduales <- residualesEstandarizados
 ferti1$studresiduales <- residualesEstudentizado
@@ -169,12 +176,17 @@ library(ggplot2)
 g1 <- ggplot(ferti1, aes(produccion, residuales))
 g1 + geom_point() + geom_smooth(method = lm) +
      geom_hline(yintercept = 0, col = "red")
+```
+
+
+```{r}
+library(ggplot2)
 
 g1 <- ggplot(ferti1, aes(predichos, residuales))
 g1 + geom_point() + geom_smooth(method = lm) +
      geom_hline(yintercept = 0, col = "red")
-
 ```
+
 
 ## Modelo final
 
@@ -205,6 +217,13 @@ PruebaDunnet <- glht(modelo1, linfct = mcp(nombre = "Dunnett"))
 summary(PruebaDunnet)
 
 ```
+
+
+```{r}
+(pruebaTukey <- TukeyHSD(modelo1))
+```
+
+
 
 ## Consecuencias de no hacer el bloqueo.
 
