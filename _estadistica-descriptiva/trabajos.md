@@ -13,10 +13,11 @@ order: 5
 {: toc}
 
 
+## Trabajos individuales
 
-## Primer trabajo individual.
+### Primer trabajo individual.
 
-### Objetivo.
+#### Objetivo.
 
  Realizar un análisis exploratorio de la edad y
  el número de materias matriculadas de los encuestados
@@ -25,7 +26,7 @@ order: 5
  Realizar una exploración para saber cuál variable estaría
  más relacionada con el PAPA.
 
-### Actividades.
+#### Actividades.
 
 
 - Calcular la edad de cada encuestado (hasta dos décimas de año).
@@ -41,7 +42,7 @@ order: 5
    y PAPA.  
 - Redactar conclusiones y recomendaciones.
 
-### Documentos a entregar.
+#### Documentos a entregar.
 
 - Informe en formato ".html" sin código.
 - Archivo en formato ".Rmd" con el código.
@@ -56,10 +57,75 @@ order: 5
 
 
 
-### Fecha de entrega
+#### Fecha de entrega
 
 Jueves, 1 de marzo de 2018, antes de las 23:59 hora de Colombia al correo
 **krcabrer@unal.edu.co** y no olvidar la sigla **[EDAED]** en asunto.
+
+
+## Trabajos en grupo
+
+### Primer trabajo en grupo.
+
+#### Objetivo.
+
+
+Contestar las siguientes preguntas de la base de datos
+de contrataciones:
+
+   1. Caracterice los contratos cuyo sujeto de control
+     es "Universidad De Antioquia" y que el tipo de
+     contrato sea "Contrato".
+   2. De los contratos que tienen el evento de "12-Liquidación"
+     y tipo de contrato sea "Contrato",
+     cuantos y cuales tienen un valor distinto de cero y
+     halle la suma de los valores de esos contratos total y
+     por proyecto.
+   3. Muestre una gráfica que muestre la distribución
+      del plazo estimado para contratos de tipo "Contrato" y
+      que sea del evento "1-Principal".
+   4. Muestre una tabla resumen por código de proyecto y
+      que muestre si el valor del proyecto se mantiene constante
+      por código de proyecto y por sector.     
+
+
+Realizar cuatro preguntas adicionales a la base de datos de las contrataciones
+de diciembre de 2017 del departamento de Antioquia y mostrar
+el resultado mediante gráficas o tablas o ambas de acuerdo
+contexto respectivo.
+
+### Consideraciones.
+
+ - El trabajo parte de la
+   [base de datos original](./basesdedatos/Contratacion_Diciembre_2017.csv).
+
+ - En el texto del trabajo debe aparecer todas las restricciones y
+   consideraciones para las cuales se realizó la respuesta
+   a la respectiva pregunta.
+
+ - El número de integrantes del grupo será como máximo de cinco (5)   
+   personas, estén presentes o no.
+
+#### Documentos a entregar.
+
+ + Documento en formato ".html" sin código en donde se plantean y
+   se contestan las cuatro preguntas sobre la base de datos con
+   tablas resumidas y/o gráficas.
+ + Documento en formato ".Rmd" en donde se realizan los cálculos
+   y la programación para obtener las gráficas y/o las tablas
+   con el código en R a partir de la
+   [base de datos original](./basesdedatos/Contratacion_Diciembre_2017.csv).
+
+#### Fecha de entrega.
+
+Jueves 22 de marzo de 2018 antes de las 23:59 hora de Colombia al correo
+**krcabrer@unal.edu.co** y no olvidar escribir en asunto **[EDAED]**.
+
+El día 15 se marzo se toma una foto con el nombre de 
+los integrantes del grupo de máximo cinco (5) personas estén
+las personas presentes o no.
+
+
 
 <!---
 
