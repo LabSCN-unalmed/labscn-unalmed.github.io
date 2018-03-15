@@ -118,10 +118,10 @@ contexto respectivo.
 
 #### Fecha de entrega.
 
-Jueves 22 de marzo de 2018 antes de las 23:59 hora de Colombia al correo
+Lunes 2 de abril de 2018 antes de las 23:59 hora de Colombia al correo
 **krcabrer@unal.edu.co** y no olvidar escribir en asunto **[EDAED]**.
 
-El día 15 se marzo se toma una foto con el nombre de 
+El día 15 se marzo se toma una foto con el nombre de
 los integrantes del grupo de máximo cinco (5) personas estén
 las personas presentes o no.
 
