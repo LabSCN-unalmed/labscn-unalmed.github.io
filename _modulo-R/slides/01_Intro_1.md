@@ -1,7 +1,7 @@
 Introducción al R (Parte I)
 ========================================================
 author: Kenneth Cabrera
-date: domingo, 11 de marzo de 2018
+date: viernes, 16 de marzo de 2018
 height: 800
 
 
@@ -115,7 +115,7 @@ Paquetes princiales
 
 Paquetes adicionales
 ========================================================
-* Existen a la fecha más o menos 12252
+* Existen a la fecha más o menos 12302
   [paquetes](https://cran.r-project.org/web/packages/index.html)
   en el CRAN y contanto.
   
