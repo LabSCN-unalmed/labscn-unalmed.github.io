@@ -2,7 +2,7 @@ Estructuras de control
 ========================================================
 author: Kenneth Cabrera
 date: `r format(Sys.time(), "%d %B, %Y")`
-transition: rotate
+transition: zoom
 width: 1440
 height: 900
 
