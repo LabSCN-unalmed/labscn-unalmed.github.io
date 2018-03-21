@@ -6,6 +6,7 @@ order: 4
 ---
 
 
+<!---
 ## Trabajo final.
 
 ### Objetivo.
@@ -31,6 +32,8 @@ Realizar una simulación del juego del dominó.
 ### Fecha de entrega.
 
 Viernes 20 de octubre de 2017 en hora de clase.         
+
+-->
 
 <!--
 ## Trabajo final
