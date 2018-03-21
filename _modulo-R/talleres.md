@@ -11,6 +11,18 @@ order: 5
 * ToC
 {: toc}
 
+## Primer taller individual (Quiz 1)
+
+ * [Enunciado](./talleres/quiz1.html)
+ * Entrega: Se espera un archivo en formato ".R"
+   y con el apellido y nombres del estudiante al
+   correo **krcabrer@unal.edu.co**.
+   No olvidar en asunto escribir **[ModuloR]**.
+ * Fecha de entrega 21 de marzo de 2018, antes de
+   las 10:30 de la mañana.   
+
+
+
 <!-- ## Primer taller individual (Quiz 1)
 
 

@@ -1,0 +1,110 @@
+---
+title: "Quiz 1"
+author: "Kenneth Roy Cabrera Torres"
+date: "21 de marzo de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Código auxiliar
+
+
+
+### Código para la primera pregunta
+
+```{r}
+# Variable explicativa (Vector de 1:20)
+x <- 1:20
+```
+
+
+
+Sea la siguiente relación lineal entre $x$ y $y$.
+
+$$
+  y = 10 + 3x + \epsilon \\
+  \epsilon \sim \mathcal{N}(0, 6^2)
+$$
+El código para realizar esta simulación es:
+
+```{r}
+# Simula una relación lineal
+y <- 10 + 3 * x + rnorm(length(x), sd = 6)
+```
+
+
+Ajuste a una regresión lineal del tipo:
+
+$$
+  \hat{y} = \hat{\beta_0} + \hat{\beta_1}x
+$$
+
+```{r}
+# Ajusta una regresión lineal
+modelo1 <- lm(y ~ x)
+```
+
+La estimación de los parámetros es:
+
+```{r}
+summary(modelo1)
+```
+
+
+
+
+
+## Preguntas
+
+### Primera pregunta:
+
+Realice un código de tal manera que almacene en un vector
+los valores de "R-cuadrado" y "R-cuadrado-ajustado" y que cada
+elemento de ese vector tenga su nombre de tal manera
+que el resultado al mostrarlo en consola sea:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+resumen <- summary(modelo1)
+rcuad <- c(resumen$r.squared, resumen$adj.r.squared)
+names(rcuad) <- c("R_cuadrado", "R_cuadrado_ajustado")
+```
+
+```{r}
+rcuad
+```
+
+
+### Segunda pregunta:
+
+Suponga que se tiene una serie de números como el siguiente
+
+```{r}
+numeros <- seq(-2, 5, 0.5)
+numeros
+```
+
+Al hallar los logaritmos en base 10 se encuenta con los siguientes resultados
+
+```{r, message=FALSE, warning=FALSE}
+logaritmos <- log10(-1:5)
+logaritmos
+```
+
+Escriba un código que identifique y muestre solo los valores válidos del 
+logaritmo en base 10, para cualquier secuencia de números. (El código 
+debe funcionar para cualquier secuencia de números).
+
+El código óptimo será de una sola línea.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+logaritmos[is.finite(logaritmos)]
+```
+
+
+
