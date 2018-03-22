@@ -1,0 +1,63 @@
+---
+title: "Arreglo de gráfica"
+author: "Kenneth Roy Cabrera Torres"
+date: "22 de marzo de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Gráfica del El Colombiano
+
+
+Bajo el título "Duque, una carta fija en la segunda vuelta"
+[El Colombiano](http://www.elcolombiano.com/colombia/duque-una-carta-fija-en-la-segunda-vuelta-CN8429026) 
+publica, hoy jueves 22 de marzo de 2018, en las páginas 4 y 5,
+los resultados de La Gran Encuesta de YanHass y
+muestra la siguiente gráfica:
+
+![](votacion.png)
+
+```{r}
+library(readxl)
+votacion <- read_excel("encuesta_votaciones.xlsx")
+```
+
+
+```{r}
+votaMatriz <- as.matrix(votacion[, -1])
+row.names(votaMatriz) <- unlist(votacion[, 1])
+```
+
+```{r}
+votaMatriz
+```
+
+```{r, fig.width=10}
+barplot(votaMatriz, beside = TRUE, legend = TRUE, 
+        col = c("#779FD4", "#6C346F", "#C1E722", "blue",
+                   "red", "orange", "#97005B", "gray40", "gray80"),
+        xlim = c(0, 60),
+        main = "¿Por cuál de ellos votaría?\nsegún rango de edad",
+        las = 1,
+        ylab = "Porcentaje con respecto al rango de edad (%)",
+        xlab = "Rango de edad")
+```
+
+
+
+```{r, fig.width=10}
+barplot(votaMatriz, beside = FALSE, legend = TRUE, 
+        col = c("#779FD4", "#6C346F", "#C1E722", "blue",
+                   "red", "orange", "#97005B",  "gray40", "gray80"),
+        xlim = c(0, 8.5),
+        main = "¿Por cuál de ellos votaría?\nsegún rango de edad",
+        las = 1,
+        ylab = "Porcentaje con respecto al rango de edad (%)",
+        xlab = "Rango de edad")
+```
+
+

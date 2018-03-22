@@ -56,6 +56,12 @@ Básicamente corresponde a:
   - [Análisis de resultados del comparativo de tipos de gráficas](./guiones/farmacias2.html)
   - [Base de datos del ejercicio de farmacias](./basesdedatos/farmacias_encuesta.xlsx)
 
+## Mejora de una gráfica publicada.
+
+  - [Análisis y mejora de una gráfica de El Colombiano](./guiones/graficas2.html)
+  - [Base de datos de resultados de la encuesta](./basesdedatos/encuesta_votaciones.xlsx)
+
+
 <!---
 ## Contenido
 {: .no_toc}
