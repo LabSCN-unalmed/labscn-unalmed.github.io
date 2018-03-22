@@ -112,7 +112,7 @@ de contrataciones:
      contrato sea "Contrato".
    2. De los contratos que tienen el evento de "12-Liquidación"
      y tipo de contrato sea "Contrato",
-     cuantos y cuales tienen un valor distinto de cero y
+     cuantos y cuales tienen un valor den contrato distinto de cero y
      halle la suma de los valores de esos contratos total y
      por proyecto.
    3. Muestre una gráfica que muestre la distribución
