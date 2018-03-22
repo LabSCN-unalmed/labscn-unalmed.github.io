@@ -50,7 +50,12 @@ Básicamente corresponde a:
   - [Guión para tamaño de muestra](./guiones/tammuest.html).
   - [Código para estimar tamaño de muestra](./guiones/tammuest.R).
 
-  
+
+## Comparación del tipo de gráficas
+
+  - [Análisis de resultados del comparativo de tipos de gráficas](./guiones/farmacias2.html)
+  - [Base de datos del ejercicio de farmacias](./basesdedatos/farmacias_encuesta.xlsx)
+
 <!---
 ## Contenido
 {: .no_toc}

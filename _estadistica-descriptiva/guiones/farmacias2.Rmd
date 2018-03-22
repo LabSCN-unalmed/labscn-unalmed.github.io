@@ -1,0 +1,246 @@
+---
+title: "Compras a la droguería"
+author: "Kenneth Roy Cabrera Torres"
+date: "21 de marzo de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Ahora también se puede ir de compras a la droguería.
+
+El dìa lunes 19 de marzo de 2018 el periódico 
+[El Colombiano](http://www.elcolombiano.com/negocios/ahora-tambien-se-puede-ir-de-compras-a-la-drogueria-BL8409434)
+en la segunda y tercera página publicó bajo el titular: 
+"Ahora también se puede ir de compras a la droguería" un
+informe sobre el negocio creciente de autoservicio las droguerías y
+las farmacias en el país.
+
+En la publicación bajo el tìtulo de "PLATAFORMAS Y EXTENSIÓN"
+se muestra de maner gráfica y numérica el número de establecimientos
+de las principales marcas del país.
+
+El diagrama se muestra a continuación:
+
+![](farmacias.png)
+
+## Percepción de los estudiantes en diferentes tipos de gráficas.
+
+Se realizó una toma de datos de la percepción que tenían los 
+estudiantes de la estimación de los valores que representaban 
+diferentes tipos de gráficas.
+
+El particular se presentaron las siguientes gráficas:
+
+### Gráfica de círculos
+
+![](farmacias1.png)
+
+### Gráfica de barras verticales.
+
+![](barras1.png)
+
+### Gráfica de barras horizontales.
+
+![](barras2.png)
+
+### Gráfica de pastel 3D
+
+![](pastel.png)
+
+A los estudiantes se les indicó el que el valor de Copservir con
+respecto al número de establecimientos fue de 884.
+
+Y se les indicó que estimaran los valores de las demás marcas
+sin utilizar ningún tipo de instrumento de medida, sino
+únicamente su percepción visual de la gráfica para tal estimativo.
+
+## Resultados de la percepción
+
+
+### Lectura de la base de datos.
+
+```{r}
+library(readxl)
+farma <- read_excel("farmacias_encuesta.xlsx")
+# Convertir la columna de gráfica en factor
+farma$Grafica <- factor(farma$Grafica)
+```
+
+
+### Resumen de la base de datos.
+
+```{r}
+summary(farma)
+```
+
+### Adecuación y separación de la base de datos.
+
+```{r}
+library(dplyr)
+library(tidyr)
+
+farma1 <- farma %>%
+          filter(!is.na(Farmacenter) & ID != 0) %>%
+          droplevels()
+
+farmaO <- farma %>%
+          filter(ID == 0) %>%
+          droplevels() %>%
+          gather(key = marca, value = numEstablecimientos,
+                 -c(ID, Grafica)) %>%
+          mutate(marca = factor(marca,
+                                levels = c("Farmacenter",
+                                "Colsubsidio",
+                                "Cafam",
+                                "Cruz Verde",
+                                "Pasteur")))
+
+library(tidyr)
+farma2 <- farma1 %>%
+          gather(key = marca, value = numEstablecimientos,
+                 -c(ID, Grafica)) %>%
+          mutate(marca = factor(marca,
+                                levels = c("Farmacenter",
+                                "Colsubsidio",
+                                "Cafam",
+                                "Cruz Verde",
+                                "Pasteur")))
+```
+
+### Segundo resumen
+
+```{r}
+summary(farma1)
+```
+
+```{r}
+summary(farma2)
+```
+
+### Resumen de las estimaciones
+
+```{r}
+library(dplyr)
+resumen <- farma2 %>% 
+           group_by(Grafica, marca) %>%
+           summarise(promedio = mean(numEstablecimientos),
+                     desvEst  = sd(numEstablecimientos))
+resumen
+```
+
+### Gráficas de las estimaciones
+
+
+#### Dispersión de puntos.
+
+```{r, fig.width=10}
+library(ggplot2)
+ggplot(farma2, aes(marca, numEstablecimientos)) +
+    geom_point(aes(colour = "dato")) +
+    facet_wrap(~ Grafica, ncol = 4) +
+    stat_summary(fun.y = "mean", geom = "point", 
+                 aes(colour = "PromedioEstimado"),
+                 size = 3) +
+    geom_point(data = subset(farmaO, select = c(marca, numEstablecimientos)), 
+               aes(marca, numEstablecimientos, colour = "Valorverdadero"),
+               shape = 18, size = 4) +
+  scale_colour_manual(name="",
+    values=c(dato="black", 
+             PromedioEstimado = "blue", 
+             Valorverdadero = "red"),
+    labels = c("Dato estimado",
+               "Promedio de los estimados",
+               "Valor real")) +
+   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+   labs(title = "Estimaciones de acuerdo al tipo de gráfica",
+        x = "Compañía farmacéutica", 
+        y = "Número de establecimientos") 
+```
+
+#### Diagramas de caja y bigotes
+
+```{r, fig.width=10}
+library(ggplot2)
+ggplot(farma2, aes(marca, numEstablecimientos)) +
+  geom_boxplot(aes(col = "caja")) +
+  facet_wrap(~ Grafica, ncol = 4)  +
+  geom_point(data = resumen, aes(marca, promedio, col = "PromVerd")) +
+  geom_point(data = subset(farmaO, select = -Grafica), 
+             aes(marca, numEstablecimientos, col = "Valorverdadero")) +
+    scale_colour_manual(name="",
+    values=c(caja ="black", 
+             PromVerd = "blue", 
+             Valorverdadero = "red"),
+    labels = c("Datos",
+               "Promedio de los estimados",
+               "Valor real")) +
+   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+   labs(title = "Estimaciones de acuerdo al tipo de gráfica",
+        x = "Compañía farmacéutica", 
+        y = "Número de establecimientos") 
+  
+```
+
+#### Medias y desviaciones estándar.
+
+```{r, fig.width=10}
+library(ggplot2)
+ggplot(resumen, aes(marca, promedio)) +
+  geom_pointrange(aes(ymin = promedio - desvEst * 2,
+                      ymax = promedio + desvEst * 2,
+                      colour = "linea")) +
+  facet_wrap(~Grafica, ncol = 4) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  geom_point(data = subset(farmaO, select = -Grafica),
+             aes(marca, numEstablecimientos, col = "Valorverdadero"))  +
+    scale_colour_manual(name="",
+    values=c(linea ="black", 
+             Valorverdadero = "red"),
+    labels = c("Datos",
+               "Valor real")) +
+   labs(title = "Estimaciones de acuerdo al tipo de gráfica",
+        x = "Compañía farmacéutica", 
+        y = "Número de establecimientos") 
+  
+```
+
+### Comportamiento de los evaluadores.
+
+```{r, fig.width=10}
+library(ggplot2)
+ggplot(farma2, aes(marca, numEstablecimientos, group = ID)) +
+  geom_line(alpha = 0.4) +
+  facet_wrap(~Grafica, ncol = 4) +
+  geom_point(data = subset(farmaO, select = -Grafica),
+             aes(marca, numEstablecimientos, col = "Valorverdadero"))  +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+    scale_colour_manual(name="",
+    values=c(Valorverdadero = "red"),
+    labels = c("Valor real")) +
+   labs(title = "Estimaciones por estudiante de acuerdo al tipo de gráfica",
+        x = "Compañía farmacéutica", 
+        y = "Número de establecimientos") 
+```
+
+### Casos excepcionales
+
+```{r}
+library(dplyr)
+farma1 %>%
+  filter( (Pasteur > `Cruz Verde`) |
+          (`Cruz Verde` > Cafam)  |
+          (Cafam > Colsubsidio) |
+          (Farmacenter <= 300))
+```
+
+![](enc08r.jpg)
+![](enc20r.jpg)
+![](enc43r.jpg)
+![](enc53r.jpg)
+
