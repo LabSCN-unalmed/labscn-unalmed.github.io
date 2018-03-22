@@ -38,6 +38,11 @@ order: 4
      precisión de centímetros de la Universidad
       Nacional de Colombia, Núcleo el Volador.    
 
+### Taller individual 4
+   - Estimar los valores dada la figura entregada en clase
+     sobre el número de establecimientos de diferentes
+     compañías de farmacia en el país.      
+
 
 ## Talleres en grupo.
 
