@@ -91,7 +91,7 @@ representación.
 
 #### Fecha de entrega.   
 
-Viernes 6 de abril de 2018 antes de las 23:59
+Lunes 9 de abril de 2018 antes de las 23:59
 [hora oficial de Colombia](http://horalegal.inm.gov.co/)
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
