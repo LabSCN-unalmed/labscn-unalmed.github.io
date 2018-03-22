@@ -35,6 +35,10 @@ order: 3
 
 - [Tutorial de instalación de un paquete](./documentos/instala_paquete.html)
 
+## Ejemplo de problemas en gráficas
+
+- [Problemas en gráficas](./graficas/index.html)
+
 <!---
 ## Numb3rs
 
@@ -67,9 +71,7 @@ order: 3
 - [Documento guía](./documentos/grafi3.pdf)
 
 
-## Ejemplo de problemas en gráficas
 
-- [Problemas en gráficas](./graficas/index.html)
 -->
 
 ## Tablas guías para parámetros gráficos.
