@@ -21,6 +21,14 @@ order: 5
  * Fecha de entrega 21 de marzo de 2018, antes de
    las 10:30 de la mañana.   
 
+## Primer taller individual recuperatorio (Quiz 1)
+<!---  * [Enunciado](./talleres/quiz1_rec.html) -->
+  * Entrega: Se espera un archivo en formato ".R"
+    y con el apellido y nombres del estudiante al
+    correo **krcabrer@unal.edu.co**.
+    No olvidar en asunto escribir **[ModuloR]**.
+  * Fecha de entrega 23 de marzo de 2018, antes de
+    las 12:00 del medio día.
 
 
 <!-- ## Primer taller individual (Quiz 1)

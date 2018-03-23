@@ -1,0 +1,64 @@
+---
+title: "Quiz 1 (Recuperatorio)"
+author: "Kenneth Roy Cabrera Torres"
+date: "22 de marzo de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Primera pregunta.
+
+Dado un vector cualquiera motrar el mismo vector pero en orden 
+inverso, sin utilizar la función `rev()`.
+
+Por ejemplo si tenemos el vector
+
+```{r}
+(vector0 <- sample(1:50))
+```
+
+El código deberá mostrarme:
+
+```{r, echo=FALSE}
+vector0[length(vector0):1]
+```
+
+
+## Segunda pregunta.
+
+Se tiene el siguiente vector:
+
+```{r}
+vector1 <- sample(1:20)
+names(vector1) <- sample(LETTERS, 20)
+vector1
+```
+
+Escriba un código que muestre en un vector 
+la posición en la cual quedó una letra
+cualquiera y el valor que le corresponde en el vector
+(en caso de no estar la letra pedida, entonces muestre un
+vector vacio):
+
+Por ejemplo si se quiere saber en dónde quedó la letra R
+y su valor asignado
+
+```{r}
+letra_buscada <- "R"
+```
+
+se debe mostrar como resultado
+
+```{r, echo=FALSE}
+c(which(names(vector1) == letra_buscada),
+  vector1[which(names(vector1) == letra_buscada)])
+```
+
+
+
+
+
