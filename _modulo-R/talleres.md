@@ -22,7 +22,7 @@ order: 5
    las 10:30 de la mañana.   
 
 ## Primer taller individual recuperatorio (Quiz 1)
-<!---  * [Enunciado](./talleres/quiz1_rec.html) -->
+  * [Enunciado](./talleres/quiz1_rec.html)
   * Entrega: Se espera un archivo en formato ".R"
     y con el apellido y nombres del estudiante al
     correo **krcabrer@unal.edu.co**.
