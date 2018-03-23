@@ -1,31 +1,31 @@
 #------------------------------------------------------------------------------#
-# Juego de simulaciÃ³n de la escalera
+# Juego de simulación de la escalera
 # Autor: Kenneth Roy Cabrera Torres
 # Fecha: 1 de diciembre de 2015
 #------------------------------------------------------------------------------#
 # Cargar las funciones auxiliares
-source("funciones.R")
+source("funciones.R", encoding = "latin1")
 #------------------------------------------------------------------------------#
 # Programa principal
 #------------------------------------------------------------------------------#
-# ValidaciÃ³n del nÃºmero de jugadores
-# No permitirÃ¡ nÃºmeros que no sean enteros o simbolos o letras.
+# Validación del número de jugadores
+# No permitirá números que no sean enteros o simbolos o letras.
 seleccion_num <- FALSE
 njug <- 0
 while (!seleccion_num){
- njug <- readline(paste("CuÃ¡ntos jugadores (mÃ¡ximo",
+ njug <- readline(paste("Cuántos jugadores (máximo",
                               maxJugadores,"jugadores): "))
  njug <- tryCatch(as.integer(njug), warning = function(c) 0)
  if (njug >= 1 && njug <= maxJugadores) seleccion_num <- TRUE
 }
 #------------------------------------------------------------------------------#
-# InicializaciÃ³n de variables globales
+# Inicialización de variables globales
 termina <- FALSE
 n <- 0
 turno <- 0
 jug <-0
 #------------------------------------------------------------------------------#
-# Definir las figuras de acuerdo al nÃºmero de jugadores seleccionados
+# Definir las figuras de acuerdo al número de jugadores seleccionados
 if (njug > 1){
   pasoAng <- 180/njug
   for (angulo in seq(pasoAng, pasoAng*(njug-1), pasoAng)) {
@@ -33,7 +33,7 @@ if (njug > 1){
     figuras <- c(figuras,list(fig))
   }
 }
-# InicializaciÃ³n del juego y conservaciÃ³n de parÃ¡metros grÃ¡ficos
+# Inicialización del juego y conservación de parámetros gráficos
 def.par <- par(no.readonly = TRUE)
 posicionesC <- ajusta_pos(posiciones)
 pantalla()
@@ -42,7 +42,7 @@ while(!termina){
  turno <- turno + 1
  # Un ciclo para pasar por cada jugador en cada turno
  for (jug in 1:njug){
-   #LÃ­neas comentadas para que el programa sea interactivo
+   #Líneas comentadas para que el programa sea interactivo
    #readline(paste("Presione enter para el turno ",turno,
    #               " del jugador ",jug," :",sep=""))
    # Obtener los resultaos de los dados al azar
@@ -51,11 +51,11 @@ while(!termina){
    # Obtener las coordenadas dada las posiciones
    posicionesC <- ajusta_pos(posiciones)
    pantalla()
-   # DefiniciÃ³n del avance del jugador a una nueva casilla.
+   # Definición del avance del jugador a una nueva casilla.
    ini <- posiciones[jug]+1
    fin <- posiciones[jug]+dado1+dado2
    # Determinar si se ha llegado a la meta del juego
-   # y definir como Ãºltima posiciÃ³n la casilla final.
+   # y definir como última posición la casilla final.
    if (fin >100) fin <- 100
    # Secuencia para move la ficha respectiva
    for (p1 in ini:fin) {
@@ -63,7 +63,7 @@ while(!termina){
      posicionesC <- ajusta_pos(posiciones)
      pantalla()
    }
-   # Subir por una escalera si ha llegado a una posiciÃ³n
+   # Subir por una escalera si ha llegado a una posición
    # en donde se encuentra una escalera.
    if (escaleras[posiciones[jug]]!=0) {
      inicio <- posiciones[jug]
@@ -73,15 +73,15 @@ while(!termina){
      for (i in 1:nrow(pasosE)){
         posicionesC[jug,c(2,3)] <- pasosE[i,]
         pantalla()}
-     # Actualizar la posiciÃ³n final del jugador.
+     # Actualizar la posición final del jugador.
      posiciones[jug] <- escaleras[posiciones[jug]]}
-   # Bajar por el tobogÃ¡n o serpiente de acuerdo 
-   # al lugar en donde llegÃ³ la ficha.
+   # Bajar por el tobogán o serpiente de acuerdo
+   # al lugar en donde llegó la ficha.
    if (toboganes[posiciones[jug]]!=0) {
      inicio <- posiciones[jug]
      final <- toboganes[posiciones[jug]]
      pasosT <- pasoTobogan(inicio,final)
-   # Bajar por el tobogÃ¡n siguiendo la curva del tobogÃ¡n
+   # Bajar por el tobogán siguiendo la curva del tobogán
      for (i in 1:nrow(pasosT)){
        posicionesC[jug,c(2,3)] <- pasosT[i,]
        pantalla()}
@@ -89,8 +89,8 @@ while(!termina){
    # Actualiza las posiciones
    posicionesC <- ajusta_pos(posiciones)
    pantalla()
-   # Vefificar si algÃºn jugador ya alcanzÃ³ la meta y 
-   # definir la salida del ciclo "mientras" asÃ­ como
+   # Vefificar si algún jugador ya alcanzó la meta y
+   # definir la salida del ciclo "mientras" así como
    # del ciclo "para"
    if (any(posiciones >= 100)) {
      termina <- TRUE
@@ -102,4 +102,4 @@ while(!termina){
    posicionesC <- ajusta_pos(posiciones)
    pantalla()}
 }
-par(def.par) 
+par(def.par)

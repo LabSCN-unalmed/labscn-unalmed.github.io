@@ -1,6 +1,6 @@
-# DefiniciÃ³n de funciones
+# Definición de funciones
 #------------------------------------------------------------------------------#
-# DefiniciÃ³n de pasos de la escalera
+# Definición de pasos de la escalera
 pasosEscalera <- function(inicio, final){
   coord1 <- coordTablero[inicio,]*10-5
   coord2 <- coordTablero[final,]*10-5
@@ -32,14 +32,14 @@ dibujaEscalera <- function(x0,y0,x1,y1){
            col = "chocolate4",lwd=4)
 }
 #------------------------------------------------------------------------------#
-# Calcula los coeficientes de una curva cuadrÃ¡tica
+# Calcula los coeficientes de una curva cuadrática
 calcula_coef <- function(matriz) {
  Y <- matriz[,2]
  X <- cbind(matriz[,1]^2,matriz[,1],1)
  return(solve(X,Y))
 }
 #------------------------------------------------------------------------------#
-# Define los pasos que hace la ficha al descender por el tobogÃ¡n
+# Define los pasos que hace la ficha al descender por el tobogán
 pasoTobogan <- function(inicio,final){
   coord1 <- coordTablero[inicio,]*10-5
   coord2 <- coordTablero[final,]*10-5
@@ -52,8 +52,8 @@ pasoTobogan <- function(inicio,final){
   return(cbind(x,y))
 }
 #------------------------------------------------------------------------------#
-# Define los pasos que hace la ficha al descender por el tobogÃ¡n
-# Dibuja el tobogÃ¡n siguiendo una curva cuadrÃ¡tica
+# Define los pasos que hace la ficha al descender por el tobogán
+# Dibuja el tobogán siguiendo una curva cuadrática
 dibujaTobogan <- function(x0,y0,x1,y1){
   x2 <- x1+(x1-x0)/2
   y2 <- y0+(y1-y0)/2
@@ -81,7 +81,7 @@ coordEsc <- function(escaleras){
   return(cbind(coordTablero[inicio,],coordTablero[finaliza,]))
 }
 #------------------------------------------------------------------------------#
-# FunciÃ³n para calcular la matriz de rotaciÃ³n
+# Función para calcular la matriz de rotación
 Mrot <- function(angulo = 45){
   angulo <- angulo*pi/180
   return(matrix(c(cos(angulo),sin(angulo),-sin(angulo),cos(angulo)),2,2))
@@ -97,17 +97,17 @@ dibujaFicha2 <- function(vector1){
 #------------------------------------------------------------------------------#
 # Convierte las posiciones a coordenadas reales
 ajusta_pos <- function(posiciones){
-  coordTab <- t(sapply(posiciones, function(p1){ 
+  coordTab <- t(sapply(posiciones, function(p1){
                        if(p1==0) matrix(c(0,0),1,2)
                        else coordTablero[p1,]*10-5}))
  posicionesC <- cbind(1:length(posiciones),coordTab)
  return(posicionesC)
 }
 #------------------------------------------------------------------------------#
-# FunciÃ³n pantalla (Dibuja la pantalla = Tablero + Dados)
+# Función pantalla (Dibuja la pantalla = Tablero + Dados)
 pantalla <- function(){
   layout(matrix(c(1,2), 1, 2, byrow = TRUE),widths=c(5,1))
-  # GraficaciÃ³n del tablero de juebo
+  # Graficación del tablero de juebo
   par(mar = rep(0.2,4))
   plot(0:100,0:100, asp = 1, type = "n", axes = FALSE, xlab = "", ylab = "")
   segments(c(sec1,rep1),c(rep1,sec1),c(sec1,rep2),c(rep2,sec1))
@@ -115,23 +115,23 @@ pantalla <- function(){
   rect(1,91,9,99, col = "gold")
   # Numerar cada casilla
   text(coordTablero[,1]*10-5,coordTablero[,2]*10-5,1:100,cex=0.7)
-  # GraficaciÃ³n de las escaleras
+  # Graficación de las escaleras
   inicio <- which(escaleras!=0)
   finaliza <-  escaleras[escaleras!=0]
   dibujaEscalera(coordTablero[inicio,1]*10-5,coordTablero[inicio,2]*10-5,
                  coordTablero[finaliza,1]*10-5,coordTablero[finaliza,2]*10-5)
-  # GraficaciÃ³n de los toboganes o serpientes
+  # Graficación de los toboganes o serpientes
   inicio <- which(toboganes!=0)
   finaliza <-  toboganes[toboganes!=0]
   dibujaTobogan(coordTablero[inicio,1]*10-5,coordTablero[inicio,2]*10-5,
            coordTablero[finaliza,1]*10-5,coordTablero[finaliza,2]*10-5)
-  # GraficaciÃ³n de cada ficha de acuerdo a sus coordenadas
+  # Graficación de cada ficha de acuerdo a sus coordenadas
   apply(posicionesC, 1,  dibujaFicha2)
-  # GraficaciÃ³n de los dados
+  # Graficación de los dados
   par(mar = rep(0,4))
   plot(0:100,0:100*3, asp = 1, type = "n",axes = FALSE)
   rect(10,10,90,90, col = "#ff000010")
-  if (dado1 !=0) 
+  if (dado1 !=0)
     points(puntosDados[[dado1]][,1],puntosDados[[dado1]][,2], cex = 2, pch=19)
   rect(10,110,90,190, col = "#ff000010")
   if (dado2 !=0)
@@ -139,17 +139,17 @@ pantalla <- function(){
   # Texto para indicar el turno, jugador y finalmente el ganador.
   text(50,240,paste("Jugador:",jug),cex=0.8)
   text(50,260,paste("Turno:",turno),cex=0.8)
-  if (termina) text(50,220,paste("GanÃ³ el jugador",ganador),cex=0.8)
+  if (termina) text(50,220,paste("Ganó el jugador",ganador),cex=0.8)
   Sys.sleep(0.1)
 }
 
 #------------------------------------------------------------------------------#
-## DefiniciÃ³n de variables globales
+## Definición de variables globales
 
-# NÃºmero mÃ¡ximo de jugadores
+# Número máximo de jugadores
 maxJugadores <- 10
 
-# Coordenadas de los puntos de los dados para su graficaciÃ³n
+# Coordenadas de los puntos de los dados para su graficación
 puntosDados <- list(
   uno = matrix(c(50,50),1,2),
   dos = matrix(c(25,75,25,75),2,2),
@@ -158,18 +158,18 @@ puntosDados <- list(
   cinco  = matrix(c(25,75,25,75,50,25,25,75,75,50),5,2),
   seis   = matrix(c(25,25,25,75,75,75,25,50,75,25,50,75),6,2)
 )
-# DefiniciÃ³n la figura bÃ¡sica
+# Definición la figura básica
 fig1 <- cbind(c(2,8,8,2),c(2,8,2,8)) - 5
 figuras <- list(fig1)
-# DefiniciÃ³n de las posiciones de mÃ¡ximo nÃºmero de jugadores
+# Definición de las posiciones de máximo número de jugadores
 posiciones <- rep(0,maxJugadores)
 # Inicio de los valores de los dados.
 dado1 <- 0
 dado2 <- 0
-# DefiniciÃ³n de los diez colores disponibles para las figuras
+# Definición de los diez colores disponibles para las figuras
 colores <- c("red","purple","magenta","yellow","orange",
              "darkred","goldenrod4","deeppink3","indianred","lightpink3")
-# DefiniciÃ³n de las coordenadas de las posiciones en el trablero
+# Definición de las coordenadas de las posiciones en el trablero
 s1 <- seq(1,100)
 x <- (((s1-1)%/%10)%%2==0)*((s1 - 1) %% 10) +
   (((s1-1)%/%10)%%2==1)*((10-1) -((s1 - 1) %% 10))
@@ -187,7 +187,7 @@ toboganes[90] <- 56
 toboganes[97] <- 49
 toboganes[51] <- 2
 toboganes[80] <-11
-# DefiniciÃ³n de secuencias para la malla del tablero
+# Definición de secuencias para la malla del tablero
 sec1 <- seq(0,100,l=11)
 rep1 <- rep(0,11)
 rep2 <- rep(100,11)
