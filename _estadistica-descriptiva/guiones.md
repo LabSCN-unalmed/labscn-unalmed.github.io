@@ -51,7 +51,7 @@ Básicamente corresponde a:
   - [Código para estimar tamaño de muestra](./guiones/tammuest.R).
 
 
-## Comparación del tipo de gráficas
+## Comparación del tipo de gráficas.
 
   - [Análisis de resultados del comparativo de tipos de gráficas](./guiones/farmacias2.html)
   - [Base de datos del ejercicio de farmacias](./basesdedatos/farmacias_encuesta.xlsx)
@@ -60,6 +60,12 @@ Básicamente corresponde a:
 
   - [Análisis y mejora de una gráfica de El Colombiano](./guiones/graficas2.html)
   - [Base de datos de resultados de la encuesta](./basesdedatos/encuesta_votaciones.xlsx)
+
+## Análisis decriptivo y exploratorio de la población en régimen contributivo 2016.
+
+  - [Enlace a la fuente de la base de datos](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Poblaci-n-del-Regimen-contributivo-del-Municipio-d/26xf-sdd3)
+  - [Lectura incial de la base de datos](./guiones/01_lectura_ini.html)
+  - [Exploración de la base datos de regimen contributivo](./guiones/02_lectura_proc.html)
 
 
 <!---

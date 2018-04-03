@@ -1,0 +1,148 @@
+---
+title: "Lectura y análsis exploratorio de la pobación afiliada al regimen contributivo."
+author: "Kenneth Roy Cabrera Torres."
+date: "Martes, 3 de abril de 2018."
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width = 8, fig.width = 8)
+```
+
+## Lectura de la base de datos en formato R.
+
+```{r}
+load("contributivo.RData")
+```
+
+## Resumen de la base de datos
+
+```{r}
+summary(contributivo)
+```
+
+## Gráficas exploratorias preliminares
+
+```{r}
+library(ggplot2)
+ggplot(contributivo, aes(Nombre_Eps, edad, col = Sexo)) +
+  geom_jitter(alpha = 0.01) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+## Consolidación de la base de datos
+
+```{r}
+library(dplyr)
+contributivo2 <- contributivo %>%
+   group_by(Nombre_Eps, edad, Sexo) %>%
+   summarise(frecuencia = n())
+
+head(contributivo2)
+```
+
+
+
+## Gráficas exploratorias con los datos consolidados
+
+```{r}
+library(ggplot2)
+ggplot(contributivo2, aes(edad, frecuencia)) +
+  geom_bar(stat = "identity")
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(contributivo2, aes(edad, frecuencia)) +
+  geom_bar(stat = "identity") +
+  facet_grid(. ~ Sexo)
+```
+
+```{r}
+library(ggplot2)
+ggplot(contributivo2, aes(edad, frecuencia)) +
+  geom_bar(stat = "identity") +
+  facet_grid(Sexo ~ .)
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(contributivo2, aes(edad, frecuencia)) +
+  geom_bar(stat = "identity") +
+  facet_grid(. ~ Nombre_Eps)
+```
+
+```{r}
+library(ggplot2)
+ggplot(contributivo2, aes(edad, frecuencia)) +
+  geom_bar(stat = "identity") +
+  facet_grid(Sexo ~ Nombre_Eps)
+```
+
+```{r}
+library(ggplot2)
+ggplot(contributivo2, aes(edad, frecuencia, col = Sexo)) +
+  geom_line(stat = "identity") 
+```
+
+## Ordenación de los nombres de las EPS por número de afiliados
+
+```{r}
+tabla1 <- with(contributivo,
+               sort(table(Nombre_Eps), decreasing = TRUE))
+
+tabla1
+```
+
+```{r}
+library(dplyr)
+tabla2 <- contributivo %>%
+          group_by(Nombre_Eps) %>%
+          summarise(suma = n()) %>%
+          arrange(desc(suma))
+tabla2
+```
+
+```{r}
+library(dplyr)
+contributivo <- contributivo %>%
+                mutate(Nombre_Eps = factor(Nombre_Eps,
+                                           levels = names(tabla1)))
+```
+
+
+```{r}
+library(dplyr)
+contributivo <- contributivo %>%
+                mutate(Nombre_Eps = factor(Nombre_Eps,
+                                           levels = tabla2$Nombre_Eps))
+```
+
+
+```{r}
+library(dplyr)
+contributivo2 <- contributivo %>%
+   group_by(Nombre_Eps, edad, Sexo) %>%
+   summarise(frecuencia = n()) %>%
+   filter(Nombre_Eps %in% names(tabla1)[tabla1 >= 100])
+```
+
+```{r}
+library(ggplot2)
+ggplot(contributivo2, aes(edad, frecuencia, col = Sexo)) +
+  geom_line() +
+  facet_wrap(~ Nombre_Eps)
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(contributivo2, aes(edad, frecuencia, col = Sexo)) +
+  geom_line() +
+  facet_wrap(~ Nombre_Eps, scale = "free_y")
+```
+

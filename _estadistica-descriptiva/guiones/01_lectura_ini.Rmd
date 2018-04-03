@@ -1,0 +1,20 @@
+---
+title: "Lectura incial de la base de datos."
+author: "Kenneth Roy Cabrera Torres."
+date: "Martes, 3 de abril de 2018."
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+contributivo <- read.csv("Poblaci_n_del_Regimen_contributivo_del_Municipio_de_Medell_n_con_corte_a_diciembre_de_2016.csv", encoding = "UTF-8")
+```
+
+```{r}
+save(contributivo, file = "contributivo.RData")
+```
+
