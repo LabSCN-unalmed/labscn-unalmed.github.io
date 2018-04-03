@@ -16,12 +16,16 @@ custom_js: 'mathjax'
 - [Experimento del crecimiento del pan vs el tiempo de reposo. (Análisis estadístico I)](./guiones/crecim_pan2.html).
 - [Base de datos, incluyendo el orden](./guiones/crecim_pan2.xlsx)
 
-
-
 ## Modelo de bloques completos, completamente aleatorizado.
 
 - [Efecto de fertilizantes](./guiones/dise_bl_com_aleat.html)
 - [Base de datos](./guiones/fertilidad.xlsx)
+
+## Modelo de cuadrados latinos.
+
+- [Estudio de bioequivalencia](./guiones/cuadrado_latino.html)
+- [Programación del experimento](./guiones/programacion.csv)
+- [Resultados del experimento](./guiones/resultados.xlsx)
 
 
 

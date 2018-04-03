@@ -1,0 +1,194 @@
+---
+title: "Cuadrado Latino"
+author: "Kenneth Roy Cabrera Torres"
+date: "3 de abril de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Estudio de bioequivalencia
+
+Los estudios de bioequivalencia consisten en 
+experimentos que perimten establecer si son o no similares
+las reacciones a formas o presentaciones diferentes en cuanto
+a la concentración del compuesto activo en la sangre durante
+un periodo de tiempo.
+
+Se suele utilizar el Área Bajo la Curva (AUC, por sus siglas en inglés)
+para evaluar el efecto de drogas sobre sujetos humanos o animales.
+
+Después de suministrada la dosis se toma una muestra de sangre
+cada media hora durante cuatro horas y se analiza la concentración 
+del elemento activo en la sangre. Seguidamente se calcula el Área Bajo la Curva
+(AUC) de ese resultado obtenido. 
+
+Debido a que se sabe que hay diferencia entre sujetos y además también
+hay diferencias en el tiempo se tomaron encuenta estas dos situaciones
+escogiendo a tres individuos y en tres momentos diferentes.
+
+Entre cada periodo de prueba se realiza un proceso de "borrado" o 
+de lavado del elemento activo en el sujeto.
+
+Se quiere saber si hay diferencia entre tres presentaciones, A = Solución,
+B = Tableta, C = Cápsula de una determinada droga.
+
+Se propone un diseño 3x3 de cudrado latino. 
+
+
+## Programación del experimento
+
+```{r}
+library(agricolae)
+
+presentacion <- c("A=Solución", "B=Tableta", "C=Cápsula")
+diseñoCuadLat <- design.lsd(presentacion , seed = 4)
+programacion <- diseñoCuadLat$book
+levels(programacion$row) <- c("Sujeto 1", "Sujeto 2", "Sujeto 3")
+levels(programacion$col) <- c("Semana 1", "Semana 2", "Semana 3")
+
+programacion
+
+write.csv2(programacion, file = "programacion.csv",
+           row.names = FALSE,
+           fileEncoding = "latin1")
+```
+
+## Resultados de un estudio de bioequvalencia
+
+Tratamiento y resultados de Áreas Bajo la Curva (AUC, siglas en inglés) para
+un estudio de bioequivalentealencia.
+
+![](ABCEstudiobioequivalente.png)
+
+
+```{r}
+library(readxl)
+bioequivalente <- read_excel("resultados.xlsx")
+bioequivalente
+```
+
+
+## Análisis exploratorio
+
+
+```{r}
+library(dplyr)
+bioequivalente  %>% 
+  group_by(Presentacion) %>%
+  summarise(promedio = mean(AUC),
+            desvEst = sd(AUC))
+```
+
+
+```{r}
+library(dplyr)
+bioequivalente  %>% 
+  group_by(Sujeto) %>%
+  summarise(promedio = mean(AUC),
+            desvEst = sd(AUC))
+```
+
+```{r}
+library(dplyr)
+bioequivalente  %>% 
+  group_by(Periodo) %>%
+  summarise(promedio = mean(AUC),
+            desvEst = sd(AUC))
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(bioequivalente, aes(Sujeto, AUC, 
+                           col = Periodo,
+                           shape = Presentacion)) +
+  geom_point(size = 4)
+```
+
+
+
+```{r}
+library(ggplot2)
+ggplot(bioequivalente, aes(Presentacion, AUC, 
+                           col = Sujeto,
+                           shape = Periodo)) +
+  geom_point(size = 4)
+```
+
+## Modelización
+
+```{r}
+modelo1 <- aov(AUC ~ Sujeto + Periodo + Presentacion, data = bioequivalente)
+summary(modelo1)
+```
+
+
+```{r}
+modelo1lm <- lm(AUC ~ Sujeto + Periodo + Presentacion, data = bioequivalente)
+summary(modelo1lm)
+```
+
+
+```{r}
+model.tables(modelo1, type = "means", se = TRUE)
+```
+
+```{r}
+model.tables(modelo1, type = "effects", se = TRUE)
+```
+
+## Diagnósticos del modelo.
+
+### Normalidad.
+
+```{r}
+shapiro.test(residuals(modelo1))
+```
+
+```{r}
+library(car)
+id <- qqPlot(modelo1lm, id.n = 12, reps = 20000)
+```
+
+
+
+### Homocedasticidad.
+
+```{r}
+library(car)
+leveneTest(AUC ~ Presentacion, data = bioequivalente)
+
+leveneTest(AUC ~ Periodo, data = bioequivalente)
+
+leveneTest(AUC ~ Sujeto, data = bioequivalente)
+```
+
+### Independencia
+
+
+```{r}
+library(ggplot2)
+ggplot(bioequivalente, aes(Periodo, AUC, 
+                           col = Sujeto,
+                           shape = Presentacion)) +
+  geom_point(size = 4)
+```
+
+
+```{r}
+library(lmtest)
+dwtest(modelo1lm, order.by = ~ Periodo, 
+       data = bioequivalente, 
+       alternative = "two.sided")
+```
+
+## Comparaciones pareadas
+
+```{r}
+TukeyHSD(modelo1, "Presentacion")
+```
+
