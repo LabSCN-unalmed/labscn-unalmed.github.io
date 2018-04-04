@@ -51,6 +51,11 @@ order: 01
 
   - [Definición del modelo Matérn](./guiones/modeloMatern.html)
 
+## Datos de elevación
+
+  - [Análisis, predicción y ajuste de datos de elevación](./guiones/elevacion3.html)
+  - [Base de datos de elevación](./guiones/elevacion2.txt)
+
 
 <!---
 ## Análisis exploratorio de señales de wifi y celular
