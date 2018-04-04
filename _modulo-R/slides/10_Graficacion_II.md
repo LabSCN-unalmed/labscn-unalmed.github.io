@@ -7,7 +7,7 @@
 ggplot2
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: domingo, 16 de abril de 2017
+date: miércoles, 04 de abril de 2018
 width: 1500
 height: 1000
 

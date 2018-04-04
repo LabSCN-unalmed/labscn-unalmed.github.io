@@ -8,7 +8,7 @@
 Expresiones Regulares
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: domingo, 16 de abril de 2017
+date: miércoles, 04 de abril de 2018
 width: 1440
 height: 900
 
@@ -24,7 +24,7 @@ uso de expresiones regulares.
 Help on topic 'regex' was found in the following packages:
 
   Package               Library
-  stringr               /home/kenneth/R/x86_64-pc-linux-gnu-library/3.3
+  stringr               /home/kenneth/R/x86_64-pc-linux-gnu-library/3.4
   base                  /usr/lib/R/library
 
 
