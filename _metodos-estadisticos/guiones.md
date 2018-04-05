@@ -34,7 +34,8 @@ custom_js: 'mathjax'
 
 ## Modelo multifactorial de tres vías (heterocedástico)
 
-- [Cultivo de camarones](./guiones/camarones.html)
+- [Cultivo de camarones I](./guiones/camarones.html)
+- [Cultivo de camarones II](./guiones/camarones2.html)
 - [Base de datos de camarones](./guiones/camarones.xlsx)
 
 
