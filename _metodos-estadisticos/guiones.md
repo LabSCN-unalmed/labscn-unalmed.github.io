@@ -29,6 +29,17 @@ custom_js: 'mathjax'
 
 
 
+## Modelo multifactorial de dos vías
+
+- [Vitamina C en jugo de naranja](./guiones/naranja.html)
+- [Base de datos](./guiones/naranja.xlsx)
+
+## Modelo multifactorial de tres vías (heterocedástico)
+
+- [Cultivo de camarones](./guiones/camarones.html)
+- [Base de datos de camarones](./guiones/camarones.xlsx)
+
+
 <!---
 ## Brillo en papel
 
