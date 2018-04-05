@@ -67,6 +67,8 @@ Básicamente corresponde a:
   - [Lectura incial de la base de datos](./guiones/01_lectura_ini.html)
   - [Exploración de la base datos de regimen contributivo](./guiones/02_lectura_proc.html)
 
+  
+
 
 <!---
 ## Contenido
