@@ -27,8 +27,6 @@ custom_js: 'mathjax'
 - [Programación del experimento](./guiones/programacion.csv)
 - [Resultados del experimento](./guiones/resultados.xlsx)
 
-
-
 ## Modelo multifactorial de dos vías
 
 - [Vitamina C en jugo de naranja](./guiones/naranja.html)
