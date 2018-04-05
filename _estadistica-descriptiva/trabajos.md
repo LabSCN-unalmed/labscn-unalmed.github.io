@@ -161,6 +161,46 @@ las personas presentes o no.
 
 
 
+### Segundo trabajo en grupo.
+
+#### Objetivo.
+
+Realizar un análisis descriptivo y exploratorio de
+la [base de datos del SISBEN 2017 para Medellín](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Base-de-Datos-Sisben-2017-Municipio-de-Medell-n/cnr8-armb)
+por persona publicado en Datos Libres.
+
+En anáisis exploratorio está dirigido a mostrar si existen diferencias
+de perfil demográfico por comuna y por barrio en Medellín, de
+las personas inscritas en SISBEN en el año 2017.
+
+
+#### Recursos.
+
+ - [Transformar a formato R.](./guiones/01_sisben_lectura.html)
+ - [Inicio de análisis exploratorio](.guiones/02_sisben_explora1.html)
+ - [Encuesta de calidad de vida DANE](http://microdatos.dane.gov.co/index.php/catalog/544/get_microdata)
+
+ - [Dicionario de datos.](https://www.datos.gov.co/api/views/cnr8-armb/files/65bade0f-6c72-4a14-be2a-c2b501677de3?download=true&filename=Diccionario_SISBEN_2017Dic_Anonimizada_.xlsx)
+ - [Codificación de parentesco](./basesdedatos/parentesco.txt)
+
+#### Consideraciones.
+
+- De acuerdo al tipo de variable convertir al tipo adecuado siguiendo
+  el diccionario de datos.
+- Realizar una descripción por variable (las pertinentes a personas).
+
+- Realizar una descrpción por variable por hogar).
+
+- Realizar un análisis descriptivo por variable por comuna.
+
+- Mostrar gráficas de las variables más relevantes para identificar
+  el perfil respectivo.
+
+#### Fecha de entrega.
+
+Jueves, 19 de abril de 2018 antes de las 23:59 hora de Colombia al correo
+**krcabrer@unal.edu.co** y no olvidar escribir en asunto **[EDAED]**.
+
 <!---
 
 ## Contenido

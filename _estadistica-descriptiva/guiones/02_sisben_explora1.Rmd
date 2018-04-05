@@ -1,0 +1,39 @@
+---
+title: "Análisis Descriptivo y Exploratorio de las personas en SISBEN para Medellin 2017"
+author: "Kenneth Roy Cabrera Torres"
+date: "15 de marzo de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+load("sisben.RData")
+```
+
+```{r}
+library(readxl)
+dicDatos <- read_excel("Diccionario_SISBEN_2017Dic_Anonimizada_.xlsx")
+dicDatos
+```
+
+
+```{r}
+summary(sisben)
+```
+
+
+```{r}
+length(unique(sisben$FORMULARIO))
+```
+
+```{r}
+unique(sisben$TPERSONA)
+```
+
+```{r}
+hist(sisben$PUNTAJE)
+```
+
