@@ -177,7 +177,7 @@ las personas inscritas en SISBEN en el año 2017.
 #### Recursos.
 
  - [Transformar a formato R.](./guiones/01_sisben_lectura.html)
- - [Inicio de análisis exploratorio](.guiones/02_sisben_explora1.html)
+ - [Inicio de análisis exploratorio](./guiones/02_sisben_explora1.html)
  - [Encuesta de calidad de vida DANE](http://microdatos.dane.gov.co/index.php/catalog/544/get_microdata)
 
  - [Dicionario de datos.](https://www.datos.gov.co/api/views/cnr8-armb/files/65bade0f-6c72-4a14-be2a-c2b501677de3?download=true&filename=Diccionario_SISBEN_2017Dic_Anonimizada_.xlsx)
