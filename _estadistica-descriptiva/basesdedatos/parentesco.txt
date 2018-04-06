@@ -1,0 +1,24 @@
+A cada persona le corresponde un número de orden dentro del hogar y el orden de registro de los miembros del hogar es el siguiente: 
+
+01- Jefe (a): es la persona que se reconoce como tal independientemente de su edad, o por ser el principal sostén económico de la familia. Puede ser hombre o mujer y debe quedar siempre con el número de orden 01. 
+02- Esposa(o), compañera(o): cuando el jefe del hogar tenga cónyuge o compañera(o) que vive en el hogar. Con número de orden 02 (así sucesivamente para los demás miembros del hogar). 
+03- Hijos(as) o hijastro(a) solteros(as) de mayor a menor del jefe y/o cónyuge. 
+04- Hijos(as) casado(as), en orden de edad descendente anotando a continuación de cada uno de ellos sus respectivas(os) esposas(os) e hijos. 
+05- Hijos(as) viudos(as), separado(as) y solteros con hijos en orden de edad descendente anotando a continuación de cada uno de ellos sus respectivas(os) hijos 
+06- Nieto(a) del jefe y/o su cónyuge, empezando por el (la) mayor. 
+07- Padre, madre, padrastro, madrastra del jefe. 
+08- Abuelos del jefe del hogar. 
+09- Hermanos(as) o hermanastros(as) del jefe 
+10- Tíos(as) del jefe 
+11- Sobrinos(as) del jefe 
+12- Primos(as) del jefe 
+13- Suegros del jefe. 
+14- Cuñado(a): hermano(a) del esposo(a) o compañero(a) del jefe. 
+15- Otro pariente del jefe del hogar: como bisnieto(a), bisabuelo(a), etc. 
+16- Empleados del servicio doméstico comprende a los servidores domésticos (empleada doméstica, jardinero, chofer, niñera, etc.). 
+17- Hijos del servicio doméstico. 
+18- Trabajadores: personas que desempeñan actividades laborales para el hogar y comparten con este la vivienda. Es el caso de trabajadores rurales como los jornaleros o peones y los obreros o empleados en los negocios familiares que desarrollan su trabajo y vivan en el hogar para el cual trabajan. 
+19- Pensionista: personas que pagan por dormir y comer habitualmente en el hogar. Pueden ser o no familiares. 
+20- Otros no parientes: personas del hogar no contempladas anteriormente, que no tienen nexos con el jefe de hogar, como ahijada(o), excónyuge, excuñado, exsuegra, etc. 
+
+A los hijos adoptivos y de crianza se les considerará como hijos propios.
