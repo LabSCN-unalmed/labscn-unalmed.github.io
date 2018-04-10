@@ -22,13 +22,23 @@ order: 5
    las 10:30 de la mañana.   
 
 ## Primer taller individual recuperatorio (Quiz 1)
-  * [Enunciado](./talleres/quiz1_rec.html) 
+  * [Enunciado](./talleres/quiz1_rec.html)
   * Entrega: Se espera un archivo en formato ".R"
     y con el apellido y nombres del estudiante al
     correo **krcabrer@unal.edu.co**.
     No olvidar en asunto escribir **[ModuloR]**.
   * Fecha de entrega 23 de marzo de 2018, antes de
     las 12:00 del medio día.
+
+## Segundo taller individual (Quiz 2)
+
+ * En la página de datos abiertos se require
+   obtener una base de datos en un formato adecuado (tidy) de
+   la base de datos:
+   [Matrícula establecimientos educativos oficiales y no oficiales Municipio de Medellín 2017](https://www.datos.gov.co/Educaci-n/Matr-cula-establecimientos-educativos-oficiales-y-/6qaa-344w)
+
+   
+
 
 
 <!-- ## Primer taller individual (Quiz 1)

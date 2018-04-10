@@ -128,7 +128,7 @@ de diciembre de 2017 del departamento de Antioquia y mostrar
 el resultado mediante gráficas o tablas o ambas de acuerdo
 contexto respectivo.
 
-### Consideraciones.
+#### Consideraciones.
 
  - El trabajo parte de la
    [base de datos original](./basesdedatos/Contratacion_Diciembre_2017.csv).
