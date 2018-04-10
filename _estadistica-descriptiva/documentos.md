@@ -74,10 +74,9 @@ order: 3
 ## Documento guía para gráficos en R.
 
 - [Documento guía](./documentos/grafi3.pdf)
-
-
-
 -->
+
+
 
 ## Tablas guías para parámetros gráficos.
 - [Tabla de colores](/estadistica-descriptiva/documentos/ColorChart.pdf)
