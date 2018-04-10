@@ -70,7 +70,7 @@ Básicamente corresponde a:
 
 ## Datos de Anscombe.
 
- - [Datos de Anscombe](./documentos/anscombe_example_html)
+ - [Datos de Anscombe](./guiones/anscombe_example.html)
 
 
 <!---
