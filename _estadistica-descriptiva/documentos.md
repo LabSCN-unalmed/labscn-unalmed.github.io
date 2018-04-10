@@ -39,6 +39,11 @@ order: 3
 
 - [Problemas en gráficas](./graficas/index.html)
 
+## Errores comunes
+
+- [Errores comunes en análisis de datos](./documentos/errores_comunes.html)
+
+
 <!---
 ## Numb3rs
 
