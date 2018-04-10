@@ -542,14 +542,6 @@ Esta dejará de desplegarse en el visualizador de mapas:
 
 ![](/cartografia-digital/images/clase-01/clase-01_11.png){: .img-responsive}
 
-La activación es diferente de la selección, por lo que al utilizar el botón **Acercar al mapa seleccionado** ![Acercar al mapa seleccionado](/cartografia-digital/images/clase-01/zoom-extent.png), sólo se tendrán en cuenta las capas activas de las seleccionadas, por lo que acercará unicamente a la capa activa.
-
-De manera similar, intentar acercar a una capa inactiva:
-
-![](/cartografia-digital/images/clase-01/clase-01_12.png){: .img-responsive}
-
-No tendría ningún efecto en la región desplegada.
-
 ## Región de cálculo {#region-calculo}
 
 <!--
