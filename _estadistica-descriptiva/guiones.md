@@ -68,6 +68,9 @@ Básicamente corresponde a:
   - [Exploración de la base datos de regimen contributivo](./guiones/02_lectura_proc.html)
 
 
+## Datos de Anscombe.
+
+ - [Datos de Anscombe](./documentos/anscombe_example_html)
 
 
 <!---
