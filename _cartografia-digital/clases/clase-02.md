@@ -242,7 +242,7 @@ Se ingresan los valores del raster (en este caso altitud) en el cuadro de texto,
 
 ![](/cartografia-digital/images/clase-02/clase-02_11.png){: .img-responsive}
 
-A continuación se indican los colores con su código RGB (Red:Green:Blue)
+A continuación se indican los colores con su código RGB (Red - Green - Blue)
 
 |Altitud|  R  |  G  |  B  |
 |:-----:|:---:|:---:|:---:|
@@ -445,7 +445,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce6a'
 ~~~
 {: .output} -->
 
-![Segunda versión](/cartografia-digital/images/clase-02/TC_porce6a.png){: .img-responsive}
+![Segunda versión](/cartografia-digital/images/clase-02/TC_porce7.png){: .img-responsive}
 
 #### Versión Final
 
@@ -473,7 +473,7 @@ Tabla de colores para mapa raster <porcecito> establecida a 'TC_porce7'
 ~~~
 {: .output} -->
 
-![Versión Final](/cartografia-digital/images/clase-02/TC_porce7.png){: .img-responsive}
+![Versión Final](/cartografia-digital/images/clase-02/TC_porce8.png){: .img-responsive}
 
 <!--
 TODO: ¿Se justifica emplear la opción del gedit para crear tablas de colores y aplicarlas a un mapa?
