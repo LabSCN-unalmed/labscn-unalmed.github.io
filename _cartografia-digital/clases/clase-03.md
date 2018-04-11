@@ -165,17 +165,17 @@ Es importante definir la región de cálculo antes de calcular el mapa de reliev
 
 Se define la región de acuerdo al mapa.
 
-![](/cartografia-digital/images/clase-03/clase-03_16.png){: .img-responsive}
+![](/cartografia-digital/images/clase-03/clase-03_10.png){: .img-responsive}
 
 ### Consultar el contenido del mapa porcecito
 
 Vamos a consultar la información del mapa por medio del menú contextual de la capa, seleccionando la opción de metadatos.
 
-![](/cartografia-digital/images/clase-03/clase-03_10.png){: .img-responsive}
+![](/cartografia-digital/images/clase-03/clase-03_11.png){: .img-responsive}
 
 Esta opción invoca el módulo `r.info` que permite conocer los metadatos de una capa ráster.
 
-![](/cartografia-digital/images/clase-03/clase-03_11.png){: .img-responsive}
+![](/cartografia-digital/images/clase-03/clase-03_12.png){: .img-responsive}
 
 Resaltamos la información del mapa:
 
@@ -230,25 +230,25 @@ La diferencia entre `FCELL` y `DCELL` radica en la precision decimal de uno y ot
 
 Esto se hace por medio de la calculadora raster `r.mapcalc`, la cual invocamos por medio del botón **Calculadora de mapas raster** ![](/cartografia-digital/images/clase-03/raster-calculator.png).
 
-![](/cartografia-digital/images/clase-03/clase-03_12.png){: .img-responsive}
+![](/cartografia-digital/images/clase-03/clase-03_13.png){: .img-responsive}
 
 * Indicamos el nombre del nuevo mapa que resultará de la operación.
 * Insertamos la función `double()` que convierte los datos de entrada al tipo **double precision**.
 * Insertamos el mapa raster existente en la fórmula.
 
-![](/cartografia-digital/images/clase-03/clase-03_13.png){: .img-responsive}
+![](/cartografia-digital/images/clase-03/clase-03_14.png){: .img-responsive}
 
 Al ejecutar la operación la consola nos informará de ello y la nueva capa será agregada al administrador de capas.
 
 Nótese que utilizamos el mismo nombre para el mapa resultante, pero dado que estamos trabajando en un **MAPSET** diferente al PERMANENT, se creará una copia del mapa original en el directorio de mapas actual.
 
-![](/cartografia-digital/images/clase-03/clase-03_14.png){: .img-responsive}
+![](/cartografia-digital/images/clase-03/clase-03_15.png){: .img-responsive}
 
 Podemos diferenciarlos pues GRASS pone el nombre del MAPSET después del nombre de la capa por medio de un `@`.
 
 Consultamos nuevamente la información del nuevo mapa:
 
-![](/cartografia-digital/images/clase-03/clase-03_15.png){: .img-responsive}
+![](/cartografia-digital/images/clase-03/clase-03_16.png){: .img-responsive}
 
 Y así comprobamos que los datos del archivo se transformaron de `CELL` a `DCELL`.
 
