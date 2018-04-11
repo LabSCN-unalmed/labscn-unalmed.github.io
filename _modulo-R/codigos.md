@@ -11,6 +11,9 @@ order: 3
 ## Ejemplo de la escalera
  - [Escalera](./codigos/escalera1.R)
  - [Funciones auxiliares](./codigos/funciones.R)
+ 
+## Tablero con la bolita que rebota
+ - [Bola que rebota](./codigos/quiz3.R)
 
 
 <!--

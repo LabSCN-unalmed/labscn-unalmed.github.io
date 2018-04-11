@@ -51,11 +51,16 @@ order: 01
 
   - [Definición del modelo Matérn](./guiones/modeloMatern.html)
 
-## Datos de elevación
+## Datos de elevación.
 
   - [Análisis, predicción y ajuste de datos de elevación](./guiones/elevacion3.html)
   - [Base de datos de elevación](./guiones/elevacion2.txt)
 
+## Ejemplo con datos anisotrópicos.
+
+ - [Análisis y preducción de datos anisotrópicos](./guiones/anisotropia1.html)
+ - [Datos](./guiones/ejemplo1.csv)
+ - [Imagen original](./guiones/anisotropico_BW_rot.png)
 
 <!---
 ## Análisis exploratorio de señales de wifi y celular
