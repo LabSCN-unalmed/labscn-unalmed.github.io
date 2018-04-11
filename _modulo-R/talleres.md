@@ -37,7 +37,12 @@ order: 5
    la base de datos:
    [Matrícula establecimientos educativos oficiales y no oficiales Municipio de Medellín 2017](https://www.datos.gov.co/Educaci-n/Matr-cula-establecimientos-educativos-oficiales-y-/6qaa-344w)
 
-   
+## Tercer taller individual (Quiz 3)   
+
+ * Dado el [siguiente código](./codigos/quiz3.R) que hace que una bolita rebote en 
+   los bordes de un tablero, modificar el código de tal manera que
+
+
 
 
 
