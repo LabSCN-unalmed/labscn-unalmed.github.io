@@ -60,7 +60,7 @@ order: 01
 
  - [Análisis y preducción de datos anisotrópicos](./guiones/anisotropia1.html)
  - [Datos](./guiones/ejemplo1.csv)
- - [Imagen original](./guiones/anisotropica_BW_rot.png)
+ - [Imagen original](./guiones/anisotropico_BW_rot.png)
 
 <!---
 ## Análisis exploratorio de señales de wifi y celular
