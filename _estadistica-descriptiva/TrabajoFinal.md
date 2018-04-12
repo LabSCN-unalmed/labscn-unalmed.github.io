@@ -15,7 +15,7 @@ order: 7
 
 ## Objetivo.
 
-Realizar una recolección datos, análisis descriptivo y
+Realizar una recolección de datos, análisis descriptivo y
 exploratorio, redactar conclusiones y realizar recomendaciones en
 cuanto al ruido en los alrededores del campus de
 la Universidad Nacional de Colombia, Sede Medellín, campus
