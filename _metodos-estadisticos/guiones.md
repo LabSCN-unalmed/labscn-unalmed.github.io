@@ -39,6 +39,12 @@ custom_js: 'mathjax'
 - [Base de datos de camarones](./guiones/camarones.xlsx)
 
 
+## Modelo con covariable
+
+- [Datos del resultado del experimento con viagra](./guiones/ViagraCovariate.dat)
+- [Experimento con viagra](./guiones/viagra.html)
+
+
 <!---
 ## Brillo en papel
 
