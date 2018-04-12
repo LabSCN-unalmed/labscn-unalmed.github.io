@@ -14,7 +14,9 @@ cuanto al ruido en los alrededores del campus de
 la Universidad Nacional de Colombia, Sede Medellín, campus
 El Volador.
 
+## Mapa.
 
+![](./basesdedatos/croquis_UN.png)
 
 ## Actividades.
 
