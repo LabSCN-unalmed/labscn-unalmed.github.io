@@ -5,8 +5,15 @@ curso: 'estadistica-descriptiva'
 order: 7
 ---
 
+## Contenido
+{: .no_toc}
 
-## Obetivo.
+* ToC
+{: toc}
+
+
+
+## Objetivo.
 
 Realizar una recolección datos, análisis descriptivo y
 exploratorio, redactar conclusiones y realizar recomendaciones en
