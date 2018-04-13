@@ -3,6 +3,7 @@ layout: clase
 title: 'Parámetros morfométricos del relieve'
 curso: 'cartografia-digital'
 clase: 4
+custom_js: 'mathjax'
 ---
 
 Un parámetro importante en la descripción cuantitativa del relieve es la pendiente. Con base en un mapa raster de altitudes (DSM o DTM) se puede calcular un mapa raster de pendiente; en este caso, se asigna un valor de pendiente a cada píxel.
@@ -136,11 +137,11 @@ Y construimos el mapa de pendientes.
 
 ![](/cartografia-digital/images/clase-04/clase-04_05.png){: .img-responsive}
 
-Visualizamos el mapa de pendientes en 2 y 3 dimensiones:
+Visualizamos el mapa de pendientes:
 
 ![2D](/cartografia-digital/images/clase-04/porcecito_slope_3.png){: .img-responsive}
 
-![3D](/cartografia-digital/images/clase-04/porcecito_slope_3_3D.png){: .img-responsive}
+<!-- ![3D](/cartografia-digital/images/clase-04/porcecito_slope_3_3D.png){: .img-responsive} -->
 
 **Nota:** [Recordar el procedimiento para la correcta visualización en 3D de un mapa que no contenga valores de altitud.](/cartografia-digital/clases/clase-03.html#el-mapa-de-relieve-relativo)
 {: .alert .alert-info}
@@ -186,6 +187,8 @@ Utilizando el mismo procedimiento que utilizamos para [reclasificar el mapa de r
 
 #### Con seis categorías: Mapa 1
 
+![](/cartografia-digital/images/clase-04/clase-04_06.png){: .img-responsive}
+
 ~~~
  0 thru  3 = 1 Pendientes muy suaves
  3 thru  7 = 2 Pendientes suaves
@@ -197,13 +200,15 @@ Utilizando el mismo procedimiento que utilizamos para [reclasificar el mapa de r
 
 ![2D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3.png){: .img-responsive}
 
-![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3D.png){: .img-responsive}
+<!-- ![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3D.png){: .img-responsive} -->
 
 La reclasificación de la pendiente en 6 rangos con los límites antes anotados genera un mapa de "sal y pimienta".
 
 Vamos a hacer una reclasificación más simple solo con tres categorías.
 
 #### Con tres categorías: Mapa 2
+
+![](/cartografia-digital/images/clase-04/clase-04_07.png){: .img-responsive}
 
 ~~~
  0 thru  7 = 1 Pendientes muy suaves y suaves
@@ -213,11 +218,13 @@ Vamos a hacer una reclasificación más simple solo con tres categorías.
 
 ![2D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_2.png){: .img-responsive}
 
-![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_2_3D.png){: .img-responsive}
+<!-- ![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_2_3D.png){: .img-responsive} -->
 
 El mapa con 3 categorías se torna más claro que el mapa con 6 categorías. Es frecuente que el excesivo detalle en la reclasificación de mapas no permite ver los patrones más frecuentes porque pasan desapercibidos debido a una excesiva reclasificación.
 
 #### Con tres categorías pero modificando sus límites: Mapa 3
+
+![](/cartografia-digital/images/clase-04/clase-04_08.png){: .img-responsive}
 
 ~~~
  0 thru 10 = 1 Pendientes muy suaves y suaves
@@ -227,7 +234,7 @@ El mapa con 3 categorías se torna más claro que el mapa con 6 categorías. Es 
 
 ![2D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3.png){: .img-responsive}
 
-![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3_3D.png){: .img-responsive}
+<!-- ![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3_3D.png){: .img-responsive} -->
 
 _**¿Cuáles son las diferencias mas importantes entre los tres mapas?**_<br>
 _**¿Qué características del terreno resaltan en un mapa que aparecen poco evidentes claras en otro?**_
@@ -254,7 +261,7 @@ Si obtenemos un reporte del mapa reclasificado de pendientes obtendremos la sigu
 
 Observemos que aparece una categoría para los valores `no data`. Esto se debe al efecto de borde, pues en los pixeles del borde del mapa no habrá un valor de pendiente.
 
-![](/cartografia-digital/images/clase-04/clase-04_06.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_09.png){: .img-responsive}
 
 Para omitir los pixeles nulos del reporte utilizamos la opción de no reportar los valores sin datos (nulos) de la pestaña _No data_ de la herramienta `r.report`.
 
@@ -333,13 +340,17 @@ De acuerdo con la clasificación de Ruhe (1975) se puede inferir fácilmente:
 
 ### Cálculo de la curvatura de perfil (vertical) {#calculo-curvatura-perfil}
 
-Utilizando la herramienta `r.param.scale` indicamos que vamos a extraer el parámetro `profc` con una ventana móvil de procesamiento de tamaño de 7x7 pixeles.
+Utilizando la herramienta `r.param.scale` vamos a calcular el parámetro `profc` con una ventana móvil de procesamiento de tamaño de 7x7 pixeles, e indicamos un nombre descriptivo para el mapa que obtendremos, haciendo referencia al parámetro y al tamaño de la ventana móvil de procesamiento.
 
-![](/cartografia-digital/images/clase-04/clase-04_07.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_10.png){: .img-responsive}
 
-Definimos el nombre del mapa de salida para que refleje el parámetro y el tamaño de la ventana móvil de procesamiento.
+En la pestaña _Optional_ indicamos el parámetro a extraer y el tamaño de la ventana móvil a utilizar.
 
-![](/cartografia-digital/images/clase-04/clase-04_08.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_11.png){: .img-responsive}
+
+Y ejecutamos la herramienta:
+
+![](/cartografia-digital/images/clase-04/clase-04_12.png){: .img-responsive}
 
 Recordemos el significado de los valores positivos (curvatura convexa) y negativos (curvatura cóncava) para la curvatura vertical de acuerdo a lo definido para este parámetro al inicio de la clase:
 
@@ -349,9 +360,9 @@ Recordemos el significado de los valores positivos (curvatura convexa) y negativ
 
 El mapa de curvatura de perfil debe reclasificarse al menos en 3 categorías principales:
 
-- Las curvaturas convexas.
-- Las curvaturas planares.
-- Las curvaturas cóncavas.
+- Las curvaturas convexas (positivas).
+- Las curvaturas planares (cercanas a 0).
+- Las curvaturas cóncavas (negativas).
 
 También se pueden emplear más rangos si se desean diferenciar las curvaturas convexas y cóncavas, entre aquellas que son muy abiertas y aquellas que son muy cerradas.
 
@@ -359,19 +370,19 @@ Lo primero que debemos hacer para poder llevar a cabo esta reclasificación, es 
 
 Pero no es suficiente la estadística univariada que se obtiene de manera regular por el menú contextual de la capa, es necesario invocar la herramienta de estadística `r.univar` para indicar que deseamos una estadística extendida, que incluye los cuartiles y el valor correspondiente al percentil 90% de los datos.
 
-![](/cartografia-digital/images/clase-04/clase-04_09.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_13.png){: .img-responsive}
 
 En ella indicamos el nombre de la capa raster a la cual le deseamos obtener la estadística.
 
-![](/cartografia-digital/images/clase-04/clase-04_10.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_14.png){: .img-responsive}
 
 Y en la pestaña _Extended_ activamos la opción para estadística extendida, opcionalmente acá podemos indicar cual o cuales percentiles queremos reportar.
 
-![](/cartografia-digital/images/clase-04/clase-04_11.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_15.png){: .img-responsive}
 
 Al ejecutar la orden, obtenemos el resultado.
 
-![](/cartografia-digital/images/clase-04/clase-04_12.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_16.png){: .img-responsive}
 
 ~~~
 total null and non-null cells: 1420848
@@ -404,17 +415,17 @@ Para poder reclasificar este mapa, necesitamos que los valores de curvatura sean
 
 Para escalar el mapa, debemos de multiplicarlo por un factor de manera que el valor promedio sea del órden de las décimas para poder utilizar rangos enteros en la tabla de reclasificación.
 
-Esto lo haremos por medio de la **Calculadora de mapas raster** ![](/cartografia-digital/images/clase-03/raster-calculator.png) multiplicando el mapa original por 10^5.
+Esto lo haremos por medio de la **Calculadora de mapas raster** ![](/cartografia-digital/images/clase-03/raster-calculator.png) multiplicando el mapa original por $10^5$.
 
-![](/cartografia-digital/images/clase-04/clase-04_13.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_17.png){: .img-responsive}
 
 Y volvemos a calcular los estadísticos de la nueva capa para definir las reglas de reclasificación.
 
-![](/cartografia-digital/images/clase-04/clase-04_14.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_18.png){: .img-responsive}
 
 Observemos que el mapa no se está modificando drásticamente, pues sólo cambiamos la escala de sus valores, que ahora son más manejables para hacer la reclasificación. En los nuevos valores de curvatura, el promedio (`mean`) ya se encuentra en el órden de las decenas y podemos especificar los rangos de reclasificación.
 
-![](/cartografia-digital/images/clase-04/clase-04_15.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_19.png){: .img-responsive}
 
 ~~~
 total null and non-null cells: 1420848
@@ -443,11 +454,11 @@ La clasificación de las curvaturas de perfil `profc` y plana `planc` presuponen
 
 Para la región de Porcecito en el departamento de Antioquia, vamos a considerar que las curvaturas de perfil cóncavas tienen pesos del órden del 40%, las curvaturas rectilíneas un peso del 20% y las curvaturas convexas un peso del 40%. Esta información es la que proviene de la experiencia de campo para incorporar al análisis computacional.
 
-![](/cartografia-digital/images/clase-04/clase-04_16.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_20.png){: .img-responsive}
 
 Utilizando el parámetro `percentile` de la herramienta `r.univar` podemos calcular los valores correspondientes a los percentiles 40% y 60% del mapa de curvatura vertical que dividen el rango de valores en 40% - 20% - 40%.
 
-![](/cartografia-digital/images/clase-04/clase-04_17.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_21.png){: .img-responsive}
 
 ~~~
 total null and non-null cells: 1420848
@@ -472,26 +483,34 @@ median (even number of cells): -19.1911
 ~~~
 {: .output}
 
-Las reglas de reclasificación propuestas se indican a continuación, redondeando los valores calculados a un valor entero.
+Puesto que la idea es que el límite sea simétrico con respecto al 0 absoluto, utilizaremos el valor promedio entre los percentiles 40 y 60 (en valor absoluto):
 
-![](/cartografia-digital/images/clase-04/clase-04_18.png){: .img-responsive}
+$$
+\frac{51.5463 + 13.6386}{2} = \frac{65.1849}{2} = 32.59245 \approx 33
+$$
+
+Las reglas de reclasificación propuestas se indican a continuación, utilizando el límite calculado tanto positivo como negativo.
+
+![](/cartografia-digital/images/clase-04/clase-04_22.png){: .img-responsive}
 
 ~~~
--1783 thru  -51 = -1 Concavo
-  -51 thru   14 =  0 Planar
-   14 thru 1920 =  1 Convexo
+-1783 thru  -33 = -1 Concavo
+  -33 thru   33 =  0 Planar
+   33 thru 1920 =  1 Convexo
 ~~~
 
 El reporte de las categorías sería el siguiente:
+
+![](/cartografia-digital/images/clase-04/clase-04_23.png){: .img-responsive}
 
 ~~~
 +-----------------------------------------------------------------------------+
 |               Category Information                |  square  |   cell|   %  |
 | #|description                                     |kilometers|  count| cover|
 |-----------------------------------------------------------------------------|
-|-1|Concavo. . . . . . . . . . . . . . . . . . . . .| 525.46304| 562810| 40.01|
-| 0|Planar . . . . . . . . . . . . . . . . . . . . .| 261.97247| 280592| 19.95|
-| 1|Convexo. . . . . . . . . . . . . . . . . . . . .| 525.79542| 563166| 40.04|
+|-1|Concavo. . . . . . . . . . . . . . . . . . . . .| 597.79135| 640279| 45.52|
+| 0|Planar . . . . . . . . . . . . . . . . . . . . .| 259.02683| 277437| 19.72|
+| 1|Convexo. . . . . . . . . . . . . . . . . . . . .| 456.41275| 488852| 34.75|
 |-----------------------------------------------------------------------------|
 |TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
@@ -502,7 +521,7 @@ El mapa reclasificado obtenido es el siguiente:
 
 ![2D](/cartografia-digital/images/clase-04/porcecito_profc_7.png){: .img-responsive}
 
-![3D](/cartografia-digital/images/clase-04/porcecito_profc_7_3D.png){: .img-responsive}
+<!-- ![3D](/cartografia-digital/images/clase-04/porcecito_profc_7_3D.png){: .img-responsive} -->
 
 El mapa de la curvatura vertical muestra claramente la diferencia entre concavidades pertenecientes a valles y convexidades perteneciente a divisorias de agua ubicadas en cimas de colinas.
 
@@ -516,13 +535,17 @@ El mapa de la curvatura vertical muestra claramente la diferencia entre concavid
 
 ### Cálculo de la curvatura plana (horizontal) {#calculo-curvatura-plana}
 
-Utilizando la herramienta `r.param.scale` indicamos que vamos a extraer el parámetro `planc` con una ventana móvil de procesamiento de tamaño de 7x7 pixeles.
+Utilizando la herramienta `r.param.scale` vamos a calcular el parámetro `planc` con una ventana móvil de procesamiento de tamaño de 7x7 pixeles, e indicamos un nombre descriptivo para el mapa que obtendremos, haciendo referencia al parámetro y al tamaño de la ventana móvil de procesamiento.
 
-![](/cartografia-digital/images/clase-04/clase-04_19.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_24.png){: .img-responsive}
 
-Definimos el nombre del mapa de salida para que refleje el parámetro y el tamaño de la ventana móvil de procesamiento.
+En la pestaña _Optional_ indicamos el parámetro a extraer y el tamaño de la ventana móvil a utilizar.
 
-![](/cartografia-digital/images/clase-04/clase-04_20.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_25.png){: .img-responsive}
+
+Y ejecutamos la herramienta:
+
+![](/cartografia-digital/images/clase-04/clase-04_26.png){: .img-responsive}
 
 Recordemos el significado de los valores positivos (curvatura cóncava) y negativos (curvatura convexa) para la curvatura horizontal de acuerdo a lo definido para este parámetro al inicio de la clase:
 
@@ -535,17 +558,17 @@ Nótese que los signos positivo y negativo tienen significado opuesto en las cur
 
 Vamos a emplear las mismas 3 categorías de curvatura para el caso de la curvatura plana:
 
-- Las curvaturas convexas.
-- Las curvaturas planares.
-- Las curvaturas cóncavas.
+- Las curvaturas convexas (negativas).
+- Las curvaturas planares (cercanas a 0).
+- Las curvaturas cóncavas (positivas).
 
 Consultamos la estadística extendida del mapa obtenido.
 
-![](/cartografia-digital/images/clase-04/clase-04_21.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_27.png){: .img-responsive}
 
 Y obtenemos:
 
-![](/cartografia-digital/images/clase-04/clase-04_22.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_28.png){: .img-responsive}
 
 ~~~
 total null and non-null cells: 1420848
@@ -573,11 +596,15 @@ median (even number of cells): -0.000227176
 
 De igual manera que hicimos con el mapa de curvatura de perfil debemos escalar los valores del mapa de curvatura plana porque el valor promedio (`mean`) es muy cercano a cero.
 
-![](/cartografia-digital/images/clase-04/clase-04_23.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_29.png){: .img-responsive}
 
 Y calculamos nuevamente los estadísticos para definir las reglas de reclasificación utilizando los mismos pesos (40% - 20% - 40%).
 
-![](/cartografia-digital/images/clase-04/clase-04_24.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_30.png){: .img-responsive}
+
+Y obtenemos:
+
+![](/cartografia-digital/images/clase-04/clase-04_31.png){: .img-responsive}
 
 ~~~
 total null and non-null cells: 1420848
@@ -602,26 +629,34 @@ median (even number of cells): -22.7176
 ~~~
 {: .output}
 
+De igual manera que con la curvatura de perfil, la idea es que el límite sea simétrico con respecto al 0 absoluto, utilizaremos el valor promedio entre los percentiles 40 y 60 (en valor absoluto):
+
+$$
+\frac{218.711 + 173.238}{2} = \frac{391.949}{2} = 195.9745 \approx 196
+$$
+
 Las reglas de reclasificación se indican a continuación.
 
-![](/cartografia-digital/images/clase-04/clase-04_25.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_32.png){: .img-responsive}
 
 ~~~
--1920000 thru    -219 = -1 Convexo
-    -219 thru     173 =  0 Planar
-     173 thru 1287280 =  1 Concavo
+-1920000 thru    -196 = -1 Convexo
+    -196 thru     196 =  0 Planar
+     196 thru 1287280 =  1 Concavo
 ~~~
 
 Se reclasifica el mapa de acuerdo a las reglas definidas, y se obtiene un reporte de la distribución de las categorías.
+
+![](/cartografia-digital/images/clase-04/clase-04_33.png){: .img-responsive}
 
 ~~~
 +-----------------------------------------------------------------------------+
 |               Category Information                |  square  |   cell|   %  |
 | #|description                                     |kilometers|  count| cover|
 |-----------------------------------------------------------------------------|
-|-1|Convexo. . . . . . . . . . . . . . . . . . . . .| 524.76748| 562065| 39.96|
-| 0|Planar . . . . . . . . . . . . . . . . . . . . .| 262.69791| 281369| 20.00|
-| 1|Concavo. . . . . . . . . . . . . . . . . . . . .| 525.76554| 563134| 40.04|
+|-1|Convexo. . . . . . . . . . . . . . . . . . . . .| 539.55637| 577905| 41.09|
+| 0|Planar . . . . . . . . . . . . . . . . . . . . .| 262.31231| 280956| 19.97|
+| 1|Concavo. . . . . . . . . . . . . . . . . . . . .| 511.36225| 547707| 38.94|
 |-----------------------------------------------------------------------------|
 |TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
@@ -632,7 +667,7 @@ El mapa reclasificado obtenido es el siguiente:
 
 ![2D](/cartografia-digital/images/clase-04/porcecito_planc_7.png){: .img-responsive}
 
-![3D](/cartografia-digital/images/clase-04/porcecito_planc_7_3D.png){: .img-responsive}
+<!-- ![3D](/cartografia-digital/images/clase-04/porcecito_planc_7_3D.png){: .img-responsive} -->
 
 Observar que haciendo zoom en sectores del mapa se pueden observar rasgos específicos del relieve.
 
@@ -719,24 +754,26 @@ tipo_vert = profc + planc * 3
 
 La cual podemos efectuar utilizando la **Calculadora de mapas raster** ![](/cartografia-digital/images/clase-03/raster-calculator.png).
 
-![](/cartografia-digital/images/clase-04/clase-04_26.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_34.png){: .img-responsive}
 
 Visualizamos la distribución de los tipos de vertientes en el mapa `porcecito_tipo_vert`:
+
+![](/cartografia-digital/images/clase-04/clase-04_35.png){: .img-responsive}
 
 ~~~
 +-----------------------------------------------------------------------------+
 |               Category Information                |  square  |   cell|   %  |
 | #|description                                     |kilometers|  count| cover|
 |-----------------------------------------------------------------------------|
-|-4| . . . . . . . . . . . . . . . . . . . . . . . .| 143.33645| 153524| 10.91|
-|-3| . . . . . . . . . . . . . . . . . . . . . . . .|  93.60041| 100253|  7.13|
-|-2| . . . . . . . . . . . . . . . . . . . . . . . .| 287.83062| 308288| 21.92|
-|-1| . . . . . . . . . . . . . . . . . . . . . . . .| 108.79263| 116525|  8.28|
-| 0| . . . . . . . . . . . . . . . . . . . . . . . .|  59.16209|  63367|  4.51|
-| 1| . . . . . . . . . . . . . . . . . . . . . . . .|  94.74319| 101477|  7.21|
-| 2| . . . . . . . . . . . . . . . . . . . . . . . .| 273.33396| 292761| 20.81|
-| 3| . . . . . . . . . . . . . . . . . . . . . . . .| 109.20997| 116972|  8.32|
-| 4| . . . . . . . . . . . . . . . . . . . . . . . .| 143.22161| 153401| 10.91|
+|-4| . . . . . . . . . . . . . . . . . . . . . . . .| 173.50989| 185842| 13.21|
+|-3| . . . . . . . . . . . . . . . . . . . . . . . .| 101.93410| 109179|  7.76|
+|-2| . . . . . . . . . . . . . . . . . . . . . . . .| 264.11238| 282884| 20.11|
+|-1| . . . . . . . . . . . . . . . . . . . . . . . .| 126.31429| 135292|  9.62|
+| 0| . . . . . . . . . . . . . . . . . . . . . . . .|  58.06600|  62193|  4.42|
+| 1| . . . . . . . . . . . . . . . . . . . . . . . .|  77.93203|  83471|  5.93|
+| 2| . . . . . . . . . . . . . . . . . . . . . . . .| 297.96717| 319145| 22.69|
+| 3| . . . . . . . . . . . . . . . . . . . . . . . .|  99.02674| 106065|  7.54|
+| 4| . . . . . . . . . . . . . . . . . . . . . . . .| 114.36834| 122497|  8.71|
 |-----------------------------------------------------------------------------|
 |TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
@@ -745,15 +782,15 @@ Visualizamos la distribución de los tipos de vertientes en el mapa `porcecito_t
 
 Para asignarle etiquetas a las categorías del nuevo mapa, utilizamos la  herramienta `r.category` que abrimos desde el menú _Raster -> Change category values and labels -> Manage category information_.
 
-![](/cartografia-digital/images/clase-04/clase-04_27.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_36.png){: .img-responsive}
 
 En la herramienta seleccionamos el mapa de tipos de vertiente.
 
-![](/cartografia-digital/images/clase-04/clase-04_28.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_37.png){: .img-responsive}
 
 Y en la pestaña _Define_ especificamos las etiquetas de las categorías indicando el valor de la categoría separando la etiqueta con una tabulación.
 
-![](/cartografia-digital/images/clase-04/clase-04_29.png){: .img-responsive}
+![](/cartografia-digital/images/clase-04/clase-04_38.png){: .img-responsive}
 
 ~~~
 -4	VX
@@ -769,20 +806,22 @@ Y en la pestaña _Define_ especificamos las etiquetas de las categorías indican
 
 Consultamos la distribución nuevamente:
 
+![](/cartografia-digital/images/clase-04/clase-04_39.png){: .img-responsive}
+
 ~~~
 +-----------------------------------------------------------------------------+
 |               Category Information                |  square  |   cell|   %  |
 | #|description                                     |kilometers|  count| cover|
 |-----------------------------------------------------------------------------|
-|-4|VX . . . . . . . . . . . . . . . . . . . . . . .| 143.33645| 153524| 10.91|
-|-3|RX . . . . . . . . . . . . . . . . . . . . . . .|  93.60041| 100253|  7.13|
-|-2|XX . . . . . . . . . . . . . . . . . . . . . . .| 287.83062| 308288| 21.92|
-|-1|VR . . . . . . . . . . . . . . . . . . . . . . .| 108.79263| 116525|  8.28|
-| 0|RR . . . . . . . . . . . . . . . . . . . . . . .|  59.16209|  63367|  4.51|
-| 1|XR . . . . . . . . . . . . . . . . . . . . . . .|  94.74319| 101477|  7.21|
-| 2|VV . . . . . . . . . . . . . . . . . . . . . . .| 273.33396| 292761| 20.81|
-| 3|RV . . . . . . . . . . . . . . . . . . . . . . .| 109.20997| 116972|  8.32|
-| 4|XV . . . . . . . . . . . . . . . . . . . . . . .| 143.22161| 153401| 10.91|
+|-4|VX . . . . . . . . . . . . . . . . . . . . . . .| 173.50989| 185842| 13.21|
+|-3|RX . . . . . . . . . . . . . . . . . . . . . . .| 101.93410| 109179|  7.76|
+|-2|XX . . . . . . . . . . . . . . . . . . . . . . .| 264.11238| 282884| 20.11|
+|-1|VR . . . . . . . . . . . . . . . . . . . . . . .| 126.31429| 135292|  9.62|
+| 0|RR . . . . . . . . . . . . . . . . . . . . . . .|  58.06600|  62193|  4.42|
+| 1|XR . . . . . . . . . . . . . . . . . . . . . . .|  77.93203|  83471|  5.93|
+| 2|VV . . . . . . . . . . . . . . . . . . . . . . .| 297.96717| 319145| 22.69|
+| 3|RV . . . . . . . . . . . . . . . . . . . . . . .|  99.02674| 106065|  7.54|
+| 4|XV . . . . . . . . . . . . . . . . . . . . . . .| 114.36834| 122497|  8.71|
 |-----------------------------------------------------------------------------|
 |TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
@@ -822,4 +861,26 @@ En el mapa `ituango` definir 3 cultivos distintos para 3 rangos altitudinales di
 * Un documento en formato `.pdf` que contenga:
   - La justificación de los rangos utilizados en la elaboración de los mapas.
   - Una tabla con las extensiones de cada uso y el porcentaje ocupado respecto al mapa `ituango`.
-  - Conclusiones y recomendaciones. -->
+  - Conclusiones y recomendaciones.
+
+## Relación entre curvatura de perfil y pendiente y sus potenciales significados {#relacion-curvatura-perfil-pendiente}
+
+Profc:
+
+~~~
+min thru
+~~~
+
+Slope:
+
+~~~
+0 thru 7 = 1
+7 thru 19 = 2
+19 thru 35 = 3
+35 thru max = 4
+~~~
+
+Combinar...
+
+De las 20 categorías las que den con menos de 2% y sean de la misma curvatura y pendientes adyacentes se unificarán.
+-->
