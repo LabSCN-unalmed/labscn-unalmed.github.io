@@ -6,6 +6,7 @@ order: 7
 ---
 
 ## Contenido
+
 {: .no_toc}
 
 * ToC
@@ -74,7 +75,8 @@ El Volador.
         cuadrado de 5 metros por 5 metros.
 
     + Se deberá elaborar un cronograma para tomar por cada combinación
-      de unidad experimental y perido un mínimo de 10 minutos 5 veces.
+      de unidad experimental y perido un mínimo de cinco (5) minutos
+      cinco (5) veces.
 
 ## Recursos.
 
