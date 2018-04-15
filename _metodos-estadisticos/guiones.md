@@ -50,6 +50,11 @@ custom_js: 'mathjax'
 - [Experimento $$2^k$$ sobre conversiones](./guiones/conversion.html)
 - [Datos sobre conversiones](./guiones/conversion.xlsx)
 
+## Modelo con diseño fraccionado
+
+- [Experimento de tasa de filtración](./guiones/tasaFiltracion.html)
+- [Datos de tasa de filtración (1ra Etapa)](./guiones/tasaFiltracion.xlsx)
+- [Datos de tasa de filtración (2da Etapa)](./guiones/tasaFiltracion2.xlsx)
 
 
 <!---
