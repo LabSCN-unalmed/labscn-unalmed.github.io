@@ -22,8 +22,8 @@ Technometrics, February 1993, Vol. 35. Nro 1.
 
 ## Artículos sobre transformaciones de variables respuesta.
 
-- [On the use of log-transfomation versus nonlinear regression for analysing biological power laws](./docs/On_the_use_of_log-transformation_versus_nonlinear_regression_for_analyzing_biological_power_laws.pdf)
 - [log-transfomation and its implications for data analysis](./docs/log-transfomation_and_its_implications_for_data_analysis.pdf)
+- [On the use of log-transfomation versus nonlinear regression for analysing biological power laws](./docs/On_the_use_of_log-transformation_versus_nonlinear_regression_for_analyzing_biological_power_laws.pdf)
 
 ## Tablas guías para parámetros gráficos
 
