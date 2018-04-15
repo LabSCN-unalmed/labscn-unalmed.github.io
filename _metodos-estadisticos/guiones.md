@@ -41,8 +41,15 @@ custom_js: 'mathjax'
 
 ## Modelo con covariable
 
-- [Datos del resultado del experimento con viagra](./guiones/ViagraCovariate.dat)
 - [Experimento con viagra](./guiones/viagra.html)
+- [Datos del resultado del experimento con viagra](./guiones/ViagraCovariate.dat)
+
+
+## Modelo con diseños $$2^k$$
+
+- [Experimento $$2^k$$ sobre conversiones](./guiones/conversion.html)
+- [Datos sobre conversiones](./guiones/conversion.xlsx)
+
 
 
 <!---
