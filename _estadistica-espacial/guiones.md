@@ -62,6 +62,12 @@ order: 01
  - [Datos](./guiones/ejemplo1.csv)
  - [Imagen original](./guiones/anisotropico_BW_rot.png)
 
+## Ejemplo con covariable en permeabilidad.
+
+ - [Análisis y predicción con covariable](./guiones/ZonaA4.html)
+
+
+
 <!---
 ## Análisis exploratorio de señales de wifi y celular
 
