@@ -84,7 +84,12 @@ El Volador.
  - [Contaminación acústica](http://contaminacionacustica.net/como-medir-el-ruido-con-sonometros/)
  - [Ruido en el trabajo](http://www.construmatica.com/construpedia/El_Ruido_en_el_Trabajo._Alcance_de_un_Problema_Global)
 
+## Ejemplo de calibración de celulares
 
+- [Calibración de celulares](./guiones/trabajo_final_4.html)
+- [Celular 1](.basededatos/celular1.csv)
+- [Celular 2](.basededatos/celular2.csv)
+- [Celular 3](.basededatos/celular3.csv)
 
 ## Fecha de entrega y presentación.
 
