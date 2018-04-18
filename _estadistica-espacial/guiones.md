@@ -68,6 +68,10 @@ order: 01
  - [Segundo análisis y predicción imponiendo modelo](./guiones/conCovariable.html)
 
 
+## Manejo de datos espaciales en R.
+
+- [Manejo de datos espaciales](./guiones/tiposDatosEspacialesenR.html)
+
 <!---
 ## Análisis exploratorio de señales de wifi y celular
 
