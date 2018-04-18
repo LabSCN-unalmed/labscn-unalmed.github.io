@@ -35,6 +35,11 @@ Jueves 15 de febrero de 2018 antes de las 23:59 hora de Colombia,
 al correo **krcabrer@unal.edu.co** y
 no olvidar en asunto la sigla **[MEDE]**.
 
+## Taller individual 3
+
+- [Enunciado y fecha de entrega](./talleres/taller1_hinchamiento.html)
+- [Base de datos](./talleres/hinchamiento.xlsx)
+- [Asignación](./talleres/asignacion.xlsx)
 
 
 <!---
