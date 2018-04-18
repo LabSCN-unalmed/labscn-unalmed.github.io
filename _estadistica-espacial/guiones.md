@@ -71,6 +71,10 @@ order: 01
 ## Manejo de datos espaciales en R.
 
 - [Manejo de datos espaciales](./guiones/tiposDatosEspacialesenR.html)
+- [Datos de ubicaciones de espejos del CRAN](./datos/CRANO51001a.txt)
+- [Datos de la trayectoria de la tortuga](./datos/seamap105_mod.csv)
+- [Croquis de Nuweva Zelanda](./datos/auckland_mapgen.dat)
+
 
 <!---
 ## Análisis exploratorio de señales de wifi y celular
