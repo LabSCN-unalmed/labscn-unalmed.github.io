@@ -65,7 +65,7 @@ order: 01
 ## Ejemplo con covariable en permeabilidad.
 
  - [Análisis y predicción con covariable](./guiones/ZonaA4.html)
-
+ - [Segundo análisis y predicción imponiendo modelo](./guiones/conCovariable.html)
 
 
 <!---
