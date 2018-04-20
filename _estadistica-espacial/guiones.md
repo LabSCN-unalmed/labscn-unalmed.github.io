@@ -77,6 +77,9 @@ order: 01
 
 ## Manejo de datos espaciales en R (II)
 
+ - [Manejo de datos espaciales II](./guiones/tipos_datos2.html)
+ - [Manejo de datos espaciales III](./guiones/tipos_datos3.html)
+ - [Mapa comprimido de municipios de Antioquia](./datos/Antioquia.zip)
  - [Mapa de elevación digital de Antioquia (300m x 300 m)](https://www.dropbox.com/s/45it8pbwrk9f193/ant300.tif?dl=0)
 
 <!---
