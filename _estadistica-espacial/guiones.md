@@ -75,6 +75,9 @@ order: 01
 - [Datos de la trayectoria de la tortuga](./datos/seamap105_mod.csv)
 - [Croquis de Nueva Zelanda](./datos/auckland_mapgen.dat)
 
+## Manejo de datos espaciales en R (II)
+
+ - [Mapa de elevación digital de Antioquia (300m x 300 m)](https://www.dropbox.com/s/45it8pbwrk9f193/ant300.tif?dl=0)
 
 <!---
 ## Análisis exploratorio de señales de wifi y celular
