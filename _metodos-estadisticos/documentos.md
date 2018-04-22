@@ -27,7 +27,7 @@ Technometrics, February 1993, Vol. 35. Nro 1.
 
 ## Algunos elementos de diagnósticos de modelos.
 
- -[Ejemplo de diagnósticos](./docs/diagnosticos.html)
+ - [Ejemplo de diagnósticos](./docs/diagnosticos.html)
 
 ## Tablas guías para parámetros gráficos
 
