@@ -57,6 +57,14 @@ custom_js: 'mathjax'
 - [Datos de tasa de filtración (2da Etapa)](./guiones/tasaFiltracion2.xlsx)
 
 
+## Superficie de respuesta I
+
+- [Reacción Química](./guiones/superficieRtaI.html)
+- [Base de datos de reacción química (Primera Etapa)](./guiones/reaccionQuimicaI.xlsx)
+- [Base de datos de reacción química (Segunda Etapa)](./guiones/reaccionQuimicaII.xlsx)
+
+
+
 <!---
 ## Brillo en papel
 
