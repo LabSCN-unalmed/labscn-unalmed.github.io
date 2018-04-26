@@ -134,7 +134,16 @@ $(document).ready(function () {
 </div>
 
 <pre class="r"><code>library(readxl)
-library(rsm)</code></pre>
+library(rsm)
+library(car)</code></pre>
+<pre><code>## Loading required package: carData</code></pre>
+<pre class="r"><code>library(lmtest)</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: 'zoo'</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     as.Date, as.Date.numeric</code></pre>
 <div id="lectura-de-la-base-de-datos" class="section level2">
 <h2>Lectura de la base de datos</h2>
 <pre class="r"><code>library(readxl)
@@ -178,16 +187,6 @@ as.data.frame(rq1C)</code></pre>
 ## 5  0  0        83.9
 ## 6  0  0        84.3
 ## 7  0  0        84.0</code></pre>
-<pre class="r"><code># Muestra la codificación correspondiente
-as.data.frame(rq1C)</code></pre>
-<pre><code>##   x1 x2 Rendimiento
-## 1 -1 -1        80.5
-## 2 -1  1        81.5
-## 3  1 -1        82.0
-## 4  1  1        83.5
-## 5  0  0        83.9
-## 6  0  0        84.3
-## 7  0  0        84.0</code></pre>
 </div>
 <div id="modelizacion" class="section level2">
 <h2>Modelización</h2>
@@ -195,8 +194,22 @@ as.data.frame(rq1C)</code></pre>
 # Otros modelos son:
 # TWI : (two-way interaction). Interacción doble.
 # PQ  : (pure cuadratic). Cuadrático puro.
-# SO  : (second-order). Segundo orden  =  FO + TWI + PQ
-m1.rq1 &lt;- rsm(Rendimiento ~ FO(x1, x2), data = rq1C)
+# SO  : (second-order). Segundo orden  =  FO + TWI + PQ</code></pre>
+<p>FO:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
+\]</span></p>
+<p>TWI:</p>
+<p><span class="math display">\[
+y = \beta_0 +  \beta_3 x_1 x_2 + \epsilon 
+\]</span> PQ:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_4 x_1^2 + \beta_5 x_2^2  + \epsilon 
+\]</span> SO:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 x_2 + \beta_4 x_1^2 + \beta_5 x_2^2 + \epsilon 
+\]</span></p>
+<pre class="r"><code>m1.rq1 &lt;- rsm(Rendimiento ~ FO(x1, x2), data = rq1C)
 summary(m1.rq1)</code></pre>
 <pre><code>## 
 ## Call:
@@ -449,14 +462,8 @@ steepest(m3.rq2)</code></pre>
 ## 
 ## data:  rstudent(m3.rq2)
 ## W = 0.9245, p-value = 0.2551</code></pre>
-<pre class="r"><code>library(lmtest)</code></pre>
-<pre><code>## Loading required package: zoo</code></pre>
-<pre><code>## 
-## Attaching package: 'zoo'</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     as.Date, as.Date.numeric</code></pre>
-<pre class="r"><code>bptest(m3.rq2)</code></pre>
+<pre class="r"><code>library(lmtest)
+bptest(m3.rq2)</code></pre>
 <pre><code>## 
 ##  studentized Breusch-Pagan test
 ## 
@@ -469,9 +476,8 @@ bptest(m3.rq2, studentize = FALSE)</code></pre>
 ## 
 ## data:  m3.rq2
 ## BP = 3.7093, df = 6, p-value = 0.7159</code></pre>
-<pre class="r"><code>library(car)</code></pre>
-<pre><code>## Loading required package: carData</code></pre>
-<pre class="r"><code>ncvTest(m3.rq2)</code></pre>
+<pre class="r"><code>library(car)
+ncvTest(m3.rq2)</code></pre>
 <pre><code>## Non-constant Variance Score Test 
 ## Variance formula: ~ fitted.values 
 ## Chisquare = 1.241426    Df = 1     p = 0.2651965</code></pre>
