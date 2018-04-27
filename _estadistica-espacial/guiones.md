@@ -85,7 +85,7 @@ order: 01
 
 ## Predicción con el geoR para un polígono.
 
- - [Geoestadística con datos en un pológono](./guiones/geoR_data_spatial.html)
+ - [Geoestadística con datos en un polígono](./guiones/geoR_data_spatial.html)
 
 ## Estimación del tamaño de muestra.
 
