@@ -82,6 +82,10 @@ order: 01
  - [Mapa comprimido de municipios de Antioquia](./datos/Antioquia.zip)
  - [Mapa de elevación digital de Antioquia (300m x 300 m)](https://www.dropbox.com/s/45it8pbwrk9f193/ant300.tif?dl=0)
 
+## Predicción con el geoR para un polígono.
+
+ - [Geoestadística con datos en un pológono](./guiones/geoR_data_spatial.html)
+
 <!---
 ## Análisis exploratorio de señales de wifi y celular
 
