@@ -65,6 +65,7 @@ order: 01
 ## Ejemplo con covariable en permeabilidad.
 
  - [Análisis y predicción con covariable](./guiones/ZonaA4.html)
+   [Base de datos para predecir](./datos/gzonaApred.csv)
  - [Segundo análisis y predicción imponiendo modelo](./guiones/conCovariable.html)
 
 
@@ -85,6 +86,10 @@ order: 01
 ## Predicción con el geoR para un polígono.
 
  - [Geoestadística con datos en un pológono](./guiones/geoR_data_spatial.html)
+
+## Estimación del tamaño de muestra.
+
+ - [Estimación del tamaño de muestra](./guiones/Tam_de_muestra.html)
 
 <!---
 ## Análisis exploratorio de señales de wifi y celular
