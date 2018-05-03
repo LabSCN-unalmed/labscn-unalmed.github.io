@@ -63,6 +63,16 @@ custom_js: 'mathjax'
 - [Base de datos de reacción química (Primera Etapa)](./guiones/reaccionQuimicaI.xlsx)
 - [Base de datos de reacción química (Segunda Etapa)](./guiones/reaccionQuimicaII.xlsx)
 
+## Superficie de respuesta II
+
+- [Horneo de tortas](./guiones/horneo.html)
+- [Datos etapa 1](./guiones/experimento1_realizado.csv)
+- [Datos etapa 2](./guiones/experimento2_realizado.csv)
+- [Datos etapa 3](./guiones/experimento3_realizado.csv)
+- [Datos etapa 4](./guiones/experimento4_realizado.csv)
+- [Datos etapa 5](./guiones/experimento5_realizado.csv)
+- [Datos etapa 6](./guiones/experimento6_realizado.csv)
+- [Datos etapa 7](./guiones/experimento7_realizado.csv)
 
 
 <!---
