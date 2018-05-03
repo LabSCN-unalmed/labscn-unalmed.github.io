@@ -85,11 +85,16 @@ order: 01
 
 ## Predicción con el geoR para un polígono.
 
- - [Geoestadística con datos en un pológono](./guiones/geoR_data_spatial.html)
+ - [Geoestadística con datos en un polígono](./guiones/geoR_data_spatial.html)
 
 ## Estimación del tamaño de muestra.
 
  - [Estimación del tamaño de muestra](./guiones/Tam_de_muestra.html)
+
+## Patrones de puntos
+
+  - [Modelización para patrones de puntos](./guiones/patrones_de_puntos.html)
+  - [Base de datos](./datos/Hp.csv)
 
 <!---
 ## Análisis exploratorio de señales de wifi y celular
