@@ -96,6 +96,12 @@ order: 01
   - [Modelización para patrones de puntos](./guiones/patrones_de_puntos.html)
   - [Base de datos](./datos/Hp.csv)
 
+
+## Modelos para datos areales
+
+  - [Manejo de datos areales](./guiones/datosAreales2.html)
+
+
 <!---
 ## Análisis exploratorio de señales de wifi y celular
 
