@@ -41,7 +41,10 @@ no olvidar en asunto la sigla **[MEDE]**.
 - [Base de datos](./talleres/hinchamiento.xlsx)
 - [Asignación](./talleres/asignacion.xlsx)
 
+## Taller individual 4
 
+- [Enunciado](./talleres/taller4.html)
+- [Base de datos ejemplo](./talleres/Kenneth_01.csv)
 
 
 <!---
