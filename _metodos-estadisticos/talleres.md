@@ -40,6 +40,10 @@ no olvidar en asunto la sigla **[MEDE]**.
 - [Enunciado y fecha de entrega](./talleres/taller1_hinchamiento.html)
 - [Base de datos](./talleres/hinchamiento.xlsx)
 - [Asignación](./talleres/asignacion.xlsx)
+
+
+
+
 <!---
 
 ## Contenido
