@@ -17,7 +17,7 @@ el modelamiento correspondiente al tipo de datos seleccionado.
 ### Elemento del documento.
 
   - Marco teórico corto en donde se indique el tipo
-    de variable a modelar y el contexto respectivo. 
+    de variable a modelar y el contexto respectivo.
   - Análisis exploratorio y supuestos de la distribución espacial
     de los datos.
   - Construcción del modelo correspondiente.
@@ -28,7 +28,11 @@ el modelamiento correspondiente al tipo de datos seleccionado.
 
 ### Fecha de entrega.
 
- Viernes 1 de junio de 2018 antes de las 23:59 horas.
+ Viernes 1 de junio de 2018 antes de las 23:59
+ [hora de Colombia](http://horalegal.inm.gov.co/).
+
+ Recordar enviarlo al correo **krcabrer@unal.edu.co** y
+ en asunto utilizar **[EE]**.
 
 ### Documentos a entregar.
 
