@@ -97,7 +97,8 @@ El Volador.
     100 cm x 70 cm y en papel bond).
     Jueves, 31 de mayo de 2018 en horas de clase.
   - Archivos de datos y análisis.
-    Jueves, 31 de mayo de 2018 antes de las 23:59 hora de Colombia,
+    Jueves, 31 de mayo de 2018 antes de las 23:59
+    [hora de Colombia](http://horalegal.inm.gov.co/),
     al correo **krcabrer@unal.edu.co** y no olvidar la sigla
     **[EDAED]**
 
