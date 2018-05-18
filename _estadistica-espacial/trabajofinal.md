@@ -28,7 +28,7 @@ el modelamiento correspondiente al tipo de datos seleccionado.
 
 ### Fecha de entrega.
 
- Viernes 1 de junio de 2018 antes de las 23:59
+Miércoles 30 de mayo 2018 antes de las 23:59
  [hora de Colombia](http://horalegal.inm.gov.co/).
 
  Recordar enviarlo al correo **krcabrer@unal.edu.co** y
