@@ -93,10 +93,12 @@ El Volador.
 
 ## Fecha de entrega y presentación.
 
-  - Póster o cartel.
-    Jueves, 24 de mayo de 2018 en horas de clase.
+  - Póster o cartel en físico (mínimo en tamaño 70 cm x 100 cm o
+    100 cm x 70 cm y en papel bond).
+    Jueves, 31 de mayo de 2018 en horas de clase.
   - Archivos de datos y análisis.
-    Jueves, 24 de mayo de 2018 antes de las 23:59 hora de Colombia,
+    Jueves, 31 de mayo de 2018 antes de las 23:59
+    [hora de Colombia](http://horalegal.inm.gov.co/),
     al correo **krcabrer@unal.edu.co** y no olvidar la sigla
     **[EDAED]**
 

@@ -1,7 +1,7 @@
 ---
 title: "Patrones de puntos"
 author: "Kenneth Roy Cabrera Torres"
-date: Jueves,  5 de mayo de 2017
+date: Miércoles,  2 de mayo de 2018.
 output:
   html_document:
     highlight: textmate
@@ -34,19 +34,27 @@ Arbustos o árboles,  hasta 7 m de alto; ramas jóvenes pilosas,  estriadas,  gr
 
 ```{r}
 hp1 <- read.csv2("Hp.csv", enc="latin1")
+hp1$x <- hp1$x / 100
+hp1$y <- hp1$y / 100
 ```
 
 ## Uso del paquete **spatstat**
+
 
 ```{r}
 library(spatstat)
 
 ## Convertir a un objeto de patrones de puntos
-pdp1 <- ppp(hp1$x, hp1$y, c(0, 1000), c(0, 500), unitname=c("metro", "metros"))
+pdp1 <- ppp(hp1$x, hp1$y, c(0, 10), c(0, 5), unitname=c("hectometro", "hectometros"))
+```
 
+```{r}
 ## Gráfica del objeto de patrones de puntos.
 plot(pdp1)
+```
 
+
+```{r}
 ## Resumen del objeto de patrones de puntos.
 summary(pdp1)
 ```
@@ -59,22 +67,33 @@ tienen algún patrón.
 ```{r}
 CC1 <- quadratcount(pdp1, nx=10, ny=5)
 CC1
+```
 
+```{r}
 plot(pdp1, pch=1)
 plot(CC1, add=TRUE, col="red")
+```
 
+
+```{r}
 quadrat.test(pdp1, nx=10, ny=5)
 quadrat.test(pdp1, alternative="regular", nx=10, ny=5)
 quadrat.test(pdp1, alternative="clustered", nx=10, ny=5)
-
 ```
+
+
 
 ## Gráfica de la estimación usando el K de Ripley.
 $$
-K(r) = \lambda^{-1} E[\textrm{número extra de eventos en una distancia r de un evento aleatorio}]
+K(r) = \lambda^{-1}\sum_{i \neq j} \frac{I(d_{ij} < r)}{n}
 $$
 
 Dónde $\lambda$ es la densidad (número de unidades por área) de los eventos.
+$d_{ij}$ es la distancia euclídea entre el punto $i$ y el punto $j$. 
+
+Generalmente se estima como $\frac{n}{A}$, donde $A$ es el área de la región
+que contiene los $n$ puntos e $I()$ es la función indicadora (1 si el 
+operando es verdadero, 0 en otro caso), 
 
 Para un proceso poisson homogéneo que también se conoce como un CSR
 (Complete Spatial Randomness) la función $K(r)$ se define como:
@@ -83,10 +102,25 @@ $$
 K(r) = \pi r^2
 $$
 
+Otra manera de ver el estadístico es que $K(r)\lambda$ es igual al
+número de puntos esperado en el área a una distancia $r$ dada. 
+
+Se utiliza también la varianza estabilizada de la función $K(r)$ de Ripley
+denominada la función $L$. 
+
+Esta $L$ se define como:
+
+$$
+\hat{L}(r) = \left( \frac{\hat{K}(r)}{\pi} \right)^\frac{1}{2}
+$$
 
 ```{r}
 KR1  <-  Kest(pdp1)
 KR1
+```
+
+
+```{r}
 plot(KR1,  las = 1)
 ```
 
@@ -94,26 +128,57 @@ plot(KR1,  las = 1)
 
 ```{r}
 plot(envelope(pdp1),  las = 1)
+```
 
+
+
+
+```{r}
 plot(envelope(pdp1, correction = "iso"),  las = 1)
 ```
 
 ## Estimación de la densidad de patrones de puntos.
 
 ```{r}
-plot(density(pdp1))
-points(pdp1)
+plot(density(pdp1), las = 1)
+points(pdp1, pch = 19)
 ```
 
 ## Modelación de patrones de puntos
 
-```{r}
 
+```{r}
+m0 <- ppm(pdp1, ~1)
+m0
+```
+
+
+```{r}
+summary(m0)
+```
+
+
+
+```{r}
+plot(envelope(m0, Kest),  las = 1)
+```
+
+
+
+```{r}
 m1 <- ppm(pdp1, ~ x + y + x:y, Poisson())
 m1
+```
 
+```{r}
 summary(m1)
+```
 
+
+
+
+
+```{r}
 plot(envelope(m1, Kest),  las = 1)
 ```
 
@@ -126,6 +191,11 @@ points(pdp1)
 ```{r}
 m2 <- kppm(pdp1 ~ x + y + x:y)
 m2
+```
+
+
+
+```{r}
 summary(m2)
 ```
 
