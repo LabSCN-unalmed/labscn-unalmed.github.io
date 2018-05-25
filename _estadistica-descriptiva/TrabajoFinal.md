@@ -91,12 +91,49 @@ El Volador.
 - [Celular 2](.basededatos/celular2.csv)
 - [Celular 3](.basededatos/celular3.csv)
 
+
+## Consideraciones.
+
+- El póster deberá tener los nombres *completos* del grupo (no iniciales).
+- El póster deberá mostrar el número del grupo asignado. (Si hubo división en el grupo, entonces diferenciarlos por una letra, por ejemplo, grupo 3A y 3B).
+- Tratar de reducir la cantidad de texto para agilizar la lectura del mismo.
+- Incluir fotos de la forma en que se tomaron los datos.
+- Mostrar alternativa de disminución de ruido.
+- Verificar si los obstáculos tuvieron alguna influencia en los resultados.
+  Es decir, si en cercanía de árboles o barreras naturales el ruido
+  tiene de disminuir.
+
+
+## Criterios de evaluación.
+
+1. Forma.
+   - Se incluyó como mínimo:
+     * Título.
+     * Nombre completo de los integrantes.
+     * Objetivos.
+     * Corta introducción y contexto del estudio.
+     * Materiales y métodos.
+     * Resultados.
+     * Conlusiones.
+     * Recomendaciones.
+     * Bibliografía y/o cibergrafía.
+
+   - Distribución y diagramación del póster.
+   - Uso adecuado de colores (tanto en el póster como en las gráficas).
+   - Claridad en las gráficas (título, etiquetas, etc.)
+   - Ortografía.
+
+2. Fondo.
+    - Claridad en la redacción.
+    - Presentación de resultados.
+    - Propuestas para la disminución del ruido.
+
 ## Fecha de entrega y presentación.
 
   - Póster o cartel en físico (mínimo en tamaño 70 cm x 100 cm o
     100 cm x 70 cm y en papel bond).
     Jueves, 31 de mayo de 2018 en horas de clase.
-  - Archivos de datos y análisis.
+  - Archivos de datos y análisis escrito.
     Jueves, 31 de mayo de 2018 antes de las 23:59
     [hora de Colombia](http://horalegal.inm.gov.co/),
     al correo **krcabrer@unal.edu.co** y no olvidar la sigla
