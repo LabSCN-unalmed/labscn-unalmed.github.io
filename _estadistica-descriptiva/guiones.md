@@ -73,6 +73,13 @@ Básicamente corresponde a:
  - [Datos de Anscombe](./guiones/anscombe_example.html)
 
 
+## Interpolación exploratoria y manejo de mapas.
+
+ - [Obtención de mapas](./guiones/obtener_mapa.html)
+ - [Interpolación de mapas](./guiones/procesar_mapa1.html)
+ - [Datos de altitud de Medellín](./basesdedatos/elevacionMedellin.csv)
+
+
 <!---
 ## Contenido
 {: .no_toc}
