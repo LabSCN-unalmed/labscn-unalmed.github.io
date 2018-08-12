@@ -6,6 +6,7 @@ order: 4
 ---
 
 
+<!---
 
 ## Contenido
 {: .no_toc}
@@ -65,7 +66,7 @@ la identificación de los integrantes.
 
 
 
-<!---
+
 
 ## Contenido
 {: .no_toc}

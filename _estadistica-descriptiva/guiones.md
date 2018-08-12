@@ -5,7 +5,7 @@ curso: 'estadistica-descriptiva'
 order: 2
 ---
 
-
+<!---
 ## Contenido
 {: .no_toc}
 
@@ -80,7 +80,7 @@ Básicamente corresponde a:
  - [Datos de altitud de Medellín](./basesdedatos/elevacionMedellin.csv)
 
 
-<!---
+
 ## Contenido
 {: .no_toc}
 

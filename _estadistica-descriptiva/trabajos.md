@@ -6,6 +6,8 @@ order: 5
 ---
 
 
+<!---
+
 ## Contenido
 {: .no_toc}
 
@@ -201,7 +203,7 @@ las personas inscritas en SISBEN en el año 2017.
 Jueves, 19 de abril de 2018 antes de las 23:59 hora de Colombia al correo
 **krcabrer@unal.edu.co** y no olvidar escribir en asunto **[EDAED]**.
 
-<!---
+
 
 ## Contenido
 {: .no_toc}

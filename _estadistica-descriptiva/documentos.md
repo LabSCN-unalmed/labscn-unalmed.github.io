@@ -6,26 +6,15 @@ order: 3
 ---
 
 
-<!---
-## Inicio con el R
-- [Sesión de inicio con el lenguaje R](inicioR.html)
+## Contenido
+{: .no_toc}
 
-## Guías para casos particulares con RStudio.
-
-- [Instalación de un paquete en RStudio](/estadistica-descriptiva/documentos/instalapaquete.pdf)
-
-
-## Ejemplo del uso del RMarkdown.
-
- - [Archivo en formato ".Rmd"](./codigos/ejemplo1.Rmd).
- - [Archivo en formato ".html"](./codigos/ejemplo1.html)
- - [Base de datos de la participación en los olímpicos por parte de Colombia](./codigos/colombia_olimpicos.xlsx).
-
--->
+* ToC
+{: toc}
 
 ## Introducción a Estadística Descriptiva y Análisis Exploratorio de Datos.
 
-- [Introducción](/estadistica-descriptiva/documentos/explora1.html)
+- [Presentación introductoria](/estadistica-descriptiva/documentos/explora1.html)
 
 ## Tutorial de inicio para crear archivo ".Rmd" y ".html".
 
@@ -42,6 +31,26 @@ order: 3
 ## Errores comunes
 
 - [Errores comunes en análisis de datos](./documentos/errores_comunes.html)
+
+
+
+
+<!---
+## Inicio con el R
+- [Sesión de inicio con el lenguaje R](inicioR.html)
+
+## Guías para casos particulares con RStudio.
+
+- [Instalación de un paquete en RStudio](/estadistica-descriptiva/documentos/instalapaquete.pdf)
+
+
+## Ejemplo del uso del RMarkdown.
+
+ - [Archivo en formato ".Rmd"](./codigos/ejemplo1.Rmd).
+ - [Archivo en formato ".html"](./codigos/ejemplo1.html)
+ - [Base de datos de la participación en los olímpicos por parte de Colombia](./codigos/colombia_olimpicos.xlsx).
+
+-->
 
 
 <!---

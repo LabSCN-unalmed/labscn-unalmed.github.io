@@ -5,6 +5,9 @@ curso: 'estadistica-descriptiva'
 order: 7
 ---
 
+
+<!---
+
 ## Contenido
 
 {: .no_toc}
@@ -140,7 +143,7 @@ El Volador.
     **[EDAED]**
 
 
-<!---
+
 
 ## Estimación de la estatura mediante el celular
 
