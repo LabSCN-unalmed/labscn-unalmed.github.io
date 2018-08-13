@@ -2,8 +2,8 @@
 title: "Tutorial"
 author: "Kenneth Roy Cabrera Torres"
 date: "15 de febrero de 2018"
-output: 
-  html_document: 
+output:
+  html_document:
     toc: yes
 ---
 
@@ -19,14 +19,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ### Incio de RStudio
+
 ![](02_encuesta.png)
-### Creación de un proyecto 
+
+### Creación de un proyecto
+
 ![](03_encuesta.png)
 ![](04_encuesta.png)
 ![](05_encuesta.png)
 ![](06_encuesta.png)
 
 ### Creación de un archivo rmarkdown (".Rmd")
+
 ![](07_encuesta.png)
 
 Mensaje inicial al crear un archivo ".Rmd"
@@ -84,5 +88,3 @@ Resultado de "tejer" un archivo a HTML.
 ## Resultado final de archivos creado en un proyecto de R.
 
 ![](20_encuesta.png)
-
-

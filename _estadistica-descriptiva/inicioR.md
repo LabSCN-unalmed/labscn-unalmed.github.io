@@ -21,6 +21,7 @@ Inicialmente se toma el archivo en formato .xlsx o .xls y se ubica en una carpet
 - [Homicidios en Colombia (xlsx)](./basesdedatos/HomicidiosColombia2014.xlsx)
 
 ### Crear una carpeta para la base de datos.
+
 En este caso se creó una carpeta con el nombre de `practica1`. Y
 en ese lugar se ubicó el archivo `HomicidiosColombia.xlsx`, como se muestra a continuación:
 
@@ -31,6 +32,7 @@ Seguidamente se abre en Excel como se muestra en la siguiente imagen:
 ![Inicio R 04](./iniR/iniR04.png){: width="700"}
 
 ### Guardarla en formato .csv
+
 Se debe guardar con el formato `.csv` siguiendo la ruta de `guardar como ...` en la misma carpeta en donde está el archivo `.xlsx` y seleccionando la opción de `CSV (delimitado por comas) `, como se muestra a continuación:
 
 ![Inicio R 05](./iniR/iniR05.png){: width="700"}
@@ -40,6 +42,7 @@ En la carpeta deberán entonces mostrarse dos archivos, uno con formato `.xlsx`y
 ![Inicio R 06](./iniR/iniR06.png){: width="700"}
 
 ### Verificación del formato
+
 Para verificar el formato en el cual está codificado el archivo `.csv` se abre con el programa `bloc de notas` y se debe mostrar como la siguiente imagen:
 
 ![Inicio R 07](./iniR/iniR07.png){: width="700"}
