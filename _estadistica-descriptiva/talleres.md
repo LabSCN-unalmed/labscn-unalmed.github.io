@@ -14,9 +14,9 @@ order: 4
 
 ## Actividades.
 
-1. Instalar el software R.
-2. Instalar el software RStudio.
-3. Bajar y leer las guías de presentación de pósters.
+1. Instalar [el software R](https://cran.r-project.org/bin/windows/base/).
+2. Instalar [el software RStudio](https://www.rstudio.com/products/rstudio/download/).
+3. Bajar y leer las [guías de presentación de pósters](http://localhost:4000/estadistica-descriptiva/documentos.html#guias-para-presentaci%C3%B3n-de-p%C3%B3sters).
 
 ## Talleres individuales.
 
