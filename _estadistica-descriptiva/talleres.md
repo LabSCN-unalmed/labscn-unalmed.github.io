@@ -12,12 +12,11 @@ order: 4
 * ToC
 {: toc}
 
-## Tareas.
+## Actividades.
 
 1. Instalar el software R.
 2. Instalar el software RStudio.
 3. Bajar y leer las guías de presentación de pósters.
-
 
 ## Talleres individuales.
 
@@ -27,20 +26,21 @@ El problema de movilidad en Medellín tiene muchos aspectos a
 considerar. Uno de ellos es el tiempo de viaje del lugar de
 residencia al lugar de estudio o trabajo.
 
-Para realizar una análisis exploratorio de datos que
+Para realizar un análisis exploratorio de datos que
 tengan que ver con movilidad se realizará una encuesta
-a cada estudiante.
+a cada estudiante de la asignatura.
 
-Traer para la clase del 16 agosto de 2018 la siguiente información:
+Traer para la clase del 16 agosto de 2018 la siguiente información
+con el fin de responder a la encuesta que se realizará en clase:
 
   1. Coordenadas del lugar de residencia u origen del viaje.
      Latitud y longitud con
      la aplicación [google maps](https://www.google.com/maps).
-  2. Coordenadas del lugar en la universidad de destino.
+  2. Coordenadas del lugar en la Universidad del destino.
      Latitud y longitud con
-     la aplicación [google maps](https://www.google.com/maps).   
+     la aplicación [google maps](https://www.google.com/maps).        
   3. Hora y minutos de salida del lugar de residencia.
-  4. Hora y minutos de llegada al destino en la universidad.
+  4. Hora y minutos de llegada al destino en la Universidad.
 
 ### Taller individual 2.
 
