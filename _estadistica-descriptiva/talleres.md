@@ -21,7 +21,7 @@ order: 4
 
 ## Talleres individuales.
 
-### Taller individual 1
+### Taller individual 1.
 
 El problema de movilidad en Medellín tiene muchos aspectos a
 considerar. Uno de ellos es el tiempo de viaje del lugar de
@@ -42,7 +42,7 @@ Traer para la clase del 16 agosto de 2018 la siguiente información:
   3. Hora y minutos de salida del lugar de residencia.
   4. Hora y minutos de llegada al destino en la universidad.
 
-### Taller individual 2
+### Taller individual 2.
 
 Inscribirse al foro del curso [localizado en la página del curso](https://labscn-unalmed.github.io/estadistica-descriptiva/foro.html),
 utilizando en correo institucional.
