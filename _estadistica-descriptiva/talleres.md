@@ -6,6 +6,52 @@ order: 4
 ---
 
 
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Tareas.
+
+1. Instalar el software R.
+2. Instalar el software RStudio.
+3. Bajar y leer las guías de presentación de pósters.
+
+
+## Talleres individuales
+
+### Taller individual 1
+
+El problema de movilidad en Medellín tiene muchos aspectos a
+considerar. Uno de ellos es el tiempo de viaje del lugar de
+residencia al lugar de estudio o trabajo.
+
+Para realizar una análisis exploratorio de datos que
+tengan que ver con movilidad se realizará una encuesta
+a cada estudiante.
+
+Traer para la clase del 16 agosto de 2018 la siguiente información:
+
+  1. Coordenadas del lugar de residencia u origen del viaje.
+     Latitud y longitud con
+     la aplicación [google maps](https://www.google.com/maps).
+  2. Coordenadas del lugar en la universidad de destino.
+     Latitud y longitud con
+     la aplicación [google maps](https://www.google.com/maps).   
+  3. Hora y minutos de salida del lugar de residencia.
+  4. Hora y minutos de llegada al destino en la universidad.
+
+### Taller individual 2
+
+Inscribirse al foro del curso [localizado en la página del curso](https://labscn-unalmed.github.io/estadistica-descriptiva/foro.html),
+utilizando en correo institucional.
+
+
+
+
+
+
 <!---
 
 ## Contenido
