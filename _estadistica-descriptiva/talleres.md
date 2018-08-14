@@ -19,7 +19,7 @@ order: 4
 3. Bajar y leer las guías de presentación de pósters.
 
 
-## Talleres individuales
+## Talleres individuales.
 
 ### Taller individual 1
 
