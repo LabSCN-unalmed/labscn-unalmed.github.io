@@ -19,8 +19,7 @@ leer los artículos de investigación donde hace uso de estas herramientas.
  - Análisis multidimensional (Cuantitativos y cualitativos).
  - Análisis aglomerativo (Cluster Analysis).
  - Ordenación (Principal Component Analysis).
- - Análisis canónico.
- - Interpretación de estructuras ecológicas multidimensionales.
+ - Construcción de modelos estadísticos.
 
 ## Bibliografía
  - Legendre, Pierre y Legendre, Louis. Numerical Ecology. Third Edition, Elsevier, 2012.
