@@ -16,7 +16,7 @@ order: 4
 
 1. Instalar [el software R](https://cran.r-project.org/bin/windows/base/).
 2. Instalar [el software RStudio](https://www.rstudio.com/products/rstudio/download/).
-3. Bajar y leer las [guías de presentación de pósters](http://localhost:4000/estadistica-descriptiva/documentos.html#guias-para-presentaci%C3%B3n-de-p%C3%B3sters).
+3. Bajar y leer las [guías de presentación de pósters](https://labscn-unalmed.github.io/estadistica-descriptiva/documentos.html).
 
 ## Talleres individuales.
 
