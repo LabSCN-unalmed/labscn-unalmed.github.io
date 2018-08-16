@@ -1,7 +1,7 @@
 Estadistica descriptiva y exploratoria
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: Martes 6 de febrero de 2018.
+date: Jueves 16 de agosto de 2018.
 transition: rotate
 
 Estadística Exploratoria vs Confirmatoria
@@ -10,12 +10,12 @@ Estadística Exploratoria vs Confirmatoria
 | Enfoque descriptivo | Enfoque inferencial |
 |---------------------|---------------------|
 | | |
-|Indica las hipótesis a probar | Prueba hipótesis |
-|Plan de investigación flexible y poco definido| Plan de investigación rigurosos y bien definido|
-|Usa datos disponibles | Usa datos depurados|
-|Privilegia la representación gráfica | Poca importancia a la representación gráfica|
-|Visión intuitiva | Visión con un modelo  preciso en mente |
-|Semeja una investigación policial | Semeja un juicio
+|Indica las hipótesis a probar. | Prueba hipótesis .|
+|Plan de investigación flexible y poco definido.| Plan de investigación rigurosos y bien definido.|
+|Usa datos disponibles. | Usa datos depurados.|
+|Privilegia la representación gráfica.| Poca importancia a la representación gráfica.|
+|Visión intuitiva. | Visión con un modelo  preciso en mente. |
+|Semeja una investigación policial. | Semeja un juicio. |
 
 
 Definición
