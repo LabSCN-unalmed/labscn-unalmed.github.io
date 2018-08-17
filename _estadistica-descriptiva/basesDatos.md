@@ -20,4 +20,4 @@ order: 6
 - [Base de datos de la encuesta](./basesdedatos/talleres_1_2.xlsx)
 - [Base de datos de la encuesta actualizada](./basesdedatos/talleres_1_2_corregido.xlsx)
 
--->
+--->
