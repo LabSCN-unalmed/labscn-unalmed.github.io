@@ -34,10 +34,10 @@ Traer para la clase del 16 agosto de 2018 la siguiente información
 con el fin de responder a la encuesta que se realizará en clase:
 
   1. Coordenadas del lugar de residencia u origen del viaje.
-     Latitud y longitud con
+     latitud y longitud con
      la aplicación [google maps](https://www.google.com/maps).
   2. Coordenadas del lugar en la Universidad del destino.
-     Latitud y longitud con
+     latitud y longitud con
      la aplicación [google maps](https://www.google.com/maps).        
   3. Hora y minutos de salida del lugar de residencia.
   4. Hora y minutos de llegada al destino en la Universidad.
@@ -47,8 +47,18 @@ con el fin de responder a la encuesta que se realizará en clase:
 Inscribirse al foro del curso [localizado en la página del curso](https://labscn-unalmed.github.io/estadistica-descriptiva/foro.html),
 utilizando en correo institucional.
 
+<!---
 
+### Taller individual 3.
 
+1. Reclamar en la oficina 14-214 de acuerdo al grupo a que pertenezca.
+   a. Grupo 1: Personas que no pueden ir el día 21 de agosto a otra hora
+               que no sea la hora de clase.
+   b. Grupo 2: Personas que pueden ir a otra hora distinta de la hora de clase.
+
+   El grupo 1 reclama un póster a las 9:15 am en la oficia 14-21   
+
+-->
 
 
 
