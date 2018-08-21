@@ -63,23 +63,22 @@ como entrega tarde del taller individual 2.
 
    b. **Grupo 2**: Personas que pueden ir a otra hora distinta de la hora de clase.
 
-   El grupo 1 reclama un póster a las 9:15 am en la oficina 14-214 y el grupo 2
-    reclama el póster a las 12:00 meridiano en la misma oficina.
+   El **grupo 1** reclama un póster a las 9:15 am en la oficina 14-214
+    y el **grupo 2** reclama el póster a las 12:00 meridiano en la misma oficina.
 
 2. De acuerdo a los elementos que se mencionan en los [documentos
-   que se muestran en la página](https://labscn-unalmed.github.io/estadistica-descriptiva/documentos.html#guias-para-presentaci%C3%B3n-de-p%C3%B3sters), evalúe el póster entregado de la siguiente
-   manera:
+   que se muestran en la página](https://labscn-unalmed.github.io/estadistica-descriptiva/documentos.html#guias-para-presentaci%C3%B3n-de-p%C3%B3sters), evalúe el póster entregado,
+   considerando los siguientes items:
 
    a. Forma:
-      + Presentación.
+      + Distribución o diagramación del póster..
       + Ortografía.
       + Tipo y tamaño de letra.
-      + Distribución o diagramación del póster.
       + Uso de colores.
       + Presentación de las gráficas.
 
    b. Fondo:    
-      + Claridad en los integrantes miembros del grupo.
+      + Claridad en los integrantes del grupo.
       + Claridad en el objetivo.
       + Redacción clara de los párrafos o frases.
       + Claridad en la metodología utilizada.
@@ -90,10 +89,12 @@ como entrega tarde del taller individual 2.
 
 3. Se elabora un documento en formato ".pdf" que incluya:
      - Portada.
+     - Corta introducción a la presentación de pósters
+       de carácter científico.
      - Una fotografía del póster analizado.
      - Calificación de 0 a 5 cada uno de los items de forma.
      - Calificación de 0 a 5 cada un de los items de fondo.
-     - y una observación sobre aspectos positivos o
+     - Y una observación sobre aspectos positivos o
        destacables del póster y sobre los aspectos
        a mejorar.
 
