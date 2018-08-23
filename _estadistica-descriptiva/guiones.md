@@ -14,7 +14,8 @@ order: 2
 
 ## Salario mínimo vs IPC en Colombia.
 
- - [Análisis Exploratorio ]
+ - [Análisis Exploratorio](./guiones/salario_minimo.html)
+ - [Base de datos](./basesdedatos/salario_minimo_IPC_Colombia.xlsx)
 
 <!---
 ## Contenido
