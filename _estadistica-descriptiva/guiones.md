@@ -5,6 +5,17 @@ curso: 'estadistica-descriptiva'
 order: 2
 ---
 
+
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Salario mínimo vs IPC en Colombia.
+
+ - [Análisis Exploratorio ]
+
 <!---
 ## Contenido
 {: .no_toc}
