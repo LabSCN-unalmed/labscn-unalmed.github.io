@@ -10,6 +10,48 @@ curso: 'estadistica-descriptiva'
 * ToC
 {: toc}
 
+## Descargar archivo de trabajo.
+
+- [Salario mínimo e IPC desde 1984](./basesdedatos/salario_minimo_IPC_Colombia.xlsx)
+
+## Ubicación de carpeta de trabajo.
+
+![Carpeta de trabajo](./iniR/01_Crea_Carpeta.PNG)
+
+![](./iniR/02_Inicio_RStudio.PNG)
+
+![](./iniR/01_Crea_Carpeta.PNG)                     
+![](./iniR/02_Inicio_RStudio.PNG)
+![](./iniR/03_pantalla_ini_RStudio.PNG)
+![](./iniR/04_inicio_proyecto.PNG)
+![](./iniR/05_ventana_nuevo_proyecto.PNG)
+![](./iniR/06_bunqueda_carpeta_nuevo_proyecto.PNG)
+![](./iniR/07_Ubicacion_Nuevo_Proyecto.PNG)
+![](./iniR/08_Creacion_Nuevo_Proyecto.PNG)
+![](./iniR/09_pantalla_incio_nuevo_proyecto.PNG)
+![](./iniR/10_Inicio_RMarkdown.PNG)
+![](./iniR/11_markdown_primera_vez.PNG)
+![](./iniR/12_Pantalla_Inicial_RMarkdown.PNG)
+![](./iniR/13_Llenar_titulo_nombre_rmarkdown.PNG)
+![](./iniR/14_Pantalla_inicial_Rmarkdown_plantilla.PNG)
+![](./iniR/15_Borrar_plantilla.PNG)
+![](./iniR/16_Guardar_Rmarkdown.PNG)
+![](./iniR/17_Guardar_Rmakdown_nombre.PNG)
+![](./iniR/18_Pantalla_Inicio_codificacion.PNG)
+![](./iniR/19_codificacion_ini.PNG)
+![](./iniR/20_formas_de_ejecucion.PNG)
+![](./iniR/21_resultado_ejecucion.PNG)
+![](./iniR/22_cerrar_proyecto.PNG)
+![](./iniR/23_ventana_cerrar_proyecto.PNG)
+![](./iniR/24_Salir_RStudio.PNG)
+![](./iniR/25_archivos_nuevos.PNG)
+
+
+
+
+
+<!---
+
 ## Preparar una base de datos para leer en el R.
 
 Se realizará el ejemplo del uso del R, utilizando una base de datos externa. En esta caso una base de datos en donde se registra por grupo de edad y género el número de homicidios en Colombia durante el 2014.
@@ -138,3 +180,5 @@ Si se desea terminar la sesión se procede a cerrar el programa el cual mostrar�
 ![Inicio R 16](./iniR/iniR16.png){: width="400"}
 
 En este caso se elige la opción `Save` para guardar el espacio de trabajo o `workspace`.
+
+--->

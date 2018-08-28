@@ -1,6 +1,6 @@
 ---
 layout: curso
-title: 'Documentos'
+title: 'Tutorial inicio en RStudio'
 curso: 'estadistica-descriptiva'
 order: 3
 ---
@@ -16,9 +16,9 @@ order: 3
 
 - [Presentación introductoria](/estadistica-descriptiva/documentos/explora1.html)
 
-## Tutorial de inicio para crear archivo ".Rmd" y ".html".
+## Tutorial de inicio de RStudio.
 
-- [Tutorial Encuesta](./documentos/tutorial_encuesta.html)
+- [Tutorial Inicio](./inicioR.html)
 
 ## Tutorial de la instalación de un paquete en R.
 
