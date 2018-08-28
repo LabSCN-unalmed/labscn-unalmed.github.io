@@ -1,6 +1,6 @@
 ---
 layout: curso
-title: 'Tutorial inicio en RStudio'
+title: 'Documentos'
 curso: 'estadistica-descriptiva'
 order: 3
 ---
@@ -22,7 +22,7 @@ order: 3
 
 ## Tutorial de la instalación de un paquete en R.
 
-- [Tutorial de instalación de un paquete](./documentos/instala_paquete.html)
+- [Tutorial de instalación de un paquete](./instala_paquete.html)
 
 ## Ejemplo de problemas en gráficas
 
