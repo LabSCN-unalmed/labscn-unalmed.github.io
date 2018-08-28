@@ -10,106 +10,129 @@ curso: 'estadistica-descriptiva'
 * ToC
 {: toc}
 
-## Descargar archivo de trabajo.
+
+Es siguente conjunto de imágenes muestra de manera
+resumida el modo de utilizar el RStudio para ejecutar
+resultados de código y generar archivos ".html".
+
+## Puesta a punto el espacio de trabajo.
+
+### Descargar archivo de trabajo.
 
 - [Salario mínimo e IPC desde 1984](./basesdedatos/salario_minimo_IPC_Colombia.xlsx)
 
-## Creación de la carpeta de trabajo.
+### Creación de la carpeta de trabajo.
 
 ![Carpeta de trabajo](./iniR/01_Crea_Carpeta.PNG)
 
-## Inicio de RStudio.
+## Apertura de un projecto en RStudio.
+
+### Inicio de RStudio.
 
 ![](./iniR/02_Inicio_RStudio.PNG)
 
-## Pantalla de inicio de RStudio.
+### Pantalla de inicio de RStudio.
 
 ![](./iniR/03_pantalla_ini_RStudio.PNG)
 
-## Inicio de un nuevo proyecto.
+### Inicio de un nuevo proyecto.
 
 ![](./iniR/04_inicio_proyecto.PNG)
 
-## Ventana del nuevo proyecto.
+### Ventana del nuevo proyecto.
 
 ![](./iniR/05_ventana_nuevo_proyecto.PNG)
 
-## Carpeta del proyecto nuevo.
+### Carpeta del proyecto nuevo.
 
 ![](./iniR/06_bunqueda_carpeta_nuevo_proyecto.PNG)
 
-## Ubicación del proyecto nuevo.
+### Ubicación del proyecto nuevo.
 
 ![](./iniR/07_Ubicacion_Nuevo_Proyecto.PNG)
 
-## Crea el proyecto nuevo.
+### Crea el proyecto nuevo.
 
 ![](./iniR/08_Creacion_Nuevo_Proyecto.PNG)
 
-## Pantalla de inicio del proyecto nuevo.
+### Pantalla de inicio del proyecto nuevo.
 
 ![](./iniR/09_pantalla_incio_nuevo_proyecto.PNG)
 
-## Incio del código en R Markdown.
+## Codificación en R
+
+### Incio del código en R Markdown.
 
 ![](./iniR/10_Inicio_RMarkdown.PNG)
 
-### Instalación de paquetes para el R Markdown por primera vez.
+#### Instalación de paquetes para el R Markdown por primera vez.
 
 ![](./iniR/11_markdown_primera_vez.PNG)
 
-## Pantalla inicial de R Markdown.
+### Pantalla inicial de R Markdown.
 
 ![](./iniR/12_Pantalla_Inicial_RMarkdown.PNG)
 
-## Escribir el título y autor del archivo R Markdown.
+### Escribir el título y autor del archivo R Markdown.
 
 ![](./iniR/13_Llenar_titulo_nombre_rmarkdown.PNG)
 
-## Pantalla inicial del R Markdown.
+### Pantalla inicial del R Markdown.
 
 ![](./iniR/14_Pantalla_inicial_Rmarkdown_plantilla.PNG)
 
-## Quitar la plantilla de ejemplo del R Markdown.
+### Quitar la plantilla de ejemplo del R Markdown.
 
 ![](./iniR/15_Borrar_plantilla.PNG)
 
-## Guardar el archivo en R Markdown.
+### Guardar el archivo en R Markdown.
 
 ![](./iniR/16_Guardar_Rmarkdown.PNG)
 
-## Guardar y nombrar el archivo de R Markdown.
+### Guardar y nombrar el archivo de R Markdown.
 
 ![](./iniR/17_Guardar_Rmakdown_nombre.PNG)
 
-## Pantalla inicial para escribir código y documento.
+### Pantalla inicial para escribir código y documento.
 
 ![](./iniR/18_Pantalla_Inicio_codificacion.PNG)
 
-## Código inicial para la lectura del archivo.
+### Código inicial para la lectura y gráfica preliminar.
 
 ![](./iniR/19_codificacion_ini.PNG)
 
-## Opciones de ejecución de código.
+### Opciones de ejecución de código.
 
 ![](./iniR/20_formas_de_ejecucion.PNG)
 
-## Resultado de ejecutar el código en el R Markdown.
+### Resultado de ejecutar el código en el R Markdown.
 
 ![](./iniR/21_resultado_ejecucion.PNG)
 
-## Cerrar el proyecto.
+## Creación del archivo ".html".
+
+### "Tejer" un documento a formato html.
+
+![](./iniR/21_1_Seleccion_para_tejer.PNG)
+
+### Resultado de "tejer" un documento a html.
+
+![](./iniR/21_2_Resultado_de_tejer.PNG)
+
+## Finalización de una sesión en RStudio.
+
+### Cerrar el proyecto.
 
 ![](./iniR/22_cerrar_proyecto.PNG)
 
-## Ventaja para cerrar el proyecto.
+### Ventaja para cerrar el proyecto.
 ![](./iniR/23_ventana_cerrar_proyecto.PNG)
 
-## Salir del RStudio.
+### Salir del RStudio.
 
 ![](./iniR/24_Salir_RStudio.PNG)
 
-## Carpeta con los archivos nuevos.
+### Carpeta con los archivos nuevos.
 
 ![](./iniR/25_archivos_nuevos.PNG)
 
