@@ -23,6 +23,6 @@ curso: 'estadistica-descriptiva'
 
 ![Carpeta de trabajo](./instalaPaquete/03_escritura_paquete_instalar.PNG)
 
-## Resultado de la instalación de paquetes. 
+## Resultado de la instalación de paquetes.
 
 ![Carpeta de trabajo](./instalaPaquete/04_resultado_instalacion_paquete.PNG)
