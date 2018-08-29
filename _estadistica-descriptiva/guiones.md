@@ -19,7 +19,7 @@ order: 2
 
 ## Inicio de la exploración de la encuesta.
 
- - [Exploración inicial](./guiones/explora_ecuesta.html)
+ - [Exploración inicial](./guiones/explora_encuesta.html)
  - [Base de datos de la encuesta](./basesdedatos/encuesta.xlsx)
 
 <!---
