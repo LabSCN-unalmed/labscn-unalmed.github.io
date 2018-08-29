@@ -17,6 +17,11 @@ order: 2
  - [Análisis Exploratorio](./guiones/salario_minimo.html)
  - [Base de datos](./basesdedatos/salario_minimo_IPC_Colombia.xlsx)
 
+## Inicio de la exploración de la encuesta.
+
+ - [Exploración inicial](./guiones/explora_ecuesta.html)
+ - [Base de datos de la encuesta](./basesdedatos/encuesta.xlsx)
+
 <!---
 ## Contenido
 {: .no_toc}

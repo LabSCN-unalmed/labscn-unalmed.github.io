@@ -1,0 +1,31 @@
+---
+title: "Encuesta a estudiantes de Estadística Descriptiva y Análisis Exploratorio de Datos"
+author: "Kenneth Roy Cabrera Torres"
+date: "28 de agosto de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Lectura de la base de datos.
+
+```{r}
+library(readxl)
+```
+
+
+```{r}
+encuesta <- type.convert(data.frame(read_excel("encuesta.xlsx")))
+```
+
+
+## Resumen inicial de la base de datos.
+
+```{r}
+summary(encuesta)
+```
+
+
