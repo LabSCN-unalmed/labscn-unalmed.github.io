@@ -1,0 +1,125 @@
+---
+title: "Ecologia de peces (Taller individual I)"
+author: "Kenneth Roy Cabrera Torres"
+date: "Viernes, 31 de agosto de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=11, 
+                      fig.height=7)
+```
+
+## Contextualización
+
+Datos de la tesis doctoral de Verneaux (1973)
+
+Verneaux, J. (1973) Cours d'eau de Franche-Comté (Massif du Jura). 
+Recherches écologiques sur le réseau hydrographique du Doubs.
+Essai de biotypologie. Thèse d'état, Besançon. 1–257
+
+<center>![](mapa_Rio_Dubs.jpg "Río Doubs")</center>
+
+<center>![](doubs-river-near-the-stairs-of-death-vuillafans.jpg "Río Doubs")</center>
+
+<center>![](Rio_Dubs_Aguas_Abajo.jpg "Río Doubs")</center>
+
+<center>![](Rio_Dubs_Zona_Urbana.jpg "Río Doubs")</center>
+
+La tesis propone el uso de las especies de peces para caracterizar
+las zonas ecológicas a lo largo de rios y quebradas de Europa.
+Él mostró que las comunidades de peces son buenos indicadores
+biológicos para estos cuerpos de agua.
+A partir del nacimiento propuso una topología en cuatro zonas,
+y las designó de acuerdo a las características de las especies como:
+
+ - Zona de la trucha (Trout zone)
+ - Zona del tímalo (Grayling zone)
+ - Zona del barbo (Barbel zone)
+ - Zona de la brema (Bream zone)
+
+Las condiciones ecológicas correspondientes, con mucha variación entre los
+rios, varía desde agua relativamente pristinas, bien oxigendadas y
+oligotróficas hasta eutróficas y sin oxígeno.
+
+Los datos se tomaron en 30 lugares a lo largo del río Doubs.
+Este río corre cerca de la frontera franco-suiza 
+al borde del macizo del Jura.
+
+## Listado de las bases de datos.
+
+ - La base de datos de **peces** tienen las abundancias de 27 especies de peces.
+   Cada registro corresponde a uno de los 30 sitios.
+Las abundancias están reescalada a una medida semicuantitativa de 1 a 5.
+ - La base de datos **ambientales** tiene 11 variable ambientales relacionadas
+con la hidrología, la geomorfología y la química del rio.
+ - La base de datos de **localidades** tiene las coordenadas planas de
+cada uno de los 30 sitios de muestreo.
+ - La base de datos **nombre de especies** tiene los códigos, los nombres
+científicos, los nombres en inglés y en francés de las 27 especies 
+reconocidas en el estudio.
+ - La base de datos **Nombres de variables ambientales** tiene los códigos de
+las variables ambientales, la designación completa y las unidades de
+cada variable.
+
+## Lectura de las bases de datos
+
+```{r}
+ambient<-read.csv2("ambientales.csv",enc="latin1",row.names=1)
+peces<-read.csv2("peces.csv",enc="latin1",row.names=1)
+locs<-read.csv2("localidades.csv",enc="latin1",row.names=1)
+nomEspec<-read.csv2("nombresdeespecies.csv",enc="latin1")
+nomVarAmbient<-read.csv2("Nombresdevariablesambientales.csv",enc="latin1")
+```
+
+## Análisis descriptivo.
+
+### Abundancia de peces.
+
+Despliegue de la base de datos.
+(Este procedimiento no es recomendado para grandes base de datos.)
+```{r}
+peces
+```
+
+### Resumen de la base de datos de peces
+```{r}
+summary(peces)
+```
+
+## Análisis exploratorio.
+
+Responder mediante tablas o de forma numérica las siguientes preguntas:
+
+ - ¿Cuantos individuos (sin importar la especie) hay por cada sitio?
+ - ¿Cuál es la abundancia de cada especie (sin importar el sitio)?
+ - Por cada sitio que muestre la especie más abundante (Si hay empate,
+   muestre todas la que son más abundantes)
+ 
+Responder mediante una gráfica las siguientes preguntas:
+
+ - Diagrama de barras que muestre la abundancia total de cada especie.
+ - Diagrama de líneas que muestre la abundancia de las cinco especies
+   más abundantes (total) a lo largo de los sitios.
+ - Diagrama de línea que muestre el cambio de la diversidad (número de especies)   
+   a lo largo de los sitios.
+   
+Formular una pregunta cuya respuesta sea una tabla (diferente a 
+las anteriores).
+
+Proponer y mostrar un gráfico que responda a alguna pregunta de interés 
+ecoloógico.
+
+## Documentos a entregar:
+
+- Archivo en formato ".html" que muestre tanto el código como 
+  las respuestas a las actividades propuestas.
+
+## Fecha de entrega:
+
+- Lunes, 10 de septiembre de 2018 antes de las 23:59 hora de Colombia.
+  al correo **krcabrer@unal.edu.co** y no olvidar escribir en asunto
+  **[EconNum]**.

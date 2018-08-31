@@ -1,0 +1,256 @@
+---
+title: "Análisis exploratorio de la oferta hídrica en Manizales"
+author: "Kenneth Roy Cabrera Torres"
+date: "Viernes, 31 de agosto de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lectura de la base de datos.
+
+```{r}
+oferta_hidrica1 <- read.csv("OFERTA_H_DRICA_CUENCAS_MANIZALES_-_TABULADA.csv")
+```
+
+
+## Estructura de la base de datos.
+
+```{r}
+str(oferta_hidrica1)
+```
+
+
+## Resumen de la base de datos.
+
+```{r}
+summary(oferta_hidrica1)
+```
+
+## Organizar la base de datos.
+
+```{r}
+library(tidyverse)
+```
+
+### Colocar la base de datos en formato "largo".
+
+```{r}
+oferta_hidrica1largo <- oferta_hidrica1 %>%
+  gather(key = Día, value = oferta, -c(ORDEN:FUENTE)) 
+```
+
+Convertir la variable Día en formato categórico.
+
+```{r}
+oferta_hidrica1largo <- oferta_hidrica1largo %>%
+  mutate(Día = factor(Día))
+```
+
+```{r}
+str(oferta_hidrica1largo)
+```
+
+
+```{r}
+head(oferta_hidrica1largo)
+```
+
+```{r}
+tail(oferta_hidrica1largo)
+```
+
+
+
+### Resumen de la base de datos "a lo largo".
+
+```{r}
+summary(oferta_hidrica1largo)
+```
+
+### Crear una variables con el número del día.
+
+```{r}
+oferta_hidrica1largo <- oferta_hidrica1largo %>%
+  mutate(Día2 = as.numeric(str_extract(Día, "[0-9]+")))
+```
+
+### Crear la variable fecha a partir del año, el mes y el día.
+
+```{r}
+oferta_hidrica1largo <- oferta_hidrica1largo %>%
+  mutate(fecha = as.Date(ISOdate(AÑO, MES, Día2)))
+```
+
+
+
+### Mostrar los registros con valores faltantes en oferta.
+
+```{r}
+temporal1 <- oferta_hidrica1largo %>%
+  filter(is.na(oferta))
+```
+
+```{r}
+head(temporal1, 20)
+```
+
+```{r}
+tail(temporal1, 20)
+```
+
+
+
+
+### Eliminar los registros con valores faltantes en oferta.
+
+```{r}
+oferta_hidrica1largo <- oferta_hidrica1largo %>%
+  filter(!is.na(oferta))
+```
+
+```{r}
+summary(oferta_hidrica1largo)
+```
+
+
+
+## Gráfica de las series de tiempo de oferta hídrica por FUENTE.
+
+```{r}
+ggplot(oferta_hidrica1largo, aes(fecha, oferta, col = CUENCA)) +
+  geom_line() +
+  facet_wrap(~ FUENTE)
+```
+
+## Gráfica de las series de tiempo en escala logarítmica de la oferta hídrica por FUENTE.
+
+```{r}
+ggplot(oferta_hidrica1largo, aes(fecha, oferta, col = CUENCA)) +
+  geom_line() +
+  facet_wrap(~ FUENTE) +
+  scale_y_log10() 
+```
+
+## Ejemplos de "verbos" del paquete dplyr.
+
+
+- *filter()* seleccionar registros.
+- *arrange()* reordenar la base de datos.
+- *select()* seleccionar variables o columnas.
+- *mutate()* adiciona variables nuevas o transforma las ya existentes.
+- *summarise()* resume en valores únicos.
+- *slice()* selecciona regístros por número de la posición.
+- *group_by()* Agrupa por variables para procesos con los anteriores verbos.
+- *ungroup()* Desagrupa cuando se ha agrupado previamente.
+
+```{r}
+oferta_hidrica1largo %>%
+  filter(AÑO == 2018 & FUENTE == "CHINCHINA", MES == 1)
+```
+
+
+```{r}
+oferta_hidrica1largo %>% 
+  arrange(desc(oferta)) %>%
+  head()
+```
+
+```{r}
+oferta_hidrica1largo %>%
+  summarise(oferta_media = mean(oferta))
+```
+
+```{r}
+oferta_hidrica1largo %>%
+  slice(1:20)
+```
+
+## Combinación con los "verbos".
+
+
+
+```{r}
+oferta_hidrica1largo %>%
+  select(AÑO, CUENCA, FUENTE, oferta) %>%
+  mutate(log10Oferta = log10(oferta)) %>%
+  group_by(AÑO, CUENCA, FUENTE) %>%
+  summarise(promOferta = mean(oferta),
+            promlog10Oferta = mean(log10Oferta)) %>%
+  mutate(promOfertalog = 10^promlog10Oferta)
+```
+
+```{r}
+oferta_hidrica1largo %>%
+  arrange(AÑO, MES, FUENTE, Día2) %>%
+  head(40)
+```
+
+```{r}
+oferta_hidrica1largo %>% 
+  group_by(AÑO, FUENTE) %>%
+  arrange(desc(oferta)) %>%
+  slice(1) %>%
+  data.frame()
+```
+
+
+## Preguntas a la base de datos.
+
+### Pregunta con respuesta numérica.
+
+Se requiere saber el promedio, la desviación estándar,
+el valor mínimo y máxiomo de la oferta hídrica por mes multianual
+de cada una de la fuentes pero identificando la respetiva cuenca
+a la que pertenece.
+
+```{r}
+oferta_resumen <- oferta_hidrica1largo %>% 
+  group_by(CUENCA,  FUENTE, MES) %>%
+  summarise(ofertam = mean(oferta),
+            ofertads = sd(oferta),
+            ofertamin = min(oferta),
+            ofertamax = max(oferta))
+
+data.frame(oferta_resumen)
+```
+
+
+
+
+### Pregunta con respuesta gráfica.
+
+Se require que por cada cuenca se muestre la serie de tiempo 
+de la oferta hídrica  para cada año por cada fuente o afluente 
+de las dos cuencas del suministro de Manizales.
+
+```{r}
+# Crear una variable de fecha "dummy"
+oferta_hidrica1largo <- oferta_hidrica1largo %>%
+  mutate(fecha2 = as.Date(paste("2000-", format(fecha, "%m-%d"), sep = "")),
+         cuenca_fuente = paste(CUENCA, FUENTE, sep = "-"))
+```
+
+```{r, fig.height=8, fig.width=12}
+ggplot(oferta_hidrica1largo, aes(fecha2, oferta, col = factor(AÑO))) +
+  geom_line(alpha = 0.6) +
+  facet_wrap(~ cuenca_fuente, nrow =  2) +
+  geom_smooth(se = FALSE) + 
+  scale_y_log10(breaks = c(100, 200, 400, 600, 
+                           1000, 2000, 4000, 6000,
+                           10000, 20000, 40000)) +
+  scale_x_date(date_labels = "%B",
+               date_breaks = "1 month") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "Oferta hídica diaria en afluentes del acueducto de Manizales",
+       subtitle = "Desde febrero de 2016 haste agosto 2018",
+       y = "Oferta hídrica (l/s)",
+       x = "Mes")
+```
+
+
+

@@ -18,6 +18,10 @@ order: 1
 - [Base de datos de gorriones.](./bases_datos/SparrowsElphick.txt)
 - [Artículo relacionado con la base de datos.](./docs/Gjerdrum_etal_Auk_SSTS_Habitat_modelling.pdf)
 
+## Análisis exploratorio II
+
+- [Base de datos de la oferta hídrica para Manizales.](./bases_datos/OFERTA_H_DRICA_CUENCAS_MANIZALES_-_TABULADA.csv)
+- [Análisis exploratorio.](./guiones/lectura_oferta_hidrica.html)
 
 <!---
 ## Algebra lineal.
