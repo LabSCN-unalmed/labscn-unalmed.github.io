@@ -108,7 +108,7 @@ matrizCentrada
 ## Gráfica de los sitios con respecto al centroide o centro de masa de abundancias
 
 ```{r}
-plot(matrizCentrada,xlim = c(-15, 30), ylim = c(-15, 30), asp = 1, pch = 19)
+plot(matrizCentrada,xlim = c(-20, 30), ylim = c(-20, 30), asp = 1, pch = 19)
 text(matrizCentrada, labels = row.names(matrizAbun), pos = 2)
 grid()
 abline(h = 0, col = "red", lty = 4)
@@ -173,8 +173,8 @@ composicion <- rbind(composicion1, composicion2)
 
 ```{r}
 
-plot(matrizCentrada,xlim = c(-15, 30), ylim = c(-15, 30), asp = 1, pch = 19)
-text(matrizCentrada, labels = row.names(matrizAbun), pos = 1)
+plot(matrizCentrada,xlim = c(-20, 30), ylim = c(-20, 30), asp = 1, pch = 19)
+text(matrizCentrada, labels = row.names(matrizAbun), pos = 2)
 abline(h = 0, col = "red")
 abline(v = 0, col = "red")
 arrows(0, 0, composicion1[1], composicion1[2], col = "blue")
