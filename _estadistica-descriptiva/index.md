@@ -50,7 +50,7 @@ habilidades en el análisis exploratorio de bases de datos.
 * [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="blank"}
 * [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="blank"}
 
-* [Página de semillero de R por el profesor Edimer David Jaramillo](https://unal-semilleror-facca.github.io/)
+* [Página de semillero de R por el profesor Edimer David Jaramillo](https://unal-semilleror-facca.github.io/){:target="blank"}
 
 ## Horario de atención:
 
