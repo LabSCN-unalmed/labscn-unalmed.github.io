@@ -20,6 +20,7 @@ order: 2
 ## Inicio de la exploración de la encuesta.
 
  - [Exploración de variable continua y categórica](./guiones/explora_encuesta.html)
+ - [Adiciones a la exploración univariada](./guiones/explora_encuesta2.html)
  - [Base de datos de la encuesta](./basesdedatos/encuesta.xlsx)
 
 <!---

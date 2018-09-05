@@ -1,0 +1,152 @@
+---
+title: "Encuesta a estudiantes de Estadística Descriptiva y Análisis Exploratorio de Datos II"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes, 4 de septiembre de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Carga de paquetes a utilizar
+
+
+```{r}
+# Biblioteca para leer bases de datos.
+library(readxl)
+# Biblioteca que contiene un conjunto de bibliotecas.
+library(tidyverse)
+```
+
+## Lectura de la base de datos.
+
+```{r}
+encuesta <- type.convert(data.frame(read_excel( "encuesta.xlsx" ),
+                       stringsAsFactors = TRUE))
+```
+
+## Asignación de nuevos nombres de variables.
+
+```{r}
+nombres <- c("EncID", "Género", "Edad", "Carrera", "Semestre",
+             "Estrato", "PAPA", 
+             "LatO", "LongO", "LatD", "LongD", 
+             "HoraO", "MinO", "HoraD", "MinD",
+             "TipoTranpPpal", "Asignaturas", 
+             "HoraXFueraClase", "HorasEjercicio", 
+             "HorasDormir", "HorasTrab",
+             "HoraInternet", "Contactos",
+             "Computador", "Portátil", "Tableta", "Celular",
+             "InscritoForo", "InstaladoR", "InstaladoRStudio",
+             "GeomVect", "CálculoDif",
+             "Percentil", "NumAzar")
+
+names(encuesta) <- nombres
+```
+
+## Cambio de tipo de variable.
+
+```{r}
+## Cambia a tipo "factor" a la variable Estrato
+encuesta <- encuesta %>%
+            mutate(Estrato = factor(Estrato))
+```
+
+
+```{r}
+summary(encuesta)
+```
+
+## Análisis exploratorio univariado.
+
+### Análisis del PAPA
+
+
+```{r, fig.width=9, fig.height=7}
+hist(encuesta$PAPA,
+     las = 1, 
+     freq = FALSE,
+     col = "darkorange",
+     nclass = 10,
+     main = "Distribución del\nPromedio Aritmético Ponderado Acumulado",
+     ylab = "Densidad",
+     xlab = "Promedio Aritmético Ponderado Acumulado (PAPA)",
+     xlim = c(2.5, 5.0),
+     ylim = c(0, 1.5),
+     xaxt = "n")
+axis(1, at = seq(2.8, 4.8, 0.1), cex.axis = 0.7)
+lines(density(encuesta$PAPA, na.rm = TRUE), 
+      col = "darkblue",
+      lwd = 2)
+grid()
+```
+
+## Diagrama de caja y bigotes ("boxplot" o "box and whisker")
+
+```{r}
+promedio <- mean(encuesta$PAPA, na.rm = TRUE)
+boxplot(encuesta$PAPA, las = 1,
+        main = "Diagrama de caja y bigotes para el\nPromedio Aritmético Ponderado Acumulado",
+        col = "aquamarine3")
+points(1, promedio, pch = 19, col = "tomato", cex = 1.5)
+```
+
+
+```{r}
+promedio <- mean(encuesta$PAPA, na.rm = TRUE)
+boxplot(encuesta$PAPA, las = 1,
+        main = "Diagrama de caja y bigotes para el\nPromedio Aritmético Ponderado Acumulado",
+        col = "aquamarine3", horizontal = TRUE,
+        xaxt='n')
+points(promedio, 1, pch = 19, col = "tomato", cex = 1.5)
+axis(1, at = seq(2.6, 5.0, 0.1), cex.axis = 0.7)
+```
+
+
+### Combinación del diagrama de caja y bigotes con el histograma.
+
+```{r}
+param_anteriores <- par(no.readonly = TRUE)
+nf <- layout(mat = matrix(c(1,2), 2, 1, byrow=TRUE),  height = c(1, 3))
+par(mar = param_anteriores$mar + c(-4.5, 0, 0, 0))
+boxplot(encuesta$PAPA, horizontal=TRUE,  outline=FALSE, ylim = c(2.6, 5))
+par(mar = param_anteriores$mar + c(0, 0, 0, 0))
+hist(encuesta$PAPA, xlim = c(2.6, 5),
+        main = "Histograma del PAPA")
+par(param_anteriores)
+```
+
+
+### Análisis la carrera a la cual pertenecen.
+
+
+
+```{r}
+
+tablaCarrera <- sort(with(encuesta, table(Carrera)), 
+                     decreasing = TRUE) # Ordena la tabla de mayor a menor.
+
+porcentajeXCarrera <- tablaCarrera/sum(tablaCarrera) * 100
+
+param_anteriores <- par(no.readonly = TRUE) # Guarda la lista de parámetros gráficos anteriores.
+
+par(mar = param_anteriores$mar + c(5, 0, 0, 0))
+bp1 <- barplot(tablaCarrera, las = 2,
+        col = "darkgreen", 
+        ylab = "Número de estudiantes",
+        main = "Diagrama de barras\nEstudiantes por carrera",
+        ylim = c(0, 45),
+        xaxt = "n")
+text(bp1, tablaCarrera + 2, paste(round(porcentajeXCarrera, 1), "%"))
+mtext(side = 1, text="Carrera", line = 9)
+text(bp1, -1, names(tablaCarrera), srt = 45, xpd = TRUE,
+     adj = 1)
+
+grid(nx = 0, ny = 8)
+
+par(param_anteriores) # Restuara los parámetros gráficos.
+```
+
+
