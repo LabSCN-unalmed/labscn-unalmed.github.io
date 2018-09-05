@@ -1,7 +1,7 @@
 ---
-title: "Ecología numérica: algebra Lineal"
+title: "Introducción al álgebra lineal"
 author: "Universidad Nacional de Colombia, Sede Medellín"
-date: "Miércoles 15 de agosto de 2018"
+date: "Miércoles, 5 de septiembre de 2018"
 output: 
   html_document: 
     toc: yes
@@ -14,17 +14,30 @@ output:
 # Lectura de base de datos
 
 baseAbun1 <- read.table("ejemplo1.txt", header = TRUE, row.names = 1)
-baseAbun2 <- read.csv2("ejemplo1.csv", row.names = 1)
+```
 
+```{r}
 matrizAbun <- as.matrix(baseAbun1)
+matrizAbun
 ```
 
 
 ## Gráfica de dispersión de las abundancias de las dos especies
 ```{r}
-plot(matrizAbun, xlim = c(0, 35), ylim = c(0, 35), asp = 1, pch = 19)
-text(matrizAbun, labels = row.names(matrizAbun), pos = 1)
+plot(matrizAbun, xlim = c(-1, 50), ylim = c(-1, 50), asp = 1, pch = 19)
+text(matrizAbun, labels = row.names(matrizAbun), pos = 2)
+abline(v = 0, col = "red")
+abline(h = 0, col = "red")
 ```
+
+
+## Hallar las abundancias totales de cada sitio.
+
+```{r}
+sumas <- rowSums(matrizAbun)
+sumas
+```
+
 
 ## Hallar la distancia magnitud de la abundancia por algunos sitios
 ```{r}
@@ -42,19 +55,23 @@ normas <- sqrt(rowSums(matrizAbun ^ 2))
 normas
 ```
 
-## Hallar las abundancias totales de cada sitio.
+## Gráfica de las distancias "conjuntas".
 
 ```{r}
-sumas <- rowSums(matrizAbun)
-sumas
+plot(matrizAbun, xlim = c(-1, 50), ylim = c(-1, 50), asp = 1, pch = 19)
+text(matrizAbun, labels = row.names(matrizAbun), pos = 2)
+arrows(0, 0, matrizAbun[, 1], matrizAbun[, 2], col = "blue", length = 0.2)
+abline(v = 0, col = "red")
+abline(h = 0, col = "red")
 ```
+
 
 ## Gráfica de comparación de las dos distancias o magnitudes de cada sitio como vector.
 
 ```{r}
-plot(sumas,normas,
+plot(sumas, normas,
      asp = 1, xlim = c(0, 55), ylim = c(0, 55), pch =19)
-text(sumas,normas, labels = 1:nrow(matrizAbun), pos = 1)
+text(sumas, normas, labels = 1:nrow(matrizAbun), pos = 2, col = "blue")
 ```
 
 ## Cálculo de los vectores unitarios para cada vector (sitio).
@@ -74,43 +91,81 @@ text(matrizNormalizadas, labels = 1:nrow(matrizAbun), pos = 2)
 
 ## Cálculo de la matriz centrada de abundancias.
 
+
+
 ```{r}
-colMeans(matrizAbun)
-matrizCentrada <- t(t(matrizAbun) - colMeans(matrizAbun))
+promedios <- colMeans(matrizAbun)
+promedios
+```
+
+
+```{r}
+matrizCentrada <- t(t(matrizAbun) - promedios)
 matrizCentrada
 ```
+
 
 ## Gráfica de los sitios con respecto al centroide o centro de masa de abundancias
 
 ```{r}
-plot(matrizCentrada,xlim = c(-13, 20), ylim = c(-13, 20), asp = 1, pch = 19)
-text(matrizCentrada, labels = row.names(matrizAbun), pos = 1)
-abline(h = 0, col = "red")
-abline(v = 0, col = "red")
+plot(matrizCentrada,xlim = c(-15, 30), ylim = c(-15, 30), asp = 1, pch = 19)
+text(matrizCentrada, labels = row.names(matrizAbun), pos = 2)
 grid()
+abline(h = 0, col = "red", lty = 4)
+abline(v = 0, col = "red", lty = 4)
+
 ```
 
 ## Matriz de varianza y covarianza de matrices de abundancias y de abundacias centradas
 ```{r}
 matrizAbun
-var(matrizAbun)
+```
 
+```{r}
+var(matrizAbun)
+```
+
+
+```{r}
 matrizCentrada
+```
+
+```{r}
 var(matrizCentrada)
 ```
+
+
 
 
 ## Composición de referencia
 
 ```{r}
-composicion1 <- c(8, 18)
-composicion2 <- c(-18, 8)
+composicion1 <- c(4, 9)
+composicion2 <- c(-9, 4)
+```
 
+```{r}
+promedios + composicion1
+```
+
+```{r}
+promedios + composicion2
+```
+
+
+
+```{r}
 ## Producto punto de dos vectores
 composicion1%*%composicion2
+```
+
+
+```{r}
+
 ## Matriz con los vectores de referencia
 composicion <- rbind(composicion1, composicion2)
 ```
+
 
 
 
@@ -118,7 +173,7 @@ composicion <- rbind(composicion1, composicion2)
 
 ```{r}
 
-plot(matrizCentrada,xlim = c(-13, 20), ylim = c(-13, 20), asp = 1, pch = 19)
+plot(matrizCentrada,xlim = c(-15, 30), ylim = c(-15, 30), asp = 1, pch = 19)
 text(matrizCentrada, labels = row.names(matrizAbun), pos = 1)
 abline(h = 0, col = "red")
 abline(v = 0, col = "red")
@@ -138,30 +193,40 @@ matrizProyectada <- matrizCentrada %*% t(compoUnidad)
 
 plot(matrizProyectada, asp = 1, pch = 19, ylim = c(-20, 20))
 text(matrizProyectada, labels = row.names(matrizAbun), pos = 1)
+grid()
 abline(h = 0, col = "red")
 abline(v = 0, col = "red")
-grid()
-
+```
+```{r}
 var(matrizProyectada)
 ```
 
 
+
 ## Vectores propios
+
 
 ```{r}
 m_vc <- var(matrizCentrada)
 vp1 <- eigen(m_vc)
 vp1
+```
 
+```{r}
 (matrizRotada_vp <- matrizCentrada%*%vp1$vectors)
+```
 
+
+```{r}
 plot(matrizRotada_vp, asp = 1, pch = 19, ylim = c(-16, 16))
 text(matrizRotada_vp, labels = row.names(matrizAbun), pos = 3)
 abline(h=0, col = "red")
 abline(v=0, col = "red")
 grid()
-
-round(var(matrizRotada_vp), 3)
-
 ```
+
+```{r}
+round(var(matrizRotada_vp), 3)
+```
+
 

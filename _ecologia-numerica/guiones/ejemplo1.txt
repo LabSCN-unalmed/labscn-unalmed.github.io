@@ -1,8 +1,10 @@
 lugar   sp1   sp2
-sitio1   10   15
+sitio1   10   10
 sitio2   19   32
 sitio3    5    3
 sitio4   10   20
 sitio5   19    3
 sitio6    4   18
 sitio7    7    7
+sitio8    5   46
+sitio9   25   26
