@@ -23,7 +23,9 @@ order: 2
  - [Adiciones a la exploración univariada](./guiones/explora_encuesta2.html)
  - [Base de datos de la encuesta](./basesdedatos/encuesta.xlsx)
 
+## Cruce de variables.
 
+ - [Exploratorio de cruce de variables](./guiones/explora_encuesta3.html)
 <!---
 ## Contenido
 {: .no_toc}

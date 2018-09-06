@@ -1,0 +1,116 @@
+---
+title: "Encuesta a estudiantes de Estadística Descriptiva y Análisis Exploratorio de Datos III"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes, 4 de septiembre de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Carga de paquetes a utilizar
+
+
+```{r}
+# Biblioteca para leer bases de datos.
+library(readxl)
+# Biblioteca que contiene un conjunto de bibliotecas.
+library(tidyverse)
+```
+
+## Lectura de la base de datos.
+
+```{r}
+encuesta <- type.convert(data.frame(read_excel( "encuesta.xlsx" ),
+                       stringsAsFactors = TRUE))
+```
+
+## Asignación de nuevos nombres de variables.
+
+```{r}
+nombres <- c("EncID", "Género", "Edad", "Carrera", "Semestre",
+             "Estrato", "PAPA", 
+             "LatO", "LongO", "LatD", "LongD", 
+             "HoraO", "MinO", "HoraD", "MinD",
+             "TipoTranpPpal", "Asignaturas", 
+             "HorasXFueraClase", "HorasEjercicio", 
+             "HorasDormir", "HorasTrab",
+             "HorasInternet", "Contactos",
+             "Computador", "Portátil", "Tableta", "Celular",
+             "InscritoForo", "InstaladoR", "InstaladoRStudio",
+             "GeomVect", "CálculoDif",
+             "Percentil", "NumAzar")
+
+names(encuesta) <- nombres
+```
+
+## Cambio de tipo de variable.
+
+```{r}
+## Cambia a tipo "factor" a la variable Estrato
+encuesta <- encuesta %>%
+            mutate(Estrato = factor(Estrato))
+```
+
+
+```{r}
+ggplot(encuesta, aes(Carrera, PAPA)) +
+  geom_boxplot()
+```
+
+
+
+```{r}
+encuesta <- encuesta %>%
+            mutate(Hora_lleg = HoraD + MinD/60,
+                   Hora_sal  = HoraO + MinO/60,
+                   Tmpo_viaje = Hora_lleg - Hora_sal,
+                   puntualidad = if_else(Hora_lleg < 7, 
+                                         (Hora_lleg - 6) * 60,
+                                         (Hora_lleg - 8) * 60))
+```
+
+
+
+```{r}
+ggplot(encuesta %>% filter(puntualidad < 20), aes(puntualidad, PAPA)) +
+  geom_point() +
+  geom_smooth(se = FALSE)
+```
+
+```{r}
+with(encuesta, dotchart(Asignaturas))
+```
+
+```{r}
+with(encuesta, dotchart(HorasXFueraClase))
+```
+
+
+```{r}
+encuesta <- encuesta %>%
+  mutate(tiempoActiv = Asignaturas * 4 +
+           HorasXFueraClase +
+           HorasEjercicio +
+           HorasDormir +
+           HorasTrab +
+           HorasInternet)
+```
+
+```{r}
+ggplot(encuesta, aes(tiempoActiv)) +
+  geom_histogram(binwidth = 12) +
+  geom_vline(xintercept = 7 * 24, col = "red")
+  
+```
+
+```{r}
+encuesta %>% 
+  select(Edad, Género, Asignaturas, 
+         HorasXFueraClase, HorasEjercicio, HorasDormir, HorasTrab, HorasInternet,
+         tiempoActiv) %>%
+  filter(tiempoActiv > 7 * 24)
+```
+
