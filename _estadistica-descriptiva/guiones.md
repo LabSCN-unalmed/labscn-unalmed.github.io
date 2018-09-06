@@ -23,6 +23,7 @@ order: 2
  - [Adiciones a la exploración univariada](./guiones/explora_encuesta2.html)
  - [Base de datos de la encuesta](./basesdedatos/encuesta.xlsx)
 
+
 <!---
 ## Contenido
 {: .no_toc}
