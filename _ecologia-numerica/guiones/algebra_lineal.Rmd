@@ -1,7 +1,7 @@
 ---
 title: "Introducción al álgebra lineal"
 author: "Universidad Nacional de Colombia, Sede Medellín"
-date: "Miércoles, 5 de septiembre de 2018"
+date: "Viernes, 7 de septiembre de 2018"
 output: 
   html_document: 
     toc: yes
@@ -20,6 +20,20 @@ baseAbun1 <- read.table("ejemplo1.txt", header = TRUE, row.names = 1)
 matrizAbun <- as.matrix(baseAbun1)
 matrizAbun
 ```
+
+$$
+A =
+\left[ \begin{array}{cc}
+10  & 10 \\
+19  & 32 \\
+5   & 3 \\
+10  & 20 \\
+19  &  3 \\
+4   & 18 \\
+7   & 7 \\
+5   & 46 \\
+25  & 26 \end{array} \right]
+$$
 
 
 ## Gráfica de dispersión de las abundancias de las dos especies
@@ -46,6 +60,12 @@ nsitio1
 nsitio2 <- sqrt(sum(matrizAbun[2, ] ^ 2))
 nsitio2
 ```
+
+La magnitud de un vector  $\boldsymbol{u} = [x \quad y]$ se define como:
+
+$$
+ |\boldsymbol{u}| = \sqrt{x^2 + y^2}
+$$
 
 ## Hallar la abundancias "conjunta" de todos los sitios.
 
@@ -76,8 +96,24 @@ text(sumas, normas, labels = 1:nrow(matrizAbun), pos = 2, col = "blue")
 
 ## Cálculo de los vectores unitarios para cada vector (sitio).
 
+El vector unitario asociado a cualquier vector $\boldsymbol{v}$ se define como:
+
+$$
+ \boldsymbol{u} = \frac{\boldsymbol{v}}{|\boldsymbol{v}|}
+$$
+
+```{r}
+matrizAbun
+```
+
+```{r}
+normas
+```
+
+
 ```{r}
 matrizNormalizadas <- matrizAbun/normas
+matrizNormalizadas
 ```
 
 ## Gráfica de los vectores unitarios.
@@ -145,14 +181,39 @@ composicion2 <- c(-9, 4)
 ```
 
 ```{r}
-promedios + composicion1
+composicion1
 ```
 
+```{r}
+promedios
+```
+
+
+```{r}
+promedios + composicion1
+```
 ```{r}
 promedios + composicion2
 ```
 
 
+
+## Producto escalar entre dos vectores.
+
+El producto escalar entre dos vectores $\boldsymbol{v}$, $\boldsymbol{w}$ se 
+define como:
+
+$$
+ \boldsymbol{v} \cdot \boldsymbol{w}
+$$
+
+Y es equivalente a:
+
+$$
+ \boldsymbol{v} \cdot \boldsymbol{w} = |\boldsymbol{v}| |\boldsymbol{w}| \cos \theta
+$$
+
+Donde $\theta$ es el ángulo entre los vectores $\boldsymbol{v}$ y $\boldsymbol{w}$.
 
 ```{r}
 ## Producto punto de dos vectores
@@ -161,9 +222,9 @@ composicion1%*%composicion2
 
 
 ```{r}
-
 ## Matriz con los vectores de referencia
 composicion <- rbind(composicion1, composicion2)
+composicion
 ```
 
 
@@ -177,20 +238,38 @@ plot(matrizCentrada,xlim = c(-20, 30), ylim = c(-20, 30), asp = 1, pch = 19)
 text(matrizCentrada, labels = row.names(matrizAbun), pos = 2)
 abline(h = 0, col = "red")
 abline(v = 0, col = "red")
-arrows(0, 0, composicion1[1], composicion1[2], col = "blue")
-arrows(0, 0, composicion2[1], composicion2[2], col = "blue")
+arrows(0, 0, composicion1[1], composicion1[2], col = "blue", length = 0.2, lwd = 2)
+arrows(0, 0, composicion2[1], composicion2[2], col = "blue", length = 0.2, lwd = 2)
 grid()
 ```
 
 
-## Proyección sobre vectores unitarios
+## Proyección de un vector sobre otro.
+
+La magnitud de la proyección del vector $\boldsymbol{v}$ sobre $\boldsymbol{w}$ se
+define como:
+
+$$
+ Proy_{\boldsymbol{w}}{\boldsymbol{v}} = \frac{\boldsymbol{v} \cdot \boldsymbol{w}}{|\boldsymbol{w}|}
+$$
+Donde $|\cdot|$ es la norma de un vector, 
+$Proy_{\boldsymbol{w}}{\boldsymbol{v}}$ es la magnitud de la proyección
+de $\boldsymbol{v}$ sobre $\boldsymbol{w}$ y el producto $\cdot$ es
+el producto escalar entre dos vectores.
 
 ```{r}
-
 compoUnidad <- composicion / sqrt(rowSums(composicion ^ 2))
+compoUnidad
+```
 
+```{r}
 matrizProyectada <- matrizCentrada %*% t(compoUnidad)
+matrizProyectada
+```
 
+
+
+```{r}
 plot(matrizProyectada, asp = 1, pch = 19, ylim = c(-20, 20))
 text(matrizProyectada, labels = row.names(matrizAbun), pos = 1)
 grid()
