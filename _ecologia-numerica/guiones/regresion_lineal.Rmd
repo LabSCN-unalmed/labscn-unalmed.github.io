@@ -29,13 +29,86 @@ $$
 $$
  y = X\beta + e
 $$
-### Minimizar la diferencia la suma de los cuadrados de los errores.
+Donde:
 
 $$
- min([y - \hat{y}]'[y - \hat{y}])
+y = \left[ 
+\begin{array}{c}
+y_1 \\
+y_2 \\
+\vdots \\
+y_i \\
+\vdots \\
+y_n \\
+\end{array} 
+\right] 
+ \qquad
+X =  \left[ 
+\begin{array}{cc}
+1 & x_1 \\
+1 & x_2 \\
+\vdots & \vdots \\
+1 & x_i \\
+\vdots & \vdots \\
+1 & x_n \\
+\end{array} 
+\right] 
+\qquad
+\beta = \left[
+\begin{array}{c}
+\beta_0 \\
+\beta_1
+\end{array}
+\right]
+\quad
+e = \left[ 
+\begin{array}{c}
+e_1 \\
+e_2 \\
+\vdots \\
+e_i \\
+\vdots \\
+e_n \\
+\end{array} 
+\right] 
+$$
+
+### Minimizar la diferencia la suma de los cuadrados de los errores.
+
+Se denomina error o residual a la siguiente diferencia:
+
+$$
+ r_i = y_i - \hat{y}_i
+$$
+
+El vector de residuales se define por lo tanto como:
+
+$$
+r = y - \hat{y} = \left[ 
+  \begin{array}{c}
+  y_1 - \hat{y}_1 \\
+  y_2 - \hat{y}_2 \\
+  \vdots \\
+  y_i - \hat{y}_i \\
+  \vdots \\
+  y_n - \hat{y}_n \\
+  \end{array}
+\right]
+$$
+Se minimiza entonces la suma de cuadrador de los errores.
+
+$$
+ min([y - \hat{y}]^T[y - \hat{y}]) \qquad o \qquad min([y - \hat{y}]'[y - \hat{y}])
 $$
 La solución a esta optimización es la siguiente ecuación matricial.
 
 $$
  X'y = X'X\beta
 $$
+Esta ecuación es equivalente a:
+
+$$
+ X^Ty = X^TX\beta
+$$
+
+En donde tanto el operador $^T$ como el operador $'$ es la transpuesta.

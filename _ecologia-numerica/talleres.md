@@ -22,3 +22,11 @@ custom_js: 'mathjax'
 * [Coordenadas de las localizaciones de los sitios](./bases_datos/localidades.csv)
 * [Nombre de las especies](./bases_datos/nombresdeespecies.csv)
 * [Nombres de las variables ambientales](./bases_datos/Nombresdevariablesambientales.csv)
+
+
+## Taller individual II.
+
+[Enunciado](./guiones/taller2.html)
+
+Fecha de entrega: En clase el día miércoles 26 de septiembre de
+2018.
