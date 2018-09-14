@@ -1,0 +1,329 @@
+---
+title: "Introducción al álgebra lineal 2"
+author: "Kenneth Roy Cabrera Torres"
+date: "14 de septiembre de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Operaciones con matrices
+
+Operación  | Definición
+------------|-----------
+ `t()`     | Transpuesta de una matriz.
+ `matrix()`| Define una matriz.
+ `vector()`| Crea un vector de un tipo específico con una longitud.
+ `diag()`  | Matriz identidad o diagonal de una matriz.
+ `length()`| Longitud de un vector.
+ `dim()`   | Dimensión de una matriz.
+ `%*%`     | Producto o multiplicación de matrices o vectores.
+ `solve()` | Inversa de una matriz.
+ 
+ 
+## Ejemplos
+
+
+### Definición de matrices.
+
+```{r}
+A <- matrix(c(2, 3, 5, 2, 3, 9, 0, 3), 2, 4, byrow = TRUE)
+A
+```
+
+```{r}
+dimnames(A) <- list(c("M1", "M2"),
+                    c("S1", "S2", "S3", "S4"))
+A
+```
+
+
+```{r}
+t(A)
+```
+
+
+```{r}
+A[2, 1]
+```
+
+ 
+```{r}
+A[, 1]
+```
+ 
+```{r}
+A[2, ]
+```
+
+### Definición y manejo de vectores.
+ 
+
+```{r}
+v1 <- c(2, 3, 5, 2)
+v1
+```
+
+```{r}
+names(v1) <- c("S1", "S2", "S3", "S4")
+v1
+```
+
+
+```{r}
+v2 <- c(200, 300, 200, 100)
+names(v2) <- c("V1", "V2", "V3", "V4")
+v2
+```
+
+### Producto interno de vectores.
+
+```{r}
+v1%*%v2
+```
+
+```{r}
+t(v1)%*%v2
+```
+
+### Producto de matriz por un vector.
+
+```{r}
+A%*%v2
+```
+
+```{r}
+C <- matrix(c(200, 300, 200, 100, 150, 320, 300, 100),
+            2, 4, byrow = TRUE,
+            dimnames = list(c("P1", "P2"),
+                            c("S1", "S2", "S3", "S4")))
+C
+```
+
+
+### Producto de matrices.
+
+```{r}
+A
+```
+
+```{r}
+C
+```
+
+
+```{r}
+CT <- A%*%t(C)
+CT
+```
+
+### Matriz identidad.
+
+```{r}
+I2 <- diag(2)
+I2
+```
+ 
+```{r}
+CT %*% I2
+```
+
+### Norma de un vector en términos de producto interno.
+
+```{r}
+sqrt(v1%*%v1)
+```
+
+```{r}
+sqrt(sum(v1^2))
+```
+
+```{r}
+sqrt(v1[c(1, 2)]%*%v1[c(1, 2)])
+```
+
+### Producto de un vector por un escalar.
+
+```{r}
+2*v1
+```
+
+```{r}
+length(v1)
+```
+
+```{r}
+dim(A)
+```
+
+
+### Inversa de una matriz.
+
+```{r}
+CT
+```
+
+```{r}
+CTI <- matrix(c(3630, -2960, -3600, 2500), 2, 2, 
+              byrow = TRUE)
+CTI
+```
+
+```{r}
+CTI <- -1/1581000 * CTI
+CTI
+```
+
+```{r}
+CT %*% CTI
+```
+
+```{r}
+CTI %*% CT
+```
+
+
+
+## Problema
+
+Se sabe que la suma de las abundancias de dos especies de mamíferos en
+un sitio de muestreo es de 40 individuos y también se sabe que el
+número de individuos de la primera especie es una tercera parte de
+la segunda especie. ¿Cuántos individuos hay de cada especie?
+
+$$
+x_1: \text{Número de individuos de la especie 1}. \\
+x_2: \text{Número de individuos de la especie 2}. \\
+$$
+
+Definición de ecuaciones del problema.
+
+$$
+\begin{eqnarray}
+ x_1 + x_2 & = & 40 \\
+ x_1  & = & \frac{x_2}{3}
+\end{eqnarray}
+$$
+
+Sistema de ecuaciones de dos variables y dos incógnitas.
+
+$$
+\begin{eqnarray}
+ x_1 + x_2 & = & 40 \\
+ 3x_1  - x_2 & = & 0
+\end{eqnarray}
+$$
+
+Definición de la matriz de coeficientes.
+
+$$
+A = \left[ \begin{array}{cc}
+1 & 1 \\
+3 & -1
+\end{array} \right]
+$$
+
+Definición del vector de incógnitas.
+
+$$
+x = \left[ \begin{array}{c}
+x_1 \\
+x_2 \\
+\end{array} \right]
+$$
+Definición del vector de términos independientes.
+
+$$
+b = \left[ \begin{array}{c}
+40 \\
+0 \\
+\end{array} \right]
+$$
+
+Sistema de ecuaciones en forma matricial.
+
+$$
+Ax = b
+$$
+Solución a la ecuación matricial.
+
+$$
+\begin{eqnarray}
+  Ax & = & b \\
+  A^{-1}Ax & = & A^{-1}b \\
+  Ix & = & A^{-1}b \\
+  x & = & A^{-1}b
+\end{eqnarray}
+$$
+
+## Matriz inversa.
+
+$$
+A^{-1} = -\frac{1}{4} \left[ \begin{array}{cc}
+-1 & -1 \\
+-3 & 1
+\end{array} \right]
+$$
+Solución a la ecuación matricial.
+
+$$
+x = A^{-1}b = -\frac{1}{4} \left[ \begin{array}{cc}
+-1 & -1 \\
+-3 & 1
+\end{array} \right]  
+\left[ \begin{array}{c}
+40 \\
+0 \\
+\end{array} \right] = 
+-\frac{1}{4}
+\left[ \begin{array}{c}
+-40 \\
+-120 \\
+\end{array} \right] = 
+\left[ \begin{array}{c}
+10 \\
+30 \\
+\end{array} \right]
+$$
+
+Resultado final.
+
+$$
+x = 
+\left[ \begin{array}{c}
+10 \\
+30 \\
+\end{array} \right]
+$$
+
+Solución mediante código.
+
+```{r}
+A <- matrix(c(1, 1, 3, -1), 2, 2, byrow = TRUE)
+A
+```
+
+```{r}
+b <- c(40, 0)
+b
+```
+
+```{r}
+AI <- matrix(c(-1, -1, -3, 1), 2, 2, byrow = TRUE)
+AI <- -1/4 * AI
+AI
+```
+
+```{r}
+AI%*%b
+```
+
+Inversa de una matriz mediante código.
+
+```{r}
+solve(A)
+```
+

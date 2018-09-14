@@ -1,0 +1,41 @@
+---
+title: "Regresión lineal"
+author: "Kenneth Roy Cabrera Torres"
+date: "14 de septiembre de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Definición matricial de un sistema para regresión lineal.
+
+### Sistema de ecuaciones.
+
+$$
+\begin{eqnarray}
+ y_1 & = & \beta_0 + \beta_1 x_1 + e_1 \\
+ y_2 & = & \beta_0 + \beta_1 x_2 + e_2 \\
+ \vdots & = & \vdots \\
+ y_i & = & \beta_0 + \beta_1 x_i + e_i \\
+ \vdots & = & \vdots \\ 
+ y_n & = & \beta_0 + \beta_1 x_n + e_n \\
+\end{eqnarray} 
+$$
+
+### Forma matricial de las ecuaciones.
+
+$$
+ y = X\beta + e
+$$
+### Minimizar la diferencia la suma de los cuadrados de los errores.
+
+$$
+ min([y - \hat{y}]'[y - \hat{y}])
+$$
+La solución a esta optimización es la siguiente ecuación matricial.
+
+$$
+ X'y = X'X\beta
+$$

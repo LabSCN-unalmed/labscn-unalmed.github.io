@@ -204,13 +204,13 @@ El producto escalar entre dos vectores $\boldsymbol{v}$, $\boldsymbol{w}$ se
 define como:
 
 $$
- \boldsymbol{v} \bullet \boldsymbol{w}
+ \boldsymbol{v} \cdot \boldsymbol{w}
 $$
 
 Y es equivalente a:
 
 $$
- \boldsymbol{v} \bullet \boldsymbol{w} = |\boldsymbol{v}| |\boldsymbol{w}| \cos \theta
+ \boldsymbol{v} \cdot \boldsymbol{w} = |\boldsymbol{v}| |\boldsymbol{w}| \cos \theta
 $$
 
 Donde $\theta$ es el ángulo entre los vectores $\boldsymbol{v}$ y $\boldsymbol{w}$.
@@ -250,7 +250,7 @@ La magnitud de la proyección del vector $\boldsymbol{v}$ sobre $\boldsymbol{w}$
 define como:
 
 $$
- Proy_{\boldsymbol{w}}{\boldsymbol{v}} = \frac{\boldsymbol{v} \bullet \boldsymbol{w}}{|\boldsymbol{w}|}
+ Proy_{\boldsymbol{w}}{\boldsymbol{v}} = \frac{\boldsymbol{v} \cdot \boldsymbol{w}}{|\boldsymbol{w}|}
 $$
 Donde $|\cdot|$ es la norma de un vector, 
 $Proy_{\boldsymbol{w}}{\boldsymbol{v}}$ es la magnitud de la proyección
@@ -276,10 +276,20 @@ grid()
 abline(h = 0, col = "red")
 abline(v = 0, col = "red")
 ```
+
 ```{r}
 var(matrizProyectada)
 ```
 
+## Interpretación
+
+```{r}
+matrizCentrada
+```
+
+```{r}
+matrizProyectada
+```
 
 
 ## Vectores propios
@@ -307,5 +317,4 @@ grid()
 ```{r}
 round(var(matrizRotada_vp), 3)
 ```
-
 

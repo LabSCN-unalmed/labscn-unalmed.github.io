@@ -28,3 +28,5 @@ order: 1
 
 - [Introducción al álgebra lineal I](./guiones/algebra_lineal.html)
 - [Archivo ejemplo1 (formato texto)](./guiones/ejemplo1.txt)
+- [Introducción al álgebra lineal II](./guiones/algebra_lineal2.html)
+- [Definición de regresión lineal](./guiones/regresion_lineal.html)
