@@ -41,7 +41,9 @@ $$
 
 5. Escribir de manera matricial el valor de $\hat{y}$.
 
+Es decir halla a `f(\cdot)` en forma matricia,
+
 $$
- \hat{y} = ??
+ \hat{y} = f(y)
 $$
 
