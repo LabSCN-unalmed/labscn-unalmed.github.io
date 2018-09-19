@@ -30,7 +30,7 @@ $$
 
 y mediante código en __R__, resolver la ecuación para el vector 
 $\beta$ y por lo tanto despejar a $\beta$, es decir $\hat{\beta}$,
-que es el estimador de $
+que es el estimador de $\beta$.
 
 4. Una vez obtenido el estimador de $\beta$, obtener los valores
 ajustado o predichos de $\hat{y}$, mediante la ecuación:
@@ -41,7 +41,7 @@ $$
 
 5. Escribir de manera matricial el valor de $\hat{y}$.
 
-Es decir halla a `f(\cdot)` en forma matricia,
+Es decir halla a $f(\cdot)$ en forma matricial,
 
 $$
  \hat{y} = f(y)
