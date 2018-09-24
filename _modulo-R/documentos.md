@@ -6,6 +6,8 @@ order: 2
 ---
 
 
+
+<!---
 ## Contenido
 {: .no_toc}
 
@@ -49,3 +51,5 @@ order: 2
 ## Manejo de bases de datos
    - [Manejo de base de datos](./slides/12_Manejo_bases_de_datos.html)
    - [ICFES 2015 02](./dbs/20152.xls)
+
+-->

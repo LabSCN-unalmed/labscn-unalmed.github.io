@@ -5,6 +5,10 @@ curso: 'modulo-R'
 order: 6
 ---
 
+
+
+<!---
+
 ## Contenido
 {: .no_toc}
 
@@ -33,3 +37,5 @@ El valor de NR corresponde a "no registrado".
  - Arreglar la base datos de tal manera se se pueda obtener
    estadísticas de las UFC por los diferentes, medios,
    dilusiones y fincas.
+
+-->

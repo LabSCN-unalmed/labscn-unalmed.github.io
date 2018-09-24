@@ -1,0 +1,49 @@
+---
+title: "Taller individual 2"
+author: "Kenneth Roy Cabrera Torres"
+date: "14 de septiembre de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Objetivo.
+
+Calcular mediante álgebra matricial la estimación 
+de los parámetros de una regresión lineal simple utilizando
+datos reales.
+
+## Actividades.
+
+1. Conseguir una base de datos en donde se tengan unos datos
+   de variable explicativa ($x$) y sus correspondientes datos
+   de la variable respuesta ($y$).
+2. Constuir el vector $y$ y la matriz $X$ utilizando como base 
+   la teoría de regresión lineal vista en clase.
+3. Utilizando la ecuación matricial :
+
+$$
+X^Ty = X^TX\beta
+$$
+
+y mediante código en __R__, resolver la ecuación para el vector 
+$\beta$ y por lo tanto despejar a $\beta$, es decir $\hat{\beta}$,
+que es el estimador de $\beta$.
+
+4. Una vez obtenido el estimador de $\beta$, obtener los valores
+ajustado o predichos de $\hat{y}$, mediante la ecuación:
+
+$$
+ \hat{y} = X\hat{\beta}
+$$
+
+5. Escribir de manera matricial el valor de $\hat{y}$.
+
+Es decir halla a $f(\cdot)$ en forma matricial,
+
+$$
+ \hat{y} = f(y)
+$$
+
