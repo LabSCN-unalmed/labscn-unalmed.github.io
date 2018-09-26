@@ -41,6 +41,11 @@ var_fisicas <- ambient %>%
 var_fisicas
 ```
 
+```{r}
+scale(var_fisicas)
+```
+
+
 
 ## Variables físicas.
 
