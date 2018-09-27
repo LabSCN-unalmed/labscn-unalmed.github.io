@@ -5,6 +5,9 @@ curso: 'modulo-R'
 order: 5
 ---
 
+
+<!---
+
 ## Contenido
 {: .no_toc}
 
@@ -39,14 +42,13 @@ order: 5
 
 ## Tercer taller individual (Quiz 3)   
 
- * Dado el [siguiente código](./codigos/quiz3.R) que hace que una bolita rebote en 
+ * Dado el [siguiente código](./codigos/quiz3.R) que hace que una bolita rebote en
    los bordes de un tablero, modificar el código de tal manera que
 
 
 
 
-
-<!-- ## Primer taller individual (Quiz 1)
+ ## Primer taller individual (Quiz 1)
 
 
 ### Enunciado
@@ -120,11 +122,6 @@ de las 12:00 hora de Colombia, del día 15 de septiembre de 2017 al correo **krc
 **[ModuloR]**.
 
 
-
- -->
-
-
-<!---
 ## Taller individual
 
  - [Composición de funciones periódicas](./talleres/funciones_periódicas.html)
@@ -133,4 +130,5 @@ de las 12:00 hora de Colombia, del día 15 de septiembre de 2017 al correo **krc
  Plantilla del resultado esperado:
  - [Ejemplo del resultado esperado](./talleres/composición_funciones.html)
  - [Segunda base de datos de ejemplo](./talleres/ejemplo2.xlsx)
+
  -->
