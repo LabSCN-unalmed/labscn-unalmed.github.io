@@ -31,6 +31,9 @@ Análisis detallado del mapa "accum" {#analisis-detallado-mapa-accum}
 
 Consultamos la información estadística extendida utilizando la opción `-e`.
 
+
+> Ráster > Informes y estadísticas > Estadísticas univariadas de ráster
+
 ~~~
 r.univar -e porce1_accum
 ~~~
