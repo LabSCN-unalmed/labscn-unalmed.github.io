@@ -2,13 +2,20 @@
 layout: clase
 title: 'Análisis de redes de drenaje'
 curso: 'cartografia-digital'
+clase: 5
+custom_js: 'mathjax'
 ---
-<!-- clase: 8 -->
 
 Extraer la red de drenaje
 -------------------------
 
 Para la extracción de redes de drenaje a partir de un DEM utilizamos el comando `r.watershed`.
+
+Se encuentra en la siguiente secuencia de menú:
+
+> Ráster > Modelado hidrológico > Análisis de cuencas hidrográficas.
+
+En forma de comando o instrucción se ejecuta lo siguiente:
 
 ~~~
 r.watershed -as elevation=porcecito1 accumulation=porce1_accum drainage=porce1_drain basin=porce1_basin stream=porce1_stream threshold=200000
@@ -38,7 +45,13 @@ Utilizando un rango continuo:
 
 ![Rango continuo](/cartografia-digital/images/porce1_accum_hist1.png){: .img-responsive}
 
+
 Utilizando rangos discretos:
+
+Para este caso utilice en forma de menú,
+y en el primer icono a la izquierda se configuran los rangos:
+
+> Imágenes > Histograma
 
 ![Rango discreto](/cartografia-digital/images/porce1_accum_hist2.png){: .img-responsive}
 
@@ -90,17 +103,24 @@ Transformar un mapa raster en un mapa vectorial
 
 Lo primero que se debe hacer antes de la transformación es adelgazar el mapa raster, para lo cual debemos convertir los valores 0 en valores nulos utilizando el comando `r.null`.
 
+
+> Ráster > Desarrolar mapa ráster > Administrar los valores NULOS
+
 ~~~
 r.null map=porce1_accum_log3 setnull=0
 ~~~
 
 Una vez realizada esta operación, podremos adelgazar las líneas raster.
 
+> Ráster > Transformar elementos > Adelgazar, afinar
+
 ~~~
 r.thin input=porce1_accum_log3 output=porce1_accum_log3_thin
 ~~~
 
 Una vez adelgazado el mapa raster, podemos convertirlo al formato vectorial.
+
+> Ráster > Conversion de tipos de mapas > Ráster a vectorial
 
 ~~~
 r.to.vect input=porce1_accum_log3_thin output=porce1_accum_log3 type=line

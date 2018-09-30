@@ -2,10 +2,13 @@
 layout: clase
 title: 'Uso del toolkit r.stream.*'
 curso: 'cartografia-digital'
+clase: 6
+custom_js: 'mathjax'
 ---
-<!-- clase: 9 -->
 
 El SIG GRASS cuenta con una serie de [complementos](http://grasswiki.osgeo.org/wiki/AddOns/GRASS_7){:target="blank"} que no hacen parte oficial del SIG pero pueden ser instalados haciendo uso del módulo `g.extension`:
+
+> Configuraciones > Complementos de extensión > Instalar extensión desde los complementos
 
 ~~~
 g.extension help
@@ -13,11 +16,17 @@ g.extension help
 
 Para efectos del actual curso, los complementos que serán usados ya se encuentran instalados, la siguiente es la guia de comandos a utilizar.
 
+> Configuraciones > Complementos de extensión > Administrar complementos de extensión instalados
+
 ## Extraer la red de drenaje
 
 Existe un comando alterno al `r.watershed`, que permite extraer la red de drenaje tanto en formato raster como vector. Adicionalmente brinda la posibilidad de clasificación de la red de drenaje mediante un comando complementario descrito más adelante.
 
 Consultar la documentación del comando `r.stream.extract`:
+
+> Ráster > Modelado hidrológico > Extracción de red de arrollos
+
+Por error de traducción del paquete se utilizó **arrollo** en lugar de **arroyo**.
 
 ~~~
 r.stream.extract help
@@ -32,6 +41,8 @@ r.stream.extract elevation=porcecito1 threshold=555 stream_length=3 stream_raste
 
 Consultar la información del mapa raster de corrientes resultante:
 
+> Ráster > Informes y estadísticas > Suma área por mapa ráster y categoría
+
 ~~~
 r.report -n map=porcecito_streams units=c,p,k nsteps=10
 ~~~
@@ -41,6 +52,8 @@ r.report -n map=porcecito_streams units=c,p,k nsteps=10
 Se utiliza el comando `r.stream.order` con los mapas obtenidos del `r.stream.extract` como insumos.
 
 Se puede descargar el addon, teniendo una conexión activa a internet con el comando:
+
+> Configuraciones > Complementos de extensión > Instalar extensión desde los complementos
 
 ~~~
 g.extension r.stream.order
@@ -54,6 +67,9 @@ La clasificación u ordenamiento de la red de drenaje se realiza utilizando:
 * El mapa raster de dirección de drenajes.
 * El mapa raster de elevacion.
 
+Se utiliza la ventana de "Administrador de capas de GRASS GISS 7.4.0",
+en la pensaña (inferior) "Consola" se escribe: "r.stream.order".
+
 ~~~
 r.stream.order stream_rast=porcecito_streams direction=porcecito_direction elevation=porcecito1 accumulation=porce1_accum stream_vect=porce1_streams strahler=porcecito_strahler horton=porcecito_horton shreve=porcecito_shreve hack=porcecito_hack topo=porcecito_topo
 ~~~
@@ -63,6 +79,9 @@ Los mapas resultantes contienen los sistemas de ordenamiento de la red de drenaj
 ![](/cartografia-digital/images/stream_orders.png){: .img-responsive}
 
 Desplegar y comparar las clasificaciones de las corrientes y consultar la información de los mapas resultantes.
+
+
+> Ráster > Informes y estadísticas > Suma área por mapa ráster y categoría
 
 ~~~
 r.report -n map=porcecito_strahler units=c,p,k
@@ -82,10 +101,27 @@ Si no lo consigue, despliegue las categorias de horton una a una sobre el mapa r
 
 Conversión de los mapas raster ordenados a formato vectorial.
 
+> Ráster > Transformar elementos > Adelgazar, afinar
+
 ~~~
 r.thin input=porcecito_shreve output=porcecito_shreve_thin
+~~~
+
+> Ráster > Conversion de tipos de mapas > Ráster a vectorial
+
+~~~
 r.to.vect -v input=porcecito_shreve_thin output=porcecito_shreve type=line
+~~~
+
+> Vector > Informes y estadísticas > Metadatos básicos del vectorial
+
+~~~
 v.info -c map=porcecito_shreve
+~~~
+
+> Vector > Consultar mapa vectorial > Consultar datos de objetos espaciales vectoriales
+
+~~~
 v.db.select map=porcecito_shreve
 ~~~
 
@@ -99,8 +135,16 @@ Consultar la tabla de atributos asociada a cada mapa vectorial:
 
 ### Mapa vectorial obtenido con `r.stream.extract`
 
+
+> Vector > Informes y estadísticas > Metadatos básicos del vectorial
+
 ~~~
 v.info -c map=porcecito_streams
+~~~
+
+> Vector > Consultar mapa vectorial > Consultar datos de objetos espaciales vectoriales
+
+~~~
 v.db.select map=porcecito_streams | less
 ~~~
 
@@ -115,8 +159,15 @@ v.db.select map=porcecito_streams | less
 
 ### Mapa vectorial obtenido con `r.stream.order`
 
+> Vector > Informes y estadísticas > Metadatos básicos del vectorial
+
 ~~~
 v.info -c map=porce1_streams
+~~~
+
+> Vector > Consultar mapa vectorial > Consultar datos de objetos espaciales vectoriales
+
+~~~
 v.db.select map=porce1_streams | less
 ~~~
 
@@ -134,6 +185,8 @@ Si el valor de `accum` puede constituir una variable sustituta del caudal de la 
 Con el comando `v.db.univar` se pueden hacer cálculos de estadística univariada para un atributo especifico de la base de datos conectada a un mapa vectorial.
 
 Calculo de la longitud de los segmentos.
+
+> Vector > Informes y estadísticas > Estadísticas univariantes para columnas de atributo  
 
 ~~~
 v.db.univar map=porce1_streams column=length
