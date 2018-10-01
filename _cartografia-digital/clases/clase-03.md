@@ -6,34 +6,7 @@ custom_js: 'mathjax'
 clase: 3
 ---
 
-<!-- ## Fundamentos teóricos {#fundamentos-teoricos} -->
-
 ## El concepto de relieve relativo
-
-<!--
-- Tipos de relieve relativo (montañoso, colinado, plano).
-- ¿Cómo construiría usted un mapa de relieve relativo a partir de un DEM?
-- Relación entre tipo de relieve relativo y tamaño de la ventana móvil.
-- Álgebra de mapas: operaciones básicas (suma, resta, multiplicación, división).
-
-### El concepto de análisis de vecindad {#concepto-analisis-vecindad}
-
-- El análisis de vecindad a partir de un mapa raster.
-- La ventana móvil como dimensión de la vecindad.
-- La relación entre ventana móvil y mapa.
-- Efecto de borde.
-- Operaciones de vecindad. ¿Cuáles son las posibles operaciones?
-
-### Diferencias entre un mapa de una variable determinada y un mapa reclasificado de dicha variable
-
-- La naturaleza del valor del píxel.
-- Reducción en la cantidad y calidad de la información.
-- Simplificación del mapa original.
-- Se pueden obtener múltiples mapas reclasificados a partir del mapa original.
-
-## Desarrollo
-
-### Relieve relativo o relieve local -->
 
 El relieve relativo o relieve local se define como la diferencia vertical en elevación entre los puntos mas altos y los puntos mas bajos dentro de una región dada o a lo largo de un perfil o linea en el terreno.
 
@@ -186,10 +159,6 @@ Resaltamos la información del mapa:
 - La altitud mínima es de 958 msnm.
 - La altitud máxima es de 2873 msnm.
 - El tipo de datos del mapa es `CELL`.
-
-<!-- ~~~
-r.info map=porcecito
-~~~ -->
 
 ~~~
 +----------------------------------------------------------------------------+
