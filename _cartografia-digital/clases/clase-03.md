@@ -2,8 +2,8 @@
 layout: clase
 title: 'Análisis del relieve relativo y mapas sombreados de relieve'
 curso: 'cartografia-digital'
-custom_js: 'mathjax'
 clase: 3
+custom_js: 'mathjax'
 ---
 
 ## El concepto de relieve relativo
