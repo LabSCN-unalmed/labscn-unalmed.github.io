@@ -75,7 +75,7 @@ r.stream.order stream_rast=porcecito_streams direction=porcecito_direction eleva
 
 Los mapas resultantes contienen los sistemas de ordenamiento de la red de drenaje. Adicionalmente, un nuevo mapa vectorial se genera con atributos adicionales a los generados por el `r.stream.extract`.
 
-![](/cartografia-digital/images/stream_orders.png){: .img-responsive}
+![](/cartografia-digital/images/clase-06/stream_orders.png){: .img-responsive}
 
 Desplegar y comparar las clasificaciones de las corrientes y consultar la información de los mapas resultantes.
 
