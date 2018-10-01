@@ -2,8 +2,8 @@
 layout: clase
 title: 'Análisis de redes de drenaje'
 curso: 'cartografia-digital'
-custom_js: 'mathjax'
 clase: 5
+custom_js: 'mathjax'
 ---
 
 Para la extracción de redes de drenaje a partir de un DEM se deben obtener primero unos mapas intermedios, entre ellos el mapa de acumulación, el cual indica el área drenada (en número de pixeles) en cada pixel de la zona de estudio; y el mapa de dirección del drenaje, que indica la dirección en la cual se mueve el agua sobre el terreno.
