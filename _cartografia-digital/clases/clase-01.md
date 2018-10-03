@@ -207,7 +207,11 @@ Con el botón **Opciones del gráfico** ![](/cartografia-digital/images/clase-01
 
 ## Vista 3D
 
-Al seleccionar la Vista 3D en el visualizador de mapas, se habilita la pestaña de control de "Vista 3D" en el administrador de capas. Esta pestaña permite controlar:
+Al seleccionar la Vista 3D en el visualizador de mapas, se habilita la pestaña de control de "Vista 3D" en el administrador de capas.
+
+Esta pestaña permite controlar:
+
+![](/cartografia-digital/images/clase-01/clase-01_12.png){: .img-responsive}
 
 ### Visualización {#visualizacion}
 
@@ -221,15 +225,28 @@ Al seleccionar la Vista 3D en el visualizador de mapas, se habilita la pestaña 
 - La perspectiva.
 - El color de fondo.
 
+![](/cartografia-digital/images/clase-01/clase-01_13.png){: .img-responsive}
+
 ### Datos
 
 - El mapa raster de superficie.
 - La resolución de renderizado.
 - Las reglas de color.
 
+![](/cartografia-digital/images/clase-01/clase-01_14.png){: .img-responsive}
+
 ### Presentación {#presentacion}
 
 - La iluminación.
+
+![](/cartografia-digital/images/clase-01/clase-01_15.png){: .img-responsive}
+
 - El márgen del mapa.
+
+![](/cartografia-digital/images/clase-01/clase-01_16.png){: .img-responsive}
+
+Finalmente, luego de definir las diferentes propiedades de visualización 3D el mapa porcecito se verá así:
+
+![](/cartografia-digital/images/clase-01/porcecito_3D.png){: .img-responsive}
 
 *[GRASS GIS]: Geographic Resources Analysis Support System
