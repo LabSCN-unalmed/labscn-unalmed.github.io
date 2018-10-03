@@ -86,7 +86,7 @@ El nuevo histograma sólo muestra los valores positivos del mapa de acumulación
 
 ![](/cartografia-digital/images/clase-05/ituango_accum_hist_log.png){: .img-responsive}
 
-### Extraer la red de drenaje a partir del mapa de acumulación de drenaje {#extraer-red-drenaje}
+### Extraer la red de drenaje a partir del mapa de acumulación {#extraer-red-drenaje}
 
 Primero elaboraremos un mapa de acumulación en escala logarítmica que nos permita leerlo más fácilmente como ya lo vimos con el histograma. Para esto debemos obtener el aplicar el logaritmo en base 10 al valor absoluto del mapa de acumulación utilizando la **Calculadora de mapas raster** ![](/cartografia-digital/images/clase-03/raster-calculator.png).
 
@@ -248,17 +248,15 @@ Este mapa ofrece la posibilidad de diferentes lecturas; disponibilidad de agua, 
 ██████  ██   ██ ██   ██ ██ ██   ████
 -->
 
-<!-- ## El mapa de dirección de drenaje {#mapa-drainage}
+## El mapa de dirección de drenaje {#mapa-drainage}
 
-![Mapa accum](/cartografia-digital/images/clase-05/ituango_drain.png){: .img-responsive} -->
+![Mapa accum](/cartografia-digital/images/clase-05/ituango_drain.png){: .img-responsive}
 
-<!-- Output drainage raster map contains drainage direction. Provides the "aspect" for each cell measured CCW from East. Multiplying positive values by 45 will give the direction in degrees that the surface runoff will travel from that cell. The value 0 (zero) indicates that the cell is a depression area (defined by the depression input map). Negative values indicate that surface runoff is leaving the boundaries of the current geographic region. The absolute value of these negative cells indicates the direction of flow. For MFD, drainage indicates the direction of maximum flow.  -->
-
-<!-- El mapa de dirección de drenaje tiene
+El mapa de dirección de drenaje indica la dirección en la que fluye el agua sobre el relieve. Contiene el "aspecto", es decir, el ángulo al que mira el terreno, de cada pixel medido en el sentido contrario a las manecillas del reloj desde el oriente. Al multiplicar los valores positivos por 45 se obtiene el ángulo en grados en el que viajará la escorrentía desde ese pixel. El valor de cero (0) indica que el pixel es un área de depresión. Los valores negativos indican que la escorrentía fluye hacia afuera de los límites de la región geográfica definida. El valor absoluto de esos pixeles negativos indica la dirección del flujo.
 
 Si el valor de cada pixel indica la dirección de salida del flujo del agua, ¿Cómo interpretar las distribuciones de estos valores dentro de un mapa? ¿Cómo se distribuyen los valores de 1-8 dentro del mapa y cómo interpretar dichas distribuciones?
 
-A partir de una red de drenaje densa (log2) clasificar la red de drenaje según su dirección. -->
+<!-- A partir de una red de drenaje densa (log2) clasificar la red de drenaje según su dirección. -->
 
 <!--
 ██████  ██ ██   ██ ███████ ██      ███████ ███████
