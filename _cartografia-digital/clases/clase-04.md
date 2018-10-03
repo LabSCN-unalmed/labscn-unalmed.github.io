@@ -141,8 +141,6 @@ Visualizamos el mapa de pendientes:
 
 ![2D](/cartografia-digital/images/clase-04/porcecito_slope_3.png){: .img-responsive}
 
-<!-- ![3D](/cartografia-digital/images/clase-04/porcecito_slope_3_3D.png){: .img-responsive} -->
-
 **Nota:** [Recordar el procedimiento para la correcta visualización en 3D de un mapa que no contenga valores de altitud.](/cartografia-digital/clases/clase-03.html#el-mapa-de-relieve-relativo)
 {: .alert .alert-info}
 
@@ -170,7 +168,6 @@ variance: 64.6026
 variation coefficient: 46.5511 %
 sum: 24450217.7022213
 ~~~
-{: .output}
 
 ### Construir el histograma de las gradientes
 
@@ -200,8 +197,6 @@ Utilizando el mismo procedimiento que utilizamos para [reclasificar el mapa de r
 
 ![2D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3.png){: .img-responsive}
 
-<!-- ![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3D.png){: .img-responsive} -->
-
 La reclasificación de la pendiente en 6 rangos con los límites antes anotados genera un mapa de "sal y pimienta".
 
 Vamos a hacer una reclasificación más simple solo con tres categorías.
@@ -218,8 +213,6 @@ Vamos a hacer una reclasificación más simple solo con tres categorías.
 
 ![2D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_2.png){: .img-responsive}
 
-<!-- ![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_2_3D.png){: .img-responsive} -->
-
 El mapa con 3 categorías se torna más claro que el mapa con 6 categorías. Es frecuente que el excesivo detalle en la reclasificación de mapas no permite ver los patrones más frecuentes porque pasan desapercibidos debido a una excesiva reclasificación.
 
 #### Con tres categorías pero modificando sus límites: Mapa 3
@@ -233,8 +226,6 @@ El mapa con 3 categorías se torna más claro que el mapa con 6 categorías. Es 
 ~~~
 
 ![2D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3.png){: .img-responsive}
-
-<!-- ![3D](/cartografia-digital/images/clase-04/RCLS_porcecito_slope_3_3_3D.png){: .img-responsive} -->
 
 _**¿Cuáles son las diferencias mas importantes entre los tres mapas?**_<br>
 _**¿Qué características del terreno resaltan en un mapa que aparecen poco evidentes claras en otro?**_
@@ -257,7 +248,6 @@ Si obtenemos un reporte del mapa reclasificado de pendientes obtendremos la sigu
 |TOTAL                                              |1326.56333|1420848|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 Observemos que aparece una categoría para los valores `no data`. Esto se debe al efecto de borde, pues en los pixeles del borde del mapa no habrá un valor de pendiente.
 
@@ -277,7 +267,6 @@ Para omitir los pixeles nulos del reporte utilizamos la opción de no reportar l
 |TOTAL                                              |1322.11173|1416080|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 ### Actividad extra-curso
 
@@ -404,7 +393,6 @@ median (even number of cells): -0.000191911
 3rd quartile: 0.00074942
 90th percentile: 0.00192106
 ~~~
-{: .output}
 
 De acuerdo con los datos obtenidos, observamos que los valores de curvatura son extremadamente bajos, de tal modo que el valor promedio (`mean`) es del órden de una diezmilésima.
 
@@ -447,7 +435,6 @@ median (even number of cells): -19.1911
 3rd quartile: 74.942
 90th percentile: 192.106
 ~~~
-{: .output}
 
 La clasificación de las curvaturas de perfil `profc` y plana `planc` presuponen como condición necesaria un conocimiento del relieve de la región representado en el mapa. Es el conocimiento de campo el que nos permite estimar o seleccionar adecuadamente el peso de los distintos tipos de curvatura. En este sentido, el computador brinda la opción de seleccionar cualquier rango y por lo tanto, obtener un número elevado de mapas distintos. Es la experiencia de campo la que permite tener un criterio adecuado para seleccionar los pesos de los diferentes tipos de curvatura.
 {: .alert .alert-success}
@@ -481,7 +468,6 @@ median (even number of cells): -19.1911
 40th percentile: -51.5463
 60th percentile: 13.6386
 ~~~
-{: .output}
 
 Puesto que la idea es que el límite sea simétrico con respecto al 0 absoluto, utilizaremos el valor promedio entre los percentiles 40 y 60 (en valor absoluto):
 
@@ -515,13 +501,10 @@ El reporte de las categorías sería el siguiente:
 |TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 El mapa reclasificado obtenido es el siguiente:
 
 ![2D](/cartografia-digital/images/clase-04/porcecito_profc_7.png){: .img-responsive}
-
-<!-- ![3D](/cartografia-digital/images/clase-04/porcecito_profc_7_3D.png){: .img-responsive} -->
 
 El mapa de la curvatura vertical muestra claramente la diferencia entre concavidades pertenecientes a valles y convexidades perteneciente a divisorias de agua ubicadas en cimas de colinas.
 
@@ -590,7 +573,6 @@ median (even number of cells): -0.000227176
 3rd quartile: 0.00547276
 90th percentile: 0.0133584
 ~~~
-{: .output}
 
 ### Reclasificación del mapa de curvatura plana {#reclasificacion-mapa-curvatura-plana}
 
@@ -627,7 +609,6 @@ median (even number of cells): -22.7176
 40th percentile: -218.711
 60th percentile: 173.238
 ~~~
-{: .output}
 
 De igual manera que con la curvatura de perfil, la idea es que el límite sea simétrico con respecto al 0 absoluto, utilizaremos el valor promedio entre los percentiles 40 y 60 (en valor absoluto):
 
@@ -661,13 +642,10 @@ Se reclasifica el mapa de acuerdo a las reglas definidas, y se obtiene un report
 |TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 El mapa reclasificado obtenido es el siguiente:
 
 ![2D](/cartografia-digital/images/clase-04/porcecito_planc_7.png){: .img-responsive}
-
-<!-- ![3D](/cartografia-digital/images/clase-04/porcecito_planc_7_3D.png){: .img-responsive} -->
 
 Observar que haciendo zoom en sectores del mapa se pueden observar rasgos específicos del relieve.
 
@@ -778,7 +756,6 @@ Visualizamos la distribución de los tipos de vertientes en el mapa `porcecito_t
 |TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 Para asignarle etiquetas a las categorías del nuevo mapa, utilizamos la  herramienta `r.category` que abrimos desde el menú _Raster -> Change category values and labels -> Manage category information_.
 
@@ -826,7 +803,6 @@ Consultamos la distribución nuevamente:
 |TOTAL                                              |1313.23093|1406568|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 Y ya las categorías pueden ser identificadas.
 

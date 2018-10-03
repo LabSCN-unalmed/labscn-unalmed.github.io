@@ -117,7 +117,6 @@ variance: 171362
 variation coefficient: 23.0651 %
 sum: 2550048192
 ~~~
-{: .output}
 
 ### Crear una tabla de colores con variación gradual del color {#crear-tabla-colores-variacion-gradual-color}
 

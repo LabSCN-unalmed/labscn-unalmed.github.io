@@ -67,7 +67,6 @@ variance: 1.50208e+08
 variation coefficient: 4069.69 %
 sum: 543979037
 ~~~
-{: .output}
 
 Observar los valores mínimo y máximo. *¿Qué le suguiere la información obtenida?*
 {: .alert .alert-info}

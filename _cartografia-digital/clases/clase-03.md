@@ -188,7 +188,6 @@ Resaltamos la información del mapa:
 |                                                                            |
 +----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 La información recibida indica que el tipo de dato es `CELL` que en otros términos quiere decir que los valores del mapa `porcecito` se encuentran en **números enteros**. Para trabajar adecuadamente necesitamos transformar estos datos a **números reales** para realizar operaciones. El tipo de datos `CELL` se utiliza para representar mapas **categóricos** o **discretos**, para mapas **continuos** se debe utilizar el tipo de datos `FCELL` ó `DCELL`.
 
@@ -249,7 +248,6 @@ Y así comprobamos que los datos del archivo se transformaron de `CELL` a `DCELL
 |                                                                            |
 +----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 ### Cálculo de las dimensiones de la ventana móvil {#calculo-dimensiones-ventana-movil}
 
@@ -341,7 +339,6 @@ Consultando los metadatos y los estadísticos del mapa de relieve relativo obten
 |                                                                            |
 +----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 De esta manera sabemos que el valor mínimo de RR es 45 metros y el valor máximo de RR es 783 metros.
 
@@ -361,7 +358,6 @@ variance: 12108.4
 variation coefficient: 44.2881 %
 sum: 353024652
 ~~~
-{: .output}
 
 También podemos obtener un reporte de áreas para rangos de relieve relativo, para esto utilizamos la herramienta `r.report` la cual abrimos por medio del menú _Raster -> Reports and statistics -> Sum area by raster map and category_.
 
@@ -408,7 +404,6 @@ De esta forma obtenemos información sobre la distribución de los valores de re
 |TOTAL                                              |1326.56333|1420848|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 ### Reclasificación del mapa de relieve relativo {#reclasificacion-mapa-relieve-relativo}
 
@@ -497,7 +492,6 @@ Realizamos un reporte de la distribución espacial de las categorías del nuevo 
 |TOTAL                                              |100.00|1420848|1326.56333|
 +-----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 Con el informe obtenido podemos responder preguntas, tales como:
 
@@ -553,7 +547,6 @@ Y el reporte de las categorías quedaría así:
 |TOTAL                                              |1326.56333|1420848|100.00|
 +-----------------------------------------------------------------------------+
 ~~~
-{: .output}
 
 ## Construcción de mapas sombreados de relieve {#construccion-mapas-sombreados}
 
