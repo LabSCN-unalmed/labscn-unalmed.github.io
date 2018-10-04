@@ -24,7 +24,7 @@ De igual manera, también se pueden obtener varios mapas utilizando esta herrami
 
 ![](/cartografia-digital/images/clase-05/clase-05_04.png){: .img-responsive}
 
-En la pestaña *Optional* indicaremos que queremos utilizar el modelo de Dirección de Flujo Singular (SFD) que consiste en que un pixel sólo drena a uno y sólo uno de sus 8 vecinos. En el modelo predeterminado de Dirección de Flujo Múltiple (MFD) el flujo se reparte proporcionalmente en función de la topografía, este es más útil para trabajar escorrentías, mientras que el SFD es más apropiado para las redes de drenaje, las cuales tienen flujo concentrado.
+En la pestaña *Optional* indicaremos que queremos utilizar el modelo de Dirección de Flujo Singular (SFD) que consiste en que un pixel sólo drena a uno y sólo uno de sus 8 vecinos. En el modelo predeterminado de Dirección de Flujo Múltiple (MFD) el flujo se reparte proporcionalmente en función de la topografía, este es más útil para trabajar escorrentías, mientras que el SFD es más apropiado para los caudales de las redes de drenaje, las cuales tienen flujo concentrado.
 
 ![](/cartografia-digital/images/clase-05/clase-05_05.png){: .img-responsive}
 
@@ -182,7 +182,7 @@ El cual va a contener el mapa adelgazado.
 
 ![](/cartografia-digital/images/clase-05/clase-05_19.png){: .img-responsive}
 
-Una vez adelgazado el mapa raster, podemos convertirlo al formato vectorial utilizando la herramienta `r.to.vect` del menú *Raster > Conversion de tipos de mapas > Ráster a vectorial*.
+Una vez adelgazado el mapa raster, podemos convertirlo al formato vectorial utilizando la herramienta `r.to.vect` del menú *Raster > Map type conversions > Raster to vector*.
 
 ![](/cartografia-digital/images/clase-05/clase-05_20.png){: .img-responsive}
 
@@ -194,7 +194,7 @@ En este caso no hay problema con que el nombre sea el mismo del mapa raster pues
 
 ![](/cartografia-digital/images/clase-05/clase-05_22.png){: .img-responsive}
 
-Teniendo el mapa raster de la región de porcecito y un mapa vectorial con la red de drenaje cuyos valores logarítmicos de acumulación son mayores o iguales que 3, podemos desplegar la red de drenaje en formato vectorial sobre la región en formato raster.
+Teniendo el mapa raster de la región de porcecito y un mapa vectorial con la red de drenaje cuyos valores logarítmicos de acumulación son mayores o iguales que 3, podemos desplegar la red de drenaje en formato vectorial sobre la región en formato raster utilizando el botón **Add vector map layer** ![Agregar capa de mapa vectorial](/cartografia-digital/images/clase-05/layer-vector-add.png).
 
 ![](/cartografia-digital/images/clase-05/clase-05_23.png){: .img-responsive}
 
@@ -251,9 +251,10 @@ Este mapa ofrece la posibilidad de diferentes lecturas; disponibilidad de agua, 
 
 ![Mapa accum](/cartografia-digital/images/clase-05/ituango_drain.png){: .img-responsive}
 
-El mapa de dirección de drenaje indica la dirección en la que fluye el agua sobre el relieve. Contiene el "aspecto", es decir, el ángulo al que mira el terreno, de cada pixel medido en el sentido contrario a las manecillas del reloj desde el oriente. Al multiplicar los valores positivos por 45 se obtiene el ángulo en grados en el que viajará la escorrentía desde ese pixel. El valor de cero (0) indica que el pixel es un área de depresión. Los valores negativos indican que la escorrentía fluye hacia afuera de los límites de la región geográfica definida. El valor absoluto de esos pixeles negativos indica la dirección del flujo.
+El mapa de dirección de drenaje indica la dirección en la que fluye el agua sobre el relieve. Contiene el "aspecto" de cada pixel, es decir, el ángulo al que mira el terreno, medido en el sentido contrario a las manecillas del reloj desde el oriente. Al multiplicar los valores positivos por 45 se obtiene el ángulo en grados en el que viajará la escorrentía desde ese pixel. El valor de cero (0) indica que el pixel es un área de depresión. Los valores negativos indican que la escorrentía fluye hacia afuera de los límites de la región geográfica definida. El valor absoluto de esos pixeles negativos indica la dirección del flujo.
 
 Si el valor de cada pixel indica la dirección de salida del flujo del agua, ¿Cómo interpretar las distribuciones de estos valores dentro de un mapa? ¿Cómo se distribuyen los valores de 1-8 dentro del mapa y cómo interpretar dichas distribuciones?
+{: .alert .alert-warning}
 
 <!-- A partir de una red de drenaje densa (log2) clasificar la red de drenaje según su dirección. -->
 
