@@ -33,4 +33,4 @@ order: 1
 
 ## Componentes principales.
 
-- [Análisis de componentes principales](./guiones/componentes_principales.html)
+- [Análisis de componentes principales](./guiones/componentes_principales2.html)
