@@ -222,6 +222,34 @@ El mapa resultante sería este:
 2. ¿Qué representan y dónde se localizan los valores máximos de acumulación?
 3. El valor de acumulación de cada pixel representa el número de pixeles que drenan hacia este pixel. Por lo tanto, este valor permitiría elaborar un mapa para comprender la disponibilidad de agua de cada pixel. El mapa de acumulación permitirá por lo tanto identificar cuáles terrenos se secan más fácilmente y en cuáles terrenos el agua persiste durante mayor tiempo. ¿Cómo identificar los terrenos que se secan más fácil y los terrenos donde la humedad en el suelo persiste durante una temporalidad mayor?
 
+Para dar respuesta a estos interrogantes se plantea asignar la siguiente tabla de colores al mapa de acumulación:
+
+|Acumulación|  R  |  G  |  B  |
+|:---------:|:---:|:---:|:---:|
+|   -645591 |   0 |   0 | 255 |
+|     -1111 |  30 | 144 | 255 |
+|     -1110 |   0 | 128 |   0 |
+|       -10 | 144 | 238 | 144 |
+|        -5 | 255 | 255 | 128 |
+|        -2 | 255 | 212 | 128 |
+|        -1 |   0 |   0 |   0 |
+|         1 |   0 |   0 |   0 |
+|         2 | 255 | 212 | 128 |
+|         5 | 255 | 255 | 128 |
+|        10 | 144 | 238 | 144 |
+|      1110 |   0 | 128 |   0 |
+|      1111 |  30 | 144 | 255 |
+|    634406 |   0 |   0 | 255 |
+{: .table .table-striped}
+
+Para dar efecto a la topografía se agrega el mapa de acumulación con sus nuevos colores al [mapa sombreado](clase-03#visualizacion-mapas-sombreados):
+
+![](/cartografia-digital/images/clase-05/ituango_accum_pdzo.png){: .img-responsive}
+
+En 3 dimensiones podemos visualizarlo un poco mejor:
+
+![](/cartografia-digital/images/clase-05/ituango_accum_pdzo_3D.png){: .img-responsive}
+
 <!-- Elaboración de un mapa reclasificado del accum y qué significa esa reclasificación. -->
 
 <!-- ### Combinación del mapa de acumulación y el mapa de pendientes {#combinacion-accum-slope}
