@@ -162,7 +162,7 @@ En esta herramienta seleccionamos el mapa raster a editar.
 
 ![](/cartografia-digital/images/clase-05/clase-05_14.png){: .img-responsive}
 
-E indicamos que lo que queremos hacer es volver nulos los valores que actualmente se encuentran como 0 en la pestaña *Modify* (esta operación es reversible, puesto que también podemos utilizar esta herramienta para convertir los nulos en 0 u otro valor).
+Indicamos que lo que queremos hacer es volver nulos los valores que actualmente se encuentran como 0 en la pestaña *Modify* (esta operación es reversible, puesto que también podemos utilizar esta herramienta para convertir los nulos en 0 u otro valor).
 
 ![](/cartografia-digital/images/clase-05/clase-05_15.png){: .img-responsive}
 
