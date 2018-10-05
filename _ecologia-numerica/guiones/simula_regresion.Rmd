@@ -297,7 +297,7 @@ sigma2 <- sigma ^ 2
 
 ```{r}
 # Para hacer la simulación reproducible.
-# set.seed(0)
+set.seed(0)
 ```
 
 
@@ -311,6 +311,7 @@ x <- sort(sample(X[, 2], tam_muestra,  replace = TRUE))
 y <- beta0 + beta1 * x
 e <- rnorm(tam_muestra, 0, sigma)
 y <- y + e
+y <- as.integer(round(y, 0))
 
 # Los valores de y < 0 se remplazarán por 0
 y[y < 0] <- 0
@@ -319,7 +320,7 @@ datos <- data.frame(x = x, y =  y)
 ```
 
 ```{r}
-plot(datos)
+plot(datos, las = 1)
 ```
 
 ```{r}
@@ -352,6 +353,7 @@ gen_datos <- function(tam_muestra, beta0, beta1, sigma, x_orig){
    y <- beta0 + beta1 * x
    e <- rnorm(tam_muestra, 0, sigma)
    y <- y + e
+   y <- as.integer(round(y, 0))
    # Los valores de y < 0 se remplazarán por 0
    y[y < 0] <- 0
    datos <- cbind(x = x, y =  y)
