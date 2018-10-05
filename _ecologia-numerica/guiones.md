@@ -37,5 +37,5 @@ order: 1
 
 ## Regresión lineal simple.
 
-- [Ejemplo de regresión lineal simplle](./guiones/simula_regresion.html)
+- [Ejemplo de regresión lineal simple](./guiones/simula_regresion.html)
 - [Base de datos](./bases_datos/datos_Longnose.txt)
