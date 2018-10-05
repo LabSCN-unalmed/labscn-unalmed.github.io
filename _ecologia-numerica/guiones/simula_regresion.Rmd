@@ -1,0 +1,407 @@
+---
+title: "Regresion lineal simple"
+author: "Kenneth Roy Cabrera Torres"
+date: "3 de octubre de 2018"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 100)
+```
+
+
+## Fundamentación de la regresión lineal simple.
+
+Se tiene una variable $x$ denominada explicativa, regresora o independiente y
+una variable $y$ denominada respuesta, regresada o dependiente.
+
+Al tener un conjunto de pares de elementos de $x$ y $y$ se pretende
+construir un modelo que relacione de manera lineal y mediante una línea 
+recta el comportamiento medio de $y$ dado los valores de $x$.
+
+Es decir se trata de hallar los valores de $\beta_0$ y $\beta_1$ tal que
+puedan representar el siguiente sistema de ecuaciones:
+
+$$
+\begin{eqnarray}
+ y_1 & = & \beta_0 + \beta_1 x_1 + \epsilon_1 \\
+ y_2 & = & \beta_0 + \beta_1 x_2 + \epsilon_2 \\
+ \vdots & = & \vdots \\
+ y_i & = & \beta_0 + \beta_1 x_i + \epsilon_i \\
+ \vdots & = & \vdots \\
+ y_n & = & \beta_0 + \beta_1 x_n + \epsilon_n \\
+\end{eqnarray}
+$$
+
+Donde el supesto más utilizado sobre los errores es:
+
+$$
+  e_i \sim \mathcal{N}(0, \sigma^2)
+$$
+Donde $\sigma^2$ el la varianza de los errores aleatorios. 
+
+En forma matricial se puede escribir:
+
+$$
+ Y = X\beta + \epsilon
+$$
+
+Donde:
+
+$$
+Y = \left[ 
+    \begin{matrix}
+     y_1 \\
+     y_2 \\
+     \vdots \\
+     y_i \\
+     \vdots \\
+     y_n
+    \end{matrix} 
+    \right], 
+    \qquad 
+X = \left[ 
+    \begin{matrix}
+     1 & x_1 \\
+     1 & x_2 \\
+     \vdots \\
+     1 & x_i \\
+     \vdots \\
+     1 & x_n
+     \end{matrix} 
+    \right], 
+    \qquad
+\beta = \left[ 
+         \begin{matrix}
+          \beta_0 \\
+          \beta_1 \\
+         \end{matrix}
+        \right], 
+        \qquad
+\epsilon = \left[ 
+    \begin{matrix}
+     \epsilon_1 \\
+     \epsilon_2 \\
+     \vdots \\
+     \epsilon_i \\
+     \vdots \\
+     \epsilon_n
+    \end{matrix} 
+    \right]        
+$$
+
+
+Recordemos que la solución mínimo cuadrática para obtener los valores de $\beta$ es:
+
+$$
+   X'Y = X'X\beta
+$$
+
+Al despejar el valor de $\beta$ se tiene que:
+
+$$
+ \begin{eqnarray}
+  X'Y & = & X'X\beta \\
+  (X'X)^{-1}X'Y & = & (X'X)^{-1}(X'X)\beta \\
+  (X'X)^{-1}X'Y & = & I\beta \\
+  (X'X)^{-1}X'Y & = & \beta \\
+ \end{eqnarray}  
+$$
+
+Es decir que el estimador mínimo cuadrático para $\beta$ es:
+
+$$
+ \hat{\beta} = (X'X)^{-1}X'Y
+$$
+
+Luego el valor estimado de $Y$, es decir $\hat{Y}$ es:
+
+$$
+  \hat{Y} = X\hat{\beta} = X(X'X)^{-1}X'Y
+$$
+
+A la matrix que toma los valores de $Y$ y obtiene los valores de $\hat{Y}$ 
+se le denomina la matriz "hat" o sombrero y se denota por $H$.
+
+$$
+H = X(X'X)^{-1}X'
+$$
+
+Esta matriz tiene propiedades para identificar valores influenciales de 
+los datos de $X$. 
+
+## Ejemplo con el pez Longnose dace (_Rhinichthys cataractae_).
+
+El pecesito Langnose dace (_Rhinichthys cataractae_) habita en la 
+corrientes de agua de Norteamérica. 
+
+![](longnose_dace.jpg)
+
+En la [página del John H. McDonald](http://www.biostathandbook.com/multipleregression.html) se
+encuentra una base de datos que el investigador menciona que fue tomada del sito 
+del [Maryland Biological Stream Suervey](http://dnr.maryland.gov/streams/Pages/mbss.aspx).
+
+El MBSS realiza unos muestreos siguiendo un protocolo establecida para
+determinar la abundancia de peces en un tramo de la quebrada de 75 metros.
+
+La base de datos tiene las siguientes columanas:
+
+- quebrada: Nombre de la quebrada muestreada.
+- num_indiv: Número de individuos contados en un tramo de 75 m.
+- area: El área (en acres) drenada por la quebrada hasta el punto de muestreo. 
+- oxi_dis: El oxigeno disuelto (en mg/litro).
+- prof_max: Profundidad máxima (en cm) del tramo de 75 metros.
+- nitrato: Concentración de nitrato en (mg/litro).
+- sulfato: Concentración de sulfato en (mg/litro).
+- temperatura: La temperatura (en grados centígrados) de la quebrada en el fecha de muestreo.
+
+El interés es conocer e identificar las variables que influencian en 
+la abundancia del pecesito.
+
+Y constuir un modelo que permita estimar la abundancia esperada dada las
+características ambientales de la quebrada.
+
+```{r}
+library(tidyverse)
+```
+
+### Lectura de la base de datos.
+
+```{r}
+longnose <- read.table("datos_Longnose.txt", header = TRUE)
+```
+
+### Construcción del área drenada en Km$^2$. 
+
+Hay 0.00404685642 Km$^2$ en un acre. 
+
+```{r}
+longnose <- longnose %>%
+            mutate(areaKm2 = area * 0.00404685642)
+```
+
+```{r}
+longnose
+```
+
+
+### Matriz de diagramas de dispersión.
+
+```{r}
+## Función auxiliar para constuir un histograma en la diagonal de
+## la matriz de dispersión tomado de la ayuda de comando `pairs()`.
+panel.hist <- function(x, ...)
+{
+    usr <- par("usr"); on.exit(par(usr))
+    par(usr = c(usr[1:2], 0, 1.5) )
+    h <- hist(x, plot = FALSE)
+    breaks <- h$breaks; nB <- length(breaks)
+    y <- h$counts; y <- y/max(y)
+    rect(breaks[-nB], 0, breaks[-1], y, col = "cyan", ...)
+}
+```
+
+
+```{r, fig.width=10, fig.height=10}
+pairs(longnose[, -1], panel = panel.smooth,
+      cex = 1.5, pch = 24, bg = "light blue",
+      diag.panel = panel.hist, cex.labels = 2, font.labels = 2)
+```
+
+En particula se examinará el comportamiento de la abundancia del pecesito
+tomando en cuenta el área drenada hasta el sitio de muestreo. 
+
+### Diagrama de dispersión de la abundancia vs el área drenada. 
+
+```{r}
+ggplot(longnose, aes(areaKm2, num_indiv)) +
+  geom_point() +
+  geom_smooth(se = FALSE) +
+  geom_smooth(method = lm, se = FALSE, col = "red")
+```
+
+### Estimación de los parámetros de regresión lineal simple.
+
+```{r}
+Y <- as.matrix(longnose[, 2])
+X <- as.matrix(cbind(1, longnose[, "areaKm2"]))
+
+beta <-  solve(t(X) %*% X) %*% t(X) %*% Y
+beta 
+```
+
+### Estimación del valor esperado de abundancia por cada quebrada.
+
+```{r}
+Y_est <- X %*% beta
+Y_est
+```
+
+
+## Simulación de regresión lineal simple. 
+
+Para tener una estimación del temaño de muestra adecuado se requiere 
+suponder loa valores "verdaderos" de $\beta_0$ y $\beta_1$ como también
+un valor de la varianza del error aleatorio $\sigma^2$.
+
+También se necesita determinar si el valor de $X$ es aleatorio o
+son valores fijos.
+
+En este contexto en particular los valores de $x$ son aleatorios.
+
+
+### Distribución de los valores aleatorios de X.
+
+```{r}
+hist(X[, 2], nclass = 18,
+     main = "Histograma de frecuencia del área drenada",
+     freq = FALSE)
+lines(density(X[, 2]), col = "blue", lwd = 2)
+```
+
+Para la simulación se tomarán valores aleatorios de los datos originales
+con reemplazamiento de las áreas drenadas. 
+
+### Determinación de los valores de la desviación estándar de los errores.
+
+```{r}
+segmentosX <- cut(X[, 2], seq(0, 160, 10))
+desv_estandard <- tapply(Y, segmentosX, sd)
+desv_estandard
+```
+
+```{r}
+desv_est_estim <- mean(desv_estandard, na.rm = TRUE)
+desv_est_estim
+```
+
+### Parámetros de simulación.
+
+Se tiene entonces que:
+
+- Los valores de $x$ son aleatorios. 
+- $\beta_0$ = 23
+- $\beta_1$ = 0.5
+- $\sigma$ = 32, luego $\sigma^2$ = 1024. 
+
+```{r}
+beta0 <- 23
+beta1 <- 0.5
+sigma <- 32
+sigma2 <- sigma ^ 2
+```
+
+
+```{r}
+# Para hacer la simulación reproducible.
+# set.seed(0)
+```
+
+
+```{r}
+tam_muestra <- 50
+```
+
+
+```{r}
+x <- sort(sample(X[, 2], tam_muestra,  replace = TRUE))
+y <- beta0 + beta1 * x
+e <- rnorm(tam_muestra, 0, sigma)
+y <- y + e
+
+# Los valores de y < 0 se remplazarán por 0
+y[y < 0] <- 0
+
+datos <- data.frame(x = x, y =  y)
+```
+
+```{r}
+plot(datos)
+```
+
+```{r}
+Y <- as.matrix(datos$y)
+X <- as.matrix(cbind(1, datos$x))
+```
+
+
+```{r}
+betas_est <- solve(t(X) %*% X) %*% t(X) %*% Y
+betas_est
+```
+
+```{r}
+est_param <- function(datos) {
+  Y <- as.matrix(datos[, "y"])
+  X <- as.matrix(cbind(1 , datos[, "x"]))
+  beta_est <- solve(t(X) %*% X) %*% t(X) %*% Y
+  return(beta_est)
+}
+```
+
+```{r}
+est_param(datos)
+```
+
+```{r}
+gen_datos <- function(tam_muestra, beta0, beta1, sigma, x_orig){
+   x <- sort(sample(x_orig, tam_muestra,  replace = TRUE))
+   y <- beta0 + beta1 * x
+   e <- rnorm(tam_muestra, 0, sigma)
+   y <- y + e
+   # Los valores de y < 0 se remplazarán por 0
+   y[y < 0] <- 0
+   datos <- cbind(x = x, y =  y)
+   return(datos)
+}
+```
+
+
+```{r}
+numsim <- 5000
+tam_muestra <- 10
+vector_tam_m <- rep(tam_muestra, numsim)
+datosT <- lapply(vector_tam_m, gen_datos,
+                 beta0 = beta0,
+                 beta1 = beta1,
+                 sigma = sigma,
+                 x_orig = longnose$areaKm2)
+```
+
+
+
+```{r}
+datosT[1:3]
+```
+
+
+```{r}
+parametros <- sapply(datosT, est_param)
+parametros[, 1:5]
+```
+
+```{r}
+hist(parametros[1, ])
+```
+
+```{r}
+hist(parametros[2, ])
+```
+
+
+### Determinación del grado de precisión.
+
+```{r}
+nivel_significancia <- 0.05
+IC <- quantile(parametros[2, ], 
+               c(nivel_significancia/2, (1-nivel_significancia/2)))
+IC
+```
+
+```{r}
+IC - beta1
+```
+

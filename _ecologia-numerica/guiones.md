@@ -34,3 +34,8 @@ order: 1
 ## Componentes principales.
 
 - [Análisis de componentes principales](./guiones/componentes_principales2.html)
+
+## Regresión lineal simple.
+
+- [Ejemplo de regresión lineal simplle](./guiones/simula_regresion.html)
+- [Base de datos](./bases_datos/datos_Longnose.txt)
