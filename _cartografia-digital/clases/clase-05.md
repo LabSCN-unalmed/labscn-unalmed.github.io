@@ -242,7 +242,7 @@ Para dar respuesta a estos interrogantes se plantea asignar la siguiente tabla d
 |    634406 |   0 |   0 | 255 |
 {: .table .table-striped}
 
-Para dar efecto a la topografía se agrega el mapa de acumulación con sus nuevos colores al [mapa sombreado](clase-03#visualizacion-mapas-sombreados):
+Para darle efecto de topografía se agrega el mapa de acumulación con sus nuevos colores al [mapa sombreado](clase-03#visualizacion-mapas-sombreados):
 
 ![](/cartografia-digital/images/clase-05/ituango_accum_pdzo.png){: .img-responsive}
 
