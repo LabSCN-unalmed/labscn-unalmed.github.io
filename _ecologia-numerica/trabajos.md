@@ -57,9 +57,7 @@ la estimación de la desviación estándar de los residuales (compararla con la 
 
 11. [En este enlace](https://kenbenoit.net/assets/courses/ME104/logmodels2.pdf) y
  [en este](https://onlinecourses.science.psu.edu/stat501/node/318/) se describe algunos modelos de regresión lineal simple pero utilizando transformaciones logarítmicas.
- Buscar una base de datos o si la que se utilizó entra en este contexto entonces realizar la transformación adecuada y de nuevo realizar todo el ejercicio de simulación y tamaño de muestra pero con la transformación realizada.
-
- Interpretar los resultados obtenidos y compararlos con el resultado anterior.
+ Buscar una base de datos o si la que se utilizó entra en este contexto entonces realizar la transformación adecuada y de nuevo realizar todo el ejercicio de simulación y tamaño de muestra pero con la transformación realizada. Interpretar los resultados obtenidos y compararlos con el resultado anterior.
 
 12. Escribir conclusiones.
 
