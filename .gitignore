@@ -3,4 +3,3 @@ _site
 .Rhistory
 .Rproj.user
 .ruby-version
-Gemfile.lock
