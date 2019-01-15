@@ -107,7 +107,18 @@ como entrega tarde del taller individual 2.
 
 ### Taller en grupo 1.
 
+1. En grupo de máximo tres personas.
+2. La siguiente gráfica es tomada de "El Colombiano",
+    del 15 de enero de 2019. Páginas 2 y 3. bajo el título:
+    **¿Qué tan segura se siente la gente en Medellín?**.
 
+   ![](seguridad_ciudadana.png)
+3. Elaborar una gráfica que mejore la presentación de los datos.
+    - Utilizando las gáficas básica del R (*plot()*).
+    - Utilizando el paquete ggplot del R (*ggplot()*).
+4. Presentar el informe en formato ".html".
+5. Enviar el archivo ".Rmd" correspondiente.
+6. Enviar la base de datos construida para la elaboración del gráfico.
 
 
 
