@@ -103,6 +103,10 @@ como entrega tarde del taller individual 2.
     el archivo ".pdf" a la dirección **krcabrer@unal.edu.co**
     y no olvidar en asunto **[EDAED]**.
 
+## Talleres en grupo.
+
+### Taller en grupo 1.
+
 
 
 
