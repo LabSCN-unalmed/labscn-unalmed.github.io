@@ -27,6 +27,11 @@ order: 2
 
  - [Exploratorio de cruce de variables](./guiones/explora_encuesta3.html)
 
+## Zonas violentas.
+
+ - [Gráfica alternativa a la original publicada.](./guiones/zonas_violentas.html)
+ - [Base de datos de las zonas violentas](./basesdedatos/zonas_violentas.xlsx)
+
 <!---
 ## Contenido
 {: .no_toc}
