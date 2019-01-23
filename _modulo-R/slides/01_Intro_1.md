@@ -1,7 +1,7 @@
 Introducción al R (Parte I)
 ========================================================
 author: Kenneth Cabrera
-date: miércoles, 21 de marzo de 2018
+date: miércoles, 23 de enero de 2019
 height: 800
 
 
@@ -40,12 +40,9 @@ Notas históricas del R
 - 1997: Se formó el grupo núcleo del R (The R Core Group).
   Administra el código fuente del R.
 - 2000: Versión 1.0.0, 2004: Versión 2.0.0., 2013: Versión 3.0.0.
-- Versión 3.4.3. "Kite-Eating Tree". liberada el 30 de noviembre de 2017.
-- Se liberó la versión 3.4.4  el jueves 15 de marzo de 2018.
-  denominada "Someone to Lean On".
-- La próxima versión será la versión 3.5.0 y se espera para el
-  lunes 23 de abril de 2018 y su sobrenombre será "Joy in Playing".
-
+- Versión 3.4.3. "Kite-Eating Tree". Liberada el 30 de noviembre de 2017.
+- Se liberó la versión 3.5.2 el 20 de diciembre de 2018,
+  denominada "Eggshell Igloo".
 
 Sobrenombre de versiones del R (3.4.3)
 ========================================================
@@ -66,6 +63,14 @@ Sobrenombre de versiones del R (3.5.0)
 "Joy in Playing" (R version 3.5.0)
 
 ![](joy_is_in_the_playing.jpg)
+
+
+Sobrenombre de versiones del R (3.5.2)
+========================================================
+"Eggshell Igloo" (R version 3.5.2)
+
+![](eggshell_igloo.png)
+
 
 
 Descarga del R
@@ -122,7 +127,7 @@ Paquetes princiales
 
 Paquetes adicionales
 ========================================================
-* Existen a la fecha más o menos 12302
+* Existen a la fecha más o menos 13684
   [paquetes](https://cran.r-project.org/web/packages/index.html)
   en el CRAN y contando.
   
