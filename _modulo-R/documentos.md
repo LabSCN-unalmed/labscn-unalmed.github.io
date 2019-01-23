@@ -6,8 +6,6 @@ order: 2
 ---
 
 
-
-
 ## Contenido
 {: .no_toc}
 
