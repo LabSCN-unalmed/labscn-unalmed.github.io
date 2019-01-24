@@ -39,3 +39,12 @@ order: 1
 
 - [Ejemplo de regresión lineal simple](./guiones/simula_regresion.html)
 - [Base de datos](./bases_datos/datos_Longnose.txt)
+
+## Análisis aglomerativo.
+
+* [Base de datos de peces](./bases_datos/peces.csv)
+* [Base de datos ambientales](./bases_datos/ambientales.csv)
+* [Coordenadas de las localizaciones de los sitios](./bases_datos/localidades.csv)
+* [Nombre de las especies](./bases_datos/nombresdeespecies.csv)
+* [Nombres de las variables ambientales](./bases_datos/Nombresdevariablesambientales.csv)
+* [Análisis aglomerativo](./guiones/cluster1.html)

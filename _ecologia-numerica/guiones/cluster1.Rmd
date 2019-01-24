@@ -1,7 +1,7 @@
 ---
 title: "Análisis Aglomerativo I"
 author: "Universidad Nacional de Colombia, Sede Medellín"
-date: "Jueves, 20 de octubre de 2016"
+date: "Viernes, 25 de enero de 2019"
 output: 
   html_document: 
     toc: yes
@@ -10,8 +10,8 @@ output:
 
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(fig.width=11, 
-                      fig.height=11)
+knitr::opts_chunk$set(fig.width=8, 
+                      fig.height=8)
 ```
 
 
@@ -116,47 +116,86 @@ establecer como:
 # Cálculo de la matriz utilizando la distancia de Chord
 # entre sitios, siguiente en enlace simple.
 peces.norm <- decostand(peces, "normalize")
-peces.ch <- vegdist(peces.norm, "euc")
+peces.ch <- vegdist(peces.norm, "euclidean")
+```
+
+```{r}
 peces.ch.single <- hclust(peces.ch, method="single")
+```
+
+```{r}
 # Estructura de los resultados de "hclust"
 str(peces.ch.single)
+```
+
+```{r}
 # Determinar el modo que realizó el agrupamiento teniendo en cuenta.
 # la posición en la base de datos.
 with(peces.ch.single,cbind(merge,height))
+```
+
+```{r}
 peces[c(20,21),]
+```
+
+
+```{r}
 peces.norm[c(20,21),]
+```
+
+```{r}
 # Gráfica del dendograma usando las opciones por omisión.
 plot(peces.ch.single, main="Peces - Chord - Enlace simple", hang = -1)
+```
 
+```{r}
 # Gráfica que muestra posibles gradientes determinados por la agrupación
 # Ordenación con respecto al gradiente de distancia a la desembocadura.
-plot(peces.ch.single$order,ambient$das, pch = 19)
+plot(peces.ch.single$order, ambient$das, pch = 19)
 text(peces.ch.single$order, ambient$das, 
-     labels =peces.ch.single$labels[peces.ch.single$order[peces.ch.single$order]], pos = 2)
-abline(coef=coef(lm(ambient$das~peces.ch.single$order)),col="red")
+     labels = peces.ch.single$labels[peces.ch.single$order[peces.ch.single$order]], 
+     pos = 2)
+abline(coef=coef(lm(ambient$das ~ peces.ch.single$order)),col="red")
+```
 
+
+```{r}
 # Ordenación con respecto al gradiente concentración de Nitrato.
-plot(peces.ch.single$order,ambient$nit, pch = 19)
-text(peces.ch.single$order, ambient$das, 
-     labels =peces.ch.single$labels[peces.ch.single$order[peces.ch.single$order]], pos = 2)
-abline(coef=coef(lm(ambient$nit~peces.ch.single$order)),col="red")
+plot(peces.ch.single$order, ambient$nit, pch = 19)
+text(peces.ch.single$order, ambient$nit, 
+     labels =peces.ch.single$labels[peces.ch.single$order[peces.ch.single$order]], 
+     pos = 2)
+abline(coef=coef(lm(ambient$nit~peces.ch.single$order)), col="red")
+```
 
-# Cálculo utilizand el enlace completo
+
+```{r}
+# Cálculo utilizando el enlace completo
 peces.ch.complete <- hclust(peces.ch, method="complete")
 plot(peces.ch.complete,main="Peces - Chord - Enlace completo", hang = -1)
 
+```
+
+```{r}
 # Cálculo mediante UPGMA
 peces.ch.UPGMA <- hclust(peces.ch, method="average")
 plot(peces.ch.UPGMA,main="Peces - Chord - Promedio", hang =  -1)
+```
 
+```{r}
 # Cálculo mediante UPGMC
 peces.ch.centroid <- hclust(peces.ch, method="centroid")
 plot(peces.ch.centroid,main="Peces - Chord - Centroide", hang = -1)
+```
 
+```{r}
 # Utilizando el métod de Ward
 peces.ch.ward <- hclust(peces.ch, method="ward.D")
 plot(peces.ch.ward,main="Peces - Chord - Ward", hang = -1)
+```
 
+
+```{r}
 # Transformación raiz cuadrada de la altura
 peces.ch.ward$height <- sqrt(peces.ch.ward$height)
 plot(peces.ch.ward,main="Peces - Chord - sqrt(Ward)", hang = -1)
