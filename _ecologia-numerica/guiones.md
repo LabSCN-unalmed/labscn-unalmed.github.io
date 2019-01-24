@@ -42,9 +42,10 @@ order: 1
 
 ## Análisis aglomerativo.
 
+* [Análisis aglomerativo](./guiones/cluster1.html)
+
 * [Base de datos de peces](./bases_datos/peces.csv)
 * [Base de datos ambientales](./bases_datos/ambientales.csv)
 * [Coordenadas de las localizaciones de los sitios](./bases_datos/localidades.csv)
 * [Nombre de las especies](./bases_datos/nombresdeespecies.csv)
 * [Nombres de las variables ambientales](./bases_datos/Nombresdevariablesambientales.csv)
-* [Análisis aglomerativo](./guiones/cluster1.html)
