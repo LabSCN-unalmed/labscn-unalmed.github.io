@@ -32,6 +32,11 @@ order: 2
  - [Gráfica alternativa a la original publicada.](./guiones/zonas_violentas.html)
  - [Base de datos de las zonas violentas](./basesdedatos/zonas_violentas.xlsx)
 
+
+## Accidentalidad en Envigado 2016, 2017 y primer semestres de 2018.
+
+ - [Análisis Exploratorio](./guiones/EDA_check_list.html)
+
 <!---
 ## Contenido
 {: .no_toc}
