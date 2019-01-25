@@ -7,7 +7,7 @@
 Introducción al R (Parte II)
 ========================================================
 author: Kenneth Cabrera
-date: miércoles, 23 de enero de 2019
+date: viernes, 25 de enero de 2019
 
 
 Clases de objetos
@@ -595,7 +595,7 @@ Subconjuntos en listas
 - `[` Siempre devuelve un objeto de la misma clase que el original.
 - `[[` Es usado para extraer los elementos de una lista.
    Sólo para extraer un elmento de la lista. Lo que devuelve
-   puede ser de distitno tipo al de la lista o el `data.frame`.
+   puede ser de distinto tipo al de la lista o el `data.frame`.
 - `$` se usa para extraer elementos de una lista o `data.frame`.
    Semánticamente es similar a `[[`.
 
