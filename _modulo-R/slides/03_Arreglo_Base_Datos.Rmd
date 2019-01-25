@@ -7,6 +7,13 @@ output:
     toc: yes
 ---
 
+### Conjunto de biblotecas de funciones.
+
+```{r}
+library(tidyverse)
+```
+
+
 ### ¿Qué son datos ordenados ("tidy data")?
 
 - Tener datos que faciliten el análisis.

@@ -18,10 +18,12 @@ order: 2
 ## Elementos básicos
    [Introducción a R (Objetos: básicos y estructurados)](./slides/01_Intro_2.html)
 
+<!---
 ## Lectura y escritura de archivos
    [Lectura/Escritura](./slides/02_Lectura_Escritura.html)
 
    - [url_banrep_trm.txt](./slides/url_banrep_trm.txt)
+-->   
 
 ## Arreglo de base de datos (Tidy data)
    [Arreglo de bases de datos](./slides/03_Arreglo_Base_Datos.html)

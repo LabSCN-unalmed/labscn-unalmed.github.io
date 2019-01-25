@@ -1,5 +1,36 @@
-# Arreglo de bases de datos
-Kenneth Roy Cabrera Torres  
+---
+title: "Arreglo de bases de datos"
+author: "Kenneth Roy Cabrera Torres"
+output: 
+  html_document: 
+    keep_md: yes
+    toc: yes
+---
+
+### Conjunto de biblotecas de funciones.
+
+
+```r
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+```
+
+```
+## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  2.0.1     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.3.1     ✔ forcats 0.3.0
+```
+
+```
+## ── Conflicts ───────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
+
 
 ### ¿Qué son datos ordenados ("tidy data")?
 
@@ -59,27 +90,18 @@ library(stringr)
 ?str_split_fixed
 
 library(dplyr) 
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 ?arrange
+```
+
+```
+## Help on topic 'arrange' was found in the following packages:
+## 
+##   Package               Library
+##   plyr                  /usr/local/lib/R/site-library
+##   dplyr                 /usr/local/lib/R/site-library
+## 
+## 
+## Using the first match ...
 ```
 
 ### Ejemplo de una base de datos con problemas
@@ -463,7 +485,7 @@ g1 + geom_point() + facet_grid(edad ~ .) +
   ylab("log10 del Número de casos") + xlab("País")
 ```
 
-![](03_Arreglo_Base_Datos_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](03_Arreglo_Base_Datos_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
 
 
 ```r
@@ -476,7 +498,7 @@ g2 + geom_bar(stat = "identity", position = "dodge") + facet_grid(edad ~ .) +
   ylab("log10 del Número de casos") + xlab("País")
 ```
 
-![](03_Arreglo_Base_Datos_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](03_Arreglo_Base_Datos_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
 
 
 
