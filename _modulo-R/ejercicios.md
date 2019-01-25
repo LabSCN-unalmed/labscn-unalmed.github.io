@@ -22,7 +22,7 @@ order: 6
   Actividades:
 
   - Bajar la base de datos.
-  - Leer la base de datos en R. 
+  - Leer la base de datos en R.
   - Verificar la estructura de la base de datos.
   - Mostrar una gráfica de barra en donde se muestre el número
     de accidentados por cada día en toda la base de datos dado
