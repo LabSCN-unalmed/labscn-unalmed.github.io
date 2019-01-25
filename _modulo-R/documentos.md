@@ -25,6 +25,14 @@ order: 2
    - [url_banrep_trm.txt](./slides/url_banrep_trm.txt)
 -->   
 
+
+## Estructuras de control
+   [Estructuras de control](./slides/04_Estructuras_de_control.html)
+
+## Funciones
+   [Funciones](./slides/05_Funciones.html)
+
+
 ## Arreglo de base de datos (Tidy data)
    [Arreglo de bases de datos](./slides/03_Arreglo_Base_Datos.html)
 
@@ -32,11 +40,6 @@ order: 2
    - [Tuberculosis](./slides/tb.csv)
    - [Paises](./slides/paises.csv)
 
-## Estructuras de control
-   [Estructuras de control](./slides/04_Estructuras_de_control.html)
-
-## Funciones
-   [Funciones](./slides/05_Funciones.html)
 
 ## Herramientas de programación
    [Herramientas de programación](./slides/07-Herramientas-programacion.html)
