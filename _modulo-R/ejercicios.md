@@ -7,7 +7,7 @@ order: 6
 
 
 
-<!---
+
 
 ## Contenido
 {: .no_toc}
@@ -15,7 +15,23 @@ order: 6
 * ToC
 {: toc}
 
+## Accidentalidad Envigado 2016, 2017 y primer semestre 2018
 
+[Accidentalidad en Envigado](https://www.datos.gov.co/Transporte/Accidentalidad-Envigado-2016-2017-y-Primer-Semestr/t5sw-amxr)
+
+  Actividades:
+
+  - Bajar la base de datos.
+  - Leer la base de datos en R. 
+  - Verificar la estructura de la base de datos.
+  - Mostrar una gráfica de barra en donde se muestre el número
+    de accidentados por cada día en toda la base de datos dado
+    el día de la semana (en un orden cronológico de los días de la semana).
+
+
+
+
+<!---
 ## Ejercicios sobre arreglo de bases de datos.
 
 ### Victimas del conflicto armado
