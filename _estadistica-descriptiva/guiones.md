@@ -33,9 +33,19 @@ order: 2
  - [Base de datos de las zonas violentas](./basesdedatos/zonas_violentas.xlsx)
 
 
+## Salvajina ayuda a Hidroituango.
+
+  - [Análisis de gráfica sobre niveles del embalse de Hidroituango.](./guiones/nivel_hidroituango.html)
+  - [Código fuente en formato ".Rmd".](./guiones/nivel_hidroituango.Rmd)
+  - [Base de datos.](./basesdedatos/nivel_hidroituango.xlsx)
+  - [Imágen utilizada en el documento.](./guiones/niveles2.png)
+
+
 ## Accidentalidad en Envigado 2016, 2017 y primer semestres de 2018.
 
  - [Análisis Exploratorio](./guiones/EDA_check_list.html)
+
+
 
 <!---
 ## Contenido
