@@ -114,12 +114,12 @@ como entrega tarde del taller individual 2.
 
    ![](seguridad_ciudadana.png)
 3. Elaborar una gráfica que mejore la presentación de los datos.
-    - Utilizando las gáficas básica del R (*plot()*).
-    - Utilizando el paquete ggplot del R (*ggplot()*).
+    - Utilizando las gáficas básica del R (*plot()* o *barplot()*, etc.).
+    - Utilizando el paquete ggplot2 del R (*ggplot()*).
 4. Presentar el informe en formato ".html".
 5. Enviar el archivo ".Rmd" correspondiente.
 6. Enviar la base de datos construida para la elaboración del gráfico.
-
+7. Fecha de envío: Martes 5 de febrero de 2019, antes de las 23:59 hora de Colombia al correo **krcaber@unal.edu.co** y en asundo no olvidar **[EDAED]**.
 
 
 <!---

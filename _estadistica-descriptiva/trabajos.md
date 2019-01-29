@@ -5,9 +5,6 @@ curso: 'estadistica-descriptiva'
 order: 5
 ---
 
-
-<!---
-
 ## Contenido
 {: .no_toc}
 
@@ -18,6 +15,41 @@ order: 5
 ## Trabajos individuales
 
 ### Primer trabajo individual.
+
+#### Objetivo.
+
+Construir una gráfica que corrija o mejore una gráfica
+publicada en un  medio impreso en Colombia como
+fecha más antigua el 30 de Junio de 2018.
+
+#### Actividades.
+
+1. Buscar en una publicación colombiana, no más antigua que
+junio 30 de 2018,  una gráfica informativa
+que muestre problemas o que se pueda proponer una mejor
+representación.
+2. Construir una base de datos que represente los datos graficados
+   en la publicación.
+3. Construir una nueva gráfica que mejore la publicada.
+4. Realizar un informe en donde se muestre la gráfica original y
+   la propuesta e indicar por qué la nueva gráfica es una mejora
+   con respecto a la anterior.
+
+#### Documentos para entregar.
+
+1. Archivo en formato **.xls** o **.xlsx** con la base de datos.
+2. Archivo en formato **.Rmd** que construye el archivo **html**.
+3. Archivo en formato **.html** con el informe y que **no** incluya
+   el código.
+
+#### Fecha de entrega.   
+
+Martes, 12 de febrero de 2019 antes de las 23:59
+[hora oficial de Colombia](http://horalegal.inm.gov.co/)
+al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
+
+
+<!---
 
 #### Objetivo.
 
@@ -66,37 +98,6 @@ Jueves, 1 de marzo de 2018, antes de las 23:59 hora de Colombia al correo
 
 
 ### Segundo trabajo individual.
-
-#### Objetivo.
-
-Construir una gráfica que corrija o mejore una gráfica
-publicada en un  medio impreso en Colombia de los últimos 3 años.
-
-#### Actividades.
-
-1. Buscar en una publicación colombiana una gráfica informativa
-que muestre problemas o que se pueda proponer una mejor
-representación.
-2. Construir una base de datos que represente los datos graficados
-   en la publicación.
-3. Construir una nueva gráfica que mejore la publicada.
-4. Realizar un informe en donde se muestre la gráfica original y
-   la propuesta e indicar por qué la nueva gráfica es una mejora
-   con respecto a la anterior.
-
-#### Documentos para entregar.
-
-1. Archivo en formato **.xls** o **.xlsx** con la base de datos.
-2. Archivo en formato **.Rmd** que construye el archivo **html**.
-3. Archivo en formato **.html** con el informe y que **no** incluya
-   el código.
-
-#### Fecha de entrega.   
-
-Lunes 9 de abril de 2018 antes de las 23:59
-[hora oficial de Colombia](http://horalegal.inm.gov.co/)
-al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
-
 
 
 ## Trabajos en grupo
