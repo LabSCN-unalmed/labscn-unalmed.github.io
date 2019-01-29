@@ -66,6 +66,42 @@ si se grafican a la escala correcta el incremento de los niveles
 del embalse se va disminuyendo en los últimos días.
 
 
+## Elementos de un gráfico.
+
+  - Título principal.
+  - Título secundario o subtítulo.
+  - Descripción del gráfico.
+  - Región de datos y símbolos.
+  - Eje horizontal y escala.
+  - Eje vertical y escala.
+  - Apuntadores-
+  - Descriptores de señales y marcas.
+  
+## Recomendaciones generales para elaborar un gráfico.
+
+  - Haga que sus datos sobresalgan. Evite los superfluo.
+  - Utilice elementos prominentes para mostrar sus datos.
+  - Coloque marcas afuera de la región de los datos.
+  - No apeñuzque la región de datos.
+  - No exager el número de marcas. 
+  - Utilice una línea de referencia cuando haya un valor
+    importante que deba verse a través de todo el gráfico,
+    pero no deje que interfiera con sus datos.
+  - Evite colcoar nota, marcas o señales a un lado de 
+    la región de datos. Coloque notas en el texto o la
+    explicación. 
+  - Gráficos sobrepuesto deben ser visualmente distinguibles.
+  - Datos sobrepuestos deben ser visualmente discernibles.
+  - La claridad visual debe conservarse bajo reducción y
+    reproducción del gráfica.
+    
+## Bibliografia.
+
+Correa, Juan Carlos y González Nelfi. Gráficos Estadísticos con R.
+Universidad Nacional de Colombia-Sede Medellín. 2002. 
+[Enlace en la documentación de R](https://cran.r-project.org/doc/contrib/grafi3.pdf)
+
+
 ```{r}
 library(readxl)
 library(tidyverse)
