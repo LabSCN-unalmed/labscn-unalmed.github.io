@@ -149,23 +149,31 @@ plot(peces.ch.single, main="Peces - Chord - Enlace simple", hang = -1)
 ```
 
 ```{r}
-# Gráfica que muestra posibles gradientes determinados por la agrupación
 # Ordenación con respecto al gradiente de distancia a la desembocadura.
-plot(peces.ch.single$order, ambient$das, pch = 19)
-text(peces.ch.single$order, ambient$das, 
-     labels = peces.ch.single$labels[peces.ch.single$order[peces.ch.single$order]], 
-     pos = 2)
-abline(coef=coef(lm(ambient$das ~ peces.ch.single$order)),col="red")
+ambient2 <- ambient
+ambient2$pos <- 1:nrow(ambient)
+ambient2 <- ambient2[peces.ch.single$order, ]
+ambient2$consec <- 1:nrow(ambient2)
 ```
 
 
 ```{r}
-# Ordenación con respecto al gradiente concentración de Nitrato.
-plot(peces.ch.single$order, ambient$nit, pch = 19)
-text(peces.ch.single$order, ambient$nit, 
-     labels =peces.ch.single$labels[peces.ch.single$order[peces.ch.single$order]], 
+# Gráfica que muestra posibles gradientes determinados por la agrupación
+plot(ambient2$consec, ambient2$das, pch = 19)
+text(ambient2$consec, ambient2$das, 
+     labels = row.names(ambient2), 
      pos = 2)
-abline(coef=coef(lm(ambient$nit~peces.ch.single$order)), col="red")
+abline(coef=coef(lm(ambient2$das ~ ambient2$consec)),col="red")
+```
+
+
+```{r}
+# Gráfica que muestra posibles gradientes determinados por la agrupación
+plot(ambient2$consec, ambient2$nit, pch = 19)
+text(ambient2$consec, ambient2$nit, 
+     labels = row.names(ambient2), 
+     pos = 2)
+abline(coef=coef(lm(ambient2$nit ~ ambient2$consec)),col="red")
 ```
 
 
