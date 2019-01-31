@@ -1,0 +1,233 @@
+---
+title: "Lista de verificación para Análisis Exploratorio de Datos"
+author: "Kenneth Roy Cabrera Torres"
+date: "24 de enero de 2019"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problema.
+
+https://www.datos.gov.co/Transporte/Accidentalidad-Envigado-2016-2017-y-Primer-Semestr/t5sw-amxr
+
+
+![](accidentalidad_envigado.png)
+
+## Lista de verificación.
+
+### Formule una pregunta.
+
+¿Ha habido disminución de la accidentalidad en Envigado desde 2016,
+hasta el primer semestre de 2018?
+
+### Lea sus datos.
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+accEnv <- read_csv("Accidentalidad_Envigado_2016___2017_y_Primer_Semestre_2018.csv")
+```
+
+Lectura con problemas.
+
+```{r}
+accEnv2 <- read_csv2("Accidentalidad_Envigado_2016___2017_y_Primer_Semestre_2018.csv")
+```
+
+
+### Verifique el empaque.
+
+```{r}
+nrow(accEnv)
+ncol(accEnv)
+```
+
+```{r}
+nrow(accEnv2)
+ncol(accEnv2)
+```
+
+
+### Ejecute "str()".
+
+```{r}
+str(accEnv)
+```
+
+
+```{r}
+str(accEnv2)
+```
+
+Para quitar los espacios en blanco de los nombres de las variables y
+convertirlas a formatos aceptables por el R.
+
+```{r}
+names(accEnv) <- make.names(names(accEnv))
+```
+
+Convertir todas las variables alfanuméricas a tipo "factor".
+
+```{r}
+accEnv <- accEnv %>%
+  mutate_if(is.character, factor)
+```
+
+
+### Mire en la parte inicial de sus datos y en la parte final.
+
+```{r}
+head(accEnv)
+```
+
+```{r}
+tail(accEnv)
+```
+
+
+### Verifique sus "n()".
+
+```{r}
+length(unique(accEnv$RADICADO))
+```
+
+```{r}
+accEnv %>% select(RADICADO) %>% 
+  unique() %>% 
+  nrow()
+```
+
+
+### Valide sus datos con una fuente externa de los datos.
+
+
+```{r}
+accEnv <- accEnv %>%
+  mutate(FECHA = as.Date(FECHA, "%m/%d/%Y")) 
+```
+
+
+```{r}
+accEnv %>%
+  group_by(DÍA.DE.LA.SEMANA) %>%
+  summarise(numAccidentados = n())
+```
+
+Ordenar los nombres de los días de la semana.
+
+```{r}
+accEnv <- accEnv %>%
+  mutate(DÍA.DE.LA.SEMANA = factor(DÍA.DE.LA.SEMANA,
+                                   levels = c("domingo", "lunes",
+                                              "martes", "miércoles",
+                                              "jueves", "viernes",
+                                              "sábado")))
+```
+
+
+```{r}
+accEnv %>%
+  group_by(DÍA.DE.LA.SEMANA) %>%
+  summarise(numAccidentados = n())
+```
+
+```{r}
+accEnv %>%
+  group_by(TIPO.DE.VICTIMA) %>%
+  summarise(numTipVic = n())
+```
+
+
+
+De acuerdo al [Informe de municipios en Colombia, con mayor accidentalidad](https://www.eltiempo.com/colombia/medellin/valle-de-aburra-la-region-con-mas-accidentalidad-del-pais-201314) se menciona que:
+
+![](accidentesEnvigado_2017.png)
+
+```{r}
+accEnv_temp <- accEnv %>%
+  group_by(año = format(FECHA, "%Y"), RADICADO) %>%
+  summarise(numAccidentados = n()) %>%
+  group_by(año) %>%
+  summarise(numAccidentes = n(),
+            numAccidentados = sum(numAccidentados))
+accEnv_temp
+```
+
+
+
+### Trate la solución más fácil.
+
+
+```{r}
+accEnv2 <- accEnv %>%
+  group_by(FECHA, RADICADO) %>%
+  summarise(numAccidentados = n())
+```
+
+```{r}
+accEnv3 <- accEnv2 %>%
+  group_by(FECHA) %>%
+  summarise(numAccidentes = n())
+```
+
+```{r}
+ggplot(accEnv3, aes(FECHA, numAccidentes)) +
+  geom_point() +
+  geom_smooth()
+```
+
+
+```{r}
+accEnv3 <- accEnv3 %>%
+  mutate(FECHA2 = as.integer(format(FECHA, "%Y")) + 
+           as.numeric(format(FECHA, "%U"))/ 53)
+```
+
+```{r}
+accEnv4 <- accEnv3 %>%
+  group_by(FECHA2) %>%
+  summarise(numAccidentesXsem = sum(numAccidentes))
+```
+
+
+```{r}
+ggplot(accEnv4, aes(FECHA2, numAccidentesXsem)) +
+  geom_point() +
+  geom_line() +
+  geom_smooth()
+```
+
+
+
+### Rete su solución.
+
+```{r}
+library(lubridate)
+accEnv5 <- accEnv %>%
+  mutate(Año_Sem = floor_date(FECHA, "6 month")) %>%
+  group_by(Año_Sem) %>%
+  summarise(numAccidentados = n())
+```
+
+```{r}
+ggplot(accEnv5, aes(Año_Sem, numAccidentados)) +
+  geom_bar(stat = "identity")
+```
+
+
+
+### Seguimiento.
+
+  - ¿Se tiene el conjunto de datos correctos?
+  - ¿Se necesitan otros datos?
+  - ¿Se tiene la pregunta correcta?
+  
+
