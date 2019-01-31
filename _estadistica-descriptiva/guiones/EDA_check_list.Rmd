@@ -20,6 +20,9 @@ https://www.datos.gov.co/Transporte/Accidentalidad-Envigado-2016-2017-y-Primer-S
 
 ## Lista de verificación.
 
+Realizaremos el procedimiento que el Dr. Roger D. Peng describe en la página del
+bookdown [Exploratory Data Analysis with R](https://bookdown.org/rdpeng/exdata/).
+
 ### Formule una pregunta.
 
 ¿Ha habido disminución de la accidentalidad en Envigado desde 2016,
