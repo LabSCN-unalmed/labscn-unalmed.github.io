@@ -58,21 +58,6 @@ Columnas | Variables
 - Múltiples tipos de unidades experimentales se almacenas en las misma tabla.
 - Un tipo de unidad experimental se almacena en multiples tablas.
 
-### Herramientas en R para su solución
-```{r}
-library(tidyr) 
-?gather
-?spread
-
-library(stringr)
-?str_replace
-?str_sub
-?str_match
-?str_split_fixed
-
-library(dplyr) 
-?arrange
-```
 
 ### Ejemplo de una base de datos con problemas
 
@@ -87,8 +72,9 @@ relig
 Ordenar la base de datos.
 
 ```{r}
-library(tidyr)
-relig2 <- gather(relig, key = ingresos, value = frecuencia, -1)
+#library(tidyr)
+relig2 <- relig %>% 
+  gather(key = ingresos, value = frecuencia, -religion)
 head(relig2)
 ```
 
@@ -120,15 +106,20 @@ Una primera depuración para mejorar la presentación de la base de datos
 y seleccionar sólo un año.
 
 ```{r}
-crudo$new_sp <- NULL
-crudo <- subset(crudo, year == 2000)
-names(crudo)[1] <- "pais"
-library(stringr)
+crudo <- crudo %>%
+  select(-new_sp)
+
+crudo <- crudo %>%
+  filter(year == 2000)
+
+crudo <- crudo %>%
+  rename(pais = iso2)
+
 names(crudo) <- str_replace(names(crudo), "new_sp_", "")
-crudo$m04  <- NULL
-crudo$m514 <- NULL
-crudo$f04  <- NULL
-crudo$f514 <- NULL
+
+crudo <- crudo %>%
+  select(-one_of("m04", "m514", "f04", "f514"))
+
 head(crudo, 20)
 ```
 
@@ -136,20 +127,26 @@ Adecuación de la base de datos con respecto a las variables
 que se quieren determinar.
 
 ```{r}
-library(tidyr)
-limpio <- gather(crudo, key = columna, value = casos, m014:fu)
-names(limpio)[2] <- "año"
+limpio <- crudo %>%
+  gather(key = columna, value = casos, m014:fu) %>%
+  rename(año = year)
+  
+
 head(limpio,20)
-# Arreglo de la base de datos.
-library(dplyr)
-limpio <- arrange(limpio, pais, columna, año)
+```
+
+
+```{r}
+limpio <- limpio %>% 
+  arrange(pais, columna, año)
 head(limpio,20)
 ```
 
 Separación de la información contenida en una columna
 
 ```{r}
-limpio$sexo <- str_sub(limpio$columna, 1, 1)
+limpio <- limpio %>%
+  mutate(sexo = str_sub(columna, 1, 1))
 
 edades <- c("04"   = "0-4",    "514" = "5-14", 
             "014"  = "0-14",  "1524" = "15-24", 
@@ -157,10 +154,12 @@ edades <- c("04"   = "0-4",    "514" = "5-14",
             "4554" = "45-54", "5564" = "55-64", 
             "65"   = "65+",      "u" = NA)
 
-limpio$edad <- factor(edades[str_sub(limpio$columna, 2)], levels = edades)
+limpio <- limpio %>%
+  mutate(edad = factor(edades[str_sub(columna, 2)], levels = edades))
 
-limpio <- limpio[c("pais", "año", "sexo", "edad", "casos")]
-# Base de datos depurada y puesta a punto.
+limpio <- limpio %>%
+  select(pais, año, sexo, edad, casos)
+
 head(limpio, 20)
 ```
 
@@ -173,14 +172,24 @@ head(CodPaises)
 Agregar el nombre del país a la base de datos
 
 ```{r}
-limpio <- merge(limpio, CodPaises, by.x = "pais", by.y = "iso2")
+limpio <- limpio %>%
+  full_join(CodPaises, by = c("pais" = "iso2"))
+#limpio <- merge(limpio, CodPaises, by.x = "pais", by.y = "iso2")
 ```
 
 ```{r}
-limpio2 <- subset(limpio, casos > 500)
-CasosTotales <- sort(with(limpio2, tapply(casos, nombre, sum)), decreasing=TRUE)
-PaisXCasosTot <- names(CasosTotales)
-limpio2$nombre <- factor(limpio2$nombre, levels = PaisXCasosTot)
+limpio2 <- limpio %>%
+  filter(casos > 500)
+
+CasosTotales <- limpio2 %>%
+  group_by(nombre) %>%
+  summarise(ncasos = sum(casos)) %>%
+  arrange(desc(ncasos))
+
+limpio2 <- limpio2 %>%
+  mutate(nombre = factor(nombre, levels = as.character(CasosTotales$nombre)))
+
+#limpio2$nombre <- factor(limpio2$nombre, levels = PaisXCasosTot)
 ```
 
 

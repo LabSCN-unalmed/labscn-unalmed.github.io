@@ -19,7 +19,7 @@ library(tidyverse)
 ```
 
 ```
-## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ ggplot2 3.1.0     ✔ purrr   0.3.0
 ## ✔ tibble  2.0.1     ✔ dplyr   0.7.8
 ## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
 ## ✔ readr   1.3.1     ✔ forcats 0.3.0
@@ -76,33 +76,6 @@ Columnas | Variables
 - Múltiples tipos de unidades experimentales se almacenas en las misma tabla.
 - Un tipo de unidad experimental se almacena en multiples tablas.
 
-### Herramientas en R para su solución
-
-```r
-library(tidyr) 
-?gather
-?spread
-
-library(stringr)
-?str_replace
-?str_sub
-?str_match
-?str_split_fixed
-
-library(dplyr) 
-?arrange
-```
-
-```
-## Help on topic 'arrange' was found in the following packages:
-## 
-##   Package               Library
-##   plyr                  /usr/local/lib/R/site-library
-##   dplyr                 /usr/local/lib/R/site-library
-## 
-## 
-## Using the first match ...
-```
 
 ### Ejemplo de una base de datos con problemas
 
@@ -141,8 +114,9 @@ Ordenar la base de datos.
 
 
 ```r
-library(tidyr)
-relig2 <- gather(relig, key = ingresos, value = frecuencia, -1)
+#library(tidyr)
+relig2 <- relig %>% 
+  gather(key = ingresos, value = frecuencia, -religion)
 head(relig2)
 ```
 
@@ -273,61 +247,66 @@ y seleccionar sólo un año.
 
 
 ```r
-crudo$new_sp <- NULL
-crudo <- subset(crudo, year == 2000)
-names(crudo)[1] <- "pais"
-library(stringr)
+crudo <- crudo %>%
+  select(-new_sp)
+
+crudo <- crudo %>%
+  filter(year == 2000)
+
+crudo <- crudo %>%
+  rename(pais = iso2)
+
 names(crudo) <- str_replace(names(crudo), "new_sp_", "")
-crudo$m04  <- NULL
-crudo$m514 <- NULL
-crudo$f04  <- NULL
-crudo$f514 <- NULL
+
+crudo <- crudo %>%
+  select(-one_of("m04", "m514", "f04", "f514"))
+
 head(crudo, 20)
 ```
 
 ```
-##     pais year m014 m1524 m2534 m3544 m4554 m5564  m65 mu f014 f1524 f2534
-## 11    AD 2000    0     0     1     0     0     0    0 NA   NA    NA    NA
-## 37    AE 2000    2     4     4     6     5    12   10 NA    3    16     1
-## 61    AF 2000   52   228   183   149   129    94   80 NA   93   414   565
-## 88    AG 2000    0     0     0     0     0     0    1 NA    1     1     1
-## 137   AL 2000    2    19    21    14    24    19   16 NA    3    11    10
-## 166   AM 2000    2   152   130   131    63    26   21 NA    1    24    27
-## 179   AN 2000    0     0     1     2     0     0    0 NA    0     0     1
-## 208   AO 2000  186   999  1003   912   482   312  194 NA  247  1142  1091
-## 237   AR 2000   97   278   594   402   419   368  330 NA  121   544   479
-## 266   AS 2000   NA    NA    NA    NA     1     1   NA NA   NA    NA    NA
-## 295   AT 2000    1    17    30    59    42    23   41 NA    1    11    22
-## 324   AU 2000    3    16    35    25    24    19   49 NA    0    15    19
-## 353   AZ 2000    0     9    24    33    42    30    0 NA    0     3     3
-## 382   BA 2000    4    56    82    99    66    58   77 NA    4    30    46
-## 409   BB 2000    0     0     0     2     0     0    0 NA    0     0     1
-## 438   BD 2000  256  3640  5643  5750  4718  3667 2837 NA  495  3029  3238
-## 467   BE 2000    3    20    57    39    55    32   56 NA    6    15    15
-## 495   BF 2000   12    91   274   252   133    68   65 NA    7    59   128
-## 524   BG 2000    0    13    16    20     3     9   10 NA    0    11    14
-## 552   BH 2000    0     0     3     2     5     3    4 NA    0     1     2
-##     f3544 f4554 f5564 f65 fu
-## 11     NA    NA    NA  NA NA
-## 37      3     0     0   4 NA
-## 61    339   205    99  36 NA
-## 88      0     0     0   0 NA
-## 137     8     8     5  11 NA
-## 166    24     8     8   4 NA
-## 179     0     0     1   0 NA
-## 208   844   417   200 120 NA
-## 237   262   230   179 216 NA
-## 266    NA     1    NA  NA NA
-## 295    12    11     6  22 NA
-## 324    12    15     5  14 NA
-## 353     6     3     0   0 NA
-## 382    29    29    48 124 NA
-## 409     0     0     0   0 NA
-## 438  2247  1315   778 370 NA
-## 467    19     4    13  27 NA
-## 495   101    45    38  14 NA
-## 524     7     3     4   6 NA
-## 552     0     1     1   1 NA
+##    pais year m014 m1524 m2534 m3544 m4554 m5564  m65 mu f014 f1524 f2534
+## 1    AD 2000    0     0     1     0     0     0    0 NA   NA    NA    NA
+## 2    AE 2000    2     4     4     6     5    12   10 NA    3    16     1
+## 3    AF 2000   52   228   183   149   129    94   80 NA   93   414   565
+## 4    AG 2000    0     0     0     0     0     0    1 NA    1     1     1
+## 5    AL 2000    2    19    21    14    24    19   16 NA    3    11    10
+## 6    AM 2000    2   152   130   131    63    26   21 NA    1    24    27
+## 7    AN 2000    0     0     1     2     0     0    0 NA    0     0     1
+## 8    AO 2000  186   999  1003   912   482   312  194 NA  247  1142  1091
+## 9    AR 2000   97   278   594   402   419   368  330 NA  121   544   479
+## 10   AS 2000   NA    NA    NA    NA     1     1   NA NA   NA    NA    NA
+## 11   AT 2000    1    17    30    59    42    23   41 NA    1    11    22
+## 12   AU 2000    3    16    35    25    24    19   49 NA    0    15    19
+## 13   AZ 2000    0     9    24    33    42    30    0 NA    0     3     3
+## 14   BA 2000    4    56    82    99    66    58   77 NA    4    30    46
+## 15   BB 2000    0     0     0     2     0     0    0 NA    0     0     1
+## 16   BD 2000  256  3640  5643  5750  4718  3667 2837 NA  495  3029  3238
+## 17   BE 2000    3    20    57    39    55    32   56 NA    6    15    15
+## 18   BF 2000   12    91   274   252   133    68   65 NA    7    59   128
+## 19   BG 2000    0    13    16    20     3     9   10 NA    0    11    14
+## 20   BH 2000    0     0     3     2     5     3    4 NA    0     1     2
+##    f3544 f4554 f5564 f65 fu
+## 1     NA    NA    NA  NA NA
+## 2      3     0     0   4 NA
+## 3    339   205    99  36 NA
+## 4      0     0     0   0 NA
+## 5      8     8     5  11 NA
+## 6     24     8     8   4 NA
+## 7      0     0     1   0 NA
+## 8    844   417   200 120 NA
+## 9    262   230   179 216 NA
+## 10    NA     1    NA  NA NA
+## 11    12    11     6  22 NA
+## 12    12    15     5  14 NA
+## 13     6     3     0   0 NA
+## 14    29    29    48 124 NA
+## 15     0     0     0   0 NA
+## 16  2247  1315   778 370 NA
+## 17    19     4    13  27 NA
+## 18   101    45    38  14 NA
+## 19     7     3     4   6 NA
+## 20     0     1     1   1 NA
 ```
 
 Adecuación de la base de datos con respecto a las variables
@@ -335,9 +314,11 @@ que se quieren determinar.
 
 
 ```r
-library(tidyr)
-limpio <- gather(crudo, key = columna, value = casos, m014:fu)
-names(limpio)[2] <- "año"
+limpio <- crudo %>%
+  gather(key = columna, value = casos, m014:fu) %>%
+  rename(año = year)
+  
+
 head(limpio,20)
 ```
 
@@ -365,10 +346,11 @@ head(limpio,20)
 ## 20   BH 2000    m014     0
 ```
 
+
+
 ```r
-# Arreglo de la base de datos.
-library(dplyr)
-limpio <- arrange(limpio, pais, columna, año)
+limpio <- limpio %>% 
+  arrange(pais, columna, año)
 head(limpio,20)
 ```
 
@@ -400,7 +382,8 @@ Separación de la información contenida en una columna
 
 
 ```r
-limpio$sexo <- str_sub(limpio$columna, 1, 1)
+limpio <- limpio %>%
+  mutate(sexo = str_sub(columna, 1, 1))
 
 edades <- c("04"   = "0-4",    "514" = "5-14", 
             "014"  = "0-14",  "1524" = "15-24", 
@@ -408,10 +391,12 @@ edades <- c("04"   = "0-4",    "514" = "5-14",
             "4554" = "45-54", "5564" = "55-64", 
             "65"   = "65+",      "u" = NA)
 
-limpio$edad <- factor(edades[str_sub(limpio$columna, 2)], levels = edades)
+limpio <- limpio %>%
+  mutate(edad = factor(edades[str_sub(columna, 2)], levels = edades))
 
-limpio <- limpio[c("pais", "año", "sexo", "edad", "casos")]
-# Base de datos depurada y puesta a punto.
+limpio <- limpio %>%
+  select(pais, año, sexo, edad, casos)
+
 head(limpio, 20)
 ```
 
@@ -460,15 +445,33 @@ Agregar el nombre del país a la base de datos
 
 
 ```r
-limpio <- merge(limpio, CodPaises, by.x = "pais", by.y = "iso2")
+limpio <- limpio %>%
+  full_join(CodPaises, by = c("pais" = "iso2"))
+```
+
+```
+## Warning: Column `pais`/`iso2` joining character vector and factor, coercing
+## into character vector
+```
+
+```r
+#limpio <- merge(limpio, CodPaises, by.x = "pais", by.y = "iso2")
 ```
 
 
 ```r
-limpio2 <- subset(limpio, casos > 500)
-CasosTotales <- sort(with(limpio2, tapply(casos, nombre, sum)), decreasing=TRUE)
-PaisXCasosTot <- names(CasosTotales)
-limpio2$nombre <- factor(limpio2$nombre, levels = PaisXCasosTot)
+limpio2 <- limpio %>%
+  filter(casos > 500)
+
+CasosTotales <- limpio2 %>%
+  group_by(nombre) %>%
+  summarise(ncasos = sum(casos)) %>%
+  arrange(desc(ncasos))
+
+limpio2 <- limpio2 %>%
+  mutate(nombre = factor(nombre, levels = as.character(CasosTotales$nombre)))
+
+#limpio2$nombre <- factor(limpio2$nombre, levels = PaisXCasosTot)
 ```
 
 
