@@ -114,7 +114,6 @@ Ordenar la base de datos.
 
 
 ```r
-#library(tidyr)
 relig2 <- relig %>% 
   gather(key = ingresos, value = frecuencia, -religion)
 head(relig2)
@@ -478,8 +477,6 @@ limpio2 <- limpio2 %>%
 
 
 ```r
-library(ggplot2)
-
 # Gráfica de puntos
 g1 <- ggplot(limpio2, aes(nombre, log10(casos), col = sexo))
 g1 + geom_point() + facet_grid(edad ~ .) +
@@ -492,7 +489,6 @@ g1 + geom_point() + facet_grid(edad ~ .) +
 
 
 ```r
-library(ggplot2)
 # Gráfica de barras
 g2 <- ggplot(limpio2, aes(nombre, log10(casos), fill = sexo))
 g2 + geom_bar(stat = "identity", position = "dodge") + facet_grid(edad ~ .) +
