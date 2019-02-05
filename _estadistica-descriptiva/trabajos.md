@@ -51,6 +51,14 @@ al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
 <!---
 
+### Primer trabajo en grupo.
+
+#### Objetivo.
+
+
+#### Fecha de entrega.
+
+
 #### Objetivo.
 
  Realizar un análisis exploratorio de la edad y
