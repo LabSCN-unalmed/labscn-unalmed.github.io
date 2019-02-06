@@ -60,3 +60,7 @@ Funciones auxiliares:
 - [coldiss.R](./guiones/coldiss.R)
 
 - [ejemplo_simple.csv](./guiones/ejemplo_simple.csv)
+
+## Distancias y discrepancias.
+
+- [Distancias y discrepancias](./guiones/distancias_disimilitudes_matriz_discrepancia.html)
