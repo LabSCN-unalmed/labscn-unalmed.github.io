@@ -53,7 +53,7 @@ al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
 ### Primer trabajo en grupo.
 
-#### Primera actividad de familiarización del uso la App Scence Journal.
+#### Primera actividad de familiarización del uso la App Science Journal.
 
 - Grupos de máximo 5 personas.
 - Descargar la [App Science Journal](https://play.google.com/store/apps/details?id=com.google.android.apps.forscience.whistlepunk&hl=en).
@@ -71,7 +71,7 @@ al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 En el transcurso de las siguinetes clases se planteará los siguintes pasos
 para realizar el trabajo en grupo.
 
-    
+
 
 <!---
 
