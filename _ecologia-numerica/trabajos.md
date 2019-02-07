@@ -76,3 +76,16 @@ la estimación de la desviación estándar de los residuales (compararla con la 
 
 
 ## Trabajo individual II
+
+
+
+## Distancias.
+
+
+![](./pics/distanciasR.png)
+
+
+## Similitudes.
+
+![](./pics/similitud1.png)
+![](./pics/similitud2R.png)
