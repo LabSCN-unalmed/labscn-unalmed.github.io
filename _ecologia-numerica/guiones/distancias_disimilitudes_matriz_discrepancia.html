@@ -368,10 +368,10 @@ plot(cl17, hang = -1)</code></pre>
 <h3>Diferencia de características promedio modificada (<span class="math inline">\(D_{19}\)</span>).</h3>
 <p>Si el número de especies entre dos sitios que no tienen doble cero es <span class="math inline">\(pp\)</span> en los sitios <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> entonces la distanciss <span class="math inline">\(D_{19}\)</span> es:</p>
 <p><span class="math display">\[
-D_{19}(x1,x2) = \frac{1}{pp} \sum_{j=1}^p |y_{1j} - y_{2j}|
+D_{19}(x_1,x_2) = \frac{1}{pp} \sum_{j=1}^p |y_{1j} - y_{2j}|
 \]</span></p>
 <p>Esta distancia no tiene límite superior.</p>
-<p>Ni esta distancias, su complemento o su raiz cuadrada son métricos o euclideos. Sin embargo si se aplica a una matriz de presencia ausencia, esta distancia se convierte en el complmento a uno del coeficiente de Jaccard (<span class="math inline">\(1-S_{7}\)</span>), que es métrico, pero no euclídeo, mientras que la raiz cuadrada es tanto mética como euclídea.</p>
+<p>Ni esta distancia, ni su complemento o su raiz cuadrada son métricos o euclideos. Sin embargo si se aplica a una matriz de presencia ausencia, esta distancia se convierte en el complemento a uno del coeficiente de Jaccard (<span class="math inline">\(1-S_{7}\)</span>), que es métrico, pero no euclídeo, mientras que la raiz cuadrada es tanto mética como euclídea.</p>
 <p>Una propuesta de mejora en matrices de abundancias es la denominada disimilitud de Gower modificada, que es aplicar la misma distancia después de la siguiente transformación:</p>
 <p><span class="math display">\[
 y'_{ij} = log_{10}(y_{ij}) + 1, \quad \textrm{si} \quad y_{ij} &gt; 0 \\

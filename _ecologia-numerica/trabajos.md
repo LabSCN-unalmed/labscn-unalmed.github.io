@@ -73,3 +73,6 @@ la estimación de la desviación estándar de los residuales (compararla con la 
 ### Fecha de entrega.
 
 - Viernes, 15 de febrero de 2019.
+
+
+## Trabajo individual II
