@@ -121,6 +121,16 @@ como entrega tarde del taller individual 2.
 6. Enviar la base de datos construida para la elaboración del gráfico.
 7. Fecha de envío: Martes 5 de febrero de 2019, antes de las 23:59 hora de Colombia al correo **krcaber@unal.edu.co** y en asundo no olvidar **[EDAED]**.
 
+### Taller en grupo 2.
+
+### Objetivo.
+
+Plantear dos preguntas a una base de datos y mostrar un posible
+resultado gráfico o de tabla para cada pregunta propuesta.
+
+### Fecha de entrega.
+
+Martes, 5 de febrero de 2019 en horas de clase.
 
 <!---
 

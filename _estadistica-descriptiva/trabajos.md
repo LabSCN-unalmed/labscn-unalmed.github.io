@@ -49,6 +49,30 @@ Martes, 12 de febrero de 2019 antes de las 23:59
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
 
+## Trabajos en grupo.
+
+### Primer trabajo en grupo.
+
+#### Primera actividad de familiarización del uso la App Scence Journal.
+
+- Grupos de máximo 5 personas.
+- Descargar la [App Science Journal](https://play.google.com/store/apps/details?id=com.google.android.apps.forscience.whistlepunk&hl=en).
+- Para cada miembro del grupo realizar.
+  * Seleccionar 80 a 100 metros planos en el campus de la Universidad.
+  * Seleccionar de la App las tarjetas X, Y y Z.
+  * Caminar los 80 a 100 metros, contando los pasos.
+  * Enviar el archivo ".csv" a su propio correo electrónico.
+  * Revisar que el archivo tenga como mínimo las siguientes columnas:
+    + Timestamp.
+    + AccX.
+    + AccY.
+    + AccZ.
+
+En el transcurso de las siguinetes clases se planteará los siguintes pasos
+para realizar el trabajo en grupo.
+
+    
+
 <!---
 
 ### Primer trabajo en grupo.
