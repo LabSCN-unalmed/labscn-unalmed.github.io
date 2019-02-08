@@ -16,7 +16,8 @@ order: 5
 
 ## Primer taller individual.
 
-[Enunciado](./talleres/pobreza_mundial_enunciado.html)
+ + [Enunciado](./talleres/pobreza_mundial_enunciado.html)
+ + [Solución](./talleres/pobreza_mundial_solucion.html)
 
 <!---
 
