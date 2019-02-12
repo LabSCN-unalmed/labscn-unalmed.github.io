@@ -45,7 +45,9 @@ order: 2
 
  - [Análisis Exploratorio](./guiones/EDA_check_list.html)
 
+## Caminata
 
+ - [Análisis Exploratorio de frecuencias](./guiones/caminta1.html)
 
 <!---
 ## Contenido
