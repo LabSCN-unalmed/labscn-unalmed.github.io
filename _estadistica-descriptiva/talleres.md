@@ -123,14 +123,16 @@ como entrega tarde del taller individual 2.
 
 ### Taller en grupo 2.
 
-### Objetivo.
+#### Objetivo.
 
 Plantear dos preguntas a una base de datos y mostrar un posible
 resultado gráfico o de tabla para cada pregunta propuesta.
 
-### Fecha de entrega.
+#### Fecha de entrega.
 
 Martes, 5 de febrero de 2019 en horas de clase.
+
+
 
 <!---
 

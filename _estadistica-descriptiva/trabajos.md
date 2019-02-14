@@ -53,7 +53,11 @@ al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
 ### Primer trabajo en grupo.
 
-#### Primera actividad de familiarización del uso la App Science Journal.
+#### Primera actividad.
+
+##### Objetivo:
+
+Familiarizarse con el uso la App Science Journal.
 
 - Grupos de máximo 5 personas.
 - Descargar la [App Science Journal](https://play.google.com/store/apps/details?id=com.google.android.apps.forscience.whistlepunk&hl=en).
@@ -68,8 +72,42 @@ al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
     + AccY.
     + AccZ.
 
-En el transcurso de las siguinetes clases se planteará los siguintes pasos
-para realizar el trabajo en grupo.
+#### Segunda actividad.    
+
+##### Objetivo:
+
+- Con los datos obtenidos de cada miembro del grupo, realizar la siguiente
+  tabla:
+
+| Nombre completo  | Número de periodos | Distancia | Número de pasos | Estatura
+|:----------|--------------:|------------:|----------------:|----:|
+| Kenneth Cabrera | 308 | 217.32 | 310 | 169 |
+
+- Comparar el número de períodos obtenido por cada integrante con
+el número de pasos.
+
+- Calcular la longitud promedia del paso uno con el número de períodos
+y otro con el número de pasos.
+
+- Realizar un gráfico a mano alzada de los cinco integrantes en
+  donde en el eje _x_,
+  se la longitud del paso de cada uno y el eje _y_ sea la estatura.
+
+- Trace una recta a mano alzada o con una regla que considere que muestra la tendencia y estime
+  la pendiente.
+
+- Pida el dato de la pendiente de la recta a 5 grupos diferentes y
+  analice los resultados obtenidos.
+
+- Realice conclusiones y recomendaciones.
+
+##### Fecha de entrega:
+
+Jueves, 14 de febrero de 2019 al finalizar la clase.
+
+
+
+
 
 
 
