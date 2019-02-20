@@ -64,3 +64,13 @@ Funciones auxiliares:
 ## Distancias y discrepancias.
 
 - [Distancias y discrepancias](./guiones/distancias_disimilitudes_matriz_discrepancia.html)
+
+## Métodos de ordenación.
+
+- [Métodos de ordenación no restringido](./guiones/ordenacion2.html)
+
+Archivos auxiliares:
+
+- [CA.new.R](./guiones/CA.new.R)
+- [PCA.new.R](./guiones/PCA.new.R)
+- [cleanplot.pca.R](./guiones/cleanplot.pca.R)
