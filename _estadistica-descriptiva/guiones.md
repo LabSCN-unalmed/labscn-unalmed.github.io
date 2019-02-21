@@ -41,13 +41,17 @@ order: 2
   - [Imágen utilizada en el documento.](./guiones/niveles2.png)
 
 
-## Accidentalidad en Envigado 2016, 2017 y primer semestres de 2018.
+## Accidentalidad en Envigado 2016, 2017 y primer semestres de 2018 (I).
 
  - [Análisis Exploratorio](./guiones/EDA_check_list.html)
 
 ## Caminata
 
  - [Análisis Exploratorio de frecuencias](./guiones/caminta1.html)
+
+## Accidentalidad en Envigado 2016, 2017 y primer semestres de 2018 (II).
+
+ - [Preguntas a la base de datos](./guiones/consulta_base.html)
 
 <!---
 ## Contenido
