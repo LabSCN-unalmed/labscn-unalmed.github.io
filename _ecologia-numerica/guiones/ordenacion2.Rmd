@@ -1,0 +1,249 @@
+---
+title: "Ordenación no restringida"
+author: "Kenneth Roy Cabrera Torres"
+date: "20 de febrero de 2019"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Métodos de ordenación no restringido.
+
+ - Análisis de componentes principales (PCA).
+    * Datos cuantitativos.
+    * Preserva la distancia euclíedea.
+ - Análisis de correspondencia (CA).
+    * Tabla de contingencia o valores cercanos a frecuencias.
+    * Preserva la distancia $\chi^2$.
+ - Análisis de coordenadas principales (PCoA).
+    * Orientado a matrices de disimilitud.
+ - Escalamiento multidimensional no métrico (NMDS). 
+    * Contrario a los anteriores no está basado en vectores propios.
+    * Representa los objetos preservando la relaciones entre ellos.
+    * Opera sobre matrices de disimilitud. 
+   
+
+```{r}
+## Paquetes 
+library(ade4)
+library(vegan)
+library(gclus)
+library(ape)
+library(missMDA)
+library(FactoMineR)
+library(tidyverse)
+```
+
+```{r}
+# Funciones propias del libro.
+# Ecología numérica.
+source("cleanplot.pca.R")
+source("PCA.newr.R")
+source("CA.newr.R")
+```
+
+
+```{r}
+# Lectura de las bases de datos.
+ambient<-read.csv2("ambientales.csv",enc="latin1",row.names=1)
+peces<-read.csv2("peces.csv",enc="latin1",row.names=1)
+locs<-read.csv2("localidades.csv",enc="latin1",row.names=1)
+nomEspec<-read.csv2("nombresdeespecies.csv",enc="latin1")
+nomVarAmbient<-read.csv2("Nombresdevariablesambientales.csv",enc="latin1")
+```
+
+```{r}
+# Adecuación
+# Quitar el sitio que no tiene ninguna especie
+sumEsp  <- apply(peces,1,sum)
+peces   <- peces[sumEsp!=0,]
+ambient <- ambient[sumEsp!=0,]
+locs    <- locs[sumEsp!=0,]
+```
+
+
+```{r}
+summary(ambient)
+```
+
+## Componentes principales (PCA).
+
+```{r}
+ambient.pca <- rda(ambient, scale = TRUE)
+ambient.pca
+```
+
+```{r}
+summary(ambient.pca) # Default scaling 2
+```
+
+```{r}
+summary(ambient.pca, scaling = 1)
+```
+
+```{r}
+?cca.object 
+```
+
+
+```{r}
+(ev <- ambient.pca$CA$eig)
+```
+
+### Criterio del modelo de la vara quebrada (broken stick model).
+
+$$
+ \lambda^* = \sum_{k = i}^p \frac{1}{k}
+$$
+Donde:
+
+$$
+ \begin{eqnarray*}
+  \lambda^* & : & \text{El valor del valor propio del modelo de vara quebrada.} \\
+  p & & \text{Número de epsecies, (columnas).} \\
+ \end{eqnarray*}
+$$
+
+```{r}
+screeplot(ambient.pca, bstick = TRUE, npcs = length(ambient.pca$CA$eig))
+```
+
+- **Escalamiento 1**: Óptimo para mostrar la relación de distancias entre objetos.
+- **Escalamiento 2**: Óptimo para mostrar la correlación entre variables.
+
+
+```{r}
+op <- par(no.readonly = TRUE) 
+par(mfrow = c(1, 2))
+biplot(ambient.pca, scaling = 1, main = "PCA - escalamiento 1")
+biplot(ambient.pca, main = "PCA - escalamiento 2")  
+par(op)
+```
+
+
+```{r}
+par(mfrow = c(1, 2))
+cleanplot.pca(ambient.pca, scaling = 1, mar.percent = 0.08)
+cleanplot.pca(ambient.pca, scaling = 2, mar.percent = 0.04)
+par(op)
+```
+
+## Análisis de correpondencia (CA).
+
+```{r}
+# Compute CA
+(peces.ca <- cca(peces))
+```
+
+```{r}
+summary(peces.ca)	
+```
+
+```{r}
+summary(peces.ca, scaling = 1)
+```
+
+```{r}
+screeplot(peces.ca, bstick = TRUE, npcs = length(peces.ca$CA$eig))
+```
+
+```{r}
+op <- par(no.readonly = TRUE) 
+par(mfrow = c(1, 2))
+# Scaling 1: los sitios son centroides de las species.
+plot(peces.ca, 
+     scaling = 1, 
+     main = "CA en abundacia de peces \n escalamiento 1"
+)
+# Scaling 2 (default): las especies son centroides de los sitios.
+plot(peces.ca, main = "CA en abundancia de peces \n escalamiento 2")
+par(op)
+```
+
+## Análisis de coordenadas principales (PCoA).
+
+```{r}
+peces.bray <- vegdist(peces)
+peces.b.pcoa <- cmdscale(peces.bray, k = (nrow(peces) - 1), eig = TRUE)
+```
+
+```{r}
+ordiplot(scores(peces.b.pcoa, choices = c(1, 2)),
+         type = "t",
+         main = "PCoA con promedios ponderados de especies")
+abline(h = 0, lty = 3)
+abline(v = 0, lty = 3)
+peces.wa <- wascores(peces.b.pcoa$points[, 1:2], peces)
+text(peces.wa, rownames(peces.wa), cex = 0.7, col = "red")
+```
+
+## Escalamiento multidimensional no métrico.
+
+```{r}
+peces.nmds <- metaMDS(peces, distance = "bray")
+```
+
+```{r}
+peces.nmds
+```
+
+
+```{r}
+peces.nmds$stress
+```
+
+
+```{r}
+plot(
+  peces.nmds,
+  type = "t",
+  main = paste(
+    "NMDS/Diferencias en porcentaje - Stress =",
+    round(peces.nmds$stress, 3)
+  )
+)
+```
+
+```{r, fig.height=7, fig.width=8}
+op <- par(no.readonly = TRUE)
+par(mfrow = c(1, 2))
+stressplot(peces.nmds, main = "Shepard plot")
+gof <- goodness(peces.nmds)
+plot(peces.nmds, type = "t", main = "Goodness of fit")
+points(peces.nmds, display = "sites", cex = gof * 300)
+par(op)
+```
+
+## Comparación de los métodos PCoA vs NMDS.
+
+### NMDS.
+
+
+ - Dependiendo del punto de partida puede cambiar la soluición.
+ - Las disimilitudes o distancias se distorsionan.
+ - Los primeros ejes no maximizan la varianza de las observaciones.
+ - El criterio de optimización puede cambiar.
+ - Sólo los expertos puede establecer que cambios en argumentos de
+   las funciones NMDS cambia la solución.
+ - La selección de la dimensión a proyectar, pero las soluciones
+   no son exactas para valores bajos de dimensión.
+ - El estadístico de "stress" no es un indicador de la proporción de varianza.
+   Indica la deformación de las disimilitudes con respecto a las originales.
+   
+   
+### PCoA.
+
+ - PCoA encuentra una solución óptima de valores y vectores propios.
+   La solución es única.
+ - Las disimilitudes no se distorcionan en la solución completa.
+ - El primer eje maximiza la varianza de las observaciones.
+ - La solución de la ordenación es exacta.
+ - Se puede reproducir las distancias originales usando todos los ejes
+   del PCoA.
+ - Se puede establecer la proporción de varianza que cada eje explica.
+   
