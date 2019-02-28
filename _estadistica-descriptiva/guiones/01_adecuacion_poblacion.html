@@ -271,7 +271,277 @@ pobla$nom_ID  &lt;- rep(nom_ID, num_rep)</code></pre>
   filter(!is.na(Total_1985))
 pobla1$ID &lt;- rep(cod_no_na, num_rep - 1)
 pobla1 &lt;- pobla1 %&gt;%
-  select(nom_ID, Código:Mujeres_2020)</code></pre>
+  select(nom_ID, Código:Mujeres_2020) %&gt;%
+  mutate_if(is.character, as.factor)</code></pre>
+<pre class="r"><code>head(pobla1)</code></pre>
+<pre><code>## # A tibble: 6 x 111
+##   nom_ID Código Edad  Total_1985 Hombres_1985 Mujeres_1985 Total_1986
+##   &lt;fct&gt;  &lt;fct&gt;  &lt;fct&gt;      &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
+## 1 NACIO… 00     0         849098       423746       425352     859513
+## 2 NACIO… 00     1         837402       417921       419481     848899
+## 3 NACIO… 00     2         824903       411679       413224     837206
+## 4 NACIO… 00     3         811561       405005       406556     824426
+## 5 NACIO… 00     4         797369       397888       399481     810584
+## 6 NACIO… 00     5         786791       392626       394165     800566
+## # … with 104 more variables: Hombres_1986 &lt;dbl&gt;, Mujeres_1986 &lt;dbl&gt;,
+## #   Total_1987 &lt;dbl&gt;, Hombres_1987 &lt;dbl&gt;, Mujeres_1987 &lt;dbl&gt;,
+## #   Total_1988 &lt;dbl&gt;, Hombres_1988 &lt;dbl&gt;, Mujeres_1988 &lt;dbl&gt;,
+## #   Total_1989 &lt;dbl&gt;, Hombres_1989 &lt;dbl&gt;, Mujeres_1989 &lt;dbl&gt;,
+## #   Total_1990 &lt;dbl&gt;, Hombres_1990 &lt;dbl&gt;, Mujeres_1990 &lt;dbl&gt;,
+## #   Total_1991 &lt;dbl&gt;, Hombres_1991 &lt;dbl&gt;, Mujeres_1991 &lt;dbl&gt;,
+## #   Total_1992 &lt;dbl&gt;, Hombres_1992 &lt;dbl&gt;, Mujeres_1992 &lt;dbl&gt;,
+## #   Total_1993 &lt;dbl&gt;, Hombres_1993 &lt;dbl&gt;, Mujeres_1993 &lt;dbl&gt;,
+## #   Total_1994 &lt;dbl&gt;, Hombres_1994 &lt;dbl&gt;, Mujeres_1994 &lt;dbl&gt;,
+## #   Total_1995 &lt;dbl&gt;, Hombres_1995 &lt;dbl&gt;, Mujeres_1995 &lt;dbl&gt;,
+## #   Total_1996 &lt;dbl&gt;, Hombres_1996 &lt;dbl&gt;, Mujeres_1996 &lt;dbl&gt;,
+## #   Total_1997 &lt;dbl&gt;, Hombres_1997 &lt;dbl&gt;, Mujeres_1997 &lt;dbl&gt;,
+## #   Total_1998 &lt;dbl&gt;, Hombres_1998 &lt;dbl&gt;, Mujeres_1998 &lt;dbl&gt;,
+## #   Total_1999 &lt;dbl&gt;, Hombres_1999 &lt;dbl&gt;, Mujeres_1999 &lt;dbl&gt;,
+## #   Total_2000 &lt;dbl&gt;, Hombres_2000 &lt;dbl&gt;, Mujeres_2000 &lt;dbl&gt;,
+## #   Total_2001 &lt;dbl&gt;, Hombres_2001 &lt;dbl&gt;, Mujeres_2001 &lt;dbl&gt;,
+## #   Total_2002 &lt;dbl&gt;, Hombres_2002 &lt;dbl&gt;, Mujeres_2002 &lt;dbl&gt;,
+## #   Total_2003 &lt;dbl&gt;, Hombres_2003 &lt;dbl&gt;, Mujeres_2003 &lt;dbl&gt;,
+## #   Total_2004 &lt;dbl&gt;, Hombres_2004 &lt;dbl&gt;, Mujeres_2004 &lt;dbl&gt;,
+## #   Total_2005 &lt;dbl&gt;, Hombres_2005 &lt;dbl&gt;, Mujeres_2005 &lt;dbl&gt;,
+## #   Total_2006 &lt;dbl&gt;, Hombres_2006 &lt;dbl&gt;, Mujeres_2006 &lt;dbl&gt;,
+## #   Total_2007 &lt;dbl&gt;, Hombres_2007 &lt;dbl&gt;, Mujeres_2007 &lt;dbl&gt;,
+## #   Total_2008 &lt;dbl&gt;, Hombres_2008 &lt;dbl&gt;, Mujeres_2008 &lt;dbl&gt;,
+## #   Total_2009 &lt;dbl&gt;, Hombres_2009 &lt;dbl&gt;, Mujeres_2009 &lt;dbl&gt;,
+## #   Total_2010 &lt;dbl&gt;, Hombres_2010 &lt;dbl&gt;, Mujeres_2010 &lt;dbl&gt;,
+## #   Total_2011 &lt;dbl&gt;, Hombres_2011 &lt;dbl&gt;, Mujeres_2011 &lt;dbl&gt;,
+## #   Total_2012 &lt;dbl&gt;, Hombres_2012 &lt;dbl&gt;, Mujeres_2012 &lt;dbl&gt;,
+## #   Total_2013 &lt;dbl&gt;, Hombres_2013 &lt;dbl&gt;, Mujeres_2013 &lt;dbl&gt;,
+## #   Total_2014 &lt;dbl&gt;, Hombres_2014 &lt;dbl&gt;, Mujeres_2014 &lt;dbl&gt;,
+## #   Total_2015 &lt;dbl&gt;, Hombres_2015 &lt;dbl&gt;, Mujeres_2015 &lt;dbl&gt;,
+## #   Total_2016 &lt;dbl&gt;, Hombres_2016 &lt;dbl&gt;, Mujeres_2016 &lt;dbl&gt;,
+## #   Total_2017 &lt;dbl&gt;, Hombres_2017 &lt;dbl&gt;, Mujeres_2017 &lt;dbl&gt;,
+## #   Total_2018 &lt;dbl&gt;, Hombres_2018 &lt;dbl&gt;, Mujeres_2018 &lt;dbl&gt;,
+## #   Total_2019 &lt;dbl&gt;, Hombres_2019 &lt;dbl&gt;, …</code></pre>
+<pre class="r"><code>summary(pobla1)</code></pre>
+<pre><code>##         nom_ID          Código           Edad         Total_1985    
+##  Buenavista:  108   00     :   27   0      : 1156   Min.   :     0  
+##  La Unión  :  108   05     :   27   1      : 1156   1st Qu.:   129  
+##  Albania   :   81   05001  :   27   10     : 1156   Median :   262  
+##  Argelia   :   81   05002  :   27   11     : 1156   Mean   :  1822  
+##  Córdoba   :   81   05004  :   27   12     : 1156   3rd Qu.:   527  
+##  El Peñón  :   81   05021  :   27   13     : 1156   Max.   :849098  
+##  (Other)   :30672   (Other):31050   (Other):24276                   
+##   Hombres_1985       Mujeres_1985        Total_1986      Hombres_1986   
+##  Min.   :     0.0   Min.   :     0.0   Min.   :     0   Min.   :     0  
+##  1st Qu.:    64.0   1st Qu.:    64.0   1st Qu.:   131   1st Qu.:    65  
+##  Median :   132.0   Median :   130.0   Median :   264   Median :   133  
+##  Mean   :   906.1   Mean   :   915.6   Mean   :  1846   Mean   :   919  
+##  3rd Qu.:   265.0   3rd Qu.:   263.0   3rd Qu.:   531   3rd Qu.:   267  
+##  Max.   :423746.0   Max.   :425352.0   Max.   :859513   Max.   :431133  
+##                                                                         
+##   Mujeres_1986        Total_1987      Hombres_1987     Mujeres_1987     
+##  Min.   :     0.0   Min.   :     0   Min.   :     0   Min.   :     0.0  
+##  1st Qu.:    65.0   1st Qu.:   130   1st Qu.:    65   1st Qu.:    64.0  
+##  Median :   131.0   Median :   265   Median :   134   Median :   131.0  
+##  Mean   :   927.1   Mean   :  1871   Mean   :   932   Mean   :   938.6  
+##  3rd Qu.:   264.0   3rd Qu.:   533   3rd Qu.:   268   3rd Qu.:   265.0  
+##  Max.   :428380.0   Max.   :875424   Max.   :442689   Max.   :432735.0  
+##                                                                         
+##    Total_1988      Hombres_1988     Mujeres_1988        Total_1989    
+##  Min.   :     0   Min.   :     0   Min.   :     0.0   Min.   :     0  
+##  1st Qu.:   129   1st Qu.:    65   1st Qu.:    64.0   1st Qu.:   129  
+##  Median :   265   Median :   135   Median :   131.0   Median :   265  
+##  Mean   :  1895   Mean   :   945   Mean   :   949.9   Mean   :  1919  
+##  3rd Qu.:   535   3rd Qu.:   269   3rd Qu.:   266.0   3rd Qu.:   537  
+##  Max.   :894808   Max.   :456599   Max.   :438209.0   Max.   :914669  
+##                                                                       
+##   Hombres_1989       Mujeres_1989        Total_1990      Hombres_1990     
+##  Min.   :     0.0   Min.   :     0.0   Min.   :     0   Min.   :     0.0  
+##  1st Qu.:    65.0   1st Qu.:    64.0   1st Qu.:   130   1st Qu.:    66.0  
+##  Median :   135.0   Median :   131.0   Median :   265   Median :   135.0  
+##  Mean   :   957.8   Mean   :   960.9   Mean   :  1942   Mean   :   970.1  
+##  3rd Qu.:   270.0   3rd Qu.:   267.0   3rd Qu.:   537   3rd Qu.:   271.0  
+##  Max.   :470284.0   Max.   :444385.0   Max.   :931333   Max.   :481053.0  
+##                                                                           
+##   Mujeres_1990        Total_1991      Hombres_1991       Mujeres_1991     
+##  Min.   :     0.0   Min.   :     0   Min.   :     0.0   Min.   :     0.0  
+##  1st Qu.:    64.0   1st Qu.:   129   1st Qu.:    66.0   1st Qu.:    63.0  
+##  Median :   131.0   Median :   265   Median :   135.0   Median :   130.0  
+##  Mean   :   971.6   Mean   :  1966   Mean   :   983.1   Mean   :   982.6  
+##  3rd Qu.:   266.0   3rd Qu.:   540   3rd Qu.:   272.0   3rd Qu.:   267.0  
+##  Max.   :450280.0   Max.   :945612   Max.   :490655.0   Max.   :454957.0  
+##                                                                           
+##    Total_1992        Hombres_1992       Mujeres_1992        Total_1993    
+##  Min.   :     0.0   Min.   :     0.0   Min.   :     0.0   Min.   :     0  
+##  1st Qu.:   128.0   1st Qu.:    65.0   1st Qu.:    62.0   1st Qu.:   130  
+##  Median :   265.0   Median :   135.0   Median :   130.0   Median :   266  
+##  Mean   :  1988.0   Mean   :   995.2   Mean   :   992.7   Mean   :  2009  
+##  3rd Qu.:   542.2   3rd Qu.:   275.0   3rd Qu.:   269.0   3rd Qu.:   543  
+##  Max.   :953411.0   Max.   :494800.0   Max.   :458611.0   Max.   :955551  
+##                                                                           
+##   Hombres_1993     Mujeres_1993      Total_1994      Hombres_1994   
+##  Min.   :     0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:    66   1st Qu.:    63   1st Qu.:   129   1st Qu.:    66  
+##  Median :   135   Median :   131   Median :   267   Median :   135  
+##  Mean   :  1007   Mean   :  1002   Mean   :  2028   Mean   :  1017  
+##  3rd Qu.:   275   3rd Qu.:   269   3rd Qu.:   546   3rd Qu.:   276  
+##  Max.   :494152   Max.   :461399   Max.   :951924   Max.   :489137  
+##                                                                     
+##   Mujeres_1994      Total_1995      Hombres_1995     Mujeres_1995   
+##  Min.   :     0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:    63   1st Qu.:   130   1st Qu.:    67   1st Qu.:    63  
+##  Median :   131   Median :   268   Median :   135   Median :   132  
+##  Mean   :  1011   Mean   :  2045   Mean   :  1027   Mean   :  1018  
+##  3rd Qu.:   270   3rd Qu.:   544   3rd Qu.:   275   3rd Qu.:   268  
+##  Max.   :462787   Max.   :945089   Max.   :482198   Max.   :462891  
+##                                                                     
+##    Total_1996      Hombres_1996     Mujeres_1996      Total_1997    
+##  Min.   :     0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:   132   1st Qu.:    68   1st Qu.:    64   1st Qu.:   134  
+##  Median :   268   Median :   137   Median :   131   Median :   268  
+##  Mean   :  2062   Mean   :  1037   Mean   :  1026   Mean   :  2078  
+##  3rd Qu.:   540   3rd Qu.:   274   3rd Qu.:   266   3rd Qu.:   539  
+##  Max.   :940975   Max.   :478465   Max.   :462510   Max.   :932149  
+##                                                                     
+##   Hombres_1997     Mujeres_1997      Total_1998      Hombres_1998   
+##  Min.   :     0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:    69   1st Qu.:    65   1st Qu.:   134   1st Qu.:    69  
+##  Median :   137   Median :   131   Median :   267   Median :   136  
+##  Mean   :  1046   Mean   :  1032   Mean   :  2093   Mean   :  1054  
+##  3rd Qu.:   274   3rd Qu.:   266   3rd Qu.:   538   3rd Qu.:   273  
+##  Max.   :475339   Max.   :458963   Max.   :924569   Max.   :472903  
+##                                                                     
+##   Mujeres_1998      Total_1999      Hombres_1999     Mujeres_1999   
+##  Min.   :     0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:    65   1st Qu.:   136   1st Qu.:    70   1st Qu.:    66  
+##  Median :   131   Median :   267   Median :   137   Median :   130  
+##  Mean   :  1039   Mean   :  2107   Mean   :  1062   Mean   :  1045  
+##  3rd Qu.:   265   3rd Qu.:   537   3rd Qu.:   273   3rd Qu.:   264  
+##  Max.   :452813   Max.   :920693   Max.   :471632   Max.   :449482  
+##                                                                     
+##    Total_2000      Hombres_2000     Mujeres_2000      Total_2001    
+##  Min.   :     0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:   138   1st Qu.:    71   1st Qu.:    67   1st Qu.:   137  
+##  Median :   268   Median :   138   Median :   130   Median :   266  
+##  Mean   :  2122   Mean   :  1071   Mean   :  1051   Mean   :  2133  
+##  3rd Qu.:   540   3rd Qu.:   275   3rd Qu.:   266   3rd Qu.:   541  
+##  Max.   :920584   Max.   :470812   Max.   :449772   Max.   :917562  
+##                                                                     
+##   Hombres_2001     Mujeres_2001      Total_2002      Hombres_2002   
+##  Min.   :     0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:    71   1st Qu.:    67   1st Qu.:   137   1st Qu.:    70  
+##  Median :   137   Median :   129   Median :   264   Median :   137  
+##  Mean   :  1078   Mean   :  1056   Mean   :  2144   Mean   :  1084  
+##  3rd Qu.:   276   3rd Qu.:   265   3rd Qu.:   542   3rd Qu.:   277  
+##  Max.   :469257   Max.   :448613   Max.   :913447   Max.   :467303  
+##                                                                     
+##   Mujeres_2002      Total_2003      Hombres_2003     Mujeres_2003   
+##  Min.   :     0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:    66   1st Qu.:   135   1st Qu.:    70   1st Qu.:    65  
+##  Median :   128   Median :   263   Median :   137   Median :   127  
+##  Mean   :  1060   Mean   :  2154   Mean   :  1090   Mean   :  1064  
+##  3rd Qu.:   265   3rd Qu.:   543   3rd Qu.:   278   3rd Qu.:   265  
+##  Max.   :446613   Max.   :908786   Max.   :465129   Max.   :444075  
+##                                                                     
+##    Total_2004        Hombres_2004     Mujeres_2004      Total_2005    
+##  Min.   :     0.0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:   133.8   1st Qu.:    69   1st Qu.:    64   1st Qu.:   132  
+##  Median :   263.0   Median :   136   Median :   127   Median :   263  
+##  Mean   :  2163.2   Mean   :  1096   Mean   :  1067   Mean   :  2172  
+##  3rd Qu.:   544.0   3rd Qu.:   279   3rd Qu.:   265   3rd Qu.:   544  
+##  Max.   :905545.0   Max.   :463935   Max.   :441988   Max.   :906411  
+##                                                                       
+##   Hombres_2005     Mujeres_2005      Total_2006      Hombres_2006   
+##  Min.   :     0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:    68   1st Qu.:    63   1st Qu.:   131   1st Qu.:    68  
+##  Median :   136   Median :   127   Median :   264   Median :   137  
+##  Mean   :  1102   Mean   :  1071   Mean   :  2182   Mean   :  1108  
+##  3rd Qu.:   280   3rd Qu.:   264   3rd Qu.:   545   3rd Qu.:   282  
+##  Max.   :464532   Max.   :441879   Max.   :905865   Max.   :463868  
+##                                                                     
+##   Mujeres_2006      Total_2007      Hombres_2007     Mujeres_2007   
+##  Min.   :     0   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:    63   1st Qu.:   132   1st Qu.:    68   1st Qu.:    63  
+##  Median :   127   Median :   264   Median :   137   Median :   127  
+##  Mean   :  1074   Mean   :  2189   Mean   :  1113   Mean   :  1076  
+##  3rd Qu.:   265   3rd Qu.:   546   3rd Qu.:   282   3rd Qu.:   265  
+##  Max.   :441997   Max.   :903080   Max.   :462305   Max.   :440859  
+##                                                                     
+##    Total_2008      Hombres_2008     Mujeres_2008      Total_2009      
+##  Min.   :     3   Min.   :     2   Min.   :     1   Min.   :     4.0  
+##  1st Qu.:   133   1st Qu.:    69   1st Qu.:    64   1st Qu.:   132.0  
+##  Median :   266   Median :   138   Median :   128   Median :   267.0  
+##  Mean   :  2196   Mean   :  1118   Mean   :  1078   Mean   :  2201.2  
+##  3rd Qu.:   550   3rd Qu.:   284   3rd Qu.:   267   3rd Qu.:   554.2  
+##  Max.   :898941   Max.   :459551   Max.   :439390   Max.   :893766.0  
+##                                                                       
+##   Hombres_2009     Mujeres_2009      Total_2010      Hombres_2010   
+##  Min.   :     2   Min.   :     2   Min.   :     4   Min.   :     3  
+##  1st Qu.:    68   1st Qu.:    63   1st Qu.:   131   1st Qu.:    68  
+##  Median :   138   Median :   128   Median :   267   Median :   139  
+##  Mean   :  1121   Mean   :  1080   Mean   :  2206   Mean   :  1125  
+##  3rd Qu.:   286   3rd Qu.:   269   3rd Qu.:   557   3rd Qu.:   286  
+##  Max.   :456905   Max.   :437170   Max.   :889486   Max.   :455745  
+##                                                                     
+##   Mujeres_2010      Total_2011      Hombres_2011     Mujeres_2011   
+##  Min.   :     1   Min.   :     5   Min.   :     3   Min.   :     2  
+##  1st Qu.:    63   1st Qu.:   130   1st Qu.:    68   1st Qu.:    62  
+##  Median :   128   Median :   266   Median :   138   Median :   128  
+##  Mean   :  1081   Mean   :  2211   Mean   :  1128   Mean   :  1082  
+##  3rd Qu.:   270   3rd Qu.:   559   3rd Qu.:   288   3rd Qu.:   271  
+##  Max.   :434915   Max.   :888373   Max.   :455189   Max.   :433184  
+##                                                                     
+##    Total_2012      Hombres_2012     Mujeres_2012      Total_2013    
+##  Min.   :     5   Min.   :     3   Min.   :     2   Min.   :     5  
+##  1st Qu.:   129   1st Qu.:    67   1st Qu.:    62   1st Qu.:   128  
+##  Median :   266   Median :   138   Median :   128   Median :   267  
+##  Mean   :  2215   Mean   :  1131   Mean   :  1084   Mean   :  2219  
+##  3rd Qu.:   562   3rd Qu.:   289   3rd Qu.:   273   3rd Qu.:   564  
+##  Max.   :885352   Max.   :453054   Max.   :432298   Max.   :880720  
+##                                                                     
+##   Hombres_2013     Mujeres_2013      Total_2014      Hombres_2014   
+##  Min.   :     3   Min.   :     2   Min.   :     6   Min.   :     4  
+##  1st Qu.:    67   1st Qu.:    62   1st Qu.:   127   1st Qu.:    66  
+##  Median :   138   Median :   128   Median :   267   Median :   138  
+##  Mean   :  1133   Mean   :  1085   Mean   :  2221   Mean   :  1135  
+##  3rd Qu.:   290   3rd Qu.:   274   3rd Qu.:   565   3rd Qu.:   291  
+##  Max.   :450337   Max.   :430383   Max.   :875495   Max.   :447230  
+##                                                                     
+##   Mujeres_2014      Total_2015      Hombres_2015     Mujeres_2015   
+##  Min.   :     2   Min.   :     7   Min.   :     4   Min.   :     2  
+##  1st Qu.:    61   1st Qu.:   126   1st Qu.:    65   1st Qu.:    61  
+##  Median :   129   Median :   266   Median :   138   Median :   128  
+##  Mean   :  1086   Mean   :  2223   Mean   :  1136   Mean   :  1087  
+##  3rd Qu.:   274   3rd Qu.:   565   3rd Qu.:   292   3rd Qu.:   274  
+##  Max.   :428347   Max.   :873444   Max.   :446997   Max.   :426447  
+##                                                                     
+##    Total_2016      Hombres_2016     Mujeres_2016      Total_2017      
+##  Min.   :     7   Min.   :     4   Min.   :     3   Min.   :     7.0  
+##  1st Qu.:   124   1st Qu.:    64   1st Qu.:    60   1st Qu.:   122.8  
+##  Median :   265   Median :   137   Median :   128   Median :   265.0  
+##  Mean   :  2225   Mean   :  1137   Mean   :  1088   Mean   :  2225.6  
+##  3rd Qu.:   566   3rd Qu.:   292   3rd Qu.:   275   3rd Qu.:   567.0  
+##  Max.   :876233   Max.   :448451   Max.   :427782   Max.   :878602.0  
+##                                                                       
+##   Hombres_2017     Mujeres_2017      Total_2018        Hombres_2018     
+##  Min.   :     4   Min.   :     3   Min.   :     8.0   Min.   :     4.0  
+##  1st Qu.:    63   1st Qu.:    59   1st Qu.:   121.0   1st Qu.:    62.0  
+##  Median :   137   Median :   128   Median :   264.0   Median :   136.5  
+##  Mean   :  1138   Mean   :  1088   Mean   :  2226.1   Mean   :  1137.7  
+##  3rd Qu.:   292   3rd Qu.:   275   3rd Qu.:   566.2   3rd Qu.:   292.0  
+##  Max.   :449714   Max.   :428888   Max.   :880465.0   Max.   :450741.0  
+##                                                                         
+##   Mujeres_2018      Total_2019      Hombres_2019     Mujeres_2019   
+##  Min.   :     4   Min.   :     8   Min.   :     4   Min.   :     4  
+##  1st Qu.:    58   1st Qu.:   119   1st Qu.:    61   1st Qu.:    58  
+##  Median :   127   Median :   262   Median :   135   Median :   126  
+##  Mean   :  1088   Mean   :  2226   Mean   :  1138   Mean   :  1089  
+##  3rd Qu.:   275   3rd Qu.:   565   3rd Qu.:   291   3rd Qu.:   275  
+##  Max.   :429724   Max.   :881541   Max.   :451447   Max.   :430094  
+##                                                                     
+##    Total_2020        Hombres_2020     Mujeres_2020   
+##  Min.   :     8.0   Min.   :     4   Min.   :     4  
+##  1st Qu.:   118.0   1st Qu.:    60   1st Qu.:    57  
+##  Median :   259.5   Median :   134   Median :   125  
+##  Mean   :  2226.5   Mean   :  1138   Mean   :  1089  
+##  3rd Qu.:   566.2   3rd Qu.:   291   3rd Qu.:   275  
+##  Max.   :882144.0   Max.   :451966   Max.   :430178  
+## </code></pre>
 </div>
 
 
