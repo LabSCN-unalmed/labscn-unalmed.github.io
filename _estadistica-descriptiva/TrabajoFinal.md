@@ -6,6 +6,8 @@ order: 7
 ---
 
 
+- [Enunciado del trabajo final](./guiones/enunciado_proyecto_final)
+
 <!---
 
 ## Contenido
