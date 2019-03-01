@@ -74,3 +74,7 @@ Archivos auxiliares:
 - [CA.new.R](./guiones/CA.new.R)
 - [PCA.new.R](./guiones/PCA.new.R)
 - [cleanplot.pca.R](./guiones/cleanplot.pca.R)
+
+## Regresiones lineales
+
+ - [Regresiones lineales multiples](./guiones/regresiones_lineales.html)
