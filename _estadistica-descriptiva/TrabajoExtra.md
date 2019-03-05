@@ -7,8 +7,10 @@ order: 10
 
 ## Objetivo.
 
-Realizar un análisis exploratorio proponiendo cinco (5) preguntas y
-obtener la respuesta por procesamiento con R.
+De manera individual realizar un análisis exploratorio proponiendo
+cinco (5) preguntas y
+obtener la respuesta por procesamiento con R a la base de datos
+de accidentalidad de Envigado 2016, 2017 y primer semestre de 2018.
 
 
 ## Actividades.
@@ -27,7 +29,7 @@ obtener la respuesta por procesamiento con R.
   - Barrios de Envigado.
   - Hora de accidente.
   - Día del mes del accidente.
-  - Número de personas inclucrados en el accidente.
+  - Número de personas involucrados en el accidente.
 
 
 ## Fecha de entrega.
@@ -40,7 +42,8 @@ en asunto **[EDAED]**.
 
 ## Documentos a entregar.
 
-1. Base de datos original descargada del sitio mencionado.
+1. Base de datos original descargada.
+   (comprimida en formato zip o rar).
 2. Trabajo con las gráficas, el análisis y la respuesta
    a las preguntas en formato **".html"**.
 3. Guión en formato **".Rmd"** con el código utilizado.

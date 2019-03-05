@@ -105,8 +105,25 @@ y otro con el número de pasos.
 
 Jueves, 14 de febrero de 2019 al finalizar la clase.
 
+### Segundo trabajo en grupo.
 
+### Objetivo.
 
+Realizar un análisis exploratorio de datos sobre los resultados
+de las pruebas Saber 11.
+
+### Alternativas.
+
+  1. Involucrar resultados de varios años, para determinar comportamientos
+     en el tiempo.
+  2. Involucrar características socio demográficas de los municipios de Colombia.
+  3. Utilizar un mapa de los municipios de Colombia.
+
+Cada grupo elige una alternativa y utilizado como base esta alternativa
+mostrar un análisis exploratorio de datos que permita:
+
+  - Mostrar las variables relacionadas con el desempeño de los resultados
+     de las pruebas Saber 11.   
 
 
 
