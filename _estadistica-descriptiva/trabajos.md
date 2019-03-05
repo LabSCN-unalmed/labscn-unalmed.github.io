@@ -117,7 +117,7 @@ de las pruebas Saber 11.
   1. Involucrar resultados de varios años (mínimo 4), para determinar comportamientos
      en el tiempo.
   2. Involucrar características socio demográficas o
-     de desempeño fical (mínimo 4) de los municipios de Colombia.
+     de desempeño fiscal (mínimo 4) de los municipios de Colombia.
 
 
 Cada grupo elige una alternativa y utilizado como base esta alternativa
