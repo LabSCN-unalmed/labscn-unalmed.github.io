@@ -55,10 +55,12 @@ order: 2
 
 ## Resultados del las pruebas Saber 11.
 
+ - [Dicionario de datos de las pruebas Saber 11](./guiones/Diccionario Saber11 2014-2 a 2018-2.pdf)
  - [Lectura de los resultados de las pruebas Saber 11](./guiones/00_lee_base_saber_11_2017_02.html)
  - [Lectura de la estimación poblacional](./guiones/00_lee_base_poblacion.html).
  - [Adecuación de las prueba saber 11](./guiones/01_explora_saber11_2017_02.html).
  - [Adecuación para la población](./guiones/01_adecuacion_poblacion.html)
+ - [Integración de pruebas Saber 11 y población](./guiones/02_explora_Saber_11_pobla.html)
 
 <!---
 ## Contenido

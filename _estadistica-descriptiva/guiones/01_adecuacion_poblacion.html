@@ -195,40 +195,40 @@ $(document).ready(function () {
 <h2>Cargar la base de datos en formato R.</h2>
 <pre class="r"><code>load(&quot;poblacion.RData&quot;)</code></pre>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.1.0       ✔ purrr   0.3.0  
+<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.1.0       ✔ purrr   0.3.1  
 ## ✔ tibble  2.0.1       ✔ dplyr   0.8.0.1
-## ✔ tidyr   0.8.2       ✔ stringr 1.4.0  
+## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
 ## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>pobla %&gt;% 
-  select(Código, Edad, Total..3) %&gt;%
+  select(Código, Edad, Total..3, Hombres..4, Mujeres..5) %&gt;%
   head(20)</code></pre>
-<pre><code>## # A tibble: 20 x 3
-##    Código Edad     Total..3
-##    &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;
-##  1 00     NACIONAL       NA
-##  2 &lt;NA&gt;   0          849098
-##  3 &lt;NA&gt;   1          837402
-##  4 &lt;NA&gt;   2          824903
-##  5 &lt;NA&gt;   3          811561
-##  6 &lt;NA&gt;   4          797369
-##  7 &lt;NA&gt;   5          786791
-##  8 &lt;NA&gt;   6          770718
-##  9 &lt;NA&gt;   7          754175
-## 10 &lt;NA&gt;   8          737625
-## 11 &lt;NA&gt;   9          721555
-## 12 &lt;NA&gt;   10         705139
-## 13 &lt;NA&gt;   11         687448
-## 14 &lt;NA&gt;   12         676019
-## 15 &lt;NA&gt;   13         674387
-## 16 &lt;NA&gt;   14         678611
-## 17 &lt;NA&gt;   15         681706
-## 18 &lt;NA&gt;   16         685074
-## 19 &lt;NA&gt;   17         684755
-## 20 &lt;NA&gt;   18         678050</code></pre>
+<pre><code>## # A tibble: 20 x 5
+##    Código Edad     Total..3 Hombres..4 Mujeres..5
+##    &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+##  1 00     NACIONAL       NA         NA         NA
+##  2 &lt;NA&gt;   0          849098     423746     425352
+##  3 &lt;NA&gt;   1          837402     417921     419481
+##  4 &lt;NA&gt;   2          824903     411679     413224
+##  5 &lt;NA&gt;   3          811561     405005     406556
+##  6 &lt;NA&gt;   4          797369     397888     399481
+##  7 &lt;NA&gt;   5          786791     392626     394165
+##  8 &lt;NA&gt;   6          770718     384467     386251
+##  9 &lt;NA&gt;   7          754175     376080     378095
+## 10 &lt;NA&gt;   8          737625     367675     369950
+## 11 &lt;NA&gt;   9          721555     359496     362059
+## 12 &lt;NA&gt;   10         705139     351124     354015
+## 13 &lt;NA&gt;   11         687448     342111     345337
+## 14 &lt;NA&gt;   12         676019     336236     339783
+## 15 &lt;NA&gt;   13         674387     335260     339127
+## 16 &lt;NA&gt;   14         678611     337191     341420
+## 17 &lt;NA&gt;   15         681706     338581     343125
+## 18 &lt;NA&gt;   16         685074     340045     345029
+## 19 &lt;NA&gt;   17         684755     339802     344953
+## 20 &lt;NA&gt;   18         678050     336512     341538</code></pre>
 <pre class="r"><code>pobla %&gt;%
   select(Código, Edad, Total..3) %&gt;%
   tail(20) </code></pre>
@@ -255,11 +255,51 @@ $(document).ready(function () {
 ## 18 (2) Según fallo del Consejo de … &lt;NA&gt;                                 NA
 ## 19 Actualmente persisten controver… &lt;NA&gt;                                 NA
 ## 20 (ANM) Areas no Municipalizadas   &lt;NA&gt;                                 NA</code></pre>
-<pre class="r"><code>pobla &lt;- pobla %&gt;%
+<pre class="r"><code># Toma todos los registros de la base de datos exceptuando los 11 últimos.
+pobla &lt;- pobla %&gt;%
   slice(1:(n() - 11))</code></pre>
-<pre class="r"><code>años &lt;- 1985:2020
+<pre class="r"><code># Vector con todos los años que tiene la base de datos.
+años &lt;- 1985:2020
+años</code></pre>
+<pre><code>##  [1] 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998
+## [15] 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012
+## [29] 2013 2014 2015 2016 2017 2018 2019 2020</code></pre>
+<pre class="r"><code># Nombres de las columnas.
 categ &lt;- c(&quot;Total&quot;, &quot;Hombres&quot;, &quot;Mujeres&quot;)
+categ</code></pre>
+<pre><code>## [1] &quot;Total&quot;   &quot;Hombres&quot; &quot;Mujeres&quot;</code></pre>
+<pre class="r"><code># Concatena las repeticiones de los años y los categorías para
+# construir los nombres de las bases de datos.
 nombres_var &lt;- paste(rep(categ, 2020 - 1985), rep(años, each = 3), sep = &quot;_&quot;)
+nombres_var</code></pre>
+<pre><code>##   [1] &quot;Total_1985&quot;   &quot;Hombres_1985&quot; &quot;Mujeres_1985&quot; &quot;Total_1986&quot;  
+##   [5] &quot;Hombres_1986&quot; &quot;Mujeres_1986&quot; &quot;Total_1987&quot;   &quot;Hombres_1987&quot;
+##   [9] &quot;Mujeres_1987&quot; &quot;Total_1988&quot;   &quot;Hombres_1988&quot; &quot;Mujeres_1988&quot;
+##  [13] &quot;Total_1989&quot;   &quot;Hombres_1989&quot; &quot;Mujeres_1989&quot; &quot;Total_1990&quot;  
+##  [17] &quot;Hombres_1990&quot; &quot;Mujeres_1990&quot; &quot;Total_1991&quot;   &quot;Hombres_1991&quot;
+##  [21] &quot;Mujeres_1991&quot; &quot;Total_1992&quot;   &quot;Hombres_1992&quot; &quot;Mujeres_1992&quot;
+##  [25] &quot;Total_1993&quot;   &quot;Hombres_1993&quot; &quot;Mujeres_1993&quot; &quot;Total_1994&quot;  
+##  [29] &quot;Hombres_1994&quot; &quot;Mujeres_1994&quot; &quot;Total_1995&quot;   &quot;Hombres_1995&quot;
+##  [33] &quot;Mujeres_1995&quot; &quot;Total_1996&quot;   &quot;Hombres_1996&quot; &quot;Mujeres_1996&quot;
+##  [37] &quot;Total_1997&quot;   &quot;Hombres_1997&quot; &quot;Mujeres_1997&quot; &quot;Total_1998&quot;  
+##  [41] &quot;Hombres_1998&quot; &quot;Mujeres_1998&quot; &quot;Total_1999&quot;   &quot;Hombres_1999&quot;
+##  [45] &quot;Mujeres_1999&quot; &quot;Total_2000&quot;   &quot;Hombres_2000&quot; &quot;Mujeres_2000&quot;
+##  [49] &quot;Total_2001&quot;   &quot;Hombres_2001&quot; &quot;Mujeres_2001&quot; &quot;Total_2002&quot;  
+##  [53] &quot;Hombres_2002&quot; &quot;Mujeres_2002&quot; &quot;Total_2003&quot;   &quot;Hombres_2003&quot;
+##  [57] &quot;Mujeres_2003&quot; &quot;Total_2004&quot;   &quot;Hombres_2004&quot; &quot;Mujeres_2004&quot;
+##  [61] &quot;Total_2005&quot;   &quot;Hombres_2005&quot; &quot;Mujeres_2005&quot; &quot;Total_2006&quot;  
+##  [65] &quot;Hombres_2006&quot; &quot;Mujeres_2006&quot; &quot;Total_2007&quot;   &quot;Hombres_2007&quot;
+##  [69] &quot;Mujeres_2007&quot; &quot;Total_2008&quot;   &quot;Hombres_2008&quot; &quot;Mujeres_2008&quot;
+##  [73] &quot;Total_2009&quot;   &quot;Hombres_2009&quot; &quot;Mujeres_2009&quot; &quot;Total_2010&quot;  
+##  [77] &quot;Hombres_2010&quot; &quot;Mujeres_2010&quot; &quot;Total_2011&quot;   &quot;Hombres_2011&quot;
+##  [81] &quot;Mujeres_2011&quot; &quot;Total_2012&quot;   &quot;Hombres_2012&quot; &quot;Mujeres_2012&quot;
+##  [85] &quot;Total_2013&quot;   &quot;Hombres_2013&quot; &quot;Mujeres_2013&quot; &quot;Total_2014&quot;  
+##  [89] &quot;Hombres_2014&quot; &quot;Mujeres_2014&quot; &quot;Total_2015&quot;   &quot;Hombres_2015&quot;
+##  [93] &quot;Mujeres_2015&quot; &quot;Total_2016&quot;   &quot;Hombres_2016&quot; &quot;Mujeres_2016&quot;
+##  [97] &quot;Total_2017&quot;   &quot;Hombres_2017&quot; &quot;Mujeres_2017&quot; &quot;Total_2018&quot;  
+## [101] &quot;Hombres_2018&quot; &quot;Mujeres_2018&quot; &quot;Total_2019&quot;   &quot;Hombres_2019&quot;
+## [105] &quot;Mujeres_2019&quot; &quot;Total_2020&quot;   &quot;Hombres_2020&quot; &quot;Mujeres_2020&quot;</code></pre>
+<pre class="r"><code># Asigna a las columnas correspondientes los nombres recién construidos.
 names(pobla)[-c(1, 2)] &lt;- nombres_var</code></pre>
 <pre class="r"><code>posic_no_na   &lt;- which(!is.na(pobla$Código))
 cod_no_na     &lt;- pobla$Código[posic_no_na]
@@ -542,6 +582,24 @@ pobla1 &lt;- pobla1 %&gt;%
 ##  3rd Qu.:   566.2   3rd Qu.:   291   3rd Qu.:   275  
 ##  Max.   :882144.0   Max.   :451966   Max.   :430178  
 ## </code></pre>
+<pre class="r"><code>pobla2 &lt;- pobla1 %&gt;%
+  gather(key  = categ_año, value = poblacion, -c(nom_ID:Edad)) %&gt;%
+  mutate(año  = as.integer(str_extract(categ_año, &quot;[0-9]+&quot;)),
+         tipo = as.factor(str_extract(categ_año, &quot;[A-Za-z]+&quot;))) %&gt;%
+  select(-categ_año) %&gt;%
+  filter(nchar(as.character(Código)) == 5) %&gt;%
+  droplevels()</code></pre>
+<pre class="r"><code>head(pobla2)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   nom_ID   Código Edad  poblacion   año tipo 
+##   &lt;fct&gt;    &lt;fct&gt;  &lt;fct&gt;     &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;
+## 1 Medellín 05001  0         30475  1985 Total
+## 2 Medellín 05001  1         29710  1985 Total
+## 3 Medellín 05001  2         29039  1985 Total
+## 4 Medellín 05001  3         28462  1985 Total
+## 5 Medellín 05001  4         27980  1985 Total
+## 6 Medellín 05001  5         27638  1985 Total</code></pre>
+<pre class="r"><code>save(pobla2, file = &quot;poblacion_colombia_1985_2020.RData&quot;)</code></pre>
 </div>
 
 
