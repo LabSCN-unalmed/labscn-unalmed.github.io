@@ -27,12 +27,12 @@ obtener la respuesta por procesamiento con R.
   - Barrios de Envigado.
   - Hora de accidente.
   - Día del mes del accidente.
-  - Número de personas inclucrados en el accidente. 
+  - Número de personas inclucrados en el accidente.
 
 
 ## Fecha de entrega.
 
-Martes 1 de abril de 2019 antes de las 23:59 [hora de Colombia](http://horalegal.inm.gov.co).
+Lunes, 1 de abril de 2019 antes de las 23:59 [hora de Colombia](http://horalegal.inm.gov.co).
 
 Recuerde que deberá ser enviado desde el correo oficial
 de la universidad al correo **krcabrer@unal.edu.co** y
