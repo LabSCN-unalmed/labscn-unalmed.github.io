@@ -62,6 +62,10 @@ order: 2
  - [Adecuación para la población](./guiones/01_adecuacion_poblacion.html)
  - [Integración de pruebas Saber 11 y población](./guiones/02_explora_Saber_11_pobla.html)
 
+## Manejo de base de datos.
+
+ - [Manejo de bases de datos](./guiones/manipulacion_bases.html)
+
 <!---
 ## Contenido
 {: .no_toc}
