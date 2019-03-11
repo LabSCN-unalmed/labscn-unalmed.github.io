@@ -145,7 +145,10 @@ mostrar un análisis exploratorio de datos que permita:
   2. Archivo en formato ".html" con los resultados del análisis (sin el código).
   3. Archivo en formato ".Rmd" con los códigos correspondientes.
 
+### Fecha de entrega.
 
+Lunes, 1 de abril de 2019 antes de las 23:59 hora de Colombia,
+al correo **krcabrer@unal.edu.co** y en asunto escribir **[EDAED]**. 
 
 
 
