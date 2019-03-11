@@ -147,8 +147,8 @@ mostrar un análisis exploratorio de datos que permita:
 
 ### Fecha de entrega.
 
-Lunes, 1 de abril de 2019 antes de las 23:59 hora de Colombia,
-al correo **krcabrer@unal.edu.co** y en asunto escribir **[EDAED]**. 
+Lunes, 18 de marzo de 2019 antes de las 23:59 hora de Colombia,
+al correo **krcabrer@unal.edu.co** y en asunto escribir **[EDAED]**.
 
 
 
