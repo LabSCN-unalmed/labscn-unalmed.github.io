@@ -14,8 +14,8 @@ mediante métodos multivariantes pertinentes.
 
 ## Aspectos a considerar.
 
-- Análisis de cluster.
-- Análisis de componentes principales.
+- Análisis de aglomerativo.
+- Análisis de ordenación.
 - Análisis canónico.
 - Construcción de modelo de regresión.
 
