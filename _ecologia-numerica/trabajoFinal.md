@@ -33,7 +33,7 @@ mediante métodos multivariantes pertinentes.
 - Para cada conjunto de datos se deberá realizar un
    análisis descriptivo y exploratorio de los datos.
 - Aplicar las metodologías adecuadas y justificar
-   el uso de cada técnica en el respetivo aspecto.
+   el uso de cada técnica en el respectivo aspecto.
 - Mostrar conclusiones y recomendaciones en cada
   uno de los aspectos.
 
