@@ -82,3 +82,7 @@ Archivos auxiliares:
 ## Análisis de redundancia (RDA).
 
  - [Análisis de redundancia](./guiones/RDA.html)
+
+## Algunos métodos multivariados.
+
+ - [Métodos multivariados adicionales](./guiones/CCA.html)
