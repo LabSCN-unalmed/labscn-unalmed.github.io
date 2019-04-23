@@ -1,9 +1,9 @@
----
+<!---
 layout: curso
 title: 'Trabajo Complementario'
 curso: 'estadistica-descriptiva'
 order: 10
----
+-->
 
 <!---
 ## Objetivo.
