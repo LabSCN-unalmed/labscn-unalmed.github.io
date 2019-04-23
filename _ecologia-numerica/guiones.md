@@ -78,3 +78,11 @@ Archivos auxiliares:
 ## Regresiones lineales
 
  - [Regresiones lineales multiples](./guiones/regresiones_lineales.html)
+
+## Análisis de redundancia (RDA).
+
+ - [Análisis de redundancia](./guiones/RDA.html)
+
+## Algunos métodos multivariados.
+
+ - [Métodos multivariados adicionales](./guiones/CCA.html)
