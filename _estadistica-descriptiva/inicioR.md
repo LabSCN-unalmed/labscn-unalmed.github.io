@@ -17,6 +17,10 @@ resultados de código y generar archivos ".html".
 
 ## Puesta a punto el espacio de trabajo.
 
+Para iniciar un trabajo mediante R y RStudio se
+indica que se cree una nueva carpeta en donde
+realizará el trabajo.
+
 ### Descargar archivo de trabajo.
 
 - [Salario mínimo e IPC desde 1984](./basesdedatos/salario_minimo_IPC_Colombia.xlsx)
