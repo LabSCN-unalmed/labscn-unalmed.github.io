@@ -16,11 +16,28 @@ order: 4
 
 1. Instalar [el software R](https://cran.r-project.org/bin/windows/base/).
 2. Instalar [el software RStudio](https://www.rstudio.com/products/rstudio/download/).
-3. Bajar y leer las [guías de presentación de pósters](https://labscn-unalmed.github.io/estadistica-descriptiva/documentos.html).
 
 ## Talleres individuales.
 
 ### Taller individual 1.
+
+1. Instalar una aplicación que muestre las coordenadas
+de ubicación actual (cualquiera).
+2. En un computador localizar un punto de referencia
+del campus de la Universidad (también puede utilizar
+  el Núcleo de Minas o el Núcleo de Mecánica)
+y anotar las coordenadas en grados decimales (si se toman
+  los grados, minutos y segundos, entonces convertirlos
+  a grados decimales).
+3. Ir al lugar de referencia y tomar las coordenadas que
+arroja la aplicación cinco veces en el día. 
+Anotar la hora que se toma. Cada medida deberá estar
+separada por mínimo de 2 horas. También se puede tomar
+a la misma hora pero en distinto día.
+
+
+
+<!---
 
 El problema de movilidad en Medellín tiene muchos aspectos a
 considerar. Uno de ellos es el tiempo de viaje del lugar de
@@ -106,7 +123,7 @@ como entrega tarde del taller individual 2.
 ## Talleres en grupo.
 
 ### Taller en grupo 1.
-
+<!---
 1. En grupo de máximo tres personas.
 2. La siguiente gráfica es tomada de "El Colombiano",
     del 15 de enero de 2019. Páginas 2 y 3. bajo el título:
@@ -134,7 +151,7 @@ Martes, 5 de febrero de 2019 en horas de clase.
 
 
 
-<!---
+
 
 ## Contenido
 {: .no_toc}

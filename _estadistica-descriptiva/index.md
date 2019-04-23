@@ -64,5 +64,6 @@ habilidades en el análisis exploratorio de bases de datos.
 
 - Toda entrega se realizará al correo **krcabrer@unal.edu.co**
 - Siempre deberá anotarse en asunto la sigla **[EDAED]**,
-  separada de cualquier otro texto adicional.
+  separada de cualquier otro texto adicional. (Si no se tiene
+    este requisito se toma como no entregado el trabajo o taller.)
 - Los grupos de trabajo serán de máximo 5 personas.

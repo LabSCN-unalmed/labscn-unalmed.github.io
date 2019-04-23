@@ -1,10 +1,11 @@
----
+<!---
 layout: curso
 title: 'Trabajo Complementario'
 curso: 'estadistica-descriptiva'
 order: 10
----
+-->
 
+<!---
 ## Objetivo.
 
 De manera individual realizar un análisis exploratorio proponiendo
@@ -56,7 +57,7 @@ faltante o de un taller o trabajo en grupo.
  - Si tiene todo presentado correctamente, puede mejorar la nota
 del trabajo final.
 
-
+-->
 
 
 

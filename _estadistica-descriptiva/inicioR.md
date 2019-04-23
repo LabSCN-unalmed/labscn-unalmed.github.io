@@ -17,11 +17,23 @@ resultados de código y generar archivos ".html".
 
 ## Puesta a punto el espacio de trabajo.
 
+### Creación de la carpeta de trabajo.
+
+Para iniciar un trabajo en R y RStudio se crea
+una nueva carpeta (o folder) en donde
+se quiera que esté ubicado el proyecto.
+
+En este caso la carpeta se denomina `ips_vs_salario_minimo`
+
 ### Descargar archivo de trabajo.
 
-- [Salario mínimo e IPC desde 1984](./basesdedatos/salario_minimo_IPC_Colombia.xlsx)
+El siguiente archivo se debe descargar en la carpeta
+recién creada.
 
-### Creación de la carpeta de trabajo.
+Recuerde hacer click derecho para tomar la opción
+"Guardar enlace como ..."
+
+- [Salario mínimo e IPC desde 1984](./basesdedatos/salario_minimo_IPC_Colombia.xlsx)
 
 ![Carpeta de trabajo](./iniR/01_Crea_Carpeta.PNG)
 

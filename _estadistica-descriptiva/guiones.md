@@ -6,6 +6,8 @@ order: 2
 ---
 
 
+
+<!---
 ## Contenido
 {: .no_toc}
 
@@ -66,7 +68,7 @@ order: 2
 
  - [Manejo de bases de datos](./guiones/manipulacion_bases.html)
 
-<!---
+
 ## Contenido
 {: .no_toc}
 
