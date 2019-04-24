@@ -5,6 +5,17 @@ curso: 'estadistica-descriptiva'
 order: 6
 ---
 
+## Tabla de contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Base de datos para el primer taller individual.
+
+ - [Puntos de referencia](./basesdedatos/CabreraTorresKennethRoy.xlsx)
+
+
 
 <!---
 

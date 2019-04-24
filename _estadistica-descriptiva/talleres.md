@@ -34,13 +34,20 @@ arroja la aplicación tres veces en el día.
 Anotar la hora que se toma. Cada medida deberá estar
 separada por mínimo de 2 horas. También se puede tomar
 a la misma hora pero en distinto día.
-4. LLenar una hoja en Excel como es
- [muestra el ejemplo](CabreraTorresKennethRoy.xlsx),
+
+![](./basesdedatos/punto_referencia1.png)
+
+4. LLenar una hoja en Excel con los datos tomados como se
+  [muestra el ejemplo](./basesdedatos/CabreraTorresKennethRoy.xlsx),
   enviar el archivo con los Apellidos y Nombres de cada
-  persona al correo **krcabrer@unal.edu.co** antes
+  persona al correo **krcabrer@unal.edu.co**  adicionalmente
+  una imagen por cada punto de referencia en donde se
+  muestre las coordenadas de referencia antes
   del lunes 6 de mayo a las 23:59
   [hora de Colombia](http://horalegal.inm.gov.co/),
   sin olvidar escribir en asunto **[EDAED]**.
+
+
 
 
 
