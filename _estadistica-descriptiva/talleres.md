@@ -23,17 +23,24 @@ order: 4
 
 1. Instalar una aplicación que muestre las coordenadas
 de ubicación actual (cualquiera).
-2. En un computador localizar un punto de referencia
+2. En un computador localizar tres puntos de referencia
 del campus de la Universidad (también puede utilizar
   el Núcleo de Minas o el Núcleo de Mecánica)
 y anotar las coordenadas en grados decimales (si se toman
   los grados, minutos y segundos, entonces convertirlos
   a grados decimales).
-3. Ir al lugar de referencia y tomar las coordenadas que
-arroja la aplicación cinco veces en el día. 
+3. Ir los lugar de referencia y tomar las coordenadas que
+arroja la aplicación tres veces en el día.
 Anotar la hora que se toma. Cada medida deberá estar
 separada por mínimo de 2 horas. También se puede tomar
 a la misma hora pero en distinto día.
+4. LLenar una hoja en Excel como es
+ [muestra el ejemplo](CabreraTorresKennethRoy.xlsx),
+  enviar el archivo con los Apellidos y Nombres de cada
+  persona al correo **krcabrer@unal.edu.co** antes
+  del lunes 6 de mayo a las 23:59
+  [hora de Colombia](http://horalegal.inm.gov.co/),
+  sin olvidar escribir en asunto **[EDAED]**.
 
 
 
