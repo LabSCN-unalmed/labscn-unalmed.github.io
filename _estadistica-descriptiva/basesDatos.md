@@ -11,7 +11,7 @@ order: 6
 * ToC
 {: toc}
 
-## Base de datos para el primer taller individual.
+## Base de datos para el segundo taller individual.
 
  - [Puntos de referencia](./basesdedatos/CabreraTorresKennethRoy.xlsx)
 

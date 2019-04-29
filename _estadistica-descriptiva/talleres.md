@@ -21,6 +21,27 @@ order: 4
 
 ### Taller individual 1.
 
+#### Noticias falsas (fake new) ¿Control o libertad de expresión?
+
+1. Registrarse en el foro del curso.
+2. Entrar al tema de debate y escribir una posición
+   u opinión en cuanto al tema en cuestión.
+
+   - ¿Qué es preferible y por qué?
+     * No restringir la libertad de expresión.
+     * Crear controles de lo que se publica en internet y
+       en particular en las redes sociales.
+
+   Recordemos el respeto y el debate de altura,
+   así tengamos opiniones diametralmente opuesta a
+   la mayoría.
+   
+3. Fecha de entrega domingo 05 de mayo de 2019 antes
+    de las 23:59 [hora de Colombia](http://horalegal.inm.gov.co/).    
+
+
+### Taller individual 2.
+
 1. Instalar una aplicación que muestre las coordenadas
 de ubicación actual (cualquiera).
 2. En un computador localizar tres puntos de referencia
