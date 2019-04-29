@@ -2,7 +2,7 @@
 layout: curso
 title: 'Guía de instalación del software OSGeo en Windows'
 curso: 'cartografia-digital'
-order: 2
+order: 1
 ---
 
 Descargar el instalador de [OSGeo4W](https://trac.osgeo.org/osgeo4w/){:target="blank"} en su versión para 64 bits.

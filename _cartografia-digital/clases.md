@@ -2,7 +2,7 @@
 layout: curso
 title: 'Guía de Clases'
 curso: 'cartografia-digital'
-order: 1
+order: 2
 ---
 
 {% for clase in site.cartografia-digital %}

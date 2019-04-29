@@ -5,6 +5,12 @@ curso: 'cartografia-digital'
 order: 0
 ---
 
+## Descarga de datos de ejemplo
+
+Los datos de ejemplo para el desarrollo de este curso se encuentran en una [carpeta compartida](https://drive.google.com/drive/folders/1qmRO_YKwBLwQUGriOpOa4SKjK-46GaqB){:target="blank"} en Google Drive.
+
+<hr>
+
 ¿Qué es la superficie terrestre?
 --------------------------------
 
