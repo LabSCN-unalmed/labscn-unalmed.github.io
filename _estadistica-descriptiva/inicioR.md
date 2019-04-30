@@ -69,7 +69,7 @@ Recuerde hacer click derecho para tomar la opción
 
 ### Pantalla de inicio del proyecto nuevo.
 
-![](./iniR/09_pantalla_incio_nuevo_proyecto.PNG)
+![](./iniR/09_pantalla_inicio_nuevo_proyecto.PNG)
 
 ## Codificación en R
 
