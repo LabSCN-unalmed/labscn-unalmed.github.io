@@ -60,10 +60,10 @@ del campus de la Universidad (también puede utilizar
 y anotar las coordenadas en grados decimales (si se toman
   los grados, minutos y segundos, entonces convertirlos
   a grados decimales).
-3. Ir los lugar de referencia y tomar las coordenadas que
+3. Ir a los lugares de referencia y tomar las coordenadas que
 arroja la aplicación cuatro veces.
 Anotar la hora y la fecha que se toma. Cada medida deberá estar
-separada por mínimo de 2 horas. 
+separada por mínimo de 2 horas.
 
 ![](./basesdedatos/punto_referencia1.png)
 
