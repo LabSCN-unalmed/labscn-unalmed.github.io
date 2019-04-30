@@ -1,7 +1,7 @@
 Estadistica descriptiva y exploratoria
 ========================================================
 author: Kenneth Roy Cabrera Torres
-date: Jueves 16 de agosto de 2018.
+date: Martes, 7 de mayo 2019
 transition: rotate
 
 Estadística Exploratoria vs Confirmatoria
@@ -58,9 +58,6 @@ Tipos de medidas
     - Varianza y desviación estándar.
     - Rango.
     - Rango intercuartil.
-3. Distribución.
-    - Asimetría.
-    - Curtosis.
 
 Descripciones usuales
 ========================================================
