@@ -16,6 +16,16 @@ order: 4
 
 1. Instalar [el software R](https://cran.r-project.org/bin/windows/base/).
 2. Instalar [el software RStudio](https://www.rstudio.com/products/rstudio/download/).
+3. Seguir y replicar los siguientes tutoriales que se encuentran en la sección
+   de "Documentos":
+   - Tutorial de instalación de un paquete en R.
+   - Tutorial de inicio de RStudio.
+   
+   Se debe instalar el paquete "readxl" para que el tutorial de inicio de R
+   funcione adecuadamente.
+
+
+
 
 ## Talleres individuales.
 
@@ -35,7 +45,7 @@ order: 4
    Recordemos el respeto y el debate de altura,
    así tengamos opiniones diametralmente opuesta a
    la mayoría.
-   
+
 3. Fecha de entrega domingo 05 de mayo de 2019 antes
     de las 23:59 [hora de Colombia](http://horalegal.inm.gov.co/).    
 
