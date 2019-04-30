@@ -11,6 +11,10 @@ order: 6
 * ToC
 {: toc}
 
+## Base de datos del salario mínimo en Colombia.
+
+ - [Salario mínimo e IPC desde 1984](./basesdedatos/salario_minimo_IPC_Colombia.xlsx)
+
 ## Base de datos para el segundo taller individual.
 
  - [Puntos de referencia](./basesdedatos/CabreraTorresKennethRoy.xlsx)
