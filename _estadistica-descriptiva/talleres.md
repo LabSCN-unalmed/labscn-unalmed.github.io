@@ -52,7 +52,7 @@ order: 4
 
 ### Taller individual 2.
 
-1. Instalar una aplicación que muestre las coordenadas
+1. Instalar una aplicación en el "smartphone" que muestre las coordenadas
 de ubicación actual (cualquiera).
 2. En un computador localizar tres puntos de referencia
 del campus de la Universidad (también puede utilizar
@@ -60,8 +60,8 @@ del campus de la Universidad (también puede utilizar
 y anotar las coordenadas en grados decimales (si se toman
   los grados, minutos y segundos, entonces convertirlos
   a grados decimales).
-3. Ir a los lugares de referencia y tomar las coordenadas que
-arroja la aplicación cuatro veces.
+3. Ir a los lugares de referencia y tomar las coordenadas
+con la apliación del "smartphone" cuatro veces.
 Anotar la hora y la fecha que se toma. Cada medida deberá estar
 separada por mínimo de 2 horas.
 
