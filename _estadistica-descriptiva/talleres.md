@@ -20,7 +20,7 @@ order: 4
    de "Documentos":
    - Tutorial de instalación de un paquete en R.
    - Tutorial de inicio de RStudio.
-   
+
    Se debe instalar el paquete "readxl" para que el tutorial de inicio de R
    funcione adecuadamente.
 
@@ -61,10 +61,9 @@ y anotar las coordenadas en grados decimales (si se toman
   los grados, minutos y segundos, entonces convertirlos
   a grados decimales).
 3. Ir los lugar de referencia y tomar las coordenadas que
-arroja la aplicación tres veces en el día.
-Anotar la hora que se toma. Cada medida deberá estar
-separada por mínimo de 2 horas. También se puede tomar
-a la misma hora pero en distinto día.
+arroja la aplicación cuatro veces.
+Anotar la hora y la fecha que se toma. Cada medida deberá estar
+separada por mínimo de 2 horas. 
 
 ![](./basesdedatos/punto_referencia1.png)
 
