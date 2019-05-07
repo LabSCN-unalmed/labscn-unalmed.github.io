@@ -32,7 +32,7 @@ Objetivos
 - Detectar datos atípicos (outliers).
 - Comprobar supuestos: normalidad, linealidad, homocedasticidad.
 - Resumir los datos mediante el uso conjunto de medidas de resumen y sus gráficos.
-- Explorar formas de categorizar variables a través de búsqueda de puntos de corte.
+
 
 Tipos de variables
 ========================================================
