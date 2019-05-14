@@ -7,12 +7,21 @@ order: 2
 
 
 
-<!---
+
 ## Contenido
 {: .no_toc}
 
 * ToC
 {: toc}
+
+## Causas de mortalidad en el Hospital General de Medellín en 2018.
+
+  - [Base de datos las principales causas de muertes en Hospital General de Medellín](./guiones/Primeras_causas_de_mortalidad_general_HGM.csv).
+  - [Resultados de guión de comando](./guiones/causas_de_mortalidad_HGM.html).
+  - [Gráfica con datos originales](./guiones/causas_de_mortalidad_HGM.png).
+  - [Archivo en formato .Rmd](./guiones/causas_de_mortalidad_HGM.Rmd).
+
+<!---
 
 ## Salario mínimo vs IPC en Colombia.
 
