@@ -24,7 +24,9 @@ order: 4
    Se debe instalar el paquete "readxl" para que el tutorial de inicio de R
    funcione adecuadamente.
 
-
+4. Replicar el guión de las causas de mortalidad en el Hospital General de Medellín en 2018 pero con la base de datos del
+número de miembros de los [semilleros de investigación
+de la Institución Universitaria Pascul Bravo](https://www.datos.gov.co/Ciencia-Tecnolog-a-e-Innovaci-n/Semilleros-Investigaci-n/pi6r-ajh6).
 
 
 ## Talleres individuales.
@@ -77,6 +79,20 @@ separada por mínimo de 2 horas.
   [hora de Colombia](http://horalegal.inm.gov.co/),
   sin olvidar escribir en asunto **[EDAED]**.
 
+
+### Taller individual 3.
+
+De acuerdo a la asignación del archivo compartido
+mediante Google Drive
+de municipios de Colombia completar la información utilizando la página
+de los [municipios de Colombia](https://www.municipio.com.co/).
+
+La información debe quedar en línea para que quede un solo archivo.
+
+Por favor tener cuidado de **NO BORRAR** la información que haya sido entrada por otro compañero. (Recuerden que toda actividad queda registrada en el sistema y por lo tanto se podría saber la persona que borró información
+  de los compañeros).
+
+Fechas de entrega: Martes, 21 de Mayo de 2019 antes de las 23:59 hora de Colombia.
 
 
 
