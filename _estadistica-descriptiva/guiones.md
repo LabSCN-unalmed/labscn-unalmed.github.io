@@ -21,6 +21,12 @@ order: 2
   - [Gráfica con datos originales](./guiones/causas_de_mortalidad_HGM.png).
   - [Archivo en formato .Rmd](./guiones/causas_de_mortalidad_HGM.Rmd).
 
+
+## Análisis exploratorio de la comparación de gráficas.
+
+ - [Base de datos de los resultados](./basesdedatos/compara_graficas_farmacias.xlsx)
+ - [Análisis descriptivo y exploratorio inicial](./guiones/compara_graficas.html)
+
 <!---
 
 ## Salario mínimo vs IPC en Colombia.
