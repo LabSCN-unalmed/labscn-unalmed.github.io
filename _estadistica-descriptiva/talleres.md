@@ -94,6 +94,11 @@ Por favor tener cuidado de **NO BORRAR** la información que haya sido entrada p
 
 Fechas de entrega: Martes, 21 de Mayo de 2019 antes de las 23:59 hora de Colombia.
 
+### Taller individual 4.
+
+Taller en grupo en donde se hizo toma de datos para determinar
+diferencias entre tipos de percepción de diferentes tipos de gráficas.
+
 
 
 
