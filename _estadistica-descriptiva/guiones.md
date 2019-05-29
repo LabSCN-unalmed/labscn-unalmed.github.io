@@ -24,7 +24,7 @@ order: 2
 
 ## Análisis exploratorio de la comparación de gráficas.
 
- - [Base de datos de los resultados](./basesdedatos/compara_graficas_farmacias.xlsx)
+ - [Base de datos de los resultados](./basesdedatos/compara_graficos_farmacias.xlsx)
  - [Análisis descriptivo y exploratorio inicial](./guiones/compara_graficas.html)
 
 <!---
