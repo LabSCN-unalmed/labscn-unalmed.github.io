@@ -99,10 +99,22 @@ Fechas de entrega: Martes, 21 de Mayo de 2019 antes de las 23:59 hora de Colombi
 Taller en grupo en donde se hizo toma de datos para determinar
 diferencias entre tipos de percepción de diferentes tipos de gráficas.
 
-
-
-
 <!---
+
+## Talleres en grupo.
+
+### Taller en grupo 1.
+
+1. Organizar grupos de no más de cinco (5) personas.
+2. Proponer una gráfica a mano alzada que tenga en cuenta **todos**
+   los datos que se tomaron para la comparación de gráficas.
+   La gráfica **no** debe utilizar diagramas de caja-bigotes
+   box-plot.
+3. Escribir el nombre completo de los integrantes del grupo y
+   entregárelo al profesor en clase.   
+
+
+
 
 El problema de movilidad en Medellín tiene muchos aspectos a
 considerar. Uno de ellos es el tiempo de viaje del lugar de
