@@ -99,7 +99,7 @@ Fechas de entrega: Martes, 21 de Mayo de 2019 antes de las 23:59 hora de Colombi
 Taller en grupo en donde se hizo toma de datos para determinar
 diferencias entre tipos de percepción de diferentes tipos de gráficas.
 
-<!---
+
 
 ## Talleres en grupo.
 
@@ -111,14 +111,14 @@ diferencias entre tipos de percepción de diferentes tipos de gráficas.
    El índice debe ser por persona y que permita comparar el
    valor de índice entre los tipos de gráficas.
 3. Proponer una gráfica a mano alzada que tenga en cuenta el
-   índice propuesto anteriormente y que permita vizualizar
-   el desempeño y comparar los distintos tipos de gráfica.
+   índice propuesto anteriormente y que permita visualizar
+   el desempeño y comparar los distintos tipos de gráficas.
    La gráfica **no** debe utilizar diagramas de caja-bigotes
    o box-plot.
 3. Escribir el nombre completo de los integrantes del grupo y
-   entregárelo al profesor en clase.   
+   entréguelo al profesor en clase.   
 
-
+<!---
 
 
 El problema de movilidad en Medellín tiene muchos aspectos a
