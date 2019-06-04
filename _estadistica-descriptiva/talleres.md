@@ -106,10 +106,15 @@ diferencias entre tipos de percepción de diferentes tipos de gráficas.
 ### Taller en grupo 1.
 
 1. Organizar grupos de no más de cinco (5) personas.
-2. Proponer una gráfica a mano alzada que tenga en cuenta **todos**
-   los datos que se tomaron para la comparación de gráficas.
+2. Plantear un índice que muestre la gráfica de mejor desempeño
+   teniendo en cuenta los resultados de todas las farmacias.
+   El índice debe ser por persona y que permita comparar el
+   valor de índice entre los tipos de gráficas.
+3. Proponer una gráfica a mano alzada que tenga en cuenta el
+   índice propuesto anteriormente y que permita vizualizar
+   el desempeño y comparar los distintos tipos de gráfica.
    La gráfica **no** debe utilizar diagramas de caja-bigotes
-   box-plot.
+   o box-plot.
 3. Escribir el nombre completo de los integrantes del grupo y
    entregárelo al profesor en clase.   
 
