@@ -20,6 +20,20 @@ seguirse sin ninguna excepción en todas las situaciones.
 Sin embargo existen algunos principios que hacen
 unas representaciones gráficas mejores que otras.
 
+
+
+## Elementos de un gráfico.
+
+   - Título principal.
+   - Título secundario o subtítulo (opcional).
+   - Descripción del gráfico.
+   - Región de datos y símbolos.
+   - Eje horizontal y escala.
+   - Eje vertical y escala.
+   - Apuntadores o señaladores.
+   - Descriptores de señales o marcas (leyenda).
+
+
 ## Problemas en gráficos estadísticos.
 
 ### Mal gusto o problemas estéticos.
@@ -48,22 +62,10 @@ unas representaciones gráficas mejores que otras.
 
 ## Guía de colores.
 
-En [esta página](http://colorbrewer2.org/) se encuentra una guía de colores 
+En [esta página](http://colorbrewer2.org/) se encuentra una guía de colores
 que pueden ser útiles a la hora de utilizarlos
 en gráficas científicas.
 
-
-
-## Elementos de un gráfico.
-
-   - Título principal.
-   - Título secundario o subtítulo (opcional).
-   - Descripción del gráfico.
-   - Región de datos y símbolos.
-   - Eje horizontal y escala.
-   - Eje vertical y escala.
-   - Apuntadores o señaladores.
-   - Descriptores de señales o marcas (leyenda).
 
 ## Casos específicos.
 
