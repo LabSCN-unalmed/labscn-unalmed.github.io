@@ -46,6 +46,13 @@ unas representaciones gráficas mejores que otras.
 
 ![alt text](./grises2.png){: .img-responsive}
 
+## Guía de colores.
+
+En [esta página](http://colorbrewer2.org/) se encuentra una guía de colores 
+que pueden ser útiles a la hora de utilizarlos
+en gráficas científicas.
+
+
 
 ## Elementos de un gráfico.
 
