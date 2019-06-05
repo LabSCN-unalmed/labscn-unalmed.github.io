@@ -30,7 +30,7 @@ unas representaciones gráficas mejores que otras.
    - Región de datos y símbolos.
    - Eje horizontal y escala.
    - Eje vertical y escala.
-   - Apuntadores o señaladores.
+   - Apuntadores o señaladores (opcional).
    - Descriptores de señales o marcas (leyenda).
 
 
