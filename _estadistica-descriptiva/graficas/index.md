@@ -1,8 +1,64 @@
 ---
 layout: curso
-title: 'Gráficas'
+title: 'Elaboración de gráficas exploratorias'
 ---
 
+
+
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Elaboración de gráficos estadísticos.
+
+El proceso de hacer una útil y buena gráfica no puede
+ser limitada a una lista de reglas simples que debieran
+seguirse sin ninguna excepción en todas las situaciones.
+
+Sin embargo existen algunos principios que hacen
+unas representaciones gráficas mejores que otras.
+
+## Problemas en gráficos estadísticos.
+
+### Mal gusto o problemas estéticos.
+
+![alt text](./esperanza_de_vida.jpg){: .img-responsive}
+
+### Datos incorrectos.
+
+![alt text](./democracia01.png){: .img-responsive}
+
+![alt text](./democracia02.png){: .img-responsive}
+
+### Percepción incorrecta.
+
+![alt text](./percepcion1.png){: .img-responsive}
+
+![alt text](./percepcion2.png){: .img-responsive}
+
+![alt text](./percepcion3.png){: .img-responsive}
+
+### Contrastes.
+
+![alt text](./grises1.png){: .img-responsive}
+
+![alt text](./grises2.png){: .img-responsive}
+
+
+## Elementos de un gráfico.
+
+   - Título principal.
+   - Título secundario o subtítulo (opcional).
+   - Descripción del gráfico.
+   - Región de datos y símbolos.
+   - Eje horizontal y escala.
+   - Eje vertical y escala.
+   - Apuntadores o señaladores.
+   - Descriptores de señales o marcas (leyenda).
+
+## Casos específicos.
 
 ![alt text](./F01roeder_fig4.jpg "Figura 01"){: .img-responsive}
 
