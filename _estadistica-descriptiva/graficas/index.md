@@ -45,6 +45,10 @@ unas representaciones gráficas mejores que otras.
   * Pruebe su gráfica. ¿Es clara para otros observadores desprevenidos?
   * Publique su gráfica.
 
+## Guía de elaboración de gráficos en R.
+
+  - [Guía de gráficos en R](https://bogota-r.github.io/graficas/)
+
 ## Problemas en gráficos estadísticos.
 
 ### Mal gusto o problemas estéticos.
