@@ -71,9 +71,9 @@ unas representaciones gráficas mejores que otras.
 
 ### Contrastes.
 
-![alt text](./grises1.png){: .img-responsive}
+![alt text](./grises3.jpeg){: .img-responsive}
 
-![alt text](./grises2.png){: .img-responsive}
+![alt text](./grises4.jpg){: .img-responsive}
 
 ## Guía de colores.
 
