@@ -45,7 +45,7 @@ representación.
 
 #### Fecha de entrega.   
 
-Martes, 20 de junio de 2019 antes de las 23:59
+Jueves, 20 de junio de 2019 antes de las 23:59
 [hora oficial de Colombia](http://horalegal.inm.gov.co/)
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
