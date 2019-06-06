@@ -21,12 +21,12 @@ order: 5
 
 Construir una gráfica que corrija o mejore una gráfica
 publicada en un  medio impreso en Colombia como
-fecha más antigua el 30 de Junio de 2019.
+fecha más antigua el 31 de diciembre de 2018.
 
 #### Actividades.
 
 1. Buscar en una publicación colombiana, no más antigua que
-junio 30 de 2019,  una gráfica informativa
+31 de diciembre de 2018,  una gráfica informativa
 que muestre problemas o que se pueda proponer una mejor
 representación.
 2. Construir una base de datos que represente los datos graficados
