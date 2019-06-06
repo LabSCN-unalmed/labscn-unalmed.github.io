@@ -31,7 +31,8 @@ que muestre problemas o que se pueda proponer una mejor
 representación.
 2. Construir una base de datos que represente los datos graficados
    en la publicación.
-3. Construir una nueva gráfica que mejore la publicada.
+3. Construir una nueva gráfica que mejore la publicada
+   (solo con funciones básicas del R, sin utilzar paquetes adicionales).
 4. Realizar un informe en donde se muestre la gráfica original y
    la propuesta e indicar por qué la nueva gráfica es una mejora
    con respecto a la anterior.
