@@ -33,6 +33,17 @@ unas representaciones gráficas mejores que otras.
    - Apuntadores o señaladores (opcional).
    - Descriptores de señales o marcas (leyenda).
 
+## Pasos para la construcción de una gráfica.
+
+  * Analice su audiencia.
+  * [Escoja la gráfica adecuada](https://depictdatastudio.com/charts/).
+  * Haga un esquema a mano alzada de la gráfica que considere adecuada.
+  * Construya su gráfica en el computador.
+  * Refine su gráfica.
+  * Defina si utilizará color o no.
+  * Añada el texto a la gráfica.
+  * Pruebe su gráfica. ¿Es clara para otros observadores desprevenidos?
+  * Publique su gráfica.
 
 ## Problemas en gráficos estadísticos.
 
