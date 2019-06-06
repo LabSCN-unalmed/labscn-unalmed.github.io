@@ -27,6 +27,13 @@ order: 2
  - [Base de datos de los resultados](./basesdedatos/compara_graficos_farmacias.xlsx)
  - [Análisis descriptivo y exploratorio inicial](./guiones/compara_graficas.html)
 
+## Análisis de una gráfica publicada.
+
+ - [Comportamiento del empleo en Colombia y Medellín](./guiones/desempleo.html)
+ - [Base de datos de empleo](./basesdedatos/desempleo.csv)
+ - [Base de datos de empleo por sector](./basesdedatos/Empleo_por_sectores.csv)
+
+
 <!---
 
 ## Salario mínimo vs IPC en Colombia.
