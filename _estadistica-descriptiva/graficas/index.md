@@ -21,7 +21,6 @@ Sin embargo existen algunos principios que hacen
 unas representaciones gráficas mejores que otras.
 
 
-
 ## Elementos de un gráfico.
 
    - Título principal.
@@ -32,6 +31,8 @@ unas representaciones gráficas mejores que otras.
    - Eje vertical y escala.
    - Apuntadores o señaladores (opcional).
    - Descriptores de señales o marcas (leyenda).
+
+[Gráficos Estadísticos con R](https://cran.r-project.org/doc/contrib/grafi3.pdf)
 
 ## Pasos para la construcción de una gráfica.
 
