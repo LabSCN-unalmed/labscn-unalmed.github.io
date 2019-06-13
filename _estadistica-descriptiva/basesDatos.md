@@ -37,6 +37,10 @@ order: 6
  - [Base de datos del número de casos de trabajo infantil.](./basesdedatos/trabajo_infantil.csv)
  - [Base de datos de la población por departamento.](./basesdedatos/poblacion.csv)
 
+## Enlace a la base de datos del ISCE para Medellín, 2016.
+
+ - [ISCE para Medellín, 2016](https://www.datos.gov.co/Educaci-n/-ndice-Sint-tico-de-Calidad-Educativa-ISCE-Municip/uc7t-jc5u)
+
 <!---
 
 - [Base de datos de la encuesta realizada en clase](./basesdedatos/encuesta1.xlsx)

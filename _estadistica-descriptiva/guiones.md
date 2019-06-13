@@ -38,6 +38,12 @@ order: 2
  - [Base de datos del número de casos de trabajo infantil.](./basesdedatos/trabajo_infantil.csv)
  - [Base de datos de la población por departamento.](./basesdedatos/poblacion.csv)
 
+
+## Índice Sintético de Calidad Educativa (ISCE) para Medellín en 2016.
+
+ - [Análisis exploratorio I](./guiones/isce.html)
+
+
 <!---
 
 ## Salario mínimo vs IPC en Colombia.
