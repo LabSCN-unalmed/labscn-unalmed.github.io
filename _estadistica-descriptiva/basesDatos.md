@@ -19,7 +19,23 @@ order: 6
 
  - [Puntos de referencia](./basesdedatos/CabreraTorresKennethRoy.xlsx)
 
+## Base de datos de las principales causas de muertes en el HGM.
 
+  - [Base de datos las principales causas de muertes en Hospital General de Medellín](./guiones/Primeras_causas_de_mortalidad_general_HGM.csv).
+
+## Bases de datos para la comparación de gráficas.
+
+ - [Base de datos de los resultados](./basesdedatos/compara_graficos_farmacias.xlsx)
+
+## Bases de datos para empleo en Medellín.
+
+- [Base de datos de empleo.](./basesdedatos/desempleo.csv)
+- [Base de datos de empleo por sector.](./basesdedatos/Empleo_por_sectores.csv)
+
+
+## Bases de datos para trabajo infantil.
+ - [Base de datos del número de casos de trabajo infantil.](./basesdedatos/trabajo_infantil.csv)
+ - [Base de datos de la población por departamento.](./basesdedatos/poblacion.csv)
 
 <!---
 

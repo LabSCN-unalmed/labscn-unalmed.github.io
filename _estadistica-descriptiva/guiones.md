@@ -13,23 +13,30 @@ order: 2
 
 ## Causas de mortalidad en el Hospital General de Medellín en 2018.
 
-  - [Base de datos las principales causas de muertes en Hospital General de Medellín](./guiones/Primeras_causas_de_mortalidad_general_HGM.csv).
   - [Resultados de guión de comando](./guiones/causas_de_mortalidad_HGM.html).
-  - [Gráfica con datos originales](./guiones/causas_de_mortalidad_HGM.png).
+  - [Base de datos las principales causas de muertes en Hospital General de Medellín](./guiones/Primeras_causas_de_mortalidad_general_HGM.csv).
   - [Archivo en formato .Rmd](./guiones/causas_de_mortalidad_HGM.Rmd).
+  - [Gráfica con datos originales](./guiones/causas_de_mortalidad_HGM.png).
+
 
 
 ## Análisis exploratorio de la comparación de gráficas.
 
- - [Base de datos de los resultados](./basesdedatos/compara_graficos_farmacias.xlsx)
+
  - [Análisis descriptivo y exploratorio inicial](./guiones/compara_graficas.html)
+  - [Base de datos de los resultados](./basesdedatos/compara_graficos_farmacias.xlsx)
 
 ## Análisis de una gráfica publicada.
 
- - [Comportamiento del empleo en Colombia y Medellín](./guiones/desempleo.html)
- - [Base de datos de empleo](./basesdedatos/desempleo.csv)
- - [Base de datos de empleo por sector](./basesdedatos/Empleo_por_sectores.csv)
+ - [Comportamiento del empleo en Colombia y Medellín.](./guiones/desempleo.html)
+ - [Base de datos de empleo.](./basesdedatos/desempleo.csv)
+ - [Base de datos de empleo por sector.](./basesdedatos/Empleo_por_sectores.csv)
 
+## Trabajo infantil en Colombia.
+
+ - [Análisis y mejora de gráfica sobre trabajo infantil.](./guiones/trabajo_infantil.html)
+ - [Base de datos del número de casos de trabajo infantil.](./basesdedatos/trabajo_infantil.csv)
+ - [Base de datos de la población por departamento.](./basesdedatos/poblacion.csv)
 
 <!---
 
