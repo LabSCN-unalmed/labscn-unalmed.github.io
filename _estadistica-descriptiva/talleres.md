@@ -118,6 +118,18 @@ diferencias entre tipos de percepción de diferentes tipos de gráficas.
 3. Escribir el nombre completo de los integrantes del grupo y
    entréguelo al profesor en clase.   
 
+### Taller en grupo 2.
+
+1. Organizar grupos de no más de cinco (5) personas.
+2. Escribir tres (3) preguntas a la base de datos
+   del
+   [Índice Sintético de Calidad Educativa](https://www.datos.gov.co/Educaci-n/-ndice-Sint-tico-de-Calidad-Educativa-ISCE-Municip/uc7t-jc5u) del 2016.
+   Las tres preguntas sólo deben tener en cuenta
+   la información contenida en esa base de datos.
+3. Entregar en una hoja junto con los integrantes
+    al comenzar la clase el día martes 18 de junio
+    de 2019.
+
 <!---
 
 
