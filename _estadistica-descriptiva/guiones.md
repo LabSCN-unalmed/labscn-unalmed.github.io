@@ -43,6 +43,10 @@ order: 2
 
  - [Análisis exploratorio I](./guiones/isce.html)
 
+## Índice Sintético de Calidad Educativa (ISCE) segunda parte.
+
+ - [Análisis exploratorio II](./guiones/isce2.html)
+
 
 <!---
 
