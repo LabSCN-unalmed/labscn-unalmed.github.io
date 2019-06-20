@@ -50,6 +50,85 @@ Jueves, 20 de junio de 2019 antes de las 23:59
 [hora oficial de Colombia](http://horalegal.inm.gov.co/)
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
+
+## Trabajos en grupo
+
+### Primer trabajo en grupo.
+
+En grupos de máximo cinco (5) personas realizar
+el siguiente trabajo.
+
+#### Objetivo.
+
+Realizar una análisis exploratorio y descriptivo
+de los datos recolectados para medir niveles de
+precisión de las coordenadas entregadas por los
+GPS de los aplicativos de los celulares.
+
+#### Archivos crudos de toma de datos.
+
+En [este archivo](./basesdedatos/archivos.zip) se encuentra los
+archivos comprimidos de los datos recolectados
+por los estudiantes de distintos puntos del campus
+de la Universidad.
+
+#### Actividades.
+
+  - Leer cada uno de los archivos y realizar una depuración
+    y unificación de las bases de datos, para que quede
+    consolidado una sola base de datos para realizar el
+    análisis.
+
+  - Una vez depurada y unificada la base de datos,
+    proceder a realizar un análisis exploratorio y descriptivo.
+
+  - Realizar una análisis descriptivo y exploratorio de
+    datos que responda las siguientes preguntas:
+    1. ¿Qué tipo de depuraciones se realizaron a la base de datos?
+        Es decir, ¿Qué tipos de errores y problemas encontraron
+        en las bases de datos crudas?  
+    1. ¿Qué tan preciso es la medición de las coordenadas
+        mediante GPS de celular en términos generales?
+        Responder tanto con números como con gráfica.
+    2. ¿La precisión está relacionada a la hora? Mostrar
+        mediante análisis numérico y gráfico.
+    3. ¿La precisión está relacionada con el día?
+        ¿O el día de la semana? Mostrar
+            mediante análisis numérico y gráfico.
+    4. ¿La precisión está relacionada con el tipo de aplicación?Mostrar
+        mediante análisis numérico y gráfico.
+    5. ¿Se torna más preciso en la medida que se avanza
+        en las tomas?  Mostrar
+            mediante análisis numérico y gráfico.
+    6. ¿La precisión tiene que ver con la ubicación dentro del
+       campus de la Universidad? Mostrar
+           mediante análisis numérico y gráfico.
+    7. ¿La precisión tiene que ver con el estudiante que
+       tomó los datos? Mostrar
+           mediante análisis numérico y gráfico.          
+
+#### Fecha de entrega.
+
+Martes, 2 de julio de 2019 antes de las 23:59 hora de Colombia
+al correo **krcabrer@unal.edu.co** y no olvidar escribir en
+asunto **[EDAED]**.
+
+Se deben enviar tres archivos:
+
+1. Archivo con la base de datos consolidada.
+2. Archivo ".Rmd" con los comando utilizados para el análisis.
+3. Archivo de resultados del análisis y los resultados
+    numéricos y gráficos que respalden el análisis
+    en formato ".html" sin código.
+
+
+
+
+
+
+
+
+
 <!---
 
 ## Trabajos en grupo.
