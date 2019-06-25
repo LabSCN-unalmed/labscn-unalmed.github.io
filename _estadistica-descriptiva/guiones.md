@@ -47,6 +47,9 @@ order: 2
 
  - [Análisis exploratorio II](./guiones/isce2.html)
 
+## Análisis exploratorio de la accidentalidad en Envigado, 2016.
+
+ - [Accidentalidad en Envigado (2016, 2017 y parcial de 2018)](./guiones/accidentalidad_envigado.html)
 
 <!---
 

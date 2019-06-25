@@ -41,6 +41,10 @@ order: 6
 
  - [ISCE para Medellín, 2016](https://www.datos.gov.co/Educaci-n/-ndice-Sint-tico-de-Calidad-Educativa-ISCE-Municip/uc7t-jc5u)
 
+## Base de datos de accidentalidad en Envigado.
+
+  - [Accidentalidad en Envigado 2016, 2017 y primer semestre 2018](./basesdedatos/Accidentalidad_Envigado_2016___2017_y_Primer_Semestre_2018.csv)
+
 <!---
 
 - [Base de datos de la encuesta realizada en clase](./basesdedatos/encuesta1.xlsx)
