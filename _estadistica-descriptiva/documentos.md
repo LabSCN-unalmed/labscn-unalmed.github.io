@@ -32,8 +32,9 @@ order: 3
 
 - [Errores comunes en análisis de datos](./documentos/errores_comunes.html)
 
+## Ejemplo con los datos "Anscombe"
 
-
+- [Ejemplo con los datos de Anscombe](./documentos/anscombe_example.html)
 
 <!---
 ## Inicio con el R
