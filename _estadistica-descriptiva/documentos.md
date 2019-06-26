@@ -24,11 +24,11 @@ order: 3
 
 - [Tutorial de instalación de un paquete](./instala_paquete.html)
 
-## Ejemplo de problemas en gráficas
+## Ejemplo de problemas en gráficas.
 
 - [Problemas en gráficas](./graficas/index.html)
 
-## Errores comunes
+## Errores comunes en el análisis de datos.
 
 - [Errores comunes en análisis de datos](./documentos/errores_comunes.html)
 
