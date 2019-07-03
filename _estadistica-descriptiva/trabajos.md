@@ -95,7 +95,7 @@ de la Universidad.
     3. ¿La precisión está relacionada con el día?
         ¿O el día de la semana? Mostrar
             mediante análisis numérico y gráfico.
-    4. ¿La precisión está relacionada con el tipo de aplicación?Mostrar
+    4. ¿La precisión está relacionada con el tipo de aplicación? Mostrar
         mediante análisis numérico y gráfico.
     5. ¿Se torna más preciso en la medida que se avanza
         en las tomas?  Mostrar
