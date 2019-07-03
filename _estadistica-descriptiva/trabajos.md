@@ -109,6 +109,7 @@ de la Universidad.
 
 #### Fecha de entrega.
 
+
 Jueves, 11 de julio de 2019 antes de las 23:59 hora de Colombia
 al correo **krcabrer@unal.edu.co** y no olvidar escribir en
 asunto **[EDAED]**.
