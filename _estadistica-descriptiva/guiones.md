@@ -51,6 +51,10 @@ order: 2
 
  - [Accidentalidad en Envigado (2016, 2017 y parcial de 2018)](./guiones/accidentalidad_envigado.html)
 
+## Ejemplos sencillos de manejo de base de datos.
+
+  - [Ejemplos sencillos de manejo de bases de datos con R](./guiones/ejemplos_sencillos.html) 
+
 <!---
 
 ## Salario mínimo vs IPC en Colombia.
