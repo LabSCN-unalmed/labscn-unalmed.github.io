@@ -14,7 +14,10 @@ order: 0
 ## Políticas del curso
   - Los trabajos y talleres se enviarán al correo **krcabrer@unal.edu.co** con
     la sigla **[ModuloR]**.
-  - Los documentos serán enviados en formato  **.html** (con los resultados), con su
+  - Los guiones se enviarán en formato **.R** cuando así se requieran de
+    acuerdo al enunciado del ejercicio.
+  - Los documentos serán enviados en formato  **.html** (con los resultados,
+    pero sin código), con su
     correspondiente archivo **.Rmd** con el código correspondiente,
     de acuerdo a como se indique en el enunciado del ejercicio.
   - Las bases de datos serán enviadas en formato **.csv**, a menos que se indique

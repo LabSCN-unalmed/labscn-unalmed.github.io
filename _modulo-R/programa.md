@@ -24,6 +24,6 @@ De manera resumida estos son los temas que se tratarán en el módulo.
 
 ## Página al semillero de R en la UN
 
-* [Semillero de R en la UN](https://srunal.github.io/)
+* [Semillero de R en la UN](https://srunal.github.io/){:target="blank"}
 
 * [Página de semillero de R por el profesor Edimer David Jaramillo](https://unal-semilleror-facca.github.io/){:target="blank"}
