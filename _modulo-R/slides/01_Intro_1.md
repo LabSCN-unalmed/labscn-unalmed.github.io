@@ -1,7 +1,7 @@
 Introducción al R (Parte I)
 ========================================================
 author: Kenneth Cabrera
-date: miércoles, 23 de enero de 2019
+date: miércoles, 24 de julio de 2019
 height: 800
 
 
@@ -40,9 +40,8 @@ Notas históricas del R
 - 1997: Se formó el grupo núcleo del R (The R Core Group).
   Administra el código fuente del R.
 - 2000: Versión 1.0.0, 2004: Versión 2.0.0., 2013: Versión 3.0.0.
-- Versión 3.4.3. "Kite-Eating Tree". Liberada el 30 de noviembre de 2017.
-- Se liberó la versión 3.5.2 el 20 de diciembre de 2018,
-  denominada "Eggshell Igloo".
+- Se liberó la versión 3.6.1 el viernes 5 de julio de 2019,
+  denominada "Action of the Toes".
 
 Sobrenombre de versiones del R (3.4.3)
 ========================================================
@@ -71,6 +70,11 @@ Sobrenombre de versiones del R (3.5.2)
 
 ![](eggshell_igloo.png)
 
+Sobrenombre de versiones del R (3.6.1)
+========================================================
+"Action of the Toes" (R version 3.6.1)
+
+![](acction_of_the_toes2.png)
 
 
 Descarga del R
@@ -88,18 +92,19 @@ Características principales del R
 - Sintaxis similar al S.
 - Semántica superficialmente simila al S.
 - Ejecuta casi en toda plataforma.
-- Desarrollo en constate actividad.
+- Desarrollo en constante actividad.
 - Útil para trabajo interactivo.
-- Es libre (gratis, y abierto).
+- Es libre (gratis y abierto).
 
 Desventajas
 ========================================================
 - Basado en tecnología de hace 40 años.
 - No soporta muy bien gráficas 3D. (Aunque tiene paquetes que
-  maneja de manera aceptable gráficas 3D)
+  maneja de manera aceptable gráficas 3D).
 - La funcionalidad se base en la demanda del consumidor.
   Usted necesita hacer lo que otros no hacen.
-- Los objetos de almacenan en memoria.
+- Los objetos se almacenan en memoria, por lo tanto
+  demanda mucha memoria RAM.
 - No sirve para todo.
 
 
@@ -122,17 +127,20 @@ Paquetes princiales
 - El sistema básico incluye paquetes como el **utils**,
   **stats**, **datasets**, **graphics**, **parallel** y otros.
 - Paquete de paquetes de utilidades complementarias **tidyverse**.
-- Paquetes recomendados  **boot**, **class**, **cluster**
+- Paquetes recomendados  **boot**, **class**, **cluster**,
   **ggplot2**, **KernSmooth**, **nlme**, **nnet**, y otros.
 
 Paquetes adicionales
 ========================================================
-* Existen a la fecha más o menos 13684
+* Existen a la fecha más o menos 14589
   [paquetes](https://cran.r-project.org/web/packages/index.html)
   en el CRAN y contando.
   
+  Esta instrucción en R permite mostar el número de paquetes
+  diponibles a la fecha. 
+  
 ```
-  nrow(available.packages())
+   nrow(available.packages())
 ```
   
 * Hay proyectos independientes pero basados en R, como el Bioconductor

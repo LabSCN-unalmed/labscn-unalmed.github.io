@@ -7,7 +7,7 @@
 Introducción al R (Parte II)
 ========================================================
 author: Kenneth Cabrera
-date: viernes, 25 de enero de 2019
+date: miércoles, 24 de julio de 2019
 
 
 Clases de objetos
@@ -63,6 +63,7 @@ print(x)
 ```
 [1] 1
 ```
+
 
 ```r
 45 -> y

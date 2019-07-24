@@ -6,7 +6,7 @@ order: 5
 ---
 
 
-
+<!---
 
 ## Contenido
 {: .no_toc}
@@ -19,7 +19,7 @@ order: 5
  + [Enunciado](./talleres/pobreza_mundial_enunciado.html)
  + [Solución](./talleres/pobreza_mundial_solucion.html)
 
-<!---
+
 
  * [Enunciado](./talleres/quiz1.html)
  * Entrega: Se espera un archivo en formato ".R"

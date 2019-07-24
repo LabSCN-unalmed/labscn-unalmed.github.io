@@ -1,7 +1,7 @@
 Funciones
 ========================================================
 author: Kenneth Cabrera
-date: 25 enero, 2019
+date: 24 julio, 2019
 width: 1440
 height: 900
 
@@ -157,7 +157,7 @@ mean
 ```
 function (x, ...) 
 UseMethod("mean")
-<bytecode: 0x5575b85a41e0>
+<bytecode: 0x55f9d4d88138>
 <environment: namespace:base>
 ```
 

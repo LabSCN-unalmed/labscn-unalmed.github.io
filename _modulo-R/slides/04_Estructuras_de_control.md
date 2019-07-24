@@ -1,7 +1,7 @@
 Estructuras de control
 ========================================================
 author: Kenneth Cabrera
-date: 25 enero, 2019
+date: 24 julio, 2019
 transition: zoom
 width: 1440
 height: 900

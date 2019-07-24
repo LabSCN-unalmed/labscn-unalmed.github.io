@@ -58,6 +58,7 @@ derecha.
 x <- 1
 print(x)
 ```
+
 ```{r}
 45 -> y
 print(y)
