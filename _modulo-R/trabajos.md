@@ -6,12 +6,15 @@ order: 4
 ---
 
 
-<!---
+
 ## Trabajo final.
 
 ### Objetivo.
 
-Realizar una simulación del juego del dominó.
+Realizar el juego de [puntos y cuadros](https://es.wikipedia.org/wiki/Timbiriche_(juego)),
+de tal forma que el usuario juegue contra el computador.
+
+<!--
 
 ### Consideraciones.
 
@@ -33,9 +36,9 @@ Realizar una simulación del juego del dominó.
 
 Viernes 20 de octubre de 2017 en hora de clase.         
 
--->
 
-<!--
+
+
 ## Trabajo final
 
 ### Objetivo
