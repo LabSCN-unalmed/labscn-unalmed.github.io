@@ -7,7 +7,7 @@ order: 6
 
 
 
-
+<!---
 
 ## Contenido
 {: .no_toc}
@@ -31,7 +31,7 @@ order: 6
 
 
 
-<!---
+
 ## Ejercicios sobre arreglo de bases de datos.
 
 ### Victimas del conflicto armado
