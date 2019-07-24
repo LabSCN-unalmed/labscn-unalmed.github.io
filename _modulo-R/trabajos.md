@@ -14,6 +14,11 @@ order: 4
 Realizar el juego de [puntos y cuadros](https://es.wikipedia.org/wiki/Timbiriche_(juego)),
 de tal forma que el usuario juegue contra el computador.
 
+### Ejemplo del juego.
+
+En [esta página web](http://dotsandboxes.org/) se permite mirar el funcionamiento del juego.
+
+
 <!--
 
 ### Consideraciones.
