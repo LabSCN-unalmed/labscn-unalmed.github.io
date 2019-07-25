@@ -17,6 +17,8 @@ order: 3
 
 ## Ejemplo del uso del "click" del mouse.
   - [Segmentos oblicuo](./codigos/segmento_oblicuo.R)
+
+
 <!--
 ## Ejemplo del uso del RMarkdown.
 
