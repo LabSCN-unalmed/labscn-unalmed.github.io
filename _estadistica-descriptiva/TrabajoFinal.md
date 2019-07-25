@@ -45,7 +45,27 @@ Por lo tanto el número de experimentos totales es de 48 tomas diferentes.
 
 Cada medida se debe hacer como mínimo durante 10 segundos y después de depura la parte estable de la luminosidad.
 
+## Construcción del póster.
 
+El póster debe tener los siguientes elementos:
+
+ 1. Título del experimento (determinado por el grupo).
+ 2. Nombre completo de todos los miembros del grupo.
+ 3. Corta introducción.
+ 4. Materiales y métodos.
+ 5. Código QR que remita a un video donde se muestre
+    la manera que se realizó el experimentos.
+    El video tendrá una duración máxima de 1 minuto.
+ 6. Resultados (Graficas y tablas).
+ 7. Conclusiones.
+ 8. Recomendaciones.
+
+## Fecha de presentación del póster.
+
+La totalidad de los integrantes del grupo estarán presentes el día
+jueves 22 de agosto de 2019 a las 8:00 am en el salón de clase. Luego se
+llevarán los póster al bloque 43 en donde el profesor indique dónde
+exhibirlos y que allí estén una semana.
 
 
 

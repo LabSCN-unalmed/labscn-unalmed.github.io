@@ -53,7 +53,13 @@ order: 2
 
 ## Ejemplos sencillos de manejo de base de datos.
 
-  - [Ejemplos sencillos de manejo de bases de datos con R](./guiones/ejemplos_sencillos.html) 
+  - [Ejemplos sencillos de manejo de bases de datos con R](./guiones/ejemplos_sencillos.html)
+
+## Manejo de los archivos generados por la app Science Journa.
+
+  - [Ejemplo datos de luminimetría](./guiones/premuestreo_luminometria.html)
+  - [Datos de luminometría sin agua](./guiones/Premuestro 1 Grabaci_n 1.csv)  
+  - [Datos de luminometría sin agua](./guiones/Premuestro 1 Grabaci_n 2.csv)  
 
 <!---
 
