@@ -16,7 +16,7 @@ order: 3
  - [Bola que rebota](./codigos/quiz3.R)
 
 ## Ejemplo del uso del "click" del mouse.
-  - [Segmentos oblicuo](./codigos/segmento_oblicuo.R)
+  - [Segmento oblicuo](./codigos/segmento_oblicuo.R)
 
 
 <!--
