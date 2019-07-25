@@ -6,10 +6,10 @@ order: 7
 ---
 
 
+## Uso del luminómetro en la detección de caracteristicas del vino.
 
 
-- [Enunciado del trabajo final](./guiones/enunciado_proyecto_final)
-- [Enlace a una monografía sobre tipo de estructuras](http://cidbimena.desastres.hn/docum/ops/publicaciones/h0205s/h0205s.7.htm)
+
 
 <!---
 ## Contenido
