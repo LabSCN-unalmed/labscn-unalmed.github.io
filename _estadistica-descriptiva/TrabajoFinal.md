@@ -41,6 +41,8 @@ determinar característica del vino.
 En total se tienen 4 Años x 2 cepas x 2 tipos son 16 combinaciones.
 De cada combinación se deben tomar como minimo 3 réplicas (3 botellas distintas).
 
+Por lo tanto el número de experimentos totales es de 48 tomas diferentes.
+
 Cada medida se debe hacer como mínimo durante 10 segundos y después de depura la parte estable de la luminosidad.
 
 
