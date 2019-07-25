@@ -6,7 +6,7 @@ order: 5
 ---
 
 
-<!---
+
 
 ## Contenido
 {: .no_toc}
@@ -15,6 +15,14 @@ order: 5
 {: toc}
 
 ## Primer taller individual.
+
+Trazar un segmento horizontal o vertical
+de acuerdo a un click en donde sea más próximo
+en una malla de puntos.
+
+
+
+<!---
 
  + [Enunciado](./talleres/pobreza_mundial_enunciado.html)
  + [Solución](./talleres/pobreza_mundial_solucion.html)
