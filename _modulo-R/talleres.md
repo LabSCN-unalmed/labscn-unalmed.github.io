@@ -20,6 +20,10 @@ Trazar un segmento horizontal o vertical
 de acuerdo a un click en donde sea más próximo
 en una malla de puntos.
 
+Fecha de entrega: viernes, 26 de julio de 2019 al
+correo **krcabrer@unal.edu.co**
+ en asunto no olvidar [ModuloR]
+
 
 
 <!---
