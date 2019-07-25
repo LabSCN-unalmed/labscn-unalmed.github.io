@@ -16,6 +16,9 @@ determinar característica del vino.
 
 ### Consideraciones.
 
+Estas consideraciones son las condiciones mínimas del trabajo
+final que dan una nota de 2.0. 
+
 1. Elegir como factores principal el año, la cepa
    el tipo.
    Año: Cuatro niveles diferentes.
