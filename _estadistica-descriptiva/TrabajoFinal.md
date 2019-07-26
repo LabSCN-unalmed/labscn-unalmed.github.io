@@ -70,7 +70,7 @@ El póster debe tener los siguientes elementos:
 ## Fecha de presentación del póster.
 
 La totalidad de los integrantes del grupo estarán presentes el día
-jueves 22 de agosto de 2019 a las 8:00 am en el salón de clase. Luego se
+jueves 22 de agosto de 2019 a las 10:00 am en el salón de clase. Luego se
 llevarán los póster al bloque 43 en donde el profesor indique dónde
 exhibirlos y que allí estén una semana.
 
