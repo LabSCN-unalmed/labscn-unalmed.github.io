@@ -25,19 +25,21 @@ final que dan una nota de 2.0.
    - Año: Cuatro niveles diferentes.
    - Cepa: Dos niveles diferentes.
    - Tipo: Dos niveles diferentes.
-   
+
 2. Todas las demás variables se considerarán constantes o
    de ruido.
 3. La toma de la luminosidad se debe tomar bajo las
     mismas condiciones posible.
 4. Variables de ruido como:
-    Luminosidad del ambiente: Se tomará como una covariable.
-    Distancia de la toma: Constante.
-    Linterna: La misma linterna para generar la luminosidad. (No el flash del celular).
-    Distancia de la linterna a la botella constante.
-    Posición con respecto a la iluminación ambiental: Lo más similar posible.
-    Tomar la iluminación con el vidrio de la botella y
-    sin el vidrio de la botella. Covariables.
+
+    * Luminosidad del ambiente: Se tomará como una covariable.
+    * Distancia de la toma: Constante.
+    * Linterna: La misma linterna para generar la luminosidad. (No el flash del celular).
+    * Distancia de la linterna a la botella constante.
+    * Posición con respecto a la iluminación ambiental: Lo más similar posible.
+    * Tomar la iluminación con el vidrio de la botella y
+       sin el vidrio de la botella. Covariable.
+       
 5. Los celulares se van a calibrar inicialmente para tener
    las medidas comparables.
 
