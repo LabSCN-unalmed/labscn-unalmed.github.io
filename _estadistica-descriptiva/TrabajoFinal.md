@@ -39,7 +39,7 @@ final que dan una nota de 2.0.
     * Posición con respecto a la iluminación ambiental: Lo más similar posible.
     * Tomar la iluminación con el vidrio de la botella y
        sin el vidrio de la botella. Covariable.
-       
+
 5. Los celulares se van a calibrar inicialmente para tener
    las medidas comparables.
 
@@ -61,7 +61,7 @@ El póster debe tener los siguientes elementos:
  3. Corta introducción.
  4. Materiales y métodos.
  5. Código QR que remita a un video donde se muestre
-    la manera que se realizó el experimentos.
+    la manera que se realizó el experimento.
     El video tendrá una duración máxima de 1 minuto.
  6. Resultados (Graficas y tablas).
  7. Conclusiones.
