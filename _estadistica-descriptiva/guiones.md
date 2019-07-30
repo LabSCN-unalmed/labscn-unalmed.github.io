@@ -55,11 +55,17 @@ order: 2
 
   - [Ejemplos sencillos de manejo de bases de datos con R](./guiones/ejemplos_sencillos.html)
 
-## Manejo de los archivos generados por la app Science Journa.
+## Manejo de los archivos generados por la app Science Journal.
 
   - [Ejemplo datos de luminimetría](./guiones/premuestreo_luminometria.html)
   - [Datos de luminometría sin agua](./guiones/Premuestro 1 Grabaci_n 1.csv)  
   - [Datos de luminometría sin agua](./guiones/Premuestro 1 Grabaci_n 2.csv)  
+
+## Resultados de pruebas saber 11 2018-02 y desempeño fiscal 2017.
+
+  - [Lectura de lasb base de datos](./guiones/01_lectura.html)
+  - [Descripción general de las bases de datos](./guiones/02_saber_11_2018_2.html)
+
 
 <!---
 
