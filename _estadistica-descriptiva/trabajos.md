@@ -105,9 +105,27 @@ muestre mediante gráficas y tablas las variables
 que influencian más en el resultado de las
 pruebas Saber 11.
 
+Determine la distribución de las variables que
+le correpondió por municipio y muestre los resultados
+de manera gráfica.
 
+Muestre la relación del desempeño fiscal por
+municipio y con el promedio y la mediana del
+resultado global de la prueba Saber 11.
 
+#### Fecha de entrega.
 
+Se entregará un formato de archivo ".html"
+con los resultados sin el código.
+
+Se entregará un archivo ".Rmd" que contenga el código
+utilizado.
+
+Nota: No se entregarán las bases de datos, porque son
+las mismas que están publicadas en la página del curso.
+
+Fecha de entrega: viernes, 9 de agosto de 2019 antes de las 23:59 hora 
+de Colombia.
 
 
 ## Trabajos en grupo
