@@ -1,12 +1,12 @@
 ################################################################################
 # Trazo de un segmento vertical u horizontal
-# de acuerdo a la cercanÃ­a del lado del cuadrado.
+# de acuerdo a la cercanía del lado del cuadrado.
 #
 # Autor: Kenneth Roy Cabrera Torres.
 # Fecha: Martes, 23 de julio de 2019.
 ################################################################################
 
-# ConstrucciÃ³n de la malla
+# Construcción de la malla
 x <- seq(0, 100, 10)
 y <- x
 
@@ -28,12 +28,12 @@ xmax <- ceiling(r1$x / 10) * 10
 ymax <- ceiling(r1$y / 10) * 10
 
 
-# DefiniciÃ³n del cuadrante
+# Definición del cuadrante
 
 cuad1 <- r1$y > r1$x - xmin + ymin
 cuad2 <- r1$y > -(r1$x - xmin) + ymax
 
-# CÃ¡lculo de las coordenadas del segmento a trazar.
+# Cálculo de las coordenadas del segmento a trazar.
 
 ## Forma completa
 
@@ -75,11 +75,11 @@ y1 <- (!cuad1 & !cuad2) * 1 * ymin +
 cx <-xmin + (xmax-xmin)/2
 cy <-ymin + (ymax-ymin)/2
 
-## CÃ¡lculo de la distancia al punto central
+## Cálculo de la distancia al punto central
 dist_cent <- sqrt((r1$x - cx) ^ 2 + (r1$y - cy) ^ 2)
 dist_cent
 
-## Determinar si estÃ¡ muy cerca del centro o no 
+## Determinar si está muy cerca del centro o no 
 x1 <- ((dist_cent < 2) * 1) * x0 +
       ((dist_cent > 2) * 1) * x1
 
