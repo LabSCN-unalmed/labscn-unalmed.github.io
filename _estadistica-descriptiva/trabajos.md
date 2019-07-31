@@ -91,8 +91,8 @@ su relación con el puntaje global (PUNT_GLOBAL).
 |3        | ESTU_TIPOREMUNERACION|
 |4        | COLE_GENERO|
 |5        | COLE_NATURALEZA|
-|6        | COLE_CARACTER|s
-|7        | COLE_AREA_UBICACION|s
+|6        | COLE_CARACTER|
+|7        | COLE_AREA_UBICACION|
 |8        | COLE_JORNADA|
 |9        | ESTU_INSE_INDIVIDUAL|
 
@@ -124,7 +124,7 @@ utilizado.
 Nota: No se entregarán las bases de datos, porque son
 las mismas que están publicadas en la página del curso.
 
-Fecha de entrega: viernes, 9 de agosto de 2019 antes de las 23:59 hora 
+Fecha de entrega: viernes, 9 de agosto de 2019 antes de las 23:59 hora
 de Colombia.
 
 
