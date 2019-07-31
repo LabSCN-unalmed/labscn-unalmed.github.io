@@ -17,6 +17,7 @@ order: 3
 
 ## Ejemplo del uso del "click" del mouse.
   - [Segmento oblicuo](./codigos/segmento_oblicuo.R)
+  - [Solución a segmentos horizontales o verticales](./codigos/segmento_vertial_horizontal.R)
 
 
 <!--
