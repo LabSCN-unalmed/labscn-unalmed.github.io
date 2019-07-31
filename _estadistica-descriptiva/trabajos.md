@@ -119,11 +119,12 @@ resultado global de la prueba Saber 11.
 Se entregará un formato de archivo ".html"
 con los resultados sin el código.
 
-Se entregará un archivo ".Rmd" que contenga el código
+Se entregará los archivos ".Rmd" que contenga el código
 utilizado.
 
 Nota: No se entregarán las bases de datos, porque son
 las mismas que están publicadas en la página del curso.
+Pero el código deberá correr a partir de esas bases de datos.
 
 Fecha de entrega: viernes, 9 de agosto de 2019 antes de las 23:59 hora
 de Colombia.
