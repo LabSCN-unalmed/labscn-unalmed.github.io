@@ -56,7 +56,8 @@ al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 #### Objetivo.
 
 Realizar un análisis descriptivo y exploratorio de
-los resultados de las pruebas Saber 11.
+los resultados de las pruebas Saber 11 y
+su relación con el desempeño fiscal del municipio.
 
 #### Indicaciones.
 
