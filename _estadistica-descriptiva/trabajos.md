@@ -51,6 +51,65 @@ Jueves, 20 de junio de 2019 antes de las 23:59
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
 
+### Segundo trabajo individual.
+
+#### Objetivo.
+
+Realizar un análisis descriptivo y exploratorio de
+los resultados de las pruebas Saber 11.
+
+#### Indicaciones.
+
+De acuerdo al último dígito de su número de identificación
+se tomarán como variables a considerar para determinar
+su relación con el puntaje global (PUNT_GLOBAL).
+
+|Último dígito | Variables demográficas |
+|--------|---------|
+|0 - 4   | EDAD (Considere solo edades entre 17 y 22 años inclusive) |
+|5 - 9   | ESTUD_GENERO |
+
+
+|Penúltimo dígito | Variables explicativas 1 |
+|--------|---------|--------|
+|0       |  FAMI_ESTRATOVIVIENDA, FAMI_TIENEAUTOMOVIL |
+|1       |  FAMI_PERSONASHOGAR, FAMI_TIENEMOTOCICLETA |
+|2       |  FAMI_EDUCACIONPADRE, FAMI_TIENECONSOLAVIDEOJUEGOS|
+|3       |  FAMI_EDUCACIONMADRE, FAMI_NUMLIBROS |
+|4       |  FAMI_TRABAJOLABORPADRE, FAMI_COMELECHEDERIVADOS |
+|5       |  FAMI_TRABAJOLABORMADRE, FAMI_COMECARNEPESCADOOHUEVO |
+|6       |  FAMI_TIENEINTERNET, FAMI_COMECEREALFRUTOSLEGUMBRE |
+|7       |  FAMI_TIENECOMPUTADOR, FAMI_SITUACIONECONOMICA|
+|8       |  FAMI_TIENELAVADORA, FAMI_ESTRATOVIVIENDA |
+|9       |  FAMI_TIENEHORNOMICROOGAS, FAMI_PERSONASHOGAR |
+
+|Antepenúltimo dígito | Variables explicativa 2|
+|---------|---------|
+|0        | ESTU_DEDICACIONLECTURADIARIA |
+|1        | ESTU_DEDICACIONINTERNET |
+|2        | ESTU_HORASSEMANATRABAJA |
+|3        | ESTU_TIPOREMUNERACION|
+|4        | COLE_GENERO|
+|5        | COLE_NATURALEZA|
+|6        | COLE_CARACTER|s
+|7        | COLE_AREA_UBICACION|s
+|8        | COLE_JORNADA|
+|9        | ESTU_INSE_INDIVIDUAL|
+
+INSE: ÍNDICE DE NIVEL SOCIOECONÓMICO.
+
+#### Resultados esperado.
+
+De acuerdo a la combinación que le correspondió,
+muestre mediante gráficas y tablas las variables
+que influencian más en el resultado de las
+pruebas Saber 11.
+
+
+
+
+
+
 ## Trabajos en grupo
 
 ### Primer trabajo en grupo.
