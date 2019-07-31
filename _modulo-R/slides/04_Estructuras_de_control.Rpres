@@ -167,7 +167,8 @@ repeat {
 ```
 La única forma de salir del `repeat` es mediante el `break`.
 
-Mejor sería limitar el número de interacciones.
+Mejor sería limitar el número de iteraciones,
+para evitar un posible ciclo infinito.
 
 Estructura de repetición VII
 ========================================================

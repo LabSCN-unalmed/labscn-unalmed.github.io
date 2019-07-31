@@ -1,7 +1,7 @@
 Estructuras de control
 ========================================================
 author: Kenneth Cabrera
-date: 24 julio, 2019
+date: 31 julio, 2019
 transition: zoom
 width: 1440
 height: 900
@@ -191,7 +191,8 @@ repeat {
 ```
 La única forma de salir del `repeat` es mediante el `break`.
 
-Mejor sería limitar el número de interacciones.
+Mejor sería limitar el número de iteraciones,
+para evitar un posible ciclo infinito.
 
 Estructura de repetición VII
 ========================================================

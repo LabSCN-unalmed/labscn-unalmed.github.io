@@ -1,7 +1,7 @@
 Funciones
 ========================================================
 author: Kenneth Cabrera
-date: 24 julio, 2019
+date: 31 julio, 2019
 width: 1440
 height: 900
 
@@ -32,7 +32,7 @@ tienen potencialmente valores por omisión.
 - Los argumentos formales son los que se incluyen en la
 definción de la función.
 - La función `formals` muestra una lista de todos los argumentos
-de una fución.
+de una función.
 - No todo llamado a una función en R usa todos los argumentos formales.
 - Los argumentos pueden no estar presentes o tener valores por omisión.
 
@@ -157,7 +157,7 @@ mean
 ```
 function (x, ...) 
 UseMethod("mean")
-<bytecode: 0x55f9d4d88138>
+<bytecode: 0x555bbedb71d8>
 <environment: namespace:base>
 ```
 
@@ -329,4 +329,4 @@ Recomendaciones  II
 - Realice una prueba de escritorio o seguimiento. (función por función en
    forma *"bottom up"*)
 - No se rinda, quéjese!! (ayuda a listas, compañeros, etc).
-- Evite iteracciones (R es vectorizado)
+- Evite iteraciones o ciclos explícitos (R es vectorizado).
