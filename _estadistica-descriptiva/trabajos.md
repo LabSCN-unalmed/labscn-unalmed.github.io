@@ -106,6 +106,14 @@ muestre mediante gráficas y tablas las variables
 que influencian más en el resultado de las
 pruebas Saber 11.
 
+Las variables asignadas es el mínimo número de variables.
+Se usar algunas variables adicionales de acuerdo al criterio
+del estudiante.
+
+Si el estudiante hace las variables mínimas, tiene
+una calificación de 4.0. Si quiere alcanzar el 5.0 deberá
+considerar dos variables más. 
+
 Determine la distribución de las variables que
 le correpondió por municipio y muestre los resultados
 de manera gráfica.
