@@ -66,6 +66,13 @@ order: 2
   - [Lectura de lasb base de datos](./guiones/01_lectura.html)
   - [Descripción general de las bases de datos](./guiones/02_saber_11_2018_2.html)
 
+## Lectura de varias bases de datos para consolidar sólo una.
+
+  - [Lectura de varias base de datos](./guiones/lectura_bases.html)
+  - [Archivo lm_ch_2015_bl_liq_1.csv](./basesdedatos/Archivo lm_ch_2015_bl_liq_1.csv)
+  - [Archivo lm_ch_2015_bl_liq_2.csv](./basesdedatos/Archivo lm_ch_2015_bl_liq_1.csv)
+  - [Archivo lm_ch_2015_bl_vdr_1.csv](./basesdedatos/Archivo lm_ch_2015_bl_liq_1.csv)
+  - [Archivo lm_ch_2015_bl_vdr_1.csv](./basesdedatos/Archivo lm_ch_2015_bl_liq_1.csv)
 
 <!---
 
