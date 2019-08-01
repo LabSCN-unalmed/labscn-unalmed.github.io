@@ -63,7 +63,7 @@ order: 2
 
 ## Resultados de pruebas saber 11 2018-02 y desempeño fiscal 2017.
 
-  - [Lectura de lasb base de datos](./guiones/01_lectura.html)
+  - [Lectura de las base de datos](./guiones/01_lectura.html)
   - [Descripción general de las bases de datos](./guiones/02_saber_11_2018_2.html)
 
 ## Lectura de varias bases de datos para consolidar sólo una.
