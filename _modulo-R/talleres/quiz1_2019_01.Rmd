@@ -1,7 +1,7 @@
 ---
 title: "Quiz 1"
 author: "Kenneth Roy Cabrera Torres"
-date: "02/08/2019"
+date: "Viernes 2 de agosto 2019"
 output: 
   html_document: 
     toc: yes
@@ -34,15 +34,49 @@ modelo
 anova(modelo)
 ```
 
-Escriba un còdigo que muestra solo el **valor p** del modelo.
+Escriba un còdigo que el siguiente mensaje 
+de acuerdo al resultado de la simulación.
 
 Recuerde que cada **valor p** cambia al ejecutar una nueva simulación.
 
 ```{r, echo=FALSE}
-anova(modelo)[[5]][1]
+cat("El valor p del modelo es", anova(modelo)[[5]][1], ".\n")
+if (anova(modelo)[[5]][1] < 0.05){
+  cat("Por lo tanto modelo es significativo al 95%.")
+}else{
+  cat("Por lo tanto el modelo no es significativo al 95%")
+}
+cat()
 ```
 
 
 ## Pregunta 2. 
 
+Escriba una función que tenga como entrada una matriz cuadrada y que
+devuelva la suma de las diagonales.
+
+Por ejemplo si la matriz es:
+
+```{r}
+matriz <- matrix(c(3, 4, 2, 2, 3, 2, 8, 0, 5), 3, 3)
+matriz
+```
+
+El resultado de la función deberá ser:
+
+```{r, echo=FALSE}
+suma_diags <- function(m){
+  d1 <- sum(matriz[cbind(1:nrow(matriz), 1:nrow(matriz))])
+  d2 <- sum(matriz[cbind(1:nrow(matriz), nrow(matriz):1)])
+  return(d1 + d2)
+}
+```
+
+
+```{r}
+suma_diags(matriz)
+```
+
+
+La función deberá servir para cualquier matriz cuadrada de clase numérica.
 
