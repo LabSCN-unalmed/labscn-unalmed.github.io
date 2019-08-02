@@ -15,10 +15,12 @@ order: 6
 
 ## Primer ejercicio en clase (Quiz1)
 
- - [Enunciado](./talleres/taller1.xlsx)
-
-
 <!---
+
+ - [Enunciado](./talleres/quiz1_2019_01.html)
+
+
+
 
 
 [Accidentalidad en Envigado](https://www.datos.gov.co/Transporte/Accidentalidad-Envigado-2016-2017-y-Primer-Semestr/t5sw-amxr)
