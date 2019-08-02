@@ -1,0 +1,48 @@
+---
+title: "Quiz 1"
+author: "Kenneth Roy Cabrera Torres"
+date: "Viernes, 2 de agosto de 2019"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Pregunta 1.
+
+
+Se tiene la siguiente base de datos:
+
+```{r}
+x <- seq(0, 10)
+y <- 30 + 2 * x + rnorm(11, sd = 10)
+datos <- data.frame(x = x, y = y)
+```
+
+
+
+```{r}
+modelo <- lm(y ~ x, data = datos)
+modelo
+```
+  
+```{r}
+anova(modelo)
+```
+
+Escriba un còdigo que muestra solo el **valor p** del modelo.
+
+Recuerde que cada **valor p** cambia al ejecutar una nueva simulación.
+
+```{r, echo=FALSE}
+anova(modelo)[[5]][1]
+```
+
+
+## Pregunta 2. 
+
+
