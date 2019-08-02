@@ -70,9 +70,9 @@ order: 2
 
   - [Lectura de varias base de datos](./guiones/lectura_bases.html)
   - [Archivo lm_ch_2015_bl_liq_1.csv](./basesdedatos/Archivo lm_ch_2015_bl_liq_1.csv)
-  - [Archivo lm_ch_2015_bl_liq_2.csv](./basesdedatos/Archivo lm_ch_2015_bl_liq_1.csv)
-  - [Archivo lm_ch_2015_bl_vdr_1.csv](./basesdedatos/Archivo lm_ch_2015_bl_liq_1.csv)
-  - [Archivo lm_ch_2015_bl_vdr_1.csv](./basesdedatos/Archivo lm_ch_2015_bl_liq_1.csv)
+  - [Archivo lm_ch_2015_bl_liq_2.csv](./basesdedatos/Archivo lm_ch_2015_bl_liq_2.csv)
+  - [Archivo lm_ch_2015_bl_vdr_1.csv](./basesdedatos/Archivo lm_ch_2015_bl_vdr_1.csv)
+  - [Archivo lm_ch_2015_bl_vdr_2.csv](./basesdedatos/Archivo lm_ch_2015_bl_vdr_2.csv)
 
 <!---
 
