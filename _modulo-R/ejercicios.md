@@ -6,7 +6,8 @@ order: 6
 ---
 
 
-<!---
+
+
 
 
 ## Contenido
@@ -15,7 +16,11 @@ order: 6
 * ToC
 {: toc}
 
-## Dibujar un segemento al click del mouse.
+## Primer ejercicio en clase (Quiz1)
+
+ - [Enunciado](./talleres/taller1.xlsx)
+
+
 
 
 
