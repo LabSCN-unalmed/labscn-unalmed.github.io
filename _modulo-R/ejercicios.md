@@ -15,7 +15,7 @@ order: 6
 
 ## Primer ejercicio en clase (Quiz1)
 
-<!---
+<!--
 
  - [Enunciado](./talleres/quiz1_2019_01.html)
 

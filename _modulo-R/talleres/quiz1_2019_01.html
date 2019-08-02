@@ -378,10 +378,24 @@ summary {
 
 <div id="pregunta-1." class="section level2">
 <h2>Pregunta 1.</h2>
-<p>Se tiene la siguiente base de datos:</p>
+<p>Se tiene la siguiente base de datos simulada:</p>
 <pre class="r"><code>x &lt;- seq(0, 10)
 y &lt;- 30 + 2 * x + rnorm(11, sd = 10)
-datos &lt;- data.frame(x = x, y = y)</code></pre>
+datos &lt;- data.frame(x = x, y = y)
+datos</code></pre>
+<pre><code>##     x        y
+## 1   0 20.64048
+## 2   1 10.20148
+## 3   2 32.51760
+## 4   3 41.10672
+## 5   4 55.48451
+## 6   5 48.52280
+## 7   6 24.27077
+## 8   7 64.64846
+## 9   8 48.69335
+## 10  9 48.72872
+## 11 10 62.94168</code></pre>
+<p>Y se ajusta un modelo de regresión lineal a los datos ajustados, el resultado será el siguiente:</p>
 <pre class="r"><code>modelo &lt;- lm(y ~ x, data = datos)
 modelo</code></pre>
 <pre><code>## 
@@ -390,18 +404,20 @@ modelo</code></pre>
 ## 
 ## Coefficients:
 ## (Intercept)            x  
-##      34.537        1.244</code></pre>
+##      22.068        3.909</code></pre>
 <pre class="r"><code>anova(modelo)</code></pre>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: y
-##           Df  Sum Sq Mean Sq F value Pr(&gt;F)
-## x          1  170.26  170.26  1.3713 0.2717
-## Residuals  9 1117.42  124.16</code></pre>
+##           Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## x          1 1681.0 1681.00  10.393 0.01043 *
+## Residuals  9 1455.7  161.75                  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>Escriba un còdigo que el siguiente mensaje de acuerdo al resultado de la simulación.</p>
 <p>Recuerde que cada <strong>valor p</strong> cambia al ejecutar una nueva simulación.</p>
-<pre><code>## El valor p del modelo es 0.2716537 .</code></pre>
-<pre><code>## Por lo tanto el modelo no es significativo al 95%</code></pre>
+<pre><code>## El valor p del modelo es 0.01042622 .</code></pre>
+<pre><code>## Por lo tanto modelo es significativo al 95%.</code></pre>
 </div>
 <div id="pregunta-2." class="section level2">
 <h2>Pregunta 2.</h2>
