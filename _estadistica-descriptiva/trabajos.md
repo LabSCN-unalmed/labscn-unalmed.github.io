@@ -68,7 +68,7 @@ su relación con el puntaje global (PUNT_GLOBAL).
 |Último dígito | Variables demográficas |
 |--------|---------|
 |0 - 4   | EDAD (Considere solo edades entre 17 y 22 años inclusive) |
-|5 - 9   | ESTUD_GENERO |
+|5 - 9   | ESTU_GENERO |
 
 
 |Penúltimo dígito | Variables explicativas 1 |
@@ -112,7 +112,7 @@ del estudiante.
 
 Si el estudiante hace las variables mínimas, tiene
 una calificación de 4.0. Si quiere alcanzar el 5.0 deberá
-considerar dos variables más. 
+considerar dos variables más.
 
 Determine la distribución de las variables que
 le correpondió por municipio y muestre los resultados
