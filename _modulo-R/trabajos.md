@@ -18,6 +18,10 @@ de tal forma que el usuario juegue contra el computador.
 
 En [esta página web](http://dotsandboxes.org/) se permite mirar el funcionamiento del juego.
 
+### Fecha de entrega.
+
+Viernes, 23 de agosto de 2019 en horario de clase.
+
 
 <!--
 
@@ -36,6 +40,17 @@ En [esta página web](http://dotsandboxes.org/) se permite mirar el funcionamien
 - Máximo dos archivos de código:
    - Archivo con código del programa principal.
    - Archivo con funciones auxiliares.
+
+
+### Aspectos de evaluación.
+
+#### Forma.
+
+  - Manejo gráfico de la interfaz del juego.
+
+#### Fondo.
+
+  - Estrategia de juego del computador vs el jugador.
 
 ### Fecha de entrega.
 
