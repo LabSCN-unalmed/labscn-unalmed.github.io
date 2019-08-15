@@ -58,13 +58,14 @@ order: 2
 ## Manejo de los archivos generados por la app Science Journal.
 
   - [Ejemplo datos de luminimetría](./guiones/premuestreo_luminometria.html)
-  - [Datos de luminometría sin agua](./guiones/Premuestro 1 Grabaci_n 1.csv)  
-  - [Datos de luminometría sin agua](./guiones/Premuestro 1 Grabaci_n 2.csv)  
+  - [Datos de luminometría sin agua](./guiones/Premuestro 1 Grabaci_n 1.csv)
+  - [Datos de luminometría sin agua](./guiones/Premuestro 1 Grabaci_n 2.csv)
 
 ## Resultados de pruebas saber 11 2018-02 y desempeño fiscal 2017.
 
   - [Lectura de las base de datos](./guiones/01_lectura.html)
   - [Descripción general de las bases de datos](./guiones/02_saber_11_2018_2.html)
+  - [Análisis de algunas variables](./guiones/02_saber_11_2018_2_02.html)
 
 ## Lectura de varias bases de datos para consolidar sólo una.
 
