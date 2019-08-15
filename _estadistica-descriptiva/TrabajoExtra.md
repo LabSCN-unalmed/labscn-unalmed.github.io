@@ -1,9 +1,121 @@
-<!---
+---
 layout: curso
-title: 'Trabajo Complementario'
+title: 'Trabajos y talleres Complementario'
 curso: 'estadistica-descriptiva'
 order: 10
--->
+---
+
+Los siguientes son los sustitutos de talleres y
+trabajos individuales o en equipo de acuerdo
+a cada caso.
+
+Recuerden escribir en asunto **[EDAED]**.
+
+Fecha de entrega: Lunes 26 de agosto de 2019 antes de las 23:59
+hora de Colombia.  
+
+
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Sustituto de talleres.
+
+### Deserción estudiantil de bellas artes en Cali.
+
+En la página de datos abiertos se publican Los
+datos de las[ tasas de deserción anual del
+Instituto Departamental de Bellas Artes](https://www.datos.gov.co/Educaci-n/Deserci-n-estudiantil-promedio-anual/abi4-xbjf) de Cali, Valle.
+
+Se pide mostrar en una gráfica las tasas de retención
+y de retención desde el año 2000 hasta el 2018.
+
+Todo se debe hacer en R. No se permite hacer ninguna
+manipulación a la base de datos en Excel.
+
+### Mostrar un mapa de los centros de acondicionamiento físico de Buga.
+
+En la página de datos abiertos se publica los datos georreferenciados
+de los centros de [acondicionamiento físico de Buga, Valle](https://www.datos.gov.co/Deporte-y-Recreaci-n/Centros-de-acondicionamiento-f-sico-Guadalajara-de/pjfe-2854).
+
+Mostrar un mapa en donde se muestre la ubicación y el número de
+de facilidades y tipo de ejercicio que se puede realizar en
+cada centro de acondicionamiento.
+
+Todo se debe hacer en R. No se permite hacer ninguna
+manipulación a la base de datos en Excel.
+
+
+### Salas de cine registrada en Colombia.
+
+Utilizando los datos sobre las salas de [cine registradas en Colombia](https://www.datos.gov.co/Deporte-y-Recreaci-n/Salas-de-cine-registradas-en-Colombia-Publicaci-n-/dj2m-85j7),
+mostrar por departamento las principales exhibidores de
+salas de cine.
+
+Todo se debe hacer en R. No se permite hacer ninguna
+manipulación a la base de datos en Excel.
+
+
+
+
+## Sustituto de trabajos.
+
+### Sustituto de primer trabajo individual.
+
+#### Defunciones en el Municipio de Envigado.
+
+En la página de datos abiertos se encuentra una base
+de datos sobre las [defunciones en el municipio de Envigado](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Defunciones-Municipio-de-Envigado/5nyx-jhqh).
+
+Se pretende hacer análisis exploratorio que responda
+a las siguiente pregunta.
+
+ - ¿Cuál es la tendencia de las defunciones en
+    general desde el año 2015,
+   hasta el 2018, por grupo de edad, género,
+    enfermedad (nombre y código agrupado 103),  tipo de
+    defunción, manera de muerte, residencia y barrio?
+  - ¿Cuáles se observan como las variables que más
+    están relacionadas con las defunciones?
+
+Se deben mostrar claramente las etapas de depuración de
+la base de datos y la de análisis.
+
+Todo se debe hacer en R. No se permite manipulación en Excel.    
+
+### Sustituto del segundo trabajo individual.
+
+### Sustituto del primer trabajo en grupo.
+
+#### Contratación del municipio de Carolina del Príncipe.
+
+En los siguientes enlaces se encuentran las bases de datos
+de las contrataciones del municipio de Carolina del Príncipe
+desde el año 2016 hasta el 2018.
+
+  - [Año 2016](https://www.datos.gov.co/Gastos-Gubernamentales/Contrataci-n-A-o-2016-Municipio-de-Carolina-del-Pr/vn9y-7ihz)
+  - [Año 2017](https://www.datos.gov.co/Gastos-Gubernamentales/Contrataci-n-A-o-2017-Municipio-de-Carolina-del-Pr/ed3x-tstt)
+  - [Año 2018](https://www.datos.gov.co/Gastos-Gubernamentales/Contrataci-n-A-o-2018-Municipio-de-Carolina-del-Pr/uws3-8hge)
+
+
+Realizar un análisis exploratorio para determinar:
+
+1. El valor de los contratos en general a lo largo de los tres años.
+2. El valor de los contratos por topología a lo largo de
+   los tres años.
+3. El valor de los contratos por proceso de contratacíon
+   a lo largo de los tres años.   
+4. Cuántos contratos vigentes en el 2016, ya no lo están en el 2017,
+   y cuántos contratos vigentes del 2017 ya no están vigentes en el 2018,
+   y por cuánto fue el valor de los contratos que terminaron en el 2016 y
+   el 2017 y la distribución de las duraciones de los contratos.
+
+   Se deben mostrar claramente las etapas de depuración de
+   la base de datos y la de análisis.
+
+   Todo se debe hacer en R. No se permite manipulación en Excel.  
 
 <!---
 ## Objetivo.
