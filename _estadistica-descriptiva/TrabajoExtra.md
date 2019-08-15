@@ -11,6 +11,11 @@ a cada caso.
 
 Recuerden escribir en asunto **[EDAED]**.
 
+Documentos de entrega: Para cada caso se entrega el(los) archivo(s)
+".Rmd" con los códigos y el archivo ".html" sin el código y
+sólo el análisis, tablas y análisis. No se entregan las bases de datos,
+porque se toman las originales de los enlaces de cada caso.
+
 Fecha de entrega: Lunes 26 de agosto de 2019 antes de las 23:59
 hora de Colombia.  
 
@@ -86,6 +91,38 @@ la base de datos y la de análisis.
 Todo se debe hacer en R. No se permite manipulación en Excel.    
 
 ### Sustituto del segundo trabajo individual.
+
+El DANE realizó una encuesta sobre desarrollo e innovación
+tecnológica de servicios para los años 2016-2017.
+
+Tanto  documento guía como la base de datos se encuentra en
+el siguiente enlace:
+
+  - [Encuesta de desarrolo e innovación tecnológica de servicios](http://microdatos.dane.gov.co/index.php/catalog/584/get_microdata)
+
+#### Objetivo.
+
+Realizar una análisis exploratorio de al menos siete variables
+de la encuesta sobre desarrollo e innovación tecnológica en Colombia.
+
+#### Consideraciones.
+
+  -  Formule cinco preguntas involucren siete variables. (En total
+     deberá tener en cuenta siete variables variables.).
+  - Responda las cinco preguntas con un gráfico o con una tabla
+    de resultados.
+  - Cada pregunta debe implicar cruce de variables (al menos tres
+    variables).
+  - Al menos una pregunta deberá involucrar el CIIU.
+  - Al menos una pregunta deberá involucrar la tipología:
+    amplia, estricta, no innovadora, potencial, intencional.
+    Investigar qué significa la tipología.
+
+#### Material adicional.  
+
+Listado de los códigos CIIU de la encuesta.
+
+  - [Códigos CIIU](http://media.actualicese.com/VB19-estructura-detallada-CIIU-4AC.xlsx&preferer=actualicese.com-39147&cat=-)
 
 ### Sustituto del primer trabajo en grupo.
 
