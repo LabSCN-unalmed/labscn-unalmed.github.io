@@ -1,6 +1,6 @@
 ---
 layout: curso
-title: 'Trabajos y talleres Complementario'
+title: 'Trabajos y talleres Complementarios'
 curso: 'estadistica-descriptiva'
 order: 10
 ---
@@ -9,15 +9,15 @@ Los siguientes son los sustitutos de talleres y
 trabajos individuales o en equipo de acuerdo
 a cada caso.
 
-Recuerden escribir en asunto **[EDAED]**.
-
 Documentos de entrega: Para cada caso se entrega el(los) archivo(s)
 ".Rmd" con los códigos y el archivo ".html" sin el código y
-sólo el análisis, tablas y análisis. No se entregan las bases de datos,
+sólo las tablas y análisis. No se entregan las bases de datos,
 porque se toman las originales de los enlaces de cada caso.
 
 Fecha de entrega: Lunes 26 de agosto de 2019 antes de las 23:59
 hora de Colombia.  
+
+Recuerden escribir en asunto **[EDAED]**.
 
 
 ## Contenido
