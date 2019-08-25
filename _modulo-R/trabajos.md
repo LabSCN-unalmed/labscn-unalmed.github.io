@@ -20,7 +20,7 @@ En [esta página web](http://dotsandboxes.org/) se permite mirar el funcionamien
 
 ### Fecha de entrega.
 
-Viernes, 23 de agosto de 2019 en horario de clase.
+Miércoles, 28 de agosto de 2019 en horario de clase.
 
 
 <!--
@@ -54,7 +54,7 @@ Viernes, 23 de agosto de 2019 en horario de clase.
 
 ### Fecha de entrega.
 
-Viernes 20 de octubre de 2017 en hora de clase.         
+Viernes 20 de octubre de 2017 en hora de clase.
 
 
 
