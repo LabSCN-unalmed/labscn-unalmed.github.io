@@ -36,10 +36,10 @@ habilidades en el análisis exploratorio de bases de datos.
 
 | Item                                           | Porcentaje |
 |:-----------------------------------------------|:----------:|
-| Talleres individuales y en grupo (seguimiento) |        20% |
+| Talleres individuales y en grupo (seguimiento) |        15% |
 | Trabajos individuales                          |        30% |
-| Trabajos en grupo                              |        20% |
-| Final                                          |        30% |
+| Trabajos en grupo                              |        15% |
+| Final                                          |        40% |
 {: .table .table-hover}
 
 ## Enlaces importantes
@@ -62,7 +62,8 @@ habilidades en el análisis exploratorio de bases de datos.
 
 ## Políticas del curso
 
-- Toda entrega se realizará al correo **krcabrer@unal.edu.co**
+- Toda entrega se realizará al correo **krcabrer@unal.edu.co**.
+- Toda entrega se enviará desde el correo institucional **@unal.edu.co**.
 - Siempre deberá anotarse en asunto la sigla **[EDAED]**,
   separada de cualquier otro texto adicional. (Si no se tiene
     este requisito se toma como no entregado el trabajo o taller.)

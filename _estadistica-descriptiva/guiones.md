@@ -5,6 +5,8 @@ curso: 'estadistica-descriptiva'
 order: 2
 ---
 
+
+<!---
 ## Contenido
 {: .no_toc}
 
@@ -75,7 +77,7 @@ order: 2
   - [Archivo lm_ch_2015_bl_vdr_1.csv](./basesdedatos/Archivo lm_ch_2015_bl_vdr_1.csv)
   - [Archivo lm_ch_2015_bl_vdr_2.csv](./basesdedatos/Archivo lm_ch_2015_bl_vdr_2.csv)
 
-<!---
+
 
 ## Salario mínimo vs IPC en Colombia.
 
