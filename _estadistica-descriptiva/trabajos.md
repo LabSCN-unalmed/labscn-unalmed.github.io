@@ -6,6 +6,8 @@ order: 5
 ---
 
 
+<!---
+
 ## Contenido
 {: .no_toc}
 
@@ -44,7 +46,7 @@ representación.
 3. Archivo en formato **.html** con el informe y que **no** incluya
    el código.
 
-#### Fecha de entrega.   
+#### Fecha de entrega.
 
 Jueves, 20 de junio de 2019 antes de las 23:59
 [hora oficial de Colombia](http://horalegal.inm.gov.co/)
@@ -173,7 +175,7 @@ de la Universidad.
     datos que responda las siguientes preguntas:
     1. ¿Qué tipo de depuraciones se realizaron a la base de datos?
         Es decir, ¿Qué tipos de errores y problemas encontraron
-        en las bases de datos crudas?  
+        en las bases de datos crudas?
     1. ¿Qué tan preciso es la medición de las coordenadas
         mediante GPS de celular en términos generales?
         Responder tanto con números como con gráfica.
@@ -192,7 +194,7 @@ de la Universidad.
            mediante análisis numérico y gráfico.
     7. ¿La precisión tiene que ver con el estudiante que
        tomó los datos? Mostrar
-           mediante análisis numérico y gráfico.          
+           mediante análisis numérico y gráfico.
 
 #### Fecha de entrega.
 
@@ -217,7 +219,7 @@ Se deben enviar tres archivos:
 
 
 
-<!---
+
 
 ## Trabajos en grupo.
 
@@ -242,7 +244,7 @@ Familiarizarse con el uso la App Science Journal.
     + AccY.
     + AccZ.
 
-#### Segunda actividad.    
+#### Segunda actividad.
 
 ##### Objetivo:
 
@@ -347,14 +349,14 @@ al correo **krcabrer@unal.edu.co** y en asunto escribir **[EDAED]**.
 - Calcular la edad de cada encuestado (hasta dos décimas de año).
   Al día que se hizo la encuesta (6 de febrero de 2018).
 - Considerar estos ejemplos sencillos para
-  construir [gráficas en R](https://www.harding.edu/fmccown/r/).  
+  construir [gráficas en R](https://www.harding.edu/fmccown/r/).
 - Mostrar y analizar la distribución de la edad.
 - Mostrar y analizar la distribución del número de materias matriculadas.
   (Utilizar diagrama de barras `barplot()`).
 - Relacionar la edad con el género, semestre, carrera,
    y PAPA.
 - Relacionar el número de materias matriculadas por el género, semestre, carrera,
-   y PAPA.  
+   y PAPA.
 - Redactar conclusiones y recomendaciones.
 
 #### Documentos a entregar.
@@ -404,7 +406,7 @@ de contrataciones:
       que sea del evento "1-Principal".
    4. Muestre una tabla resumen por código de proyecto y
       que muestre si el valor del proyecto se mantiene constante
-      por código de proyecto y por sector.     
+      por código de proyecto y por sector.
 
 
 Realizar cuatro preguntas adicionales a la base de datos de las contrataciones
@@ -421,7 +423,7 @@ contexto respectivo.
    consideraciones para las cuales se realizó la respuesta
    a la respectiva pregunta.
 
- - El número de integrantes del grupo será como máximo de cinco (5)   
+ - El número de integrantes del grupo será como máximo de cinco (5)
    personas, estén presentes o no.
 
 #### Documentos a entregar.
@@ -525,7 +527,7 @@ realizar las siguientes actividades:
 ### Consideraciones
 
  - El documento debe tener como autor el nombre del estudiante y
-   su identificación.    
+   su identificación.
 
 ### Fecha de entrega
 
@@ -560,7 +562,7 @@ representación.
 3. Archivo en formato **.html** con el informe y que **no** incluya
    el código.
 
-### Fecha de entrega.   
+### Fecha de entrega.
 
 Viernes 15 de septiembre de 2017 antes de las 23:59
 [hora oficial de Colombia](http://horalegal.inm.gov.co/)
@@ -598,7 +600,7 @@ El trabajo escrito deberá contener como mínimo:
 3. Desarrollo del trabajo. Gráficas exploratorias y análisis de
     los resultados obtenidos.
 4. Conclusiones y recomendaciones.
-5. Bibliografia y cibergrafía.     
+5. Bibliografia y cibergrafía.
 
 ### Documentos para entregar.
 
@@ -637,7 +639,7 @@ de salud en Medellín.
    ya sean esta en tablas o en gráficas sin el
    código de R.
  - Archivo o archivos en formato ".Rmd" en donde esté
-   el código utilizado para procesar la información.   
+   el código utilizado para procesar la información.
 
 ### Fecha de entrega.
 

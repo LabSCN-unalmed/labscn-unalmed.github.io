@@ -11,9 +11,12 @@ order: 6
 * ToC
 {: toc}
 
+
 ## Base de datos del salario mínimo en Colombia.
 
  - [Salario mínimo e IPC desde 1984](./basesdedatos/salario_minimo_IPC_Colombia.xlsx)
+
+<!---
 
 ## Base de datos para el segundo taller individual.
 
@@ -45,7 +48,7 @@ order: 6
 
   - [Accidentalidad en Envigado 2016, 2017 y primer semestre 2018](./basesdedatos/Accidentalidad_Envigado_2016___2017_y_Primer_Semestre_2018.csv)
 
-<!---
+
 
 - [Base de datos de la encuesta realizada en clase](./basesdedatos/encuesta1.xlsx)
   * [Preguntas de la encuesta](./basesdedatos/preguntas.jpg)

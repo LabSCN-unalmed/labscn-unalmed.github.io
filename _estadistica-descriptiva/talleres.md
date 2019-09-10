@@ -6,6 +6,8 @@ order: 4
 ---
 
 
+<!---
+
 ## Contenido
 {: .no_toc}
 
@@ -49,7 +51,7 @@ de la Institución Universitaria Pascul Bravo](https://www.datos.gov.co/Ciencia-
    la mayoría.
 
 3. Fecha de entrega domingo 05 de mayo de 2019 antes
-    de las 23:59 [hora de Colombia](http://horalegal.inm.gov.co/).    
+    de las 23:59 [hora de Colombia](http://horalegal.inm.gov.co/).
 
 
 ### Taller individual 2.
@@ -116,7 +118,7 @@ diferencias entre tipos de percepción de diferentes tipos de gráficas.
    La gráfica **no** debe utilizar diagramas de caja-bigotes
    o box-plot.
 3. Escribir el nombre completo de los integrantes del grupo y
-   entréguelo al profesor en clase.   
+   entréguelo al profesor en clase.
 
 ### Taller en grupo 2.
 
@@ -130,7 +132,7 @@ diferencias entre tipos de percepción de diferentes tipos de gráficas.
     al comenzar la clase el día martes 18 de junio
     de 2019.
 
-<!---
+
 
 
 El problema de movilidad en Medellín tiene muchos aspectos a
@@ -149,12 +151,12 @@ con el fin de responder a la encuesta que se realizará en clase:
      la aplicación [google maps](https://www.google.com/maps).
   2. Coordenadas del lugar en la Universidad del destino.
      latitud y longitud con
-     la aplicación [google maps](https://www.google.com/maps).        
+     la aplicación [google maps](https://www.google.com/maps).
   3. Hora y minutos de salida del lugar de residencia.
   4. Hora y minutos de llegada al destino en la Universidad.
 
 Para las personas que no hayan podido entregar esta información
-el día 16 se tomará de nuevo el día 21 de agosto de 2018.s  
+el día 16 se tomará de nuevo el día 21 de agosto de 2018.s
 
 ### Taller individual 2.
 
@@ -188,7 +190,7 @@ como entrega tarde del taller individual 2.
       + Uso de colores.
       + Presentación de las gráficas.
 
-   b. Fondo:    
+   b. Fondo:
       + Claridad en los integrantes del grupo.
       + Claridad en el objetivo.
       + Redacción clara de los párrafos o frases.
@@ -276,12 +278,12 @@ Martes, 5 de febrero de 2019 en horas de clase.
 ### Taller individual 3
    - Llevar a clase en un papel el perímetro en metros hasta
      precisión de centímetros de la Universidad
-      Nacional de Colombia, Núcleo el Volador.    
+      Nacional de Colombia, Núcleo el Volador.
 
 ### Taller individual 4
    - Estimar los valores dada la figura entregada en clase
      sobre el número de establecimientos de diferentes
-     compañías de farmacia en el país.      
+     compañías de farmacia en el país.
 
 
 ## Talleres en grupo.
@@ -324,7 +326,7 @@ la identificación de los integrantes.
 
 - Estimar el promedio de edad de los estudiantes del curso de
   Estadística Descriptiva y Análisis Exploratorio de Datos.
-- Proponer un rango de "confianza" para la estimación del promedio de edad.  
+- Proponer un rango de "confianza" para la estimación del promedio de edad.
 
 ## Talleres en grupo
 

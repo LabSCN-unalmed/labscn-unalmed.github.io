@@ -6,6 +6,8 @@ order: 7
 ---
 
 
+<!---
+
 ## La iluminación en el vino.
 
 ### Objetivo.
@@ -79,7 +81,7 @@ exhibirlos y que allí estén una semana.
 
 
 
-<!---
+
 ## Contenido
 
 {: .no_toc}
@@ -138,7 +140,7 @@ El Volador.
         Se asignará a cada grupo una sección de los límites
         del campus universitario que no excede los 120 metros.
         Y una longitud hacia el interior no inferior a los
-        20 metros.   
+        20 metros.
 
       - Período.
         Se determinará tres periodos del día.
@@ -279,7 +281,7 @@ de aceleración que se toman del celular.
 - Gráficos y tablas pertinentes.
 - Conclusiones.
 - Recomendaciones.
-- Bibliografía.   
+- Bibliografía.
 
 El texto deberá ser lo más corto, claro y completo posible.
 
@@ -294,9 +296,9 @@ El texto deberá ser lo más corto, claro y completo posible.
 
 - Fondo:
   * Descripciones cortas y concisas.
-  * Presentación de resultados claros.  
+  * Presentación de resultados claros.
   * Redacción clara.
-  * Conclusiones y recomendaciones claras.  
+  * Conclusiones y recomendaciones claras.
 
 
 ### Fecha de entrega.

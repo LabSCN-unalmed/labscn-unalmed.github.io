@@ -1,9 +1,13 @@
----
+<!---
 layout: curso
 title: 'Trabajos y talleres Complementarios'
 curso: 'estadistica-descriptiva'
 order: 10
 ---
+
+
+
+
 
 Los siguientes son los sustitutos de talleres y
 trabajos individuales o en equipo de acuerdo
@@ -15,7 +19,7 @@ sólo las tablas y análisis. No se entregan las bases de datos,
 porque se toman las originales de los enlaces de cada caso.
 
 Fecha de entrega: Lunes 26 de agosto de 2019 antes de las 23:59
-hora de Colombia.  
+hora de Colombia.
 
 Recuerden escribir en asunto **[EDAED]**.
 
@@ -88,7 +92,7 @@ a las siguiente pregunta.
 Se deben mostrar claramente las etapas de depuración de
 la base de datos y la de análisis.
 
-Todo se debe hacer en R. No se permite manipulación en Excel.    
+Todo se debe hacer en R. No se permite manipulación en Excel.
 
 ### Sustituto del segundo trabajo individual.
 
@@ -118,7 +122,7 @@ de la encuesta sobre desarrollo e innovación tecnológica en Colombia.
     amplia, estricta, no innovadora, potencial, intencional.
     Investigar qué significa la tipología.
 
-#### Material adicional.  
+#### Material adicional.
 
 Listado de los códigos CIIU de la encuesta.
 
@@ -143,7 +147,7 @@ Realizar un análisis exploratorio para determinar:
 2. El valor de los contratos por topología a lo largo de
    los tres años.
 3. El valor de los contratos por proceso de contratacíon
-   a lo largo de los tres años.   
+   a lo largo de los tres años.
 4. Cuántos contratos vigentes en el 2016, ya no lo están en el 2017,
    y cuántos contratos vigentes del 2017 ya no están vigentes en el 2018,
    y por cuánto fue el valor de los contratos que terminaron en el 2016 y
@@ -152,9 +156,9 @@ Realizar un análisis exploratorio para determinar:
    Se deben mostrar claramente las etapas de depuración de
    la base de datos y la de análisis.
 
-   Todo se debe hacer en R. No se permite manipulación en Excel.  
+   Todo se debe hacer en R. No se permite manipulación en Excel.
 
-<!---
+
 ## Objetivo.
 
 De manera individual realizar un análisis exploratorio proponiendo
@@ -170,7 +174,7 @@ de accidentalidad de Envigado 2016, 2017 y primer semestre de 2018.
  - Presentar un análisis descriptivo genera.
 
 
-## Análisis exploratorio y descriptivo.   
+## Análisis exploratorio y descriptivo.
 
 + Proponer cinco (5) preguntas a la base de datos de accidentalidad.
 + Por lo menos una de las preguntas deben involucrar:
