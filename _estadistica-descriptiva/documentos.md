@@ -14,7 +14,7 @@ order: 3
 
 ## Introducción a Estadística Descriptiva y Análisis Exploratorio de Datos.
 
-- [Presentación introductoria](/estadistica-descriptiva/documentos/explora1.html)
+- [Presentación introductoria](./documentos/explora1.html)
 
 ## Tutorial de inicio de RStudio.
 
