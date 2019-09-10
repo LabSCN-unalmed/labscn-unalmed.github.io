@@ -20,11 +20,9 @@ order: 3
 
 - [Tutorial de instalación de un paquete](./instala_paquete.html)
 
-
 ## Tutorial de inicio de RStudio.
 
 - [Tutorial Inicio](./inicioR.html)
-
 
 ## Ejemplo de problemas en gráficas.
 
