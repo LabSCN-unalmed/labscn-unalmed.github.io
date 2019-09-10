@@ -16,13 +16,15 @@ order: 3
 
 - [Presentación introductoria](./documentos/explora1.html)
 
+## Tutorial de la instalación de un paquete en R desde RStudio.
+
+- [Tutorial de instalación de un paquete](./instala_paquete.html)
+
+
 ## Tutorial de inicio de RStudio.
 
 - [Tutorial Inicio](./inicioR.html)
 
-## Tutorial de la instalación de un paquete en R.
-
-- [Tutorial de instalación de un paquete](./instala_paquete.html)
 
 ## Ejemplo de problemas en gráficas.
 
