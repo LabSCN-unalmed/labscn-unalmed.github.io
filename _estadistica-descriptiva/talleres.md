@@ -23,6 +23,7 @@ order: 4
 
    Se debe instalar el paquete "readxl" para que el tutorial de inicio de R
    funcione adecuadamente.
+4. Reproducir los resultados del análisis exploratorio de las biblitecas públicas de Medellín.   
 
 <!---
 ## Taller individual 1
