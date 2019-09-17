@@ -5,6 +5,28 @@ curso: 'estadistica-descriptiva'
 order: 4
 ---
 
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Actividades.
+
+1. Inscribirse al [foro del curso](https://labscn-unalmed.github.io/estadistica-descriptiva/foro.html).
+1. Instalar [el software R](https://cran.r-project.org/bin/windows/base/).
+2. Instalar [el software RStudio](https://www.rstudio.com/products/rstudio/download/).
+3. Seguir y replicar los siguientes tutoriales que se encuentran en la sección de "Documentos":
+
+   - Tutorial de instalación de un paquete en R.
+   - Tutorial de inicio de RStudio.
+
+   Se debe instalar el paquete "readxl" para que el tutorial de inicio de R
+   funcione adecuadamente.
+
+## Taller individual 1
+
+1.    
 
 <!---
 
@@ -14,7 +36,7 @@ order: 4
 * ToC
 {: toc}
 
-## Actividades.
+
 
 1. Instalar [el software R](https://cran.r-project.org/bin/windows/base/).
 2. Instalar [el software RStudio](https://www.rstudio.com/products/rstudio/download/).
