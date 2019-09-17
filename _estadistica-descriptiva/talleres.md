@@ -24,11 +24,12 @@ order: 4
    Se debe instalar el paquete "readxl" para que el tutorial de inicio de R
    funcione adecuadamente.
 
+<!---
 ## Taller individual 1
 
 1.    
 
-<!---
+
 
 ## Contenido
 {: .no_toc}

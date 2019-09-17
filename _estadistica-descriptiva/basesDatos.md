@@ -16,6 +16,10 @@ order: 6
 
  - [Salario mínimo e IPC desde 1984](./basesdedatos/salario_minimo_IPC_Colombia.xlsx)
 
+## Base de datos de las biblitecas públicas de Medellín.
+
+ - [Bibliotecas públicas de Medellín](./basesdedatos/Bibliotecas_P_blicas_de_Medell_n.csv) 
+
 <!---
 
 ## Base de datos para el segundo taller individual.

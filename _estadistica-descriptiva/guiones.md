@@ -6,6 +6,17 @@ order: 2
 ---
 
 
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Bibliotecas públicas de Medellín.
+
+  - [Análisis exploratorio](./guiones/bibliotecas_publicas.html)
+  - [Base de datos](https://www.datos.gov.co/Cultura/Bibliotecas-P-blicas-de-Medell-n/ucp3-apfa)
+
 <!---
 ## Contenido
 {: .no_toc}
