@@ -18,6 +18,10 @@ order: 2
 ## Elementos básicos
    [Introducción a R (Objetos: básicos y estructurados)](./slides/01_Intro_2.html)
 
+## Funciones básicas y útiles.
+   [Funciones útiles](./slides/01_Intro_3.html)
+
+
 <!---
 ## Lectura y escritura de archivos
    [Lectura/Escritura](./slides/02_Lectura_Escritura.html)
@@ -34,7 +38,7 @@ order: 2
 
 
 ## Herramientas de programación
-      [Herramientas de programación](./slides/07-Herramientas-programacion.html)
+   [Herramientas de programación](./slides/07-Herramientas-programacion.html)
 
 
 ## Arreglo de base de datos (Tidy data)

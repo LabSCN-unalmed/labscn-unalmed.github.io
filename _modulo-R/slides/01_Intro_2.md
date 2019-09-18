@@ -7,7 +7,7 @@
 Introducción al R (Parte II)
 ========================================================
 author: Kenneth Cabrera
-date: miércoles, 24 de julio de 2019
+date: miércoles, 18 de septiembre de 2019
 
 
 Clases de objetos
@@ -428,12 +428,12 @@ Valores faltantes I
 ========================================================
 
 ```r
-x <- c(1, 2, NA, 10, 3)
+x <- c(1, 2, NA, 10, 3, 0/0, 3/0, log(0))
 is.na(x)
 ```
 
 ```
-[1] FALSE FALSE  TRUE FALSE FALSE
+[1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE
 ```
 
 ```r
@@ -441,28 +441,10 @@ is.nan(x)
 ```
 
 ```
-[1] FALSE FALSE FALSE FALSE FALSE
+[1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
 ```
 
-Valores faltantes II
-========================================================
 
-```r
-x <- c(1, 2, NaN, NA, 4)
-is.na(x)
-```
-
-```
-[1] FALSE FALSE  TRUE  TRUE FALSE
-```
-
-```r
-is.nan(x)
-```
-
-```
-[1] FALSE FALSE  TRUE FALSE FALSE
-```
 
 Bases de datos (data frames)
 ========================================================

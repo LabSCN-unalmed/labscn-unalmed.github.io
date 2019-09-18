@@ -90,8 +90,8 @@ RStudio que se puede descargar de:
 Características principales del R
 ========================================================
 - Sintaxis similar al S.
-- Semántica superficialmente simila al S.
-- Ejecuta casi en toda plataforma.
+- Semántica superficialmente similar al S.
+- Ejecuta casi en toda plataforma (windows, mac, linux).
 - Desarrollo en constante actividad.
 - Útil para trabajo interactivo.
 - Es libre (gratis y abierto).
@@ -101,10 +101,10 @@ Desventajas
 - Basado en tecnología de hace 40 años.
 - No soporta muy bien gráficas 3D. (Aunque tiene paquetes que
   maneja de manera aceptable gráficas 3D).
-- La funcionalidad se base en la demanda del consumidor.
+- La funcionalidad se basa en la demanda del consumidor.
   Usted necesita hacer lo que otros no hacen.
-- Los objetos se almacenan en memoria, por lo tanto
-  demanda mucha memoria RAM.
+- Los objetos se almacenan en memoria RAM, por lo tanto
+  demanda mucha memoria.
 - No sirve para todo.
 
 
@@ -132,7 +132,7 @@ Paquetes princiales
 
 Paquetes adicionales
 ========================================================
-* Existen a la fecha más o menos 14589
+* Existen a la fecha más o menos 14913
   [paquetes](https://cran.r-project.org/web/packages/index.html)
   en el CRAN y contando.
   

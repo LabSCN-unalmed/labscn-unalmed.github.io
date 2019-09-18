@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Introducción al R (Parte II)</h1><p>Kenneth Cabrera<br/>miércoles, 24 de julio de 2019</p>
+<h1>Introducción al R (Parte II)</h1><p>Kenneth Cabrera<br/>miércoles, 18 de septiembre de 2019</p>
 
 <div class="slideContent" >
 
@@ -1221,36 +1221,17 @@ levels(x)
 <section data-transition="linear" data-transition-speed="default">
 <h3>Valores faltantes I</h3>
 <div class="slideContent" >
-<pre><code class="r">x &lt;- c(1, 2, NA, 10, 3)
+<pre><code class="r">x &lt;- c(1, 2, NA, 10, 3, 0/0, 3/0, log(0))
 is.na(x)
 </code></pre>
 
-<pre><code>[1] FALSE FALSE  TRUE FALSE FALSE
+<pre><code>[1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE
 </code></pre>
 
 <pre><code class="r">is.nan(x)
 </code></pre>
 
-<pre><code>[1] FALSE FALSE FALSE FALSE FALSE
-</code></pre>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>Valores faltantes II</h3>
-<div class="slideContent" >
-<pre><code class="r">x &lt;- c(1, 2, NaN, NA, 4)
-is.na(x)
-</code></pre>
-
-<pre><code>[1] FALSE FALSE  TRUE  TRUE FALSE
-</code></pre>
-
-<pre><code class="r">is.nan(x)
-</code></pre>
-
-<pre><code>[1] FALSE FALSE  TRUE FALSE FALSE
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
 </code></pre>
 
 </div>
