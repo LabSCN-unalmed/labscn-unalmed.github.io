@@ -23,7 +23,7 @@ order: 2
    [Lectura/Escritura](./slides/02_Lectura_Escritura.html)
 
    - [url_banrep_trm.txt](./slides/url_banrep_trm.txt)
--->   
+-->
 
 
 ## Estructuras de control
@@ -33,6 +33,10 @@ order: 2
    [Funciones](./slides/05_Funciones.html)
 
 
+## Herramientas de programación
+      [Herramientas de programación](./slides/07-Herramientas-programacion.html)
+
+
 ## Arreglo de base de datos (Tidy data)
    [Arreglo de bases de datos](./slides/03_Arreglo_Base_Datos.html)
 
@@ -40,9 +44,6 @@ order: 2
    - [Tuberculosis](./slides/tb.csv)
    - [Paises](./slides/paises.csv)
 
-
-## Herramientas de programación
-   [Herramientas de programación](./slides/07-Herramientas-programacion.html)
 
 ## Graficación
    - [Graficación (Parte 1)](./slides/09_Graficacion_I.html)
