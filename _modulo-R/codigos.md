@@ -15,12 +15,12 @@ order: 3
 ## Tablero con la bolita que rebota
  - [Bola que rebota](./codigos/quiz3.R)
 
+
+<!--
 ## Ejemplo del uso del "click" del mouse.
   - [Segmento oblicuo](./codigos/segmento_oblicuo.R)
   - [Solución a segmentos horizontales o verticales](./codigos/segmento_vertical_horizontal.R)
 
-
-<!--
 ## Ejemplo del uso del RMarkdown.
 
  - [Archivo en formato ".Rmd"](./codigos/ejemplo1.Rmd).

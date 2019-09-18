@@ -5,7 +5,7 @@ curso: 'modulo-R'
 order: 6
 ---
 
-
+<!--
 
 ## Contenido
 {: .no_toc}
@@ -19,7 +19,7 @@ order: 6
 
  - [Enunciado](./talleres/quiz1_2019_01.html)
 
-<!--
+
 
 
 

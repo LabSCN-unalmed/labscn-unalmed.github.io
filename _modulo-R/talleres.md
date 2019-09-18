@@ -6,7 +6,7 @@ order: 5
 ---
 
 
-
+<!---
 
 ## Contenido
 {: .no_toc}
@@ -26,7 +26,7 @@ correo **krcabrer@unal.edu.co**
 
 
 
-<!---
+
 
  + [Enunciado](./talleres/pobreza_mundial_enunciado.html)
  + [Solución](./talleres/pobreza_mundial_solucion.html)
@@ -39,7 +39,7 @@ correo **krcabrer@unal.edu.co**
    correo **krcabrer@unal.edu.co**.
    No olvidar en asunto escribir **[ModuloR]**.
  * Fecha de entrega 21 de marzo de 2018, antes de
-   las 10:30 de la mañana.   
+   las 10:30 de la mañana.
 
 ## Primer taller individual recuperatorio (Quiz 1)
   * [Enunciado](./talleres/quiz1_rec.html)
@@ -57,7 +57,7 @@ correo **krcabrer@unal.edu.co**
    la base de datos:
    [Matrícula establecimientos educativos oficiales y no oficiales Municipio de Medellín 2017](https://www.datos.gov.co/Educaci-n/Matr-cula-establecimientos-educativos-oficiales-y-/6qaa-344w)
 
-## Tercer taller individual (Quiz 3)   
+## Tercer taller individual (Quiz 3)
 
  * Dado el [siguiente código](./codigos/quiz3.R) que hace que una bolita rebote en
    los bordes de un tablero, modificar el código de tal manera que
@@ -127,8 +127,8 @@ correo **krcabrer@unal.edu.co**
         ```
          x <- c(1, 3, 9, 4, 4, 1, 4, 2, 8)
          y <- c(2, 2, 3, 8, 10, 1, 1, 3)
-         [1]  9 4 10   
-        ```    
+         [1]  9 4 10
+        ```
 
 
 ### Entrega.

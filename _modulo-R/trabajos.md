@@ -5,7 +5,7 @@ curso: 'modulo-R'
 order: 4
 ---
 
-
+<!--
 
 ## Trabajo final.
 
@@ -23,7 +23,7 @@ En [esta página web](http://dotsandboxes.org/) se permite mirar el funcionamien
 Miércoles, 28 de agosto de 2019 en horario de clase.
 
 
-<!--
+
 
 ### Consideraciones.
 
