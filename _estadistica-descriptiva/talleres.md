@@ -49,8 +49,8 @@ para celular, con el propósito de familirizarse con el uso de la aplicación.
    - Caminando lentamente (mínimo 1 minuto).
    - Sentado estudiando (mínimo 1 minuto).
 2. Enviar cada uno de los cuatro (4) archivos en formato .csv en su respectivo correo.
-3. Enviar los cuatro (4) archivos al profesor (krcabrer@unal.edu.co) con la adición de los siguientes datos en el cuerpo del correo: estatura, peso y género.
-4. Leer los archivos en R y realizar un análisis exploratorio del comportamiento
+3. Enviar los cuatro (4) archivos al profesor (krcabrer@unal.edu.co) con la adición de los siguientes datos en el cuerpo del correo: edad, estatura, peso y género.
+4. Leer los cuatro (4) archivos en R y realizar un análisis exploratorio del comportamiento
    de la acelaración total. Se envía tanto el archivo ".html", como el archivo
    ".Rmd".
 
