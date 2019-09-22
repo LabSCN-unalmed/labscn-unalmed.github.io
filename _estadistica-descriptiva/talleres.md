@@ -38,12 +38,12 @@ Responder a la encuesta hecha en la primera clase.
 
 ### Objetivo.
 
-Evaluar el resultado de ver el episodio 1 de la primera temporada de
+Evaluar el resultado de ver el [episodio 1](https://drive.google.com/open?id=0B06ZL2OVQg3deU9rRE92MG5JNEU) de la primera temporada de
 la serie Numb3rs.
 
 ### Fecha de evaluación.
 
-Martes 10 de octubre de 2019 a la hora de la clase en el aula de clase.
+Martes primero (1ro) de octubre de 2019 a la hora de la clase se realizará un quiz.
 
 ## Taller individual 3:
 
