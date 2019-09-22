@@ -38,6 +38,17 @@ Responder a la encuesta hecha en la primera clase.
 
 ### Objetivo.
 
+Evaluar el resultado de ver el episodio 1 de la primera temporada de
+la serie Numb3rs.
+
+### Fecha de evaluación.
+
+Martes 10 de octubre de 2019 a la hora de la clase en el aula de clase.
+
+## Taller individual 3:
+
+### Objetivo.
+
 Realizar una toma de datos con la aplicación [Science Journal](https://play.google.com/store/apps/details?id=com.google.android.apps.forscience.whistlepunk&hl=en)
 para celular, con el propósito de familiarizarse con el uso de la aplicación.
 
