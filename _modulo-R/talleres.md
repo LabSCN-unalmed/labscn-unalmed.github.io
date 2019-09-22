@@ -18,7 +18,7 @@ order: 5
 Escribir un código en R (.R) que realice las siguientes acciones.
 
 1. Mostrar una figura más elaborarda que una "casa" o un triángulo equilátero.
-2. Se permita que la figura rote un determinado ángulo. (Ese àngulo es determinado por el usuario no por el programador).
+2. Se permita que la figura rote un determinado ángulo. (Ese ángulo es determinado por el usuario no por el programador).
 
 Condiciones:
 1. No se permite ningún paquete adicional del R, excepto los paquetes que ya vienen incorporados en la instalación bàsica.

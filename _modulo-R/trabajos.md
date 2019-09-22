@@ -9,11 +9,11 @@ order: 4
 
 ### Objetivo.
 
-Realizar un programa en R que sea intérprete de comandos básicos del lenguaje LOGO.
+Realizar un programa en R que sea intérprete de comandos básicos del [lenguaje LOGO o el lenguaje de la tortuga](https://es.wikipedia.org/wiki/Logo_%28lenguaje_de_programaci%C3%B3n%29).
 
 ### Especificaciones:
 
-1. Constituir grupo de máximo tres (3) personas.
+1. Constituir grupos de máximo tres (3) personas.
 2. El código deberá hacer como mínimo intérprete de los siguientes comandos de LOGO:
 
 ```
@@ -39,6 +39,9 @@ end
 
 nombre_funcion valor
 ```
+
+### Condiciones
+
 3. Si el código interpreta lo mínimo tiene una calificación de 3.0.
 4. No se permitirá el uso de ningún paquete adicional en el R. Sólo con los paquetes que vienen incorporados por omisión.
 5. Aumentar la funcionalidad del logo con otras funcionalidades, como:
