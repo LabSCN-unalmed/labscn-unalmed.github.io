@@ -43,22 +43,20 @@ para celular, con el propósito de familirizarse con el uso de la aplicación.
 
 ### Consideraciones.
 
-1. Tomar los datos de aceleración (X, Y y Z) de tres actividades diferentes:
-   - Caminando normalmente (mínimo 1 minuto).
-   - Caminando rápidamente (no corriendo o trotando) (mínimo 1 minuto).
-   - Caminando lentamente (mínimo 1 minuto).
-   - Sentado estudiando (mínimo 1 minuto).
-2. Enviar cada uno de los cuatro (4) archivos en formato .csv en su respectivo correo.
-3. Enviar los cuatro (4) archivos al profesor (krcabrer@unal.edu.co) con la adición de los siguientes datos en el cuerpo del correo: edad, estatura, peso y género.
+1. Tomar los datos de aceleración (X, Y y Z) de cuatro (4) actividades diferentes:
+   1. Caminando normalmente (mínimo dos (2) minutos).
+   2. Caminando rápidamente (no corriendo o ni trotando) (mínimo dos (2) minutos).
+   3. Caminando lentamente (mínimo dos (2) minutos).
+   4. Viajando en un medio de transporte (bus, metro, metroplus, motocicleta, bicicleta, carro particular, etc) (mínimo dos (2) minutos).
+
+2. Descargar y enviar cada uno de los cuatro (4) archivos en formato ".csv" en su respectivo correo. Descargar los archivo **sin marcar** la opción "Tiempo relativo".
+3. Enviar los cuatro (4) archivos al profesor (krcabrer@unal.edu.co) con la adición de los siguientes datos en el cuerpo del correo: medio de transporte utilizado, edad, estatura, peso y género.
 4. Leer los cuatro (4) archivos en R y realizar un análisis exploratorio del comportamiento
-   de la acelaración total. Se envía tanto el archivo ".html", como el archivo
-   ".Rmd".
+   de la acelaración total de los cuatro archivos. Se envía tanto el archivo ".html", como el archivo ".Rmd".
 
 ### Fecha de entrega.
 
-Jueves 3 de octubre de 2018 antes de las 23:59 hora de Colombia, no olvidar la etiqueta [EDAED].
-
-
+Jueves 3 de octubre de 2018 antes de las 23:59 hora de Colombia, no olvidar la etiqueta [EDAED]. En el mismo correo se envían los archivos ".csv", el archivo ".Rmd" y el archivo ".html" sin olvidar los datos en el cuerpo del programa.
 
 
 
