@@ -14,8 +14,9 @@ Realizar un programa en R que sea intérprete de comandos básicos del lenguaje 
 ### Especificaciones:
 
 1. Constituir grupo de máximo tres (3) personas.
-2. El código deberá hacer como mínimo intérprete de los siguinetes comando de LOGO:
-```{r}
+2. El código deberá hacer como mínimo intérprete de los siguientes comandos de LOGO:
+
+```
 av nn : Avanza nn pasos.
 gi nn : gira a la izquierda nn grados.
 gd nn : gira a la derecha nn grados.
@@ -25,6 +26,10 @@ mt    : Mostrar tortuga.
 ot    : Ocultar tortuga.
 sp    : sin pluma
 cp color : con pluma de color
+
+haga "var <valor>
+
+:var
 
 para nombre_funcion :parametro
   <instrucion logo>
@@ -51,7 +56,7 @@ Viernes 18 de octubre de 2019 en hora de clase (10:00 am) en el salón de clase
 en donde el profesor evaluará la interpretación básica del programa con un código que solo se sabrá ese día de la evaluación. Si el código se ejecuta correctamente tendrán la calificación de 3.0, seguidamente se mostrará por parte el grupo las adiciones a las funcionalidades del lenguaje incorporadas.
 
 El código se deberá enviar el mismo día antes de la clase, es decir el código
-deberá se enviado al correo **krcabrer@unal.edu.co** antes de las 10:00 am el día viernes 18 de octubre de 2019, sin olvidar en asunto [ModuloR].
+deberá se enviado al correo **krcabrer@unal.edu.co** antes de las 10:00 am el día viernes 18 de octubre de 2019, sin olvidar en asunto **[ModuloR]**.
 
 
 
