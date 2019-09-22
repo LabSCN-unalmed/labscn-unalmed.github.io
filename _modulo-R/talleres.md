@@ -6,6 +6,41 @@ order: 5
 ---
 
 
+
+## Contenido
+{: .no_toc}
+
+* ToC
+{: toc}
+
+## Primer taller individual.
+
+Escribir un código en R (.R) que realice las siguientes acciones.
+
+1. Mostrar una figura más elaborarda que una "casa" o un triángulo equilátero.
+2. Se permita que la figura rote un determinado ángulo. (Ese àngulo es determinado por el usuario no por el programador).
+
+Condiciones:
+1. No se permite ningún paquete adicional del R, excepto los paquetes que ya vienen incorporados en la instalación bàsica.
+2. En el encabezado del código utilizar la siguientes plantilla:
+
+```{r}
+###############################################################################
+# Primer taller individual.
+# Autor: <Nombres y apellidos completos>.
+# Identificación: <Número de intificación>.
+# Correo electrónico: <xxxxxxxx@unal.edu.co>.
+# Objetivo:
+###############################################################################
+```
+
+Fechas de entrega: Lunes 23 de septiembre de 2019 antes de las 23:59 horas
+al correo krcabrer@unal.edu.co no olvidar escibir en asunto [ModuloR]
+
+
+
+
+
 <!---
 
 ## Contenido

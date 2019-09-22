@@ -5,6 +5,56 @@ curso: 'modulo-R'
 order: 4
 ---
 
+## Trabajo final.
+
+### Objetivo.
+
+Realizar un programa en R que sea intérprete de comandos básicos del lenguaje LOGO.
+
+### Especificaciones:
+
+1. Constituir grupo de máximo tres (3) personas.
+2. El código deberá hacer como mínimo intérprete de los siguinetes comando de LOGO:
+```{r}
+av nn : Avanza nn pasos.
+gi nn : gira a la izquierda nn grados.
+gd nn : gira a la derecha nn grados.
+bp    : borra pantalla
+rep nn [accion]  : repite nn veces una accion
+mt    : Mostrar tortuga.
+ot    : Ocultar tortuga.
+sp    : sin pluma
+cp color : con pluma de color
+
+para nombre_funcion :parametro
+  <instrucion logo>
+  <instrucion logo>
+  <instrucion logo>
+end
+
+nombre_funcion valor
+```
+3. Si el código interpreta lo mínimo tiene una calificación de 3.0.
+4. No se permitirá el uso de ningún paquete adicional en el R. Sólo con los paquetes que vienen incorporados por omisión.
+5. Aumentar la funcionalidad del logo con otras funcionalidades, como:
+   - Que el recorrido de la "tortuga" sea animado.
+   - Que aumente el número de comando disponibles.
+   - Que se permita constuir funciones desde LOGO.
+   - Que permita tener la estructura de decisión.
+   - Alguna adición creativa e interesante al interprete básico del LOGO.
+
+6. El mejor grupo tendrá la calificación máxima y cada grupo será ranqueado de acuerdo a sus resultados y de acuerdo a ese ranqueo será la calificación del trabajo final.
+
+### Fecha de entrega:
+
+Viernes 18 de octubre de 2019 en hora de clase (10:00 am) en el salón de clase
+en donde el profesor evaluará la interpretación básica del programa con un código que solo se sabrá ese día de la evaluación. Si el código se ejecuta correctamente tendrán la calificación de 3.0, seguidamente se mostrará por parte el grupo las adiciones a las funcionalidades del lenguaje incorporadas.
+
+El código se deberá enviar el mismo día antes de la clase, es decir el código
+deberá se enviado al correo **krcabrer@unal.edu.co** antes de las 10:00 am el día viernes 18 de octubre de 2019, sin olvidar en asunto [ModuloR].
+
+
+
 <!--
 
 ## Trabajo final.
