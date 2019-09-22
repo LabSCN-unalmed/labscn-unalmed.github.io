@@ -23,12 +23,49 @@ order: 4
 
    Se debe instalar el paquete "readxl" para que el tutorial de inicio de R
    funcione adecuadamente.
-4. Reproducir los resultados del análisis exploratorio de las biblitecas públicas de Medellín.   
+4. Reproducir los resultados del análisis exploratorio de las biblitecas públicas de Medellín.
+
+## Taller individual 1.
+
+### Objetivo.
+
+Responder a la encuesta hecha en la primera clase.
+
+### Fecha de entrega:
+ 16 de septiembre de 2019.
+
+## Taller individual 2:
+
+### Objetivo.
+
+Realizar una toma de datos con la aplicación [Science Journal](https://play.google.com/store/apps/details?id=com.google.android.apps.forscience.whistlepunk&hl=en)
+para celular, con el propósito de familirizarse con el uso de la aplicación.
+
+### Consideraciones.
+
+1. Tomar los datos de aceleración (X, Y y Z) de tres actividades diferentes:
+   - Caminando normalmente (mínimo 1 minuto).
+   - Caminando rápidamente (no corriendo o trotando) (mínimo 1 minuto).
+   - Caminando lentamente (mínimo 1 minuto).
+   - Sentado estudiando (mínimo 1 minuto).
+2. Enviar cada uno de los cuatro (4) archivos en formato .csv en su respectivo correo.
+3. Enviar los cuatro (4) archivos al profesor (krcabrer@unal.edu.co) con la adición de los siguientes datos en el cuerpo del correo: estatura, peso y género.
+4. Leer los archivos en R y realizar un análisis exploratorio del comportamiento
+   de la acelaración total. Se envía tanto el archivo ".html", como el archivo
+   ".Rmd".
+
+### Fecha de entrega.
+
+Jueves 3 de octubre de 2018 antes de las 23:59 hora de Colombia, no olvidar la etiqueta [EDAED].
+
+
+
+
 
 <!---
 ## Taller individual 1
 
-1.    
+1.
 
 
 
