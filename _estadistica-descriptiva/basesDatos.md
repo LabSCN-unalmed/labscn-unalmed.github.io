@@ -20,6 +20,11 @@ order: 6
 
  - [Bibliotecas públicas de Medellín](./basesdedatos/Bibliotecas_P_blicas_de_Medell_n.csv)
 
+## Base de datos generados por la app Science Journal.
+
+ - [Caminata](./basesdedatos/Caminata_normal_Grabaci_n.csv)
+ - [Sentado](./basesdedatos/Sentado_Grabaci_n.csv)
+
 <!---
 
 ## Base de datos para el segundo taller individual.

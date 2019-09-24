@@ -17,6 +17,10 @@ order: 2
   - [Análisis exploratorio](./guiones/bibliotecas_publicas.html)
   - [Base de datos](https://www.datos.gov.co/Cultura/Bibliotecas-P-blicas-de-Medell-n/ucp3-apfa)
 
+## Ejemplo de procesamiento de los archivos de la app Science Journal.
+
+  - [Caminata y sentado](./guiones/lectura_bases_app_SJ.html)
+
 <!---
 ## Contenido
 {: .no_toc}
