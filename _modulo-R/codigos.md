@@ -13,12 +13,12 @@ order: 3
 ## Tablero con la bolita que rebota
  - [Bola que rebota](./codigos/quiz3.R)
 
-## Códigos sencillos de diversos obetivos.
+## Códigos sencillos de diversos objetivos.
 
  - [Rotación de una figura alrededor del origen](./codigos/rota_triangulo.R)
  - [Lectura de un archivo plano](./codigos/lectura_archivo_texto.R)
     * [Archivo de ejemplo de código en LOGO](./codigos/primer_programa.logo)
- - [Haller el centroide de una figura](./codigos/halla_centroide.R)
+ - [Hallar el centroide de una figura](./codigos/halla_centroide.R)
 
 
 <!--
