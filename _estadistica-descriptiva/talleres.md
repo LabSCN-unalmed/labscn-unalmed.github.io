@@ -3,6 +3,7 @@ layout: curso
 title: 'Talleres'
 curso: 'estadistica-descriptiva'
 order: 4
+custom_js: 'mathjax'
 ---
 
 ## Contenido
@@ -44,6 +45,20 @@ la serie Numb3rs.
 ### Fecha de evaluación.
 
 Martes primero (1ro) de octubre de 2019 a la hora de la clase se realizará un quiz.
+
+A continuación se muestra la ecuación básica que utilizó Charlie para construir los mapas.
+
+$$p_{ij}$$ es la probabilidad de que el punto $$(i, j)$$ sea el punto de base dado los puntos de ataque.
+
+$$
+p_{ij} = k \sum_{n = 1}^C\left[ \frac{\phi}{(|x_i-x_n|+|y_j-y_n|)^f}  +
+(1-\phi)\frac{B^{g-f}}{(2B-|x_i-x_n|-|y_j-y_n|)^g} \right]
+$$
+
+Donde $$\phi$$ es un factor de ponderación que toma el valor de $$0$$ para los sitios dentro de la zona buffer y
+$$1$$ por fuera de esta, $$k$$ es una constante empírica, $$B$$ es el radio de la zona buffer, $$C$$ son los sitios de observación, $$f$$ y $$g$$ son exponentes empíricos. $$(x_i, y_i)$$ con las coordenadas del punto $$(i,j)$$ y $$(x_n, y_n)$$ con las coordenadas del $$n$$-ésimo sitio. $$B$$ es el radio de la zona cerca a la base en donde no ataca.
+
+
 
 ## Taller individual 3:
 
