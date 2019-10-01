@@ -67,7 +67,7 @@ para celular, con el propósito de familiarizarse con el uso de la aplicación.
 
 ### Fecha de entrega.
 
-Jueves 3 de octubre de 2018 antes de las 23:59 hora de Colombia, no olvidar la etiqueta [EDAED]. En el mismo correo se envían los archivos ".csv", el archivo ".Rmd" y el archivo ".html" sin olvidar los datos en el cuerpo del programa.
+Jueves 3 de octubre de 2019 antes de las 23:59 hora de Colombia, no olvidar la etiqueta [EDAED]. En el mismo correo se envían los archivos ".csv", el archivo ".Rmd" y el archivo ".html" sin olvidar los datos en el cuerpo del programa.
 
 
 
