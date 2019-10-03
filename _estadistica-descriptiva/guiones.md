@@ -21,6 +21,11 @@ order: 2
 
   - [Caminata y sentado](./guiones/lectura_bases_app_SJ.html)
 
+## Exportaciones en Colombia de enero hasta agosto de 2019.
+
+  - [Ejemplo de gráfica](./guiones/exportaciones.html)
+  - [Archivo .css (estilo.css)](./guiones/estilo.css)
+
 <!---
 ## Contenido
 {: .no_toc}

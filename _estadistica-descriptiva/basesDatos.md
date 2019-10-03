@@ -25,8 +25,13 @@ order: 6
  - [Caminata](./basesdedatos/Caminata_normal_Grabaci_n.csv)
  - [Sentado](./basesdedatos/Sentado_Grabaci_n.csv)
 
-<!---
+## Exportaciones en Colombia.
 
+ - [Exportaciones en Colombia de enero hasta agosto 2019](./basesdedatos/ventas_exterior.xlsx).
+
+
+
+<!---
 ## Base de datos para el segundo taller individual.
 
  - [Puntos de referencia](./basesdedatos/CabreraTorresKennethRoy.xlsx)
