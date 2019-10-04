@@ -35,7 +35,7 @@ para nombre_funcion :parametro
   <instrucion logo>
   <instrucion logo>
   <instrucion logo>
-end
+fin
 
 nombre_funcion valor_parametro
 ```
