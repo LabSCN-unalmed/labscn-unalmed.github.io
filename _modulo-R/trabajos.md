@@ -43,7 +43,7 @@ nombre_funcion valor_parametro
 ### Condiciones
 
 1. La pantalla principal deberá ser con centro en (0, 0) y
-   desde -50:50 en el eje x, y de -50:50 en el eje y.
+   mínimo de -50:50 en el eje x, y de -50:50 en el eje y.
 2. Los colores mínimos que debe usar son:
    - negro.
    - rojo.
