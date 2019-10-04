@@ -21,11 +21,11 @@ av nn : Avanza nn pasos.
 gi nn : gira a la izquierda nn grados.
 gd nn : gira a la derecha nn grados.
 bp    : borra pantalla
-rep nn [accion]  : repite nn veces una accion
+rep nn [acciones]  : repite nn veces las "acciones".
 mt    : Mostrar tortuga.
 ot    : Ocultar tortuga.
 sp    : sin pluma
-cp color : con pluma de color
+cp <color> : con pluma de <color>
 
 haga "var <valor>
 
@@ -37,11 +37,23 @@ para nombre_funcion :parametro
   <instrucion logo>
 end
 
-nombre_funcion valor
+nombre_funcion valor_parametro
 ```
 
 ### Condiciones
 
+1. La pantalla principal deberá ser con centro en (0, 0) y
+   desde -50:50 en el eje x, y de -50:50 en el eje y.
+2. Los colores mínimos que debe usar son:
+   - negro.
+   - rojo.
+   - verde.
+   - azul.
+   - cian.
+   - magenta.
+   - amarillo.
+   - gris.
+   - Cualquier color en formato hexedecimal (#nnnnnn).
 3. Si el código interpreta lo mínimo tiene una calificación de 3.0.
 4. No se permitirá el uso de ningún paquete adicional en el R. Sólo con los paquetes que vienen incorporados por omisión.
 5. Aumentar la funcionalidad del logo con otras funcionalidades, como:
