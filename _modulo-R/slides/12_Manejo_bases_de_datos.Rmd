@@ -1,6 +1,7 @@
 ---
-title: "Manejo de base de datos (dplyr)"
+title: "Manejo de base de datos (tidyverse)"
 author: "Kenneth Roy Cabrera Torres"
+date: "Viernes 4 de octubre de 2019"
 output: 
   html_document: 
     toc: yes
@@ -12,20 +13,38 @@ options(width = 110)
 ```
 
 ## Lectura de la base de datos
+
 ```{r}
-icfes201502 <- read.csv2("20152.csv", skip = 5)
+library(readxl)
+```
+
+```{r}
+icfes201502 <- read_excel("20152.xls", skip = 5)
 ```
 
 ## Dimensión y registros inciales y registros finales
+
 ```{r}
 dim(icfes201502)
+```
+
+```{r}
 head(icfes201502)
+```
+
+```{r}
 tail(icfes201502)
 ```
 
-## Convetir un data.frame a formato dplyr
+
 ```{r}
-require(dplyr)
+library(tidyverse)
+```
+
+
+## Convertir un data.frame a formato dplyr.
+
+```{r}
 icfes201502 <- tbl_df(icfes201502)
 icfes201502
 ```
@@ -58,7 +77,7 @@ select(icfes201502, NOMBREMUNICIPIO, DEPARTAMENTO, PROMLECTURACRITICA)
 distinct(select(icfes201502, DEPARTAMENTO))
 ```
 
-## Adicionalr una nueva columna
+## Adicionar una nueva columna
 ```{r}
 mutate(icfes201502, promTotal = (PROMLECTURACRITICA + PROMMATEMATICA + PROMINGLES)/3)
 transmute(icfes201502, promTotal = (PROMLECTURACRITICA + PROMMATEMATICA + PROMINGLES)/3)
