@@ -29,6 +29,10 @@ order: 6
 
  - [Exportaciones en Colombia de enero hasta agosto 2019](./basesdedatos/ventas_exterior.xlsx).
 
+## Base de datos de la encuesta (parcial).
+
+ - [Resultados de la encuesta (Genero y número aleatorio)](./basesdedatos/RESULTADOS_NUMERO_ALEATORIO.xls)
+
 
 
 <!---
