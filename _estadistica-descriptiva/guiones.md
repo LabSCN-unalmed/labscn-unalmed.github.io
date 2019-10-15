@@ -26,6 +26,9 @@ order: 2
   - [Ejemplo de gráfica](./guiones/exportaciones.html)
   - [Archivo .css (estilo.css)](./guiones/estilo.css)
 
+## Exploratorio de encuesta I
+  - [Número aleatorio](./guiones/encuesta.html)
+
 <!---
 ## Contenido
 {: .no_toc}
