@@ -20,6 +20,15 @@ order: 3
     * [Archivo de ejemplo de código en LOGO](./codigos/primer_programa.logo)
  - [Hallar el centroide de una figura](./codigos/halla_centroide.R)
 
+## Ejemplo del resultado con el código en logo intepretado por el R.
+
+  -[Código logo de Carita feliz](./codigos/carita_feliz.logo).
+  -[Video mostrando lo esperado](./codigos/carita_feliz.mp4).
+  -[Código de cuadrados](./codigos/cuadrados.logo).
+  -[Video mostrando lo esperado](.codigos/cuadrados.mp4).
+
+  
+
 
 <!--
 ## Ejemplo del uso del "click" del mouse.

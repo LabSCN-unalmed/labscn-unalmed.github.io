@@ -1,0 +1,51 @@
+sp
+av 20
+gi 90
+av 20
+cp negro
+
+av 10
+gd 90
+av 10
+gd 90
+av 10
+gd 90
+av 10
+gd 90
+
+gd 180
+sp
+av 40
+gi 90
+cp negro
+
+av 10
+gd 90
+av 10
+gd 90
+av 10
+gd 90
+av 10
+gd 90
+
+sp
+gi 90
+av 20
+cp rojo
+gi 60
+av 25
+gd 240
+av 25
+gi 120
+av 25
+sp 
+gd 210
+av 50
+gd 135
+av 30
+gi 135
+cp azul
+rep 9 [av 8  gi 22.5 ]
+ot
+
+
