@@ -6,8 +6,6 @@ order: 5
 ---
 
 
-<!---
-
 ## Contenido
 {: .no_toc}
 
@@ -23,12 +21,12 @@ order: 5
 
 Construir una gráfica que corrija o mejore una gráfica
 publicada en un  medio impreso en Colombia como
-fecha más antigua el 31 de diciembre de 2018.
+fecha más antigua el 30 de junio de 2019.
 
 #### Actividades.
 
 1. Buscar en una publicación colombiana, no más antigua que
-31 de diciembre de 2018,  una gráfica informativa
+30 de junio de 2019,  una gráfica informativa
 que muestre problemas o que se pueda proponer una mejor
 representación.
 2. Construir una base de datos que represente los datos graficados
@@ -48,10 +46,12 @@ representación.
 
 #### Fecha de entrega.
 
-Jueves, 20 de junio de 2019 antes de las 23:59
-[hora oficial de Colombia](http://horalegal.inm.gov.co/)
+Jueves, 28 de noviembre de 2019 antes de las 23:59
+[hora oficial de Colombia](https://time.is/es/Colombia)
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
+
+<!---
 
 ### Segundo trabajo individual.
 
