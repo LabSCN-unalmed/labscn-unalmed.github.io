@@ -67,13 +67,14 @@ nombre_funcion valor_parametro
 
 ### Fecha de entrega:
 
-Viernes 18 de octubre de 2019 en hora de clase (10:00 am) en el salón de clase
-en donde el profesor evaluará la interpretación básica del programa con un código que solo se sabrá ese día de la evaluación. Si el código se ejecuta correctamente tendrán la calificación de 3.0, seguidamente se mostrará por parte el grupo las adiciones a las funcionalidades del lenguaje incorporadas.
+Lunes 18 de noviembre de 2019 antes de las 24:59 hora de Colombia.
+Enviar al correo:
 
-El código se deberá enviar el mismo día antes de la clase, es decir el código
-deberá se enviado al correo **krcabrer@unal.edu.co** antes de las 10:00 am el día viernes 18 de octubre de 2019, sin olvidar en asunto **[ModuloR]**.
-
-
+  1. Código(s) en formato ".R" del intérpete de LOGO.
+  2. Indicación y ejemplo con los elementos adicionales a lo básico del intérprete.
+  3. Video que muestre la ejecución de un código de LOGO.
+  4. Enviar el código y el listado de los integrantes al correo: **krcabrer@unal.edu.co**.
+  5. No olvidar escribir en asunto **[ModuloR]**.
 
 <!--
 
