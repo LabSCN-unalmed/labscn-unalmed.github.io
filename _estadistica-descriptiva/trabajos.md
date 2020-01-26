@@ -46,7 +46,7 @@ representación.
 
 #### Fecha de entrega.
 
-Jueves, 28 de noviembre de 2019 antes de las 23:59
+Lunes, 3 de febrero 2020 antes de las 23:59
 [hora oficial de Colombia](https://time.is/es/Colombia)
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
