@@ -1,12 +1,12 @@
 body {
-  background-color: #ffffbf;
+  background-color: Azure; /* colores w3schools.com/colors/colors_names.asp */
 }
 
 p {
-  font-family: verdana;
-  font-size: 20px;
+  font-family: helvetica; /* Tipos de letra https://www.w3schools.com/cssref/playit.asp?filename=playcss_font-family */ 
+  font-size: 20px; /* Controla el tamaño de letra del texto de html */
 }
 
 pre {
-  font-size: 12px;
+  font-size: 12px; /* Controla el tamaño de la letra de los resultados del R */
 }

@@ -29,6 +29,11 @@ order: 2
 ## Exploratorio de encuesta I
   - [Número aleatorio](./guiones/encuesta.html)
 
+## Accidentalidad de motos en Medellín.
+
+  - [Depuración y análisis](./guiones/accidentalidad_moto.html)  
+  - [Dirección de la base de datos](https://www.datos.gov.co/Estad-sticas-Nacionales/Accidentalidad-con-motos-municipio-de-Medell-n-a-o/e2kd-e3sz)
+
 <!---
 ## Contenido
 {: .no_toc}

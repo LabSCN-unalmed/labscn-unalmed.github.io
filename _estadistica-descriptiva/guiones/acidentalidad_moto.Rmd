@@ -1,0 +1,131 @@
+---
+title: "Accidentalidad de motos en Medellín en 2019"
+author: "Kenneth Roy Cabrera Torres"
+date: "Martes, 28 de enero de 2020"
+output: 
+  html_document: 
+    css: estilo.css
+    theme: lumen
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 120)
+```
+
+![](accidente_moto.jpeg)
+
+
+
+En el sitio [de datos abiertos](https://www.datos.gov.co/Estad-sticas-Nacionales/Accidentalidad-con-motos-municipio-de-Medell-n-a-o/e2kd-e3sz) se encuentra una base
+de datos de los accidentes en motos del año 2015-2019 en Medellín.
+
+```{r}
+library(tidyverse)
+library(lubridate)
+```
+
+## Lectura de la base de datos.
+
+```{r}
+
+acc_moto <- read.csv("Accidentalidad_con_motos_municipio_de_Medell_n_a_o_2019.csv")
+```
+
+## Depuración.
+
+### Resumen inicial de la base de datos.
+
+```{r}
+summary(acc_moto)
+```
+
+### Transformación de variables.
+
+```{r}
+acc_moto <- acc_moto %>% 
+  mutate(RADICADO = as.factor(RADICADO),
+         AÑO_ACCIDENTE = as.factor(AÑO_ACCIDENTE))
+```
+
+
+```{r}
+summary(acc_moto)
+```
+
+### Identificación de duplicados.
+
+```{r}
+radicados_duplicados <- acc_moto$RADICADO[duplicated(acc_moto$RADICADO)]
+radicados_duplicados
+```
+
+```{r}
+registros_rad_dup <- acc_moto %>% 
+  filter(RADICADO %in% radicados_duplicados) %>% 
+  arrange(RADICADO)
+registros_rad_dup
+```
+
+```{r}
+acc_moto1 <- acc_moto %>% 
+  filter(!(RADICADO %in% radicados_duplicados))
+```
+
+### Construcción de la fecha.
+
+#### Identificación de casos anómalos.
+
+```{r}
+unique(substring(acc_moto1$HORA_ACCIDENTE, 1, 4))
+```
+
+
+```{r}
+casos_hora <- acc_moto1 %>% 
+  filter(substring(acc_moto1$HORA_ACCIDENTE, 1, 4) == "1899")
+
+unique(substring(casos_hora$HORA_ACCIDENTE, 1, 11))
+```
+
+```{r}
+acc_moto1 <- acc_moto1 %>% 
+  mutate(HORA_ACCIDENTE = factor(gsub("1899-12-31T", "", HORA_ACCIDENTE)),
+    fecha = mdy_hms(paste(substring(FECHA_ACCIDENTE, 1, 10),
+                       substring(HORA_ACCIDENTE, 1, 8))))
+```
+
+```{r}
+# Uso de la fecha frecuencia por mes.
+table(month(acc_moto1$fecha, label = TRUE))
+```
+
+```{r}
+table(wday(acc_moto1$fecha, label = TRUE, abbr = FALSE))
+```
+
+### Trabajando con direcciones.
+
+```{r}
+Sin_calle <- acc_moto1 %>% 
+  filter(is.na(str_extract(as.character(DIRECCION), "Calle")))
+head(Sin_calle)
+```
+
+```{r}
+Sin_carrera <- acc_moto1 %>% 
+  filter(is.na(str_extract(as.character(DIRECCION), "Carrera")))
+head(Sin_carrera)
+```
+
+
+
+## Análisis exploratorio.
+
+```{r}
+summary(acc_moto1)
+```
+
+
+  
