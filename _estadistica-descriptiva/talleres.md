@@ -88,11 +88,11 @@ Jueves 3 de octubre de 2019 antes de las 23:59 hora de Colombia, no olvidar la e
 
 ### Objetivo:
 
-Realizar preguntas a la base de datos de accidentes de motos en Medellín desde los años 2015 hasta parte del 2019.
+Realizar preguntas a la [base de datos](https://www.datos.gov.co/Estad-sticas-Nacionales/Accidentalidad-con-motos-municipio-de-Medell-n-a-o/e2kd-e3sz) de accidentes de motos en Medellín desde los años 2015 hasta parte del 2019.
 
 ### Consideraciones:
 
-1. Armar un grupo de máximo cinco (5) personas y e
+1. Armar un grupo de máximo cinco (5) personas.
 
 2. Elaborar tres preguntas a la base de datos de accidentes en moto en Medellín.
 
