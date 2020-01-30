@@ -84,6 +84,24 @@ para celular, con el propósito de familiarizarse con el uso de la aplicación.
 
 Jueves 3 de octubre de 2019 antes de las 23:59 hora de Colombia, no olvidar la etiqueta [EDAED]. En el mismo correo se envían los archivos ".csv", el archivo ".Rmd" y el archivo ".html" sin olvidar los datos en el cuerpo del programa.
 
+## Taller en grupo 1
+
+### Objetivo:
+
+Realizar preguntas a la base de datos de accidentes de motos en Medellín desde los años 2015 hasta parte del 2019.
+
+### Consideraciones:
+
+1. Armar un grupo de máximo cinco (5) personas y e
+
+2. Elaborar tres preguntas a la base de datos de accidentes en moto en Medellín.
+
+3. Las preguntas deberán tener relevancia en cuanto aspectos que sean útiles a la hora de elaborar planes de prefención por parte de entes como la Secretaría de Transporte y Movilidad de Medellín y también el Tránsito Municipal.
+
+### Fecha de entrega:
+
+Entegar en clase el día jueves 06 de febrero de 2020 a las 10:00 am la hoja con los nombres de los integrantes del grupo y las tres preguntas a la base de datos.
+
 
 
 <!---
