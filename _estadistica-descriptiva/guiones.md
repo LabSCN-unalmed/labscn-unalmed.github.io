@@ -34,6 +34,11 @@ order: 2
   - [Depuración y análisis](./guiones/accidentalidad_moto.html)  
   - [Dirección de la base de datos](https://www.datos.gov.co/Estad-sticas-Nacionales/Accidentalidad-con-motos-municipio-de-Medell-n-a-o/e2kd-e3sz)
 
+## Ejemplos sencillos de integración de dos bases de datos.
+
+  - [Integración de dos bases de datos](./guiones/uso_joins.html)
+
+
 <!---
 ## Contenido
 {: .no_toc}
