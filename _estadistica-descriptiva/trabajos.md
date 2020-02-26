@@ -50,6 +50,34 @@ Lunes, 3 de febrero 2020 antes de las 23:59
 [hora oficial de Colombia](https://time.is/es/Colombia)
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**.
 
+### Primer trabajo en grupo.
+
+#### Objetivo.
+
+Realizar un análisis exploratorio de datos de
+la accidentalidad en [Envigado Envigado 2016, 2017 y Primer Semestre 2018](https://www.datos.gov.co/Transporte/Accidentalidad-Envigado-2016-2017-y-Primer-Semestr/t5sw-amxr).
+
+#### Consideraciones.
+
+  - Elaborar mínimo diez (10) preguntas a la
+    base de datos que involucren dos o más variables.
+  - Cuatro (4) de las preguntas deben involucrar el tiempo y otras cuatro (4) preguntas deben involucrar el espacio.
+  - Mostrar si alguna [instituciones
+  educativas](https://www.datos.gov.co/Educaci-n/Centros-educativos-municipio-de-Envigado-Antioquia/6ipb-xtz3) están en zonas de mayor accidentalidad.
+  - Mostrar si en cercanías de [zonas de estacionamiento regulado](https://www.datos.gov.co/Transporte/Zonas-de-Estacionamiento-Regulado-ZER-Municipio-de/qie5-prd9) (ZIR) hay mayor o menor accidentalidad.
+
+#### Documentos para entregar.
+
+  1. Archivos en formato **.xls** o **.xlsx** con la base de datos.
+  2. Archivos en formato **.Rmd** que construye el archivo **html**.
+  3. Archivos en formato **.html** con el informe y que **no** incluya el código.
+
+#### Fecha de entrega.
+
+
+Martes, 17 de marzo 2020 antes de las 23:59
+[hora oficial de Colombia](https://time.is/es/Colombia)
+al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**. Se envía el trabajo final desde una cuanta de un miembro del equipo pero también deben enviar una copia a todos los miembros del equipo.
 
 <!---
 

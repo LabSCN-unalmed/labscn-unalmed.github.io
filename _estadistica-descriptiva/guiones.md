@@ -38,6 +38,10 @@ order: 2
 
   - [Integración de dos bases de datos](./guiones/uso_joins.html)
 
+## Ejemplo del uso del ggplot().
+
+   - [Gráficas exploratorios de la accidentalidad en moto](./guiones/explora_acc_motos.html)  
+
 
 <!---
 ## Contenido
