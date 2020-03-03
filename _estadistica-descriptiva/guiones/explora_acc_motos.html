@@ -412,12 +412,12 @@ summary {
 </div>
 
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
 ## ✓ tibble  2.1.3     ✓ dplyr   0.8.4
 ## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(lubridate)</code></pre>
@@ -461,13 +461,13 @@ summary {
 </div>
 <div id="gráficos-de-líneas-con-el-tiempo." class="section level3">
 <h3>Gráficos de líneas (con el tiempo).</h3>
-<pre class="r"><code>acc_moto_x_año_x_comuna &lt;- acc_moto1 %&gt;% 
+<pre class="r"><code>acc_moto_x_dia_x_comuna &lt;- acc_moto1 %&gt;% 
   group_by(dia = wday(fecha, label = TRUE, abbr = FALSE),
            nombre_comuna) %&gt;% 
   summarise(num_acc = n()) %&gt;% 
   group_by(nombre_comuna) %&gt;% 
   mutate(promedio_semanal = mean(num_acc))</code></pre>
-<pre class="r"><code>ggplot(acc_moto_x_año_x_comuna %&gt;% filter(!is.na(nombre_comuna)), 
+<pre class="r"><code>ggplot(acc_moto_x_dia_x_comuna %&gt;% filter(!is.na(nombre_comuna)), 
        aes(dia, num_acc)) +
   geom_point() +
   geom_line(aes(group = nombre_comuna)) +
