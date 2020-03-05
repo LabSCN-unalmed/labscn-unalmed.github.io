@@ -6,6 +6,106 @@ order: 7
 ---
 
 
+## Factores que influyen en el rango vocal.
+
+### Objetivo.
+
+Realizar un experimento utilizando el sensor de frecuencias  del
+celular mediante la aplicación
+[**Science Journal**](https://sciencejournal.withgoogle.com/) para
+determinar el rango vocal de una persona.
+
+### Consideraciones.
+
+* Configurar grupo de trabajo de máximo cinco (5) personas.
+
+Estas consideraciones son las condiciones mínimas del trabajo
+final que dan una nota de 2.0.
+
+1. Considerar como mínimo un factor adicional al género.
+   En decir en total son dos factores, como mínimo.
+
+2. Todas las demás variables se considerarán constantes o
+   de ruido.
+
+3. La toma de la tonalidad se debe tomar bajo las
+    mismas condiciones.
+
+    El tiempo mínimo para cada tonalidad será de cinco (5) segundos.
+
+    * Se usa la letra "o" para el tono más bajo posible.
+    * Se usa la letra "i" para la tonalidad más alta posible.
+    * Opcional se puede tomar el tono normal o tesitura con la letra "a".
+
+4. Los celulares se van a calibrar inicialmente para tener
+   las medidas comparables.
+
+### Tamaño de muestra.
+
+En total se deberán tomar 50 personas.
+
+Si el experimento involucra una variable de antes y después en una persona,
+entonces a una misma persona se le tomará dos veces las medidas.
+En este caso el número de personas puede bajar a 25 personas.
+
+Recuerden que a cada persona se le debe tomar como mínimo dos
+mediciones y por lo tanto el número de archivos generados será de
+mínimo 100 archivos.
+
+### Archivos a enviar.
+
+1. Bases de datos comprimidas en el formato ".csv" original
+   de **Science Journal**. Y archivos auxiliares considerados en
+   el trabajo.
+2. Archivo ".Rmd" o ".R" en donde se lean las bases de datos,
+   se realice la consolidación y se generen las gráficas o
+   tablas presentadas en el póster final.
+3. Archivo ".pdf"  con el póster respectivo.
+
+### Construcción del póster.
+
+El póster debe tener, como mínimo, los siguientes elementos:
+
+ 1. Título del experimento (determinado por el grupo).
+ 2. **Nombre completo** de todos los miembros del grupo.
+ 3. Corta introducción.
+ 4. Materiales y métodos.
+ 5. Código QR que remita a un video donde se muestre
+    la manera que se realizó el experimento.
+    El video tendrá una duración máxima de 1 minuto.
+ 6. Resultados (Graficas y tablas).
+ 7. Conclusiones.
+ 8. Recomendaciones.
+ 9. Bibliografía y cibergrafía más relevante.
+
+
+El texto deberá ser lo más corto, claro y completo posible.
+
+### Elementos a evaluar:
+
+- Forma:
+  * Distribución del texto y gráficas. (Uso del espacio en el póster).
+  * Uso de colores.
+  * Tipo de letra utilizado que sea legible.
+  * Ortografía.
+  * Uso adecuado de gráficas.
+
+- Fondo:
+  * Descripciones cortas y concisas.
+  * Presentación de resultados claros.
+  * Redacción clara.
+  * Conclusiones y recomendaciones claras.
+
+### Fecha de presentación del póster.
+
+  La totalidad de los integrantes del grupo estarán presentes el día
+  jueves 26 de marzo de 2020 a las 10:00 am en el primer piso
+  del bloque 14 en donde el profesor indique dónde
+  exhibirlos y que allí permanecerán hasta el martes 31 de marzo de 2020.
+
+
+
+
 <!---
 
 ## La iluminación en el vino.
