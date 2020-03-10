@@ -51,6 +51,11 @@ order: 2
   - [Archivo lm_ch_2015_bl_vdr_1.csv](./basesdedatos/lum_ch_2015_bl_vdr_1.csv)
   - [Archivo lm_ch_2015_bl_vdr_2.csv](./basesdedatos/lum_ch_2015_bl_vdr_2.csv)
 
+## Ejemplo del cálculo del rango vocal.
+
+  - [Ejemplo de cálculo y graficación de tesitura y rango vocal](./guiones/rango_vocal.html)
+  - [Toma de muestra en todo agudo](./basesdedatos/agudo_1.csv)
+  - [Toma de muestra en todo grave](./basesdedatos/grave_1.csv)
 
 <!---
 ## Contenido
