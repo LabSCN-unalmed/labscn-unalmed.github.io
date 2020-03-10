@@ -42,6 +42,15 @@ order: 2
 
    - [Gráficas exploratorios de la accidentalidad en moto](./guiones/explora_acc_motos.html)  
 
+## Lectura de varias base de datos.
+
+
+  - [Lectura de varias base de datos](./guiones/lectura_bases.html)
+  - [Archivo lm_ch_2015_bl_liq_1.csv](./basesdedatos/lum_ch_2015_bl_liq_1.csv)
+  - [Archivo lm_ch_2015_bl_liq_2.csv](./basesdedatos/lum_ch_2015_bl_liq_2.csv)
+  - [Archivo lm_ch_2015_bl_vdr_1.csv](./basesdedatos/lum_ch_2015_bl_vdr_1.csv)
+  - [Archivo lm_ch_2015_bl_vdr_2.csv](./basesdedatos/lum_ch_2015_bl_vdr_2.csv)
+
 
 <!---
 ## Contenido
