@@ -75,7 +75,7 @@ la accidentalidad en [Envigado Envigado 2016, 2017 y Primer Semestre 2018](https
 #### Fecha de entrega.
 
 
-Martes, 17 de marzo 2020 antes de las 23:59
+Viernes, 20 de marzo 2020 antes de las 23:59
 [hora oficial de Colombia](https://time.is/es/Colombia)
 al correo **krcabrer@unal.edu.co** y no olvidar en asunto **[EDAED]**. Se envía el trabajo final desde una cuenta de un miembro del equipo pero también deben enviar una copia a todos los miembros del equipo.
 
