@@ -6,6 +6,12 @@ order: 7
 ---
 
 
+{: .no_toc}
+
+* ToC
+{: toc}
+
+
 ## Factores que influyen en el rango vocal.
 
 ### Objetivo.
@@ -102,6 +108,19 @@ El texto deberá ser lo más corto, claro y completo posible.
   jueves 26 de marzo de 2020 a las 10:00 am en el primer piso
   del bloque 14 en donde el profesor indique dónde
   exhibirlos y que allí permanecerán hasta el martes 31 de marzo de 2020.
+
+## Variables relacionadas con los resultados pruebas saber 11 2019-02
+
+### Objetivo.
+
+
+Realizar un análisis exploratorio de datos para mostrar
+las variable demográficas más relacionadas con el desempeño de
+los resultado de las [pruebas saber 11 de 2019 segundo semestre](https://www.datos.gov.co/Educaci-n/Saber-11-2019-2/ynam-yc42).
+
+### Consideraciones.
+
+
 
 
 
