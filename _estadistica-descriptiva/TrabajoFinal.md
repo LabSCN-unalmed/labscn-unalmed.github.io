@@ -129,7 +129,7 @@ los resultado de las [pruebas saber 11 de 2019 segundo semestre](https://www.dat
  - Se grabará un video con la presentación del póster no mayor a 10 minutos ni
    inferior a 1 minuto.
  - El diccionario de la base de datos de los resultados icfes se puede
-   descargar desde [aquí](./basededatos/Diccionario_ftp_saber11_202019-1.pdf).
+   descargar desde [aquí](./basesdedatos/Diccionario_ftp_saber11_202019-1.pdf).
  - Dado que el video podría ser un archivo muy pesado se puede enviar un
    enlace a un archivo en Google Drive para descargarlo.
 
