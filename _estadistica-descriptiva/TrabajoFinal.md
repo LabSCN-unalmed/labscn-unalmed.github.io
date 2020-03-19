@@ -142,7 +142,7 @@ El póster debe tener, como mínimo, los siguientes elementos:
  2. **Nombre completo** de todos los miembros del grupo.
  3. Corta introducción.
  4. Materiales y métodos.
- 5. Resultados (Graficas y tablas).
+ 5. Resultados (graficas y tablas).
  6. Conclusiones.
  7. Recomendaciones.
  8. Bibliografía y cibergrafía más relevante.
@@ -176,7 +176,7 @@ El texto deberá ser lo más corto, claro y completo posible.
   En esa misma fecha se envían los guiones utilizados en formato tanto
   en ".R" como en ".RData".
 
-  
+
 
 <!---
 
