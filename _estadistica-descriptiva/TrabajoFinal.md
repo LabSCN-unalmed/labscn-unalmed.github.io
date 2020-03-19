@@ -104,10 +104,11 @@ El texto deberá ser lo más corto, claro y completo posible.
 
 ### Fecha de presentación del póster.
 
-  La totalidad de los integrantes del grupo estarán presentes el día
-  jueves 26 de marzo de 2020 a las 10:00 am en el primer piso
-  del bloque 14 en donde el profesor indique dónde
-  exhibirlos y que allí permanecerán hasta el martes 31 de marzo de 2020.
+  Debido a la contingencia los grupos que hayan logrado tomar los
+  datos puden hacer un video con la presentación del póster.
+
+  Tanto el póster final como el video asociado se espera para
+  el día martes 31 de marzo de 2020.
 
 ## Variables relacionadas con los resultados pruebas saber 11 2019-02
 
@@ -115,15 +116,67 @@ El texto deberá ser lo más corto, claro y completo posible.
 
 
 Realizar un análisis exploratorio de datos para mostrar
-las variable demográficas más relacionadas con el desempeño de
+las variable,  [demográficas y de desempeño fiscal de los
+municipios](https://www.dnp.gov.co/programas/desarrollo-territorial/Estudios-Territoriales/Indicadores-y-Mediciones/Paginas/desempeno-fiscal.aspx),  más relacionadas con el desempeño de
 los resultado de las [pruebas saber 11 de 2019 segundo semestre](https://www.datos.gov.co/Educaci-n/Saber-11-2019-2/ynam-yc42).
 
 ### Consideraciones.
 
+ - Al ser la base de datos de más de 500K registros, ¡no se pueden subir a
+   una hoja de cálculo! Por lo tanto deberá ser leída en R y llevada al formato
+   ".RData".
+ - Se constuirá un póster en donde se muestren los resultados más relevantes.
+ - Se grabará un video con la presentación del póster no mayor a 10 minutos ni
+   inferior a 1 minuto.
+ - El diccionario de la base de datos de los resultados icfes se puede
+   descargar desde [aquí](./basededatos/Diccionario_ftp_saber11_202019-1.pdf).
+ - Dado que el video podría ser un archivo muy pesado se puede enviar un
+   enlace a un archivo en Google Drive para descargarlo.
 
 
+### Construcción del póster.
+
+El póster debe tener, como mínimo, los siguientes elementos:
+
+ 1. Título del experimento (determinado por el grupo).
+ 2. **Nombre completo** de todos los miembros del grupo.
+ 3. Corta introducción.
+ 4. Materiales y métodos.
+ 5. Resultados (Graficas y tablas).
+ 6. Conclusiones.
+ 7. Recomendaciones.
+ 8. Bibliografía y cibergrafía más relevante.
 
 
+El texto deberá ser lo más corto, claro y completo posible.
+
+### Elementos a evaluar:
+
+- Forma:
+  * Distribución del texto y gráficas. (Uso del espacio en el póster).
+  * Uso de colores.
+  * Tipo de letra utilizado que sea legible.
+  * Ortografía.
+  * Uso adecuado de gráficas.
+
+- Fondo:
+  * Descripciones cortas y concisas.
+  * Presentación de resultados claros.
+  * Redacción clara.
+  * Conclusiones y recomendaciones claras.
+
+### Resultados.
+
+  Se realizará un poster en ".pdf" (no se imprime) y adjunto se constuirá un
+  video con la presentación del poster de una duración no mayor de 10 minutos
+  ni inferior a 1 minuto.
+
+  Tanto el póster final en ".pdf" como el video asociado se espera para
+  el día martes 31 de marzo de 2020 antes de las 23:59 horas.
+  En esa misma fecha se envían los guiones utilizados en formato tanto
+  en ".R" como en ".RData".
+
+  
 
 <!---
 
