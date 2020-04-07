@@ -1,0 +1,31 @@
+
+para cuadrado :lado
+ rep 4 [av lado gd 90]
+fin
+
+para estrella :lado
+ rep 5 [gd 144 av lado gi 72 av lado]
+fin
+
+sp 
+av 10
+cp rojo
+cuadrado 5
+cp azul
+gi 45
+cuadrado 5
+gd 45
+
+sp
+gd 90
+av 40
+cp verde
+estrella 10
+
+ot
+gi 180
+sp
+av 70
+cp magenta
+haga lado 6
+estrella lado

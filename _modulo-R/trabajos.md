@@ -76,6 +76,16 @@ Enviar al correo:
   4. Enviar el código y el listado de los integrantes al correo: **krcabrer@unal.edu.co**.
   5. No olvidar escribir en asunto **[ModuloR]**.
 
+
+## Ejemplo de solución al intérprete de LOGO.
+
+
+  - Código del [intérpete de logo](../logo/interprete_logo.R).
+  - [Funciones auxiliares](../logo/funciones.R).
+  - [Código de LOGO](../logo/prueba1.logo) para prueba.
+  - [Video con la demostración de ejecución del código en LOGO](../logo/prueba1.mp4)
+
+
 <!--
 
 ## Trabajo final.
