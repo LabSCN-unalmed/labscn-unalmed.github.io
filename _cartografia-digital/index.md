@@ -28,7 +28,7 @@ Esto depende de la frecuencia y del periodo de registro.
 - La pendiente.
 - Las curvaturas del terreno (horizontal y vertical).
 - El "aspect": Hacia donde “mira” el terreno.
-- Conocer si un punto en el terreno pertenece a una vertiente o a una superficie de escorrentía o si pertenece a una canal de una corriente.
+- Conocer si un punto en el terreno pertenece a una divisoria o a una superficie de escorrentía o si pertenece a una canal de una corriente.
 - Identificar puntos especiales en el relieve (pico, "pit" o centro de una depresión cerrada, identificar un "pass" o "saddle", es decir, el punto central de una concavidad ubicada en una divisoria de aguas).
 - Identificar conjuntos de puntos que configuran lineas especiales en un relieve (un eje de vaguada que puede ser un canal de corriente, "channel", o una linea de divisoria de aguas, "ridge").
 - Identificar superficies especiales: Una superficie plana.
