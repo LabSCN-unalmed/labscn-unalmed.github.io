@@ -18,7 +18,7 @@ Descargar el instalador de [OSGeo4W](https://trac.osgeo.org/osgeo4w/){:target="b
 ![](/cartografia-digital/images/Grass02.png){: .img-responsive}
 
 ![](/cartografia-digital/images/Grass03.png){: .img-responsive}
--->
+
 
 Ejecutar el instalador.
 
@@ -63,3 +63,5 @@ Esperar a que el instalador descargue e instale el software.
 Una vez finalice la descarga e instalación, se puede utilizar el acceso directo para ejecutar el software.
 
 ![](/cartografia-digital/images/Grass17.png){: .img-responsive}
+
+-->
