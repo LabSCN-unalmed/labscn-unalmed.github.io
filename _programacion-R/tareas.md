@@ -1,4 +1,4 @@
----
+<!---
 layout: curso
 title: 'Tareas'
 curso: 'programacion-R'
@@ -155,4 +155,5 @@ por rango de edad y género para el año 2017.
 
 Viernes, 15 de septiembre de 2017 antes de las 23:59 hora de
 Colombia al correo **krcabrer@unal.edu.co** en asunto no olvidar
-**[cursoR]**. 
+**[cursoR]**.
+--->
