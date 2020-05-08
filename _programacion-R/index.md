@@ -8,9 +8,9 @@ order: 0
 ## Objetivo general
 
    Capacitar al estudiante en el manejo de las estructuras básicas del
-   lenguaje de programación R siguiendo un esquema lógico de construcción
-   algorítmica con el propósito de construir soluciones para graficación,
-   manejo de base de datos y simulación.
+   lenguaje de programación estadístico R siguiendo un esquema lógico de construcción
+   algorítmica con el propósito de armar soluciones para análisis,
+   manejo de base de datos, visualización y simulación.
 
 ## Objetivos específicos
 
@@ -18,7 +18,8 @@ order: 0
   - Construir algoritmos básicos en C y C++ para interactuar con R.
   - Comprender las estructuras básicas del lenguaje R.
   - Desarrollar la habilidad de construir soluciones en el lenguaje R
-    para propósitos de graficación, manejo de base de datos y simulación.
+    para propósitos de análisis,
+    manejo de base de datos, visualización y simulación.
 
 ## Programa
 
