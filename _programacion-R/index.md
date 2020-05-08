@@ -9,15 +9,15 @@ order: 0
 
    Capacitar al estudiante en el manejo de las estructuras básicas del
    lenguaje de programación R siguiendo un esquema lógico de construcción
-   algorítmica con el propósito de constuir soluciones para graficación,
+   algorítmica con el propósito de construir soluciones para graficación,
    manejo de base de datos y simulación.
 
 ## Objetivos específicos
 
   - Manejar los elementos básicos de lógica de programación mediante pseudocódigo.    
-  - Constuir algoritmos básicos en C y C++ para interactuar con R.
+  - Construir algoritmos básicos en C y C++ para interactuar con R.
   - Comprender las estructuras básicas del lenguaje R.
-  - Desarrollar la habilidad de constuir soluciones en el lenguaje R
+  - Desarrollar la habilidad de construir soluciones en el lenguaje R
     para propósitos de graficación, manejo de base de datos y simulación.
 
 ## Programa
@@ -40,7 +40,7 @@ order: 0
    | 14  | Programación avanzada en R |
    | 15  | Entrega de trabajo final en R |
 
-
+<!---
 ## Políticas del curso
 
    - Todo trabajo, taller o tarea se envía al correo: **krcabrer@unal.edu.co**.
@@ -55,13 +55,12 @@ order: 0
    - Las 24 horas se toman como hábiles. Así, si la tarea a tiempo es antes de
      las 23:59 horas de un viernes, el plazo para la entrega tarde será el
      siguiente lunes a las 23:59 horas.  
+--->     
 
 ## Evaluación
 
   | Item | Porcentaje |
   |:-----|-----------:|
-  | Examen escrito (Algoritmos básicos) | 10% |
-  | Examen (Lenguaje C, integrado a R) | 10% |
-  | Trabajo inicial | 15% |
-  | Trabajo final | 25% |
   | Seguimiento (Tareas y talleres) | 40% |
+  | Examen o ejercicio virtual | 10% |
+  | Trabajo final | 40% |
