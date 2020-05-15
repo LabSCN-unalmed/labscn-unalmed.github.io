@@ -226,11 +226,6 @@ Escriba un algoritmo que:
    la estructura de decisión o repetición.
  - Lea las coordenadas de dos puntos y que muestre la distancias
    entre los dos puntos.
- - Lea las tres coordenadas de los vértices de un tríangulo y que
-   muestre el área del mismo utilizando la
-   [fórmula de Herón](https://es.wikipedia.org/wiki/F%C3%B3rmula_de_Her%C3%B3n).
-   Incluya una función que halle la distancia entre dos puntos dados los
-   vértices.
  - Lea un número entero y que muestre un cero (0) si el número es par y
    un uno (1) sin el número es impar, (Sin utilizar ni la estructura de
    decisión o la de repetición).
@@ -242,6 +237,10 @@ Escriba un algoritmo que:
  - Calcule la suma de los números impares por un lado y los números
    pares por otro entre dos números enteros dados (suponga que el primero
    es menor que el segundo, e inclya los número extremos en la suma).
+ - Lea las tres coordenadas de los vértices de un tríangulo y que
+   muestre el área del mismo utilizando la
+   [fórmula de Herón](https://es.wikipedia.org/wiki/F%C3%B3rmula_de_Her%C3%B3n).
+   Incluya una función que halle la distancia entre dos puntos dados los vértices.   
  - Calcule la [corona circular](https://es.wikipedia.org/wiki/Corona_circular)
    dados los radios de dos círculos concéntricos. (No importa
    la manera como se lea el orden de los radios).
@@ -255,12 +254,17 @@ Escriba un algoritmo que:
    Luego halle el promedio entre el número aproximado y el número obtenido
    de la división anterior. Este promedio
    es de nuevo un valor aproximado a la raíz. Continuar el proceso hasta que
-   la aproximación sea correcta en el orden de las millonésimas. (No utilizar
-   el operador exponente (^).
+   la aproximación sea correcta en el orden de las millonésimas. **(No utilizar
+   el operador exponente (^)**.
  - Repita el anterior algoritmo pero que esta vez también muestre cuántas
    iteraciones realizó para hallar el resultado.
  - Dado las dimensiones de una matriz (n filas, m columnas), mostrar los índices
    de la matriz en forma de zig-zag (vertical),
-   comenzando por la posición [1][1].   
+   comenzando por la posición [1][1].
+
+   ![](rectangular_zig_zag.png)  
+
  - Dado la dimensión de una matriz cuadrada muestre los índices de las diagonales
    secundarias comenzando por la posición [1][1] en forma de zig-zag.   
+
+   ![](cuadrada_diagonal.png)
