@@ -222,7 +222,6 @@ Escriba un algoritmo que:
  - Lea dos números y que muestre el producto de ellos.
  - Lea el radio de un círculo y que muestre como respuesta su área.
  - Lea el nombre de una persona y le responda con un saludo.
- - Lea un número real y muestre el valor absoluto de mismo.
  - Lea un número real y muestre el valor absoluto de mismo sin utilizar
    la estructura de decisión o repetición.
  - Lea las coordenadas de dos puntos y que muestre la distancias
