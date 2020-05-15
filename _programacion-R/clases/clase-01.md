@@ -158,7 +158,7 @@ Algoritmo suma_enteros
   Entero num1, num2, suma
 
 Inicio
-  Escriba "Entre dos números enteros"
+  Escriba "Ingrese dos números enteros"
   Lea num1, num2
   suma <- num1 + num2
   Escriba "La suma de", num1, "y", num2, "es:", suma
