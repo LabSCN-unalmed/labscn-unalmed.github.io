@@ -218,35 +218,35 @@ Algoritmo suma_enteros2
 
 Escriba un algoritmo que:
 
- - Lea dos números enteros y que muestre el producto de ellos.
- - Lea dos números y que muestre el producto de ellos.
- - Lea el radio de un círculo y que muestre como respuesta su área.
- - Lea el nombre de una persona y le responda con un saludo.
- - Lea un número real y muestre el valor absoluto de mismo sin utilizar
+ 1. Lea dos números enteros y que muestre el producto de ellos.
+ 2. Lea dos números y que muestre el producto de ellos.
+ 3. Lea el radio de un círculo y que muestre como respuesta su área.
+ 4. Lea el nombre de una persona y le responda con un saludo.
+ 5. Lea un número real y muestre el valor absoluto de mismo sin utilizar
    la estructura de decisión o repetición.
- - Lea las coordenadas de dos puntos y que muestre la distancias
+ 6. Lea las coordenadas de dos puntos y que muestre la distancias
    entre los dos puntos.
- - Lea un número entero y que muestre un cero (0) si el número es par y
+ 7. Lea un número entero y que muestre un cero (0) si el número es par y
    un uno (1) sin el número es impar, (Sin utilizar ni la estructura de
    decisión o la de repetición).
- - Lea un número entero y que muestre un uno (1) si el número es par y
+ 8. Lea un número entero y que muestre un uno (1) si el número es par y
    un cero (0) sin el número es impar, (Sin utilizar ni la estructura de
    decisión o la de repetición).   
- - Lea un número entero de tres cifras y muestre el mísmo número pero con
+ 9. Lea un número entero de tres cifras y muestre el mísmo número pero con
    los dígitos invertidos (sin utilizar el tipo sarta).   
- - Calcule la suma de los números impares por un lado y los números
+ 10. Calcule la suma de los números impares por un lado y los números
    pares por otro entre dos números enteros dados (suponga que el primero
    es menor que el segundo, e inclya los número extremos en la suma).
- - Lea las tres coordenadas de los vértices de un tríangulo y que
+ 11. Lea las tres coordenadas de los vértices de un tríangulo y que
    muestre el área del mismo utilizando la
    [fórmula de Herón](https://es.wikipedia.org/wiki/F%C3%B3rmula_de_Her%C3%B3n).
    Incluya una función que halle la distancia entre dos puntos dados los vértices.   
- - Calcule la [corona circular](https://es.wikipedia.org/wiki/Corona_circular)
+ 12. Calcule la [corona circular](https://es.wikipedia.org/wiki/Corona_circular)
    dados los radios de dos círculos concéntricos. (No importa
    la manera como se lea el orden de los radios).
- - Dados dos punto de una recta determine si es paralela a otra recta de donde
+ 13. Dados dos punto de una recta determine si es paralela a otra recta de donde
    se dan dos puntos que pertenecen a la otra recta.
- - Construya una algoritmo que halle la aproximación a la raíz de un número de
+ 14. Construya una algoritmo que halle la aproximación a la raíz de un número de
    la siguiente manera: Lea un número al cual se le hallará la raíz, y luego
    lea un número cualquiera como primera aproximación a la
    raíz del número (se supone ser positivo mayor de cero).
@@ -256,15 +256,15 @@ Escriba un algoritmo que:
    es de nuevo un valor aproximado a la raíz. Continuar el proceso hasta que
    la aproximación sea correcta en el orden de las millonésimas. **(No utilizar
    el operador exponente (^)**.
- - Repita el anterior algoritmo pero que esta vez también muestre cuántas
+ 15. Repita el anterior algoritmo pero que esta vez también muestre cuántas
    iteraciones realizó para hallar el resultado.
- - Dado las dimensiones de una matriz (n filas, m columnas), mostrar los índices
+ 16. Dado las dimensiones de una matriz (n filas, m columnas), mostrar los índices
    de la matriz en forma de zig-zag (vertical),
    comenzando por la posición [1][1].
 
    ![](rectangular_zig_zag.png)  
 
- - Dado la dimensión de una matriz cuadrada muestre los índices de las diagonales
+ 17. Dado la dimensión de una matriz cuadrada muestre los índices de las diagonales
    secundarias comenzando por la posición [1][1] en forma de zig-zag.   
 
    ![](cuadrada_diagonal.png)
