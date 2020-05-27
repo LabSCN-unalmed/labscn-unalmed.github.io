@@ -2,7 +2,7 @@
 // Titulo: Función para sumar dos enteros.
 // Tipo: Plantilla
 // Nombre: Kenneth Roy Cabrera Torres
-// Fecha: Jueves, 16 de junio de 2016
+// Fecha: Miércoles, 27 de mayo de 2016
 // Enunciado: Se construye la función suma.
 //----------------------------------------------------------------------------//
 #include <Rcpp.h>
