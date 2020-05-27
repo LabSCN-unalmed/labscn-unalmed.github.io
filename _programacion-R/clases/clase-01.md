@@ -244,8 +244,10 @@ Escriba un algoritmo que:
  12. Calcule la [corona circular](https://es.wikipedia.org/wiki/Corona_circular)
    dados los radios de dos círculos concéntricos. (No importa
    la manera como se lea el orden de los radios).
+
  13. Dados dos punto de una recta determine si es paralela a otra recta de donde
    se dan dos puntos que pertenecen a la otra recta.
+   
  14. Construya una algoritmo que halle la aproximación a la raíz de un número de
    la siguiente manera: Lea un número al cual se le hallará la raíz, y luego
    lea un número cualquiera como primera aproximación a la
@@ -256,8 +258,10 @@ Escriba un algoritmo que:
    es de nuevo un valor aproximado a la raíz. Continuar el proceso hasta que
    la aproximación sea correcta en el orden de las millonésimas. **(No utilizar
    el operador exponente (^)**.
+
  15. Repita el anterior algoritmo pero que esta vez también muestre cuántas
    iteraciones realizó para hallar el resultado.
+
  16. Dado las dimensiones de una matriz (n filas, m columnas), mostrar los índices
    de la matriz en forma de zig-zag (vertical),
    comenzando por la posición [1][1].
