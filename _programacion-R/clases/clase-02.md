@@ -62,8 +62,8 @@ lenguaje R
 
   - Entrada/Salida.
 
-La entrada y salida usual en el C++, es utilzando los métodos
-cin y cout. Pero nn la itegración del R con el C++.
+La entrada y salida usual en el C++, es utilizando los métodos
+cin y cout. Pero en la integración del R con el C++.
 No se utiliza entradas dentro del código de C++.
 Toda entrada se deja al R que la maneje.
 
