@@ -170,7 +170,7 @@ Escriba una función en C++ integrada a R que:
    matrix de orden $$(nm)\times 2$$.
 - dada la dimensión de una matriz cuadrada muestre los índices de las diagonales
   secundarias comenzando por la posición [1][1] en una
-  matriz de orden $$(n^2)\times 2$$.
+  matriz de orden $$(n^2)$$.
 - dado un número encuentre su factorial. Recuerde que
   $$n! = n\cdot(n-1)\cdot...2\cdot1$$ y además $$0! = 1$$.
 - dado un ángulo en radianes calcule el valor de la función trigonomética
