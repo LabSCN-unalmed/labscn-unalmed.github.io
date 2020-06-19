@@ -25,22 +25,22 @@ storage.mode(y)
 is.integer(y)
 
 # Enteros
-y <- as.integer(3) 
-y              
+y <- as.integer(3)
+y
 
-class(y)  
+class(y)
 typeof(y)
 storage.mode(y)
 
 w <- 4L
-w              
+w
 
-class(w)  
+class(w)
 typeof(w)
 storage.mode(w)
 
 
-is.integer(y)  
+is.integer(y)
 
 as.integer(3.14)
 
@@ -54,27 +54,27 @@ as.integer(FALSE)
 
 # Complejos
 
-z <- 1 + 2i 
-z          
-
-class(z)   
-typeof(z)
-
-sqrt(-4) 
-
-sqrt(-4+0i)
-
-sqrt(as.complex(-4)) 
-
-# Lógicos (booleanos)
-x <- 1; y <- 2   
-z <- x > y      
+z <- 1 + 2i
 z
 
 class(z)
 typeof(z)
 
-u <- TRUE; v <- FALSE 
+sqrt(-4)
+
+sqrt(-4+0i)
+
+sqrt(as.complex(-4))
+
+# Lógicos (booleanos)
+x <- 1; y <- 2
+z <- x > y
+z
+
+class(z)
+typeof(z)
+
+u <- TRUE; v <- FALSE
 u & v
 
 u | v
@@ -84,13 +84,13 @@ u | v
 help("&")
 
 # Carácter y sarta
-x <- as.character(3.141592) 
-x 
+x <- as.character(3.141592)
+x
 
 class(x)
 typeof(x)
 
-nombres <- "Jully Patricia"; apellido <- "Aristizabal" 
+nombres <- "Jully Patricia"; apellido <- "Aristizabal"
 paste(nombres, apellido)
 
 sprintf("%s tiene %d pesos", "Julian", 100000)
@@ -132,4 +132,3 @@ mensaje2 <- paste("Otro ejemplo:\n", "con dos renglones", sep = "")
 mensaje2
 print(mensaje2)
 cat(mensaje2)
-
