@@ -23,12 +23,12 @@ lenguaje R
 
  - Vectoriales
 
-    * `IntegerVector`:  Entero vector[]
-    * `NumericVector`:  Real vector[]
-    * `CharacterVector`: Sarta vector[]    
-    * `IntegerMatrix`:  Entero matriz[][]
-    * `NumericMatrix`:  Real matriz[][]
-    * `CharacterMatrix`: Sarta matriz[][]
+    * `IntegerVector()`:  Entero vector[]
+    * `NumericVector()`:  Real vector[]
+    * `CharacterVector()`: Sarta vector[]    
+    * `IntegerMatrix(,)`:  Entero matriz[][]
+    * `NumericMatrix(,)`:  Real matriz[][]
+    * `CharacterMatrix(,)`: Sarta matriz[][]
 
 ## Operadores
 

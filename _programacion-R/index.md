@@ -62,6 +62,6 @@ order: 0
 
   | Item | Porcentaje |
   |:-----|-----------:|
-  | Seguimiento (Tareas y talleres) | 40% |
+  | Seguimiento (Tareas y talleres) | 50% |
   | Examen o ejercicio virtual | 10% |
   | Trabajo final | 40% |
