@@ -1,4 +1,4 @@
----
+<!---
 layout: curso
 title: 'Foro'
 curso: 'estadistica-descriptiva'

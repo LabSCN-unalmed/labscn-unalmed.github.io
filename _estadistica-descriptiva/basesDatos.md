@@ -5,6 +5,8 @@ curso: 'estadistica-descriptiva'
 order: 6
 ---
 
+
+<!---
 ## Tabla de contenido
 {: .no_toc}
 

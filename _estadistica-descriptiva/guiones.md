@@ -6,6 +6,8 @@ order: 2
 ---
 
 
+
+<!---
 ## Contenido
 {: .no_toc}
 
@@ -57,7 +59,7 @@ order: 2
   - [Toma de muestra en todo agudo](./basesdedatos/agudo_1.csv)
   - [Toma de muestra en todo grave](./basesdedatos/grave_1.csv)
 
-<!---
+
 ## Contenido
 {: .no_toc}
 

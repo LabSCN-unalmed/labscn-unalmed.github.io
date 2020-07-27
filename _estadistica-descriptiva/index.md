@@ -36,10 +36,10 @@ habilidades en el análisis exploratorio de bases de datos.
 
 | Item                                           | Porcentaje |
 |:-----------------------------------------------|:----------:|
-| Talleres individuales y en grupo (seguimiento) |        10% |
-| Trabajos individuales                          |        30% |
-| Trabajos en grupo                              |        20% |
-| Final                                          |        40% |
+| Talleres individuales y en grupo (seguimiento) |        20% |
+| Trabajos individuales                          |        25% |
+| Trabajos en grupo                              |        25% |
+| Final                                          |        30% |
 {: .table .table-hover}
 
 ## Enlaces importantes
@@ -52,19 +52,9 @@ habilidades en el análisis exploratorio de bases de datos.
 
 * [Página de semillero de R por el profesor Edimer David Jaramillo](https://unal-semilleror-facca.github.io/){:target="blank"}
 
-## Horario de atención:
-
-- Lunes 8:00 am a 10:00 am.
-
-## Lugar
-
-- Aula 21-215 (Laboratorio de Sistemas Complejos Naturales)
 
 ## Políticas del curso
 
-- Toda entrega se realizará al correo **krcabrer@unal.edu.co**.
-- Toda entrega se enviará desde el correo institucional **@unal.edu.co**.
-- Siempre deberá anotarse en asunto la sigla **[EDAED]**,
-  separada de cualquier otro texto adicional. (Si no se tiene
-    este requisito se toma como no entregado el trabajo o taller.)
+- Se utilizará la plataforma Moodle de la Universidad Nacional de Colombia.
+- Las sesiones virtuales sólo serán con el correo oficial de la Universidad Nacional de Colombia.
 - Los grupos de trabajo serán de máximo 5 personas.
