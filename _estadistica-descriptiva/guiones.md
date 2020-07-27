@@ -1,4 +1,4 @@
----
+<!---
 layout: curso
 title: 'Guiones'
 curso: 'estadistica-descriptiva'
@@ -7,7 +7,7 @@ order: 2
 
 
 
-<!---
+---
 ## Contenido
 {: .no_toc}
 
