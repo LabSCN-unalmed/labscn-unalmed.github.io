@@ -1,4 +1,4 @@
----
+<!---
 layout: curso
 title: 'Talleres'
 curso: 'estadistica-descriptiva'
