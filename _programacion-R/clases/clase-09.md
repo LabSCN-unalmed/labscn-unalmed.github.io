@@ -18,6 +18,7 @@ icfes201502 <- read.csv2("20152.csv", skip = 5)
 ```
 
 ## Dimensión y registros iniciales y registros finales
+
 ```{r}
 dim(icfes201502)
 head(icfes201502)
