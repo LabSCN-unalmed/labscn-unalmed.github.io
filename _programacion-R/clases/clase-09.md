@@ -12,16 +12,18 @@ educativas del país.
 
 
 ## Lectura de la base de datos
+
 ```{r}
 icfes201502 <- read.csv2("20152.csv", skip = 5)
 ```
 
-## Dimensión y registros inciales y registros finales
+## Dimensión y registros iniciales y registros finales
 ```{r}
 dim(icfes201502)
 head(icfes201502)
 tail(icfes201502)
 ```
+
 ## Manejo básico.
 
 ```{r}
@@ -53,11 +55,13 @@ filter(icfes201502, DEPARTAMENTO == "ANTIOQUIA", NOMBREMUNICIPIO == "MEDELLIN")
 ```
 
 ## Selección de posiciones específicas de una base de datos
+
 ```{r}
 slice(icfes201502, 1000:1050)
 ```
 
 ## Ordenación de la base de datos
+
 ```{r}
 arrange(icfes201502, DEPARTAMENTO)
 arrange(icfes201502, DEPARTAMENTO, NOMBREINSTITUCION)
@@ -75,7 +79,7 @@ select(icfes201502, NOMBREMUNICIPIO, DEPARTAMENTO, PROMLECTURACRITICA)
 distinct(select(icfes201502, DEPARTAMENTO))
 ```
 
-## Adicionalr una nueva columna
+## Adicionar una nueva columna
 ```{r}
 mutate(icfes201502, promTotal = (PROMLECTURACRITICA + PROMMATEMATICA + PROMINGLES)/3)
 transmute(icfes201502, promTotal = (PROMLECTURACRITICA + PROMMATEMATICA + PROMINGLES)/3)
@@ -98,12 +102,12 @@ promedio_depto <- summarise(agrupados_deptos, mean(PROMMATEMATICA))
 promedio_depto
 ```
 
-## Mediante encadenamiento de verbos
+## Mediante encadenamiento de verbos.
 ```{r}
 icfes201502 %>% group_by(DEPARTAMENTO) %>% summarise(mean(PROMMATEMATICA))
 ```
 
-## Combinación de manejo de datos
+## Combinación de manejo de datos.
 ```{r}
 icfes201502 %>%
   mutate(promTotal = rowMeans(.[10:16])) %>%
@@ -114,6 +118,7 @@ icfes201502 %>%
 ```
 
 ## ¿Cuántas Instituciones Educativas tiene cada municipio?
+
 ```{r}
 icfes201502 %>%
   group_by(CODIGOMUNICIPIO, NOMBREMUNICIPIO, DEPARTAMENTO) %>%
