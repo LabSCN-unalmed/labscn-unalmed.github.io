@@ -18,6 +18,8 @@ Supongamos que hacer una simulación para establecer la distribución del $$R^2$
 cuando el tamaño de muestra es pequeña de una regresión lineal simple.
 
 
+## Problema básico.
+
 ```r
 pendiente <- 1
 intercepto <- 2
