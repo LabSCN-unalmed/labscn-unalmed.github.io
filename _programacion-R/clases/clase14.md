@@ -49,7 +49,7 @@ r1 <- calcula_R2(lista_datos[[1]])
 r1
 ```
 
-Forma en ciclo
+## Forma en ciclo.
 
 ```r
 R2s <- numeric()
@@ -61,7 +61,7 @@ for (i in 1:length(lista_datos)){
 Sys.time() - ini
 ```
 
-Forma vectorial.
+## Forma vectorial.
 
 ```{r}
 ini <- Sys.time()
@@ -70,7 +70,19 @@ R2s_2 <- as.numeric(R2s_2)
 Sys.time() - ini
 ```
 
-Forma en paralelo.
+## Otra forma vectorial usando *purrr*.
+
+
+```{r}
+library(tidyverse)
+ini <- Sys.time()
+R2s_5 <- lista_datos %>%
+  map_dbl(calcula_R2)
+Sys.time() - ini
+```
+
+
+## Forma en paralelo.
 
 ```{r}
 library(parallel)
@@ -81,7 +93,7 @@ R2s_3 <- as.numeric(R2s_3)
 Sys.time() - ini
 ```
 
-Forma en paralelo usando *foreach()*.
+## Forma en paralelo usando *foreach()*.
 
 ```{r}
 library(parallel)
@@ -101,7 +113,7 @@ Sys.time() - ini
 stopCluster(cluster1)
 ```
 
-Otra forma en paralelo usando *foreach()*
+## Otra forma en paralelo usando *foreach()*
 
 ```{r}
 library(parallel)
@@ -119,14 +131,4 @@ R2s_4 <- foreach(i = lista_datos, .combine = c) %dopar% {
 Sys.time() - ini
 
 stopCluster(cluster1)
-```
-
-Forma no paralela usando el paquete *purrr*.
-
-```{r}
-library(tidyverse)
-ini <- Sys.time()
-R2s_5 <- lista_datos %>%
-  map_dbl(calcula_R2)
-Sys.time() - ini
 ```
