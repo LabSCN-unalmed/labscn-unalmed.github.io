@@ -38,6 +38,8 @@ datos <- data.frame(x, y, simulacion)
 lista_datos <- split(datos[, c("x", "y")], datos$simulacion)
 ```
 
+## Función a paralelizar.
+
 ```r
 calcula_R2 <- function(base_datos){
   modelo <- lm(y ~ x, data = base_datos)
