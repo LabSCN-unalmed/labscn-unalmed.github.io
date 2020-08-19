@@ -20,7 +20,7 @@ cuando el tamaño de muestra es pequeña de una regresión lineal simple.
 
 ## Problema básico.
 
-```r
+```{r}
 pendiente <- 1
 intercepto <- 2
 s <- 1
@@ -34,13 +34,13 @@ simulacion <- rep(1:numsim, each = length(valores_de_x))
 datos <- data.frame(x, y, simulacion)
 ```
 
-```r
+```{r}
 lista_datos <- split(datos[, c("x", "y")], datos$simulacion)
 ```
 
 ## Función a paralelizar.
 
-```r
+```{r}
 calcula_R2 <- function(base_datos){
   modelo <- lm(y ~ x, data = base_datos)
   R2 <- summary(modelo)$r.squared
@@ -48,14 +48,14 @@ calcula_R2 <- function(base_datos){
 }
 ```
 
-```r
+```{r}
 r1 <- calcula_R2(lista_datos[[1]])
 r1
 ```
 
 ## Forma en ciclo.
 
-```r
+```{r}
 R2s <- numeric()
 ini <- Sys.time()
 for (i in 1:length(lista_datos)){
@@ -80,7 +80,7 @@ Sys.time() - ini
 ```{r}
 library(tidyverse)
 ini <- Sys.time()
-R2s_5 <- lista_datos %>%
+R2s_3 <- lista_datos %>%
   map_dbl(calcula_R2)
 Sys.time() - ini
 ```
@@ -92,8 +92,8 @@ Sys.time() - ini
 library(parallel)
 num_nucleos <- detectCores()
 ini <- Sys.time()
-R2s_3 <- mclapply(lista_datos, calcula_R2, mc.cores = num_nucleos)
-R2s_3 <- as.numeric(R2s_3)
+R2s_4 <- mclapply(lista_datos, calcula_R2, mc.cores = num_nucleos)
+R2s_4 <- as.numeric(R2s_3)
 Sys.time() - ini
 ```
 
@@ -109,7 +109,7 @@ cluster1 <- makeCluster(num_nucleos)
 registerDoParallel(cluster1)
 
 ini <- Sys.time()
-R2s_4 <- foreach(i = 1:length(lista_datos), .combine = c) %dopar% {
+R2s_5 <- foreach(i = 1:length(lista_datos), .combine = c) %dopar% {
               calcula_R2(lista_datos[[i]])
 }
 Sys.time() - ini
@@ -129,9 +129,27 @@ cluster1 <- makeCluster(num_nucleos)
 registerDoParallel(cluster1)
 
 ini <- Sys.time()
-R2s_4 <- foreach(i = lista_datos, .combine = c) %dopar% {
+R2s_6 <- foreach(i = lista_datos, .combine = c) %dopar% {
               calcula_R2(i)
 }
+Sys.time() - ini
+
+stopCluster(cluster1)
+```
+
+## Uso de la función *parLapply()*.
+
+```{r}
+library(parallel)
+library(foreach)
+library(doParallel)
+num_nucleos <- detectCores()
+
+cluster1 <- makeCluster(num_nucleos)
+
+ini <- Sys.time()
+R2s_7 <- parLapply(cluster1, lista_datos, calcula_R2)
+R2s_7 <- as.numeric(R2s_7)
 Sys.time() - ini
 
 stopCluster(cluster1)
