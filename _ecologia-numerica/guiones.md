@@ -5,6 +5,7 @@ curso: 'ecologia-numerica'
 order: 1
 ---
 
+<!---
 
 ## Contenido
 {: .no_toc}
@@ -86,3 +87,5 @@ Archivos auxiliares:
 ## Algunos métodos multivariados.
 
  - [Métodos multivariados adicionales](./guiones/CCA.html)
+
+--->
