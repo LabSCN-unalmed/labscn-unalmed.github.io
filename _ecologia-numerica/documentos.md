@@ -23,6 +23,8 @@ custom_js: 'mathjax'
  - ![alt text](/ecologia-numerica/docs/ColorsChart2.jpg "Colores por gama"){: .img-responsive}
  - [Tabla de colores en R](/ecologia-numerica/docs/ColorChart.pdf){:target="blank"}
 
+
+<!--<
 ## Enlace de tutorial de  `dplyr`
 
  - [Tutorial `dplyr`](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html)
@@ -30,3 +32,4 @@ custom_js: 'mathjax'
 ## Documento de diversidad del paquete `vegan`
 
  - [Diversidad en vegan](./docs/diversity-vegan.pdf)
+--->
