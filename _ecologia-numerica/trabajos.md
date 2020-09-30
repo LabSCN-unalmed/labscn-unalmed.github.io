@@ -7,7 +7,7 @@ custom_js: 'mathjax'
 ---
 
 
-
+<!---
 ## Contenido
 {: .no_toc}
 
@@ -89,3 +89,5 @@ la estimación de la desviación estándar de los residuales (compararla con la 
 
 ![](./pics/similitud1.png)
 ![](./pics/similitud2R.png)
+
+--->

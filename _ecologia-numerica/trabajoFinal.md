@@ -6,7 +6,7 @@ order: 5
 custom_js: 'mathjax'
 ---
 
-
+<!---
 ## Objetivo:
 
 Realizar un análisis de bases de datos
@@ -53,3 +53,5 @@ mediante métodos multivariantes pertinentes.
 Viernes, 5 de abril de 2019 antes de las 23:59
 [hora de Colombia](http://horalegal.inm.gov.co/)
 al correo **krcabrer@unal.edu.co** y en asunto escribir **[EcoNum]**.
+
+--->
