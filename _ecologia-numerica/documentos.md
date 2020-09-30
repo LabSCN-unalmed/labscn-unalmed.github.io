@@ -6,7 +6,7 @@ order: 4
 custom_js: 'mathjax'
 ---
 
-## Artículo introductorio
+## Artículos introductorios.
 
  - Alain F. Zuur, Elena N. Ieno y Chirs s. Elphick.
    [A protocol for data exploration to avoid common statistical  problems](/ecologia-numerica/docs/ZuurEtAl2010.pdf){:target="blank"}.
@@ -15,7 +15,7 @@ custom_js: 'mathjax'
     [Multivariate Analysis in Ecology and Systematics: Panacea or Pandora's Box?](/ecologia-numerica/docs/MultivariateAnalysis.pdf){:target="blank"}.
     Annu. Rev. Ecol. Syst. 1990. 21:129-66.
 
-## Documentos auxiliares
+## Documentos auxiliares.
 
  - ![alt text](/ecologia-numerica/docs/points.png "Puntos"){: .img-responsive}
  - ![alt text](/ecologia-numerica/docs/lines.png "Líneas"){: .img-responsive}
