@@ -7,6 +7,7 @@ custom_js: 'mathjax'
 ---
 
 
+<!---
 
 ## Contenido
 {: .no_toc}
@@ -30,3 +31,5 @@ custom_js: 'mathjax'
 
 Fecha de entrega: En clase el día miércoles 26 de septiembre de
 2018.
+
+--->
