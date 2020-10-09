@@ -140,7 +140,19 @@ text(matrizNormalizadas, labels = 1:nrow(matrizAbun), pos = 2)
 
 ```
 
+## Cálculo de proporción de abundancias.
+
+```{r}
+(matrizProporciones <- matrizAbun/sumas)
+```
+
+
 ## Cálculo de la matriz centrada de abundancias.
+
+```{r}
+plot(matrizProporciones, asp = 1, pch = 19)
+text(matrizProporciones, labels = 1:nrow(matrizAbun), pos = 2)
+```
 
 
 
@@ -192,8 +204,8 @@ var(matrizCentrada)
 ## Composición de referencia
 
 ```{r}
-composicion1 <- c(1, 9)
-composicion2 <- c(-9, 1)
+composicion1 <- c(1, 9) 
+composicion2 <- c(-9, 1) 
 ```
 
 ```{r}
