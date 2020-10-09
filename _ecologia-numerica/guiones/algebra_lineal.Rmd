@@ -1,7 +1,7 @@
 ---
 title: "Introducción al álgebra lineal"
 author: "Universidad Nacional de Colombia, Sede Medellín"
-date: "Viernes, 7 de septiembre de 2018"
+date: "Viernes, 9 de octubre de 2020"
 output: 
   html_document: 
     toc: yes
@@ -32,7 +32,8 @@ A =
 4   & 18 \\
 7   & 7 \\
 5   & 46 \\
-25  & 26 \end{array} \right]
+25  & 26 \\
+11   & 11 \end{array} \right]
 $$
 
 
@@ -59,6 +60,8 @@ nsitio1 <- sqrt(sum(matrizAbun[1, ] ^ 2))
 nsitio1
 nsitio2 <- sqrt(sum(matrizAbun[2, ] ^ 2))
 nsitio2
+nsitio9 <- sqrt(sum(matrizAbun[10, ] ^ 2))
+nsitio9
 ```
 
 La magnitud de un vector  $\boldsymbol{u} = [x \quad y]$ se define como:
@@ -75,6 +78,15 @@ normas <- sqrt(rowSums(matrizAbun ^ 2))
 normas
 ```
 
+## Llevar a una base de datos todas las medidas.
+
+```{r}
+base_total <- cbind(matrizAbun, sumas, normas)
+base_total
+```
+
+
+
 ## Gráfica de las distancias "conjuntas".
 
 ```{r}
@@ -83,6 +95,8 @@ text(matrizAbun, labels = row.names(matrizAbun), pos = 2)
 arrows(0, 0, matrizAbun[, 1], matrizAbun[, 2], col = "blue", length = 0.2)
 abline(v = 0, col = "red")
 abline(h = 0, col = "red")
+abline(a = 51, b = -1, col = "chartreuse4")
+abline(a = 22, b = -1, col = "chartreuse4")
 ```
 
 
@@ -90,8 +104,9 @@ abline(h = 0, col = "red")
 
 ```{r}
 plot(sumas, normas,
-     asp = 1, xlim = c(0, 55), ylim = c(0, 55), pch =19)
-text(sumas, normas, labels = 1:nrow(matrizAbun), pos = 2, col = "blue")
+     asp = 1, xlim = c(0, 55), ylim = c(0, 55), pch =19,
+     las = 1)
+text(sumas, normas, labels = names(sumas), pos = 2, col = "blue")
 ```
 
 ## Cálculo de los vectores unitarios para cada vector (sitio).
@@ -133,6 +148,7 @@ text(matrizNormalizadas, labels = 1:nrow(matrizAbun), pos = 2)
 promedios <- colMeans(matrizAbun)
 promedios
 ```
+
 
 
 ```{r}
