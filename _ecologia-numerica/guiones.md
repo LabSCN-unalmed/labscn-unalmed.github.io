@@ -5,6 +5,19 @@ curso: 'ecologia-numerica'
 order: 1
 ---
 
+
+{: .no_toc}
+
+* ToC
+{: toc}
+
+
+## Algebra lineal.
+
+- [Introducción al álgebra lineal I](./guiones/algebra_lineal.html)
+- [Archivo ejemplo1 (formato texto)](./guiones/ejemplo1.txt)
+
+
 <!---
 
 ## Contenido
