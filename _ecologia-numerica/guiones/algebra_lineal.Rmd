@@ -192,8 +192,8 @@ var(matrizCentrada)
 ## Composición de referencia
 
 ```{r}
-composicion1 <- c(4, 9)
-composicion2 <- c(-9, 4)
+composicion1 <- c(1, 9)
+composicion2 <- c(-9, 1)
 ```
 
 ```{r}
