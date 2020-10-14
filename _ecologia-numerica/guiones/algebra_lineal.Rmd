@@ -23,17 +23,21 @@ matrizAbun
 
 $$
 A =
-\left[ \begin{array}{cc}
+\left[ 
+\begin{array}{cc}
 10  & 10 \\
 19  & 32 \\
 5   & 3 \\
 10  & 20 \\
-19  &  3 \\
+3  &  19 \\
 4   & 18 \\
 7   & 7 \\
 5   & 46 \\
 25  & 26 \\
-11   & 11 \end{array} \right]
+11  & 11 \\
+5   & 30 \\ 
+\end{array} 
+\right]
 $$
 
 
@@ -135,8 +139,9 @@ matrizNormalizadas
 
 ```{r}
 
-plot(matrizNormalizadas, asp = 1, pch = 19)
-text(matrizNormalizadas, labels = 1:nrow(matrizAbun), pos = 2)
+plot(matrizNormalizadas, asp = 1, pch = 19,
+     xlim = c(0, 1), ylim = c(0, 1))
+text(matrizNormalizadas, labels = 1:nrow(matrizAbun), pos = 1)
 
 ```
 
@@ -147,13 +152,26 @@ text(matrizNormalizadas, labels = 1:nrow(matrizAbun), pos = 2)
 ```
 
 
-## Cálculo de la matriz centrada de abundancias.
 
 ```{r}
-plot(matrizProporciones, asp = 1, pch = 19)
+plot(matrizProporciones, asp = 1, pch = 19,
+     xlim = c(0, 1), ylim = c(0, 1))
 text(matrizProporciones, labels = 1:nrow(matrizAbun), pos = 2)
 ```
+## Comparación gráfica entre "abundancia conjunta" y "proporciones".
 
+```{r}
+plot(matrizProporciones, asp = 1, pch = 19,
+     xlim = c(0, 1), ylim = c(0, 1), col = "red")
+text(matrizProporciones, labels = 1:nrow(matrizAbun), pos = 1)
+points(matrizNormalizadas, pch = 19,
+     col = "blue")
+text(matrizNormalizadas, labels = 1:nrow(matrizAbun), pos = 1)
+```
+
+
+
+## Cálculo de la matriz centrada de abundancias.
 
 
 ```{r}
@@ -181,6 +199,7 @@ abline(v = 0, col = "red", lty = 4)
 ```
 
 ## Matriz de varianza y covarianza de matrices de abundancias y de abundacias centradas
+
 ```{r}
 matrizAbun
 ```
