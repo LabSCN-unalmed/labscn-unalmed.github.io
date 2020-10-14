@@ -64,7 +64,7 @@ nsitio1 <- sqrt(sum(matrizAbun[1, ] ^ 2))
 nsitio1
 nsitio2 <- sqrt(sum(matrizAbun[2, ] ^ 2))
 nsitio2
-nsitio9 <- sqrt(sum(matrizAbun[10, ] ^ 2))
+nsitio9 <- sqrt(sum(matrizAbun[9, ] ^ 2))
 nsitio9
 ```
 
