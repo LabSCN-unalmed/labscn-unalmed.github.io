@@ -16,7 +16,7 @@ order: 1
 
 - [Introducción al álgebra lineal I](./guiones/algebra_lineal.html)
 - [Archivo ejemplo1 (formato texto)](./guiones/ejemplo1.txt)
-
+- [Guía de álgebra lineal en datos 3D](./guiones/algebra_lineal_taller_3D.html)
 
 
 
