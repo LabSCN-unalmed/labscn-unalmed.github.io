@@ -1,3 +1,4 @@
+<!---
 ---
 layout: curso
 title: 'Talleres'
@@ -7,7 +8,7 @@ custom_js: 'mathjax'
 ---
 
 
-<!---
+
 
 ## Contenido
 {: .no_toc}
