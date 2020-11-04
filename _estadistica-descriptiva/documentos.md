@@ -1,16 +1,35 @@
-<!---
+---
 layout: curso
 title: 'Documentos'
 curso: 'estadistica-descriptiva'
 order: 3
 ---
 
-
 ## Contenido
 {: .no_toc}
 
 * ToC
 {: toc}
+
+
+## Guias para presentación de pósters
+
+- [Póster científico](./documentos/DocumentoPrincipalEGuardiola_poster_cientifico.pdf)
+- [Presentación de carteles o pósters](./documentos/mgi20400.pdf)
+- [Guía para elaboración de pósters científicos](./documentos/poster-1209925152397079-9.pdf)
+
+
+
+
+<!---
+
+
+
+## Tablas guías para parámetros gráficos.
+- [Tabla de colores](/estadistica-descriptiva/documentos/ColorChart.pdf)
+- [Tabla de símbolos](/estadistica-descriptiva/documentos/points.png)
+- [Tabla de líneas](/estadistica-descriptiva/documentos/lines.png)
+
 
 ## Introducción a Estadística Descriptiva y Análisis Exploratorio de Datos.
 
@@ -85,16 +104,3 @@ order: 3
 
 - [Documento guía](./documentos/grafi3.pdf)
 -->
-
-
-
-## Tablas guías para parámetros gráficos.
-- [Tabla de colores](/estadistica-descriptiva/documentos/ColorChart.pdf)
-- [Tabla de símbolos](/estadistica-descriptiva/documentos/points.png)
-- [Tabla de líneas](/estadistica-descriptiva/documentos/lines.png)
-
-## Guias para presentación de pósters
-
-- [Póster científico](./documentos/DocumentoPrincipalEGuardiola_poster_cientifico.pdf)
-- [Presentación de carteles o pósters](./documentos/mgi20400.pdf)
-- [Guía para elaboración de pósters científicos](./documentos/poster-1209925152397079-9.pdf)
