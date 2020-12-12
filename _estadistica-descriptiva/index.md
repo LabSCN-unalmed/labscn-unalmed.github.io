@@ -36,9 +36,10 @@ habilidades en el análisis exploratorio de bases de datos.
 
 | Item                                           | Porcentaje |
 |:-----------------------------------------------|:----------:|
-| Talleres individuales y en grupo (seguimiento) |        30% |
-| Trabajos individuales                          |        30% |
-| Final                                          |        40% |
+| Talleres individuales y en grupo (seguimiento) |        20% |
+| Trabajos en grupo                              |        30% |
+| Trabajos individuales                          |        20% |
+| Final                                          |        30% |
 {: .table .table-hover}
 
 ## Enlaces importantes
