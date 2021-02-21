@@ -58,6 +58,8 @@ habilidades en el análisis exploratorio de bases de datos.
 * [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="blank"}
 * [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="blank"}
 
+* [Canal de YouTube](https://www.youtube.com/channel/UCMLQ_dQirjjwPjR8skwX3gA) del profesor Freddy Barajas. Tutoriales cortos de R, RStudio, estadística y modelación en estadística.
+
 * [Página de semillero de R por el profesor Edimer David Jaramillo](https://unal-semilleror-facca.github.io/){:target="blank"}
 
 
@@ -66,4 +68,5 @@ habilidades en el análisis exploratorio de bases de datos.
 - Se utilizará la plataforma [UN virtual](https://unvirtual.medellin.unal.edu.co/) de la Universidad Nacional de Colombia.
 - Las sesiones virtuales sólo serán con el correo oficial de la Universidad Nacional de Colombia.
 - Los grupos de trabajo serán de máximo 5 personas.
+
 - Todo correo que se envíe a <krcabrer@unal.edu.co> debe llevar en asunto: [EDAED] (Incluya los chorchetes)
