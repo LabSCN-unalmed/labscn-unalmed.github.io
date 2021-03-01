@@ -1,4 +1,4 @@
----
+<!---
 layout: curso
 title: 'Talleres'
 curso: 'estadistica-espacial'
@@ -58,7 +58,7 @@ dada la escala de la foto.
 Miércoles 7 de marzo de 2018, al correo **krcabrer@unal.edu.co** con
 la sigla **[EE]** en asunto antes de las 23:59 hora de Colombia.
 
-
+-->
 
 
 

@@ -1,4 +1,4 @@
----
+<!---
 layout: curso
 title: 'Guiones'
 curso: 'estadistica-espacial'
@@ -100,7 +100,7 @@ order: 01
 ## Modelos para datos areales
 
   - [Manejo de datos areales](./guiones/datosAreales2.html)
-
+-->
 
 <!---
 ## Análisis exploratorio de señales de wifi y celular

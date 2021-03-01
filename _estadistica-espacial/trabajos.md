@@ -1,4 +1,4 @@
----
+<!---
 layout: curso
 title: 'Trabajos'
 curso: 'estadistica-espacial'
@@ -68,7 +68,7 @@ no olvidar escibir en asunto **[EE]**.
 ## Primer trabajo individual
 
 [Enunciado del primer trabajo individual](./guiones/trabajo_individual1.html)
-
+-->
 
 <!---
 ## Contenido

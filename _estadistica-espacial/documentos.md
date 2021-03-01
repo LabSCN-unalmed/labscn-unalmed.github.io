@@ -1,4 +1,4 @@
----
+<!--
 layout: curso
 title: 'Documentos'
 curso: 'estadistica-espacial'
@@ -9,3 +9,5 @@ order: 04
 - [Tabla de colores](./docs/ColorChart.pdf)
 - [Tabla de símbolos](./docs/points.png)
 - [Tabla de líneas](./docs/lines.png)
+
+-->

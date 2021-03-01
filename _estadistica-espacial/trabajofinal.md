@@ -1,4 +1,4 @@
----
+<!---
 layout: curso
 title: 'Trabajo Final'
 curso: 'estadistica-espacial'
@@ -45,3 +45,5 @@ Miércoles 30 de mayo 2018 antes de las 23:59
    archivos ".csv" o ".xlsx"). Si el archivo es muy grande que
    no se pueda enviar por correo, entonces un enlace a un dropbox
    que permita descargarlo (por ejemplo archivos ".tiff").
+
+-->

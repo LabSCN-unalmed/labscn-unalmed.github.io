@@ -63,6 +63,8 @@ Capítulo 09:Statistical Models for Spatial Data. CRC Press. 2002
 * [Descarga del Gimp](http://www.gimp.org/downloads/)
 * [Descarga del imageJ](http://fiji.sc/Downloads)
 
+<!--
+
 ## Libro complementario:
 
 * [Lecturas sobre estadística espacial](https://www.dropbox.com/s/hfqfqtevsu85twy/contemporaryStatisticalModels.pdf?dl=0)
@@ -75,7 +77,7 @@ Lunes 8:00 am a 10:00 am.
 
 Lugar: Laboratorio de Sistemas Complejos Naturales 21-215
 
-<!--
+
 Este párrafo será de color verde
 {: .text-success}
 
