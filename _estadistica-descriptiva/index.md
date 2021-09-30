@@ -26,7 +26,7 @@ habilidades en el análisis exploratorio de bases de datos.
 - Generar preguntas sobre el conjunto de datos analizados.
 - Buscar respuestas a esas preguntas mediante la visualización,
   transformación y modelamiento básico de sus datos.
-- Después de obtener estas prguntas, refinar las preguntas y generar nuevas
+- Después de obtener estas preguntas, refinar las preguntas y generar nuevas
   preguntas relevantes.  
 
 ## Contenido del curso:
