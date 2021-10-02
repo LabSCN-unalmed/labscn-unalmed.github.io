@@ -1,16 +1,13 @@
 ---
 layout: curso
-title: 'Programación en R'
+title: 'Programación y análisis cuantitativo con R'
 curso: 'programacion-R'
 order: 0
 ---
 
 ## Objetivo general
 
-   Capacitar al estudiante en el manejo de las estructuras básicas del
-   lenguaje de programación estadístico R siguiendo un esquema lógico de construcción
-   algorítmica con el propósito de armar soluciones para análisis,
-   manejo de base de datos, visualización y simulación.
+   Capacitar al estudiante en el manejo de las estructuras básicas dellenguaje de programación estadístico R siguiendo un esquema lógico de construcción algorítmica con el propósito de armar soluciones para análisis, manejo de base de datos, visualización y simulación.
 
 ## Objetivos específicos
 
