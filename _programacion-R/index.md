@@ -20,7 +20,7 @@ order: 0
 
 ## Programa
 
-   | Dia | Tema |
+   | Semana | Tema |
    |:-------:|------:|
    | 1   | Introducción y Estructuras básicas |
    | 2   | Estructuras básicas |
