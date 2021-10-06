@@ -227,4 +227,4 @@ g1 + stat_bin(aes(size = ..density..), binwidth = 0.1,
 - [Página de recetas](http://www.cookbook-r.com/Graphs/).
 - [Referencia rápida](http://sape.inf.usi.ch/quick-reference/ggplot2).
 - [Foro de ayuda](http://groups.google.com/group/ggplot2).
-- [Foro de desarrollo](http://github.com/hadley/ggplot2).
+- [Git de desarrollo](http://github.com/hadley/ggplot2).
