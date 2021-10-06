@@ -1,4 +1,4 @@
----
+<---
 layout: clase
 title: 'Lenguaje de programación C, C++'
 curso: 'programacion-R'
@@ -178,3 +178,5 @@ Escriba una función en C++ integrada a R que:
   Use una precisión de milésimas.
 - dado un ángulo en radianes muestre el número de términos de la expansión de
   Taylor que se necesitan para tener una aproximación a la millonésima.    
+
+--->

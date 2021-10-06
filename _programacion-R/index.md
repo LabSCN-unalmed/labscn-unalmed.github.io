@@ -26,7 +26,7 @@ order: 0
    | 5   | Vectores, matrices y arreglos|
    | 6   | Funciones           |
    | 7   | Programación matricial o vectorial|
-   | 8   | Graficación|
+   | 8   | Graficación |
    | 9   | Manejo de base de datos |
    | 10    | Manejo de fechas, texto, expresiones regulares|
    | 11    | Orientación a objetos|
