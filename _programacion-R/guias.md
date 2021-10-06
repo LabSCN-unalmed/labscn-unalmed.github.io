@@ -29,7 +29,7 @@ order: 1
 
 ```
 # -----------------------------------------------------------------------------#
-# Titulo: Saludo en pseudocódigo
+# Titulo: Saludo en seudocódigo
 # Tipo: Tarea 0
 # Nombre: Kenneth Roy Cabrera Torres
 # Fecha: Lunes, 13 de junio de 2016
