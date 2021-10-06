@@ -1,4 +1,4 @@
----
+<!---
 layout: clase
 title: 'Programación Orientada a Objetos con C++'
 curso: 'programacion-R'
@@ -161,3 +161,4 @@ int main(){
    }
 }
 ```
+--->

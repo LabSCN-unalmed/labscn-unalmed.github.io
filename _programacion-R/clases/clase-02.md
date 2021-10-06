@@ -1,4 +1,4 @@
-<---
+<!---
 layout: clase
 title: 'Lenguaje de programación C, C++'
 curso: 'programacion-R'
