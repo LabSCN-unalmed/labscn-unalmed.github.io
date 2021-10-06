@@ -7,36 +7,32 @@ order: 0
 
 ## Objetivo general
 
-   Capacitar al estudiante en el manejo de las estructuras básicas dellenguaje de programación estadístico R siguiendo un esquema lógico de construcción algorítmica con el propósito de armar soluciones para análisis, manejo de base de datos, visualización y simulación.
+   Capacitar al estudiante en el manejo de las estructuras básicas del lenguaje de programación estadístico R siguiendo un esquema lógico de construcción algorítmica con el propósito de armar soluciones para análisis, manejo de base de datos, visualización y simulación.
 
 ## Objetivos específicos
 
   - Manejar los elementos básicos de lógica de programación mediante pseudocódigo.    
-  - Construir algoritmos básicos en C y C++ para interactuar con R.
   - Comprender las estructuras básicas del lenguaje R.
   - Desarrollar la habilidad de construir soluciones en el lenguaje R
-    para propósitos de análisis,
-    manejo de base de datos, visualización y simulación.
+    para propósitos de análisis, manejo de base de datos, visualización y simulación.
 
 ## Programa
 
    | Semana | Tema |
    |:-------:|------:|
-   | 1   | Introducción y Estructuras básicas |
-   | 2   | Estructuras básicas |
-   | 3   | Vectores y matrices |
-   | 4   | Funciones           |
-   | 5   | Introducción al C desde R |
-   | 6   | Estructuras, matrices y vectores en C |
-   | 7   | Funciones en C |
-   | 8   | Introducción al R, estructuras de datos, tipos, clases  |
-   | 9   | Funciones en R |
-   | 10  | Orientación a objetos en R |
-   | 11  | Graficación básica en R |
-   | 12  | Graficación avanzada en R |
-   | 13  | Manejo de base de datos en R |
-   | 14  | Programación avanzada en R |
-   | 15  | Entrega de trabajo final en R |
+   | 1 - 2 | Introducción y Estructuras básicas en pseudocódigo|
+   | 3   | Estructuras de programación básicas|
+   | 4   | Estructuras de datos, tipos, clases|
+   | 5   | Vectores, matrices y arreglos|
+   | 6   | Funciones           |
+   | 7   | Programación matricial o vectorial|
+   | 8   | Graficación|
+   | 9   | Manejo de base de datos |
+   | 10    | Manejo de fechas, texto, expresiones regulares|
+   | 11    | Orientación a objetos|
+   | 12    | Medición y optimización de código |
+   | 13    | Construcción de paquetes|
+   | 14-15 | Entrega de trabajo final|
 
 <!---
 ## Políticas del curso
