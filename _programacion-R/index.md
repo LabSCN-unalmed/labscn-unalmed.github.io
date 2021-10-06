@@ -11,7 +11,7 @@ order: 0
 
 ## Objetivos específicos
 
-  - Manejar los elementos básicos de lógica de programación mediante pseudocódigo.    
+  - Manejar los elementos básicos de lógica de programación mediante  seudocódigo.    
   - Comprender las estructuras básicas del lenguaje R.
   - Desarrollar la habilidad de construir soluciones en el lenguaje R
     para propósitos de análisis, manejo de base de datos, visualización y simulación.
@@ -20,7 +20,7 @@ order: 0
 
    | Semana | Tema |
    |:-------:|------:|
-   | 1 - 2 | Introducción y Estructuras básicas en pseudocódigo|
+   | 1 - 2 | Introducción y Estructuras básicas en seudocódigo|
    | 3   | Estructuras de programación básicas|
    | 4   | Estructuras de datos, tipos, clases|
    | 5   | Vectores, matrices y arreglos|
