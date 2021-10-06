@@ -221,18 +221,19 @@ Escriba un algoritmo que:
  1. Lea dos números enteros y que muestre el producto de ellos.
  2. Lea dos números y que muestre el producto de ellos.
  3. Lea el radio de un círculo y que muestre como respuesta su área.
- 4. Lea el nombre de una persona y le responda con un saludo.
+ 4. Lea el nombre de una persona y le responda con un saludo personalizado usando el nombre de la persona.
  5. Lea un número real y muestre el valor absoluto de mismo sin utilizar
    la estructura de decisión o repetición.
  6. Lea las coordenadas de dos puntos y que muestre la distancias
    entre los dos puntos.
+ 7. Lea la longitud de tres segmentos y que muestre si se puede constuir un triángulo con estos segmentos.    
  7. Lea un número entero y que muestre un cero (0) si el número es par y
    un uno (1) sin el número es impar, (Sin utilizar ni la estructura de
    decisión o la de repetición).
  8. Lea un número entero y que muestre un uno (1) si el número es par y
    un cero (0) sin el número es impar, (Sin utilizar ni la estructura de
    decisión o la de repetición).   
- 9. Lea un número entero de tres cifras y muestre el mísmo número pero con
+ 9. Lea un número entero de tres cifras y muestre el mismo número pero con
    los dígitos invertidos (sin utilizar el tipo sarta).   
  10. Calcule la suma de los números impares por un lado y los números
    pares por otro entre dos números enteros dados (suponga que el primero
@@ -259,7 +260,9 @@ Escriba un algoritmo que:
    el operador exponente (^)**.
  15. Repita el anterior algoritmo pero que esta vez también muestre cuántas
    iteraciones realizó para hallar el resultado.
- 16. Dado las dimensiones de una matriz (n filas, m columnas), mostrar los índices de la matriz  en forma de zig-zag (vertical), comenzando por la posición [1][1].
+ 16. Dado dos enteros que indican la hora y los minutos muestre el ángulo menor entre las dos manecillas de un reloj análogo.    
+ 16. Dado las dimensiones de una matriz (n filas, m columnas), mostrar los índices de
+ la matriz  en forma de zig-zag (vertical), comenzando por la posición [1][1].   
    ![](rectangular_zig_zag.png).
  17. Dado la dimensión de una matriz cuadrada muestre los índices de las diagonales
    secundarias comenzando por la posición [1][1] en forma de zig-zag.   
