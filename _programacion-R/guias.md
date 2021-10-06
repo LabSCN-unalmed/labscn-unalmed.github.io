@@ -32,7 +32,7 @@ order: 1
 # Titulo: Saludo en seudocódigo
 # Tipo: Tarea 0
 # Nombre: Kenneth Roy Cabrera Torres
-# Fecha: Lunes, 13 de junio de 2016
+# Fecha: Miércoles, 6 de octubre de 2021
 # Enunciado: El código muestra un saludo de "Hola, mundo" en la salida.
 # -----------------------------------------------------------------------------#
 
