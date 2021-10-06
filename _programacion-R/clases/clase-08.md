@@ -2,7 +2,7 @@
 layout: clase
 title: 'Graficación con ggplot2'
 curso: 'programacion-R'
-clase: 8
+clase: 6
 custom_js: 'mathjax'
 ---
 

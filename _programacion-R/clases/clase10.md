@@ -1,4 +1,4 @@
----
+<!---
 layout: clase
 title: 'Expresiones regulares'
 curso: 'programacion-R'
@@ -176,3 +176,5 @@ gsub("^ +| +$","",s)
 ```
 
 [Página con ejemplos](https://cran.r-project.org/web/packages/stringr/vignettes/regular-expressions.html) usando el paquete `stringr`.
+
+--->

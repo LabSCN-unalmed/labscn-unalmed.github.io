@@ -1,4 +1,4 @@
----
+<!---
 layout: clase
 title: 'Manejo de base de datos'
 curso: 'programacion-R'
@@ -128,3 +128,4 @@ icfes201502 %>%
   group_by(DEPARTAMENTO) %>%
   arrange(desc(n))
 ```
+--->

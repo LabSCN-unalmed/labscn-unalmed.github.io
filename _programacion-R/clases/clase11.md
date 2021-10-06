@@ -1,4 +1,4 @@
----
+<!---
 layout: clase
 title: 'Fecha y tiempo'
 curso: 'programacion-R'
@@ -282,3 +282,4 @@ wday(llegada2, label = TRUE)
 ## [1] Sat
 ## Levels: Sun < Mon < Tues < Wed < Thurs < Fri < Sat
 ```
+--->

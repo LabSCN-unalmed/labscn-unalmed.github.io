@@ -1,4 +1,4 @@
----
+<!---
 layout: clase
 title: 'Sartas en R usando `stringr`'
 curso: 'programacion-R'
@@ -215,3 +215,6 @@ str_split(sartas, "-")
 ## [1] "Trabajo: 579"                   "499"                           
 ## [3] "7527; Residencia: 543.355.3679"
 ```
+
+
+--->

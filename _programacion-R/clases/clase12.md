@@ -1,4 +1,4 @@
----
+<!---
 layout: clase
 title: 'Programación orientada a objetos en R'
 curso: 'programacion-R'
@@ -1010,3 +1010,4 @@ lados(forma2)
 ```
 ## [1] 4
 ```
+--->

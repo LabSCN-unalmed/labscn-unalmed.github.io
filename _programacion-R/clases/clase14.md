@@ -1,4 +1,4 @@
----
+<!---
 layout: clase
 title: 'Procesamiento en paralelo con R'
 curso: 'programacion-R'
@@ -154,3 +154,4 @@ Sys.time() - ini
 
 stopCluster(cluster1)
 ```
+--->

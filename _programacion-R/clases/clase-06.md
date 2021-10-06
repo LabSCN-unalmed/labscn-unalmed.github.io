@@ -2,7 +2,7 @@
 layout: clase
 title: 'Paquetes en R'
 curso: 'programacion-R'
-clase: 6
+clase: 4
 custom_js: 'mathjax'
 ---
 
