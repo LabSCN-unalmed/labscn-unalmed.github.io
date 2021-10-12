@@ -34,6 +34,11 @@ order: 0
    | 13    | Construcción de paquetes|
    | 14-15 | Entrega de trabajo final|
 
+## Políticas del curso
+
+  - Siempre que se envíe un correo al profesor (**krcabrer@unal.edu.co**)
+    en asunto escribir **[cursoR]** (Con los corchetes incluidos).
+
 <!---
 ## Políticas del curso
 
