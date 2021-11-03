@@ -1,7 +1,7 @@
 ---
 title: "Estilo de programación en R"
 author: "Kenneth Roy Cabrera Torres"
-date: "22 de junio de 2016"
+date: "Martes 2 de noviembre de 2021"
 output: 
   html_document: 
     toc: yes
@@ -16,11 +16,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Archivos
 
 ```{r eval=FALSE}
-# bien
+# Aceptable.
 modelos-ajustado.R
 funciones-auxiliares.R
 
-# mal
+# No aconsejable.
 programa.r
 funciones1.r
 
@@ -33,12 +33,12 @@ funciones1.r
 
 ### Objetos
 ```{r eval=FALSE}
-#Bien
+# Aceptable.
 un_dia
 dia_1
 diaUno
 
-#Mal
+# No aceptable.
 primer_dia_del_mes_para_pago
 DiaUno
 diauno
@@ -51,35 +51,36 @@ c <- 10
 mean <- function(x) sum(x)
 ```
 
-## Sintáxis
+## Sintaxis
 
 ```{r eval=FALSE}
-# Bien
+# Aconsejable.
 promedio <- mean(pies / 12 + pulgadas, na.rm = TRUE)
 
-# Mal
+# No aconsejable
 promedio<-mean(pies/12+pulgadas,na.rm=TRUE)
 
-# Excepción :, ::, :::.
+# Excepción al utilizar los operadores :, ::, :::.
 
-# Bien
+# Aconsejable
 x <- 1:10
 base::get
 
-# Mal
+# No aconsejable
 x <- 1 : 10
 base :: get
 ```
 
 Con el uso de los paréntesis: 
 espacio antes del paréntesis izquierdo si no es una función, y
-sin espacion antes del paréntesis izquierdo si es una función.
+sin espacio antes del paréntesis izquierdo si es una función.
+
 ```{r eval=FALSE}
-# Bien
+# Aconsejable
 if (debug) do(x)
 plot(x, y)
 
-# Mal
+# No aconsejable
 if(debug)do(x)
 plot (x, y)
 
@@ -102,11 +103,11 @@ Evitar espacios en blanco en los paréntesis exceptuando el
 primer paréntesis izquierdo que sigue la regla dada.
 
 ```{r eval=FALSE}
-# Bien
+# Aconsejable
 if (debug) do(x)
 diamonds[5, ]
 
-# Mal
+# No aconsejable
 if ( debug ) do(x)  
 x[1,]   
 x[1 ,]  
@@ -115,7 +116,7 @@ x[1 ,]
 Uso de las llaves `{}`. 
 
 ```{r eval=FALSE}
-# Bien
+# Aconsejable
 if (y < 0 && debug) {
   message("y es negativo")
 }
@@ -126,7 +127,7 @@ if (y == 0) {
   y ^ x
 }
 
-# Mal
+# No aconsejable
 
 if (y < 0 && debug)
  message("y es negativo")
@@ -157,7 +158,7 @@ Líneas de comentarios y subtítulos
 ```{r eval=FALSE}
 # Desgarga de datos.        ---------------------------
 
-# Graficación exploratorio  ---------------------------
+# Graficación exploratoria  ---------------------------
 
 #=============================================================================#
 # Se inicia una sección
