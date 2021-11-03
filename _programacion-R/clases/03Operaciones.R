@@ -2,14 +2,16 @@
 # Titulo: Operaciones básicas
 # Tipo: Tutorial.
 # Nombre: Kenneth Roy Cabrera Torres.
-# Fecha: miércoles, 22 de junio de 2016.
-# Modificaciones: viernes, 25 de agosto de 2017.
+# Fecha: Miércoles, 22 de junio de 2016.
+# Modificaciones: Viernes, 25 de agosto de 2017.
+#                 Miércoles, 2 de noviembre de 2021.
 # Enunciado: Ejemplos de operaciones básica en R.
 # -----------------------------------------------------------------------------#
 
 # Tipos de datos numéricos (vectores y matrices)
-# Generalmente las operaciones son vectoriales y se realizas elemento 
-# a elementos y reciclando en donde aplica.
+# Generalmente las operaciones son vectoriales
+# y se realizas elemento a elementos y
+# reciclando en donde aplica.
 
 a <- c(4, 2, 3, 0)
 x <- c(4, 2, 3, 3, 2, 1, 2, 3)
@@ -151,5 +153,3 @@ t(m1) + m2
 m1 %*% m2
 
 m2 %*% m1
-
-
