@@ -1,9 +1,9 @@
 ---
 title: "Funciones en R (I)"
 author: "Kenneth Roy Cabrera Torres"
-date: "Jueves, 23 de junio de 2016"
-output: 
-  html_document: 
+date: "Viernes, 12 de noviembre de 2021"
+output:
+  html_document:
     toc: yes
 ---
 
@@ -39,6 +39,3 @@ formals(miPrimeraFuncion)
 
 environment(miPrimeraFuncion)
 ```
-
-
-
