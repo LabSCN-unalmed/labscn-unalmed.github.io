@@ -64,17 +64,19 @@ unas representaciones gráficas mejores que otras.
 
 ### Percepción incorrecta.
 
-![alt text](./percepcion1.png){: .img-responsive}
+![alt text](./F26percepcion0.png){: .img-responsive}
 
-![alt text](./percepcion2.png){: .img-responsive}
+![alt text](./F26percepcion1.png){: .img-responsive}
 
-![alt text](./percepcion3.png){: .img-responsive}
+![alt text](./F27percepcion2.png){: .img-responsive}
+
+![alt text](./F28percepcion3.png){: .img-responsive}
 
 ### Contrastes.
 
-![alt text](./grises3.jpeg){: .img-responsive}
+![alt text](./F23grises3.jpeg){: .img-responsive}
 
-![alt text](./grises4.jpg){: .img-responsive}
+![alt text](./F24grises4.jpg){: .img-responsive}
 
 ## Guía de colores.
 
