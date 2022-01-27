@@ -19,6 +19,9 @@ order: 3
 - [Guía para elaboración de pósters científicos](./documentos/poster-1209925152397079-9.pdf)
 
 
+## Ejemplo de problemas en gráficas.
+
+- [Problemas en gráficas](./graficas/index.html)
 
 
 <!---
