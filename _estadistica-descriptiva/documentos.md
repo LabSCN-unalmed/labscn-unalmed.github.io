@@ -12,12 +12,6 @@ order: 3
 {: toc}
 
 
-## Guias para presentación de pósters
-
-- [Póster científico](./documentos/DocumentoPrincipalEGuardiola_poster_cientifico.pdf)
-- [Presentación de carteles o pósters](./documentos/mgi20400.pdf)
-- [Guía para elaboración de pósters científicos](./documentos/poster-1209925152397079-9.pdf)
-
 
 ## Ejemplo de problemas en gráficas.
 
@@ -26,6 +20,12 @@ order: 3
 
 <!---
 
+
+## Guias para presentación de pósters
+
+- [Póster científico](./documentos/DocumentoPrincipalEGuardiola_poster_cientifico.pdf)
+- [Presentación de carteles o pósters](./documentos/mgi20400.pdf)
+- [Guía para elaboración de pósters científicos](./documentos/poster-1209925152397079-9.pdf)
 
 
 ## Tablas guías para parámetros gráficos.
