@@ -69,7 +69,5 @@ habilidades en el análisis exploratorio datos.
 ## Políticas del curso
 
 - Se utilizará la plataforma [UN virtual](https://unvirtual.medellin.unal.edu.co/) de la Universidad Nacional de Colombia.
-- Las sesiones virtuales sólo serán con el correo oficial de la Universidad Nacional de Colombia.
 - Los grupos de trabajo serán de máximo 5 personas.
-
 - Todo correo que se envíe a <krcabrer@unal.edu.co> debe llevar en asunto: [EDAED] (Incluya los chorchetes)
