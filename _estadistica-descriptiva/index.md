@@ -27,7 +27,7 @@ habilidades en el análisis exploratorio datos.
   una base de datos.
 - Generar preguntas sobre el conjunto de datos.
 - Buscar respuestas a esas preguntas mediante la visualización,
-  transformación y modelización básico de los datos.
+  transformación y modelización básica de los datos.
 
 ## Contenido del curso:
 
@@ -57,8 +57,11 @@ habilidades en el análisis exploratorio datos.
 * [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="blank"}
 * [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="blank"}
 
+* [Video de instalación de R](https://www.youtube.com/watch?v=rzw1E6HxBFY&t=2s).
+* [Video de instalación de RStudio](https://www.youtube.com/watch?v=Ifj_WNtFyK8)
+
 * Libro electrónico [Manual de R](https://fhernanb.github.io/Manual-de-R/).
-* Libro electrónico [Gráficos con R](https://fhernanb.github.io/Graficos-con-R/)
+* Libro electrónico [Gráficos con R](https://fhernanb.github.io/Graficos-con-R/).
 
 * [Canal de YouTube](https://www.youtube.com/channel/UCMLQ_dQirjjwPjR8skwX3gA) del profesor Freddy Hernández Barajas. Tutoriales cortos de R, RStudio, estadística y modelación en estadística.
 
@@ -71,3 +74,4 @@ habilidades en el análisis exploratorio datos.
 - Se utilizará la plataforma [UN virtual](https://unvirtual.medellin.unal.edu.co/) de la Universidad Nacional de Colombia.
 - Los grupos de trabajo serán de máximo 5 personas.
 - Todo correo que se envíe a <krcabrer@unal.edu.co> debe llevar en asunto: [EDAED] (Incluya los chorchetes)
+- Las sesiones virtuales que se programen se utilizará solo el correo electrónico de la Universidad (.unal.edu.co).
