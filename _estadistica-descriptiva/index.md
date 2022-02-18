@@ -8,7 +8,7 @@ order: 1
 ## Objetivo general:
 
 Manejar los principios básicos de la estadística descriptiva y desarrollar
-habilidades en el análisis exploratorio de bases de datos.
+habilidades en el análisis exploratorio datos.
 
 ## Objetivos específicos:
 
@@ -16,18 +16,18 @@ habilidades en el análisis exploratorio de bases de datos.
   datos con objetivo científico.
 - Usar la estadística descriptiva como herramienta de
   análisis estadístico inicial.
-- Desarrollar habilidades para desplegar datos para
-  tener un panorama global del comportamiento de los mismos.
+- Desarrollar habilidades para desplegar datos con el fin de
+  obtener un panorama global del comportamiento de los mismos.
 - Adquirir habilidades investigativas para planear,
   ejecutar y analizar una investigación estadísticamente válida.
 
 ## El estudiante tendrá al final de curso la capacidad de:
 
-- Generar preguntas sobre el conjunto de datos analizados.
+- Realizar una depuración, despliegue y análisis descriptivo de
+  una base de datos.
+- Generar preguntas sobre el conjunto de datos.
 - Buscar respuestas a esas preguntas mediante la visualización,
-  transformación y modelamiento básico de sus datos.
-- Después de obtener estas preguntas, refinar las preguntas y generar nuevas
-  preguntas relevantes.  
+  transformación y modelización básico de los datos.
 
 ## Contenido del curso:
 
@@ -35,10 +35,9 @@ habilidades en el análisis exploratorio de bases de datos.
 - Planeación de toma de datos con fines investigativos.
 - Conceptos básicos del análisis exploratorio de datos.
 - Visualización e interpretación de datos.
-- Histogramas, diagramas de dispersión, etc.
-- Interpretación de distribuciones.
 - Entendimiento de la naturaleza de los datos.
-- Estadística descriptiva, media, mediana, moda, cuantiles, etc.
+- Estadística descriptiva, medidas de tendencia central,
+  medidas de dispersión, tablas de frecuencia, etc.
 
 ## Evaluación:
 
@@ -58,9 +57,12 @@ habilidades en el análisis exploratorio de bases de datos.
 * [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="blank"}
 * [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="blank"}
 
-* [Canal de YouTube](https://www.youtube.com/channel/UCMLQ_dQirjjwPjR8skwX3gA) del profesor Freddy Barajas. Tutoriales cortos de R, RStudio, estadística y modelación en estadística.
+* [Canal de YouTube](https://www.youtube.com/channel/UCMLQ_dQirjjwPjR8skwX3gA) del profesor Freddy Hernández Barajas. Tutoriales cortos de R, RStudio, estadística y modelación en estadística.
 
 * [Página de semillero de R por el profesor Edimer David Jaramillo](https://unal-semilleror-facca.github.io/){:target="blank"}
+
+* Libro electrónico [Manual de R](https://fhernanb.github.io/Manual-de-R/).
+* Libro electrónico [Gráficos con R](https://fhernanb.github.io/Graficos-con-R/)
 
 
 ## Políticas del curso
