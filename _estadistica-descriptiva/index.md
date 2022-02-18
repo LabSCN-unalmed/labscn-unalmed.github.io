@@ -57,12 +57,13 @@ habilidades en el análisis exploratorio datos.
 * [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM){:target="blank"}
 * [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc){:target="blank"}
 
-* [Canal de YouTube](https://www.youtube.com/channel/UCMLQ_dQirjjwPjR8skwX3gA) del profesor Freddy Hernández Barajas. Tutoriales cortos de R, RStudio, estadística y modelación en estadística.
-
-* [Página de semillero de R por el profesor Edimer David Jaramillo](https://unal-semilleror-facca.github.io/){:target="blank"}
-
 * Libro electrónico [Manual de R](https://fhernanb.github.io/Manual-de-R/).
 * Libro electrónico [Gráficos con R](https://fhernanb.github.io/Graficos-con-R/)
+
+* [Canal de YouTube](https://www.youtube.com/channel/UCMLQ_dQirjjwPjR8skwX3gA) del profesor Freddy Hernández Barajas. Tutoriales cortos de R, RStudio, estadística y modelación en estadística.
+
+* [Página de semillero de R](https://unal-semilleror-facca.github.io/){:target="blank"} por el profesor Edimer David Jaramillo
+
 
 
 ## Políticas del curso
