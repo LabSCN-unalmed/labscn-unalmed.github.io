@@ -135,6 +135,8 @@ en gráficas científicas.
 
 ![alt text](./F14escalaBueno.png "Figura 22"){: .img-responsive }
 
+![alt text](./Caracol_20220304_064812.jpg "Figura 22_a"){: .img-responsive }
+
 ![alt text](./F15escala2.png  "Figura 23"){: .img-responsive }
 
 ![alt text](./F16escala3.png "Figura 24"){: .img-responsive }
