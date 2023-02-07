@@ -51,6 +51,9 @@ habilidades en el análisis exploratorio datos.
 
 ## Enlaces importantes
 
+* Libro electrónico [Manual de R](https://fhernanb.github.io/Manual-de-R/).
+* Libro electrónico [Gráficos con R](https://fhernanb.github.io/Graficos-con-R/).
+
 * [Sitio de descarga del Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/){:target="blank"}
 * [Sitio de descarga de la interfaz para el R: RStudio.](http://www.rstudio.com/products/rstudio/download/){:target="blank"}
 
@@ -60,8 +63,6 @@ habilidades en el análisis exploratorio datos.
 * [Video de instalación de R](https://www.youtube.com/watch?v=rzw1E6HxBFY&t=2s).
 * [Video de instalación de RStudio](https://www.youtube.com/watch?v=Ifj_WNtFyK8)
 
-* Libro electrónico [Manual de R](https://fhernanb.github.io/Manual-de-R/).
-* Libro electrónico [Gráficos con R](https://fhernanb.github.io/Graficos-con-R/).
 
 * [Canal de YouTube](https://www.youtube.com/channel/UCMLQ_dQirjjwPjR8skwX3gA) del profesor Freddy Hernández Barajas. Tutoriales cortos de R, RStudio, estadística y modelación en estadística.
 
