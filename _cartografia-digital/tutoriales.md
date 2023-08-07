@@ -3,6 +3,7 @@ layout: curso
 title: 'Tutoriales'
 curso: 'cartografia-digital'
 ---
+
 <!-- order: 3 -->
 
 ## Descarga de escenas SRTM y LandSat desde EarthExplorer

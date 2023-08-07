@@ -43,8 +43,8 @@ habilidades en el análisis exploratorio datos.
 
 | Item                                           | Porcentaje |
 |:-----------------------------------------------|:----------:|
-| Talleres individuales y en grupo (seguimiento) |        25% |
-| Trabajos en grupo                              |        20% |
+| Talleres individuales y en grupo (seguimiento) |        20% |
+| Trabajos en grupo                              |        25% |
 | Trabajos individuales                          |        25% |
 | Final                                          |        30% |
 {: .table .table-hover}
