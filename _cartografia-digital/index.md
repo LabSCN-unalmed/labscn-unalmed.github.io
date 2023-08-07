@@ -7,7 +7,7 @@ order: 0
 
 ## Descarga de datos de ejemplo
 
-Los datos de ejemplo para el desarrollo de este curso se encuentran en una [carpeta compartida](https://drive.google.com/drive/folders/1wOQr4O7xDOA9VeGuvBQN0cXL5MwSuk5H?usp=drive_link){:target="blank"} en Google Drive.
+Los datos de ejemplo para el desarrollo de este curso se encuentran en una [carpeta compartida](https://drive.google.com/drive/folders/1yALb_tnJkS_rSKzionM2cMMY5JAcyDwO?usp=drive_link){:target="blank"} en Google Drive.
 
 
 <hr>
