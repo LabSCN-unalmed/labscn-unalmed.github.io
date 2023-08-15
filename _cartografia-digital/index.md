@@ -9,7 +9,6 @@ order: 0
 
 Los datos de ejemplo para el desarrollo de este curso se encuentran en una [carpeta compartida](https://drive.google.com/drive/folders/1W2KU-0Zsi-KlYq5tzmePKaUqKubOmhxf?usp=drive_link){:target="blank"} en Google Drive.
 
-
 <hr>
 
 ¿Qué es la superficie terrestre?
