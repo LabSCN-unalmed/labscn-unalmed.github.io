@@ -1,0 +1,370 @@
+---
+title: "Introducción al álgebra lineal"
+author: "Universidad Nacional de Colombia, Sede Medellín"
+lang: es
+date: last-modified
+date-format: long
+format: 
+  html: 
+    toc: true
+    embed-resources: true
+---
+
+
+## Lectura de base de datos
+
+```{r}
+# Lectura de base de datos
+
+baseAbun1 <- read.table("ejemplo1.txt", header = TRUE, row.names = 1)
+```
+
+```{r}
+matrizAbun <- as.matrix(baseAbun1)
+matrizAbun
+```
+
+$$
+A =
+\left[ 
+\begin{array}{cc}
+10  & 10 \\
+19  & 32 \\
+5   & 3 \\
+10  & 20 \\
+3  &  19 \\
+4   & 18 \\
+7   & 7 \\
+5   & 46 \\
+25  & 26 \\
+11  & 11 \\
+5   & 30 \\ 
+\end{array} 
+\right]
+$$
+
+
+## Gráfica de dispersión de las abundancias de las dos especies
+```{r}
+plot(matrizAbun, xlim = c(-1, 50), ylim = c(-1, 50), asp = 1, pch = 19)
+text(matrizAbun, labels = row.names(matrizAbun), pos = 2)
+abline(v = 0, col = "red")
+abline(h = 0, col = "red")
+```
+
+
+## Hallar las abundancias totales de cada sitio.
+
+```{r}
+sumas <- rowSums(matrizAbun)
+sumas
+```
+
+
+## Hallar la distancia magnitud de la abundancia por algunos sitios
+```{r}
+nsitio1 <- sqrt(sum(matrizAbun[1, ] ^ 2))
+nsitio1
+nsitio2 <- sqrt(sum(matrizAbun[2, ] ^ 2))
+nsitio2
+nsitio9 <- sqrt(sum(matrizAbun[9, ] ^ 2))
+nsitio9
+```
+
+La magnitud de un vector  $\boldsymbol{u} = [x \quad y]$ se define como:
+
+$$
+ |\boldsymbol{u}| = \sqrt{x^2 + y^2}
+$$
+
+## Hallar la abundancias "conjunta" de todos los sitios.
+
+Cálculo de la norma de cada vector fila.
+```{r}
+normas <- sqrt(rowSums(matrizAbun ^ 2))
+normas
+```
+
+## Llevar a una base de datos todas las medidas.
+
+```{r}
+base_total <- cbind(matrizAbun, sumas, normas)
+base_total
+```
+
+
+
+## Gráfica de las distancias "conjuntas".
+
+```{r}
+plot(matrizAbun, xlim = c(-1, 50), ylim = c(-1, 50), asp = 1, pch = 19)
+text(matrizAbun, labels = row.names(matrizAbun), pos = 2)
+arrows(0, 0, matrizAbun[, 1], matrizAbun[, 2], col = "blue", length = 0.2)
+abline(v = 0, col = "red")
+abline(h = 0, col = "red")
+abline(a = 51, b = -1, col = "chartreuse4")
+abline(a = 22, b = -1, col = "chartreuse4")
+```
+
+
+## Gráfica de comparación de las dos distancias o magnitudes de cada sitio como vector.
+
+```{r}
+plot(sumas, normas,
+     asp = 1, xlim = c(0, 55), ylim = c(0, 55), pch =19,
+     las = 1)
+text(sumas, normas, labels = names(sumas), pos = 2, col = "blue")
+```
+
+## Cálculo de los vectores unitarios para cada vector (sitio).
+
+El vector unitario asociado a cualquier vector $\boldsymbol{v}$ se define como:
+
+$$
+ \boldsymbol{u} = \frac{\boldsymbol{v}}{|\boldsymbol{v}|}
+$$
+
+```{r}
+matrizAbun
+```
+
+```{r}
+normas
+```
+
+
+```{r}
+matrizNormalizadas <- matrizAbun/normas
+matrizNormalizadas
+```
+
+## Gráfica de los vectores unitarios.
+
+```{r}
+
+plot(matrizNormalizadas, asp = 1, pch = 19,
+     xlim = c(0, 1), ylim = c(0, 1))
+text(matrizNormalizadas, labels = 1:nrow(matrizAbun), pos = 1)
+
+```
+
+## Cálculo de proporción de abundancias.
+
+```{r}
+(matrizProporciones <- matrizAbun/sumas)
+```
+
+
+
+```{r}
+plot(matrizProporciones, asp = 1, pch = 19,
+     xlim = c(0, 1), ylim = c(0, 1))
+text(matrizProporciones, labels = 1:nrow(matrizAbun), pos = 2)
+```
+## Comparación gráfica entre "abundancia conjunta" y "proporciones".
+
+```{r}
+plot(matrizProporciones, asp = 1, pch = 19,
+     xlim = c(0, 1), ylim = c(0, 1), col = "red")
+text(matrizProporciones, labels = 1:nrow(matrizAbun), pos = 1)
+points(matrizNormalizadas, pch = 19,
+     col = "blue")
+text(matrizNormalizadas, labels = 1:nrow(matrizAbun), pos = 1)
+```
+
+
+
+## Cálculo de la matriz centrada de abundancias.
+
+
+```{r}
+promedios <- colMeans(matrizAbun)
+promedios
+```
+
+
+
+```{r}
+matrizCentrada <- t(t(matrizAbun) - promedios)
+matrizCentrada
+```
+
+
+## Gráfica de los sitios con respecto al centroide o centro de masa de abundancias
+
+```{r}
+plot(matrizCentrada,xlim = c(-20, 30), ylim = c(-20, 30), asp = 1, pch = 19)
+text(matrizCentrada, labels = row.names(matrizAbun), pos = 2)
+grid()
+abline(h = 0, col = "red", lty = 4)
+abline(v = 0, col = "red", lty = 4)
+
+```
+
+## Matriz de varianza y covarianza de matrices de abundancias y de abundacias centradas
+
+```{r}
+matrizAbun
+```
+
+```{r}
+var(matrizAbun)
+```
+
+
+```{r}
+matrizCentrada
+```
+
+```{r}
+var(matrizCentrada)
+```
+
+
+
+
+## Composición de referencia
+
+```{r}
+composicion1 <- c(1, 9) 
+composicion2 <- c(-9, 1) 
+```
+
+```{r}
+composicion1
+```
+
+```{r}
+promedios
+```
+
+
+```{r}
+promedios + composicion1
+```
+```{r}
+promedios + composicion2
+```
+
+
+
+## Producto escalar entre dos vectores.
+
+El producto escalar entre dos vectores $\boldsymbol{v}$, $\boldsymbol{w}$ se 
+define como:
+
+$$
+ \boldsymbol{v} \cdot \boldsymbol{w}
+$$
+
+Y es equivalente a:
+
+$$
+ \boldsymbol{v} \cdot \boldsymbol{w} = |\boldsymbol{v}| |\boldsymbol{w}| \cos \theta
+$$
+
+Donde $\theta$ es el ángulo entre los vectores $\boldsymbol{v}$ y $\boldsymbol{w}$.
+
+```{r}
+## Producto punto de dos vectores
+composicion1%*%composicion2
+```
+
+
+```{r}
+## Matriz con los vectores de referencia
+composicion <- rbind(composicion1, composicion2)
+composicion
+```
+
+
+
+
+## Gráfica de los sitios centrados y las abundancias de referencia
+
+```{r}
+
+plot(matrizCentrada,xlim = c(-20, 30), ylim = c(-20, 30), asp = 1, pch = 19)
+text(matrizCentrada, labels = row.names(matrizAbun), pos = 2)
+abline(h = 0, col = "red")
+abline(v = 0, col = "red")
+arrows(0, 0, composicion1[1], composicion1[2], col = "blue", length = 0.2, lwd = 2)
+arrows(0, 0, composicion2[1], composicion2[2], col = "blue", length = 0.2, lwd = 2)
+grid()
+```
+
+
+## Proyección de un vector sobre otro.
+
+La magnitud de la proyección del vector $\boldsymbol{v}$ sobre $\boldsymbol{w}$ se
+define como:
+
+$$
+ Proy_{\boldsymbol{w}}{\boldsymbol{v}} = \frac{\boldsymbol{v} \cdot \boldsymbol{w}}{|\boldsymbol{w}|}
+$$
+Donde $|\cdot|$ es la norma de un vector, 
+$Proy_{\boldsymbol{w}}{\boldsymbol{v}}$ es la magnitud de la proyección
+de $\boldsymbol{v}$ sobre $\boldsymbol{w}$ y el producto $\cdot$ es
+el producto escalar entre dos vectores.
+
+```{r}
+compoUnidad <- composicion / sqrt(rowSums(composicion ^ 2))
+compoUnidad
+```
+
+```{r}
+matrizProyectada <- matrizCentrada %*% t(compoUnidad)
+matrizProyectada
+```
+
+
+
+```{r}
+plot(matrizProyectada, asp = 1, pch = 19, ylim = c(-20, 20))
+text(matrizProyectada, labels = row.names(matrizAbun), pos = 1)
+grid()
+abline(h = 0, col = "red")
+abline(v = 0, col = "red")
+```
+
+```{r}
+var(matrizProyectada)
+```
+
+## Interpretación
+
+```{r}
+matrizCentrada
+```
+
+```{r}
+matrizProyectada
+```
+
+
+## Vectores propios
+
+
+```{r}
+m_vc <- var(matrizCentrada)
+vp1 <- eigen(m_vc)
+vp1
+```
+
+```{r}
+(matrizRotada_vp <- matrizCentrada%*%vp1$vectors)
+```
+
+
+```{r}
+plot(matrizRotada_vp, asp = 1, pch = 19, ylim = c(-16, 16))
+text(matrizRotada_vp, labels = row.names(matrizAbun), pos = 3)
+abline(h=0, col = "red")
+abline(v=0, col = "red")
+grid()
+```
+
+```{r}
+round(var(matrizRotada_vp), 3)
+```
+
