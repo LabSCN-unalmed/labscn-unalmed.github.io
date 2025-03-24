@@ -28,7 +28,7 @@ leer los artículos de investigación donde hace uso de estas herramientas.
 
 ## Biliografía complementaria
 
- - Everitt, B. y Hothorn T. An introducttion to Applied Multivariate Analysis with R. Springer, New York. 2011.
+ - Everitt, B. y Hothorn T. An introduction to Applied Multivariate Analysis with R. Springer, New York. 2011.
  - McCune, B. y Grace J. B. Analysis of Ecological Communities. MjM Software Design, Gleneden Beach, OR. 2002.
  - McGarigal, K., Cushman, S. y Stafford, S. Multivariate Statistics for Wildlife and Ecology Research. Springer Science+Business Media, LLC. 2000
  - Crawley, Michael. J. The R Book. Second Edition. John Wiley & Sons, Ltd, Publication. 2013.
@@ -46,3 +46,4 @@ leer los artículos de investigación donde hace uso de estas herramientas.
 
 * [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
 * [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/)
+* [Generador de documentos quarto](https://quarto.org/docs/get-started/)
