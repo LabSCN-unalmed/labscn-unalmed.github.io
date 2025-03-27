@@ -37,9 +37,9 @@ leer los artículos de investigación donde hace uso de estas herramientas.
 
 | Item                   | Porcentaje |
 |:-----------------------|:----------:|
-| Seguimiento - Talleres |        25% |
-| Seguimiento - Trabajos |        35% |
-| Proyecto final         |        40% |
+| Seguimiento - Talleres |        20% |
+| Seguimiento - Trabajos |        30% |
+| Proyecto final         |        50% |
 {: .table .table-hover}
 
 ## Enlaces principales
