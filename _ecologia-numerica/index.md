@@ -7,7 +7,6 @@ order: 0
 
 ## Objetivo
 
-
 Introducir al estudiante de niveles superiores del área de las ciencias naturales
 al uso de las herramientas estadísticas multiviariadas aplicadas a ecología
 tanto para realizar análisis de sus propios datos como para
