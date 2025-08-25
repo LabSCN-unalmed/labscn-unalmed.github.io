@@ -18,12 +18,14 @@ order: 00
 
 ### Textos principales
 
-1. Bivand, Roger S, Pebesma Edzer y Gómez-Rubio Virgilio.
+1. Pebesma, Edzer, Bivand, Roger. Spatial Data Science
+With Applications in R. January 22, 2025.
+2. Bivand, Roger S, Pebesma Edzer y Gómez-Rubio Virgilio.
 Applied Spatial Data Analysis with R. Second Edition. Springer New York.
 2013
-2. Diggle Peter J. y Ribeiro Pablo J. Jr. Model-based Geostatistics.
+3. Diggle Peter J. y Ribeiro Pablo J. Jr. Model-based Geostatistics.
 Springer Science+Business Media, LLC. 2007.
-3. LLoyd, Christopher D. Local Models for Spatial Analysis.
+4. LLoyd, Christopher D. Local Models for Spatial Analysis.
  Second Edition. CRC Press. 2011.
 
 
