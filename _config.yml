@@ -16,7 +16,7 @@ collections:
     output: true
     title: Cartografía Digital
     main: 1
-    description: Conceptos básicos y funcamentales de los Sistemas de Información Geográfica empleando el software libre GRASS GIS y ejemplos del relieve del departamento de Antioquia. En algunos ejemplos la información obtenida con GRASS se transfiere al software estadístico R para un análisis complementario más riguroso y didáctico.
+    description: Conceptos básicos y fundamentales de los Sistemas de Información Geográfica empleando el software libre GRASS GIS y ejemplos del relieve del departamento de Antioquia. En algunos ejemplos la información obtenida con GRASS se transfiere al software estadístico R para un análisis complementario más riguroso y didáctico.
   programacion-R:
     output: true
     title: Programación en R
