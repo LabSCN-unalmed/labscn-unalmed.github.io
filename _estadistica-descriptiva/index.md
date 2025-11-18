@@ -66,6 +66,6 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 ## Políticas del curso
 
 -   Se utilizará la plataforma [UN virtual](https://unvirtual.medellin.unal.edu.co/) de la Universidad Nacional de Colombia.
--   Los grupos de trabajo serán de máximo 5 personas.
+-   Los grupos de trabajo serán de máximo cinco (5) personas.
 -   Todo correo que se envíe a [krcabrer\@unal.edu.co](mailto:krcabrer@unal.edu.co){.email} debe llevar en asunto: \[EDAED\] (No olvide incluir los chorchetes)
 -   Las sesiones virtuales que se programen se utilizará solo el correo electrónico de la Universidad (.unal.edu.co).
