@@ -3,7 +3,7 @@ title: "Introducción al álgebra lineal"
 author: "Universidad Nacional de Colombia, Sede Medellín"
 lang: es
 date: last-modified
-date-format: long
+date-format: full
 format: 
   html: 
     toc: true
