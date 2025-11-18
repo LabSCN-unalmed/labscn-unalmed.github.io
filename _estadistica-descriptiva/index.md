@@ -40,7 +40,6 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 | Trabajos individuales                          |    25%     |
 | Final                                          |    30%     |
 
-{: .table .table-hover}
 
 ## Enlaces importantes
 
