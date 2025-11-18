@@ -36,7 +36,7 @@ collections:
     output: true
     title: Estadística Descriptiva y<br>Análisis Exploratorio de Datos
     main: 0
-    description: Permite al estudiante adquirir habilidades en el manejo de datos y en realizar análisis descrptivos y exploratorios utilizando herramientas para este propósito.
+    description: Permite al estudiante adquirir habilidades en el manejo de datos y en realizar análisis descriptivos y exploratorios utilizando herramientas para este propósito.
   metodos-estadisticos:
     output: true
     title: Métodos Estadísticos<br>(Diseño Experimental)
@@ -46,7 +46,7 @@ collections:
     output: true
     title: Lenguajes estadísticos (Módulo R)
     main: 0
-    description: Módulo del lenguaje de programación R en la asignatura lenguajes estadísticos.
+    description: Módulo del lenguaje de programación R en la asignatura de lenguajes estadísticos.
   geomorfometria:
     output: true
     title: Geomorfometría
