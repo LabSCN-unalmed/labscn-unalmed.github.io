@@ -41,6 +41,10 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 | Final                                          |    30%     |
 
 
+## Software
+
+- [Lenguaje estadístico R](https://cran.r-project.org/bin/windows/base/)
+
 ## Enlaces importantes
 
 -   Libro electrónico [Manual de R](https://fhernanb.github.io/Manual-de-R/).
