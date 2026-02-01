@@ -47,8 +47,3 @@ leer los artículos de investigación donde hace uso de estas herramientas.
 | Proyecto final         |        50% |
 {: .table .table-hover}
 
-## Enlaces principales
-
-* [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
-* [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/)
-* [Generador de documentos quarto](https://quarto.org/docs/get-started/)
