@@ -21,6 +21,12 @@ leer los artículos de investigación donde hace uso de estas herramientas.
  - Ordenación (Principal Component Analysis).
  - Construcción de modelos estadísticos.
 
+## Software
+- [Lenguaje estadístico R](https://cran.r-project.org/bin/windows/base/).
+- [Interfaz de usuario Positrón](https://positron.posit.co/download.html).
+- [Sistema de publicación técnica y científica](https://quarto.org/docs/get-started/).
+- [Interfaz tradicional de R - RStudio](https://posit.co/download/rstudio-desktop/). 
+
 ## Bibliografía
  - Legendre, Pierre y Legendre, Louis. Numerical Ecology. Third Edition, Elsevier, 2012.
  - Borcard, Daniel, Gillet François, Gillet y Legendre, Pierre. Numerical Ecology with R. 2011.
