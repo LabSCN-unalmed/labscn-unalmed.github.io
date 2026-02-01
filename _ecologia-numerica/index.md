@@ -22,6 +22,7 @@ leer los artículos de investigación donde hace uso de estas herramientas.
  - Construcción de modelos estadísticos.
 
 ## Software
+
 - [Lenguaje estadístico R](https://cran.r-project.org/bin/windows/base/).
 - [Interfaz de usuario Positrón](https://positron.posit.co/download.html).
 - [Sistema de publicación técnica y científica](https://quarto.org/docs/get-started/).
@@ -45,5 +46,10 @@ leer los artículos de investigación donde hace uso de estas herramientas.
 | Seguimiento - Talleres |        20% |
 | Seguimiento - Trabajos |        30% |
 | Proyecto final         |        50% |
-{: .table .table-hover}
 
+
+## Enlaces principales
+
+* [Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
+* [Interfaz para el R RStudio.](http://www.rstudio.com/products/rstudio/download/)
+* [Generador de documentos quarto](https://quarto.org/docs/get-started/)
