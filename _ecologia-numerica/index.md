@@ -46,5 +46,3 @@ leer los artículos de investigación donde hace uso de estas herramientas.
 | Seguimiento - Talleres |        20% |
 | Seguimiento - Trabajos |        30% |
 | Proyecto final         |        50% |
-
-
