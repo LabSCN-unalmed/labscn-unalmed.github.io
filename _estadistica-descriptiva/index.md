@@ -1,24 +1,24 @@
 ---
 layout: curso
 title: 'Estadística Descriptiva y Análisis Exploratorio de Datos'
-curso: 'estadistica-descriptiva'
+curso: 'estadística-descriptiva'
 order: 1
 ---
 
 ## Objetivo general:
 
-Manejar los principios básicos de la estadística descriptiva y desarrollar habilidades en el análisis exploratorio datos.
+Manejar los principios básicos de la estadística descriptiva y desarrollar habilidades en el análisis exploratorio de datos.
 
 ## Objetivos específicos:
 
--   Desarrollar habilidades para depurar, desplegar y analizar datos con objetivo científico.
+-   Desarrollar habilidades para depurar, desplegar y analizar datos con un objetivo científico.
 -   Usar la estadística descriptiva como herramienta de análisis estadístico inicial.
 -   Desarrollar habilidades para desplegar datos con el fin de obtener un panorama global del comportamiento de los mismos.
 -   Adquirir habilidades investigativas para planear, ejecutar y analizar una investigación estadísticamente válida.
 
 ## El estudiante tendrá al final de curso la capacidad de:
 
--   Realizar una depuración, despliegue y análisis descriptivo de una base de datos.
+-   Realizar depuración, despliegue y análisis descriptivo de una base de datos.
 -   Generar preguntas sobre el conjunto de datos.
 -   Buscar respuestas a esas preguntas mediante la visualización, transformación y modelización básica de los datos.
 
@@ -43,7 +43,10 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 
 ## Software
 
-- [Lenguaje estadístico R](https://cran.r-project.org/bin/windows/base/)
+- [Lenguaje estadístico R](https://cran.r-project.org/bin/windows/base/).
+- [Interfaz de usuario Positrón](https://positron.posit.co/download.html).
+- [Sistema de publicación técnica y científica](https://quarto.org/docs/get-started/).
+- [Interfaz tradicional de R - RStudio](https://posit.co/download/rstudio-desktop/).
 
 ## Enlaces importantes
 
