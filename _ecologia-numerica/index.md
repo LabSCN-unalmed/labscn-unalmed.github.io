@@ -92,7 +92,9 @@ Se permite el uso de herramientas de IA **solo** como apoyo (sintaxis, explicaci
 ## Evaluación
 
 ###  Talleres (20%)
+
 Talleres breves y prácticos, con rúbrica:
+
 - Uso de la/las técnica(s) (40%)
 - Interpretación ecológica (40%)
 - Reproducibilidad/claridad del código (20%)
