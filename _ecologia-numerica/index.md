@@ -65,24 +65,24 @@ Se permite el uso de herramientas de IA **solo** como apoyo (sintaxis, explicaci
 - McCune, B., & Grace, J. B. (2002). *Analysis of Ecological Communities*. MjM Software.
 
 
-## ## 6. Evaluación (según estructura del curso)
+## Evaluación (según estructura del curso)
 
 > Puedes ajustar porcentajes si tu curso institucional lo exige. Esta propuesta mantiene el esquema típico:
 - **Talleres (20%)**: Talleres cortos de laboratorio.
 - **Trabajos (30%)**: Dos trabajos grandes (15% + 15%).
 - **Proyecto final (50%)**: propuesta (10%) + avance (15%) + entrega final + sustentación (25%).
 
-### 6.1. Talleres (20%)
+###  Talleres (20%)
 Talleres breves y prácticos, con rúbrica:
 - Correctitud técnica (40%)
 - Interpretación ecológica (40%)
 - Reproducibilidad/claridad del código (20%)
 
-### 6.2. Trabajos (30%)
+###  Trabajos (30%)
 - **Trabajo 1 (15%)**: EDA + transformaciones (si son necesarias) + justificación metodológica.
 - **Trabajo 2 (15%)**: Agregación + ordenación no restringida + comparación e interpretación.
 
-### 6.3. Proyecto final (50%)
+###  Proyecto final (50%)
 - **Propuesta (10%)**: pregunta ecológica, datos, plan y decisiones iniciales.
 - **Avance (15%)**: EDA + elección de transformaciones/distancias + resultados preliminares.
 - **Entrega final + sustentación (25%)**: análisis completo (incluye canonical y/o espacial si aplica), discusión, limitaciones, reproducibilidad.
