@@ -67,11 +67,6 @@ Se permite el uso de herramientas de IA **solo** como apoyo (sintaxis, explicaci
 
 ## Evaluación (según estructura del curso)
 
-> Puedes ajustar porcentajes si tu curso institucional lo exige. Esta propuesta mantiene el esquema típico:
-- **Talleres (20%)**: Talleres cortos de laboratorio.
-- **Trabajos (30%)**: Dos trabajos grandes (15% + 15%).
-- **Proyecto final (50%)**: propuesta (10%) + avance (15%) + entrega final + sustentación (25%).
-
 ###  Talleres (20%)
 Talleres breves y prácticos, con rúbrica:
 - Correctitud técnica (40%)
