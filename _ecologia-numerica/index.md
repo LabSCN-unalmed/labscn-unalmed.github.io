@@ -22,6 +22,29 @@ Al finalizar el curso, el estudiante podrá:
 5. Modelar relaciones **comunidad ~ ambiente** mediante **ordenación canónica** (RDA/CCA/db-RDA), evaluar significancia con permutaciones y reportar efectos relevantes.
 6. Producir análisis **reproducibles** (datos + código + narrativa), con figuras y tablas orientadas a la interpretación ecológica.
 
+## Cronograma propuesto (16 semanas)
+
+Lectura base: Borcard, Gillet & Legendre (2011). Los capítulos se indican como referencia principal.
+
+| Semana | Tema central | Práctica en R (laboratorio) | Lectura sugerida | Entrega |
+|---:|---|---|---|---|
+| 1 | Introducción a ecología numérica y flujo reproducible | Setup R/Quarto; estructura de proyecto; carga de datos | Cap. 1 | — |
+| 2 | EDA I: estructura de datos de comunidad | Resúmenes, ceros, riqueza, distribución; primeras gráficas | Cap. 2 | Taller 1 |
+| 3 | EDA II: transformaciones y ambiente | Transformaciones típicas; estandarización; diagnóstico | Cap. 2 | Taller 2 |
+| 4 | Medidas de asociación y distancias (Q y R mode) | Construcción de matrices; elección de coeficientes | Cap. 3 | Taller 3 |
+| 5 | Pre-transformaciones y matrices de disimilitud | Comparación distancias (Bray, Jaccard, etc.); sensibilidad | Cap. 3 | — |
+| 6 | Clustering jerárquico | Links, Ward, dendrogramas, cophenetic corr | Cap. 4 | Taller 4 |
+| 7 | Clustering particional y validación | k-means, PAM, silueta; tipologías interpretables | Cap. 4 | **Trabajo 1 (15%)** |
+| 8 | Ordenación no restringida: visión general | Espacio multivariado, reducción; interpretación | Cap. 5 | — |
+| 9 | PCA: fundamentos e interpretación ecológica | PCA con variables ambientales y/o especies transformadas | Cap. 5 | Taller 5 |
+| 10 | CA/PCoA | CA y efecto arco; PCoA con distancias | Cap. 5 | — |
+| 11 | NMDS | NMDS con distancias no euclidianas; stress y diagnóstico | Cap. 5 | **Trabajo 2 (15%)** |
+| 12 | Ordenación canónica: visión general y RDA | Comunidad ~ ambiente con RDA; biplots; pruebas | Cap. 6 | Taller 6 |
+| 13 | CCA y comparación con RDA | CCA; cuándo usar; interpretación y cuidado | Cap. 6 | — |
+| 14 | Modelos canónicos avanzados | db-RDA / partición de variación (según curso) | Cap. 6 | **Propuesta proyecto (10%)** |
+| 15 | Integración y comunicación | Reporte final, figuras, discusión, limitaciones, defensa | Repaso Cap. 1–7 | **Entrega final (25%)** |
+
+
 ## Software
 
 - Lenguaje estadístico [R](https://cran.r-project.org/bin/windows/base/).
@@ -38,6 +61,7 @@ Al finalizar el curso, el estudiante podrá:
 ## Política de reproducibilidad (obligatoria)
 
 Toda entrega debe incluir:
+
 1. Archivo `.qmd` o `.Rmd` (ejecutable) con narrativa.
 2. Script(s) `.R` (si aplica) con funciones y flujo limpio.
 3. Carpeta `/data` (o link) y descripción de origen de datos.
@@ -65,11 +89,11 @@ Se permite el uso de herramientas de IA **solo** como apoyo (sintaxis, explicaci
 - McCune, B., & Grace, J. B. (2002). *Analysis of Ecological Communities*. MjM Software.
 
 
-## Evaluación (según estructura del curso)
+## Evaluación
 
 ###  Talleres (20%)
 Talleres breves y prácticos, con rúbrica:
-- Correctitud técnica (40%)
+- Uso de la/las técnica(s) (40%)
 - Interpretación ecológica (40%)
 - Reproducibilidad/claridad del código (20%)
 

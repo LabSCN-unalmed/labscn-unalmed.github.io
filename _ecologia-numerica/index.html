@@ -81,6 +81,135 @@ ul.task-list li input[type="checkbox"] {
 <li>Producir análisis <strong>reproducibles</strong> (datos + código + narrativa), con figuras y tablas orientadas a la interpretación ecológica.</li>
 </ol>
 </section>
+<section id="cronograma-propuesto-16-semanas" class="level2">
+<h2 class="anchored" data-anchor-id="cronograma-propuesto-16-semanas">Cronograma propuesto (16 semanas)</h2>
+<p>Lectura base: Borcard, Gillet &amp; Legendre (2011). Los capítulos se indican como referencia principal.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Semana</th>
+<th>Tema central</th>
+<th>Práctica en R (laboratorio)</th>
+<th>Lectura sugerida</th>
+<th>Entrega</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td>Introducción a ecología numérica y flujo reproducible</td>
+<td>Setup R/Quarto; estructura de proyecto; carga de datos</td>
+<td>Cap. 1</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td>EDA I: estructura de datos de comunidad</td>
+<td>Resúmenes, ceros, riqueza, distribución; primeras gráficas</td>
+<td>Cap. 2</td>
+<td>Taller 1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td>EDA II: transformaciones y ambiente</td>
+<td>Transformaciones típicas; estandarización; diagnóstico</td>
+<td>Cap. 2</td>
+<td>Taller 2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td>Medidas de asociación y distancias (Q y R mode)</td>
+<td>Construcción de matrices; elección de coeficientes</td>
+<td>Cap. 3</td>
+<td>Taller 3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td>Pre-transformaciones y matrices de disimilitud</td>
+<td>Comparación distancias (Bray, Jaccard, etc.); sensibilidad</td>
+<td>Cap. 3</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td>Clustering jerárquico</td>
+<td>Links, Ward, dendrogramas, cophenetic corr</td>
+<td>Cap. 4</td>
+<td>Taller 4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td>Clustering particional y validación</td>
+<td>k-means, PAM, silueta; tipologías interpretables</td>
+<td>Cap. 4</td>
+<td><strong>Trabajo 1 (15%)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td>Ordenación no restringida: visión general</td>
+<td>Espacio multivariado, reducción; interpretación</td>
+<td>Cap. 5</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td>PCA: fundamentos e interpretación ecológica</td>
+<td>PCA con variables ambientales y/o especies transformadas</td>
+<td>Cap. 5</td>
+<td>Taller 5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td>CA/PCoA</td>
+<td>CA y efecto arco; PCoA con distancias</td>
+<td>Cap. 5</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td>NMDS</td>
+<td>NMDS con distancias no euclidianas; stress y diagnóstico</td>
+<td>Cap. 5</td>
+<td><strong>Trabajo 2 (15%)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td>Ordenación canónica: visión general y RDA</td>
+<td>Comunidad ~ ambiente con RDA; biplots; pruebas</td>
+<td>Cap. 6</td>
+<td>Taller 6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td>CCA y comparación con RDA</td>
+<td>CCA; cuándo usar; interpretación y cuidado</td>
+<td>Cap. 6</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">14</td>
+<td>Modelos canónicos avanzados</td>
+<td>db-RDA / partición de variación (según curso)</td>
+<td>Cap. 6</td>
+<td><strong>Propuesta proyecto (10%)</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td>Integración y comunicación</td>
+<td>Reporte final, figuras, discusión, limitaciones, defensa</td>
+<td>Repaso Cap. 1–7</td>
+<td><strong>Entrega final (25%)</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="software" class="level2">
 <h2 class="anchored" data-anchor-id="software">Software</h2>
 <ul>
@@ -100,7 +229,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="política-de-reproducibilidad-obligatoria" class="level2">
 <h2 class="anchored" data-anchor-id="política-de-reproducibilidad-obligatoria">Política de reproducibilidad (obligatoria)</h2>
-<p>Toda entrega debe incluir: 1. Archivo <code>.qmd</code> o <code>.Rmd</code> (ejecutable) con narrativa. 2. Script(s) <code>.R</code> (si aplica) con funciones y flujo limpio. 3. Carpeta <code>/data</code> (o link) y descripción de origen de datos. 4. Semilla cuando aplique, y reporte de <code>sessionInfo()</code>. 5. Informe en formato HTML o pdf de acuerdo a los requerimientos específicos de la tarea o trabajo.</p>
+<p>Toda entrega debe incluir:</p>
+<ol type="1">
+<li>Archivo <code>.qmd</code> o <code>.Rmd</code> (ejecutable) con narrativa.</li>
+<li>Script(s) <code>.R</code> (si aplica) con funciones y flujo limpio.</li>
+<li>Carpeta <code>/data</code> (o link) y descripción de origen de datos.</li>
+<li>Semilla cuando aplique, y reporte de <code>sessionInfo()</code>.</li>
+<li>Informe en formato HTML o pdf de acuerdo a los requerimientos específicos de la tarea o trabajo.</li>
+</ol>
 </section>
 <section id="política-de-uso-de-ia-permitido-con-declaración-y-trazabilidad" class="level2">
 <h2 class="anchored" data-anchor-id="política-de-uso-de-ia-permitido-con-declaración-y-trazabilidad">Política de uso de IA (permitido con declaración y trazabilidad)</h2>
@@ -132,11 +268,11 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="evaluación-según-estructura-del-curso" class="level2">
-<h2 class="anchored" data-anchor-id="evaluación-según-estructura-del-curso">Evaluación (según estructura del curso)</h2>
+<section id="evaluación" class="level2">
+<h2 class="anchored" data-anchor-id="evaluación">Evaluación</h2>
 <section id="talleres-20" class="level3">
 <h3 class="anchored" data-anchor-id="talleres-20">Talleres (20%)</h3>
-<p>Talleres breves y prácticos, con rúbrica: - Correctitud técnica (40%) - Interpretación ecológica (40%) - Reproducibilidad/claridad del código (20%)</p>
+<p>Talleres breves y prácticos, con rúbrica: - Uso de la/las técnica(s) (40%) - Interpretación ecológica (40%) - Reproducibilidad/claridad del código (20%)</p>
 </section>
 <section id="trabajos-30" class="level3">
 <h3 class="anchored" data-anchor-id="trabajos-30">Trabajos (30%)</h3>
