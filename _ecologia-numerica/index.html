@@ -66,68 +66,96 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="objetivo" class="level2">
 <h2 class="anchored" data-anchor-id="objetivo">Objetivo</h2>
-<p>Introducir al estudiante de niveles superiores del área de las ciencias naturales al uso de las herramientas estadísticas multiviariadas aplicadas a ecología tanto para realizar análisis de sus propios datos como para leer los artículos de investigación donde hace uso de estas herramientas.</p>
+<p>Este curso introduce el análisis cuantitativo de datos ecológicos multivariados con enfoque aplicado. El estudiante aprende a explorar, medir similitud/disimilitud, clasificar (clustering), ordenar (ordination) y modelar relaciones especies–ambiente (ordenación canónica), integrando además estructura espacial cuando exista. El eje metodológico es el flujo de trabajo completo en <strong>R</strong> con análisis reproducibles (Quarto/RMarkdown), utilizando datasets reales de comunidades biológicas.</p>
+<p>El curso sigue como texto guía <strong>Borcard, Gillet &amp; Legendre (2011), <em>Numerical Ecology with R</em></strong>, y prioriza interpretación ecológica, selección justificada de métodos y comunicación clara de resultados.</p>
 </section>
-<section id="temas-principales" class="level2">
-<h2 class="anchored" data-anchor-id="temas-principales">Temas principales</h2>
-<ul>
-<li>Elementos de álgebra matricial.</li>
-<li>Análisis gráfico multidimensional.</li>
-<li>Análisis multidimensional (Cuantitativos y cualitativos).</li>
-<li>Análisis aglomerativo (Cluster Analysis).</li>
-<li>Ordenación (Principal Component Analysis).</li>
-<li>Construcción de modelos estadísticos.</li>
-</ul>
+<section id="resultados-de-aprendizaje-learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="resultados-de-aprendizaje-learning-outcomes">Resultados de aprendizaje (learning outcomes)</h2>
+<p>Al finalizar el curso, el estudiante podrá:</p>
+<ol type="1">
+<li>Diagnosticar la estructura de datos ecológicos multivariados (ceros, escalas, distribución, outliers) y decidir transformaciones/estandarizaciones apropiadas.</li>
+<li>Seleccionar y justificar medidas de (dis)similitud según tipo de datos (abundancia, presencia–ausencia) y objetivo ecológico.</li>
+<li>Aplicar métodos de <strong>clasificación</strong> (jerárquicos y particionales), evaluar estabilidad y extraer tipologías interpretables.</li>
+<li>Aplicar e interpretar <strong>ordenación no restringida</strong> (PCA, CA, PCoA, NMDS), comparando supuestos, distancias y escalamiento.</li>
+<li>Modelar relaciones <strong>comunidad ~ ambiente</strong> mediante <strong>ordenación canónica</strong> (RDA/CCA/db-RDA), evaluar significancia con permutaciones y reportar efectos relevantes.</li>
+<li>Producir análisis <strong>reproducibles</strong> (datos + código + narrativa), con figuras y tablas orientadas a la interpretación ecológica.</li>
+</ol>
 </section>
 <section id="software" class="level2">
 <h2 class="anchored" data-anchor-id="software">Software</h2>
 <ul>
-<li><a href="https://cran.r-project.org/bin/windows/base/">Lenguaje estadístico R</a>.</li>
-<li><a href="https://positron.posit.co/download.html">Interfaz de usuario Positrón</a>.</li>
-<li><a href="https://quarto.org/docs/get-started/">Sistema de publicación técnica y científica</a>.</li>
-<li><a href="https://posit.co/download/rstudio-desktop/">Interfaz tradicional de R - RStudio</a>.</li>
+<li>Lenguaje estadístico <a href="https://cran.r-project.org/bin/windows/base/">R</a>.</li>
+<li>Interfaz de usuario <a href="https://positron.posit.co/download.html">Positrón</a>.</li>
+<li>Sistema de publicación técnica y científica <a href="https://quarto.org/docs/get-started/">Quarto</a>.</li>
+<li>Interfaz tradicional de R - <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>.</li>
+</ul>
+</section>
+<section id="prerrequisitos-y-recomendaciones" class="level2">
+<h2 class="anchored" data-anchor-id="prerrequisitos-y-recomendaciones">Prerrequisitos y recomendaciones</h2>
+<ul>
+<li>Estadística básica: descriptiva, regresión lineal simple, conceptos de hipótesis.</li>
+<li>Álgebra lineal elemental: vectores, matrices, valores/vectores propios (se refuerza en el curso).</li>
+<li>Conocimientos básicos de R recomendados (no obligatorios si el estudiante compensa con trabajo autónomo).</li>
+</ul>
+</section>
+<section id="política-de-reproducibilidad-obligatoria" class="level2">
+<h2 class="anchored" data-anchor-id="política-de-reproducibilidad-obligatoria">Política de reproducibilidad (obligatoria)</h2>
+<p>Toda entrega debe incluir: 1. Archivo <code>.qmd</code> o <code>.Rmd</code> (ejecutable) con narrativa. 2. Script(s) <code>.R</code> (si aplica) con funciones y flujo limpio. 3. Carpeta <code>/data</code> (o link) y descripción de origen de datos. 4. Semilla cuando aplique, y reporte de <code>sessionInfo()</code>. 5. Informe en formato HTML o pdf de acuerdo a los requerimientos específicos de la tarea o trabajo.</p>
+</section>
+<section id="política-de-uso-de-ia-permitido-con-declaración-y-trazabilidad" class="level2">
+<h2 class="anchored" data-anchor-id="política-de-uso-de-ia-permitido-con-declaración-y-trazabilidad">Política de uso de IA (permitido con declaración y trazabilidad)</h2>
+<p>Se permite el uso de herramientas de IA <strong>solo</strong> como apoyo (sintaxis, explicación de errores, sugerencias de visualización), bajo estas reglas:</p>
+<ul>
+<li>Debe incluirse un <strong>Anexo de IA</strong> al final del reporte con:
+<ul>
+<li>herramienta usada,</li>
+<li>prompts relevantes,</li>
+<li>qué partes influyó y cómo verificaste el resultado.</li>
+</ul></li>
+<li>Está prohibido entregar resultados sin entendimiento: el docente puede solicitar <strong>defensa oral</strong> o <strong>replicación en vivo</strong> de cualquier sección.</li>
 </ul>
 </section>
 <section id="bibliografía" class="level2">
 <h2 class="anchored" data-anchor-id="bibliografía">Bibliografía</h2>
+<section id="texto-guía-principal" class="level3">
+<h3 class="anchored" data-anchor-id="texto-guía-principal">Texto guía (principal)</h3>
 <ul>
-<li>Legendre, Pierre y Legendre, Louis. Numerical Ecology. Third Edition, Elsevier, 2012.</li>
-<li>Borcard, Daniel, Gillet François, Gillet y Legendre, Pierre. Numerical Ecology with R. 2011.</li>
+<li>Borcard, D., Gillet, F., &amp; Legendre, P. (2011). <strong>Numerical Ecology with R</strong>. Springer.</li>
 </ul>
 </section>
-<section id="biliografía-complementaria" class="level2">
-<h2 class="anchored" data-anchor-id="biliografía-complementaria">Biliografía complementaria</h2>
+<section id="complementaria-recomendada" class="level3">
+<h3 class="anchored" data-anchor-id="complementaria-recomendada">Complementaria (recomendada)</h3>
 <ul>
-<li>Everitt, B. y Hothorn T. An introduction to Applied Multivariate Analysis with R. Springer, New York. 2011.</li>
-<li>McCune, B. y Grace J. B. Analysis of Ecological Communities. MjM Software Design, Gleneden Beach, OR. 2002.</li>
-<li>McGarigal, K., Cushman, S. y Stafford, S. Multivariate Statistics for Wildlife and Ecology Research. Springer Science+Business Media, LLC. 2000</li>
-<li>Crawley, Michael. J. The R Book. Second Edition. John Wiley &amp; Sons, Ltd, Publication. 2013.</li>
+<li>Legendre, P., &amp; Legendre, L. (2012). <em>Numerical Ecology</em> (3rd English ed.). Elsevier.</li>
+<li>Zuur, A. F., Ieno, E. N., &amp; Smith, G. M. (2007). <em>Analysing Ecological Data</em>. Springer.</li>
+<li>McCune, B., &amp; Grace, J. B. (2002). <em>Analysis of Ecological Communities</em>. MjM Software.</li>
 </ul>
 </section>
-<section id="evaluación" class="level2">
-<h2 class="anchored" data-anchor-id="evaluación">Evaluación</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Item</th>
-<th style="text-align: center;">Porcentaje</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Seguimiento - Talleres</td>
-<td style="text-align: center;">20%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Seguimiento - Trabajos</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Proyecto final</td>
-<td style="text-align: center;">50%</td>
-</tr>
-</tbody>
-</table>
+</section>
+<section id="evaluación-según-estructura-del-curso" class="level2">
+<h2 class="anchored" data-anchor-id="evaluación-según-estructura-del-curso">## 6. Evaluación (según estructura del curso)</h2>
+<blockquote class="blockquote">
+<p>Puedes ajustar porcentajes si tu curso institucional lo exige. Esta propuesta mantiene el esquema típico: - <strong>Talleres (20%)</strong>: Talleres cortos de laboratorio. - <strong>Trabajos (30%)</strong>: Dos trabajos grandes (15% + 15%). - <strong>Proyecto final (50%)</strong>: propuesta (10%) + avance (15%) + entrega final + sustentación (25%).</p>
+</blockquote>
+<section id="talleres-20" class="level3">
+<h3 class="anchored" data-anchor-id="talleres-20">6.1. Talleres (20%)</h3>
+<p>Talleres breves y prácticos, con rúbrica: - Correctitud técnica (40%) - Interpretación ecológica (40%) - Reproducibilidad/claridad del código (20%)</p>
+</section>
+<section id="trabajos-30" class="level3">
+<h3 class="anchored" data-anchor-id="trabajos-30">6.2. Trabajos (30%)</h3>
+<ul>
+<li><strong>Trabajo 1 (15%)</strong>: EDA + transformaciones (si son necesarias) + justificación metodológica.</li>
+<li><strong>Trabajo 2 (15%)</strong>: Agregación + ordenación no restringida + comparación e interpretación.</li>
+</ul>
+</section>
+<section id="proyecto-final-50" class="level3">
+<h3 class="anchored" data-anchor-id="proyecto-final-50">6.3. Proyecto final (50%)</h3>
+<ul>
+<li><strong>Propuesta (10%)</strong>: pregunta ecológica, datos, plan y decisiones iniciales.</li>
+<li><strong>Avance (15%)</strong>: EDA + elección de transformaciones/distancias + resultados preliminares.</li>
+<li><strong>Entrega final + sustentación (25%)</strong>: análisis completo (incluye canonical y/o espacial si aplica), discusión, limitaciones, reproducibilidad.</li>
+</ul>
+</section>
 </section>
 
 </main>
