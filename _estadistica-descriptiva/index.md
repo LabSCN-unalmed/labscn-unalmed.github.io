@@ -91,27 +91,15 @@ Máximo 10 líneas, al final del reporte:
 
 -   Libro electrónico [Gráficos con R](https://fhernanb.github.io/Graficos-con-R/).
 
--   [Sitio de descarga del Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
-
--   [Sitio de descarga de la interfaz para el R: RStudio.](http://www.rstudio.com/products/rstudio/download/)
-
--   [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM)
-
--   [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc)
-
--   [Video de instalación de R](https://www.youtube.com/watch?v=rzw1E6HxBFY&t=2s).
-
--   [Video de instalación de RStudio](https://www.youtube.com/watch?v=Ifj_WNtFyK8)
-
 -   [Canal de YouTube](https://www.youtube.com/channel/UCMLQ_dQirjjwPjR8skwX3gA) del profesor Freddy Hernández Barajas. Tutoriales cortos de R, RStudio, estadística y modelación en estadística.
 
--   [Página de semillero de R](https://unal-semilleror-facca.github.io/) por el profesor Edimer David Jaramillo
+-   [Página de semillero de R](https://semillerorpy.netlify.app/) por el profesor Edimer David Jaramillo
 
 ## Reproducibilidad y formato de entrega
 
 Todas las entregas deben incluir:
 
-- **Proyecto con estructura mínima:** `/data`, `/reporte`, `/R`
+- **Proyecto con estructura mínima:** `/datos`, `/reporte`, `/R`
 - **Reporte Quarto** (`.qmd`) y salida (HTML/PDF si aplica)
 - `sessionInfo()` al final del reporte
 - Semilla (`set.seed()`) cuando aplique
@@ -130,3 +118,6 @@ Todas las entregas deben incluir:
 - Copiar reportes completos o resultados sin atribución se considera falta grave.
 - El Anexo IA hace transparente el uso de herramientas y evita ambigüedad.
 
+## Código QR para incluirse en la lista de discusión
+
+![](shared_qr_code.png)
