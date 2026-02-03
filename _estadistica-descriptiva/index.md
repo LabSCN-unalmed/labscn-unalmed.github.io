@@ -5,6 +5,12 @@ curso: 'estadística-descriptiva'
 order: 1
 ---
 
+## Descripción del curso
+
+El curso desarrolla competencias para explorar, limpiar, describir y comunicar hallazgos en datos reales. Se enfatiza el análisis exploratorio (EDA) como un
+proceso iterativo basado en visualización, transformación y modelos ligeros para comprensión (no inferencia formal). Se trabaja con reportes
+reproducibles en Quarto y prácticas de programación en R orientadas al análisis de datos.
+
 ## Objetivo general:
 
 Manejar los principios básicos de la estadística descriptiva y desarrollar habilidades en el análisis exploratorio de datos.
@@ -18,9 +24,15 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 
 ## El estudiante tendrá al final de curso la capacidad de:
 
--   Realizar depuración, despliegue y análisis descriptivo de una base de datos.
--   Generar preguntas sobre el conjunto de datos.
--   Buscar respuestas a esas preguntas mediante la visualización, transformación y modelización básica de los datos.
+ - Importar datos y diagnosticar calidad (tipos, faltantes, duplicados, rangos, consistencia).
+- Estructurar datos en formato “tidy” y documentar un diccionario de datos.
+- Construir resúmenes descriptivos apropiados (tendencia central, dispersión, percentiles, frecuencias, proporciones).
+- Diseñar visualizaciones EDA con intención (distribuciones, comparaciones, relaciones).
+- Analizar covariación (num–num, cat–num, cat–cat) sin confundir asociación con causalidad.
+- Tomar y justificar decisiones de limpieza (NA, outliers, reglas de coherencia).
+- Usar “modelos ligeros” como herramienta exploratoria para revelar patrones.
+- Comunicar hallazgos de forma clara y reproducible en un reporte Quarto.
+- Demostrar comprensión operativa de R: lectura, modificación, depuración y explicación de código. 
 
 ## Contenido del curso:
 
@@ -30,6 +42,13 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 -   Visualización e interpretación de datos.
 -   Entendimiento de la naturaleza de los datos.
 -   Estadística descriptiva, medidas de tendencia central, medidas de dispersión, tablas de frecuencia, etc.
+
+## 4. Metodología
+- **Clase:** conceptos, ejemplos guiados y discusión de decisiones analíticas.
+- **Laboratorio:** práctica en R con datasets reales, actividades en vivo (LC) y depuración.
+- **Aprendizaje basado en proyectos:** un proyecto de grupo con hitos, más entregas individuales.
+- **Énfasis transversal:** reproducibilidad, trazabilidad y comunicación.
+
 
 ## Evaluación:
 
@@ -47,6 +66,24 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 - Interfaz de usuario [Positron](https://positron.posit.co/download.html).
 - Sistema de publicación técnica y científica[Quarto](https://quarto.org/docs/get-started/).
 - Interfaz tradicional de R - [RStudio](https://posit.co/download/rstudio-desktop/).
+
+## Política de uso de IA (permitida con transparencia)
+La IA puede utilizarse como herramienta de aprendizaje (sugerir ideas, depurar, explicar errores, refactorizar), pero **no reemplaza** el aprendizaje esperado. El curso evalúa la comprensión mediante coherencia con los datos, defensa oral y tareas en vivo.
+
+### Anexo IA obligatorio (en cada entrega)
+Máximo 10 líneas, al final del reporte:
+
+1. ¿Usó IA? (Sí/No)  
+2. ¿En qué la usó? (depuración, ideas, gráficos, explicación)  
+3. 3 bullets: **qué cambió usted** y **qué aprendió**  
+4. 1–2 prompts clave (máx 6 líneas)
+
+### Qué se penaliza
+- Entregas **no reproducibles** (no corren / rutas rotas / objetos no creados).
+- Contradicciones entre narrativa y evidencia (gráficos/tablas).
+- Incapacidad de explicar o modificar el análisis en defensa o actividades en vivo.
+
+
 
 ## Enlaces importantes
 
@@ -70,9 +107,26 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 
 -   [Página de semillero de R](https://unal-semilleror-facca.github.io/) por el profesor Edimer David Jaramillo
 
+## Reproducibilidad y formato de entrega
+
+Todas las entregas deben incluir:
+
+- **Proyecto con estructura mínima:** `/data`, `/reporte`, `/R`
+- **Reporte Quarto** (`.qmd`) y salida (HTML/PDF si aplica)
+- `sessionInfo()` al final del reporte
+- Semilla (`set.seed()`) cuando aplique
+
 ## Políticas del curso
 
 -   Se utilizará la plataforma [UN virtual](https://unvirtual.medellin.unal.edu.co/) de la Universidad Nacional de Colombia.
 -   Los grupos de trabajo serán de máximo cinco (5) personas.
 -   Todo correo que se envíe a [krcabrer\@unal.edu.co](mailto:krcabrer@unal.edu.co){.email} debe llevar en asunto: \[EDAED\] (No olvide incluir los chorchetes)
 -   Las sesiones virtuales que se programen se utilizará solo el correo electrónico de la Universidad (.unal.edu.co).
+
+## Reglas de colaboración e integridad académica
+
+- Se permite discusión conceptual entre estudiantes.
+- En entregas individuales, el trabajo debe reflejar decisiones y comprensión propias.
+- Copiar reportes completos o resultados sin atribución se considera falta grave.
+- El Anexo IA hace transparente el uso de herramientas y evita ambigüedad.
+
