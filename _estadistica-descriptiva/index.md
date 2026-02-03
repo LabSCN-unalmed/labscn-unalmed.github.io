@@ -43,11 +43,18 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 -   Entendimiento de la naturaleza de los datos.
 -   Estadística descriptiva, medidas de tendencia central, medidas de dispersión, tablas de frecuencia, etc.
 
-## 4. Metodología
+
+## Metodología
 - **Clase:** conceptos, ejemplos guiados y discusión de decisiones analíticas.
 - **Laboratorio:** práctica en R con datasets reales, actividades en vivo (LC) y depuración.
 - **Aprendizaje basado en proyectos:** un proyecto de grupo con hitos, más entregas individuales.
 - **Énfasis transversal:** reproducibilidad, trazabilidad y comunicación.
+
+## Bibliografía
+
+Se utilizará en la mayor parte del curso las indicaciones del libro digital [R para ciencia de datos](https://davidrsch.github.io/r4ds-es/)
+
+Se puede utilizar otra bibliografía auxiliar de acuerdo al desarrollo del curso.
 
 
 ## Evaluación:
@@ -68,7 +75,7 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 - Interfaz tradicional de R - [RStudio](https://posit.co/download/rstudio-desktop/).
 
 ## Política de uso de IA (permitida con transparencia)
-La IA puede utilizarse como herramienta de aprendizaje (sugerir ideas, depurar, explicar errores, refactorizar), pero **no reemplaza** el aprendizaje esperado. El curso evalúa la comprensión mediante coherencia con los datos, defensa oral y tareas en vivo.
+La IA puede utilizarse como herramienta de aprendizaje (sugerir ideas, depurar, explicar errores, refactorizar), pero [**no reemplaza**](https://www.clarin.com/sociedad/jose-escamilla-usar-ia-tareas-escolares-pagar-suscripcion-gimnasio-pedirle-alguien-vaya-vos_0_9Hq0FuTGJu.html) el aprendizaje esperado. El curso evalúa la comprensión mediante coherencia con los datos, defensa oral y tareas en vivo.
 
 ### Anexo IA obligatorio (en cada entrega)
 Máximo 10 líneas, al final del reporte:
