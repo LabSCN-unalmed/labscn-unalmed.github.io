@@ -120,4 +120,4 @@ Todas las entregas deben incluir:
 
 ## Código QR para incluirse en la lista de discusión
 
-![](shared_qr_code.png)
+![WhatsApp](shared_qr_code.png){width=30%}
