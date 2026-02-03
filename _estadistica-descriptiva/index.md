@@ -64,7 +64,7 @@ Manejar los principios básicos de la estadística descriptiva y desarrollar hab
 
 - Lenguaje estadístico [R](https://cran.r-project.org/bin/windows/base/).
 - Interfaz de usuario [Positron](https://positron.posit.co/download.html).
-- Sistema de publicación técnica y científica[Quarto](https://quarto.org/docs/get-started/).
+- Sistema de publicación técnica y científica [Quarto](https://quarto.org/docs/get-started/).
 - Interfaz tradicional de R - [RStudio](https://posit.co/download/rstudio-desktop/).
 
 ## Política de uso de IA (permitida con transparencia)
