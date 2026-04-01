@@ -2,7 +2,7 @@
 layout: curso
 title: 'Ecología Numérica'
 curso: 'ecologia-numerica'
-order: 0
+order: 1
 ---
 
 ## Objetivo
