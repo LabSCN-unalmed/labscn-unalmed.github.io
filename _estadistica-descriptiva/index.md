@@ -82,7 +82,7 @@ Máximo 10 líneas, al final del reporte:
 
 1. ¿Usó IA? (Sí/No)  
 2. ¿En qué la usó? (depuración, ideas, gráficos, explicación)  
-3. 3 bullets: **qué cambió usted** y **qué aprendió**  
+3. **¿qué cambió usted?** y **¿qué aprendió?**  
 4. 1–2 prompts clave (máx 6 líneas)
 
 ### Qué se penaliza
