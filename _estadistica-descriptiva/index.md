@@ -9,7 +9,7 @@ order: 0
 
 El curso desarrolla competencias para explorar, limpiar, describir y comunicar hallazgos en datos reales. Se enfatiza el análisis exploratorio (EDA) como un
 proceso iterativo basado en visualización, transformación y modelos ligeros para comprensión (no inferencia formal). Se trabaja con reportes
-reproducibles en Quarto y prácticas de programación en R orientadas al análisis de datos.
+reproducibles 
 
 ## Objetivo general:
 
