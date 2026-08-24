@@ -1,15 +1,15 @@
 ---
 layout: curso
 title: 'Estadística Descriptiva y Análisis Exploratorio de Datos'
-curso: 'estadística-descriptiva'
-order: 1
+curso: 'estadistica-descriptiva'
+order: 0
 ---
 
 ## Descripción del curso
 
 El curso desarrolla competencias para explorar, limpiar, describir y comunicar hallazgos en datos reales. Se enfatiza el análisis exploratorio (EDA) como un
 proceso iterativo basado en visualización, transformación y modelos ligeros para comprensión (no inferencia formal). Se trabaja con reportes
-reproducibles 
+reproducibles.
 
 ## Objetivo general:
 
@@ -72,7 +72,7 @@ Se puede utilizar otra bibliografía auxiliar de acuerdo al desarrollo del curso
 - Lenguaje estadístico [R](https://cran.r-project.org/bin/windows/base/).
 - Interfaz de usuario [Positron](https://positron.posit.co/download.html).
 - Sistema de publicación técnica y científica [Quarto](https://quarto.org/docs/get-started/).
-- Interfaz tradicional de R - [RStudio](https://posit.co/download/rstudio-desktop).
+- Interfaz tradicional de R - [RStudio](https://posit.co/download/rstudio-desktop/).
 
 ## Política de uso de IA (permitida con transparencia)
 La IA puede utilizarse como herramienta de aprendizaje (sugerir ideas, depurar, explicar errores, refactorizar), pero [**no reemplaza**](https://www.clarin.com/sociedad/jose-escamilla-usar-ia-tareas-escolares-pagar-suscripcion-gimnasio-pedirle-alguien-vaya-vos_0_9Hq0FuTGJu.html) el aprendizaje esperado. El curso evalúa la comprensión mediante coherencia con los datos, defensa oral y tareas en vivo.
@@ -82,7 +82,7 @@ Máximo 10 líneas, al final del reporte:
 
 1. ¿Usó IA? (Sí/No)  
 2. ¿En qué la usó? (depuración, ideas, gráficos, explicación)  
-3. 3 bullets: **qué cambió usted** y **qué aprendió**  
+3. **¿qué cambió usted?** y **¿qué aprendió?**  
 4. 1–2 prompts clave (máx 6 líneas)
 
 ### Qué se penaliza
