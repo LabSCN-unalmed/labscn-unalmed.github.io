@@ -66,6 +66,11 @@ Se puede utilizar otra bibliografía auxiliar de acuerdo al desarrollo del curso
 | Trabajos individuales                          |    25%     |
 | Final                                          |    30%     |
 
+## Política de calificaciones del seguimiento.
+
+Los talleres y quices individuales del seguimiento no tienen recuperatorios.
+Si el promedio de el/los trabajo/s individuales es superior al promedio del seguimiento se reemplaza la nota del seguimiento por la nota de/l el/los trabajo/s individuales. 
+
 
 ## Software
 
