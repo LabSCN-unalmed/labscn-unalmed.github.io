@@ -48,19 +48,15 @@ Capítulo 09:Statistical Models for Spatial Data. CRC Press. 2002
 
 | Item                   | Porcentaje |
 |:-----------------------|:----------:|
-| Seguimiento - Talleres |        20% |
-| Seguimiento - Trabajos |        40% |
-| Proyecto final         |        40% |
+| Seguimiento - Talleres |        30% |
+| Proyecto final         |        70% |
 {: .table .table-hover}
 
 ## Enlaces principales
 
 
 * [Sitio de descarga del Lenguaje Estadístico R.](http://cran.r-project.org/bin/windows/base/)
-* [Sitio de descarga de la interfaz para el R: RStudio.](http://www.rstudio.com/products/rstudio/download/)
-
-* [Video tutorial de descarga de R y RStudio](https://youtu.be/IrWl6Zb3oYM)
-* [Video tutorial de instalación de R y RStudio](https://youtu.be/vglp2godUmc)
+* [Sitio de descarga de la interfaz para el R: Positron.](https://positron.posit.co/download.html)
 
 * [Descarga del Gimp](http://www.gimp.org/downloads/)
 * [Descarga del imageJ](http://fiji.sc/Downloads)
