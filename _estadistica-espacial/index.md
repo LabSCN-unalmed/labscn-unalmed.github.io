@@ -18,8 +18,8 @@ order: 00
 
 ### Textos principales
 
-1. Pebesma, Edzer, Bivand, Roger. Spatial Data Science
-With Applications in R. January 22, 2025.
+1. Pebesma, Edzer, Bivand, Roger. [Spatial Data Science
+With Applications in R.](https://r-spatial.org/book/) January 22, 2025.
 2. Bivand, Roger S, Pebesma Edzer y Gómez-Rubio Virgilio.
 Applied Spatial Data Analysis with R. Second Edition. Springer New York.
 2013
