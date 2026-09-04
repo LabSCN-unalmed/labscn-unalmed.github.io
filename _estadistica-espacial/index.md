@@ -27,6 +27,7 @@ Applied Spatial Data Analysis with R. Second Edition. Springer New York.
 Springer Science+Business Media, LLC. 2007.
 4. LLoyd, Christopher D. Local Models for Spatial Analysis.
  Second Edition. CRC Press. 2011.
+5. Martha Patricia Bohórquez Castañeda (2025). [Geoestadística para datos espaciales, espacio-temporales y funcionales](https://catalogoferias.unal.edu.co/geoestadistica-para-datos-espaciales-espacio-temporales-y-funcionales-krofx.html). Editorial UNAL - Universidad Nacional de Colombia.
 
 
 ### Textos complementarios
